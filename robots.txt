@@ -1,0 +1,26 @@
+User-agent:*
+#--Disable search engines from seeing searches, IE different sort orders and the wildcard all torrent search
+Disallow:/search.php??search=
+Disallow:/torrents.php?search=
+Disallow:/backend.php&op=search
+#--Disable search engines from following the list of popular / suggested searches
+Disallow:/search.php
+#--Completely disable user detailes
+Disallow:/user.php
+Disallow:/pm.php
+Disallow:/confirminvite.php
+Disallow:/takeconfirminvite.php
+Disallow:/lostpassword.php
+#--Completely disable detailes
+Disallow:/details.php?id=
+#--Completely disable downloads
+Disallow:/download.php?id=
+#--Completely disable Invites
+Disallow:/invite.php?
+#--Completely disable all Games
+Disallow:/keno.php
+Disallow:/casino.php
+Disallow:/blackjack.php
+Disallow:/tickets.php
+Disallow:/arcade.php
+Disallow:/details.php

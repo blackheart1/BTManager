@@ -1,0 +1,69 @@
+# $Author: joerobe $
+# $Date: 2007/08/08 12:27:07 $
+# $Last Revision: 2005/09/25 1:17 $
+# deny most common files except PHP
+<FilesMatch "\.(inc|tpl|h|ihtml|sql|ini|conf|class|bin|spd|theme|module|torrent)$">
+deny from all
+</FilesMatch>
+<Limit GET POST>
+Order Allow,Deny
+Allow from all
+</Limit>
+<Limit PUT>
+Deny from all
+</Limit>
+#Add MIME-Types
+AddType application/x-bittorrent .torrent
+#HTTP Error Management: works ONLY on root directory. Add yourself your subdirectory
+#IE if phpMyBitTorrent is installed in http://www.yoursite.com/mydir change
+#/httperror.php.... to /mydir/httperror.php...
+ErrorDocument 400 /httperror.php?errid=400
+ErrorDocument 401 /httperror.php?errid=401
+ErrorDocument 403 /httperror.php?errid=403
+ErrorDocument 404 /httperror.php?errid=404
+ErrorDocument 500 /httperror.php?errid=500
+RewriteEngine on
+RewriteRule ^home$ /index.php
+RewriteRule ^user-([0-9]*)$ /user.php?op=profile&id=$1
+RewriteRule ^user-([a-z\_]*)$ /user.php?op=profile&name=$1
+RewriteRule ^(.*)-a-(.*).ts(.*)$ announce.php?passkey=$2 [QSA,L]
+<Files 403.shtml>
+order allow,deny
+allow from all
+</Files>
+deny from 95.211.101.232
+deny from 95.211.101.
+deny from 67.215.7.102
+deny from 61.
+deny from 198.
+deny from 190.
+deny from 125.
+deny from 59.
+deny from 218.
+deny from 111.
+deny from 142.
+deny from 192.
+deny from 119.
+deny from 222.
+deny from 199.
+deny from 114.
+deny from 116.
+deny from 110.
+deny from 186.93.
+deny from 202.
+deny from 200.7.201.145
+deny from 216.244.78.10
+deny from 221.
+deny from 118.
+deny from 178.140.218.
+deny from 123.
+deny from 212.138.92.10
+deny from 217.77.219.
+deny from 142.0.136.49
+deny from 58.
+deny from 113.212.70.220
+deny from 202.156.11.10
+deny from 204.124.181.85
+deny from 188.92.75.
+deny from 5.135.43.104
+deny from 46.150.44.170

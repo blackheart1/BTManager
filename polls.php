@@ -1,0 +1,152 @@
+<?php
+/*
+*----------------------------phpMyBitTorrent V 3.0.0---------------------------*
+*--- The Ultimate BitTorrent Tracker and BMS (Bittorrent Management System) ---*
+*--------------   Created By Antonio Anzivino (aka DJ Echelon)   --------------*
+*-------------------   And Joe Robertson (aka joeroberts)   -------------------*
+*-------------               http://www.p2pmania.it               -------------*
+*------------ Based on the Bit Torrent Protocol made by Bram Cohen ------------*
+*-------------              http://www.bittorrent.com             -------------*
+*------------------------------------------------------------------------------*
+*------------------------------------------------------------------------------*
+*--   This program is free software; you can redistribute it and/or modify   --*
+*--   it under the terms of the GNU General Public License as published by   --*
+*--   the Free Software Foundation; either version 2 of the License, or      --*
+*--   (at your option) any later version.                                    --*
+*--                                                                          --*
+*--   This program is distributed in the hope that it will be useful,        --*
+*--   but WITHOUT ANY WARRANTY; without even the implied warranty of         --*
+*--   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          --*
+*--   GNU General Public License for more details.                           --*
+*--                                                                          --*
+*--   You should have received a copy of the GNU General Public License      --*
+*--   along with this program; if not, write to the Free Software            --*
+*-- Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA --*
+*--                                                                          --*
+*------------------------------------------------------------------------------*
+*------              ©2010 phpMyBitTorrent Development Team              ------*
+*-----------               http://phpmybittorrent.com               -----------*
+*------------------------------------------------------------------------------*
+*--------------------   Sunday, May 17, 2009 1:05 AM   ------------------------*
+*
+* @package phpMyBitTorrent
+* @version $Id: 3.0.0 polls.php  2010-11-04 00:22:48 joeroberts $
+* @copyright (c) 2010 phpMyBitTorrent Group
+* @license http://opensource.org/licenses/gpl-license.php GNU Public License 
+*
+*/
+if (defined('IN_PMBT'))
+{
+	die ("You can't include this file");
+}
+else
+{
+	define("IN_PMBT",true);
+}
+require_once("common.php");
+require_once("include/torrent_functions.php");
+$user->set_lang('polls',$user->ulanguage);
+$template = new Template();
+set_site_var($user->lang['POLL_OVER_VIEW']);
+$action						= request_var('action', '');
+$pollid						= request_var('pollid', 0);
+$returnto					= strip_tags(request_var('returnto', ''));
+
+  if ($action == "delete")
+  {
+	if (!$pollid)
+	{
+		trigger_error('INVALID_ID',E_USER_ERROR);
+	}
+	if (confirm_box(true))
+	{
+		$db->sql_query( "DELETE FROM ".$db_prefix."_pollanswers WHERE pollid = $pollid") or sqlerr();
+		$db->sql_query( "DELETE FROM ".$db_prefix."_polls WHERE id = $pollid") or sqlerr();
+		if ($returnto == "main")
+			header("Location: $siteurl");
+		else
+			header("Location: $siteurl/polls.php?deleted=1");
+		die;
+				$template->assign_vars(array(
+					'S_SUCCESS'			=> true,
+					'S_FORWARD'			=> $siteurl . '/' . (($returnto == "main") ? 'index.php' : 'polls.php'),
+					'TITTLE_M'			=> $user->lang['SUCCESS'],
+					'MESSAGE'			=> $user->lang['POLL_REMOVED'],
+				));
+				echo $template->fetch('message_body.html');
+				close_out();
+	}
+	else
+	{
+		$hidden = build_hidden_fields(array(
+					'pollid'	=>	$pollid,
+					'action'	=>	'delete',
+					'returnto'	=>	$returnto,
+		));
+		confirm_box(false, $user->lang['CONFIRM_OPERATION'], $hidden,'confirm_body.html','polls.php');
+	}
+  }
+  $rows = $db->sql_query("SELECT COUNT(*) FROM ".$db_prefix."_polls") or sqlerr();
+  $row = $db->sql_fetchrow($rows);
+  $pollcount = $row[0];
+  if ($pollcount == 0)
+  	bterror("There are no polls!","Error");
+  $polls = $db->sql_query("SELECT * FROM ".$db_prefix."_polls ORDER BY id DESC") or sqlerr();
+    function srt($a,$b)
+    {
+      if ($a[0] > $b[0]) return -1;
+      if ($a[0] < $b[0]) return 1;
+      return 0;
+    }
+
+  while ($poll = $db->sql_fetchrow( $polls))
+  {
+  	$poll_out = array();
+	$poll_out['CAN_EDIT'] = false;
+    $o = array($poll["option0"], $poll["option1"], $poll["option2"], $poll["option3"], $poll["option4"],
+    $poll["option5"], $poll["option6"], $poll["option7"], $poll["option8"], $poll["option9"]);
+	$key = array('OP_A','OP_B','OP_C','OP_D','OP_E','OP_F','OP_G','OP_H','OP_I','OP_J');
+
+	$poll_out['ADDED'] = gmdate("Y-m-d",strtotime($poll['added']));
+	$poll_out['TIME_ELAPS'] = get_elapsed_time(sql_timestamp_to_unix_timestamp($poll["added"]));
+	$poll_out['POLL_ID'] = $poll['id'];
+	$poll_out['POLL_QUESTION'] = $poll["question"];
+    if (checkaccess('edit_polls'))
+    {
+		$poll_out['CAN_EDIT'] = true;
+	}
+    $pollanswers = $db->sql_query("SELECT selection FROM ".$db_prefix."_pollanswers WHERE pollid=" . $poll["id"] . " AND  selection < 20") or sqlerr();
+	$tvotes = $db->sql_numrows($pollanswers);
+	$poll_out['POLL_VOTES'] = number_format($tvotes);
+    $vs = array(); // count for each option ([0]..[19])
+    $os = array(); // votes and options: array(array(123, "Option 1"), array(45, "Option 2"))
+    // Count votes
+    while ($pollanswer = $db->sql_fetchrow($pollanswers))
+      $vs[$pollanswer[0]] += 1;
+    reset($o);
+    for ($i = 0; $i < count($o); ++$i)
+      if ($o[$i])
+        $os[$i] = array($vs[$i], $o[$i]);
+    // now os is an array like this:
+    if ($poll["sort"] == "yes")
+    	usort($os, srt);
+    $i = 0;
+    while ($a = $os[$i])
+    {
+	  	if ($tvotes > 0)
+	  		$p = round($a[0] / $tvotes * 100);
+	  	else
+				$p = 0;
+		$poll_out[$key[$i]] = $a[1];
+		$poll_out[$key[$i] . '_IMG'] = ($p*2);
+		$poll_out[$key[$i] . '_ANSWERS'] = $p;
+      ++$i;
+    }
+	$template->assign_block_vars('poll_out',$poll_out);
+  }//POLLS_VIEW
+				$template->assign_vars(array(
+										'POLLS_VIEW'	=>	true,
+										));
+				echo $template->fetch('polloverview.html');
+					close_out();
+?>
