@@ -1,0 +1,41 @@
+
+{$CA_BLOCK_START}
+<table class="tablebg" width="100%" cellspacing="{$CA_SPACING}">
+{$CA_CAP_START}{L_TOPIC_REVIEW} - {TOPIC_TITLE}{$CA_CAP_END}
+<tr>
+	<td class="row1"><div style="overflow: auto; width: 100%; height: 300px;">
+
+		<table class="tablebg" width="100%" cellspacing="{$CA_SPACING}">
+		<tr>
+			<th width="22%">{L_AUTHOR}</th>
+			<th>{L_MESSAGE}</th>
+		</tr>
+		<!-- BEGIN topic_review_row -->
+
+			<!-- IF topic_review_row.S_ROW_COUNT is even --><tr class="row1"><!-- ELSE --><tr class="row2"><!-- ENDIF -->
+
+				<td align="center" valign="top" class="row" width="150"><a id="pr{topic_review_row.POST_ID}"></a>
+					<b class="postauthor"<!-- IF topic_review_row.POST_AUTHOR_COLOUR --> style="color: {topic_review_row.POST_AUTHOR_COLOUR}"<!-- ENDIF -->>{topic_review_row.POST_AUTHOR}</b><br />
+					<!-- IF topic_review_row.U_MCP_DETAILS -->[ <a href="{topic_review_row.U_MCP_DETAILS}">{L_POST_DETAILS}</a> ]<!-- ENDIF -->
+				</td>
+				<td width="100%" class="row" valign="top">
+					<!-- IF topic_review_row.POSTER_QUOTE and topic_review_row.DECODED_MESSAGE --><a href="#" onclick="addquote({topic_review_row.POST_ID},'{topic_review_row.POSTER_QUOTE}'); return false;" style="float: {S_CONTENT_FLOW_END}">{QUOTE_IMG}</a><!-- ENDIF -->
+					<a href="{topic_review_row.U_MINI_POST}">{topic_review_row.MINI_POST_IMG}</a> <b>{L_POSTED}:</b> {topic_review_row.POST_DATE}<br />
+					<div class="postsubject">{topic_review_row.POST_SUBJECT}</div>
+					<div class="postbody">{topic_review_row.MESSAGE}</div>
+					<!-- IF topic_review_row.POSTER_QUOTE and topic_review_row.DECODED_MESSAGE -->
+						<div id="message_{topic_review_row.POST_ID}" style="display: none;">{topic_review_row.DECODED_MESSAGE}</div>
+					<!-- ENDIF -->
+				</td>
+			</tr>
+			<tr>
+				<td class="spacer" colspan="2"><img src="images/spacer.gif" alt="" width="1" height="1" /></td>
+			</tr>
+		<!-- END topic_review_row -->
+		</table>
+	</div></td>
+</tr>
+</table>
+{$CA_BLOCK_END}
+
+<br clear="all" />

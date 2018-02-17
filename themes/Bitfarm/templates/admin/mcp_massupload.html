@@ -1,0 +1,133 @@
+<!-- INCLUDE themes/Bitfarm/templates/admin/over_all_header.html -->
+<a name="maincontent"></a>
+
+<h1>{L_TITLE}</h1>
+
+<p>{L_TITLE_EXPLAIN}</p>
+
+<form action="{U_ACTION}" method="POST">
+{HIDDEN}
+<!-- IF ACTION == scantorrents -->
+<hr />
+						<!-- DEFINE $LI_USED = 0 -->
+						<!-- BEGIN tor_block1 -->
+							<!-- IF tor_block1.S_SELECTED -->
+	
+						<!-- BEGIN tor_block2 -->
+							<!-- IF .tor_block1.tor_block2.tor_block3 -->
+		<fieldset>
+			<legend>{tor_block1.tor_block2.L_TITLE}</legend>
+							<!-- DEFINE $LI_USED = 1 -->
+							<!-- ENDIF -->
+	
+							<!-- BEGIN tor_block3 -->
+								<p>{L_ANNOUNCE_URL}: {tor_block1.tor_block2.tor_block3.ANNOUMCE}</p>
+								<p>{L_INFO_HASH}: {tor_block1.tor_block2.tor_block3.HASH}</p>
+								<p>{L_TOTLE_SIZE} : {tor_block1.tor_block2.tor_block3.TOTAL_SIZE}</p>
+								<p>{L_CHECK_DHT} : <!-- IF tor_block1.tor_block2.tor_block3.SUPORT_DHT -->{L_YES}<!-- ELSE -->{L_NO}<!-- ENDIF --></p>
+								<p>{L_MULTY_TRACKER_CHECK} : <!-- IF tor_block1.tor_block2.tor_block3.ANNOUNCE_LIST -->{L_YES}<!-- ELSE -->{L_NO}<!-- ENDIF --></p>
+								<!-- IF tor_block4 -->
+								<table>
+								<thead>
+								<tr>
+								<th>{L_FILES}</th>
+								<th>{L_SIZE}</th>
+								</tr>
+								</thead>
+								<tbody>
+								<!-- BEGIN tor_block4 -->
+								<!-- IF tor_block1.tor_block2.tor_block3.tor_block4.S_ROW_COUNT is even --><tr class="row1"><!-- ELSE --><tr class="row2"><!-- ENDIF -->
+								<td>{tor_block1.tor_block2.tor_block3.tor_block4.NAME}</td><td>{tor_block1.tor_block2.tor_block3.tor_block4.SIZE}</td></tr>
+								<!-- DEFINE $LI_USED = 1 -->
+								<!-- END tor_block4 -->
+								<tbody>
+								</table>
+								<!-- ENDIF -->
+								<!-- DEFINE $LI_USED = 1 -->
+							<!-- END tor_block3 -->
+		<dl>
+			<dt><label for="upload">{L_UPLOAD}:</label></dt>
+			<dd><input type="checkbox" name="upload_[{tor_block1.tor_block2.L_TITLE}][upload]" value="true" checked /></dd>
+		</dl>
+		<dl>
+			<dt><label for="cat">{L_CAT_SELECT}:</label></dt>
+			<dd><select name="upload_[{tor_block1.tor_block2.L_TITLE}][cat]"><option value="0">{L_CHOOSE}</option>{TCATS}</select></dd>
+		</dl>
+		<dl>
+			<dt><label for="cat">{L_DESCRIPTION}:</label><br /><span>{L_DESCRIPTION_EXP}</span></dt>
+			<dd><textarea rows="20" cols="65" name="upload_[{tor_block1.tor_block2.L_TITLE}][desc]" ></textarea></dd>
+		</dl>
+		<input type="hidden" name="upload_[{tor_block1.tor_block2.L_TITLE}][id]" value="{tor_block1.tor_block2.ID}" />
+</fieldset>
+						<!-- END tor_block2 -->
+						
+							<!-- ENDIF -->
+						<!-- END tor_block1 -->
+						<!-- IF not $LI_USED -->
+						<!-- ENDIF -->
+<p><input type="checkbox" name="scrapelater" value="true" />{L_SKIP_SCRAPE}</p>
+<p><input type="checkbox" checked name="anonupload" value="true" />{L_UP_ANONYM}</p>
+<p>&nbsp;</p>
+<p><input type="submit" value="{L_SUBMIT}" /></p>
+</form>
+<!-- ELSEIF ACTION == takemassupload -->
+<p>&nbsp;</p>
+<hr />
+<!-- BEGIN massuploaded -->
+	<!-- IF massuploaded.ERROR -->
+		<div class="errorbox">
+			<h3>{L_UPLOAD_FAILED}</h3>
+			<p>{massuploaded.ERROR_TXT}</p>
+		</div>
+	<!-- ELSE -->
+		<fieldset>
+			<legend>{massuploaded.NAME}</legend>
+			<p>{L_SUCCESFUL_UPLOAD}</p>
+			<p>{L_ANNOUNCE_URL}: {massuploaded.ANNOUNCE_URL}</p>
+			<p>{L_SEEDER}: {massuploaded.SEEDERS}</p>
+			<p>{L_LEECHERS}: {massuploaded.LEECHERS}</p>
+		</fieldset>
+	<!-- ENDIF -->
+<!-- IF CANTDEL -->
+		<div class="errorbox">
+			<h3>{L_BT_ERROR}</h3>
+			<p>{L_UNABLE_TO_REMOVE_TORRENTS}</p>
+		</div>
+<!-- ENDIF -->
+<!-- END massuploaded -->
+
+<!-- ELSE -->
+		<fieldset>
+			<legend>{L_SEARCH_OPT}</legend>
+<table cellpadding="3" width="100%">
+	<tbody>
+		<tr class="row1">
+			<td>
+			{L_MAX_SEARCH}
+			</td>
+			<td>
+				<input type="text" name="maxtorrents" value="0" size="4" /> - 0 = &infin;
+			<td>
+		</tr>
+		<tr class="row2">
+			<td>
+			{L_AUTO_DEL_DUPE_FILE}
+			</td>
+			<td>
+			<input type="checkbox" name="autodel" value="true" checked />
+			</td>
+		</tr>
+		<tr>
+			<td width="50%">
+
+				<input name="postback" value="{L_SUBMIT}" type="submit">
+			</td>
+			<td width="50%">
+			</td>
+		</tr>
+	</tbody>
+</table>
+</fieldset>
+</form>
+<!-- ENDIF -->
+<!-- INCLUDE themes/Bitfarm/templates/admin/over_all_footer.html -->

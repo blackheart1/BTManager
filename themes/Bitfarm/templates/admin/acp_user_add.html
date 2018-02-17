@@ -1,0 +1,61 @@
+<!-- INCLUDE themes/Bitfarm/templates/admin/over_all_header.html -->
+<form name="formdata" id="acp_board" method="post" action="{U_ACTION_NEW}">
+<fieldset>
+	<h1>{L_TITLE}</h1>
+	<p>{L_EXPLANE}</p>
+		<dl>
+			<dt><label for="username">{L_USER_NAME}:</label><br /><span>{L_USER_NAME_EXP}</span></dt>
+			<dd><input name="username" value="" size="40" type="text"></dd>
+		</dl>
+		<dl>
+			<dt><label for="nick">{L_USER_NICK}:</label><br /><span>{L_USER_NICK_EXP}</span></dt>
+			<dd><input name="nick" value="" size="40" type="text"></dd>
+		</dl>
+		<dl>
+			<dt><label for="password">{L_USER_PASS}:</label><br /><span>{L_USER_PASS_EXP}</span></dt>
+			<dd><input name="password" value="" size="40" type="text"></dd>
+		</dl>
+		<dl>
+			<dt><label for="cpassword">{L_USER_PASS_CON}:</label><br /><span>{L_USER_PASS_CON_EXP}</span></dt>
+			<dd><input name="cpassword" value="" size="40" type="text"></dd>
+		</dl>
+		<dl>
+			<dt><label for="email">{L_USER_EMAIL}:</label><br /><span>{L_USER_EMAIL_EXP}</span></dt>
+			<dd><input name="email" value="" size="40" type="text"></dd>
+		</dl>
+		<dl>
+			<dt><label for="upload">{L_USER_UPLOAD}:</label><br /><span>{L_USER_UPLOAD_EXP}</span></dt>
+			<dd><input name="upload" value="0" size="40" type="text"></dd>
+		</dl>
+		<dl>
+			<dt><label for="download">{L_USER_DOWNLOAD}:</label><br /><span>{L_USER_DOWNLOAD_EXP}</span></dt>
+			<dd><input name="download" value="0" size="40" type="text"></dd>
+		</dl>
+		<dl>
+			<dt><label for="seed">{L_USER_SEED}:</label><br /><span>{L_USER_SEED_EXP}</span></dt>
+			<dd><input name="seed" value="0.0" size="40" type="text"></dd>
+		</dl>
+		<dl>
+			<dt><label for="invite">{L_USER_INVITES}:</label><br /><span>{L_USER_INVITES_EXP}</span></dt>
+			<dd><input name="invite" value="0" size="40" type="text"></dd>
+		</dl>
+		<dl>
+			<dt><label for="invite">{L_USER_LEVEL}:</label><br /><span>{L_USER_LEVEL_EXP}</span></dt>
+			<dd><select name="level" >{S_LEVELS}</select></dd>
+		</dl>
+		<dl>
+			<dt><label for="invite">{L_USER_GROUPS}:</label><br /><span>{L_USER_GROUPS_EXP}</span></dt>
+			<dd><select name="group" >{GROUPS}</select></dd>
+		</dl>
+		<dl>
+			<dt><label for="invite">{L_USER_ACTIVE}:</label><br /><span>{L_USER_ACTIVE_EXP}</span></dt>
+			<dd><select name="active" >{ACTIVE}</select></dd>
+		</dl>
+	<div style="text-align: center;">
+		<!-- IF HIDDEN -->{HIDDEN}<!-- ENDIF -->
+		<input type="submit" name="submit" value="{L_SUBMIT}" class="button2" /> 
+	</div>
+
+</fieldset>
+</form>
+<!-- INCLUDE themes/Bitfarm/templates/admin/over_all_footer.html -->

@@ -1,0 +1,316 @@
+<!-- INCLUDE themes/Bitfarm/templates/over_all_header.html -->
+<!-- INCLUDE themes/Bitfarm/templates/over_all_left.html -->
+<table class="tablebg" width="100%" cellspacing="0">
+<tr><td>
+<div class="caption">
+<div class="cap-left">
+<div class="cap-right">
+<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnARCADE');"><img title="Expand item" id="nnARCADEimg" src="themes/Bitfarm/pics/minus.gif"  alt="+"></a>ARCADE
+
+</div>
+</div>
+</div>
+</td></tr><tr valign="middle">
+<td  class="row3" ><div id="nnARCADE">
+<div class="panel bg3" style="text-align:center">
+    <div class="inner"><span class="corners-top"><span></span></span>
+        <dl><dt><strong>{L_TOP_PLAYERS}</strong></dt>
+        <dd><hr /></dd></dl>
+        <table width="100%">
+        	<tr>
+        <!-- BEGIN toprow -->
+                <td style="width:33%">{toprow.TROPHY}{toprow.USER_NAME} - <strong>{GOLD}:{toprow.USER_GOLD} - {SILVER}:{toprow.USER_SILVER} - {BRONZE}:{toprow.USER_BRONZE}</strong></td>
+        <!-- END toprow -->
+            </tr>
+        </table>
+    <span class="corners-bottom"><span></span></span></div>
+</div>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr>
+    <td style="width:16%; vertical-align:top">
+    	<table width="100%">
+          <tr>
+            <td>
+                <div class="panel bg3">
+                    <div class="inner"><span class="corners-top"><span></span></span>
+                        <dl><dt style="text-align:center"><strong>{L_CAT}</strong></dt>
+                        <dd><hr /></dd></dl>
+                        <!-- IF S_ALL_GAMES -->
+                        <dl>
+                            <dd><a href="viewcategory.php?c={categoryrow.CATEGORY_ID}&sid={SESSION_ID}">{L_ALL_GAMES}</a> {L_NUM_GAMES}</dd>
+                        </dl>
+                        <!-- ENDIF -->
+                        <!-- IF S_FAVORITES -->
+                        <dl>
+                            <dd><a href="viewcategory.php?c=105121&sid={SESSION_ID}">{L_FAVORITES}</a> {L_FAV_GAMES}</dd>
+                        </dl>
+                        <!-- ENDIF -->
+                        <!-- BEGIN categoryrow -->
+                            <dl>
+                                <dd><a href="viewcategory.php?c={categoryrow.CATEGORY_ID}&sid={SESSION_ID}">{categoryrow.CATEGORY_NAME}</a> {categoryrow.CATEGORY_COUNT}</dd>
+                            </dl>
+                        <!-- END categoryrow -->
+                    <span class="corners-bottom"><span></span></span></div>
+                </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+                <div class="panel bg3">
+                    <div class="inner"><span class="corners-top"><span></span></span>
+                        <dl><dt style="text-align:center"><strong>{L_ARCADE_QUICK}</strong></dt>
+                        <dd><hr /></dd></dl>
+                        <dl>
+                            <dd><strong><a href="viewgame.php?g={RANDOM_ID}&sid={SESSION_ID}">{L_ARCADE_RANDOM}</a></strong></dd>
+                        </dl>
+                        <dl>
+                            <dd><br /><form name="quickJump">
+                                    <select style="font-size:10px; width:12em" name="gameList" onchange="location.href = quickJump.gameList.options[quickJump.gameList.selectedIndex].value">
+                                        <option value="arcade.php" selected="selected">Select a Game</option>
+                                        <!-- BEGIN quickjumprow -->
+                                        	<option value="viewgame.php?g={quickjumprow.GAME_ID}&sid={SESSION_ID}">{quickjumprow.GAME_NAME}</option>
+                                        <!-- END quickjumprow -->
+                                    </select> 
+                                </form></dd>
+                        </dl>
+                        <dl>
+                            <dd><br /><form name="searchArcade" action="viewcategory.php?c=&sid={SESSION_ID}" method="post">
+                                <input style="font-size:10px; width:10em; margin-bottom:5px" name="keywords" id="keywords" type="text" maxlength="32" title="{L_SEARCH_KEYWORDS}" class="inputbox search" value="<!-- IF SEARCH_WORDS-->{SEARCH_WORDS}<!-- ELSE -->{L_SEARCH_MINI}<!-- ENDIF -->" onclick="if(this.value=='{LA_SEARCH_MINI}')this.value='';" onblur="if(this.value=='')this.value='{LA_SEARCH_MINI}';" />
+                                <br /><input class="button2" type="submit" value="{L_SEARCH}" />
+                            </form></dd>
+                        </dl>
+                    <span class="corners-bottom"><span></span></span></div>
+                </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+                <!-- IF S_YOUR_INFO --><div class="panel bg3">
+                    <div class="inner"><span class="corners-top"><span></span></span>
+                        <dl><dt style="text-align:center"><strong>{L_YOUR_INFO}</strong></dt>
+                        <dd><hr /></dd></dl>
+                        <dl style="padding:5px 0px 5px 0px">
+                                <dd><img src="flash/images/included/tokens.gif" align="absmiddle" alt="Tokens" /> <strong>0</strong> <font style="color:#666666">-{L_DISABLED}</font></dd>
+                        </dl>
+                        <dl style="padding:5px 0px 5px 0px">
+                                <dd><img src="flash/images/included/tickets_red.gif" align="absmiddle" alt="Tickets" /> <strong>0</strong> <font style="color:#666666">-{L_DISABLED}</font></dd>
+                        </dl>
+                        <dl style="padding:5px 0px 5px 0px">
+                                <dd>{GOLD} <strong>{USER_GOLD}</strong></dd>
+                        </dl>
+                        <dl style="padding:5px 0px 5px 0px">
+                                <dd>{SILVER} <strong>{USER_SILVER}</strong></dd>
+                        </dl>
+                        <dl style="padding:5px 0px 5px 0px">
+                                <dd>{BRONZE} <strong>{USER_BRONZE}</strong></dd>
+                        </dl>
+                        <dl style="padding:5px 0px 5px 0px">
+                                <dd><strong>{L_PLAYED} {PLAYED_GAMES} {L_OF} {TOTAL_GAMES} {L_GAMES_LOWERCASE}</strong></dd>
+                        </dl>
+                        <dl style="padding:5px 0px 5px 0px">
+                                <dd><strong>{L_RATED} {RATED_GAMES} {L_OF} {PLAYED_GAMES} {L_GAMES_LOWERCASE}</strong></dd>
+                        </dl>
+                        <dl style="padding:5px 0px 5px 0px">
+                                <dd><strong><a href="">Get tokens</a></strong> <font style="color:#666666">-{L_DISABLED}</font></dd>
+                        </dl>
+                        <dl style="padding:5px 0px 5px 0px">
+                                <dd><strong><a href="">Ticket store</a></strong> <font style="color:#666666">-{L_DISABLED}</font></dd>
+                        </dl>
+                        <dl style="padding:5px 0px 5px 0px">
+                                <dd><strong><a href="">Highscores</a></strong> <font style="color:#666666">-{L_DISABLED}</font></dd>
+                        </dl>
+                        <dl style="padding:5px 0px 5px 0px">
+                                <dd><strong><a href="">Recent Wins</a></strong> <font style="color:#666666">-{L_DISABLED}</font></dd>
+                        </dl>
+                    <span class="corners-bottom"><span></span></span></div>
+                </div><!-- ELSE --><div class="panel bg3">
+                    <div class="inner"><span class="corners-top"><span></span></span>
+                        <dl><dt style="text-align:center"><strong>{L_YOUR_INFO}</strong></dt>
+                        <dd><hr /></dd></dl>
+                        <dl style="padding:5px 0px 5px 0px">
+                                <dd>{L_YOUR_INFO_WARNING}</dd>
+                        </dl>
+                    <span class="corners-bottom"><span></span></span></div>
+                </div><!-- ENDIF -->
+            </td>
+          </tr>
+        </table>
+    </td>
+    <td style="vertical-align:top">
+    	<table width="100%">
+          <tr>
+            <td colspan="2">
+                <div class="panel bg2">
+                    <div class="inner"><span class="corners-top"><span></span></span>
+                        <dl><dt style="text-align:center"><strong><!-- IF S_FAVORITE_GAMES -->{L_FAVORITE_GAMES}<!-- ELSE -->{L_RANDOM_GAMES}<!-- ENDIF --></strong></dt></dl>
+                        <!-- BEGIN favoriterow -->
+                            <!-- IF favoriterow.ROW_COUNT is odd --><dl><dd><hr />
+                            <table width="100%">
+                                <tr style="width:50%"><!-- ENDIF -->
+                                    <td style="width:80px">
+                                        <dl><dd><a href="viewgame.php?g={favoriterow.GAME_ID}&sid={SESSION_ID}"><img src="flash/images/{favoriterow.GAME_IMAGE}" align="absmiddle" alt="*" /></a></dd></dl>
+                                    </td>
+                                    <td style="width:50%">
+                                        <dl>
+                                            <dd><a href="viewgame.php?g={favoriterow.GAME_ID}&sid={SESSION_ID}">{favoriterow.GAME_NAME}</a>{favoriterow.GAME_RATING}</dd>
+                                            <dd style="color:#999999">{L_GAME_COST_C}0</dd>
+                                            <dd>{L_GAME_RATINGS_C}{favoriterow.GAME_NUM_RATINGS}</dd>
+                                            <dd>{L_GAME_PLAY_C}{favoriterow.GAME_PLAYS}</dd>
+                                            <dd>{L_GAME_SIZE_C}{favoriterow.GAME_SIZE}</dd>
+                                    	</dl>
+                                    </td>
+                                <!-- IF favoriterow.ROW_COUNT is even -->
+                                </tr>
+                            </table></dd></dl><!-- ENDIF -->
+                        <!-- END latestrow -->
+                        
+                        <!-- IF S_LAST_PART --><td style="width:80px"></td>
+                                    <td style="width:50%"></td></tr>
+                            </table></dd></dl><!-- ENDIF -->
+                    <span class="corners-bottom"><span></span></span></div>
+                </div>
+            </td>
+            <td>
+                <div class="panel bg3">
+                    <div class="inner"><span class="corners-top"><span></span></span>
+                        <dl><dt style="text-align:center"><strong>{L_RANDOM_GAMES}</strong></dt></dl>
+                        <!-- BEGIN randomrow -->
+                            <dl><dd><hr />
+                            <table>
+                                <tr>
+                                    <td style="width:80px">
+                                        <dl><dd><a href="viewgame.php?g={randomrow.GAME_ID}&sid={SESSION_ID}"><img src="flash/images/{randomrow.GAME_IMAGE}" align="absmiddle" alt="*" /></a></dd></dl>
+                                    </td>
+                                    <td>
+                                        <dl>
+                                            <dd><a href="viewgame.php?g={randomrow.GAME_ID}&sid={SESSION_ID}">{randomrow.GAME_NAME}</a>{randomrow.GAME_RATING}</dd>
+                                            <dd style="color:#999999">{L_GAME_COST_C}0</dd>
+                                            <dd>{L_GAME_RATINGS_C}{randomrow.GAME_NUM_RATINGS}</dd>
+                                            <dd>{L_GAME_PLAY_C}{randomrow.GAME_PLAYS}</dd>
+                                            <dd>{L_GAME_SIZE_C}{randomrow.GAME_SIZE}</dd>
+                                        </dl>
+                                    </td>
+                                </tr>
+                            </table></dd></dl>
+                        <!-- END latestrow -->
+                    <span class="corners-bottom"><span></span></span></div>
+                </div>
+            </td>
+          </tr>
+          <tr>
+            <td style="width:33%; vertical-align:top">
+                <div class="panel bg2">
+                    <div class="inner"><span class="corners-top"><span></span></span>
+                        <dl><dt style="text-align:center"><strong>{L_LATEST}</strong></dt></dl>
+                        <!-- BEGIN latestrow -->
+                            <dl><dd><hr />
+                            <table width="100%">
+                                <tr>
+                                    <td style="width:80px">
+                                        <dl><dd><a href="viewgame.php?g={latestrow.GAME_ID}&sid={SESSION_ID}"><img src="flash/images/{latestrow.GAME_IMAGE}" align="absmiddle" alt="*" /></a></dd></dl>
+                                    </td>
+                                    <td>
+                                        <dl>
+                                            <dd><a href="viewgame.php?g={latestrow.GAME_ID}&sid={SESSION_ID}">{latestrow.GAME_NAME}</a>{latestrow.GAME_RATING}</dd>
+                                            <dd style="color:#999999">{L_GAME_COST_C}0</dd>
+                                            <dd>{L_GAME_RATINGS_C}{latestrow.GAME_NUM_RATINGS}</dd>
+                                            <dd>{L_GAME_PLAY_C}{latestrow.GAME_PLAYS}</dd>
+                                            <dd>{L_GAME_SIZE_C}{latestrow.GAME_SIZE}</dd>
+                                        </dl>
+                                    </td>
+                                </tr>
+                            </table></dd></dl>
+                        <!-- END latestrow -->
+                    <span class="corners-bottom"><span></span></span></div>
+                </div>
+            </td>
+            <td style="width:33%; vertical-align:top">
+                <div class="panel bg3">
+                    <div class="inner"><span class="corners-top"><span></span></span>
+                        <dl><dt style="text-align:center"><strong>{L_TOP_PLAY}</strong></dt></dl>
+                        <!-- BEGIN playedrow -->
+                            <dl><dd><hr />
+                            <table width="100%">
+                                <tr>
+                                    <td style="width:80px">
+                                        <dl><dd><a href="viewgame.php?g={playedrow.GAME_ID}&sid={SESSION_ID}"><img src="flash/images/{playedrow.GAME_IMAGE}" align="absmiddle" alt="*" /></a></dd></dl>
+                                    </td>
+                                    <td>
+                                        <dl>
+                                            <dd><a href="viewgame.php?g={playedrow.GAME_ID}&sid={SESSION_ID}">{playedrow.GAME_NAME}</a>{playedrow.GAME_RATING}</dd>
+                                            <dd style="color:#999999">{L_GAME_COST_C}0</dd>
+                                            <dd>{L_GAME_RATINGS_C}{playedrow.GAME_NUM_RATINGS}</dd>
+                                            <dd>{L_GAME_PLAY_C}{playedrow.GAME_PLAYS}</dd>
+                                            <dd>{L_GAME_SIZE_C}{playedrow.GAME_SIZE}</dd>
+                                        </dl>
+                                    </td>
+    
+                                </tr>
+                            </table></dd></dl>
+                        <!-- END playedrow -->
+                    <span class="corners-bottom"><span></span></span></div>
+                </div>
+            </td>
+            <td style="width:33%; vertical-align:top">
+                <div class="panel bg2">
+                    <div class="inner"><span class="corners-top"><span></span></span>
+                        <dl><dt style="text-align:center"><strong>{L_TOP_RATE}</strong></dt></dl>
+                        <!-- BEGIN ratingrow -->
+                            <dl><dd><hr />
+                            <table width="100%">
+                                <tr>
+                                    <td style="width:80px">
+                                        <dl><dd><a href="viewgame.php?g={ratingrow.GAME_ID}&sid={SESSION_ID}"><img src="flash/images/{ratingrow.GAME_IMAGE}" align="absmiddle" alt="*" /></a></dd></dl>
+                                    </td>
+                                    <td>
+                                        <dl>
+                                            <dd><a href="viewgame.php?g={ratingrow.GAME_ID}&sid={SESSION_ID}">{ratingrow.GAME_NAME}</a>{ratingrow.GAME_RATING}</dd>
+                                            <dd style="color:#999999">{L_GAME_COST_C}0</dd>
+                                            <dd>{L_GAME_RATINGS_C}{ratingrow.GAME_NUM_RATINGS}</dd>
+                                            <dd>{L_GAME_PLAY_C}{ratingrow.GAME_PLAYS}</dd>
+                                            <dd>{L_GAME_SIZE_C}{ratingrow.GAME_SIZE}</dd>
+                                        </dl>
+                                    </td>
+                                </tr>
+                            </table></dd></dl>
+                        <!-- END ratingrow -->
+                    <span class="corners-bottom"><span></span></span></div>
+                </div>
+            </td>
+          </tr>
+        </table>
+    </td>
+  </tr>
+</table>
+
+<!-- IF S_STATISTICS -->
+<h2>{L_STATISTICS}</h2>
+<p>{L_TOTAL_GAMES} <strong>{TOTAL_GAMES}</strong>
+&bull;
+{L_TOTAL_PLAYS} <strong>{TOTAL_PLAYS}</strong>
+&bull;
+{L_PLAYS_PER_DAY} <strong>{PLAYS_PER_DAY}</strong>
+&bull;
+{L_TOTAL_RATINGS} <strong>{TOTAL_RATINGS}</strong>
+&bull;
+{L_AVG_RATING} <strong>{AVG_RATING}</strong>
+&bull;
+{L_TOTAL_FAVORITES} <strong>{TOTAL_FAVORITES}</strong>
+&bull;
+{L_TOTAL_COMMENTS} <strong>{TOTAL_COMMENTS}</strong>
+&bull;
+{L_TOKENS_SPENT} <strong>{TOKENS_SPENT}</strong>
+&bull;
+{L_TICKETS_DISPENSED} <strong>{TICKETS_DISPENSED}</strong>
+&bull;
+{L_TOTAL_SWF_SIZE} <strong>{TOTAL_SWF_SIZE}</strong>
+&bull;
+{L_TOTAL_IMG_SIZE} <strong>{TOTAL_IMG_SIZE}</strong></p>
+<!-- ENDIF -->
+</div>
+</td></tr>
+
+</table>
+<br clear="all" >
+<!-- INCLUDE themes/Bitfarm/templates/over_all_right.html -->
+<!-- INCLUDE themes/Bitfarm/templates/over_all_footer.html -->

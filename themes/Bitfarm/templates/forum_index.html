@@ -1,0 +1,169 @@
+<!-- INCLUDE themes/Bitfarm/templates/over_all_header.html -->
+<!-- INCLUDE themes/Bitfarm/templates/over_all_left.html -->
+<!-- IF U_MCP -->
+	<div id="pageheader">
+		<p class="linkmcp">[ <a href="{U_MCP}">{L_MCP}</a> ]</p>
+	</div>
+
+	<br clear="all" /><br />
+<!-- ENDIF -->
+<!-- DEFINE $CA_FORUMLIST = '1' -->
+<!-- BEGIN forumrow -->
+	<!-- IF (forumrow.S_IS_CAT and not forumrow.S_FIRST_ROW) or forumrow.S_NO_CAT -->
+		</table>
+		{$CA_BLOCK_END}
+		<br />
+	<!-- ENDIF -->
+
+	<!-- IF forumrow.S_IS_CAT or forumrow.S_FIRST_ROW or forumrow.S_NO_CAT -->
+	    {$CA_BLOCK_START}
+		{$CA_CAP2_START}<!-- IF forumrow.S_IS_CAT --><h2  class="imdb-odd" class="header2"><a href="{forumrow.U_VIEWFORUM}">{forumrow.FORUM_NAME}</a></h2><!-- ELSE -->{L_FORUM}<!-- ENDIF -->{$CA_CAP2_END}
+		<table class="tablebg" cellspacing="{$CA_SPACING}" width="100%">
+		<tr>
+			<th colspan="2">&nbsp;{L_FORUM}&nbsp;</th>
+			<th width="50">&nbsp;{L_TOPICS}&nbsp;</th>
+			<th width="50">&nbsp;{L_POSTS}&nbsp;</th>
+			<th width="175">&nbsp;{L_LAST_POST}&nbsp;</th>
+		</tr>
+	<!-- ENDIF -->
+	
+	<!-- IF not forumrow.S_IS_CAT -->
+		<!-- IF forumrow.S_IS_LINK -->
+			<tr>
+				<td class="row1" width="31" align="center">{forumrow.FORUM_FOLDER_IMG}</td>
+				<td class="row1">
+					<!-- IF forumrow.FORUM_IMAGE or (S_ENABLE_FEEDS and forumrow.S_FEED_ENABLED) -->
+						<table border="0" cellspacing="0" cellpadding="0" width="100%"><tr>
+						<!-- IF forumrow.FORUM_IMAGE -->
+                            <td valign="middle" style="padding-{S_CONTENT_FLOW_END}: 5px;">{forumrow.FORUM_IMAGE}</td>
+						<!-- ENDIF -->
+						<td width="100%" valign="middle">
+					<!-- ENDIF -->
+					<a class="forumlink" href="{forumrow.U_VIEWFORUM}">{forumrow.FORUM_NAME}</a>
+					<p class="forumdesc">{forumrow.FORUM_DESC}</p>
+					<!-- IF S_ENABLE_FEEDS and forumrow.S_FEED_ENABLED -->
+					    </td>
+                        <td valign="top" style="padding-{S_CONTENT_FLOW_BEGIN}: 2px;"><a title="{L_FEED} - {forumrow.FORUM_NAME}" href="{U_FEED}?f={forumrow.FORUM_ID}"><img src="{T_THEME_PATH}/images/feed.gif" alt="{L_FEED} - {forumrow.FORUM_NAME}" /></a>
+					<!-- ENDIF -->
+					<!-- IF forumrow.FORUM_IMAGE or (S_ENABLE_FEEDS and forumrow.S_FEED_ENABLED) --></td></tr></table><!-- ENDIF -->
+				</td>
+				<!-- IF forumrow.CLICKS -->
+					<td class="row2" colspan="3" align="center"><span class="genmed">{L_REDIRECTS}: {forumrow.CLICKS}</span></td>
+				<!-- ELSE -->
+					<td class="row2" colspan="3" align="center">&nbsp;</td>
+				<!-- ENDIF -->
+			</tr>
+		<!-- ELSE -->
+		<tr>
+			<td class="row1" width="31" align="center">{forumrow.FORUM_FOLDER_IMG}</td>
+			<td class="row1">
+				<!-- IF forumrow.FORUM_IMAGE or (S_ENABLE_FEEDS and forumrow.S_FEED_ENABLED) -->
+					<table border="0" cellspacing="0" cellpadding="0" width="100%"><tr>
+                    <!-- IF forumrow.FORUM_IMAGE -->
+    					<td valign="middle" style="padding-{S_CONTENT_FLOW_END}: 5px;">{forumrow.FORUM_IMAGE}</td>
+    			    <!-- ENDIF -->
+                    <td width="100%" valign="middle">
+				<!-- ENDIF -->
+				<a class="forumlink<!-- IF forumrow.S_UNREAD_FORUM --> link-new<!-- ENDIF -->" href="{forumrow.U_VIEWFORUM}">{forumrow.FORUM_NAME}</a>
+				<p class="forumdesc">{forumrow.FORUM_DESC}</p>
+				<!-- IF forumrow.MODERATORS -->
+					<p class="forumdesc"><strong>{forumrow.L_MODERATOR_STR}:</strong> {forumrow.MODERATORS}</p>
+				<!-- ENDIF -->
+				<!-- IF forumrow.SUBFORUMS and forumrow.S_LIST_SUBFORUMS -->
+					<p class="forumdesc"><strong>{forumrow.L_SUBFORUM_STR}</strong> {forumrow.SUBFORUMS}</p>
+				<!-- ENDIF -->
+                <!-- IF S_ENABLE_FEEDS and forumrow.S_FEED_ENABLED -->
+                    </td>
+                    <td valign="top" style="padding-{S_CONTENT_FLOW_BEGIN}: 2px;"><a title="{L_FEED} - {forumrow.FORUM_NAME}" href="{U_FEED}?f={forumrow.FORUM_ID}"><img src="{T_THEME_PATH}/images/feed.gif" alt="{L_FEED} - {forumrow.FORUM_NAME}" /></a>
+                <!-- ENDIF -->
+                <!-- IF forumrow.FORUM_IMAGE or (S_ENABLE_FEEDS and forumrow.S_FEED_ENABLED) --></td></tr></table><!-- ENDIF -->
+			</td>
+			<td class="row2" align="center"><p class="topicdetails">{forumrow.TOPICS}</p></td>
+			<td class="row2" align="center"><p class="topicdetails">{forumrow.POSTS}</p></td>
+			<td class="row2" align="center" nowrap="nowrap">
+				<!-- IF forumrow.LAST_POST_TIME -->
+					<p class="topicdetails"><!-- IF forumrow.U_UNAPPROVED_TOPICS --><a href="{forumrow.U_UNAPPROVED_TOPICS}">{UNAPPROVED_IMG}</a>&nbsp;<!-- ENDIF -->{forumrow.LAST_POST_TIME}</p>
+					<p class="topicdetails">{forumrow.LAST_POSTER_FULL}
+						<!-- IF not S_IS_BOT --><a href="{forumrow.U_LAST_POST}">{LAST_POST_IMG}</a><!-- ENDIF -->
+					</p>
+				<!-- ELSE -->
+					<p class="topicdetails">{L_NO_POSTS}</p>
+				<!-- ENDIF -->
+			</td>
+		</tr>
+		<!-- ENDIF -->
+	<!-- ENDIF -->
+	<!-- IF forumrow.S_LAST_ROW -->
+		<!-- IF not S_IS_BOT and U_MARK_FORUMS -->
+		<tr>
+			<td colspan="5" class="catf" align="center">
+				<a href="{U_MARK_FORUMS}">{L_MARK_FORUMS_READ}</a>
+			</td>
+		</tr>
+		<!-- ENDIF -->
+		</table>
+		{$CA_BLOCK_END}
+	<!-- ENDIF -->
+<!-- BEGINELSE -->
+{$CA_CAP2_START}{L_MESSAGE}{$CA_CAP2_END}
+<table class="tablebg" cellspacing="{$CA_SPACING}" width="100%">
+<tr>
+	<td class="row1" colspan="5" align="center" style="padding: 25px 5px;"><p class="gensmall">{L_NO_FORUMS}</p></td>
+</tr>
+</table>
+<!-- END forumrow -->
+<!-- INCLUDE themes/Bitfarm/templates/breadcrumbs.html -->
+
+<!-- IF S_DISPLAY_ONLINE_LIST -->
+	<br clear="all" />
+
+    {$CA_BLOCK_START}
+	{$CA_CAP2_START}<!-- IF U_VIEWONLINE --><a href="{U_VIEWONLINE}">{L_WHO_IS_ONLINE}</a><!-- ELSE -->{L_WHO_IS_ONLINE}<!-- ENDIF -->{$CA_CAP2_END}
+	<table class="tablebg" width="100%" cellspacing="{$CA_SPACING}">
+	<tr>
+	<!-- IF LEGEND -->
+		<td class="row1" rowspan="2" align="center" valign="middle"><img src="{T_THEME_PATH}/images/whosonline.gif" alt="{L_WHO_IS_ONLINE}" /></td>
+	<!-- ELSE -->
+		<td class="row1" align="center" valign="middle"><img src="{T_THEME_PATH}/images/whosonline.gif" alt="{L_WHO_IS_ONLINE}" /></td>
+	<!-- ENDIF -->
+		<td class="row1" width="100%"><span class="genmed">{TOTAL_USERS_ONLINE} ({L_ONLINE_EXPLAIN})<br />{RECORD_USERS}<br /><br />{LOGGED_IN_USER_LIST}</span></td>
+	</tr>
+	<!-- IF LEGEND -->
+		<tr>
+			<td class="row1 nobold"><b class="gensmall">{L_LEGEND} :: {LEGEND}</b></td>
+		</tr>
+	<!-- ENDIF -->
+	</table>
+	{$CA_BLOCK_END}
+<!-- ENDIF -->
+
+
+<br clear="all" />
+
+{$CA_BLOCK_START}
+{$CA_CAP2_START}{L_STATISTICS}{$CA_CAP2_END}
+<table class="tablebg" width="100%" cellspacing="{$CA_SPACING}">
+<tr>
+	<td class="row1"><img src="{T_THEME_PATH}/images/stats.gif" alt="{L_STATISTICS}" /></td>
+	<td class="row1 nobold" width="100%" valign="middle"><p class="genmed">{TOTAL_POSTS} | {TOTAL_TOPICS} | {TOTAL_USERS}</p></td>
+</tr>
+</table>
+{$CA_BLOCK_END}
+
+<br clear="all" />
+
+<table class="legend">
+<tr>
+	<td width="20" align="center">{FORUM_NEW_IMG}</td>
+	<td><span class="gensmall">{L_UNREAD_POSTS}</span></td>
+	<td>&nbsp;&nbsp;</td>
+	<td width="20" align="center">{FORUM_IMG}</td>
+	<td><span class="gensmall">{L_NO_UNREAD_POSTS_IMG}</span></td>
+	<td>&nbsp;&nbsp;</td>
+	<td width="20" align="center">{FORUM_LOCKED_IMG}</td>
+	<td><span class="gensmall">{L_FORUM_LOCKED}</span></td>
+</tr>
+</table>
+
+<!-- INCLUDE themes/Bitfarm/templates/over_all_right.html -->
+<!-- INCLUDE themes/Bitfarm/templates/over_all_footer.html -->

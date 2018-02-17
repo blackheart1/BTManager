@@ -1,0 +1,89 @@
+<h3 align="center">Disclaimer Bit Torrent per *MYBT*</h3>
+<p>Il presente disclaimer è da considerarsi come <B>regolamento</B> e &quot;<B>note
+legali</B>&quot; per il servizio Bit Torrent (di seguito il &quot;Servizio&quot;) offerto da *MYBT*.</p>
+<p>*MYBT* offre il presente Servizio al pubblico che visita il portale
+raggiungibile all'indirizzo *URL* dal proprio computer collegato a Internet.</p>
+<p>Il Servizio permette al pubblico di accedere ad un archivio di file Bit Torrent (per
+la definizione, le specifiche del protocollo Bit Torrent e i programmi da
+utilizzare si veda il sito <u href="http://www.bittorrent.com">
+http://www.bittorrent.com</u>: informazioni in lingua inglese) in forma
+gratuita ed anonima, in costante aggiornamento e con sincronizzazione presso i
+migliori siti di Torrent.</p>
+<p>Si ricorda che:</p>
+<ul>
+        <li><p>*MYBT* promuove ed incentiva lo scambio di informazioni tra il pubblico,
+        senza limitazioni di nazionalità, età, sesso, stato civile, razza,
+        professione religiosa, ecc.</p></li>
+        <li><p>*MYBT* promuove, incentiva e difende i prodotti &quot;freeware&quot; e Open Source</p></li>
+        <li><p>*MYBT* sottolinea l'importanza della comunicazione e della
+        socializzazione sulla piattaforma Internet, e la promuove</p></li>
+        <li><p>*MYBT* difende i diritti dei consumatori, degli artisti, degli
+        sviluppatori software, dei minorenni e di chi sta loro intorno</p></li>
+        <li><p>*MYBT* non intente permettere attività illegali sul portale</p></li>
+        <li><p>*MYBT* non ha i mezzi umani e tecnologici necessari a monitorare il
+        traffico di dati causato direttamente o indirettamente dall'utilizzo del
+        Servizio</p></li>
+</ul>
+<p>Il Servizio è completamente gratuito ed anonimo, infatti:</p>
+<ul>
+        <li><p>Non è richiesto rilasciare dati personali strettamente confidenziali,
+        quali nome, cognome, indirizzo e numero di telefono</p></li>
+        <li><p>Non è richiesto il pagamento di alcuna somma per accedere al Servizio</p></li>
+        <li><p>*MYBT* non percepisce direttamente alcuna somma di denaro nel momento in cui l'utente
+        scarica o inserisce un Torrent</p></li>
+</ul>
+<p>Il Servizio è soggetto all'applicazione di tutte le normative circa la
+trasmissione e la pubblicazione delle informazioni. In particolare l'utente
+accetta che:</p>
+<ul>
+        <li><p><u>É fatto divieto assoluto l'utilizzo del Servizio per scambiare materiale
+        pedopornografico</u></p></li>
+        <li><p>É fatto divieto assoluto l'utilizzo del Servizio per scambiare materiale
+        protetto da copyright senza la licenza per la distribuzione</p></li>
+        <li><p>É fatto divieto assoluto l'utilizzo del Servizio per scambiare materiale
+        pericoloso per la Pubblica Sicurezza (quali, per fare esempi, manuali per la
+        costruzione di armi da fuoco, chimiche, batteriologiche o materiale che, in
+        generale, possa promuovere atti illegali come il terrorismo)</p></li>
+        <li><p>É fatto divieto assoluto l'utilizzo del Servizio per attività di fake-sharing
+        (ossia la condivisione di file &quot;fasulli&quot; o illegibili)</p></li>
+</ul>
+<p>Pertanto:</p>
+<ul>
+        <li><p>Vista l'impossibilità di accertamento del contenuto effettivo di un
+        Torrent preventivamente al suo completo scaricamento</p></li>
+        <li><p>Vista l'impossibilità di stabilire quando un file protetto da copyright
+        (ricordiamo che i prodotti Open Source sono anche essi protetti dal
+        copyright) può o meno essere distribuito su Internet</p></li>
+        <li><p>Vista l'impossibilità di monitorare costantemente i Torrent disponibili
+        per le ricerche e valutarne il loro contenuto</p></li>
+        <li><p>Visto che *MYBT* non ospita alcun Torrent, ma essi sono direttamente condivisi
+        in forma privata dagli utenti direttamente interessati</p></li>
+</ul>
+<p>*MYBT* declina ogni responsabilità in merito al contenuto dei Torrent e
+all'utilizzo che ne verrà fatto dagli utenti. Tuttavia, lo Staff è disponibile,
+previa segnalazione scritta inviata a mezzo posta elettronica all'indirizzo *EMAIL*,
+indicante le precise motivazioni (e, in caso di file protetto da copyright, la
+ragione sociale del detentore dei diritti) per &quot;bannare&quot; un Torrent. Il &quot;ban&quot;
+consiste nell'impossibilità, da parte degli utenti, di scaricare il Torrent. A
+differenza della semplice eliminazione, il ban non permette futuri ingressi nel
+sistema dei file considerati inadatti/illegali.</p>
+<p>L'utente accetta che:</p>
+<ul>
+        <li><p>É presente un filtro automatico di parole chiavi (&quot;keyword&quot;), che
+        previene l'ingresso nel sistema di file illegali. Tale filtro è
+        costantemente aggiornato dallo Staff, ma è pur sempre soggetto a &quot;errori di
+        valutazione&quot;. Qualora un file in realtà innocuo venisse giudicato illegale
+        dal sistema, invitiamo l'autore a rinominarlo e ad accettare le nostre
+        scuse.</p></li>
+        <li><p>Il suddetto filtro può, su richiesta (scritta ed inviata a mezzo posta
+        elettronica all'indirizzo *EMAIL*) esclusiva del detentore dei copyright o
+        di un suo rappresentante legale, essere aggiornato dallo Staff in modo da
+        impedire l'ingresso nel sistema di un Torrent protetto dai copyright</p></li>
+        <li><p>É presente un &quot;log&quot;, non accessibile ad alcuno, che tiene traccia
+        dell'attività degli utenti al solo fine di prevenire attività illegali di
+        maggiore gravità (quale a titolo di esempio la pedopornografia). Tale log è custodito con le migliori
+        tecniche di protezione e crittografia dal Titolare del Trattamento dei Dati
+        per *MYBT*, e le sole righe riguardanti un Torrent sotto inchiesta
+        potrebbero essere mostrate all'Autorità Giudiziara nei casi e nelle
+        modalità previste dalla legge</p></li>
+</ul>

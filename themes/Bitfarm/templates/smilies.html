@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 6 November 2007), see www.w3.org">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="generator" content="PMBT {PMBT_VER}">
+<meta http-equiv="PRAGMA" content="NO-CACHE">
+<meta http-equiv="EXPIRES" content="-1">
+<meta http-equiv="Cache-Control" content="no-cache">
+<link REL="shortcut icon" HREF="{SITE_URL}/themes/Bitfarm/favicon.ico" TYPE="image/x-icon">
+<link rel="search" type="application/opensearchdescription+xml" title="{SITENAME}" href="{SITE_URL}/opensearch.php">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>{SITENAME} &bull; <!-- IF S_IN_MCP -->{L_MCP} &bull; <!-- ELSEIF S_IN_UCP -->{L_USER_CPANNEL} &bull; <!-- ENDIF -->{PAGE_TITLE}</title>
+<link REL="shortcut icon" HREF="{SITE_URL}/themes/Bitfarm/favicon.ico" TYPE="image/x-icon">
+<link rel="alternate" type="application/rss+xml" title="Last Torrents" href="{SITE_URL}/backend.php?op=last">
+<link rel="alternate" type="application/rss+xml" title="Best Torrents" href="{SITE_URL}/backend.php?op=best">
+<link rel="StyleSheet" href="{SITE_URL}/themes/Bitfarm/style.css" type="text/css">
+<script type="text/javascript">
+	// <![CDATA[
+		function insert(code)
+		{
+			opener.document.forms['{FORM}'].elements['{AREA}'].value = ( opener.document.forms['{FORM}'].elements['{AREA}'].value.length && opener.document.forms['{FORM}'].elements['{AREA}'].type == "textarea" ) ? opener.document.forms['{FORM}'].elements['{AREA}'].value + " " + code : code;
+			self.close();
+		}
+	// ]]>
+	</script>
+</head>
+
+<body>
+<form action="misc.php" method="get">
+<input type="hidden" name="do" value="" />
+<input type="hidden" name="wysiwyg" value="" />
+
+<table class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" id="smilietable">
+	<tr>
+		<td class="tcat" colspan="4">
+			Smilie List
+			<div class="smallfont">Click a smilie to insert it into your message.</div>
+		</td>
+	</tr>
+<!-- BEGIN smilies -->
+<!-- IF smilies.S_ROW_COUNT is even -->
+	<tr valign="top">
+<!-- ELSEIF smilies.S_FIRST_ROW -->
+	<tr valign="top">
+<!-- ENDIF -->
+		<td class="row2"><img onClick="insert('{smilies.CODE}')" src="{SITE_URL}/smiles/{smilies.FILE}" title="{smilies.ALT}" id="smilie_{smilies.ID}" alt="{smilies.CODE}" /></td>
+		<td class="row1">{smilies.CODE}</td>
+<!-- IF smilies.S_ROW_COUNT is odd -->
+	</tr>
+<!-- ELSEIF smilies.S_LAST_ROW -->
+	</tr>
+<!-- ENDIF -->
+<!-- END smiley -->
+</table>
+</form>
+</body>
+</html>

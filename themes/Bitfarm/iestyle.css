@@ -1,0 +1,35 @@
+/* CSS for IE 7 creat new that breaks between the two*/
+.navrow { padding: 0; }
+.shoutbox{
+  font-size:10px;
+  margin-right: 0;
+  display: block;
+  float: left;
+  width: 100%;
+  height: 300px;
+  overflow:auto;
+    }
+#leftcolumn {
+width : 20%;
+float : left;
+margin-left : 5px;
+padding-right : 0;
+}
+#centercolumn {
+width: 99%;
+/*float : right;*/
+padding-left : 0;
+padding-right : 0;
+}
+#rightcolumn {
+width : 18%;
+float : left;
+margin-right : 5px;
+padding-right : 0;
+}
+#shout_text_area{
+float:left;
+  clear: right;
+  width: 100%;
+  height: 20px;
+}

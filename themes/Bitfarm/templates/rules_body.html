@@ -1,0 +1,55 @@
+<!-- INCLUDE themes/Bitfarm/templates/over_all_header.html -->
+<!-- INCLUDE themes/Bitfarm/templates/over_all_left.html -->
+<!-- IF S_EDIT -->
+	<table width=100% border=0 cellspacing=0 cellpadding=10>
+		<tr>
+			<td align=center>
+				<a href="admin.php?i=staff&op=modrules&act=newsect">{L_ADD_NEW}</a>
+			</td>
+		</tr>
+	</table>
+<!-- ENDIF -->
+<!-- IF S_RULES -->
+<!-- BEGIN rules_var -->
+	<table class="tablebg" width="100%" cellspacing="0">
+		<tr>
+			<td>
+				<div class="caption">
+					<div class="cap-left">
+						<div class="cap-right">
+							<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nn{rules_var.TITLE}');"><img title="Expand item" id="nnGenral_Rulesimg" src="themes/Bitfarm/pics/minus.gif"  alt="+"></a>{rules_var.TITLE}
+						</div>
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr valign="middle">
+			<td  class="row3" >
+				<div id="nnGenral_Rules">
+					<!-- IF S_EDIT --><form method=post action="admin.php?i=staff&amp;op=modrules&amp;act=edit"><!-- ENDIF -->
+					<table width=95% border=0 cellspacing=0 cellpadding=0>
+						<tr>
+							<td width=100%>
+{rules_var.RULE}
+
+							</td>
+						</tr>
+						<!-- IF S_EDIT --><tr>
+							<td>
+								<input type="hidden" value="1" name="id">
+								<input type="submit" value="{L_EDIT}">
+							</td>
+						</tr><!-- ENDIF -->
+					</table>
+					</form>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="7" valign="middle" align="center"></td>
+		</tr>
+	</table>
+<!-- END rules_var -->
+<!-- ENDIF -->
+<!-- INCLUDE themes/Bitfarm/templates/over_all_right.html -->
+<!-- INCLUDE themes/Bitfarm/templates/over_all_footer.html -->

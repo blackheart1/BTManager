@@ -1,0 +1,38 @@
+<!-- INCLUDE themes/Bitfarm/templates/admin/over_all_header.html -->
+<a name="maincontent"></a>
+
+<h1>{L_IRC_INTRO}</h1>
+
+<p>{L_IRC_INTRO_EXP}</p>
+<form action="{UACTION}" method="POST">
+{HIDEN}
+	<table cellspacing="1">
+	<tbody>
+		<tr class="row1">
+			<td style="text-align: center;">{L_IRC_SERVER}</td>
+			<td style="text-align: center;"><input name="server" value="{S_SERVER}" type="text"></td>
+		</tr>
+		<tr class="row2">
+			<td style="text-align: center;">{L_IRC_CHANNEL}</td>
+			<td style="text-align: center;"><input name="channel" value="{S_CHANNEL}" type="text"></td>
+		</tr>
+	</tbody>
+	</table>
+<h1>{L_IRC_ADV_SETTING}</h1>
+
+<p>{L_IRC_ADV_SETTING_EXP}</p>
+		<fieldset>
+	<table cellspacing="1">
+	<tbody>
+		<tr class="row1">
+			<td style="text-align: center;">{L_VALUE}</td>
+			<td style="text-align: center;"><textarea rows="10" cols="50" name="advanced">{S_ADVANCED}</textarea></td>
+		</tr>
+	</tbody>
+	</table>
+	<p class="submit-buttons">
+<input name="edit" value="{ENABL_APLY}" type="submit"><!-- if IRCENABLED --><input name="delete" value="{L_IRC_DISABLE}" type="submit"><!-- endif --><input value="{L_RESET}" type="reset">
+	</p>
+</form>
+</fieldset>
+<!-- INCLUDE themes/Bitfarm/templates/admin/over_all_footer.html -->

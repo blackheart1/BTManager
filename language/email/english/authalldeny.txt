@@ -1,0 +1,11 @@
+Hi $gr_name,
+we're sorry to inform you that user $granter turned down your download request for all the Torrents he or she is sharing.
+
+You won't be able to download any Torrent from $granter until the appropriate permissions are given to you.
+
+Remember that the Torrent Owner may at any time change your authorizations.
+You'll be sent a confirmation message at the event of any authorization change for this and for any Torrent you requested to download.
+
+Regards,
+$sitename Staff
+$siteurl

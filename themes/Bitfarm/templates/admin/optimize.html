@@ -1,0 +1,29 @@
+<!-- INCLUDE themes/Bitfarm/templates/admin/over_all_header.html -->
+<a name="maincontent"></a>
+
+<h1>{L_TITLE}</h1>
+
+<p>{L_TITLE_EXPLAIN}</p>
+	<table cellspacing="1">
+	<thead>
+	<tr>
+		<th>{L__admtable}</th>
+		<th>{L_SIZE}</th>
+		<th>{L__admstatus}</th>
+		<th>{L__admspacesaved}</th>
+	</tr>
+	</thead>
+	<tbody>
+	<!-- BEGIN log -->
+		<!-- IF log.S_ROW_COUNT is even --><tr class="row1"><!-- ELSE --><tr class="row2"><!-- ENDIF -->
+			<td>
+				{log.TABLE}
+			</td>
+			<td style="text-align: center;">{log.SIZE}</td>
+			<td style="text-align: center;">{log.STATUS}</td>
+			<td>{log.SPACE}</td>
+		</tr>
+	<!-- END log -->
+	</tbody>
+	</table>
+<!-- INCLUDE themes/Bitfarm/templates/admin/over_all_footer.html -->

@@ -1,0 +1,148 @@
+<!-- INCLUDE themes/Bitfarm/templates/admin/over_all_header.html -->
+<script type="text/javascript" src="{SITE_URL}/pmbt2/global.js"></script>
+
+<script type="text/javascript" src="overlib/overlib.js"><!-- overLIB (c) Erik Bosrup --></script>
+<script type="text/javascript" src="overlib/overlib_shadow.js"><!-- overLIB (c) Erik Bosrup --></script>
+<script type="text/javascript" src="bbcode.js"></script>
+<script type="text/javascript">
+pmbtsite_url = "{SITE_URL}";
+tag_prompt = "Enter a Text:";
+img_prompt = "Insert Link from Image";
+font_formatter_prompt = "Enter a Text - ";
+link_text_prompt = "Enter a Link Name (Optional):";
+link_url_prompt = "Enter the Full Address on the left of:";
+link_email_prompt = "Enter your Full Link:";
+list_type_prompt = "Which type of List would you like? Give ' 1 ' for a Numerical List, 'a' for an Alphabetical List, or nothing at all for a Simple Point List.";
+list_item_prompt = "Enter one point of list. Press OK to enter another point of list or press 'Cancel' to Finish.";
+</script>
+<a name="maincontent"></a>
+
+<h1>{L_TITLE}</h1>
+
+<p>{L_TITLE_EXPLAIN}</p>
+<!-- IF .options -->
+<form name="formdata" id="acp_board" method="post" action="{U_ACTION}">
+<!-- BEGIN options -->
+{HIDDEN}
+	<!-- IF options.S_LEGEND -->
+		<!-- IF not options.S_FIRST_ROW -->
+			</fieldset>
+		<!-- ENDIF -->
+		<fieldset>
+			<legend>{options.LEGEND}</legend>
+	<!-- ELSE -->
+
+		<dl>
+			<dt><label for="{options.KEY}">{options.TITLE}:</label><!-- IF options.S_EXPLAIN --><br /><span>{options.TITLE_EXPLAIN}</span><!-- ENDIF --></dt>
+			<dd>{options.CONTENT}</dd>
+		</dl>
+
+	<!-- ENDIF -->
+<!-- END options -->
+
+<!-- IF S_AUTH -->
+	<!-- BEGIN auth_tpl -->
+		{auth_tpl.TPL}
+	<!-- END auth_tpl -->
+<!-- ENDIF -->
+
+	<p class="submit-buttons">
+		<input class="button1" type="submit" id="submit" name="submit" value="{L_SUBMIT}" />&nbsp;
+		<input class="button2" type="reset" id="reset" name="reset" value="{L_RESET}" />
+	</p>
+	{S_FORM_TOKEN}
+</fieldset>
+</form>
+<!-- ENDIF -->
+<!-- IF .bonus -->
+	<table cellspacing="1">
+	<thead>
+	<tr>
+		<th>{L_TRADE_FOR}</th>
+		<th>{L_POINTS}</th>
+		<th>{L_DESC}</th>
+		<th>{L_ACTION}</th>
+	</tr>
+	</thead>
+	<tbody>
+	<!-- BEGIN bonus -->
+		<!-- IF bonus.S_ROW_COUNT is even --><tr class="row1"><!-- ELSE --><tr class="row2"><!-- ENDIF -->
+			<td>{bonus.NAME}</td>
+			<td>{bonus.POINTS}</td>
+			<td>{bonus.DESC}</td>
+			<td style="vertical-align: top; width: 100px; text-align: right; white-space: nowrap;">
+			<a href="{bonus.EDIT}">{ICON_EDIT}</a>
+			<a href="{bonus.DELETE}">{ICON_DELETE}</a>
+			</td>
+		</tr>
+	<!-- END bonus -->
+	</tbody>
+	</table>
+<!-- ENDIF -->
+<!-- IF S_EDITBONUS -->
+<a name="edit"></a>
+<form name="formdata" id="acp_board" method="post" action="{U_ACTION_EDIT}">
+{E_HIDDEN}
+<fieldset>
+	<h1>{L_EDIT_TITLE}</h1>
+	<p>{L_EDIT_EXPLANE}</p>
+		<dl>
+			<dt><label for="bonusname">{L_BONUS_NAME}:</label><br /><span>{L_BONUS_NAME_EXP}</span></dt>
+			<dd><input name="bonusname" value="{S_BONUS_NAME}" size="40" type="text"></dd>
+		</dl>
+		<dl>
+			<dt><label for="points">{L_BONUS_POINTS}:</label><br /><span>{L_BONUS_POINTS_EXP}</span></dt>
+			<dd><input name="points" value="{S_BONUS_POINTS}" size="40" type="text"></dd>
+		</dl>
+		<dl>
+			<dt><label for="description">{L_BONUS_DESC}:</label><br /><span>{L_BONUS_DESC_EXP}</span></dt>
+			<dd><textarea id="description" name="description" rows="5" cols="45">{S_BONUS_DESC}</textarea></dd>
+		</dl>
+		<dl>
+			<dt><label for="art">{L_BONUS_ART}:</label><br /><span>{L_BONUS_ART_EXP}</span></dt>
+			<dd><input name="art" value="{S_BONUS_ART}" size="40" type="text"></dd>
+		</dl>
+		<dl>
+			<dt><label for="menge">{L_BONUS_MENGE}:</label><br /><span>{L_BONUS_MENGE_EXP}</span></dt>
+			<dd><input name="menge" value="{S_BONUS_MENGE}" size="40" type="text"></dd>
+		</dl>
+	<div style="text-align: center;">
+		<input type="submit" name="submit" value="{L_SUBMIT}" class="button2" /> 
+	</div>
+
+</fieldset>
+</form>
+<!-- ELSE -->
+<form name="formdata" id="acp_board" method="post" action="{U_ACTION_NEW}">
+<fieldset>
+	<h1>{L_ADD_TITLE}</h1>
+	<p>{L_ADD_EXPLANE}</p>
+		<dl>
+			<dt><label for="bonusname">{L_BONUS_NAME}:</label><br /><span>{L_BONUS_NAME_EXP}</span></dt>
+			<dd><input name="bonusname" value="" size="40" type="text"></dd>
+		</dl>
+		<dl>
+			<dt><label for="points">{L_BONUS_POINTS}:</label><br /><span>{L_BONUS_POINTS_EXP}</span></dt>
+			<dd><input name="points" value="" size="40" type="text"></dd>
+		</dl>
+		<dl>
+			<dt><label for="description">{L_BONUS_DESC}:</label><br /><span>{L_BONUS_DESC_EXP}</span></dt>
+			<dd><input name="description" value="" size="40" type="text"></dd>
+		</dl>
+		<dl>
+			<dt><label for="art">{L_BONUS_ART}:</label><br /><span>{L_BONUS_ART_EXP}</span></dt>
+			<dd><input name="art" value="" size="40" type="text"></dd>
+		</dl>
+		<dl>
+			<dt><label for="menge">{L_BONUS_MENGE}:</label><br /><span>{L_BONUS_MENGE_EXP}</span></dt>
+			<dd><input name="menge" value="" size="40" type="text"></dd>
+		</dl>
+	<div style="text-align: center;">
+		<input type="submit" name="submit" value="{L_SUBMIT}" class="button2" /> 
+	</div>
+
+</fieldset>
+</form>
+<!-- ENDIF -->
+
+<!-- INCLUDE themes/Bitfarm/templates/admin/over_all_footer.html -->

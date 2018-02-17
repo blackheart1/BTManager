@@ -1,0 +1,62 @@
+<!-- INCLUDE themes/Bitfarm/templates/admin/over_all_header.html -->
+<a name="maincontent"></a>
+
+<h1>{L_TITLE}</h1>
+
+<p>{L_TITLE_EXPLAIN}</p>
+
+<form id="list" method="post" action="{U_ACTION}">
+<!-- IF .warned -->
+<!-- IF PAGINATION -->
+<div class="pagination" style="float: right; margin: 15px 0 2px 0">
+	<a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{S_ON_PAGE}</a> &bull; <span>{PAGINATION}</span>
+</div>
+<!-- ENDIF -->
+	<table cellspacing="1">
+	<thead>
+	<tr>
+		<th>{L_USERNAME}</th>
+		<th>{L_REGISTERED}</th>
+		<th>{L_LAST_ACCESS}</th>
+		<th>{L_CLASS_USER}</th>
+		<th>{L_DOWNLOADED}</th>
+		<th>{L_UPLOADED}</th>
+		<th>{L_U_RATIO}</th>
+		<th>{L_MOD_COMM}</th>
+	</tr>
+	</thead>
+	<tbody>
+	<!-- BEGIN warned -->
+		<!-- IF warned.S_ROW_COUNT is even --><tr class="row1"><!-- ELSE --><tr class="row2"><!-- ENDIF -->
+			<td>
+				<a href="{warned.U_VIEW_PROFILE}"><font color="#{warned.USER_COLOR}">{warned.USERNAME}</font></a>
+			</td>
+			<td style="text-align: center;">{warned.JOINED}</td>
+			<td style="text-align: center;">{warned.LAST_SEEN}</td>
+			<td style="text-align: center;">{warned.U_GROUP}</td>
+			<td style="text-align: center;">{warned.U_UPLOADED_ABV}</td>
+			<td style="text-align: center;">{warned.U_DOWNLOADED_ABV}</td>
+			<td style="text-align: center;">{warned.U_RATIO_COLOR}</td>
+			<td style="text-align: left;">{warned.MOD_COMENT_SHORT}</td>
+		</tr>
+	<!-- END warned -->
+	</tbody>
+	</table>
+<!-- IF PAGINATION -->
+<div class="pagination" style="float: right; margin: 15px 0 2px 0">
+	<a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{S_ON_PAGE}</a> &bull; <span>{PAGINATION}</span>
+</div>
+<!-- ENDIF -->
+<!-- ELSE -->
+	<div class="errorbox">
+		<p>{L_NO_ENTRIES}</p>
+	</div>
+<!-- ENDIF -->
+<fieldset class="display-options">
+	{L_DISPLAY_WARNED}: &nbsp;{S_LIMIT_DAYS}&nbsp;{L_SORT_BY}: {S_SORT_KEY} {S_SORT_DIR}
+	<input class="button2" type="submit" value="{L_GO}" name="sort" />
+	{S_FORM_TOKEN}
+</fieldset>
+<hr />
+</form>
+<!-- INCLUDE themes/Bitfarm/templates/admin/over_all_footer.html -->

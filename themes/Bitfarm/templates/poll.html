@@ -1,0 +1,53 @@
+<table class="tablebg" width="100%" cellspacing="0">
+<tbody><tr><td>
+<div class="caption">
+<div class="cap-left">
+
+<div class="cap-right">
+<a class="c4" style="cursor: pointer; float: left;" onclick="toggle2('nnPolls');">Polls</a>
+</div>
+</div>
+</div>
+</td></tr><tr valign="middle">
+<td class="row3"><div id="nnPolls">
+<!-- IF U_MODERATOR -->
+<div align="right">
+<font class="small">{L_MOD_OPTIONS}
+ - [<a class="altlink" href="makepoll.php?returnto=main"><b>{L__NEW}</b></a>]
+ - [<a class="altlink" href="makepoll.php?action=edit&amp;pollid={POLL_ID}&amp;returnto=main"><b>{L_EDIT}</b></a>]
+ - [<a class="altlink" href="polls.php?action=delete&amp;pollid={POLL_ID}&amp;returnto=main"><b>{L_DELETE}</b></a>]
+</font>
+ </div>
+ <!-- ENDIF -->
+<table class='poll' align="center" border="1" cellpadding="2" cellspacing="2"><tbody><tr class='poll'><td class="poll">
+<!-- IF POLL_LOCKED -->
+<p class="poll_q"><b>{POLL_QUESTION}</b></p>
+<!-- IF POLL_VOTED -->
+<table class='poll' border="1" cellpadding="2" cellspacing="2">
+<tbody>
+<!-- BEGIN poll_var_answered -->
+<tr class='poll'><td width="1%">
+<nobr>{poll_var_answered.P_ANSWER}&nbsp;&nbsp;</nobr>
+</td>
+<td width="99%"><img src="{SITE_URL}/images/bar_left.gif"><img src="{SITE_URL}/images/bar.gif" width="{poll_var_answered.P_IMAGE_W}" height="9"><img src="{SITE_URL}/images/bar_right.gif"> {poll_var_answered.ANSWER_VOTES}%</td>
+</tr>
+<!-- END poll_var_answered -->
+</tbody>
+</table>
+<p>Votes: {POLL_VOTE_COUNT}<br>
+[<a class="altlink" href="polloverview.php"><b>{L_VIEW_RESULTS}</b></a>]</p>
+</td></tr></tbody></table></div>
+	<!-- ELSE -->
+<form method="post" action="index.php"><p class='poll'>
+<input type="hidden" name="vote" value="1" />
+<!-- BEGIN poll_var_no_answered -->
+<input name="choice" value="{poll_var_no_answered.VALUE}" type="radio">{poll_var_no_answered.VAL_QUEST}<br>
+<!-- END poll_var_no_answered -->
+<br></p><div align="center"><input value="{L_VOTE}" class="btn" type="submit"><br>[<a href="polls.php"><b>{L_VIEW_RESULTS}</b></a>]</div></form></td></tr></tbody></table></div>
+    <!-- ENDIF -->
+	<!-- ELSE -->
+<p class='poll'>{POLL_NO_POLL}<br></td></tr></tbody></table></div>
+    <!-- ENDIF -->
+</td></tr>
+</tbody></table>
+<br clear="all">

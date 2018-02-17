@@ -1,0 +1,84 @@
+<!-- INCLUDE themes/Bitfarm/templates/admin/over_all_header.html -->
+<a name="maincontent"></a>
+
+<h1>{L_INTRO}</h1>
+
+<p>{L_INTRO_EXP}</p>
+
+<!-- IF S_MESSAGE -->
+
+<hr />
+<div <!-- IF S_USER_NOTICE -->class="successbox"<!-- ELSE -->class="errorbox"<!-- ENDIF -->>
+	<h3>{MESSAGE_TITLE}</h3>
+	<p>{MESSAGE_TEXT}</p>
+</div>
+
+<!-- ENDIF -->
+
+<hr />
+<fieldset>
+	<legend>{L_KEYWORD}</legend>
+	<!-- IF .kyewords -->
+	<table cellspacing="1">
+	<thead>
+	<tr>
+		<th>{L_KEYWORD}</th>
+		<th>{L_REASON}</th>
+		<th>{L_ACTIONS}</th>
+	</tr>
+	</thead>
+	<tbody>
+	<!-- BEGIN kyewords -->
+		<!-- IF kyewords.S_ROW_COUNT is even --><tr class="row1"><!-- ELSE --><tr class="row2"><!-- ENDIF -->
+			<td>
+				{kyewords.KEYWORD}
+			</td>
+			<td>{kyewords.WHATFOR}</td>
+			<td>
+			<a href="admin.php?i=torrentinfo&amp;op=filter&amp;do=editfilter&amp;id={kyewords.ID}"><img src="themes/Bitfarm/pics/edit.gif" border="0" alt="" title=""   /></a>
+			<a href="admin.php?i=torrentinfo&amp;op=filter&amp;do=delfilter&amp;id={kyewords.ID}"><img src="themes/Bitfarm/pics/drop.gif" border="0" alt="" title=""   /></a>
+			</td>
+		</tr>
+	<!-- END kyewords -->
+	</tbody>
+	</table>
+<!-- ELSE -->
+	<div class="errorbox">
+		<p>{L_NOSET_KEY_WORDS}</p>
+	</div>
+<!-- ENDIF -->
+</fieldset>
+<hr />
+<fieldset>
+	<legend>{L_ADD_EDIT_KEYW}</legend>
+<form action="{U_ACTION}" method="post">
+{HIDDEN}
+	<table width="100%" cellpadding="0" cellspacing="0" border="0">
+		<tr>
+			<td width="50%">
+				<p>{L_KEYWORD}</p>
+			</td>
+			<td width="50%">
+				<input type="text" name="keyword" value="{KEYWORD}" />
+			</td>
+		</tr>
+		<tr>
+			<td width="50%">
+				<p>{L_REASON}</p>
+			</td>
+			<td width="50%">
+				<input type="text" name="whatfor" value="{WHATFOR}" />
+			</td>
+		</tr>
+		<tr>
+			<td width="50%">
+				<input type="submit"  value="{L_SUBMIT}" />
+			</td>
+			<td width="50%">
+			</td>
+		</tr>
+	</table>
+</form>
+</fieldset>
+
+<!-- INCLUDE themes/Bitfarm/templates/admin/over_all_footer.html -->

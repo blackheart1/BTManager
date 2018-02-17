@@ -1,0 +1,18 @@
+Hello,
+
+you are receiving this message because you requested to be notified when a new seed pops up  
+for the torrent titled 
+$torrentname 
+on $sitename.
+A user has just finished downloading and is now seeding. 
+If you did a new seed or a reseed, this may be the time to throttle your upload. 
+If you were waiting to start downloading a dead or weak torrent, go for it. Check out the torrent here: 
+$siteurl/details.php&id=$torrentid
+
+You will not receive any further notifications for on the torrent until you view that page. 
+You can also turn off notifications for the torrent altogether here: 
+$siteurl/details.php&id=$torrentid&op=seeder&trig=off
+
+Regards,
+$sitename Staff
+$siteurl

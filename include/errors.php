@@ -1,0 +1,182 @@
+<?php
+/*
+*------------------------------phpMyBitTorrent V 3.0.0-------------------------* 
+*--- The Ultimate BitTorrent Tracker and BMS (Bittorrent Management System) ---*
+*--------------   Created By Antonio Anzivino (aka DJ Echelon)   --------------*
+*-------------------   And Joe Robertson (aka joeroberts)   -------------------*
+*-------------               http://www.p2pmania.it               -------------*
+*------------ Based on the Bit Torrent Protocol made by Bram Cohen ------------*
+*-------------              http://www.bittorrent.com             -------------*
+*------------------------------------------------------------------------------*
+*------------------------------------------------------------------------------*
+*--   This program is free software; you can redistribute it and/or modify   --*
+*--   it under the terms of the GNU General Public License as published by   --*
+*--   the Free Software Foundation; either version 2 of the License, or      --*
+*--   (at your option) any later version.                                    --*
+*--                                                                          --*
+*--   This program is distributed in the hope that it will be useful,        --*
+*--   but WITHOUT ANY WARRANTY; without even the implied warranty of         --*
+*--   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          --*
+*--   GNU General Public License for more details.                           --*
+*--                                                                          --*
+*--   You should have received a copy of the GNU General Public License      --*
+*--   along with this program; if not, write to the Free Software            --*
+*-- Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA --*
+*--                                                                          --*
+*------------------------------------------------------------------------------*
+*--------            ©2013 BT.Manager Development Team                 --------*
+*-----------               http://btmagaer.com                      -----------*
+*------------------------------------------------------------------------------*
+*--------------------   Sunday, April 14, 2013 4:41 PM    ---------------------*
+*
+*
+* errors.php
+*
+* @package language
+* @version $Id$
+* @copyright (c) 2013 BT.Manager Group
+* @license http://opensource.org/licenses/gpl-license.php GNU Public License
+*
+*/
+error_reporting(E_ALL);
+function myErrorHandler($errno, $errstr, $errfile, $errline)
+{
+	global $pmbt_cache, $db_prefix, $db, $auth, $template, $config, $user;
+	global $phpEx, $admin_email, $siteurl, $msg_title, $msg_long_text;
+	if (error_reporting() == 0 && $errno != E_WARNING && $errno != E_USER_ERROR && $errno != E_USER_WARNING && $errno != E_USER_NOTICE && $errno != E_PARSE && $errno != E_ERROR && $errno != E_FATAL && $errno != E_STRICT)
+	{
+		return;
+	}
+    if (!(error_reporting() & $errno)) {
+        // This error code is not included in error_reporting
+        return;
+    }
+//die($errno);
+    switch ($errno) {
+    case E_USER_ERROR:
+			if (!empty($user) && !empty($user->lang))
+			{
+				$errstr = (!empty($user->lang[$errstr])) ? $user->lang[$errstr] : $errstr;
+				$msg_title = (!isset($msg_title)) ? $user->lang['BT_ERROR'] : (($user->lang[$msg_title]) ? $user->lang[$msg_title] : $msg_title);
+
+				$l_return_index = sprintf($user->lang['RETURN_INDEX'], '<a href="' . $siteurl . '">', '</a>');
+				$l_notify = '';
+
+				if (!empty($admin_email))
+				{
+					$l_notify = '<p>' . sprintf($user->lang['NOTIFY_ADMIN_EMAIL'], $admin_email) . '</p>';
+				}
+			}
+			else
+			{
+				$msg_title = 'General Error';
+				$l_return_index = '<a href="' . $siteurl . '">Return to index page</a>';
+				$l_notify = '';
+
+				if (!empty($admin_email))
+				{
+					$l_notify = '<p>Please notify the board administrator or webmaster: <a href="mailto:' . $admin_email . '">' . $admin_email . '</a></p>';
+				}
+			}
+			// Try to not call the adm page data...
+
+			echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">';
+			echo '<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr">';
+			echo '<head>';
+			echo '<meta http-equiv="content-type" content="text/html; charset=utf-8" />';
+			echo '<title>' . $msg_title . '</title>';
+			echo '<style type="text/css">' . "\n" . '/* <![CDATA[ */' . "\n";
+			echo '* { margin: 0; padding: 0; } html { font-size: 100%; height: 100%; margin-bottom: 1px; background-color: #E4EDF0; } body { font-family: "Lucida Grande", Verdana, Helvetica, Arial, sans-serif; color: #536482; background: #E4EDF0; font-size: 62.5%; margin: 0; } ';
+			echo 'a:link, a:active, a:visited { color: #006699; text-decoration: none; } a:hover { color: #DD6900; text-decoration: underline; } ';
+			echo '#wrap { padding: 0 20px 15px 20px; min-width: 615px; } #page-header { text-align: right; height: 40px; } #page-footer { clear: both; font-size: 1em; text-align: center; } ';
+			echo '.panel { margin: 4px 0; background-color: #FFFFFF; border: solid 1px  #A9B8C2; } ';
+			echo '#errorpage #page-header a { font-weight: bold; line-height: 6em; } #errorpage #content { padding: 10px; } #errorpage #content h1 { line-height: 1.2em; margin-bottom: 0; color: #DF075C; } ';
+			echo '#errorpage #content div { margin-top: 20px; margin-bottom: 5px; border-bottom: 1px solid #CCCCCC; padding-bottom: 5px; color: #333333; font: bold 1.2em "Lucida Grande", Arial, Helvetica, sans-serif; text-decoration: none; line-height: 120%; text-align: left; } ';
+			echo "\n" . '/* ]]> */' . "\n";
+			echo '</style>';
+			echo '</head>';
+			echo '<body id="errorpage">';
+			echo '<div id="wrap">';
+			echo '	<div id="page-header">';
+			echo '		' . $l_return_index;
+			echo '	</div>';
+			echo '	<div id="acp">';
+			echo '	<div class="panel">';
+			echo '		<div id="content">';
+			echo '			<h1>' . $msg_title . '</h1>';
+
+			echo '			<div>' . $errstr . '</div>';
+
+			echo $l_notify;
+
+			echo '		</div>';
+			echo '	</div>';
+			echo '	</div>';
+			echo '	<div id="page-footer">';
+			echo '		Powered by BT.Manager &copy; 2014 <a href="http://www.btmager.com/">BT.Manager Group</a>';
+			echo '	</div>';
+			echo '</div>';
+			echo '</body>';
+			echo '</html>';
+			exit;
+	break;
+		case E_USER_WARNING:
+		case E_USER_NOTICE:
+		require_once("include/config.php"); //if config file has not been loaded yet
+		include_once'include/class.template.php';
+		require_once("include/actions.php");
+		require_once("include/user.functions.php");
+		if(!isset($template))
+		{
+			$template = new Template();
+		}
+			set_site_var($user->lang['NOTICE']);
+			$errstr = (!empty($user->lang[$errstr])) ? $user->lang[$errstr] : $errstr;
+			$msg_title = (!isset($errstr)) ? $user->lang['INFORMATION'] : ((!empty($user->lang[$errstr])) ? $user->lang[$errstr] : $errstr);
+			$template->assign_vars(array(
+				'S_ERROR'			=> false,
+				'S_FORWARD'			=>	false,
+				'S_SUCCESS'			=> true,
+				'TITTLE_M'          => $msg_title,
+				'MESSAGE'           => '',
+			));
+			echo $template->fetch('message_body.html');
+			close_out();
+		break;
+    case E_ERROR:
+        echo "<b>My ERROR</b> [$errno] $errstr<br />\n";
+        echo "  Fatal error on line $errline in file $errfile<br />";
+		array_walk( debug_backtrace(), create_function( '$a,$b', 'print "<br /><b>". basename( $a[\'file\'] ). "</b> &nbsp; <font color=\"red\">{$a[\'line\']}</font> &nbsp; <font color=\"green\">{$a[\'function\']} ()</font> &nbsp; -- ". dirname( $a[\'file\'] ). "/";' ) ); 	echo "<br />";
+        echo ", PHP " . PHP_VERSION . " (" . PHP_OS . ")<br />\n";
+        echo "Aborting...<br />\n";
+        exit();
+        break;
+
+    case E_WARNING:
+    case E_USER_WARNING:
+        echo "<b>My User WARNING</b> [$errno] $errstr<br />\n";
+		@array_walk( debug_backtrace(), create_function( '$a,$b', 'print "<br /><b>". basename( $a[\'file\'] ). "</b> &nbsp; <font color=\"red\">{$a[\'line\']}</font> &nbsp; <font color=\"green\">{$a[\'function\']} ()</font> &nbsp; -- ". dirname( $a[\'file\'] ). "/";' ) );         echo "  Warning error on line $errline in file $errfile<br />";
+        break;
+
+    //case E_NOTICE:
+    case E_USER_NOTICE:
+        echo "<b>My User NOTICE</b> [$errno] $errstr<br />\n";
+        echo "  Notice error on line $errline in file $errfile<br />\n";
+        break;
+    case E_NOTICE:
+    case E_DEPRECATED:
+    case E_STRICT:
+	return true;
+        break;
+
+    default:
+        echo "<b>My ERROR</b> [$errno] $errstr<br />\n";
+        echo "  Fatal error on line $errline in file $errfile";
+        echo "Unknown error type: [$errno] $errstr<br />\n";
+        break;
+    }
+
+    /* Don't execute PHP internal error handler */
+    return false;
+}
+?>

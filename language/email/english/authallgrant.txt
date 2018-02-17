@@ -1,0 +1,11 @@
+Hi $gr_name,
+we're glad to inform you that user $granter approved your download request for all Torrents he or she is sharing.
+
+You'll be able to directly download any torrent uploaded by $granter.
+
+Remember that the Torrent Owner may change your authorizations at any time .
+You'll be sent a confirmation message at the event of any authorization change for this and for any Torrent you requested to download.
+
+Regards,
+$sitename Staff
+$siteurl

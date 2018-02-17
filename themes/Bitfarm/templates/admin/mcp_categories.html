@@ -1,0 +1,111 @@
+<!-- INCLUDE themes/Bitfarm/templates/admin/over_all_header.html -->
+<a name="maincontent"></a>
+
+
+<h1>{L_INTRO}</h1>
+
+<p>{L_INTRO_EXP}</p>
+
+<!-- IF S_MESSAGE -->
+
+<hr />
+<div <!-- IF S_USER_NOTICE -->class="successbox"<!-- ELSE -->class="errorbox"<!-- ENDIF -->>
+	<h3>{MESSAGE_TITLE}</h3>
+	<p>{MESSAGE_TEXT}</p>
+</div>
+
+<!-- ENDIF -->
+
+<hr />
+<!-- IF .category -->
+	<!-- BEGIN category -->
+		<fieldset>
+			<legend>{category.NAME}</legend>
+	<table cellspacing="1">
+	<thead>
+	<tr>
+		<th>{L_ACTIONS}</th>
+		<th>{L_NAMES}</th>
+		<th>{L_IMAGE}</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr class="row2">
+		<td>
+			<a href="admin.php?i=torrentinfo&amp;op=categories&amp;do=editcategory&amp;id={category.ID}#edit"><img src="themes/Bitfarm/pics/edit.gif" border="0" alt="{L_EDIT}" title="{L_EDIT}"   /></a>
+			<a href="admin.php?i=torrentinfo&amp;op=categories&amp;do=delcategory&amp;id={category.ID}"><img src="themes/Bitfarm/pics/drop.gif" border="0" alt="{L_DELETE}" title="{L_DELETE}"   /></a>
+		</td>
+		<td>
+			{category.NAME}
+		</td>
+		<td>
+			<img src="cat_pics/{category.IMAGE}" alt="{category.NAME}" />
+		</td>
+	</tr>
+			<!-- IF .category.child -->
+				<!-- BEGIN child -->
+	<tr class="row1">
+		<td>
+			<a href="admin.php?i=torrentinfo&amp;op=categories&amp;do=editcategory&amp;id={category.child.ID}#edit"><img src="themes/Bitfarm/pics/edit.gif" border="0" alt="{L_EDIT}" title="{L_EDIT}"   /></a>
+			<a href="admin.php?i=torrentinfo&amp;op=categories&amp;do=delcategory&amp;id={category.child.ID}"><img src="themes/Bitfarm/pics/drop.gif" border="0" alt="{L_DELETE}" title="{L_DELETE}"   /></a>
+		</td>
+		<td>
+			{category.child.NAME}
+		</td>
+		<td>
+			<img src="cat_pics/{category.child.IMAGE}" alt="{category.child.NAME}" />
+		</td>
+	</tr>
+				<!-- END child -->
+			<!-- ENDIF -->
+	</tbody>
+	</table>
+		</fieldset>
+	<!-- END tor_block1 -->
+<!-- ELSE -->
+{L_NO_CATEGORIES}
+<!-- ENDIF -->
+		<a name="edit"></a>
+		<fieldset>
+			<legend>{L_ADD_EDIT_CAT}</legend>
+				<form method="POST" action="admin.php">
+				{HIDDEN}
+		<dl>
+			<dt><label for="cat">{L_NAME}:</label><br /></dt>
+			<dd><input type="text" name="sub_name" size="20" value ="{SUBNAME}" /></dd>
+		</dl>
+		<dl>
+			<dt><label for="cat">{L_PARENT}:</label><br /></dt>
+			<dd><select name="sub_parent">{SUBPARENT}</select></dd>
+		</dl>
+		<dl>
+			<dt><label for="cat">{L_IMAGE}:</label><br /></dt>
+			<dd>
+				<img src="{ICON_SET}" name="Thumb" />
+				<br />
+				<select name="sub_image" onChange="ChangeThumb(this.options[this.selectedIndex].value);" onKeyUp="ChangeThumb(this.options[this.selectedIndex].value);">{ICONS}</select>
+			</dd>
+		</dl>
+		<dl>
+			<dt><label for="cat">{L_POSITION}:</label><br /></dt>
+			<dd><select name="sub_position">{POSITION}</select></dd>
+		</dl>
+		</fieldset>
+<p><input type="submit" value="{L_SUBMIT}" /></p>
+</form>
+		<fieldset>
+			<legend>{L_INTRO_EDIT}</legend>
+			<p>{L_INTRO_EXP_EDIT}</p>
+<form method="POST" action="admin.php?op=categories" enctype="multipart/form-data\">
+
+
+<input type="hidden" name="do" value="takenew" />
+		<dl>
+			<dt><label for="cat">{L_UPLOAD_CAT}:</label><br /></dt>
+			<dd><input type="file" name="catcon"  /></dd>
+		</dl>
+		</fieldset>
+<p><input type="submit" value="{L_SUBMIT}" /></p>
+</form>
+
+<!-- INCLUDE themes/Bitfarm/templates/admin/over_all_footer.html -->

@@ -1,0 +1,165 @@
+<!-- INCLUDE themes/Bitfarm/templates/over_all_header.html -->
+<!-- INCLUDE themes/Bitfarm/templates/pm_left_panel.html -->
+
+<div style="padding: 2px;"></div>
+
+<div style="padding: 2px;"></div>
+
+{$CA_BLOCK_START}
+<table class="tablebg" width="100%" cellspacing="{$CA_SPACING}" cellpadding="0">
+{$CA_CAP_START}{L__MESSAGE}{$CA_CAP_END}
+<tr>
+	<td class="row1 genmed" nowrap="nowrap" width="150"><b>{L__PM_SUBJECT}:</b></td>
+	<td class="row1 gen">{SUBJECT}</td>
+</tr>
+
+<tr>
+	<td class="row1 genmed" nowrap="nowrap" width="150"><b>{L__PM_FROM}:</b></td>
+	<td class="row1 gen">{MESSAGE_AUTHOR_FULL}</td>
+</tr>
+
+<tr>
+	<td class="row1 genmed" nowrap="nowrap" width="150"><b>{L__SENT_AT}:</b></td>
+	<td class="row1 gen">{SENT_DATE}</td>
+</tr>
+
+<!-- IF S_TO_RECIPIENT -->
+	<tr>
+		<td class="row1 genmed" nowrap="nowrap" width="150"><b>{L__TO}:</b></td>
+		<td class="row1 gen">
+		<!-- BEGIN to_recipient -->
+			<!-- IF to_recipient.IS_GROUP --><span class="sep"><a href="{to_recipient.U_VIEW}">{to_recipient.NAME}</a></span><!-- ELSE -->{to_recipient.NAME_FULL}&nbsp;<!-- ENDIF -->
+		<!-- END to_recipient -->
+		</td>
+	</tr>
+<!-- ENDIF -->
+
+<!-- IF S_BCC_RECIPIENT -->
+	<tr>
+		<td class="row1 genmed" nowrap="nowrap" width="150"><b>{L__BCC}:</b></td>
+		<td class="row1 gen">
+		<!-- BEGIN bcc_recipient -->
+			<!-- IF bcc_recipient.IS_GROUP --><span class="sep"><a href="{bcc_recipient.U_VIEW}">{bcc_recipient.NAME}</a></span><!-- ELSE -->{bcc_recipient.NAME_FULL}&nbsp;<!-- ENDIF -->
+		<!-- END bcc_recipient -->
+		</td>
+	</tr>
+<!-- ENDIF -->
+<tr>
+	<td class="row1" valign="top" colspan="2">
+		<div style="float: {S_CONTENT_FLOW_END}"> 
+			<!-- IF U_QUOTE --><a href="{U_QUOTE}">{QUOTE_IMG}</a> <!-- ENDIF -->
+			<!-- IF U_EDIT --><a href="{U_EDIT}">{EDIT_IMG}</a> <!-- ENDIF -->
+			<!-- IF U_DELETE --><a href="{U_DELETE}">{DELETE_IMG}</a> <!-- ENDIF -->
+		</div>
+
+		<div class="postbody">{MESSAGE}</div>
+
+				<!-- IF S_HAS_ATTACHMENTS -->
+					<br clear="all" /><br />
+							
+					<div class="attachwrapper"><div class="attachtitle">{L__ATTACHMENTS}:</div>
+					<!-- BEGIN attachment -->
+					<div class="attachcontent">{attachment.DISPLAY_ATTACHMENT}</div>
+					<!-- END attachment -->
+					</div>
+				<!-- ENDIF -->
+
+				<!-- IF S_DISPLAY_NOTICE -->
+					<span class="gensmall error"><br /><br />{L__DOWNLOAD_NOTICE}</span>
+				<!-- ENDIF -->
+				<!-- IF SIGNATURE -->
+					<span class="postbody signature"><br />_________________<br />{SIGNATURE}</span>
+				<!-- ENDIF -->
+				<!-- IF EDITED_MESSAGE -->
+					<span class="gensmall">{EDITED_MESSAGE}</span>
+				<!-- ENDIF -->
+
+				<!-- IF not S_HAS_ATTACHMENTS --><br clear="all" /><br /><!-- ENDIF -->
+
+	</td>
+</tr>
+</table>
+{$CA_BLOCK_END}
+
+<!-- IF U_POST_REPLY_PM --><div style="text-align: {S_CONTENT_FLOW_END}; margin-top: 3px;"><a href="{U_POST_REPLY_PM}">{REPLY_IMG}</a></div><!-- ENDIF -->
+
+<div style="padding: 2px;"></div>
+
+<br clear="all" />
+
+</div>
+
+<!-- IF S_DISPLAY_HISTORY -->
+{$CA_BLOCK_START}
+<table class="tablebg" width="100%" cellspacing="{$CA_SPACING}">
+{$CA_CAP_START}{L__MESSAGE_HISTORY} - {HISTORY_TITLE}{$CA_CAP_END}
+<tr>
+	<td class="row1"><div style="overflow: auto; width: 100%; height: 300px;">
+
+		<table class="tablebg" width="100%" cellspacing="{$CA_SPACING}">
+		<tr>
+			<th width="22%">{L__AUTHOR}</th>
+			<th>{L__MESSAGE}</th>
+		</tr>
+	<!-- BEGIN history_row -->
+			<!-- IF history_row.S_ROW_COUNT is even --><tr class="row1"><!-- ELSE --><tr class="row2"><!-- ENDIF -->
+			<td rowspan="2" align="{S_CONTENT_FLOW_BEGIN}" class="row" valign="top"><a name="{history_row.MSG_ID}"></a>
+				<table width="150" cellspacing="0">
+				<tr>
+					<td align="center" colspan="2">
+					<span class="postauthor">{history_row.MESSAGE_AUTHOR_FULL}</span><br />
+					<span class="postauthor">{history_row.MESSAGE_AUTHOR_AVATAR}</span><br />
+					<span class="postauthor">{history_row.MESSAGE_AUTHOR_RATIO}</span><br />
+					<span class="postauthor">{history_row.MESSAGE_AUTHOR_UPLOAD}</span><br />
+					<span class="postauthor">{history_row.MESSAGE_AUTHOR_DOWNLOAD}</span><br />
+					<span class="postauthor">{history_row.MESSAGE_AUTHOR_LOCATION}</span>
+					</td>
+				</tr>
+				</table>
+			</td>
+			<td class="row<!-- IF history_row.S_CURRENT_MSG --> history-current<!-- ENDIF -->" width="100%">
+				<div class="gensmall" style="float: {S_CONTENT_FLOW_BEGIN};"><b>{L__PM_SUBJECT}:</b>&nbsp;{history_row.SUBJECT}</div><div class="gensmall" style="float: {S_CONTENT_FLOW_END};"><b>{L__FOLDER}:</b>&nbsp;{history_row.FOLDER}</div>
+			</td>
+		</tr>
+
+		<!-- IF history_row.S_ROW_COUNT is even --><tr class="row1"><!-- ELSE --><tr class="row2"><!-- ENDIF -->
+			<td class="row" valign="top">
+				<div id="message_{history_row.MSG_ID}"><div class="postbody">{history_row.MESSAGE}<br />
+				<br />
+				
+				<div style="float: {S_CONTENT_FLOW_END}" class="postdetails"><b>{L__SENT_AT}:</b> {history_row.SENT_DATE}</div>
+				<a href="{history_row.U_VIEW_MESSAGE}">{L__VIEW_PM}</a>
+				<!-- IF history_row.U_POST_REPLY_PM --> | <a href="{history_row.U_POST_REPLY_PM}">{L__POST_REPLY}</a><!-- ENDIF -->
+				</div></div>
+			</td>
+		</tr>
+
+		<!-- IF history_row.S_ROW_COUNT is even --><tr class="row1"><!-- ELSE --><tr class="row2"><!-- ENDIF -->
+			<td class="gensmall row">&nbsp;</td>
+			<td class="row"><div class="gensmall" style="float: {S_CONTENT_FLOW_BEGIN};">&nbsp;<!-- IF history_row.U_PROFILE --><a href="{history_row.U_PROFILE}">{PROFILE_IMG}</a> <!-- ENDIF --> <!-- IF history_row.U_EMAIL --><a href="{history_row.U_EMAIL}">{EMAIL_IMG}</a> <!-- ENDIF -->&nbsp;</div> <div class="gensmall" style="float: {S_CONTENT_FLOW_END};"><!-- IF history_row.U_QUOTE --><a href="{history_row.U_QUOTE}">{QUOTE_IMG}</a> <!-- ENDIF -->&nbsp;</div></td>
+		</tr>
+		<tr>
+			<td class="spacer" colspan="2"><img src="images/spacer.gif" alt="" width="1" height="1" /></td>
+		</tr>
+	<!-- END history_row -->
+		</table>
+	</div></td>
+</tr>
+</table>
+{$CA_BLOCK_END}
+
+<br clear="all" />
+<!-- ENDIF -->
+
+	<!-- IF not S_PRIVMSGS or S_SHOW_DRAFTS -->{S_FORM_TOKEN}</form><!-- ENDIF --></td>
+</tr>
+</table>
+<!-- IF (S_SHOW_PM_BOX or S_EDIT_POST) and S_POST_ACTION -->{S_FORM_TOKEN}</form><!-- ENDIF -->
+
+<br clear="all" />
+
+<!-- INCLUDE themes/Bitfarm/templates/breadcrumbs.html -->
+
+<div align="{S_CONTENT_FLOW_END}"><!-- INCLUDE themes/Bitfarm/templates/jumpbox.html --></div>
+
+<!-- INCLUDE themes/Bitfarm/templates/over_all_footer.html -->

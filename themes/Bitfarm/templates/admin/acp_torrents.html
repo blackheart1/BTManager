@@ -1,0 +1,79 @@
+<!-- INCLUDE themes/Bitfarm/templates/admin/over_all_header.html -->
+
+<a name="maincontent"></a>
+
+<h1>{L_TITLE}</h1>
+
+<p>{L_EXPLAIN}</p>
+
+<form id="list" method="post" name="list" action="{U_ACTION}">
+{HIDDEN}
+
+<!-- IF PAGINATION -->
+<div class="pagination" style="float: right; margin: 15px 0 2px 0">
+	<a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{S_ON_PAGE}</a> &bull; <span>{PAGINATION}</span>
+</div>
+<!-- ENDIF -->
+
+<div class="clearfix">&nbsp;</div>
+<div><br style="clear: both;" /></div>
+
+<!-- IF .torrent -->
+	<table cellspacing="1">
+	<thead>
+	<tr>
+		<th>{L_NAME}</th>
+		<th>{L_TRACKER}</th>
+		<th>{L_UPLOADER}</th>
+		<th>{L_VISIBLE}</th>
+		<th>{L_LASTACTION}</th>
+		<th>{L_ACTION}</th>
+		<th>{L_MARK}</th>
+	</tr>
+	</thead>
+	<tbody>
+	<!-- BEGIN torrent -->
+		<!-- IF torrent.S_ROW_COUNT is even --><tr class="row1"><!-- ELSE --><tr class="row2"><!-- ENDIF -->
+			<td>
+				<a style="text-decoration: none;" href="./details.php?id={torrent.ID}" title="{torrent.TOR_FULL_NAME}">{torrent.TOR_SHOR_NAME}</a>
+			</td>
+			<td>{torrent.TRACKER}</td>
+			<td><a href="./user.php?op=profile&amp;id={torrent.OWNER_ID}"><font color="#{torrent.OWNER_COLOR}">{torrent.OWNER}</font></a></td>
+			<td style="text-align: center;">{torrent.VISIBLE}</td>
+			<td>{torrent.LASTACTION}</td>
+			<td><a href="edit.php?id={torrent.ID}"><img src="themes/Bitfarm/pics/edit.gif" border="0" alt="{L_EDIT}" title="{L_EDIT}"   /></a><a href="edit.php?op=ban&amp;id={torrent.ID}"><img src="themes/Bitfarm/pics/ban.png" border="0" alt="{L_BANNT}" title="{L_BANNT}"   /></a></td>
+			<td style="text-align: center;"><input type="checkbox" class="radio" name="torrent_id[]" value="{torrent.ID}" /></td>
+		</tr>
+	<!-- END log -->
+	</tbody>
+	</table>
+
+<!-- IF PAGINATION -->
+	<div class="pagination">
+		<a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{S_ON_PAGE}</a> &bull; <span>{PAGINATION}</span>
+	</div>
+<!-- ENDIF -->
+
+	<fieldset class="quick">
+		<input class="button2" type="submit" name="delall" value="{L_DELETE_ALL}" />&nbsp;
+		<input class="button2" type="submit" name="delmarked" value="{L_DELETE_MARKED}" /><br />
+		<p class="small"><a href="#" onclick="marklist('list', 'torrent_id', true); return false;">{L_MARK_ALL}</a> &bull; <a href="#" onclick="marklist('list', 'torrent_id', false); return false;">{L_UNMARK_ALL}</a></p>
+	</fieldset>
+
+<!-- ELSE -->
+	<div class="errorbox">
+		<p>{L_NO_ENTRIES}</p>
+	</div>
+<!-- ENDIF -->
+<hr />
+</form>
+
+<form id="list" method="post" action="{U_ACTIONB}">
+<fieldset class="display-options">
+	{L_DISPLAY_LOG}: &nbsp;{S_LIMIT_DAYS}&nbsp;{L_SORT_BY}: {S_SORT_KEY} {S_SORT_DIR}
+	<input class="button2" type="submit" value="{L_GO}" name="sort" />
+	{S_FORM_TOKEN}
+</fieldset>
+</form>
+
+<!-- INCLUDE themes/Bitfarm/templates/admin/over_all_footer.html -->

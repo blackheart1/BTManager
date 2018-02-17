@@ -1,0 +1,47 @@
+<!-- INCLUDE themes/Bitfarm/templates/mcp_header.html -->
+<script type="text/javascript">
+// <![CDATA[
+/**
+* Find a member
+*/
+function find_username(url)
+{
+	popup(url, 760, 570, '_usersearch');
+	return false;
+}
+
+/**
+* Window popup
+*/
+function popup(url, width, height, name)
+{
+	if (!name)
+	{
+		name = '_popup';
+	}
+
+	window.open(url.replace(/&amp;/g, '&'), name, 'height=' + height + ',resizable=yes,scrollbars=yes, width=' + width);
+	return false;
+}
+// ]]>
+</script>
+<form method="post" name="mcp" action="{U_POST_ACTION}">
+
+{$CA_BLOCK_START}
+{$CA_CAP2_START}{L_SELECT_USER}{$CA_CAP2_END}
+<table class="tablebg" width="100%" cellspacing="{$CA_SPACING}" align="center">
+<tr>
+	<td class="row1" width="40%"><b class="gen">{L_FIND_USERNAME}: </b><br /><span class="gensmall">[ <a href="{U_FIND_USERNAME}" onclick="find_username(this.href); return false;">{L_FIND_USERNAME}</a> ]</span></td>
+	<td class="row2"><input type="text" class="post" name="username" size="20" /></td>
+</tr>
+<tr>
+	<td class="catf" colspan="2" align="center"><input type="submit" name="submituser" value="{L_SUBMIT}" class="btnmain" /></td>
+</tr>
+</table>
+{$CA_BLOCK_END}
+{S_FORM_TOKEN}
+</form>
+
+<br clear="all" /><br />
+
+<!-- INCLUDE themes/Bitfarm/templates/mcp_footer.html -->

@@ -1,0 +1,38 @@
+HTML{height:100%;}
+BODY{background: url(pics/wall.png);  FONT-FAMILY:Bitstream Vera Sans,Tahoma,sans-serif;color:#000;FONT-SIZE:11px;HEIGHT:100%;margin:0px;padding:0px;min-height:550px;}
+#maincontain{position:absolute;width:100%;height:50%;z-index:5;text-align:center; padding-bottom:50px!important;}
+#maincontainsup{position:absolute;width:100%;height:100%;z-index:5;text-align:center;}
+#logintab{width:300px;bottom:-64px;position:absolute;left:50%;margin-left:-170px;padding:20px;box-shadow:#000 0 0 12px 6px;}
+#signup{width:520px;position:absolute;left:40%;margin-left:-170px;padding:20px;box-shadow:#000 0 0 12px 6px;}
+.shade{background:url(pics/login/b.png);}
+#logintab label{padding-left:2px;}
+.uiInput{border:1px solid #000000;font-size:16px;padding:3px;width:280px;}
+#foot{BACKGROUND:url(pics/login/b.png) transparent;HEIGHT:30px;OVERFLOW:hidden;display:table;width:100%;position:fixed;bottom:0;}
+#foot div.mil{POSITION: relative;vertical-align:middle;padding-right:10px;text-align:left;display:table-cell;}
+#mil{text-align:right!important;}
+#mil font{color:#F00;font-weight:bold;}
+#powered{position:absolute;bottom:40px;font-weight:bold;left:50%;display:none;margin-left:-83px;}
+a.button{background:transparent url(pics/login/vb_l.png) no-repeat top right;color:#000;display:inline-block;font:normal 12px;height:24px;margin-right:6px;padding-right:5px;text-decoration:none;}
+a.button span{background:transparent url(pics/login/vb_r.png) no-repeat;display:block;color:#000;line-height:14px;padding:5px 13px 5px 18px;outline:none;}
+input#nick,input#mail,input#useremail,input#pass,input#code,input#s_uname,input#s_upass,input#s_upassa,input#s_umail{padding-left:14px;background:#ffffff no-repeat 2px center;}
+input#nick,input#s_uname{background-image:url(pics/name.png);}
+input#mail,input#useremail,input#s_umail{background-image:url(pics/mail.png);}
+input#pass,input#s_upass,input#s_upassa{background-image:url(pics/pass.png);}
+input#code{background-image:url(pics/red.png);}
+.uiButton{background:#eee url(pics/ui/buttons/button.png) repeat 0 0;background-position:0 -48px;border:1px solid #999;border-bottom-color:#888;box-shadow:0 1px 0 rgba(0,0,0,.1);-moz-box-shadow:0 1px 0 rgba(0,0,0,.1);cursor:pointer;display:-moz-inline-box;display:inline-block;font-size:11px;font-weight:bold;line-height:normal!important;padding:2px 6px;text-align:center;text-decoration:none;vertical-align:top;white-space:nowrap;}
+.uiButton button{background:none;border:0;color:#333;cursor:pointer;display:-moz-inline-box;display:inline-block;font-size:11px;font-weight:bold;margin:0;outline:0;padding:3px 25px 5px;white-space:nowrap;}
+.uiButton:active{background:#ddd;border-bottom-color:#999;box-shadow:0 1px 0 rgba(0, 0, 0, .05);-moz-box-shadow:0 1px 0 rgba(0, 0, 0, .05);}
+.uiButtonRed{background-color:#A74E4E;border-color:#6F2222 #6F2222 #511515;}
+.uiButtonRed:active{background:#994646;border-bottom-color:#6F2222;}
+.uiButtoncolor button,.uiButtonRed button{color:#fff}
+.notification{position:relative;margin:20px auto;padding:0;border:1px solid;background-position:10px 11px!important;z-index:1000;background-repeat:no-repeat!important;font-size:13px;width:70%;}
+.notification div{display:block;font-style:normal;padding:10px 10px 10px 36px;line-height:1.5em;}
+.error{background:#ffcece url(pics/ui/icons/cross_circle.png);border-color:#df8f8f;color:#665252;}
+#bg{position:fixed;width:100%;height:100%;left:0;top:0;z-index:-100;}
+
+#vpbox{position:absolute;top:0;left:0;z-index:100;text-align:left;display:none;}
+#vpbox .load{text-align: center;}
+#vpbox .content{display:table;width:370px;padding:10px;background:#fff;border-radius:4px;position:relative;border:3px solid rgba(0,0,0,0);-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;-webkit-box-shadow:0 0 18px rgba(0,0,0,0.4);-moz-box-shadow:0 0 18px rgba(0,0,0,0.4);box-shadow:0 0 18px rgba(0,0,0,0.4);}
+#poem{color:#000;font-weight:bold;text-align:center;}
+img.reload{height:30px;width:269px;}
+img.reicon{height:30px;}

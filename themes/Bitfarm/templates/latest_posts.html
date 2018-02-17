@@ -1,0 +1,37 @@
+<link href="./themes/Bitfarm/forums/style.css" rel="stylesheet" type="text/css" media="screen, projection" />
+<div class="myFrame">
+<div class="myF-caption">Recent Posts</div>
+<div class="wrapper">
+<div class="myF-content">
+<table class="tablebg" width="100%" cellspacing="0">
+
+<tr valign="middle">
+<td  class="row3" >
+<div id="nnRecent_Posts">
+<b>Latest Topics</b><br>
+<table align=center cellpadding=1 cellspacing=0 style='border-collapse: collapse' bordercolor=#646262 width=100% border=1 >
+<tr>
+    <td class = ftableback align=left  width=100%><b>Topic Title</b></td>
+    <td class = ftableback align=center width=47><b>Replies</b></td>
+    <td class = ftableback align=center width=47><b>Views</b></td>
+    <td class = ftableback align=center width=85><b>Author</b></td>
+    <td class = ftableback align=right width=85><b>Last Post</b></td>
+</tr>
+<!-- BEGIN recent_posts -->
+<tr class=alt1>
+    <td style='padding-right: 5px'><a href=forums.php?action=viewtopic&amp;topicid={recent_posts.TOPIC_ID}><b>{recent_posts.SUBJECT}</b></a></td>
+    <td class=alt2 align=center>{recent_posts.REPLIES}</td>
+    <td class=alt1 align=center>{recent_posts.VIEWS}</td>
+    <td class=alt1 align=center><a href=user.php?op=profile&amp;id={recent_posts.AUTHOR_ID}><font color="{recent_posts.AUTHOR_COLOR}">{recent_posts.AUTHOR}</font></a></td>
+    <td class=alt2 align=center><nobr><small><nobr>{recent_posts.ADDED}</nobr><br /><a href=user.php?op=profile&amp;id={recent_posts.POSTER_ID}><font color="{recent_posts.POSTER_COLOR}">{recent_posts.POSTER}</font></a> <a href=forums.php?action=viewtopic&amp;topicid={recent_posts.TOPIC_ID}&amp;page=last#last><img src="./themes/Bitfarm/forums/icon_topic_latest.gif" alt="View the latest post" title="View the latest post" width="11" height="8"border="0"></a></small></nobr></td>
+</tr>
+<!-- END recent_posts -->
+</table>
+<br>
+</div>
+</td></tr>
+</table></div>
+</div>
+</div>
+
+<br clear="all" >

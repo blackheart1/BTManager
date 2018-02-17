@@ -1,0 +1,72 @@
+<h3 align="center">Bit Torrent Disclaimer for *MYBT*</h3>
+<p>This disclaimer must be considered as <b>rules</b> and &quot;<b>legal notice</b>&quot; the Bit Torrent Service (the &quot;Service&quot;) offered by *MYBT*.</p>
+<p>*MYBT* offers the Service to the users that visit the portal that can be reached at
+*URL* by his/her own Internet connected PC.</p>
+<p>The Service allows the user to access to a Bit Torrent file archive (for
+information about Bit Torrent, protocol specifications and programs required to use it
+please consult <a href="http://www.bittorrent.com">
+http://www.bittorrent.com</a>) in a free and anonymous form</p>
+<p>Please remember that:</p>
+<ul>
+        <li><p>*MYBT* promotes and stimulates free information exchange between people,
+        without limitations of country, age, gender, civil state, race, religion, etc.</p></li>
+        <li><p>*MYBT* promotes, stimulates and defends &quot;freeware&quot; and Open Source products</p></li>
+        <li><p>*MYBT* retains important communication and socialization on the Internet, and promotes it</p></li>
+        <li><p>*MYBT* defends the rigths of consumers, artists, software developers, minors
+        and people around them</li>
+        <li><p>*MYBT* does not allow illegal activities on the web site</p></li>
+        <li><p>*MYBT* does not have human and technological means needed to monitor data traffic
+        directly or indirectly made by using the Service</p></li>
+</ul>
+<p>Service is totally free and anonymous, in fact:</p>
+<ul>
+        <li><p>You are not required to submit any confidential data
+        like name, surname, address and phone number</p></li>
+        <li><p>You're not required to pay money to use the Service</p></li>
+        <li><p>*MYBT* does not directly earn money when a user submits or downloads a Torrent</p></li>
+</ul>
+<p>Service is subject to the application of all normatives about information transmission and
+publication. Particularly, the user agrees that:</p>
+<ul>
+        <li><p><u>It is strictly prohibited to use the Service in order to exchange child-porn material</u></p></li>
+        <li><p>It is strictly prohibited to use the Service in order to exchange copyrighted material
+        without a distribution license</p></li>
+        <li><p>It is strictly prohibited to use the Service in order to exchange material that is
+        dangerous for the Public Security (like, as examples, manuals the constructions of fire, chemical,
+        bacteriological weapons or material that, in any way, may promote illegal acts like terrorism)</p></li>
+        <li><p>It is strictly prohibited to use the Service for fake-sharing activities
+        (sharing corrupt or empty files)</p></li>
+</ul>
+<p>Then:</p>
+<ul>
+        <li><p>Since the impossibility to check the effective content of a Torrent
+        before its complete download</p></li>
+        <li><p>Since the impossibility to determine whether a copyrighted file
+        (remember that Open Source programs are still copyrightes)
+        can be freely distributed over Internet or not</p></li>
+        <li><p>Since the impossibility to constantly monitor the Torrent available on the portal
+        and to judge their content</p></li>
+        <li><p>Since that *MYBT* does not host any Torrent, but they all are shared in a private form
+        by their owners</p></li>
+</ul>
+<p>*MYBT* declines any responsibility regarding Torrent files' contents and
+the use done by final users. But, the Staff is available, by written request sent
+to the e-Mail address *EMAIL*, with full reason and details (and, in case of copyrighted material,
+the name of the copyright owner) to &quot;ban&quot; a Torrent from the Tracker.
+&quot;Banning&quot; consists in the impossibility, by users, to download a Torrent.
+Differently from simple deletion, ban blocks future attempts to re-upload an illegal file .</p>
+<p>The user accepts that:</p>
+<ul>
+        <li><p>There is an automated &quot;keyword&quot; filter that prevents users to upload illegal files.
+        The filter is constantly updated by the Staff, but it is still subject to errors.
+        In the case a good file is considered illegal by the system, we invite the user to rename it
+        and accept our apologizes for the inconvenience.</p></li>
+        <li><p>The above filter can, upon written request, sent via e-Mail to *EMAIL* and from exclusively the
+        copyright owner or his/her legal representant, be updated by te Staff in order to block
+        a copyrighted Torrent upload</p></li>
+        <li><p>There is a &quot;log&quot;, not available to anybody, that keeps track of user actions
+        in order only to prevent illegal activities such as pedophilia. The above log is kept
+        with all most advanced security and cryptography measures by *MYBT*'s Privacy Administrator,
+        and only the lines regarding an illegal Torrent may, upon written request, be shown to the
+        Authorities, under law procedures</p></li>
+</ul>

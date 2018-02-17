@@ -1,0 +1,94 @@
+#
+#         This java file is a part of the
+#
+#          -  Plouf's Java IRC Client  -
+#
+#      Copyright (C) 2004 Philippe Detournay
+#
+#   This file is licensed under the GPL license
+#
+#        All contacts : theplouf@yahoo.com
+#
+#
+#  Syntax :
+#    Comments begin with the # character. This character must be the first character of the line.
+#    A data line has three parts : the data id, the data id description, the data string.
+#      - Data id : An hexadecimal figure identifying the string.
+#      - Data description : Begins by [ and ends by ]. The description is not parsed and
+#                           can be any string.
+#      - Data string : The string itself. Parameters are specified using the %i syntax.
+#
+#  Trailing spaces can be added using the \s escape character.
+#
+#  Traduzione italiana by Antonio Anzivino
+
+0001 [INTERPRETOR_NOT_ON_CHANNEL] Non sul canale
+0002 [INTERPRETOR_UNKNOWN_DCC] %1 : comando dcc sconosciuto
+0003 [INTERPRETOR_INSUFFICIENT_PARAMETERS] %1 : parametri insufficienti
+0004 [INTERPRETOR_BAD_CONTEXT] %1 : impossibile eseguire in questo contesto
+0005 [INTERPRETOR_CANNOT_CTCP_IN_DCCCHAT] Impossibile inviare codici CTCP via DCC Chat
+0006 [INTERPRETOR_UNKNOWN_CONFIG] %1 : sottocomando di configurazione sconosciuto
+0007 [INTERPRETOR_TIMESTAMP_ON] Timestamp abilitati
+0008 [INTERPRETOR_TIMESTAMP_OFF] Timestamp disabilitati
+0009 [INTERPRETOR_SMILEYS_ON] Smiley abilitati
+000a [INTERPRETOR_SMILEYS_OFF] Smiley disabilitati
+000b [INTERPRETOR_IGNORE_ON] Ignoro %1
+000c [INTERPRETOR_IGNORE_OFF] Non ignoro più %1 anymore
+000d [INTERPRETOR_MULTISERVER_DISABLED] Supporto multiserver disabilitato
+
+0101 [DCC_WAITING_INCOMING] In attesa di connessione...
+0102 [DCC_UNABLE_TO_OPEN_CONNECTION] Impossibile aprire la connessione : %1
+0103 [DCC_CONNECTION_ESTABLISHED] Connessione DCC stabilita
+0104 [DCC_CONNECTION_CLOSED] Connessione chiusa
+0105 [DCC_ERROR] Errore : %1
+0106 [DCC_UNABLE_TO_SEND_TO] %1 : impossibile inviare a %2
+0107 [DCC_BAD_CONTEXT] Impossibile eseguire il comando da questo contesto
+0108 [DCC_NOT_CONNECTED] Non connesso
+0109 [DCC_UNABLE_PASSIVE_MODE] Impossibile inizializzare la modalità passiva
+010a [CTCP_PING_REPLY] [%1 PING reply] : %2 secondi
+010b [DCC_STREAM_CLOSED] Flusso dati chiuso
+
+0201 [IDENT_FAILED_LAUNCH] Impossibile contattare il server Ident : %1
+0202 [IDENT_REQUEST] Richiesta Ident da %1
+0203 [IDENT_ERROR] Si è verificato un errore
+0204 [IDENT_REPLIED] Risposto %1
+0205 [IDENT_DEFAULT_USER] utente predefinito
+0206 [IDENT_NO_USER] Nessun utente per la richiesta
+0207 [IDENT_RUNNING_ON_PORT] Il server Ident gira sulla porta %1
+0208 [IDENT_LEAVING] Lascio il server Ident : %1
+0209 [IDENT_NONE] nessuno
+020a [IDENT_UNKNOWN] sconosciuto
+020b [IDENT_UNDEFINED] Risultato non definito
+
+0301 [FILE_SAVEAS] Salva come
+
+0401 [ABOUT_ABOUT] Info
+0402 [ABOUT_PROGRAMMING] Sviluppo
+0403 [ABOUT_DESIGN] Design
+0404 [ABOUT_THANKS] Ringraziamenti
+0405 [ABOUT_SUPPORT] per supporto, idee e testing
+0406 [ABOUT_GPL] Questo programma è distribuito sotto licenza GPL
+
+0501 [SERVER_UNABLE_TO_CONNECT] Impossibile connettersi: %1
+0502 [SERVER_UNABLE_TO_CONNECT_STILL] Impossibile connettersi a %1 : tentativo di connessione a %2
+0503 [SERVER_DISCONNECTING] Disconnesso da %1
+0504 [SERVER_CONNECTING] Connessione...
+0505 [SERVER_NOT_CONNECTED] Non connesso
+0506 [SERVER_LOGIN] Log in...
+0507 [SERVER_DISCONNECTED] Disconnesso da %1
+0508 [SERVER_ERROR] Errore : %1
+
+
+071a [GUI_CHANGE_NICK] Cambia nick in
+071b [GUI_COPY_WINDOW] Copia testo
+071c [GUI_DCC_CHAT_WARNING_TITLE] Avviso
+071d [GUI_DCC_CHAT_WARNING_TEXT] Vuoi accettare uan sessione DCC da %1?
+
+0801 [ASL_MALE] Maschio, %1 anni, %2
+0802 [ASL_FEMALE] Femmina, %1 anni, %2
+0803 [ASL_UNKNOWN] %1 anni, da %2
+
+0901 [REPLY_IDLE] %1 has been idle for %2
+0902 [REPLY_SIGNON] %1 connected on %2
+
+ffff [ERROR_NOT_DEFINED] Undefined string

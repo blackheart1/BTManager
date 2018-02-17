@@ -1,0 +1,1297 @@
+<!-- INCLUDE themes/Bitfarm/templates/over_all_header.html -->
+
+<table width="100%" align="center" cellspacing="0" cellpadding="0" border="0">
+<tr>
+	<td width="20%" valign="top" id="ucp-left">
+
+
+<table class="tablebg" width="100%" cellspacing="0">
+<tr><td>
+<div class="caption">
+<div class="cap-left">
+<div class="cap-right">
+&nbsp;Options&nbsp;
+</div>
+</div>
+</div>
+</td></tr><tr valign="middle">
+
+<!-- IF ACTION != overview --><td class="row2" onmouseover="this.className='row1'" onmouseout="this.className='row2'" onclick="location.href=this.firstChild.href;" nowrap="nowrap"><a class="nav" href="{PMBT_LINK_BACK}action=overview&amp;mode=front">Overview</a><!-- ELSE --><td class="row1"><b class="nav">Overview</b><!-- ENDIF -->
+<!-- IF ACTION == overview -->			
+			<ul class="nav" style="margin: 0; padding: 0; list-style-type: none; line-height: 175%;">
+							<li>&#187; <!-- IF MODE != front --><a href="{PMBT_LINK_BACK}action=overview&amp;mode=front">Front page</a><!-- ELSE --><b>Front page</b><!-- ENDIF --></li>
+							<li>&#187; <!-- IF MODE != subscribed --><a href="{PMBT_LINK_BACK}action=overview&amp;mode=subscribed">Manage subscriptions</a><!-- ELSE --><b>Manage subscriptions</b><!-- ENDIF --></li>
+							<li>&#187; <!-- IF MODE != drafts --><a href="{PMBT_LINK_BACK}action=overview&amp;mode=drafts">Manage drafts</a><!-- ELSE --><b>Manage drafts</b><!-- ENDIF --></li>
+							<li>&#187; <!-- IF MODE != attachments --><a href="{PMBT_LINK_BACK}action=overview&amp;mode=attachments">Manage attachments</a><!-- ELSE --><b>Manage attachments</b><!-- ENDIF --></li>
+						</ul>
+<!-- ENDIF -->
+				</td>
+	</tr>
+	<tr>
+					<!-- IF ACTION != profile --><td class="row2" nowrap="nowrap" onmouseover="this.className='row1'" onmouseout="this.className='row2'" onclick="location.href=this.firstChild.href;"><a class="nav" href="{PMBT_LINK_BACK}action=profile&mode=profile_info">Profile</a><!-- ELSE --><td class="row1"><b class="nav">Profile</b><!-- ENDIF -->
+<!-- IF ACTION == profile -->
+		<ul class="nav" style="margin: 0pt; padding: 0pt; list-style-type: none; line-height: 175%;">
+							<!-- IF MODE != profile_info --><li>&#187; <a href="{PMBT_LINK_BACK}action=profile&mode=profile_info">Edit profile</a></li><!-- ELSE --><li>&#187; <b>Edit profile</b></li><!-- ENDIF -->
+							<!-- IF MODE != signature --><li>&#187; <a href="{PMBT_LINK_BACK}action=profile&mode=signature">Edit signature</a></li><!-- ELSE --><li>&#187; <b>Edit signature</b></li><!-- ENDIF -->
+							<!-- IF MODE != avatar --><li>&#187; <a href="{PMBT_LINK_BACK}action=profile&mode=avatar">Edit avatar</a></li><!-- ELSE --><li>&#187; <b>Edit avatar</b></li><!-- ENDIF -->
+							<!-- IF MODE != reg_details --><li>&#187; <a href="{PMBT_LINK_BACK}action=profile&mode=reg_details">Edit account settings</a></li><!-- ELSE --><li>&#187; <b>Edit account settings</b></li><!-- ENDIF -->
+							<!-- IF S_MOD_MODE --><!-- IF MODE != admin_reg_details --><li>&#187; <a href="{PMBT_LINK_BACK}action=profile&mode=admin_reg_details">Admin account settings</a></li><!-- ELSE --><li>&#187; <b>Admin account settings</b></li><!-- ENDIF --><!-- ENDIF -->
+						</ul>
+<!-- ENDIF -->
+				</td>
+
+	</tr>
+	<tr>
+					<!-- IF ACTION == preferences --><td class="row1"><b class="nav">Board preferences</b><!-- ELSE --><td class="row2" nowrap="nowrap" onmouseover="this.className='row1'" onmouseout="this.className='row2'" onclick="location.href=this.firstChild.href;"><a class="nav" href="{PMBT_LINK_BACK}action=preferences&mode=personal">Board preferences</a><!-- ENDIF -->
+<!-- IF ACTION == preferences -->
+			<ul class="nav" style="margin: 0pt; padding: 0pt; list-style-type: none; line-height: 175%;">
+							<li>&#187; <!-- IF MODE != personal --><a href="{PMBT_LINK_BACK}action=preferences&mode=personal">Edit global settings</a><!-- ELSE --><b>Edit global settings</b><!-- ENDIF --></li>
+						</ul>
+<!-- ENDIF -->
+				</td>
+	</tr>
+	<tr>
+					<!-- IF ACTION == friends --><td class="row1"><b class="nav">Friends &amp; Foes</b><!-- ELSE --><td class="row2" nowrap="nowrap" onmouseover="this.className='row1'" onmouseout="this.className='row2'" onclick="location.href=this.firstChild.href;"><a class="nav" href="{PMBT_LINK_BACK}action=friends&mode=friends">Friends &amp; Foes</a><!-- ENDIF -->
+<!-- IF ACTION == friends -->
+			<ul class="nav" style="margin: 0pt; padding: 0pt; list-style-type: none; line-height: 175%;">
+							<li>&#187; <!-- IF MODE != friends --><a href="{PMBT_LINK_BACK}action=friends&amp;mode=friends">Manage friends</a><!-- ELSE --><b>Manage friends</b><!-- ENDIF --></li>
+							<li>&#187; <!-- IF MODE != foes --><a href="{PMBT_LINK_BACK}action=friends&amp;mode=foes">Manage foes</a><!-- ELSE --><b>Manage foes</b><!-- ENDIF --></li>
+
+						</ul>
+<!-- ENDIF -->
+
+				</td>
+	</tr>
+</table>
+<br clear="all" >
+
+<div style="padding: 2px;"></div>
+
+    	<table class="tablebg" width="100%" cellspacing="0">
+<tr><td>
+<div class="caption">
+<div class="cap-left">
+<div class="cap-right">
+&nbsp;Friends&nbsp;
+</div>
+</div>
+</div>
+</td></tr><tr valign="middle">
+		<td class="row1" align="center">
+		
+			<b class="genmed" style="color:green">{L_ON_LINE}</b>
+
+			<ul class="nav" style="margin: 0; padding: 0; list-style-type: none; line-height: 175%;">
+			<!-- BEGIN friends_online -->
+							<li><a href="user.php?op=profile&amp;id={friends_online.USER_ID}"><font color="{friends_online.USER_COLOUR}"><!-- IF friends_online.USERNAME_FULL -->{friends_online.USERNAME_FULL}<!-- ELSE -->{friends_online.USERNAME}<!-- ENDIF --></font></a>
+								</li>
+			<!-- BEGINELSE -->
+				<li>{L_NO_FRIENDS_ONLINE}</li>
+			<!-- END friends_online -->
+						</ul>
+
+			<hr />
+
+			<b class="genmed error">{L_OFF_LINE}</b>
+
+			<ul class="nav" style="margin: 0; padding: 0; list-style-type: none; line-height: 175%;">
+
+			<!-- BEGIN friends_offline -->
+							<li><a href="user.php?op=profile&amp;id={friends_offline.USER_ID}"><font color="{friends_offline.USER_COLOUR}"><!-- IF friends_offline.USERNAME_FULL -->{friends_offline.USERNAME_FULL}<!-- ELSE -->{friends_offline.USERNAME}<!-- ENDIF --></font></a>
+								</li>
+			<!-- BEGINELSE -->
+				<li>{L_NO_FRIENDS_ONLINE}</li>
+			<!-- END friends_online -->
+						</ul>
+
+		</td>
+	</tr>
+	</table>
+	
+</td>
+<td><img src="images/spacer.gif" width="4" alt="" /></td>
+<td width="80%" valign="top">
+<!-- IF MODE == signature -->
+<form name="ucp" id="ucp" method="post" action="{PMBT_LINK_BACK}">
+<input type="hidden" name="take_edit" value="1" >
+<input type="hidden" name="action" value="profile" >
+<input type="hidden" name="op" value="editprofile" >
+<input type="hidden" name="mode" value="signature" />
+<table class="tablebg" width="100%" cellspacing="0">
+<tr>
+<td>
+	<div class="caption">
+<div class="cap-left">
+<div class="cap-right">&nbsp;Edit signature&nbsp;</div>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+	<td colspan="2" class="row1">This is a block of text that can be added to posts you make. There is a 255 character limit.</td>
+</tr>
+
+
+<tr>
+	<td colspan="2" class="row2">
+		<script type="text/javascript">
+		// <![CDATA[		
+			var form_name = 'ucp';
+			var text_name = 'signature';
+		// ]]>
+		</script>
+		
+		<table cellspacing="0" cellpadding="2" border="0" width="99%">
+		<tr valign="middle" align="left">
+	<td colspan="2">
+		<script type="text/javascript">
+		// <![CDATA[
+		
+		// Define the bbCode tags
+		var bbcode = new Array();
+		var bbtags = new Array('[b]','[/b]','[i]','[/i]','[u]','[/u]','[quote]','[/quote]','[code]','[/code]','[list]','[/list]','[list=]','[/list]','[img]','[/img]','[url]','[/url]','[flash=]', '[/flash]','[size=]','[/size]');
+		var imageTag = false;
+		
+		// Helpline messages
+		var help_line = {
+			b: 'Bold text: [b]text[/b]',
+			i: 'Italic text: [i]text[/i]',
+			u: 'Underline text: [u]text[/u]',
+			q: 'Quote text: [quote]text[/quote]',
+			c: 'Code display: [code]code[/code]',
+			l: 'List: [list]text[/list]',
+			o: 'Ordered list: [list=]text[/list]',
+			p: 'Insert image: [img]http://image_url[/img]',
+			w: 'Insert URL: [url]http://url[/url] or [url=http://url]URL text[/url]',
+			s: 'Font colour: [color=red]text[/color]  Tip: you can also use color=#FF0000',
+			f: 'Font size: [size=85]small text[/size]',
+			e: 'List: Add list element',
+			d: 'Flash: [flash=width,height]http://url[/flash]',
+			t: '{ BBCODE_T_HELP }',
+			tip: 'Tip: Styles can be applied quickly to selected text.'
+					}
+		
+		// ]]>
+
+		</script>
+
+		<script type="text/javascript" src="{T_TEMPLATE_PATH}/editor.js"></script>
+
+		<input type="button" class="btnbbcode" accesskey="b" name="addbbcode0" value=" B " style="font-weight:bold; width: 30px;" onclick="bbstyle(0)" onmouseover="helpline('b')" onmouseout="helpline('tip')" />
+		<input type="button" class="btnbbcode" accesskey="i" name="addbbcode2" value=" i " style="font-style:italic; width: 30px;" onclick="bbstyle(2)" onmouseover="helpline('i')" onmouseout="helpline('tip')" />
+		<input type="button" class="btnbbcode" accesskey="u" name="addbbcode4" value=" u " style="text-decoration: underline; width: 30px;" onclick="bbstyle(4)" onmouseover="helpline('u')" onmouseout="helpline('tip')" />
+				<input type="button" class="btnbbcode" accesskey="c" name="addbbcode8" value="Code" style="width: 40px" onclick="bbstyle(8)" onmouseover="helpline('c')" onmouseout="helpline('tip')" />
+		<input type="button" class="btnbbcode" accesskey="l" name="addbbcode10" value="List" style="width: 40px" onclick="bbstyle(10)" onmouseover="helpline('l')" onmouseout="helpline('tip')" />
+		<input type="button" class="btnbbcode" accesskey="o" name="addbbcode12" value="List=" style="width: 40px" onclick="bbstyle(12)" onmouseover="helpline('o')" onmouseout="helpline('tip')" />
+		<input type="button" class="btnbbcode" accesskey="t" name="addlitsitem" value="[*]" style="width: 40px" onclick="bbstyle(-1)" onmouseover="helpline('e')" onmouseout="helpline('tip')" />				
+					<input type="button" class="btnbbcode" accesskey="p" name="addbbcode14" value="Img" style="width: 40px" onclick="bbstyle(14)" onmouseover="helpline('p')" onmouseout="helpline('tip')" />
+
+					<input type="button" class="btnbbcode" accesskey="w" name="addbbcode16" value="URL" style="text-decoration: underline; width: 40px" onclick="bbstyle(16)" onmouseover="helpline('w')" onmouseout="helpline('tip')" />
+				<span class="genmed nowrap">Font size: <select class="gensmall" name="addbbcode20" onchange="bbfontstyle('[size=' + this.form.addbbcode20.options[this.form.addbbcode20.selectedIndex].value + ']', '[/size]');this.form.addbbcode20.selectedIndex = 2;" onmouseover="helpline('f')" onmouseout="helpline('tip')">
+			<option value="50">Tiny</option>
+			<option value="85">Small</option>
+			<option value="100" selected="selected">Normal</option>
+			<option value="150">Large</option>
+
+			<option value="200">Huge</option>
+		</select></span>
+	</td>
+</tr>
+<tr>
+	<td colspan="2"><input type="text" readonly name="helpbox" style="width:100%" class="helpline" value="Tip: Styles can be applied quickly to selected text." /></td>
+
+	</tr>
+		<tr>
+			<td colspan="2"><textarea class="post" name="signature" rows="10" cols="76" style="width: 90%;" >{SIGNATURE}</textarea></td>
+
+		</tr>
+				<tr>
+			<td colspan="2">
+				<table cellspacing="0" cellpadding="0" border="0" width="100%">
+				<tr>
+					<td align="left">
+						<script type="text/javascript">
+						// <![CDATA[
+							colorPalette('h', 6, 5)
+						// ]]>
+						</script>
+					</td>
+
+				</tr>
+				</table>
+			</td>
+		</tr>
+				</table>
+	</td>
+</tr>
+
+<!-- IF SIGNATURE_PREVIEW -->
+	<tr>
+		<th colspan="2" valign="middle">{L_SIGNATURE_PREVIEW}</th>
+	</tr>
+	<tr> 
+		<td class="row1" colspan="2"><div class="postbody" style="padding: 6px;">{SIGNATURE_PREVIEW}</div></td>
+	</tr>
+<!-- ENDIF -->
+
+<tr>
+	<td colspan="2" align="center"><input class="btnlite" type="submit" name="preview" value="Preview" />&nbsp;&nbsp;<input class="btnmain" type="submit" name="submit" value="Submit" />&nbsp;&nbsp;<input class="btnlite" type="reset" value="Reset" name="reset" /></td>
+
+</tr>
+</table>
+</form>
+<!-- ELSEIF MODE == avatar -->
+<form enctype="multipart/form-data" name="ucp" id="ucp" method="post" action="{PMBT_LINK_BACK}">
+<input type="hidden" name="take_edit" value="1" >
+<input type="hidden" name="action" value="profile" >
+<input type="hidden" name="op" value="editprofile" >
+<input type="hidden" name="mode" value="avatar" />
+<table class="tablebg" width="100%" cellspacing="0">
+
+<td class="row1" width="35%"><b class="genmed">Current image: </b><br /><span class="gensmall">Maximum dimensions; width: {AVATAR_MAXWT} pixels, height: {AVATAR_MAXHT} pixels, file size: {AVATAR_MAXSZ}'s.</span></td>
+
+	<td class="row2" align="center"><br />
+		{CP_UAVATAR}<br /><br /><input type="checkbox" class="radio" name="delete" />&nbsp;<span class="gensmall">Delete image</span>
+		</td>
+</tr>
+<!-- IF ALLOW_AVATAR  -->
+<!-- IF ALLOW_AVATAR_UPLOAD  -->
+	<tr> 
+		<td class="row1" width="35%"><b class="genmed">Upload from your machine: </b></td>
+		<td class="row2"><input class="post" type="file" name="avupload" /></td>
+	</tr>
+<!-- ENDIF -->
+<!-- IF ALLOW_AVATAR_UPLOAD  -->
+	<tr> 
+		<td class="row1" width="35%"><b class="genmed">Upload from a URL: </b><br /><span class="gensmall">Enter the URL of the location containing the image. The image will be copied to this site.</span></td>
+
+		<td class="row2"><input class="post" type="text" name="uploadurl" size="40" value="" /></td>
+	</tr>
+<!-- ENDIF -->
+<!-- IF ALLOW_AVATAR_UPLOAD  -->
+	<tr> 
+		<td class="row1" width="35%"><b class="genmed">Link off-site: </b><br /><span class="gensmall">Enter the URL of the location containing the avatar image you wish to link to.</span></td>
+		<td class="row2"><input class="post" type="text" name="remotelink" size="40" value="" /></td>
+	</tr>
+<!-- ENDIF -->
+<script language="JavaScript" type="text/JavaScript">
+function ChangeThumb(pic) {
+        document.images.Thumb.src = '{AVATAR_GALORY}/'+pic
+}
+</script>
+	<tr> 
+		<td class="row1" width="35%"><b class="genmed">Avatar dimensions: </b><br /><span class="gensmall">Specify the width and height of the avatar, leave blank to attempt automatic verification.</span></td>
+
+		<td class="row2"><input class="post" type="text" name="width" size="3" value="{AVATAR_SETWT}" /> <span class="gen">px X </span> <input class="post" type="text" name="height" size="3" value="{AVATAR_SETHT}" /> <span class="gen">px</span></td>
+	</tr>
+	<tr> 
+		<td class="row1" width="35%"><b class="genmed">Local gallery: </b></td>
+		<td class="row2"><img src="avatars/blank.gif" name="Thumb" class="image" /><br><select name="avgallery" onChange="if(this.options[this.selectedIndex].value != 'none') ChangeThumb(this.options[this.selectedIndex].value);" onKeyUp="if(this.options[this.selectedIndex].value != 'none') ChangeThumb(this.options[this.selectedIndex].value);">{AVATAR_MAXSZ_SEL}</select></td>
+	</tr>
+
+	<tr>
+		<td colspan="2" align="center"><input class="btnmain" type="submit" name="submit" value="Submit" />&nbsp;&nbsp;<input class="btnlite" type="reset" value="Reset" name="reset" /></td>
+	</tr>
+<tr> 
+<!-- ENDIF -->
+</table>
+</form>
+<!-- ELSEIF MODE == admin_reg_details -->
+<form name="ucp" id="ucp" method="post" action="{PMBT_LINK_BACK}">
+{S_HIDDEN_FIELDS}
+<table class="tablebg" width="100%" cellspacing="0">
+
+<tr>
+	<td class="row1" width="35%"><b class="genmed">Mod Comments: </b></td>
+	<td class="row2"><textarea name="modcomment" rows="8" cols="60">{CP_MOD_COMENTS}</textarea></td>
+</tr>
+<tr>
+	<td class="row1" width="35%"><b class="genmed">{L_GROUP}: </b></td>
+	<td class="row2"><select name="group">{A_GROUP}</select></td>
+</tr>
+<tr>
+	<td class="row1" width="35%"><b class="genmed">{L_ACC_LEVEL}: </b></td>
+	<td class="row2">{A_LEVEL}</td>
+</tr>
+<tr>
+	<td class="row1" width="35%"><b class="genmed">WARNNED: </b></td>
+	<td class="row2"><!-- IF U_IS_WARNED -->
+	{L_YES}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Warned Tell {U_WARNED_TELL}<br><b>Delete Warning&nbsp;<b><input name=warned value=no type=checkbox>
+	<!-- ELSE -->
+   {L_NO}
+    <br><b>WARN:</b> For <select name=warnlength>
+    <option value=0>------</option>
+    <option value=604800>1 week</option>
+    <option value=1209600>2 weeks</option>
+    <option value=2419200>4 weeks</option>
+    <option value=4838400>8 weeks</option>
+    <option value=-1>unlimited time</option>
+    </select>
+	<br><b>Reason:<b>
+	<br>
+    <input type="text" rows="5" size ="40" name="warnpm"><br />
+	{L_UCP_WARN_REASON_EXPL}
+	
+	<!-- ENDIF -->
+	</td>
+</tr>
+<tr>
+	<td class="row1" width="35%"><b class="genmed">{L_UPLODED}: </b></td>
+	<td class="row2"><input name="up" value="{CP_TRUEUPLOADED}" size="40" type="text">&nbsp;&nbsp;{CP_UUPLOADED}</td>
+</tr>
+<tr>
+	<td class="row1" width="35%"><b class="genmed">{L_DOWNED}: </b></td>
+	<td class="row2"><input name="down" value="{CP_TRUEDOWNLOADED}" size="40" type="text">&nbsp;&nbsp;{CP_UDOWNLOADED}</td>
+</tr>
+<tr>
+	<td class="row1" width="35%"><b class="genmed">{L_SEED_BOMUS} </b></td>
+	<td class="row2"><input name="seed" value="{CP_SEED_POINTS}" size="40" type="text">&nbsp;&nbsp;{CP_SEED_POINTS}</td>
+</tr>
+<tr>
+	<td class="row1" width="35%"><b class="genmed">{L_INVITES}: </b></td>
+	<td class="row2"><input name="invit" value="{CP_INVITES}" size="40" type="text">&nbsp;&nbsp;{CP_INVITES}</td>
+</tr>
+<tr>
+	<td class="row1" width="35%"><b class="genmed">{L_USER_SEEDBOX}: </b></td>
+	<td class="row2"><input name="seedbox" value="{U_SEEDBOX_IP}" size="40" type="text">&nbsp;&nbsp;{U_SEEDBOX_IP}</td>
+</tr>
+<tr>
+	<td class="row1" width="35%"><b class="genmed">{L_M_SITE_HELPER}: </b></td>
+	<td class="row2">
+	<input type="radio" name="helper"<!-- IF U_SITE_HELPER --> checked="checked"<!-- ENDIF --> value="true" >&nbsp;&nbsp;{L_YES} &nbsp;&nbsp;<input type="radio" name="helper" value="false"<!-- IF not U_SITE_HELPER --> checked="checked"<!-- ENDIF --> >&nbsp;&nbsp;{L_NO}
+	</td>
+</tr>
+<tr>
+	<td class="row1" width="35%"><b class="genmed">{L_UCP_HELPER_FOR}: </b></td>
+	<td class="row2">
+	<textarea cols=30 rows=1 name=help_able>{U_SITE_HELP_WITH}</textarea>
+	</td>
+</tr>
+<tr>
+	<td class="row1" width="35%"><b class="genmed">{L_ACCOUT_STATUS}: </b><br><span class="gensmall">{L_ACCOUT_EXP_STATUS}</span></td>
+	<td class="row2">
+	<select name="active">
+	<option <!-- IF not U_ACTIVATED_ACC -->selected <!-- ENDIF -->value="0">{L_INACTIVE}</option>
+	<option <!-- IF U_ACTIVATED_ACC -->selected <!-- ENDIF -->value="1">{L_ACTIVE}</option>
+	</select>
+	</td>
+</tr>
+<tr>
+	<td class="row1" width="35%"><b class="genmed">{L_UCP_BAN_FORUM}: </b><br><span class="gensmall">{L_UCP_BAN_USER_FORUM}</span></td>
+	<td class="row2">
+	<input type="radio" name="forumban"<!-- IF U_FORUM_BANNED --> checked="checked"<!-- ENDIF --> value="true" >&nbsp;&nbsp;{L_YES} &nbsp;&nbsp;<input type="radio" name="forumban" value="false"<!-- IF not U_FORUM_BANNED --> checked="checked"<!-- ENDIF --> >&nbsp;&nbsp;{L_NO}
+	</td>
+</tr>
+<tr>
+	<td class="row1" width="35%"><b class="genmed">{L_UCP_SHOUT_BAN}: </b><br><span class="gensmall">{L_UCP_SHOUT_BAN_EXPL}</span></td>
+	<td class="row2">
+	<input type="radio" name="shoutban"<!-- IF not CP_UCANSHOUT --> checked="checked"<!-- ENDIF --> value="true" >&nbsp;&nbsp;{L_YES} &nbsp;&nbsp;<input type="radio" name="shoutban" value="false"<!-- IF CP_UCANSHOUT --> checked="checked"<!-- ENDIF --> >&nbsp;&nbsp;{L_NO}
+	</td>
+</tr>
+<tr>
+	<td class="row1" width="35%"><b class="genmed">{L_UCP_DISABLE_ACC}: </b><br><span class="gensmall">{L_UCP_DISABLE_ACC_EXPL}</span></td>
+	<td class="row2">
+	<input type="radio" name="disable"<!-- IF CP_DISABLED --> checked="checked"<!-- ENDIF --> value="true" >&nbsp;&nbsp;{L_YES} &nbsp;&nbsp;<input type="radio" name="disable" value="false"<!-- IF not CP_DISABLED --> checked="checked"<!-- ENDIF --> >&nbsp;&nbsp;{L_NO}<br />
+	<textarea cols=30 rows=1 name=disable_res>{CP_DISABLED_REASON}</textarea>
+	</td>
+</tr>
+
+<tr>
+	<td colspan="2" align="center"><input class="btnmain" type="submit" name="submit" value="Submit" />&nbsp;&nbsp;<input class="btnlite" type="reset" value="Reset" name="reset" /></td>
+</tr>
+</table>
+</form>
+<!-- ELSEIF MODE == reg_details -->
+<form name="ucp" id="ucp" method="post" action="{PMBT_LINK_BACK}">
+<input type="hidden" name="take_edit" value="1" >
+<input type="hidden" name="action" value="profile" >
+<input type="hidden" name="op" value="editprofile" >
+<input type="hidden" name="mode" value="reg_details" >
+<table class="tablebg" width="100%" cellspacing="0">
+
+<tr>
+	<td class="row1" width="35%"><b class="genmed">{L_USER_NAME}</td>
+
+	<td class="row2"><b class="gen">{CP_UNAME}</b></td>
+</tr>
+<tr>
+	<td class="row1" width="35%"><b class="genmed">{L_COMPLETE_NAME}: </b><br /><span class="gensmall">Length must be between 3 and 20 characters.</span></td>
+
+	<td class="row2"><input type="text" name="name" value="{CP_USNAME}" size ="30" autocomplete="off" /></td>
+</tr>
+<!-- IF ALLOW_EMAIL_CHANGE -->
+<tr>
+	<td class="row1" width="35%"><b class="genmed">E-mail address: </b><br /><span class="gensmall">A Comfermation email well be sent if you are changing your e-mail address.</span></td>
+	<td class="row2"><input autocomplete="off" type="text" class="post" name="new_email" size="30" maxlength="100" value="" /></td>
+</tr>
+	<tr>
+		<td class="row1" width="35%"><b class="genmed">Confirm e-mail address: </b><br /><span class="gensmall">You only need to specify this if you are changing your e-mail address.</span></td>
+
+		<td class="row2"><input autocomplete="off" type="text" class="post" name="email_confirm" size="30" maxlength="100" value="" /></td>
+	</tr>
+<!-- ENDIF -->
+	<tr>
+		<td class="row1" width="35%"><b class="genmed">New password: </b><br /><span class="gensmall">Must be between 6 and 30 characters.</span></td>
+		<td class="row2"><input autocomplete="off" type="password" class="post" name="newpasswd" size="30" maxlength="255" value="" /></td>
+	</tr>
+	<tr>
+		<td class="row1" width="35%"><b class="genmed">Confirm password: </b><br /><span class="gensmall">You only need to confirm your password if you changed it above.</span></td>
+
+		<td class="row2"><input autocomplete="off" type="password" class="post" name="newpasswdconf" size="30" maxlength="255" value="" /></td>
+	</tr>
+
+<tr>
+	<td colspan="2" align="center"><input class="btnmain" type="submit" name="submit" value="Submit" />&nbsp;&nbsp;<input class="btnlite" type="reset" value="Reset" name="reset" /></td>
+</tr>
+</table>
+</form>
+<!-- ELSEIF MODE == personal-->
+<form name="ucp" id="ucp" method="post" action="{U_ACTION}">
+{S_HIDDEN_FIELDS}
+<script type="text/javascript">
+// <![CDATA[
+	/**
+	* Set display of page element
+	* s[-1,0,1] = hide,toggle display,show
+	*/
+	function dE(n,s)
+	{
+		var e = document.getElementById(n);
+		if (!s)
+		{
+			s = (e.style.display == '') ? -1 : 1;
+		}
+		e.style.display = (s == 1) ? 'block' : 'none';
+	}
+	
+	var default_dateformat = 'D M d, Y g:i a';
+// ]]>
+</script>
+
+<table class="tablebg" width="100%" cellspacing="0">
+
+<tr> 
+	<td class="row1" width="50%"><b class="genmed">{L_ACCEPT_EMAIL}:</b>
+	<br /><span class="gensmall">Allow Users of this site to see your Email Address</span></td>
+
+	<td class="row2"><input type="radio" class="radio" name="accept_mail" value="1" <!-- IF U_ALLOW_EMAIL -->checked="checked"<!-- ENDIF --> /><span class="genmed">Yes</span>&nbsp;&nbsp;<input type="radio" class="radio" name="accept_mail" value="0" <!-- IF not U_ALLOW_EMAIL -->checked="checked"<!-- ENDIF --> /><span class="genmed">No</span></td>
+</tr>
+<tr> 
+	<td class="row1" width="50%"><b class="genmed">Accespt pm notifacation:</b>
+	<br /><span class="gensmall">Allow system to send you a E-mail Notice of new PM's</span></td>
+
+	<td class="row2"><input type="radio" class="radio" name="pm_notify" value="1" <!-- IF CP_PM_NOTIVY -->checked="checked"<!-- ENDIF --> /><span class="genmed">Yes</span>&nbsp;&nbsp;<input type="radio" class="radio" name="pm_notify" value="0" <!-- IF not CP_PM_NOTIVY -->checked="checked"<!-- ENDIF --> /><span class="genmed">No</span></td>
+</tr>
+<tr> 
+	<td class="row1" width="50%"><b class="genmed">Administrators can e-mail me information:</b>
+	<br /><span class="gensmall">Allow mass E-mail From this site</span></td>
+	<td class="row2"><input type="radio" class="radio" name="mass_mail" value="1" <!-- IF CP_ALLOW_MASS_MAIL -->checked="checked"<!-- ENDIF --> /><span class="genmed">Yes</span>&nbsp;&nbsp;<input type="radio" class="radio" name="mass_mail" value="0" <!-- IF not CP_ALLOW_MASS_MAIL -->checked="checked"<!-- ENDIF --> /><span class="genmed">No</span></td>
+</tr>
+<tr> 
+	<td class="row1" width="50%"><b class="genmed">Allow users to send you private messages:</b>
+	<br /><span class="gensmall">Note that administrators and moderators will always be able to send you messages.</span></td>
+
+	<td class="row2"><input type="radio" class="radio" name="user_allow_pm" value="1" <!-- IF CP_ALLOW_PM -->checked="checked"<!-- ENDIF --> /><span class="genmed">Yes</span>&nbsp;&nbsp;<input type="radio" class="radio" name="user_allow_pm" value="0" <!-- IF not CP_ALLOW_PM -->checked="checked"<!-- ENDIF -->/><span class="genmed">No</span></td>
+</tr>
+	<tr> 
+		<td class="row1" width="50%"><b class="genmed">Hide my online status:</b>
+		<br /><span class="gensmall">Changing this setting won’t become effective until your next visit to the board.</span></td>
+		<td class="row2"><input type="radio" class="radio" name="Show_online" value="1" <!-- IF CP_SHOW_ONLINE -->checked="checked"<!-- ENDIF -->/><span class="genmed">Yes</span>&nbsp;&nbsp;<input type="radio" class="radio" name="Show_online" value="0" <!-- IF not CP_SHOW_ONLINE -->checked="checked"<!-- ENDIF --> /><span class="genmed">No</span></td>
+	</tr>
+<tr> 
+	<td class="row1" width="50%"><b class="genmed">Pop up window on new private message:</b></td>
+	<td class="row2"><input type="radio" class="radio" name="pm_popup" value="1" <!-- IF CP_PM_POPUP -->checked="checked"<!-- ENDIF --> /><span class="genmed">Yes</span>&nbsp;&nbsp;<input type="radio" class="radio" name="pm_popup" value="0" <!-- IF not CP_PM_POPUP -->checked="checked"<!-- ENDIF --> /><span class="genmed">No</span></td>
+</tr>
+<tr> 
+	<td class="row1" width="50%"><b class="genmed">Torrents Perpage:</b></td>
+	<td class="row2"><input type="text" name="user_torrent_per_page" value="{CP_TORPERPAGE}" size ="40" /><br /><span class="gensmall">Note that 0 Reverts to Site Default.</span></td>
+</tr>
+<tr>
+	<td class="row1" width="50%"><b class="genmed">My language:</b></td>
+
+	<td class="row2">
+	  <select name="customlang">
+	    <option value="0">{L_SDEFAULT}</option>
+	    {U_LANGUAGES}
+	  </select>
+	</td>
+</tr>
+<tr>
+	<td class="row1" width="50%"><b class="genmed">My board style:</b></td>
+	<td class="row2">
+	  <select name="customtheme">
+	    <option value="0">{L_SDEFAULT}</option>
+		{U_THEMES}
+	  </select></td>
+</tr>
+<tr>
+	<td class="row1" width="50%"><b class="genmed">My timezone:</b></td>
+
+	<td class="row2">
+		<select id="offset" name="offset">{TX_OFF_SET}</select>
+
+	</td>
+</tr>
+<tr>
+	<td class="row1" width="50%"><b class="genmed">My Country:</b></td>
+
+	<td class="row2">
+	  <select name="u_country">
+	    <option value="0">---</option>
+	    {U_COUNTRY}
+	  </select>
+	</td>
+</tr>
+<!-- IF not S_FORCE_PASSKEY -->
+<tr>
+	<td class="row1" width="50%"><b class="genmed">{L_USE_PASSKEY}:</b></td>
+	<td class="row2">
+<input type="checkbox"  name="use_passkey" value="true" <!-- IF CP_PASSKEY != "" -->checked<!-- ENDIF --> />
+	</td>
+</tr>
+<!-- ENDIF -->
+<tr>
+	<td class="row1" width="50%"><b class="genmed">{L_RESSET_PASSKEY}:</b></td>
+	<td class="row2">
+		<input name="passkey_reset" value="true" type="checkbox"><input rows="1" size="32" cols="32" readonly value="{CP_PASSKEY}" type="text"><br /><span class="gensmall">{L_RES_PASSKEY_WARNING}</span>
+	</td>
+</tr>
+<tr>
+	<td colspan="2" align="center"><input class="btnmain" type="submit" name="submit" value="Submit" />&nbsp;&nbsp;<input class="btnlite" type="reset" value="Reset" name="reset" /></td>
+</tr>
+</table>
+
+</form></td>
+</tr>
+</table>
+<!-- ELSEIF MODE == profile_info -->
+<form name="ucp" id="ucp" method="post" action="{PMBT_LINK_BACK}">
+<input type="hidden" name="take_edit" value="1" >
+<input type="hidden" name="action" value="profile" >
+<input type="hidden" name="op" value="editprofile" >
+<input type="hidden" name="mode" value="profile_info" />
+<table class="tablebg" width="100%" cellspacing="0">
+<tr><td>
+</td></tr><tr valign="middle">
+<td  class="row3" >
+	<div class="caption">
+<div class="cap-left">
+<div class="cap-right">&nbsp;Edit profile&nbsp;</div>
+</div>
+</div>
+<table class="tablebg" width="100%" cellspacing="0">
+<tr> 
+	<td class="row1" colspan="2"><span class="gensmall">Please note that this information may be viewable to other members. Be careful when including any personal details. Any fields marked with a * must be completed.</span></td>
+</tr>
+
+<tr> 
+	<td class="row1" width="35%"><img src="themes/Bitfarm/pics/button_icq.gif" alt="" title="" border="0"> <b class="genmed">ICQ number: </b></td>
+	<td class="row2"><input class="post" type="text" name="icq" size="30" maxlength="15" value="{U_ICQ}" /></td>
+</tr>
+<tr> 
+	<td class="row1" width="35%"><img src="themes/Bitfarm/pics/button_aim.gif" alt="" title="" border="0"> <b class="genmed">AOL Instant Messenger: </b></td>
+	<td class="row2"><input class="post" type="text" name="aim" size="30" maxlength="255" value="{U_AIM}" /></td>
+</tr>
+<tr> 
+	<td class="row1" width="35%"><img src="themes/Bitfarm/pics/button_msn.gif" alt="" title="" border="0"> <b class="genmed">MSN Messenger: </b></td>
+	<td class="row2"><input class="post" type="text" name="msn" size="30" maxlength="255" value="{U_MSN}" /></td>
+
+</tr>
+<tr> 
+	<td class="row1" width="35%"><img src="themes/Bitfarm/pics/button_yahoo.gif" alt="" title="" border="0"> <b class="genmed">Yahoo Messenger: </b></td>
+	<td class="row2"><input class="post" type="text" name="yahoo" size="30" maxlength="255" value="{U_YIM}" /></td>
+</tr>
+<tr> 
+	<td class="row1" width="35%"><img src="themes/Bitfarm/pics/button_jabber.gif" alt="" title="" border="0"> <b class="genmed">Jabber address: </b></td>
+	<td class="row2"><input class="post" type="text" name="jabber" size="30" maxlength="255" value="{U_JABBER}" /></td>
+</tr>
+<tr> 
+	<td class="row1" width="35%"><img src="themes/Bitfarm/pics/button_skype.gif" alt="" title="" border="0"> <b class="genmed">Skype Messenger: </b></td>
+	<td class="row2"><input class="post" type="text" name="skype" size="30" maxlength="255" value="{U_SKYPE}" /></td>
+</tr>
+<tr> 
+	<td class="row1" width="35%"><b class="genmed">Location: </b></td>
+	<td class="row2"><select name="country">
+	{LOCATION}</select></td>
+</tr>
+	<tr> 
+		<td class="row1" width="35%"><b class="genmed">Birthday: </b><br /><span class="gensmall">Setting a year will list your age when it is your birthday.</span></td>
+		<td class="row2">
+		<span class="genmed">Day:</span> 
+		     <select name="bday_day">
+			      <option <!-- IF U_BITH_D == 0 -->selected="selected" <!-- ENDIF -->value="0">--</option>
+				  <option <!-- IF U_BITH_D == 1 -->selected="selected" <!-- ENDIF -->value="1">1</option>
+				  <option <!-- IF U_BITH_D == 2 -->selected="selected" <!-- ENDIF -->value="2">2</option>
+				  <option <!-- IF U_BITH_D == 3 -->selected="selected" <!-- ENDIF -->value="3">3</option>
+				  <option <!-- IF U_BITH_D == 4 -->selected="selected" <!-- ENDIF -->value="4">4</option>
+				  <option <!-- IF U_BITH_D == 5 -->selected="selected" <!-- ENDIF -->value="5">5</option>
+				  <option <!-- IF U_BITH_D == 6 -->selected="selected" <!-- ENDIF -->value="6">6</option>
+				  <option <!-- IF U_BITH_D == 7 -->selected="selected" <!-- ENDIF -->value="7">7</option>
+				  <option <!-- IF U_BITH_D == 8 -->selected="selected" <!-- ENDIF -->value="8">8</option>
+				  <option <!-- IF U_BITH_D == 9 -->selected="selected" <!-- ENDIF -->value="9">9</option>
+				  <option <!-- IF U_BITH_D == 10 -->selected="selected" <!-- ENDIF -->value="10">10</option>
+				  <option <!-- IF U_BITH_D == 11 -->selected="selected" <!-- ENDIF -->value="11">11</option>
+				  <option <!-- IF U_BITH_D == 12 -->selected="selected" <!-- ENDIF -->value="12">12</option>
+				  <option <!-- IF U_BITH_D == 13 -->selected="selected" <!-- ENDIF -->value="13">13</option>
+				  <option <!-- IF U_BITH_D == 14 -->selected="selected" <!-- ENDIF -->value="14">14</option>
+				  <option <!-- IF U_BITH_D == 15 -->selected="selected" <!-- ENDIF -->value="15">15</option>
+				  <option <!-- IF U_BITH_D == 16 -->selected="selected" <!-- ENDIF -->value="16">16</option>
+				  <option <!-- IF U_BITH_D == 17 -->selected="selected" <!-- ENDIF -->value="17">17</option>
+				  <option <!-- IF U_BITH_D == 18 -->selected="selected" <!-- ENDIF -->value="18">18</option>
+				  <option <!-- IF U_BITH_D == 19 -->selected="selected" <!-- ENDIF -->value="19">19</option>
+				  <option <!-- IF U_BITH_D == 20 -->selected="selected" <!-- ENDIF -->value="20">20</option>
+				  <option <!-- IF U_BITH_D == 21 -->selected="selected" <!-- ENDIF -->value="21">21</option>
+				  <option <!-- IF U_BITH_D == 22 -->selected="selected" <!-- ENDIF -->value="22">22</option>
+				  <option <!-- IF U_BITH_D == 23 -->selected="selected" <!-- ENDIF -->value="23">23</option>
+				  <option <!-- IF U_BITH_D == 24 -->selected="selected" <!-- ENDIF -->value="24">24</option>
+				  <option <!-- IF U_BITH_D == 25 -->selected="selected" <!-- ENDIF -->value="25">25</option>
+				  <option <!-- IF U_BITH_D == 26 -->selected="selected" <!-- ENDIF -->value="26">26</option>
+				  <option <!-- IF U_BITH_D == 27 -->selected="selected" <!-- ENDIF -->value="27">27</option>
+				  <option <!-- IF U_BITH_D == 28 -->selected="selected" <!-- ENDIF -->value="28">28</option>
+				  <option <!-- IF U_BITH_D == 29 -->selected="selected" <!-- ENDIF -->value="29">29</option>
+				  <option <!-- IF U_BITH_D == 30 -->selected="selected" <!-- ENDIF -->value="30">30</option>
+				  <option <!-- IF U_BITH_D == 31 -->selected="selected" <!-- ENDIF -->value="31">31</option>
+				</select> 
+		<span class="genmed">Month:</span> 
+		  <select name="bday_month">
+		    <option <!-- IF U_BITH_M == 0 -->selected="selected" <!-- ENDIF -->value="0">--</option>
+			<option <!-- IF U_BITH_M == 1 -->selected="selected" <!-- ENDIF -->value="1">1</option>
+			<option <!-- IF U_BITH_M == 2 -->selected="selected" <!-- ENDIF -->value="2">2</option>
+			<option <!-- IF U_BITH_M == 3 -->selected="selected" <!-- ENDIF -->value="3">3</option>
+			<option <!-- IF U_BITH_M == 4 -->selected="selected" <!-- ENDIF -->value="4">4</option>
+			<option <!-- IF U_BITH_M == 5 -->selected="selected" <!-- ENDIF -->value="5">5</option>
+			<option <!-- IF U_BITH_M == 6 -->selected="selected" <!-- ENDIF -->value="6">6</option>
+			<option <!-- IF U_BITH_M == 7 -->selected="selected" <!-- ENDIF -->value="7">7</option>
+			<option <!-- IF U_BITH_M == 8 -->selected="selected" <!-- ENDIF -->value="8">8</option>
+			<option <!-- IF U_BITH_M == 9 -->selected="selected" <!-- ENDIF -->value="9">9</option>
+			<option <!-- IF U_BITH_M == 10 -->selected="selected" <!-- ENDIF -->value="10">10</option>
+			<option <!-- IF U_BITH_M == 11 -->selected="selected" <!-- ENDIF -->value="11">11</option>
+			<option <!-- IF U_BITH_M == 12 -->selected="selected" <!-- ENDIF -->value="12">12</option>
+	     </select> 
+	   <span class="genmed">Year:</span> 
+	     <select name="bday_year">
+		   <option <!-- IF U_BITH_Y == 0 -->selected="selected" <!-- ENDIF -->value="0">--</option>
+		   <option <!-- IF U_BITH_Y == 1910 -->selected="selected" <!-- ENDIF -->value="1910">1910</option>
+		   <option <!-- IF U_BITH_Y == 1911 -->selected="selected" <!-- ENDIF -->value="1911">1911</option>
+		   <option <!-- IF U_BITH_Y == 1912 -->selected="selected" <!-- ENDIF -->value="1912">1912</option>
+		   <option <!-- IF U_BITH_Y == 1913 -->selected="selected" <!-- ENDIF -->value="1913">1913</option>
+		   <option <!-- IF U_BITH_Y == 1914 -->selected="selected" <!-- ENDIF -->value="1914">1914</option>
+		   <option <!-- IF U_BITH_Y == 1915 -->selected="selected" <!-- ENDIF -->value="1915">1915</option>
+		   <option <!-- IF U_BITH_Y == 1916 -->selected="selected" <!-- ENDIF -->value="1916">1916</option>
+		   <option <!-- IF U_BITH_Y == 1917 -->selected="selected" <!-- ENDIF -->value="1917">1917</option>
+		   <option <!-- IF U_BITH_Y == 1918 -->selected="selected" <!-- ENDIF -->value="1918">1918</option>
+		   <option <!-- IF U_BITH_Y == 1919 -->selected="selected" <!-- ENDIF -->value="1919">1919</option>
+		   <option <!-- IF U_BITH_Y == 1920 -->selected="selected" <!-- ENDIF -->value="1920">1920</option>
+		   <option <!-- IF U_BITH_Y == 1921 -->selected="selected" <!-- ENDIF -->value="1921">1921</option>
+		   <option <!-- IF U_BITH_Y == 1922 -->selected="selected" <!-- ENDIF -->value="1922">1922</option>
+		   <option <!-- IF U_BITH_Y == 1923 -->selected="selected" <!-- ENDIF -->value="1923">1923</option>
+		   <option <!-- IF U_BITH_Y == 1924 -->selected="selected" <!-- ENDIF -->value="1924">1924</option>
+		   <option <!-- IF U_BITH_Y == 1925 -->selected="selected" <!-- ENDIF -->value="1925">1925</option>
+		   <option <!-- IF U_BITH_Y == 1926 -->selected="selected" <!-- ENDIF -->value="1926">1926</option>
+		   <option <!-- IF U_BITH_Y == 1927 -->selected="selected" <!-- ENDIF -->value="1927">1927</option>
+		   <option <!-- IF U_BITH_Y == 1928 -->selected="selected" <!-- ENDIF -->value="1928">1928</option>
+		   <option <!-- IF U_BITH_Y == 1929 -->selected="selected" <!-- ENDIF -->value="1929">1929</option>
+		   <option <!-- IF U_BITH_Y == 1930 -->selected="selected" <!-- ENDIF -->value="1930">1930</option>
+		   <option <!-- IF U_BITH_Y == 1931 -->selected="selected" <!-- ENDIF -->value="1931">1931</option>
+		   <option <!-- IF U_BITH_Y == 1932 -->selected="selected" <!-- ENDIF -->value="1932">1932</option>
+		   <option <!-- IF U_BITH_Y == 1933 -->selected="selected" <!-- ENDIF -->value="1933">1933</option>
+		   <option <!-- IF U_BITH_Y == 1934 -->selected="selected" <!-- ENDIF -->value="1934">1934</option>
+		   <option <!-- IF U_BITH_Y == 1935 -->selected="selected" <!-- ENDIF -->value="1935">1935</option>
+		   <option <!-- IF U_BITH_Y == 1936 -->selected="selected" <!-- ENDIF -->value="1936">1936</option>
+		   <option <!-- IF U_BITH_Y == 1937 -->selected="selected" <!-- ENDIF -->value="1937">1937</option>
+		   <option <!-- IF U_BITH_Y == 1938 -->selected="selected" <!-- ENDIF -->value="1938">1938</option>
+		   <option <!-- IF U_BITH_Y == 1939 -->selected="selected" <!-- ENDIF -->value="1939">1939</option>
+		   <option <!-- IF U_BITH_Y == 1940 -->selected="selected" <!-- ENDIF -->value="1940">1940</option>
+		   <option <!-- IF U_BITH_Y == 1941 -->selected="selected" <!-- ENDIF -->value="1941">1941</option>
+		   <option <!-- IF U_BITH_Y == 1942 -->selected="selected" <!-- ENDIF -->value="1942">1942</option>
+		   <option <!-- IF U_BITH_Y == 1943 -->selected="selected" <!-- ENDIF -->value="1943">1943</option>
+		   <option <!-- IF U_BITH_Y == 1944 -->selected="selected" <!-- ENDIF -->value="1944">1944</option>
+		   <option <!-- IF U_BITH_Y == 1945 -->selected="selected" <!-- ENDIF -->value="1945">1945</option>
+		   <option <!-- IF U_BITH_Y == 1946 -->selected="selected" <!-- ENDIF -->value="1946">1946</option>
+		   <option <!-- IF U_BITH_Y == 1947 -->selected="selected" <!-- ENDIF -->value="1947">1947</option>
+		   <option <!-- IF U_BITH_Y == 1948 -->selected="selected" <!-- ENDIF -->value="1948">1948</option>
+		   <option <!-- IF U_BITH_Y == 1949 -->selected="selected" <!-- ENDIF -->value="1949">1949</option>
+		   <option <!-- IF U_BITH_Y == 1950 -->selected="selected" <!-- ENDIF -->value="1950">1950</option>
+		   <option <!-- IF U_BITH_Y == 1951 -->selected="selected" <!-- ENDIF -->value="1951">1951</option>
+		   <option <!-- IF U_BITH_Y == 1952 -->selected="selected" <!-- ENDIF -->value="1952">1952</option>
+		   <option <!-- IF U_BITH_Y == 1953 -->selected="selected" <!-- ENDIF -->value="1953">1953</option>
+		   <option <!-- IF U_BITH_Y == 1954 -->selected="selected" <!-- ENDIF -->value="1954">1954</option>
+		   <option <!-- IF U_BITH_Y == 1955 -->selected="selected" <!-- ENDIF -->value="1955">1955</option>
+		   <option <!-- IF U_BITH_Y == 1956 -->selected="selected" <!-- ENDIF -->value="1956">1956</option>
+		   <option <!-- IF U_BITH_Y == 1957 -->selected="selected" <!-- ENDIF -->value="1957">1957</option>
+		   <option <!-- IF U_BITH_Y == 1958 -->selected="selected" <!-- ENDIF -->value="1958">1958</option>
+		   <option <!-- IF U_BITH_Y == 1959 -->selected="selected" <!-- ENDIF -->value="1959">1959</option>
+		   <option <!-- IF U_BITH_Y == 1960 -->selected="selected" <!-- ENDIF -->value="1960">1960</option>
+		   <option <!-- IF U_BITH_Y == 1961 -->selected="selected" <!-- ENDIF -->value="1961">1961</option>
+		   <option <!-- IF U_BITH_Y == 1962 -->selected="selected" <!-- ENDIF -->value="1962">1962</option>
+		   <option <!-- IF U_BITH_Y == 1963 -->selected="selected" <!-- ENDIF -->value="1963">1963</option>
+		   <option <!-- IF U_BITH_Y == 1964 -->selected="selected" <!-- ENDIF -->value="1964">1964</option>
+		   <option <!-- IF U_BITH_Y == 1965 -->selected="selected" <!-- ENDIF -->value="1965">1965</option>
+		   <option <!-- IF U_BITH_Y == 1966 -->selected="selected" <!-- ENDIF -->value="1966">1966</option>
+		   <option <!-- IF U_BITH_Y == 1967 -->selected="selected" <!-- ENDIF -->value="1967">1967</option>
+		   <option <!-- IF U_BITH_Y == 1968 -->selected="selected" <!-- ENDIF -->value="1968">1968</option>
+		   <option <!-- IF U_BITH_Y == 1969 -->selected="selected" <!-- ENDIF -->value="1969">1969</option>
+		   <option <!-- IF U_BITH_Y == 1970 -->selected="selected" <!-- ENDIF -->value="1970">1970</option>
+		   <option <!-- IF U_BITH_Y == 1971 -->selected="selected" <!-- ENDIF -->value="1971">1971</option>
+		   <option <!-- IF U_BITH_Y == 1972 -->selected="selected" <!-- ENDIF -->value="1972">1972</option>
+		   <option <!-- IF U_BITH_Y == 1973 -->selected="selected" <!-- ENDIF -->value="1973">1973</option>
+		   <option <!-- IF U_BITH_Y == 1974 -->selected="selected" <!-- ENDIF -->value="1974">1974</option>
+		   <option <!-- IF U_BITH_Y == 1975 -->selected="selected" <!-- ENDIF -->value="1975">1975</option>
+		   <option <!-- IF U_BITH_Y == 1976 -->selected="selected" <!-- ENDIF -->value="1976">1976</option>
+		   <option <!-- IF U_BITH_Y == 1977 -->selected="selected" <!-- ENDIF -->value="1977">1977</option>
+		   <option <!-- IF U_BITH_Y == 1978 -->selected="selected" <!-- ENDIF -->value="1978">1978</option>
+		   <option <!-- IF U_BITH_Y == 1979 -->selected="selected" <!-- ENDIF -->value="1979">1979</option>
+		   <option <!-- IF U_BITH_Y == 1980 -->selected="selected" <!-- ENDIF -->value="1980">1980</option>
+		   <option <!-- IF U_BITH_Y == 1981 -->selected="selected" <!-- ENDIF -->value="1981">1981</option>
+		   <option <!-- IF U_BITH_Y == 1982 -->selected="selected" <!-- ENDIF -->value="1982">1982</option>
+		   <option <!-- IF U_BITH_Y == 1983 -->selected="selected" <!-- ENDIF -->value="1983">1983</option>
+		   <option <!-- IF U_BITH_Y == 1984 -->selected="selected" <!-- ENDIF -->value="1984">1984</option>
+		   <option <!-- IF U_BITH_Y == 1985 -->selected="selected" <!-- ENDIF -->value="1985">1985</option>
+		   <option <!-- IF U_BITH_Y == 1986 -->selected="selected" <!-- ENDIF -->value="1986">1986</option>
+		   <option <!-- IF U_BITH_Y == 1987 -->selected="selected" <!-- ENDIF -->value="1987">1987</option>
+		   <option <!-- IF U_BITH_Y == 1988 -->selected="selected" <!-- ENDIF -->value="1988">1988</option>
+		   <option <!-- IF U_BITH_Y == 1989 -->selected="selected" <!-- ENDIF -->value="1989">1989</option>
+		   <option <!-- IF U_BITH_Y == 1990 -->selected="selected" <!-- ENDIF -->value="1990">1990</option>
+		   <option <!-- IF U_BITH_Y == 1991 -->selected="selected" <!-- ENDIF -->value="1991">1991</option>
+		   <option <!-- IF U_BITH_Y == 1992 -->selected="selected" <!-- ENDIF -->value="1992">1992</option>
+		   <option <!-- IF U_BITH_Y == 1993 -->selected="selected" <!-- ENDIF -->value="1993">1993</option>
+		   <option <!-- IF U_BITH_Y == 1994 -->selected="selected" <!-- ENDIF -->value="1994">1994</option>
+		   <option <!-- IF U_BITH_Y == 1995 -->selected="selected" <!-- ENDIF -->value="1995">1995</option>
+		   <option <!-- IF U_BITH_Y == 1996 -->selected="selected" <!-- ENDIF -->value="1996">1996</option>
+		   <option <!-- IF U_BITH_Y == 1997 -->selected="selected" <!-- ENDIF -->value="1997">1997</option>
+		   <option <!-- IF U_BITH_Y == 1998 -->selected="selected" <!-- ENDIF -->value="1998">1998</option>
+		   <option <!-- IF U_BITH_Y == 1999 -->selected="selected" <!-- ENDIF -->value="1999">1999</option>
+		   <option <!-- IF U_BITH_Y == 2000 -->selected="selected" <!-- ENDIF -->value="2000">2000</option>
+		   <option <!-- IF U_BITH_Y == 2001 -->selected="selected" <!-- ENDIF -->value="2001">2001</option>
+		   <option <!-- IF U_BITH_Y == 2002 -->selected="selected" <!-- ENDIF -->value="2002">2002</option>
+		   <option <!-- IF U_BITH_Y == 2003 -->selected="selected" <!-- ENDIF -->value="2003">2003</option>
+		   <option <!-- IF U_BITH_Y == 2004 -->selected="selected" <!-- ENDIF -->value="2004">2004</option>
+		   <option <!-- IF U_BITH_Y == 2005 -->selected="selected" <!-- ENDIF -->value="2005">2005</option>
+		   <option <!-- IF U_BITH_Y == 2006 -->selected="selected" <!-- ENDIF -->value="2006">2006</option>
+		   <option <!-- IF U_BITH_Y == 2007 -->selected="selected" <!-- ENDIF -->value="2007">2007</option>
+		   <option <!-- IF U_BITH_Y == 2008 -->selected="selected" <!-- ENDIF -->value="2008">2008</option>
+		   <option <!-- IF U_BITH_Y == 2009 -->selected="selected" <!-- ENDIF -->value="2009">2009</option>
+		   <option <!-- IF U_BITH_Y == 2010 -->selected="selected" <!-- ENDIF -->value="2010">2010</option>
+		 </select>
+	  </td>
+	</tr>
+<tr>
+	<td colspan="2" align="center"><input class="btnmain" type="submit" name="submit" value="Submit" />&nbsp;&nbsp;<input class="btnlite" type="reset" value="Reset" name="reset" /></td>
+</tr>
+</table>
+</form>
+</td></tr>
+
+</table>
+<br clear="all" >
+<!-- ELSEIF MODE == friends -->
+<form name="formdata" id="ucp" method="post" action="{PMBT_LINK_BACK}">
+<input type="hidden" name="take_edit" value="1" >
+<input type="hidden" name="action" value="friends" >
+<input type="hidden" name="op" value="editprofile" >
+<input type="hidden" name="mode" value="friends" />
+<table class="tablebg" width="100%" cellspacing="0">
+
+<tr>
+	<td class="row3" colspan="2"><span class="gensmall">Friends enable you quick access to members you communicate with frequently. If the template has relevant support any posts made by a friend may be highlighted.</span></td>
+</tr>
+<tr>
+	<td class="row1" width="40%"><b class="genmed">Your friends:</b><br /><span class="gensmall">To remove usernames select them and click submit.</span></td>
+
+	<td class="row2" align="center"><!-- IF CP_FRIENDS --><select name="remove_friend[]" multiple="multiple" size="5">{CP_FRIENDS}</select><!-- ELSE --><b class="genmed">No friends currently defined</b><!-- ENDIF --></td>
+</tr>
+<tr>
+	<td class="row1"><b class="genmed">Add new friends:</b><br /><span class="gensmall">You may enter several usernames each on a different line. [ <a href="javascript:popusers('userfind_to_pm.php');">Find a member</a> ]</span></td>
+	<td class="row2" align="center"><textarea name="new_friend" rows="5" cols="30"></textarea><br /></td>
+</tr>
+<tr>
+
+	<td colspan="2" align="center"><input class="btnmain" type="submit" name="submit" value="Submit" />&nbsp;&nbsp;<input class="btnlite" type="reset" value="Reset" name="reset" /></td>
+</tr>
+</table>
+
+</form></td>
+</tr>
+</table>
+<!-- ELSEIF MODE == foes -->
+<form name="ucp" id="formdata" method="post" action="{PMBT_LINK_BACK}">
+<input type="hidden" name="take_edit" value="1" >
+<input type="hidden" name="action" value="friends" >
+<input type="hidden" name="op" value="editprofile" >
+<input type="hidden" name="mode" value="foes" />
+<table class="tablebg" width="100%" cellspacing="0">
+<tr>
+	<td class="row3" colspan="2"><span class="gensmall">Foes are users which will be ignored by default. Posts by these users will not be fully visible. Personal messages from foes are still permitted. Please note that you cannot ignore moderators or administrators.</span></td>
+</tr>
+<tr>
+	<td class="row1" width="40%"><b class="genmed">Your foes:</b><br /><span class="gensmall">To remove usernames select them and click submit.</span></td>
+
+	<td class="row2" align="center"><!-- IF CP_FOES --><select name="remove_foe[]" multiple="multiple" size="5">{CP_FOES}</select><!-- ELSE --><b class="genmed">No foes currently defined</b><!-- ENDIF --></td>
+</tr>
+<tr>
+	<td class="row1"><b class="genmed">Add new foes:</b><br /><span class="gensmall">You may enter several usernames each on a different line. [ <a href="javascript:popusers('userfind_to_pm.php');">Find a member</a> ]</span></td>
+	<td class="row2" align="center"><textarea name="new_foe" rows="5" cols="30"></textarea><br /></td>
+</tr>
+<tr>
+
+	<td ccolspan="2" align="center"><input class="btnmain" type="submit" name="submit" value="Submit" />&nbsp;&nbsp;<input class="btnlite" type="reset" value="Reset" name="reset" /></td>
+</tr>
+</table>
+
+</form></td>
+</tr>
+</table>
+<!-- ELSEIF MODE == subscribed -->
+<form name="ucp" id="ucp" method="post" action="{PMBT_LINK_BACK}">
+{S_HIDDEN_FIELDS}
+<table class="tablebg" width="100%" cellspacing="0">
+<tr>
+<td>
+<div class="caption">
+<div class="cap-left">
+<div class="cap-right">&nbsp;{L_USER_CPANNEL}&nbsp;</div>
+</div>
+</div>
+</td>
+</tr>
+<tbody><tr>
+	<td class="row1" colspan="4" align="center"><span class="genmed">{L_WATCHED_EXPLAIN}</span></td>
+</tr>
+<!-- IF S_TORRENT_NOTIFY -->
+	<tr>
+		<th colspan="4">{L__WATCHED_TORRENTS}</th>
+	</tr>
+
+	<!-- BEGIN torrentrow -->
+
+		<!-- IF torrentrow.S_ROW_COUNT is even --><tr class="row1"><!-- ELSE --><tr class="row2"><!-- ENDIF -->
+			<td class="row" style="padding: 4px;" valign="middle" width="20" align="center">{torrentrow.CAT_IMG}</td>
+			<td class="row" style="padding: 4px;" width="100%">
+				<p class="topictitle"><a href="{torrentrow.U_TORFORUM}">{torrentrow.TORRENT_NAME}</a></p><br />
+				<!-- IF torrentrow.CAN_EDIT --><a href="edit.php?id={torrentrow.TORRENT_ID}"><img src="themes/Bitfarm/pics/edit.gif" alt="Edit" title="Edit" border="0"></a><!-- ENDIF -->
+				<!-- IF torrentrow.CAN_DELETE --><a href="edit.php?op=delete&amp;id={torrentrow.TORRENT_ID}"><img src="themes/Bitfarm/pics/drop.gif" alt="Delete" title="Delete" border="0"></a><!-- ENDIF -->
+				<!-- IF torrentrow.CAN_BAN --><a href="edit.php?op=ban&amp;id={torrentrow.TORRENT_ID}"><img src="themes/Bitfarm/pics/ban.png" alt="Ban Torrent" title="Ban Torrent" border="0"></a><!-- ENDIF -->
+				<!-- IF torrentrow.CAN_DOWNLOAD --><a class="index" href="download.php?id={torrentrow.TORRENT_ID}"><img style="border: medium none;" alt="download" src="themes/Bitfarm/pics/download2.gif" align="left"></a><!-- ENDIF -->
+				<!-- IF torrentrow.TRACKER --><a href="scrape-external.php?id=279&amp;tracker={torrentrow.TRACKER}&amp;return={PMBT_LINK_BACK}mode={MODE}&amp;action={ACTION}"><img src="themes/Bitfarm/pics/refresh.png" alt="Refresh Peer Data" title="Refresh Peer Data" border="0"></a><!-- ENDIF -->
+			</td>
+			<td class="gensmall row" style="padding: 4px;" align="left" valign="top" nowrap="nowrap">
+				<!-- IF torrentrow.LAST_SEEDER --><p class="topicdetails">{torrentrow.DATE_ADDED}<br />{torrentrow.LAST_SEEDER} <a href="{torrentrow.U_LAST_POST}">{LAST_POST_IMG}</a></p>
+				<!-- ELSE -->
+				{L_NO_SEEDERS}
+				<!-- ENDIF -->
+			</td>
+			<td class="row" style="padding: 4px;"> <input type="checkbox" class="radio" name="to[{torrentrow.TORRENT_ID}]" /> </td>
+		</tr>
+	<!-- BEGINELSE -->
+		<tr class="row1">
+			<td colspan="4" align="center"><b class="genmed">{L_NO_WATCHED_TORRENTS}</b></td>
+		</tr>
+	<!-- END torrentrow -->
+<!-- ENDIF -->
+
+<!-- IF S_FORUM_NOTIFY -->
+	<tr>
+		<th colspan="4">{L_WATCHED_FORUMS}</th>
+	</tr>
+
+	<!-- BEGIN forumrow -->
+
+		<!-- IF forumrow.S_ROW_COUNT is even --><tr class="row1"><!-- ELSE --><tr class="row2"><!-- ENDIF -->
+			<td style="padding: 4px;" width="20" align="center" valign="middle">{forumrow.FORUM_FOLDER_IMG}</td>
+			<td style="padding: 4px;" width="100%"><p class="topictitle"><a href="{forumrow.U_VIEWFORUM}">{forumrow.FORUM_NAME}</a></p></td>
+			<td class="gensmall" style="padding: 4px;" align="center" valign="middle" nowrap="nowrap"><!-- IF forumrow.LAST_POST_TIME -->{forumrow.LAST_POST_TIME}<br />{forumrow.LAST_POST_AUTHOR_FULL} <a href="{forumrow.U_LAST_POST}">{forumrow.LAST_POST_IMG}</a><!-- ELSE -->{L_NO_POSTS}<!-- ENDIF --></td>
+			<td style="padding: 4px;"> <input type="checkbox" class="radio" name="f[{forumrow.FORUM_ID}]" /> </td>
+		</tr>
+	<!-- BEGINELSE -->
+		<tr class="row1">
+			<td colspan="4" align="center"><b class="genmed">{L_NO_WATCHED_FORUMS}</b></td>
+		</tr>
+	<!-- END forumrow -->
+<!-- ENDIF -->
+<!-- IF S_TOPIC_NOTIFY -->
+	<tr>
+		<th colspan="4">{L_WATCHED_TOPICS}</th>
+	</tr>
+
+	<!-- IF TOTAL_TOPICS -->
+		<tr>
+			<td class="row3" colspan="4">
+				<table width="100%" cellspacing="1">
+				<tr>
+					<td class="nav" valign="middle" nowrap="nowrap">&nbsp;{PAGE_NUMBER}<br /></td>
+					<td class="gensmall" nowrap="nowrap">&nbsp;[ {TOTAL_TOPICS} ]&nbsp;</td>
+					<td class="gensmall" width="100%" align="right" nowrap="nowrap"><!-- INCLUDE themes/Bitfarm/templates/pagination.html --></td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+	<!-- ENDIF -->
+
+	<!-- BEGIN topicrow -->
+
+		<!-- IF topicrow.S_ROW_COUNT is even --><tr class="row1"><!-- ELSE --><tr class="row2"><!-- ENDIF -->
+			<td style="padding: 4px;" width="20" align="center" valign="middle">{topicrow.TOPIC_FOLDER_IMG}</td>
+			<td style="padding: 4px;" width="100%" valign="top">
+				<p class="topictitle"><!-- IF topicrow.S_UNREAD_TOPIC --><a href="{topicrow.U_NEWEST_POST}">{NEWEST_POST_IMG}</a> <!-- ENDIF -->{topicrow.ATTACH_ICON_IMG} <a href="{topicrow.U_VIEW_TOPIC}">{topicrow.TOPIC_TITLE}</a></p>
+				<!-- IF topicrow.S_GLOBAL_TOPIC --><span class="gensmall">{L_GLOBAL_ANNOUNCEMENT}</span><!-- ELSE --><span class="gensmall"><b>{L_FORUM}: </b><a href="{topicrow.U_VIEW_FORUM}">{topicrow.FORUM_NAME}</a></span><!-- ENDIF -->
+				<!-- IF topicrow.PAGINATION -->
+					<p class="gensmall"> [ {GOTO_PAGE_IMG}{L_GOTO_PAGE}: {topicrow.PAGINATION} ] </p>
+				<!-- ENDIF -->
+			</td>
+			<td style="padding: 4px;" align="left" valign="top" nowrap="nowrap">
+				<p class="topicdetails">{topicrow.LAST_POST_TIME}</p>
+				<p class="topicdetails">{topicrow.LAST_POST_AUTHOR_FULL}
+					<a href="{topicrow.U_LAST_POST}">{topicrow.LAST_POST_IMG}</a>
+				</p>
+			</td>
+			<td style="padding: 4px;"> <input type="checkbox" class="radio" name="t[{topicrow.TOPIC_ID}]" /> </td>
+		</tr>
+	<!-- BEGINELSE -->
+		<tr class="row1">
+			<td colspan="4" align="center"><b class="genmed">{L_NO_WATCHED_TOPICS}</b></td>
+		</tr>
+	<!-- END topicrow -->
+<!-- ENDIF -->
+
+<!-- IF .topicrow or .forumrow or .torrentrow -->
+<tr>
+	<td colspan="4" align="right"><input class="btnlite" type="submit" name="unwatch" value="{L_UNWATCH_MARKED}" />&nbsp;</td>
+</tr>
+<!-- ENDIF -->
+</table>
+<!-- IF .topicrow or .forumrow or .torrentrow -->
+<div class="gensmall" style="float: right; padding-top: 2px;"><b><a href="#" onclick="marklist('ucp', 't', true); marklist('ucp', 'f', true); return false;">{L_MARK_ALL}</a> :: <a href="#" onclick="marklist('ucp', 't', false);marklist('ucp', 'f', false); return false;">{L_UNMARK_ALL}</a></b></div>
+<!-- ENDIF -->
+</form></td>
+</tr>
+</tbody></table>
+<!-- ELSEIF MODE == drafts -->
+<form id="postform" method="post" name="ucp" action="{PMBT_LINK_BACK}action=overview&mode=drafts">
+<table class="tablebg" width="100%" cellspacing="0">
+<tr>
+<td<!-- IF S_DRAFT_ROWS --> colspan="4"<!-- ENDIF -->>
+<div class="caption">
+<div class="cap-left">
+<div class="cap-right">&nbsp;User Control Panel&nbsp;</div>
+</div>
+</div>
+</td>
+</tr>
+
+<tbody>
+<tr>
+	<td class="row1" colspan="4" align="center"><span class="genmed">{L_DRAFTS_EXPLAIN}</span></td>
+</tr>
+
+<!-- IF ERROR -->
+	<tr>
+		<td class="row1" colspan="2" align="center"><span class="genmed error">{ERROR}</span></td>
+	</tr>
+<!-- ENDIF -->
+
+<!-- IF not S_EDIT_DRAFT -->
+	<!-- IF S_DRAFT_ROWS -->
+	<tr>
+		<th>{L_DATE}</th>
+		<th>{L_TITLE}:</th>
+		<th>{L_OPTIONS}</th>
+		<th>{L_DELETE}</th>
+	</tr>
+	<!-- ENDIF -->
+
+	<!-- BEGIN draftrow -->
+
+		<!-- IF draftrow.S_ROW_COUNT is even --><tr class="row1"><!-- ELSE --><tr class="row2"><!-- ENDIF -->
+
+		<td class="postdetails row" style="padding: 4px;" nowrap="nowrap">{draftrow.DATE}</td>
+		<td class="row" style="padding: 4px;" valign="top" width="100%">
+			<p class="topictitle">{draftrow.DRAFT_SUBJECT}</p>
+			<!-- IF draftrow.S_LINK_TOPIC --><span class="gensmall">{L_TOPIC}: <a href="{draftrow.U_VIEW}">{draftrow.TITLE}</a></span>
+			<!-- ELSEIF draftrow.S_LINK_FORUM --><span class="gensmall">{L_FORUM}: <a href="{draftrow.U_VIEW}">{draftrow.TITLE}</a></span>
+			<!-- ELSEIF draftrow.S_LINK_PM --><span class="gensmall">{L__PRIVATE_MESSAGE}: <a href="{draftrow.U_VIEW}">{draftrow.TITLE}</a></span>
+			<!-- ELSEIF draftrow.S_LINK_TORRENT --><span class="gensmall">{L_TORRENT}</span>
+			<!-- ELSE --><span class="gensmall">{L__NO_TOPIC_FORUM}</span><!-- ENDIF -->
+		</td>
+		<td class="row" style="padding: 4px;" align="center" nowrap="nowrap"><span class="genmed"><!-- IF draftrow.U_INSERT --><a href="{draftrow.U_INSERT}">{L_LOAD_DRAFT}</a><br /><!-- ENDIF --><a href="{draftrow.U_VIEW_EDIT}">{L_VIEW_EDIT}</a></span></td>
+		<td class="row" style="padding: 4px;" align="center"><input type="checkbox" class="radio" name="d[{draftrow.DRAFT_ID}]" /></td>
+	</tr>
+	<!-- BEGINELSE -->
+		<tr>
+			<td class="row1" colspan="4" align="center"><b class="genmed">{L_NO_SAVED_DRAFTS}</b></td>
+		</tr>
+	<!-- END draftrow -->
+
+	<!-- IF S_DRAFT_ROWS -->
+		<tr>
+			<td colspan="4" align="right">{S_HIDDEN_FIELDS}<input class="btnlite" type="submit" name="take_edit" value="{L_DELETE}" />&nbsp;</td>
+		</tr>
+	<!-- ENDIF -->
+<!-- ELSEIF S_EDIT_DRAFT -->
+	<tr>
+		<td class="row1" width="22%"><b class="genmed">{L_SUBMIT}:</b></td>
+		<td class="row2"><input class="post" style="width:450px" type="text" name="subject" size="45" maxlength="64" tabindex="2" value="{DRAFT_SUBJECT}" /></td>
+	</tr>
+	<tr> 
+		<td class="row1" width="22%"><b class="genmed">{L_MESSAGE}: </b><br /><span class="gensmall">{L_EDIT_DRAFT_EXPLAIN}</span></td>
+		<td class="row2">
+			<script type="text/javascript">
+			// <![CDATA[
+				var form_name = 'ucp';
+				var text_name = 'message';
+			// ]]>
+			</script>
+			<table cellspacing="0" cellpadding="2" border="0">
+<tr valign="middle" align="{ S_CONTENT_FLOW_BEGIN}">
+	<td colspan="2">
+		<script type="text/javascript">
+		// <![CDATA[
+		
+		// Define the bbCode tags
+		var bbcode = new Array();
+		var bbtags = new Array('[b]','[/b]','[i]','[/i]','[u]','[/u]','[quote]','[/quote]','[code]','[/code]','[list]','[/list]','[list=]','[/list]','[img]','[/img]','[url]','[/url]','[flash=]', '[/flash]','[size=]','[/size]'<!-- BEGIN custom_tags --> {custom_tags.BBCODE_NAME}<!-- END custom_tags -->);
+		var imageTag = false;
+		
+		// Helpline messages
+		var help_line = {
+			b: '{L__BBCODE_B_HELP}',
+			i: '{L__BBCODE_I_HELP}',
+			u: 'Underline text: [u]text[/u]',
+			q: 'Quote text: [quote]text[/quote]',
+			c: 'Code display: [code]code[/code]',
+			l: 'List: [list]text[/list]',
+			o: 'Ordered list: [list=]text[/list]',
+			p: 'Insert image: [img]http://image_url[/img]',
+			w: 'Insert URL: [url]http://url[/url] or [url=http://url]URL text[/url]',
+			s: 'Font colour: [color=red]text[/color]  Tip: you can also use color=#FF0000',
+			f: 'Font size: [size=85]small text[/size]',
+			e: 'List: Add list element',
+			d: 'Flash: [flash=width,height]http://url[/flash]',
+			tip: 'Tip: Styles can be applied quickly to selected text.'
+			<!-- BEGIN custom_tags -->
+			<!-- END custom_tags -->
+		}
+
+		// ]]>
+		</script>
+		<script type="text/javascript" src="{T_TEMPLATE_PATH}/editor.js"></script>
+
+<!-- IF S_BBCODE_ALLOWED -->
+		<input type="button" class="btnbbcode" accesskey="b" name="addbbcode0" value=" B " style="font-weight:bold; width: 30px;" onclick="bbstyle(0)" onmouseover="helpline('b')" onmouseout="helpline('tip')" />
+		<input type="button" class="btnbbcode" accesskey="i" name="addbbcode2" value=" i " style="font-style:italic; width: 30px;" onclick="bbstyle(2)" onmouseover="helpline('i')" onmouseout="helpline('tip')" />
+		<input type="button" class="btnbbcode" accesskey="u" name="addbbcode4" value=" u " style="text-decoration: underline; width: 30px;" onclick="bbstyle(4)" onmouseover="helpline('u')" onmouseout="helpline('tip')" />
+		<!-- IF S_BBCODE_QUOTE -->
+			<input type="button" class="btnbbcode" accesskey="q" name="addbbcode6" value="Quote" style="width: 50px" onclick="bbstyle(6)" onmouseover="helpline('q')" onmouseout="helpline('tip')" />
+		<!-- ENDIF -->
+		<input type="button" class="btnbbcode" accesskey="c" name="addbbcode8" value="Code" style="width: 40px" onclick="bbstyle(8)" onmouseover="helpline('c')" onmouseout="helpline('tip')" />
+		<input type="button" class="btnbbcode" accesskey="l" name="addbbcode10" value="List" style="width: 40px" onclick="bbstyle(10)" onmouseover="helpline('l')" onmouseout="helpline('tip')" />
+		<input type="button" class="btnbbcode" accesskey="o" name="addbbcode12" value="List=" style="width: 40px" onclick="bbstyle(12)" onmouseover="helpline('o')" onmouseout="helpline('tip')" />
+		<input type="button" class="btnbbcode" accesskey="t" name="addlitsitem" value="[*]" style="width: 40px" onclick="bbstyle(-1)" onmouseover="helpline('e')" onmouseout="helpline('tip')" />				
+		<!-- IF S_BBCODE_IMG -->
+			<input type="button" class="btnbbcode" accesskey="p" name="addbbcode14" value="Img" style="width: 40px" onclick="bbstyle(14)" onmouseover="helpline('p')" onmouseout="helpline('tip')" />
+		<!-- ENDIF -->
+		<!-- IF S_LINKS_ALLOWED -->
+			<input type="button" class="btnbbcode" accesskey="w" name="addbbcode16" value="URL" style="text-decoration: underline; width: 40px" onclick="bbstyle(16)" onmouseover="helpline('w')" onmouseout="helpline('tip')" />
+		<!-- ENDIF -->
+		<!-- IF S_BBCODE_FLASH -->
+			<input type="button" class="btnbbcode" accesskey="d" name="addbbcode18" value="Flash" onclick="bbstyle(18)" onmouseover="helpline('d')" onmouseout="helpline('tip')" />
+		<!-- ENDIF -->
+		<span class="genmed nowrap">{L_FONT_SIZE}: <select class="gensmall" name="addbbcode20" onchange="bbfontstyle('[size=' + this.form.addbbcode20.options[this.form.addbbcode20.selectedIndex].value + ']', '[/size]');this.form.addbbcode20.selectedIndex = 2;" onmouseover="helpline('f')" onmouseout="helpline('tip')">
+			<option value="50">{L_FONT_TINY}</option>
+			<option value="85">{L_FONT_SMALL}</option>
+			<option value="100" selected="selected">{L_FONT_NORMAL}</option>
+			<!-- IF not MAX_FONT_SIZE or MAX_FONT_SIZE >= 150 -->
+				<option value="150">{L_FONT_LARGE}</option>
+				<!-- IF not MAX_FONT_SIZE or MAX_FONT_SIZE >= 200 -->
+					<option value="200">{L_FONT_HUGE}</option>
+				<!-- ENDIF -->
+			<!-- ENDIF -->
+		</select></span>
+<!-- ENDIF -->
+	</td>
+</tr>
+<!-- IF S_BBCODE_ALLOWED and .custom_tags -->
+	<tr valign="middle" align="left">
+		<td colspan="2">
+		<!-- BEGIN custom_tags -->
+		<!-- END custom_tags -->
+	<input type="text" readonly name="helpbox" style="width:100%" class="helpline" value="Tip: Styles can be applied quickly to selected text." />
+		</td>
+	</tr>
+<!-- ENDIF -->
+			<tr>
+				<td colspan="9"><textarea class="post" name="message" rows="10" cols="70" onselect="storeCaret(this);" onclick="storeCaret(this);" onkeyup="storeCaret(this);">{DRAFT_MESSAGE}</textarea></td>
+			</tr>
+			<tr>
+				<td colspan="9">
+					<table cellspacing="0" cellpadding="0" border="0" width="100%">
+					<tr>
+						<td align="left">
+							<script type="text/javascript">
+							// <![CDATA[
+								colorPalette('h', 6, 5)
+							// ]]>
+							</script>
+						</td>
+					</tr>
+					</table>
+				</td>
+			</tr>			
+			</table>
+		</td>
+	</tr>
+	<tr class="row1">
+		<td colspan="9" align="left"><p class="topictitle"><a href="{S_UCP_ACTION}">{L_BACK_TO_DRAFTS}</a></p></td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center">{S_HIDDEN_FIELDS}<input class="btnmain" type="submit" name="submit" value="{L_SUBMIT}" />&nbsp;&nbsp;<input class="btnlite" type="reset" value="{L_CANCEL_SUB}" name="reset" /></td>
+	</tr>
+<!-- ENDIF -->
+
+</form>
+	</tbody></table>
+<!-- ELSEIF MODE == attachments -->
+<!-- IF S_ATTACHMENT_ROWS -->
+<form name="ucp" id="ucp" method="post" action="{PMBT_LINK_BACK}action=overview&amp;mode=attachments">
+<input type="hidden" name="op" value="editprofile" >
+    	<table class="tablebg" width="100%" cellspacing="0">
+		<tr>
+<td>
+	    <div class="caption">
+        <div class="cap-left">
+        <div class="cap-right">&nbsp;{L_ATTACHMENTS}&nbsp;</div>
+       </div>
+       </div>
+	   </td>
+	   </tr>
+	   <tbody>
+	<tr>
+		<th nowrap="nowrap">#</th>
+		<th nowrap="nowrap" width="15%"><a href="{U_SORT_FILENAME}">{L_NAME}</a></th>
+		<th nowrap="nowrap" width="5%"><a href="{U_SORT_POST_TIME}">{L_DATE}</a></th>
+		<th nowrap="nowrap" width="5%"><a href="{U_SORT_FILESIZE}">{L_SIZE}</a></th>
+		<th nowrap="nowrap" width="5%"><a href="{U_SORT_DOWNLOADS}">{L_DOWNED}</a></th>
+		<th width="2%" nowrap="nowrap">{L_DELETE}</th>
+	</tr>
+	<!-- IF TOTAL_ATTACHMENTS -->
+		<tr>
+			<td class="row3" colspan="6">
+				<table width="100%" cellspacing="1">
+				<tr>
+					<td class="nav" valign="middle" nowrap="nowrap">&nbsp;{PAGE_NUMBER}<br /></td>
+					<td class="gensmall" nowrap="nowrap">&nbsp;[ {TOTAL_ATTACHMENTS} ]&nbsp;</td>
+					<td class="gensmall" width="100%" align="right" nowrap="nowrap"><!-- INCLUDE themes/Bitfarm/templates/pagination.html --></td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+	<!-- ENDIF -->
+	<!-- BEGIN attachrow -->
+		<!-- IF attachrow.S_ROW_COUNT is even --><tr class="row2"><!-- ELSE --><tr class="row1"><!-- ENDIF -->
+
+		<td class="genmed row" style="padding: 4px;" align="center" width="2%">&nbsp;{attachrow.ROW_NUMBER}&nbsp;</td>
+		<td class="row" style="padding: 4px;"><a class="gen" href="{attachrow.U_VIEW_ATTACHMENT}">{attachrow.FILENAME}</a><br /><span class="gensmall"><!-- IF attachrow.S_IN_MESSAGE --><b>{L__PRIVATE_MESSAGE}: </b><!-- ELSE --><b>{L_TOPIC}: </b><!-- ENDIF --><a href="{attachrow.U_VIEW_TOPIC}">{attachrow.TOPIC_TITLE}</a></span></td>
+		<td class="gensmall row" style="padding: 4px;" align="center" valign="middle" nowrap="nowrap">&nbsp;{attachrow.POST_TIME}&nbsp;</td>
+		<td class="genmed row" style="padding: 4px;" align="center" valign="middle" nowrap="nowrap">{attachrow.SIZE}</td>
+		<td class="genmed row" style="padding: 4px;" align="center">{attachrow.DOWNLOAD_COUNT}</td>
+		<td class="row" style="padding: 4px;" align="center" valign="middle"><input type="checkbox" class="radio" name="attachment[{attachrow.ATTACH_ID}]" value="1" /></td>
+	</tr>
+	<!-- END attachrow -->
+	<tr> 
+		<td colspan="6"><div style="float: left;"><span class="gensmall">{L_SORT_BY}: </span><select name="sk">{S_SORT_OPTIONS}</select> <select name="sd">{S_ORDER_SELECT}</select>&nbsp;<input class="btnlite" type="submit" name="sort" value="{L_SORT}" /></div><div style="float: right;"><input class="btnlite" type="submit" name="delete" value="{L_DELETE_MARKED}" />&nbsp;</div></td>
+	</tr>
+	</table>
+	{$CA_BLOCK_END}
+
+	<div style="float: right;"><b class="gensmall"><a href="#" onclick="marklist('ucp', 'attachment', true); return false;">{L_MARK_ALL}</a> :: <a href="#" onclick="marklist('ucp', 'attachment', false); return false;">{L_UNMARK_ALL}</a></b></div>
+
+<!-- ELSE -->
+
+    {$CA_BLOCK_START}
+	<table class="tablebg" width="100%" cellspacing="{$CA_SPACING}">
+	<tr>
+	<td>
+		    <div class="caption">
+        <div class="cap-left">
+        <div class="cap-right">&nbsp;{$CA_CAP_START}{L_TITLE}{$CA_CAP_END}&nbsp;</div>
+       </div>
+       </div>
+	   </td>
+	   </tr>
+	
+	<tr>
+		<td class="row1" align="center"><b class="genmed">{L_UCP_NO_ATTACHMENTS}</b></td>
+	</tr>
+	</table>
+	{$CA_BLOCK_END}
+
+<!-- ENDIF -->
+<!-- ELSE -->
+<form name="ucp" id="ucp" method="post" action="{PMBT_LINK_BACK}action=main&amp;mode=front">
+<input type="hidden" name="op" value="editprofile" >
+<table class="tablebg" width="100%" cellspacing="0">
+<tr><td>
+<div class="caption">
+<div class="cap-left">
+<div class="cap-right">
+&nbsp;User Control Panel&nbsp;</div>
+</div>
+</div>
+</td><tr valign="middle">
+	<td class="row1" colspan="3" align="center"><p class="genmed">Welcome to the User Control Panel. From here you can monitor, view and update your profile, preferences, subscribed forums and topics. You can also send messages to other users (if permitted). Please ensure you read any announcements before continuing.</p></td>
+</tr>
+<tr>
+	<th colspan="3">Important announcements</th>
+</tr>
+
+	<tr>
+		<td class="row1" align="center" colspan="3"><!-- IF S_ANNOUCEMENTS -->{S_ANNOUCEMENTS}<!-- ELSE --><b class="gen">No important announcements present.</b><!-- ENDIF --></td>
+
+	</tr>
+
+<tr>
+	<th colspan="3">Your activity</th>
+</tr>
+<tr>
+	<td class="row1" colspan="3">
+		<table width="100%" cellspacing="1" cellpadding="4">
+		<tr> 
+			<td align="right" valign="top" nowrap="nowrap"><b class="genmed">Joined: </b></td>
+
+			<td width="100%"><b class="gen">{CP_UREGDATE}</b></td>
+		</tr>
+		<tr> 
+			<td align="right" valign="top" nowrap="nowrap"><b class="genmed">Lastseen: </b></td>
+
+			<td width="100%"><b class="gen">{CP_ULASTSEEN}</b></td>
+		</tr>
+		<tr> 
+			<td align="right" valign="top" nowrap="nowrap"><b class="genmed">Total posts: </b></td>
+			<td><b class="gen">{CP_POST_COUNT}</b><br /><span class="genmed">[{POSTS_PCT} / {POSTS_DAY}]<br /><a href="./forum.php?action=search&search_id={CP_UID}">Show your posts</a></span></td>
+		</tr>
+					<tr>
+
+				<td align="right" valign="top" nowrap="nowrap"><b class="genmed">{L_ACTIVE_IN_FORUM}: </b></td>
+					<td><!-- IF ACTIVE_FORUM --><b><a class="gen" href="{U_ACTIVE_FORUM}">{ACTIVE_FORUM}</a></b><br /><span class="genmed">[ {ACTIVE_FORUM_POSTS} / {ACTIVE_FORUM_PCT} ]</span><!-- ELSE --><span class="gen">-</span><!-- ENDIF --></td>
+			</tr>
+			<tr>
+				<td align="right" valign="top" nowrap="nowrap"><b class="genmed">{L_ACTIVE_IN_TOPIC}: </b></td>
+					<td><!-- IF ACTIVE_TOPIC --><b><a class="gen" href="{U_ACTIVE_TOPIC}">{ACTIVE_TOPIC}</a></b><br /><span class="genmed">[ {ACTIVE_TOPIC_POSTS} / {ACTIVE_TOPIC_PCT} ]</span><!-- ELSE --><span class="gen">-</span><!-- ENDIF --></td>
+
+			</tr>
+				</table>
+	</td>
+</tr>
+<tr>
+	<td colspan="3">&nbsp;</td>
+</tr>
+</table>
+
+</form>
+<!-- ENDIF -->
+</td>
+</tr>
+</table>
+
+<br clear="all" />
+
+<!-- INCLUDE themes/Bitfarm/templates/over_all_footer.html -->

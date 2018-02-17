@@ -1,0 +1,149 @@
+<!-- INCLUDE themes/Bitfarm/templates/admin/over_all_header.html -->
+<a name="maincontent"></a>
+	<h1>{L_TITLE}</h1>
+
+	<p>{L_TITLE_EXPLAIN}</p>
+<!-- IF MODE == index -->
+
+		<h2>{L_SECTION_TITLE_CONFIG}</h2>
+		
+		<p>{L_SECTION_EXPLAIN_CONFIG}</p>
+
+
+		<h2>{L_SECTION_TITLE_WARNED}</h2>
+		
+		<p>{L_SECTION_EXPLAIN_WARNED}</p>
+
+
+		<h2>{L_SECTION_TITLE_WATCHED}</h2>
+		
+		<p>{L_SECTION_EXPLAIN_WATCHED}</p>
+<!-- ELSEIF MODE == config -->
+<form action="{U_ACTION}" method="post">
+<!-- BEGIN options -->
+	<!-- IF options.S_LEGEND -->
+		<!-- IF not options.S_FIRST_ROW -->
+			</fieldset>
+		<!-- ENDIF -->
+		<fieldset>
+			<legend>{options.LEGEND}</legend>
+	<!-- ELSE -->
+
+		<dl>
+			<dt><label for="{options.KEY}">{options.TITLE}:</label><!-- IF options.S_EXPLAIN --><br /><span>{options.TITLE_EXPLAIN}</span><!-- ENDIF --></dt>
+			<dd>{options.CONTENT}</dd>
+		</dl>
+
+	<!-- ENDIF -->
+<!-- END options -->
+
+
+	<p class="submit-buttons">
+		<input class="button1" type="submit" id="submit" name="submit" value="{L_SUBMIT}" />&nbsp;
+		<input class="button2" type="reset" id="reset" name="reset" value="{L_RESET}" />
+	</p>
+	{S_FORM_TOKEN}
+</fieldset>
+</form>
+<!-- ELSEIF MODE == warned -->
+<!-- IF PAGINATION -->
+<div class="pagination" style="float: right; margin: 15px 0 2px 0">
+	<a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{S_ON_PAGE}</a> &bull; <span>{PAGINATION}</span>
+</div>
+<!-- ENDIF -->
+
+<div class="clearfix">&nbsp;</div>
+<div><br style="clear: both;" /></div>
+<!-- IF .user -->
+	<table cellspacing="1">
+	<thead>
+	<tr>
+		<th>{L_USER}</th>
+		<th>{L_WARNED}</th>
+		<th>{L_TIME_TO_WARN}</th>
+		<th>{L_ACTION}</th>
+	</tr>
+	</thead>
+	<tbody>
+	<!-- BEGIN user -->
+		<!-- IF user.S_ROW_COUNT is even --><tr class="row1"><!-- ELSE --><tr class="row2"><!-- ENDIF -->
+			<td>
+				<a href=user.php?op=editprofile&id=$userid><font color="{user.USER_COLOR}">{user.USER_NAME}</font></a>
+				<br /><span>{L_UPLODED}: {user.USER_UPED}</span>
+				<br /><span>{L_DOWNED}: {user.USER_DOWNED}</span>
+			</td>
+			<td style="text-align: center;">{user.WARNED}</td>
+			<td style="text-align: center;">{user.TIME_LEFT}</td>
+			<td>
+				<form name="edit-player" method="post" action="admin.php?op=ratiowarn&i=userinfo&do=watched&action=edit&id={user.USER_ID}">
+				<input type="hidden" name="warned" value="{user.USER_ID}">
+				<input class="button1" type="submit" id="submit" name="submit" value="edit" >
+				</form>
+			</td>
+		</tr>
+	<!-- END user -->
+	</tbody>
+	</table>
+
+<!-- IF PAGINATION -->
+	<div class="pagination">
+		<a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{S_ON_PAGE}</a> &bull; <span>{PAGINATION}</span>
+	</div>
+<!-- ENDIF -->
+<!-- ELSE -->
+	<div class="errorbox">
+		<p>{L_NO_ENTRIES_WARNED}</p>
+	</div>
+<!-- ENDIF -->
+<!-- ELSEIF MODE == watched -->
+<!-- IF PAGINATION -->
+<div class="pagination" style="float: right; margin: 15px 0 2px 0">
+	<a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{S_ON_PAGE}</a> &bull; <span>{PAGINATION}</span>
+</div>
+<!-- ENDIF -->
+
+<div class="clearfix">&nbsp;</div>
+<div><br style="clear: both;" /></div>
+<!-- IF .user -->
+	<table cellspacing="1">
+	<thead>
+	<tr>
+		<th>{L_USER}</th>
+		<th>{L_WARNED}</th>
+		<th>{L_TIME_TO_WARN}</th>
+		<th>{L_ACTION}</th>
+	</tr>
+	</thead>
+	<tbody>
+	<!-- BEGIN user -->
+		<!-- IF user.S_ROW_COUNT is even --><tr class="row1"><!-- ELSE --><tr class="row2"><!-- ENDIF -->
+			<td>
+				<a href=user.php?op=editprofile&id=$userid><font color="{user.USER_COLOR}">{user.USER_NAME}</font></a>
+				<br /><span>{L_UPLODED}: {user.USER_UPED}</span>
+				<br /><span>{L_DOWNED}: {user.USER_DOWNED}</span>
+			</td>
+			<td style="text-align: center;">{user.WARNED}</td>
+			<td style="text-align: center;">{user.TIME_LEFT}</td>
+			<td>
+				<form name="edit-player" method="post" action="admin.php?op=ratiowarn&i=userinfo&do=watched&action=edit&id={user.USER_ID}">
+				<input type="hidden" name="warned" value="{user.USER_ID}">
+				<input class="button1" type="submit" id="submit" name="submit" value="edit" >
+				</form>
+			</td>
+		</tr>
+	<!-- END user -->
+	</tbody>
+	</table>
+
+<!-- IF PAGINATION -->
+	<div class="pagination">
+		<a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{S_ON_PAGE}</a> &bull; <span>{PAGINATION}</span>
+	</div>
+<!-- ENDIF -->
+<!-- ELSE -->
+	<div class="errorbox">
+		<p>{L_NO_ENTRIES}</p>
+	</div>
+<!-- ENDIF -->
+<!-- ENDIF -->
+<!-- INCLUDE themes/Bitfarm/templates/admin/over_all_footer.html -->

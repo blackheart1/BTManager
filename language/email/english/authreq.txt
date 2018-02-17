@@ -1,0 +1,13 @@
+Subject: {SUB_JECT} 
+
+Hi, {MASTER},
+you are receiving this message because the user {SLAVE} requested to download Torrent {TOR_NAME} on {SITENAME}.
+
+He won't be able to download it until you give him the authorization from your Personal Panel:
+{TOR_URL}
+
+Usually, you'll want to decide what to do considering the user's upload/download ratio.
+You're also able to allow or deny him to download ALL the Torrents you will upload in one fell swoop, 
+and you won't be bothered by these requests any more.
+
+{EMAIL_SIG}

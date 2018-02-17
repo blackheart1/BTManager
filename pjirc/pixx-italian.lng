@@ -1,0 +1,77 @@
+#
+#         This java file is a part of the
+#
+#          -  Plouf's Java IRC Client  -
+#
+#      Copyright (C) 2004 Philippe Detournay
+#
+#   This file is licensed under the GPL license
+#
+#        All contacts : theplouf@yahoo.com
+#
+#
+#  Syntax :
+#    Comments begin with the # character. This character must be the first character of the line.
+#    A data line has three parts : the data id, the data id description, the data string.
+#      - Data id : An hexadecimal figure identifying the string.
+#      - Data description : Begins by [ and ends by ]. The description is not parsed and
+#                           can be any string.
+#      - Data string : The string itself. Parameters are specified using the %i syntax.
+#
+#  Trailing spaces can be added using the \s escape character.
+#
+#  Traduzione italiana by Antonio Anzivino
+
+8601 [SOURCE_YOU_KICKED] Sei stato cacciato dal canale %1 da %2
+8602 [SOURCE_STATUS] Stato
+8603 [SOURCE_CHANLIST] Canali per %1
+8604 [SOURCE_CHANLIST_RETREIVING] Ricerca canali...
+8605 [SOURCE_HAS_JOINED] %1 è entrato in %2
+8606 [SOURCE_HAS_LEFT] %1 è uscito da %2
+8607 [SOURCE_HAS_BEEN_KICKED_BY] %1 è stato cacciato da %2
+8608 [SOURCE_HAS_QUIT] %1 ha chiuso
+8609 [SOURCE_TOPIC_IS] L'argomento è %1
+860a [SOURCE_CHANGED_TOPIC] %1 ha cambiato argomento in %2
+860b [SOURCE_CHANNEL_MODE] %1 ha impostato la modalità del canale a %2
+860c [SOURCE_CHANNEL_MODE_IS] Modalità canale : %1
+860d [SOURCE_USER_MODE] %1 imposta modalità %2 su %3
+860e [SOURCE_KNOWN_AS] %1 è ora conosciuto come %2
+860f [SOURCE_YOUR_MODE] Modalità cambiata in %1
+8610 [SOURCE_YOUR_NICK] Ora sei conosciuto come %1
+8611 [SOURCE_INFO] Info
+8612 [SOURCE_AWAY] %1 è via
+8613 [SOURCE_YOU_INVITED] %1 ti invita a unirti a %2
+8614 [SOURCE_YOU_JOINED_AS] Stai chattando in %1 come %2
+
+8701 [GUI_WHOIS] Whois
+8702 [GUI_QUERY] Query
+8703 [GUI_KICK] Caccia
+8704 [GUI_BAN] Banna
+8705 [GUI_KICKBAN] Caccia e banna
+8706 [GUI_OP] Op
+8707 [GUI_DEOP] DeOp
+8708 [GUI_VOICE] DeZittisci
+8709 [GUI_DEVOICE] Zittisci
+870a [GUI_PING] Ping
+870b [GUI_VERSION] Versione
+870c [GUI_TIME] Ora
+870d [GUI_FINGER] Finger
+870e [GUI_RETREIVING_FILE] Ricezione file (%1 byte)
+870f [GUI_SENDING_FILE] Invio file (%1 byte)
+8710 [GUI_TERMINATED] %1 terminato
+8711 [GUI_FAILED] %1 fallito
+8712 [GUI_CLOSE] Chiudi
+8713 [GUI_DISCONNECT] Disconnetti
+8714 [GUI_CHANNELS] Canali
+8715 [GUI_HELP] Aiuto
+8716 [GUI_PRIVATE] privato
+8717 [GUI_PUBLIC] pubblico
+8718 [GUI_CONNECT] Connettiti
+8719 [GUI_ABOUT] Info
+871a [GUI_CHANGE_NICK] Cambia nick in
+871c [GUI_FONT] Carattere
+871d [GUI_FONT_WINDOW] Scegli carattere
+871e [GUI_FONT_WINDOW_OK] OK
+871f [GUI_ENTER_TEXT_HERE] Scrivi qui...
+
+ffff [ERROR_NOT_DEFINED] Stringa non definita

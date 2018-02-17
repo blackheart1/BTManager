@@ -1,0 +1,196 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript" language="JavaScript" src="{SITE_URL}/bbcode.js"></script><!--[if lt IE 7]>
+<script defer type="text/javascript" src="{SITE_URL}/pngfix.js"></script><![endif]--><title>{SITENAME}</title>
+<link rel="StyleSheet" href="{SITE_URL}/themes/Bitfarm/style.css" type="text/css">
+<script type="text/javascript" src="{SITE_URL}/global.js"></script>
+    <script type="text/javascript" src="{SITE_URL}/themes/Bitfarm/scripts/jq_.js"></script>
+    <script type="text/javascript" src="{SITE_URL}/themes/Bitfarm/scripts/v3.js?v=2.5.2"></script>
+    <script type="text/javascript" src="{SITE_URL}/themes/Bitfarm/scripts/VPbox.js?v=5.2.4"></script>
+    <script type="text/javascript" src="{SITE_URL}/themes/Bitfarm/scripts/login.js"></script>
+<title>{SITENAME} - {PAGE_TITLE}</title>
+</head>
+
+<body>
+<!-- IF S_ERROR -->
+<div id="errorbox" >
+<span class="errorbox-title">{TITTLE_M}</span>
+<p>{MESSAGE}</p>
+</div>
+<!-- ELSEIF S_SUCCESS -->
+<div id="messagebox" >
+<span class="messagebox-title">{TITTLE_M}</span>
+<div "nav-holder">{MESSAGE}</div>
+</div>
+<!-- ENDIF -->
+<!-- IF FINDUSER -->
+	<form action="userfind_to_pm.php?action=find" name="users" method="post">
+	{HIDDEN}
+	<div vlign="bottom">
+	  <table cellspacing=0 cellpadding=0 border=0 align=left width=50% bgcolor="#dddddd">
+	  <tr>
+		 <td class=col1 align=center><strong>{L_USER_NAME}</strong></td>
+		 <td class=col1 align=center><input type="text" name="usersearch" size="30" value="{SEARCH_FEALD_NAME}"/></td>
+		</tr>
+		<tr>
+		 <td class=col1 align=center><strong>{L_USER_EMAIL}</strong></td>
+		 <td class=col1 align=center><input type="text" name="umailsearch" size="30" value="{SEARCH_FEALD_EMAIL}"/></td>
+		</tr>
+		 <td class=col1 align=center><strong>{L_USER_IP}</strong></td>
+		 <td class=col1 align=center><input type="text" name="uipsearch" size="30" value="{SEARCH_FEALD_IP}"/></td>
+		<tr>
+		 <td class=col1 align=center><strong>{L_USER_HOST}</strong></td>
+		 <td class=col1 align=center><input type="text" name="uhostsearch" size="30" value="{SEARCH_FEALD_HOST}"/></td>
+		</tr>
+		<tr>
+		 <td class=col2 align=center><input type="submit" name="confirm" value={L_SEARCH} /></td>
+	  </tr>
+	  </table>
+	</div>
+	</form>
+<!-- ELSE -->
+				<script type="text/javascript">
+		// <![CDATA[
+			function insert_user(user)
+			{
+				opener.document.forms['{FORM_FEALD}'].{TEXT_FEALD}.value = ( opener.document.forms['{FORM_FEALD}'].{TEXT_FEALD}.value.length && opener.document.forms['{FORM_FEALD}'].{TEXT_FEALD}.type == "textarea" ) ? opener.document.forms['{FORM_FEALD}'].{TEXT_FEALD}.value + "\n" + user : user;
+			}
+	
+			function insert_marked(users)
+			{
+				if (typeof(users.length) == "undefined")
+				{
+					if (users.checked)
+					{
+						insert_user(users.value);
+					}
+				}
+				else if (users.length > 0)
+				{
+					for (i = 0; i < users.length; i++)
+					{
+						if (users[i].checked)
+						{
+							insert_user(users[i].value);
+						}
+					}
+				}
+	
+				self.close();
+			}
+	
+			function insert_single(user)
+			{
+				opener.document.forms['{FORM_FEALD}'].{TEXT_FEALD}.value = user;
+				self.close();
+			}		
+	
+			/**
+			* Mark/unmark checklist
+			* id = ID of parent container, name = name prefix, state = state [true/false]
+			*/
+			function marklist(id, name, state)
+			{
+				var parent = document.getElementById(id);
+				if (!parent)
+				{
+					eval('parent = document.' + id);
+				}
+	
+				if (!parent)
+				{
+					return;
+				}
+	
+				var rb = parent.getElementsByTagName('input');
+				
+				for (var r = 0; r < rb.length; r++)
+				{
+					if (rb[r].name.substr(0, name.length) == name)
+					{
+						rb[r].checked = state;
+					}
+				}
+			}
+		// ]]>
+		</script>
+	<p align=center>Found <b>{NUM_FOUND}</b> member</p>
+	<div align="center">
+		<form method="post" name="results" action="userfind_to_pm.php" onsubmit="insert_marked(this.user);return false">
+		<table bgcolor="dddddd" align=left width=100% cellspacing=0 cellpadding=0 border=0>
+		<thead>
+		<tr>
+			<th class="name">
+				<span class="rank-img">
+				Rank
+				</span>
+				Username
+			</th>
+			<th class="posts">
+				Posts
+			</th>
+			<th class="info">
+			Location
+			</th>
+			<th class="joined">
+			Joined
+			</th>
+			<th class="active">
+			Last active
+			</th>
+		</tr>
+		</thead>
+		<tbody>
+<!-- IF SINGLE_USER -->
+<!-- BEGIN users_found -->
+	<tr class="bg2">
+		<td>
+			<span class="rank-img"></span>
+			<a href="./user.php?op=profile&id={users_found.ID}">{users_found.NAME}</a>
+			<br>[&nbsp;<a href="#" onclick="insert_single('{users_found.NAME}'); return false;">Select</a>&nbsp;]
+		</td>
+		<td class="posts">
+		<a href="./search.php?author_id={users_found.ID}&amp;sr=posts" title="Search user’s posts">{users_found.POSTCOUNT}</a>
+		</td>
+		<td class="info">{users_found.COUNTRY}&nbsp;</td>
+		<td>{users_found.REGDATE}</td>
+		<td>{users_found.LASTLOGIN}&nbsp;</td>
+	</tr>
+<!-- END users_found -->
+<!-- ELSE -->
+<!-- BEGIN users_found -->
+	<tr class="bg2">
+		<td>
+			<span class="rank-img"></span>
+			<input type="checkbox" name="user" value="{users_found.NAME}" />{users_found.NAME}
+		</td>
+		<td class="posts">
+		<a href="./search.php?author_id={users_found.ID}&amp;sr=posts" title="Search user’s posts">{users_found.POSTCOUNT}</a>
+		</td>
+		<td class="info">{users_found.COUNTRY}&nbsp;</td>
+		<td>{users_found.REGDATE}</td>
+		<td>{users_found.LASTLOGIN}&nbsp;</td>
+	</tr>
+<!-- END users_found -->
+<!-- ENDIF -->
+			</tbody>
+<!-- IF  not SINGLE_USER -->
+		<tbody>
+	<tr class="bg2">
+		<td>
+<fieldset class="display-actions">
+	<input type="submit" name="submit" value="{L_SELECT_MARKED}" class="button2" />
+	<div><a href="#" onclick="marklist('results', 'user', true); return false;">{L_MARK_ALL}</a> &bull; <a href="#" onclick="marklist('results', 'user', false); return false;">{L_UNMARK_ALL}</a></div>
+</fieldset>
+		</td>
+	</tr>
+			</tbody>
+<!-- ENDIF -->
+	</table>
+		</form>
+	</div>
+<!-- ENDIF -->
+</body>
+</html>

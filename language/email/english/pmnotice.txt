@@ -1,0 +1,12 @@
+$pm_res,
+
+you are receiving this message because user $author has sent you a private message on $sitename.
+
+You can read the message at $siteurl/pm.php?mid=$mid after logging in.
+
+If you feel bothered by the sender, use the blacklist function.
+This way you won't receive any more messages from the user.
+
+Regards,
+$sitename Staff
+$siteurl

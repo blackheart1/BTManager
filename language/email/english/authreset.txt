@@ -1,0 +1,13 @@
+Hi $gr_name,
+we inform you that user $granter has decided to reset all your Torrent download Authorizations for the Torrents he or she owns.
+
+Your old download permissions have now been restored. You will be still able to download the Torrents you were authorized for, 
+but not those for which you weren't authorized. 
+In order to download Torrents you never asked the authorization for, you have to send a new request.
+
+Remember that the Torrent Owner may at any time change your authorizations.
+You'll be sent a confirmation message at the event of any authorization change for this and for any Torrent you requested to download.
+
+Regards,
+$sitename Staff
+$siteurl

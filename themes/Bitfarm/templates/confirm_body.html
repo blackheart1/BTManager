@@ -1,0 +1,25 @@
+<!-- INCLUDE themes/Bitfarm/templates/over_all_header.html -->
+<!-- INCLUDE themes/Bitfarm/templates/over_all_left.html -->
+
+<div id="pagecontent">
+<form id="confirm" action="{S_CONFIRM_ACTION}" method="post">
+	<table class="tablebg" width="100%" cellspacing="{$CA_SPACING}">
+		{MESSAGE_TITLE}
+	<tr>
+		<td class="row1" align="center"><br /><p class="gen">{MESSAGE_TEXT}<br />
+<!-- IF S_GFX -->
+		<img src="gfxgen.php?code={GFX_CODE}" height="27" width="93" alt="{L_SECURITY_CODE}"><br />
+		<input type="text" name="gfxcode" size="10" maxlength="6"><br />
+<!-- ENDIF --> 
+		{S_HIDDEN_FIELDS}
+		<input type="submit" name="confirm" value="{L_YES}" class="button2" />&nbsp; 
+		<input type="submit" name="cancel" value="{L_NO}" class="button2" /></td>
+	</tr>
+	</table>
+</form>
+</div>
+
+<br clear="all" />
+
+<!-- INCLUDE themes/Bitfarm/templates/over_all_right.html -->
+<!-- INCLUDE themes/Bitfarm/templates/over_all_footer.html -->

@@ -1,0 +1,117 @@
+<!-- INCLUDE themes/Bitfarm/templates/over_all_header.html -->
+<!-- INCLUDE themes/Bitfarm/templates/pm_left_panel.html -->
+<div id="pagecontent">
+
+
+<div style="padding: 2px;"></div>
+
+<!-- IF S_PM_ICONS -->
+	<!-- DEFINE $COLSPAN = 6 -->
+<!-- ELSE -->
+	<!-- DEFINE $COLSPAN = 5 -->
+<!-- ENDIF -->
+
+<form name="viewfolder" method="post" action="{S_PM_ACTION}" style="margin:0px">
+
+<!-- IF PROMPT -->
+    {$CA_BLOCK_START}
+	<table class="tablebg" width="100%" cellspacing="{$CA_SPACING}" cellpadding="0" border="0">
+	{$CA_CAP_START}{L_OPTIONS}{$CA_CAP_END}
+	<tr>
+		<td class="row1" width="35%">{L_DELIMITER}: </td>
+		<td class="row2"><input class="post" type="text" name="delimiter" value="," /></td>
+	</tr>
+	<tr>
+		<td class="row1" width="35%">{L_ENCLOSURE}: </td>
+		<td class="row2"><input class="post" type="text" name="enclosure" value="&#034;" /></td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center"><input type="hidden" name="export_option" value="CSV" /><input class="btnmain" type="submit" name="submit_export" value="{L__EXPORT_FOLDER}" />&nbsp;&nbsp;<input class="btnlite" type="reset" value="Reset" name="reset" /></td>
+	</tr>
+	</table>
+	{$CA_BLOCK_END}
+    {S_FORM_TOKEN}
+</form>
+<!-- ELSE -->
+	<!-- IF S_PM_ICONS --><!-- BEGIN messagerow --><!-- IF messagerow.PM_ICON_IMG --><!-- DEFINE $CA_HAS_ICONS = 1 --><!-- ENDIF --><!-- END messagerow --><!-- IF ! $CA_HAS_ICONS --><!-- DEFINE $CA_EXTRA_COL = ' colspan="2"' --><!-- ENDIF --><!-- ENDIF -->
+	{$CA_BLOCK_START}
+	<table class="tablebg" width="100%" cellspacing="{$CA_SPACING}" cellpadding="0" border="0">
+	{$CA_CAP_START}<!-- IF CUR_FOLDER_NAME -->{CUR_FOLDER_NAME}<!-- ELSE -->{L_PRIVATE_MESSAGES}<!-- ENDIF -->{$CA_CAP_END}
+	<!-- IF NUM_NOT_MOVED or NUM_REMOVED -->
+		<tr>
+			<td class="row3" colspan="{$COLSPAN}" align="center"><span class="gen">
+				<!-- IF NUM_REMOVED -->
+				{RULE_REMOVED_MESSAGES}
+					<!-- IF NUM_NOT_MOVED --><br /><!-- ENDIF -->
+				<!-- ENDIF -->
+				<!-- IF NUM_NOT_MOVED -->
+				{NOT_MOVED_MESSAGES}<br />{RELEASE_MESSAGE_INFO}
+				<!-- ENDIF -->
+			</span></td>
+		</tr>
+	<!-- ENDIF -->
+	<tr>
+		<th style="border-right-width: 0;">&nbsp;</th>
+		<th style="border-left-width: 0;" colspan="<!-- IF S_PM_ICONS -->2<!-- ELSE -->1<!-- ENDIF -->">&nbsp;{L__SUBJECT}&nbsp;</th>
+		<th>&nbsp;<!-- IF S_SHOW_RECIPIENTS -->{L__RECIPIENTS}<!-- ELSE -->{L__AUTHOR}<!-- ENDIF -->&nbsp;</th>
+		<th>&nbsp;{L__SENT_AT}&nbsp;</th>
+		<th>&nbsp;{L__MARK}&nbsp;</th>
+	</tr>
+
+	<!-- BEGIN messagerow -->
+		<tr>
+			<td class="row1<!-- IF not messagerow.PM_IMG and messagerow.PM_CLASS --> {messagerow.PM_CLASS}_left<!-- ENDIF -->" width="25" align="center" nowrap="nowrap">{messagerow.FOLDER_IMG}</td>
+		<!-- IF $CA_HAS_ICONS -->
+			<td class="row1" width="25" align="center"><!-- IF messagerow.PM_ICON_IMG -->{messagerow.PM_ICON_IMG}<!-- ELSE -->&nbsp;<!-- ENDIF --></td>
+		<!-- ENDIF -->
+
+		<!-- IF messagerow.S_PM_DELETED --><td class="row3"{$CA_EXTRA_COL}><!-- ELSE --><td class="row1"{$CA_EXTRA_COL}><!-- ENDIF -->
+			<!-- IF messagerow.PM_IMG -->
+				{messagerow.PM_IMG}&nbsp;
+			<!-- ENDIF -->
+
+			<span class="topictitle">
+				{messagerow.ATTACH_ICON_IMG} 
+				<!-- IF messagerow.S_PM_DELETED -->
+					{L__MESSAGE_REMOVED_FROM_OUTBOX}<br />
+					<a href="{messagerow.U_REMOVE_PM}" style="float: {S_CONTENT_FLOW_END};">{L__DELETE_MESSAGE}</a>
+				<!-- ELSE -->
+					<a href="{messagerow.U_VIEW_PM}">{messagerow.SUBJECT}</a>
+				<!-- ENDIF -->
+				<!-- IF messagerow.S_AUTHOR_DELETED -->
+					<br /><em class="gensmall">{L__PM_FROM_REMOVED_AUTHOR}</em>
+				<!-- ENDIF -->
+			</span></td>
+
+			<td class="row1" width="100" align="center"><p class="topicauthor"><!-- IF S_SHOW_RECIPIENTS -->{messagerow.RECIPIENTS}<!-- ELSE -->{messagerow.MESSAGE_AUTHOR_FULL}<!-- ENDIF --></p></td>
+			<td class="row1" width="120" align="center"><p class="topicdetails">{messagerow.SENT_TIME}</p></td>
+			<td class="row1<!-- IF not messagerow.PM_IMG and messagerow.PM_CLASS --> {messagerow.PM_CLASS}_right<!-- ENDIF -->" width="20" align="center"><p class="topicdetails"><input type="checkbox" class="radio" name="marked_msg_id[]" value="{messagerow.MESSAGE_ID}" /></p></td>
+		</tr>
+	<!-- BEGINELSE -->
+		<tr>
+			<td class="row1" colspan="{$COLSPAN}" height="30" align="center" valign="middle"><span class="gen">{L__NO_MESSAGES}</span></td>
+		</tr>
+	<!-- END messagerow -->
+	
+<!-- IF .messagerow -->
+<tr>
+	<td colspan="{$COLSPAN}">
+	<div style="float: {S_CONTENT_FLOW_BEGIN};"><select name="export_option"><option value="CSV">{L__EXPORT_AS_CSV}</option><option value="CSV_EXCEL">{L__EXPORT_AS_CSV_EXCEL}</option><option value="XML">{L__EXPORT_AS_XML}</option></select>&nbsp;<input class="btnlite" type="submit" name="submit_export" value="{L__EXPORT_FOLDER}" /></div>
+	<div style="float: {S_CONTENT_FLOW_END};"><select name="mark_option">{S_MARK_OPTIONS}{S_MOVE_MARKED_OPTIONS}</select>&nbsp;<input class="btnlite" type="submit" name="submit_mark" value="{L__GO}" />&nbsp;<!-- INCLUDE themes/Bitfarm/templates/pagination.html --></div>
+	</td>
+</tr>
+<!-- ENDIF -->
+
+</table>
+{$CA_BLOCK_END}
+
+<input type="hidden" name="cur_folder_id" value="{CUR_FOLDER_ID}" />
+
+
+<div style="padding: 2px;"></div>
+
+<!-- ENDIF -->
+
+<br clear="all" />
+
+</div>

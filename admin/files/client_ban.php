@@ -1,0 +1,152 @@
+<?php
+/*
+*----------------------------phpMyBitTorrent V 3.0.0---------------------------*
+*--- The Ultimate BitTorrent Tracker and BMS (Bittorrent Management System) ---*
+*--------------   Created By Antonio Anzivino (aka DJ Echelon)   --------------*
+*-------------------   And Joe Robertson (aka joeroberts)   -------------------*
+*-------------               http://www.p2pmania.it               -------------*
+*------------ Based on the Bit Torrent Protocol made by Bram Cohen ------------*
+*-------------              http://www.bittorrent.com             -------------*
+*------------------------------------------------------------------------------*
+*------------------------------------------------------------------------------*
+*--   This program is free software; you can redistribute it and/or modify   --*
+*--   it under the terms of the GNU General Public License as published by   --*
+*--   the Free Software Foundation; either version 2 of the License, or      --*
+*--   (at your option) any later version.                                    --*
+*--                                                                          --*
+*--   This program is distributed in the hope that it will be useful,        --*
+*--   but WITHOUT ANY WARRANTY; without even the implied warranty of         --*
+*--   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          --*
+*--   GNU General Public License for more details.                           --*
+*--                                                                          --*
+*--   You should have received a copy of the GNU General Public License      --*
+*--   along with this program; if not, write to the Free Software            --*
+*-- Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA --*
+*--                                                                          --*
+*------------------------------------------------------------------------------*
+*------              ©2010 phpMyBitTorrent Development Team              ------*
+*-----------               http://phpmybittorrent.com               -----------*
+*------------------------------------------------------------------------------*
+*--------------------   Sunday, May 17, 2009 1:05 AM   ------------------------*
+*
+* @package phpMyBitTorrent
+* @version $Id: 3.0.0 client_bans.php  2010-11-04 00:22:48 joeroberts $
+* @copyright (c) 2010 phpMyBitTorrent Group
+* @license http://opensource.org/licenses/gpl-license.php GNU Public License
+*
+*/
+if (!defined('IN_PMBT')) die ("You can't access this file directly");
+$user->set_lang('admin/acp_clientban',$user->ulanguage);
+$is_edit = false;
+$banedit_client = Array("client" => "", "reason" => "");
+		$postback_client					= request_var('postback_client', '');
+		$id									= request_var('id', 0);
+		$do									= request_var('do', '');
+switch($do){
+        case "addclientban": {
+                if ($postback_client) { //Ban Client
+						$ban_client					= request_var('ban_client', '');
+						$reason_client					= request_var('reason_client', '');
+                        $sql = "INSERT INTO ".$db_prefix."_client_ban (client, reason, date) VALUES ('".$db->sql_escape($ban_client)."', '".$db->sql_escape($reason_client)."', NOW());";
+                        $db->sql_query($sql) or btsqlerror($sql);
+                                $template->assign_vars(array(
+											'S_MESSAGE'				=> true,
+											'S_USER_NOTICE'			=> true,
+											'MESSAGE_TITLE'			=> $user->lang['SUCES_BAN'],
+											'MESSAGE_TEXT'			=> sprintf($user->lang['SUCES_BAN_EXP'],$ban_client,$reason_client),
+											));
+				}
+                break;
+		}
+		
+        case "editclientban": {
+                if (!isset($id) OR !is_numeric($id)) break;
+                if (!$postback_client) {
+                        $is_edit = true;
+                        $sql = "SELECT * FROM ".$db_prefix."_client_ban WHERE id='".$id."' LIMIT 1;";
+                        $res = $db->sql_query($sql);
+                        if ($db->sql_numrows($res) < 1) $is_edit = false;
+                        else $banedit_client = $db->sql_fetchrow($res);
+                        $db->sql_freeresult($res);
+                } elseif ($postback_client) {
+						$ban_client					= request_var('ban_client', '');
+						$reason_client					= request_var('reason_client', '');
+                        if ($ban_client == '') { //ip2long returns < 0 if input is invalid
+                                bterror(_admnoclient,_admban,false);
+                                break;
+                        }
+                        $sql = "UPDATE ".$db_prefix."_client_ban SET client = '".$ban_client."', reason = '".$reason_client."' WHERE id = '".$id."';";
+                        $db->sql_query($sql) or btsqlerror($sql);
+                                $template->assign_vars(array(
+											'S_MESSAGE'				=> true,
+											'S_USER_NOTICE'			=> true,
+											'MESSAGE_TITLE'			=> $user->lang['SUCES_EDT'],
+											'MESSAGE_TEXT'			=> sprintf($user->lang['SUCES_EDT_EXP'],$ban_client,$reason_client),
+											));
+                }
+                break;
+		}
+        case "delclientban": {
+                if ($id) {
+                        if (!$id) break;
+				if (confirm_box(true))
+				{
+                        $db->sql_query("DELETE FROM ".$db_prefix."_client_ban WHERE id = '".$id."';");
+                                $template->assign_vars(array(
+											'S_MESSAGE'				=> true,
+											'S_USER_NOTICE'			=> true,
+											'MESSAGE_TITLE'			=> $user->lang['SUCES_DEL'],
+											'MESSAGE_TEXT'			=> $user->lang['SUCES_DEL_EXP'],
+											));
+				}
+				else
+				{
+					confirm_box(false, $user->lang['CONFIRM_OPERATION'], build_hidden_fields(array(
+						'i'				=> 'torrentinfo',
+						'op'			=> 'client_ban',
+						'do'			=> 'delclientban',
+						'id'			=> $id)),'admin/confirm_body.html',$u_action
+					);
+				}
+                }                 break;
+		}
+}
+$sql = "SELECT * FROM ".$db_prefix."_client_ban;";
+$res = $db->sql_query($sql);
+if ($db->sql_numrows($res) < 1) {
+} else {
+        while ($ban = $db->sql_fetchrow($res)) {
+			$template->assign_block_vars('clientbans', array(
+				'CLIENT_BAN_NAME'				=> $ban["client"],
+				'CLIENT_BAN_REASON'				=> htmlspecialchars($ban["reason"]),
+				'ID'							=> $ban["id"],
+				));
+        }
+}
+$db->sql_freeresult($res);
+if (!$is_edit OR isset($id)) {
+
+        if ($is_edit) {
+		$hide = array(
+					'op'		=> 'client_ban',
+					'id'		=> $id,
+					'i'			=> 'torrentinfo',
+					'do'		=> 'editclientban',
+					);
+        } else {
+		$hide = array(
+					'op'		=> 'client_ban',
+					'i'			=> 'torrentinfo',
+					'do'		=> 'addclientban',
+					);
+        }
+}
+                                $template->assign_vars(array(
+								'CLIENT_BAN_NAME'		=> $banedit_client["client"],
+								'CLIENT_BAN_REASON'		=> $banedit_client["reason"],
+								'HIDDEN'				=> build_hidden_fields($hide),
+								'U_ACTION'				=> './admin.php',
+								));
+echo $template->fetch('admin/acp_clientban.html');
+		close_out();
+?>
