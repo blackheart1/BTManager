@@ -1,34 +1,23 @@
 <?php
-/*
-*----------------------------phpMyBitTorrent V 2.0.5---------------------------*
-*--- The Ultimate BitTorrent Tracker and BMS (Bittorrent Management System) ---*
-*--------------   Created By Antonio Anzivino (aka DJ Echelon)   --------------*
-*-------------------   And Joe Robertson (aka joeroberts)   -------------------*
-*-------------               http://www.p2pmania.it               -------------*
-*------------ Based on the Bit Torrent Protocol made by Bram Cohen ------------*
-*-------------              http://www.bittorrent.com             -------------*
-*------------------------------------------------------------------------------*
-*------------------------------------------------------------------------------*
-*--   This program is free software; you can redistribute it and/or modify   --*
-*--   it under the terms of the GNU General Public License as published by   --*
-*--   the Free Software Foundation; either version 2 of the License, or      --*
-*--   (at your option) any later version.                                    --*
-*--                                                                          --*
-*--   This program is distributed in the hope that it will be useful,        --*
-*--   but WITHOUT ANY WARRANTY; without even the implied warranty of         --*
-*--   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          --*
-*--   GNU General Public License for more details.                           --*
-*--                                                                          --*
-*--   You should have received a copy of the GNU General Public License      --*
-*--   along with this program; if not, write to the Free Software            --*
-*-- Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA --*
-*--                                                                          --*
-*------------------------------------------------------------------------------*
-*------              ©2010 phpMyBitTorrent Development Team              ------*
-*-----------               http://phpmybittorrent.com               -----------*
-*------------------------------------------------------------------------------*
-*-------------------Saturday, January 23, 2010 4:02 PM ------------------------*
-*/
+/**
+**********************
+** BTManager v3.0.1 **
+**********************
+** http://www.btmanager.org/
+** https://github.com/blackheart1/BTManager
+** http://demo.btmanager.org/index.php
+** Licence Info: GPL
+** Copyright (C) 2018
+** Formerly Known As phpMyBitTorrent
+** Created By Antonio Anzivino (aka DJ Echelon)
+** And Joe Robertson (aka joeroberts)
+** Project Leaders: joeroberts, Thor.
+** File english.php 2018-02-17 14:32:00 joeroberts
+**
+** CHANGES
+**
+** EXAMPLE 26-04-13 - Added Auto Ban
+**/
 
 define("_ok","OK");
 define("_error","Error");
@@ -51,6 +40,8 @@ define("_domxmlcantload","Cannot load DOM XML. Check out how to compile and inst
 define("_externalcheck","Testing outgoing connections");
 define("_externalfail","Cannot update External Torrent statistics realtime nor determine Active and Passive users");
 define("_oscheck","Checking Operating System");
+define('_files_folder','Checking to see if your Files folder is write able');
+define('_files_folder_fail','This folder well need to be write able for you to beable to use Forum attachments');
 define('_cat_pics','Checking to see if your Cat Pics folder is Write able');
 define('_cat_pics_fail','This folder well need to be write able for you to beable to use Category image upload');
 define('_massupload','Checking to see if your MassUpload folder is Write able');
