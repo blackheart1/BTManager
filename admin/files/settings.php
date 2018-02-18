@@ -43,7 +43,7 @@ $user->set_lang('admin/site_settings',$user->ulanguage);
 $cfgquery = "SELECT * FROM ".$db_prefix."_config;";
 $cfgres = $db->sql_query($cfgquery);
 $cfgrow = $db->sql_fetchrow($cfgres);
-if(isset($cfgrow['announce_url']))$cfgrow['announce_url'] = implode("\n",unserialize($cfgrow['announce_url']));
+if(isset($cfgrow['announce_url']))$cfgrow['announce_url'] = @implode("\n",unserialize($cfgrow['announce_url']));
 $db->sql_freeresult($cfgres);
 		$op						= request_var('op', '');
 		$action					= request_var('action', 'setting');
