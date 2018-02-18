@@ -102,22 +102,25 @@ function getscrapedata($url, $display=false, $info = false) {
 				stream_set_timeout($fp, 10);
 				if(!$fp)
 					{
-						return 'no 1';
+						return false;
 					}
+						@fclose($fp);
+						return true;
 				$current_connid = "\x00\x00\x04\x17\x27\x10\x19\x80";
 				//Connection request
 				$packet = $current_connid . pack("N", 0) . pack("N", $transaction_id);
 				fwrite($fp,$packet);
 				//Connection response
-				$ret = fread($fp, 16);
+				$ret = fread($fp, 100);
 				if(strlen($ret) < 1 OR strlen($ret) < 16)
 					{
-						return 'no 2';
+						die($ret);
+						return false;
 					}
 				$retd = unpack("Naction/Ntransid",$ret);
 				if($retd['action'] != 0 || $retd['transid'] != $transaction_id)
 					{
-						return 'no 3';
+						return false;
 					}
 				$current_connid = substr($ret,8,8);
 				//Scrape request

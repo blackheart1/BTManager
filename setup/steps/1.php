@@ -68,7 +68,7 @@ if (!extension_loaded("mysql") OR !extension_loaded("mysqli")) {
         echo " - "._mysqlfail;
 } else {
         ok();
-        echo " - ".mysql_get_client_info();
+        echo " - ".(extension_loaded("mysql"))?mysql_get_client_info() : mysqli_get_client_info() ;
 }
 
 echo "<br />";
@@ -112,7 +112,7 @@ echo '<br />';
 
 echo _udp_check;
 echo " - ";
-if(!getscrapedata('udp://tracker.publicbt.com:80/scrape', false, array('ÏWX™xyTâ¡4«›Lì„âÍl!Ð'=>preg_replace_callback('/./s', "hex_esc", str_pad('ÏWX™xyTâ¡4«›Lì„âÍl!Ð',20)))))
+if(!getscrapedata('udp://tracker.coppersurfer.tk:6969/scrape', false, array(utf8_decode('Ñd>[÷lzÜ5ÉE')=>preg_replace_callback('/./s', "hex_esc", str_pad(utf8_decode('Ñd>[÷lzÜ5ÉE'),20)))))
 {
 warn();
 echo '<br />';

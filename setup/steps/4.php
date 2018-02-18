@@ -113,6 +113,66 @@ if ($can_proceed) {
         unset($installscript);
 }
 if ($can_proceed) {
+        $fp = @fopen("sql/site_settings.sql","r");
+        $installscript = "";
+        while (!feof($fp)) $installscript .= @fgets($fp,1000);
+        @fclose($fp);
+        unset($fp);
+        $installscript = str_replace("#prefix#",$db_prefix,$installscript);
+        echo "<p>"._sql_site_settings;
+        if (!$db->sql_query($installscript)) {
+                $can_proceed = false;
+                btsqlerror(substr($installscript,0,100)."..."); 
+        } else echo "<font class=\"ok\">OK</font>";
+        echo "</p>\n";
+        unset($installscript);
+}
+if ($can_proceed) {
+        $fp = @fopen("sql/arcade_settings.sql","r");
+        $installscript = "";
+        while (!feof($fp)) $installscript .= @fgets($fp,1000);
+        @fclose($fp);
+        unset($fp);
+        $installscript = str_replace("#prefix#",$db_prefix,$installscript);
+        echo "<p>"._sql_arcade_settings;
+        if (!$db->sql_query($installscript)) {
+                $can_proceed = false;
+                btsqlerror(substr($installscript,0,100)."..."); 
+        } else echo "<font class=\"ok\">OK</font>";
+        echo "</p>\n";
+        unset($installscript);
+}
+if ($can_proceed) {
+        $fp = @fopen("sql/arcade_categories.sql","r");
+        $installscript = "";
+        while (!feof($fp)) $installscript .= @fgets($fp,1000);
+        @fclose($fp);
+        unset($fp);
+        $installscript = str_replace("#prefix#",$db_prefix,$installscript);
+        echo "<p>"._sql_arcade_categories;
+        if (!$db->sql_query($installscript)) {
+                $can_proceed = false;
+                btsqlerror(substr($installscript,0,100)."..."); 
+        } else echo "<font class=\"ok\">OK</font>";
+        echo "</p>\n";
+        unset($installscript);
+}
+if ($can_proceed) {
+        $fp = @fopen("sql/arcade_games.sql","r");
+        $installscript = "";
+        while (!feof($fp)) $installscript .= @fgets($fp,1000);
+        @fclose($fp);
+        unset($fp);
+        $installscript = str_replace("#prefix#",$db_prefix,$installscript);
+        echo "<p>"._sql_arcade_games;
+        if (!$db->sql_query($installscript)) {
+                $can_proceed = false;
+                btsqlerror(substr($installscript,0,100)."..."); 
+        } else echo "<font class=\"ok\">OK</font>";
+        echo "</p>\n";
+        unset($installscript);
+}
+if ($can_proceed) {
         $fp = @fopen("sql/attachments_config.sql","r");
         $installscript = "";
         while (!feof($fp)) $installscript .= @fgets($fp,1000);
