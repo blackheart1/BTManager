@@ -463,7 +463,7 @@ $db->sql_freeresult($res);
 	}
 $db->sql_close();
 }
-exec("php-cli " . $sourcedir . "cron.php  >  /dev/null 2>&1 &");
+@exec("php-cli " . $sourcedir . "cron.php  >  /dev/null 2>&1 &");
 //define('PMBT_DEBUG', true);
 if(defined('PMBT_DEBUG'))cleanup();
 else

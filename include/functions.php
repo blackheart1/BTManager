@@ -3409,7 +3409,7 @@ function set_site_var($page_title = '')
 	if($nodonate == "US")$type = "$";
 	elseif($nodonate == "EU")$type = "&euro;";
 	elseif($nodonate == "UK")$type = "&pound;";
-	$perc = round(100 * $donatein/$donateasked);
+	$perc = @round(100 * $donatein/$donateasked);
 	$width = round(1.5 * $perc);
  	 if ($perc<= 1) {$pic = "".$nodonate.".gif"; $width = "100";}
  	 elseif ($perc<= 40) $pic = "loadbarred.gif";
