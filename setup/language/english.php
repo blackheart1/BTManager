@@ -246,7 +246,7 @@ define("_admpcookiepath","Cookie Path");
 define("_admpcookiepathexplain","Cookie Path. Change this setting <b>only</b> if BT.Manager is installed in a subdirectory of your server. If your installation is in http://yoursite.com/BT.Manager, the setting should be /BT.Manager");
 
 define("_admpsourcedir","Source Directory");
-define("_admpsourcedirexplain","Please Give the Full source directory path for system use.<br />Do not use / or ./");
+define("_admpsourcedirexplain","Please Give the Full Source/File directory path for system use.<br />Do not use / or ./ Using the wrong path well cause errors on the site pages.");
 
 define("_admpuse_gzip","Use GZIP compression");
 define("_admpuse_gzipexplain","This option allows you to enable or disable PHP's GZIP compression on HTML and Announce output. If enabled, bandwidth usage will be lower but CPU usage will be higher. This setting doesn't work fine on all servers; if your users report any Gzip errors in their clients, turn it off. Verify that your tracker reads the Announce response correctly.");
@@ -257,8 +257,11 @@ define("_admpadmin_emailexplain","E-Mail Address from which all emails to users 
 define("_admplanguage","Default Language");
 define("_admplanguageexplain","Specifies the default language to use.");
 
+define('_admpannounce_url','Site Announce URL\'s');
+define('_admpannounce_urlexplain','Add the Announce URL\'s that well be used by the site.<br />Put each one on a new line.');
+
 define("_admptheme","Theme");
-define("_admpthemeexplain","Set the default theme for this site. Registered users can ovverride this setting from their panel.");
+define("_admpthemeexplain","Set the default theme for this site. Registered users can override this setting from their panel.");
 
 define("_admpwelcome_message","Welcome Message");
 define("_admpwelcome_messageexplain","If set, this defines the message that you get o the top of the Main Page. If you leave this blank, you'll get the default message.");

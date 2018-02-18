@@ -65,6 +65,9 @@ function drawRow($param, $type, $options = NULL) {
         echo "<td align=\"right\"><p>";
         if ($type == "text") {
                 echo "<input type=\"text\" name=\"sub_".$param."\" value=\"".$cfgrow[$param]."\" size=\"40\" />";
+        }
+        elseif ($type == "text3") {
+                $content = "<textarea type=\"text\" name=\"sub_".$param."\" rows=\"15\" cols=\"76\">" . $cfgrow[$param] . "</textarea>";
         } elseif ($type == "select") {
                 echo "<select name=\"sub_".$param."\">\n";
                 foreach ($options as $key=>$val) {
@@ -135,6 +138,7 @@ function drawConfig() {
         unset($themes);
         drawRow("welcome_message","textarea");
         drawRow("announce_text","text");
+		drawRow("announce_url","text3");
         drawRow("allow_html","checkbox");
         drawRow("rewrite_engine","checkbox");
         drawRow("torrent_prefix","text");
@@ -211,6 +215,7 @@ if (!isset($postback)) { //Set default parameters
         $cfgrow["theme"] = "pmbt";
         $cfgrow["welcome_message"] = "";
         $cfgrow["announce_text"] = "";
+        $cfgrow["announce_url"] = "";
         $cfgrow["allow_html"] = true;
         $cfgrow["rewrite_engine"] = false;
         $cfgrow["torrent_prefix"] = "";
@@ -278,6 +283,7 @@ if (!isset($postback)) { //Set default parameters
         $cfgrow["theme"] = $sub_theme;
         $cfgrow["welcome_message"] = $sub_welcome_message;
         $cfgrow["announce_text"] = $sub_announce_text;
+        $cfgrow["announce_url"] = $announce_url;
         $cfgrow["allow_html"] = (isset($sub_allow_html) AND $sub_allow_html == "true") ? true : false;
         $cfgrow["rewrite_engine"] = (isset($sub_rewrite_engine) AND $sub_rewrite_engine == "true") ? true : false;
         $cfgrow["torrent_prefix"] = $sub_torrent_prefix;
@@ -340,9 +346,16 @@ if (isset($postback)) {
         //First I create the two SQL arrays
         $params = Array();
         $values = Array();
+		$vallad_ann = array();
+		$announce_url = explode("\n", $sub_announce_url);
+		foreach($announce_url as $a)
+		{
+			if(is_url(strtolower($a)))array_push($vallad_ann,$a);
+		}
 
         //Then I accurately check each parameter before inserting it in SQL statement
         //Some parameters that must be numeric have to be checked with an if clause because intval() function truncates to max integer
+		array_push($params,"announce_url"); array_push($values,serialize($vallad_ann));
         array_push($params,"sitename"); array_push($values,esc_magic($sub_sitename));
         if (is_url($sub_siteurl)) { array_push($params,"siteurl"); array_push($values,esc_magic($sub_siteurl)); }
         array_push($params,"cookiedomain"); array_push($values,$sub_cookiedomain);
@@ -435,6 +448,7 @@ if (isset($postback)) {
 
                 echo "<p><input type=\"submit\" name=\"postback\" value=\""._nextstep."\" /><input type=\"reset\" value=\""._reset."\" /></p>\n";
         } else {
+			$db->sql_query('UPDATE '.$db_prefix.'_cache_con SET value = \'' . $sub_sourcedir . 'cache\' WHERE name = \'cache_dir\'');
                 echo "<input type=\"hidden\" name=\"step\" value=\"6\" />\n";
                 echo "<p>"._step5complete."</p>";
                 echo "<p><input type=\"submit\" value=\""._nextstep."\" /></p>\n";
