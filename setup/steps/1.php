@@ -10,8 +10,8 @@
 ** Copyright (C) 2018
 ** Formerly Known As phpMyBitTorrent
 ** Created By Antonio Anzivino (aka DJ Echelon)
-** And Joe Robertson (aka joeroberts)
-** Project Leaders: joeroberts, Thor.
+** And Joe Robertson (aka joeroberts/Black_Heart)
+** Project Leaders: Black_Heart, Thor.
 ** File 1.php 2018-02-17 14:32:00 joeroberts
 **
 ** CHANGES

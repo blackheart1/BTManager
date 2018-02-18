@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="attachments_config.sql" server="104.219.248.42" local="131633903336150414" remote="131633902800000000" Dst="1" />
+<file name="avatar_config.sql" server="104.219.248.42" local="131633904032001050" remote="131633904000000000" Dst="1" />
+<file name="avp.sql" server="104.219.248.42" local="131162549863940465" remote="130642128000000000" Dst="2" />
+<file name="bbcode.sql" server="104.219.248.42" local="131162549867215895" remote="130642128000000000" Dst="2" />
+<file name="bonus.sql" server="104.219.248.42" local="131162549867405910" remote="130642164000000000" Dst="1" />
+<file name="bonus_points.sql" server="104.219.248.42" local="131162549868496039" remote="130642164000000000" Dst="1" />
+<file name="categories.sql" server="104.219.248.42" local="131162549874166759" remote="130642128000000000" Dst="2" />
+<file name="countries.sql" server="104.219.248.42" local="131162549875526889" remote="130642128000000000" Dst="2" />
+<file name="extensions.sql" server="104.219.248.42" local="131162549885908223" remote="130642128000000000" Dst="2" />
+<file name="hit_run.sql" server="104.219.248.42" local="131162549897929721" remote="130642128000000000" Dst="2" />
+<file name="img_bucket.sql" server="104.219.248.42" local="131162549909281139" remote="130642128000000000" Dst="2" />
+<file name="level_privlages.sql" server="104.219.248.42" local="131633911386482301" remote="131633911200000000" Dst="1" />
+<file name="install-MySQL4.sql" server="104.219.248.42" local="131162549915661931" remote="130642128000000000" Dst="2" />
+<file name="install-MySQL.sql" server="104.219.248.42" local="131633868276709728" remote="131633868000000000" Dst="1" />
+<file name="level_settings.sql" server="104.219.248.42" local="131633911930555852" remote="131633911800000000" Dst="1" />
+<file name="levels.sql" server="104.219.248.42" local="131633910872876898" remote="131633910600000000" Dst="1" />
+<file name="paypal.sql" server="104.219.248.42" local="131634576466234293" remote="131634576000000000" Dst="1" />
+<file name="ranks.sql" server="104.219.248.42" local="131162549926653389" remote="130642164000000000" Dst="1" />
+<file name="oracle.sql" server="104.219.248.42" local="131162549927233460" remote="130642128000000000" Dst="2" />
+<file name="ratiowarn_config.sql" server="104.219.248.42" local="131162549929623788" remote="130642128000000000" Dst="2" />
+<file name="report_reasons.sql" server="104.219.248.42" local="131162549931554024" remote="130642128000000000" Dst="2" />
+<file name="search_cloud.sql" server="104.219.248.42" local="131162549931854046" remote="130642128000000000" Dst="2" />
+<file name="shout_config.sql" server="104.219.248.42" local="131162549934114277" remote="130642164000000000" Dst="1" />
+<file name="smiles.sql" server="104.219.248.42" local="131162549936239562" remote="130642128000000000" Dst="2" />
+<file name="time_offset.sql" server="104.219.248.42" local="131162549936324603" remote="130642128000000000" Dst="2" />
+<file name="userautodel.sql" server="104.219.248.42" local="131162549944840843" remote="130642128000000000" Dst="2" />
+<file name="acl_options.sql" server="104.219.248.42" local="131633883752234082" remote="131633883600000000" Dst="1" />
+<file name="acl_groups.sql" server="104.219.248.42" local="131633882900481936" remote="131633882400000000" Dst="1" />
+<file name="acl_roles.sql" server="104.219.248.42" local="131633884508963502" remote="131633884200000000" Dst="1" />
+<file name="acl_roles_data.sql" server="104.219.248.42" local="131633885329988507" remote="131633884800000000" Dst="1" />
+<file name="admin_forum.sql" server="104.219.248.42" local="131390612722027957" remote="131189940000000000" Dst="1" />
+<file name="extension_groups.sql" server="104.219.248.42" local="131390612726533470" remote="131189904000000000" Dst="2" />
+<file name="forum_config.sql" server="104.219.248.42" local="131633909752628426" remote="131633909400000000" Dst="1" />
+<file name="cache_con.sql" server="104.219.248.42" local="131634341170997379" remote="131634340800000000" Dst="1" />
+<file name="icons.sql" server="104.219.248.42" local="131390612728263676" remote="131189904000000000" Dst="2" />
+<file name="modules.sql" server="104.219.248.42" local="131633913066325780" remote="131633913000000000" Dst="1" />
+<file name="install-MySQLi.sql" server="104.219.248.42" local="131633868334873054" remote="131633868000000000" Dst="1" />
+<file name="arcade_categories.sql" server="104.219.248.42" local="131633888447596221" remote="131633888400000000" Dst="1" />
+<file name="arcade_games.sql" server="104.219.248.42" local="131633899391538340" remote="131633899200000000" Dst="1" />
+<file name="arcade_settings.sql" server="104.219.248.42" local="131633901629942770" remote="131633901600000000" Dst="1" />
+<file name="site_settings.sql" server="104.219.248.42" local="131633916811763495" remote="131633916600000000" Dst="1" />
+</dwsync>
