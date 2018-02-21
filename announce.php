@@ -1,51 +1,33 @@
 <?php
-/*
-*----------------------------phpMyBitTorrent V 3.0.0---------------------------*
-*--- The Ultimate BitTorrent Tracker and BMS (Bittorrent Management System) ---*
-*--------------   Created By Antonio Anzivino (aka DJ Echelon)   --------------*
-*-------------------   And Joe Robertson (aka joeroberts)   -------------------*
-*-------------               http://www.p2pmania.it               -------------*
-*------------ Based on the Bit Torrent Protocol made by Bram Cohen ------------*
-*-------------              http://www.bittorrent.com             -------------*
-*------------------------------------------------------------------------------*
-*------------------------------------------------------------------------------*
-*--   This program is free software; you can redistribute it and/or modify   --*
-*--   it under the terms of the GNU General Public License as published by   --*
-*--   the Free Software Foundation; either version 2 of the License, or      --*
-*--   (at your option) any later version.                                    --*
-*--                                                                          --*
-*--   This program is distributed in the hope that it will be useful,        --*
-*--   but WITHOUT ANY WARRANTY; without even the implied warranty of         --*
-*--   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          --*
-*--   GNU General Public License for more details.                           --*
-*--                                                                          --*
-*--   You should have received a copy of the GNU General Public License      --*
-*--   along with this program; if not, write to the Free Software            --*
-*-- Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA --*
-*--                                                                          --*
-*------------------------------------------------------------------------------*
-*------              �2010 phpMyBitTorrent Development Team              ------*
-*-----------               http://phpmybittorrent.com               -----------*
-*------------------------------------------------------------------------------*
-*--------------------   Sunday, May 17, 2009 1:05 AM   ------------------------*
-*
-* @package phpMyBitTorrent
-* @version $Id: 3.0.0 announce.php  2014-01-22 00:22:48 joeroberts $
-* @copyright (c) 2010 phpMyBitTorrent Group
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License
-*
-*/
+/**
+**********************
+** BTManager v3.0.1 **
+**********************
+** http://www.btmanager.org/
+** https://github.com/blackheart1/BTManager
+** http://demo.btmanager.org/index.php
+** Licence Info: GPL
+** Copyright (C) 2018
+** Formerly Known As phpMyBitTorrent
+** Created By Antonio Anzivino (aka DJ Echelon)
+** And Joe Robertson (aka joeroberts/Black_Heart)
+** Project Leaders: Black_Heart, Thor.
+** File announce.php 2018-02-19 14:32:00 Black_Heart
+**
+** CHANGES
+**
+** EXAMPLE 26-04-13 - Added Auto Ban
+**/
 @error_reporting(E_ALL & ~(E_NOTICE | E_USER_NOTICE)); //We don't get stupid messages
 #Stop from Including this file
 if (defined('IN_PMBT'))die ("You can't include this file");
 define("IN_PMBT",true);
+$agent = $_SERVER['HTTP_USER_AGENT'];
 #stop Broswer use
-if (
-    preg_match("/(Mozilla|Opera|Lynx|Netscape|Links)$/", $agent) || 
+if (preg_match("/(Mozilla|Opera|Lynx|Netscape|Links)$/", $agent) || 
     isset($_SERVER['HTTP_COOKIE']) || 
     isset($_SERVER['HTTP_ACCEPT_LANGUAGE']) || 
-    isset($_SERVER['HTTP_ACCEPT_CHARSET'])
-    )
+    isset($_SERVER['HTTP_ACCEPT_CHARSET']))
  {
                 header("HTTP/1.0 401 Access Denied");
         die("<html><head><title>Error!</title></head><body><h3>Sorry, but this file is not suitable for browsers.</h3></body></html>");
@@ -185,6 +167,7 @@ $event = request_var('event', '');
 $key = request_var('key', '',true);
 $compact = request_var('compact', '',true);
 $no_peer_id = request_var('no_peer_id', '');
+//CLEAN UP PASSKEY
 if (strpos($passkey, "?"))
 {
   $tmp = substr($passkey , strpos($passkey , "?"));
@@ -193,7 +176,7 @@ if (strpos($passkey, "?"))
   $tmpvalue = substr($tmp, strpos($tmp, "=")+1);
   $$tmpname = $tmpvalue;
 }
-
+//vERIFY NEEDED DATA
 foreach (explode(":", $req) as $x) {
 
         if ($x[0] == "!") {
@@ -215,7 +198,7 @@ foreach (explode(":", $req) as $x) {
         }
         $$x = unesc_magic($$x);
 }
-
+//CHECK FOR INFO HASH AND PEER ID AND CONFERM THEY ARE PROPERLY FORMATED
 foreach (array("info_hash","peer_id") as $x) {
         if (strlen($$x) != 20)
                 err("invalid $x (" . strlen($$x) . " - " . urlencode($$x) . ")");
@@ -225,6 +208,7 @@ $port = 0 + $port;
 $downloaded = 0 + $downloaded;
 $uploaded = 0 + $uploaded;
 $left = 0 + $left;
+//GET USER IP
 $ip = $real_ip = getip();
 		if($ip == "0.0.0.0")err("Bad Ip report");
 else $ip = sprintf("%u",ip2long($ip));
@@ -236,6 +220,7 @@ if ($db->sql_numrows($ban_res) > 0) {
         err("You are banned from this tracker. Reason: ".$reason);
 }
 $db->sql_freeresult($ban_res);
+//IF FORCED PASSKEY IS SET CONFERM IT IS HERE
 if ($force_passkey AND $passkey == "") err("Only users with Passkey are allowed to use our tracker.");
 
 if ($passkey != "") {
@@ -247,6 +232,7 @@ if ($passkey != "") {
 } else {
         $sql_where = "lastip = '".$ip."' OR seedbox = '".$ip."' ";
 }
+//GET THE USERS INFO
 $user_sql = "SELECT id, level, uploaded, downloaded, ban, banreason, can_do, dongift FROM ".$db_prefix."_users WHERE ".$sql_where." ORDER BY lastlogin DESC LIMIT 1;";
 if (!$userres = $db->sql_query($user_sql)) err("SQL Error: ". $user_sql ,$db->sql_error());
 if ($userrow = $db->sql_fetchrow($userres)) {
@@ -254,6 +240,7 @@ if ($userrow = $db->sql_fetchrow($userres)) {
 		$usergift = $userrow['dongift'];
         $ulevel = $userrow["level"];
 } else {
+	//REJECR INVALED PASSKEY
         if ($passkey != "") err("Invalid Passkey. It may have been renewed.");
         $uid = 0;
         $ulevel = "guest";
@@ -321,7 +308,7 @@ $completed = $torrent["completed"];
 $ratiobuild = $torrent["ratiobuild"];
 $torrentcategory = $torrent["category"];
 $size = $torrent['size'];
-
+//CONFERM WAIT TIME
    if ($wait_time){
       if ($left > 0 && $userrow["level"] == "user")
          {
@@ -345,8 +332,9 @@ unset($sql_select, $res, $torrent);
 if(isset($compact) AND $compact ==1)$compact = true;
 else
 $compact = false;
-		//$compact = false;
+
 $seedwhere = "";
+//BUILD PEER LIST FOR CLIENT
 if(!$compact){
 $resp = "d" . benc_str("interval") . "i" . $announce_interval . "e". benc_str("complete") . "i" . $seeders . "e" . benc_str("incomplete") . "i" . $leechers . "e" . benc_str("downloaded") . "i" . $completed . "e" . benc_str('size') . "i" . $size . "e" . benc_str("private") . 'i1e' . benc_str("peers") . "le" . benc_str("min interval") . "i" . $announce_interval_min . "e";
 if (!empty($announce_text)) $resp .= "15:warning message". strlen($announce_text) .":". $announce_text;
@@ -387,7 +375,7 @@ if(!$compact){
 
 }
         $db->sql_freeresult($res);
-        //unset($sql_select, $res);
+
 }
 $resp .= "ee";
                 unset($row, $sql_select, $res);
@@ -578,7 +566,7 @@ if ($self) { //Peer is already connected
       $uploaded2=$uploaded - $self["uploaded"];
       $usna = "UPDATE ".$db_prefix."_snatched SET uploaded = uploaded+$uploaded2, downloaded = downloaded+$downloaded2, port = '".$port."', seeder = 'yes', connectable = '$connectable'".$seed_for.", agent= " . $client . ", ip = '".$ip."', to_go = '".$left."',speedup='".$upload_speed."',speeddown='".$download_speed."', last_action = '".get_date_time()."', warned = 'no', hnr_warning = 'no' WHERE torrent = $torrentid AND userid = ".$uid."";
 	  if (!$db->sql_query($usna))err("Error ".$usna);
-      //unset($event);
+
 //END SNATCH UPDATE
 
         $sql_update = "UPDATE ".$db_prefix."_peers SET ip = '".$ip."', real_ip = '".$real_ip."', connectable = '".$connectable."', port = '".$port."', uploaded = '".$uploaded."', downloaded = '".$downloaded."', to_go = '".$left."', last_action = NOW(), seeder = '".$seeder."', download_speed='".$download_speed."', upload_speed='".$upload_speed."' WHERE torrent = '".$torrentid."' AND  " . hash_where("peer_id", $peer_id) . ";";

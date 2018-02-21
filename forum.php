@@ -1,25 +1,23 @@
 <?php
-/*
-*--------------------------------BT,Manager V 3.0.0----------------------------* 
-*--- The Ultimate BitTorrent Tracker and BMS (Bittorrent Management System) ---*
-*--------------   Created By Antonio Anzivino (aka DJ Echelon)   --------------*
-*-------------------   And Joe Robertson (aka joeroberts)   -------------------*
-*-------------               http://www.p2pmania.it               -------------*
-*------------ Based on the Bit Torrent Protocol made by Bram Cohen ------------*
-*-------------              http://www.bittorrent.com             -------------*
-*------------------------------------------------------------------------------*
-*------------------------------------------------------------------------------*
-*---------              �2014 BT,Manager Development Team              --------*
-*--------------               http://BT,Manager.com               -------------*
-*------------------------------------------------------------------------------*
-*-------------------   Wendsday, May 14, 2014 9:05 PM   -----------------------*
-*
-* @package BT,Manager
-* @version $Id: 3.0.0 forum.php  2014-05-14 00:22:48 joeroberts $
-* @copyright (c) 2014 BT,Manager Group
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License 
-*
-*/
+/**
+**********************
+** BTManager v3.0.1 **
+**********************
+** http://www.btmanager.org/
+** https://github.com/blackheart1/BTManager
+** http://demo.btmanager.org/index.php
+** Licence Info: GPL
+** Copyright (C) 2018
+** Formerly Known As phpMyBitTorrent
+** Created By Antonio Anzivino (aka DJ Echelon)
+** And Joe Robertson (aka joeroberts/Black_Heart)
+** Project Leaders: Black_Heart, Thor.
+** File forum.php 2018-02-17 14:32:00 Black_Heart
+**
+** CHANGES
+**
+** EXAMPLE 26-04-13 - Added Auto Ban
+**/
 if (defined('IN_PMBT'))die ("You can't include this file");
 define("IN_PMBT",true);
 require_once("common.php");
