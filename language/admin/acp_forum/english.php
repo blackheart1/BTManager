@@ -1,203 +1,257 @@
 <?php
-/**
-*
-* ucp [English]
-*
-* @package language
-* @version $Id$
-* @copyright (c) 2005 phpMyBitTorrent Group
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License
-*
-*/
 
 /**
-* DO NOT CHANGE
-*/
-if (!defined('IN_PMBT')) die ("You can't access this file directly");
+**********************
+** BTManager v3.0.1 **
+**********************
+** http://www.btmanager.org/
+** https://github.com/blackheart1/BTManager
+** http://demo.btmanager.org/index.php
+** Licence Info: GPL
+** Copyright (C) 2018
+** Formerly Known As phpMyBitTorrent
+** Created By Antonio Anzivino (aka DJ Echelon)
+** And Joe Robertson (aka joeroberts)
+** Project Leaders: Black_heart, Thor.
+** File acp_forum.php 2018-02-18 09:50:00 Thor
+**
+** CHANGES
+**
+** 2018-02-18 - Added New Masthead
+** 2018-02-18 - Added New !defined('IN_PMBT')
+** 2018-02-18 - Fixed Spelling
+**/
+
+if (!defined('IN_PMBT'))
+{
+    ?>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html>
+        <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+            <title>
+                <?php if (isset($_GET['error']))
+            {
+                echo htmlspecialchars($_GET['error']);
+            }
+            ?> Error</title>
+
+            <link rel='stylesheet' type='text/css' href='/errors/error-style.css' />
+        </head>
+
+        <body>
+            <div id='container'>
+                <div align='center' style='padding-top: 15px'>
+                    <img src='/errors/error-images/alert.png' width='89' height='94' alt='' title='' />
+                </div>
+
+                <h1 class='title'>Error 404 - Page Not Found</h1>
+                <p class='sub-title' align='center'>The page that you are looking for does not appear to exist on this site.</p>
+                <p>If you typed the address of the page into the address bar of your browser, please check that you typed it in correctly.</p>
+                <p>If you arrived at this page after you used an old Boomark or Favorite, the page in question has probably been moved. Try locating the page via the navigation menu and then update your bookmarks.</p>
+            </div>
+        </body>
+    </html>
+
+    <?php
+    exit();
+}
 if (empty($lang) || !is_array($lang))
 {
 	$lang = array();
 }
+
 $lang = array_merge($lang, array(
-	'FORUM_INDEX'					=> 'Board index',
-	'SELECT_FORUM'					=> 'Select a forum',
-	'FORUM_MANAGE'					=> 'Manage forums',
-	'FORUM_CONF'					=> 'Forum Configs',
-	'FORUMS_PRUNE'					=> 'Prune forums',
-	'FORUMS_USER_PERM'				=> 'Users’ forum permissions',
-	'FORUMS_GROUP_PERM'				=> 'Groups’ forum permissions',
-	'FORUMS_PERMISSIONS'			=> 'Forum permissions',
-	'FORUMS_MODERATORS'				=> 'Forum moderators',
-	'FORUM_BASD_PERM'				=>	'Forum based permissions',
-	'FORUM_RULES'					=> 'Forum rules',
-	'PARSE_BBCODE'					=> 'Parse BBCode',
-	'PARSE_SMILIES'					=> 'Parse smilies',
-	'PARSE_URLS'					=> 'Parse links',
-	'RESYNC'						=> 'Resynchronise',
-	'AUTO_PRUNE_DAYS'				=> 'Auto-prune post age',
-	'AUTO_PRUNE_DAYS_EXPLAIN'		=> 'Number of days since last post after which topic is removed.',
-	'AUTO_PRUNE_FREQ'				=> 'Auto-prune frequency',
-	'AUTO_PRUNE_FREQ_EXPLAIN'		=> 'Time in days between pruning events.',
-	'AUTO_PRUNE_VIEWED'				=> 'Auto-prune post viewed age',
-	'AUTO_PRUNE_VIEWED_EXPLAIN'		=> 'Number of days since topic was viewed after which topic is removed.',
-	'COPY_PERMISSIONS'				=> 'Copy permissions from',
-	'COPY_PERMISSIONS_EXPLAIN'		=> 'To ease up the permission setup for your new forum, you can copy the permissions of an existing forum.',
-	'COPY_PERMISSIONS_ADD_EXPLAIN'	=> 'Once created, the forum will have the same permissions as the one you select here. If no forum is selected the newly created forum will not be visible until permissions had been set.',
-	'COPY_PERMISSIONS_EDIT_EXPLAIN'	=> 'If you select to copy permissions, the forum will have the same permissions as the one you select here. This will overwrite any permissions you have previously set for this forum with the permissions of the forum you select here. If no forum is selected the current permissions will be kept.',
-	'COPY_TO_ACL'					=> 'Alternatively, you are also able to %sset up new permissions%s for this forum.',
-	'CREATE_FORUM'					=> 'Create new forum',
+    'FORUM_INDEX'                      => 'Board Index',
+    'SELECT_FORUM'                     => 'Select a Forum',
+    'FORUM_MANAGE'                     => 'Manage Forums',
+    'FORUM_CONF'                       => 'Forum Configuration',
+    'FORUMS_PRUNE'                     => 'Prune Forums',
+    'FORUMS_USER_PERM'                 => 'Users Forum Permissions',
+    'FORUMS_GROUP_PERM'                => 'Groups Forum Permissions',
+    'FORUMS_PERMISSIONS'               => 'Forum Permissions',
+    'FORUMS_MODERATORS'                => 'Forum Moderators',
+    'FORUM_BASD_PERM'                  => 'Forum Based Permissions',
+    'FORUM_RULES'                      => 'Forum Rules',
+    'PARSE_BBCODE'                     => 'Parse BBCode',
+    'PARSE_SMILIES'                    => 'Parse Smilies',
+    'PARSE_URLS'                       => 'Parse Links',
+    'RESYNC'                           => 'Resynchronise',
+    'AUTO_PRUNE_DAYS'                  => 'Auto-Prune Post Age',
+    'AUTO_PRUNE_DAYS_EXPLAIN'          => 'Number of Days since last Post after which Topic is Removed.',
+    'AUTO_PRUNE_FREQ'                  => 'Auto-Prune Frequency',
+    'AUTO_PRUNE_FREQ_EXPLAIN'          => 'Time in Days between Pruning Events.',
+    'AUTO_PRUNE_VIEWED'                => 'Auto-Prune Post Viewed Age',
+    'AUTO_PRUNE_VIEWED_EXPLAIN'        => 'Number of Days since Topic was Viewed after which Topic is Removed.',
+    'COPY_PERMISSIONS'                 => 'Copy Permissions From',
+    'COPY_PERMISSIONS_EXPLAIN'         => 'To make things easy when setting up your New Forum, you can Copy the Permissions of an Existing Forum.',
 
-	'DECIDE_MOVE_DELETE_CONTENT'		=> 'Delete content or move to forum',
-	'DECIDE_MOVE_DELETE_SUBFORUMS'		=> 'Delete subforums or move to forum',
-	'DEFAULT_STYLE'						=> 'Default style',
-	'DELETE_ALL_POSTS'					=> 'Delete posts',
-	'DELETE_SUBFORUMS'					=> 'Delete subforums and posts',
-	'DISPLAY_ACTIVE_TOPICS'				=> 'Enable active topics',
-	'DISPLAY_ACTIVE_TOPICS_EXPLAIN'		=> 'If set to yes active topics in selected subforums will be displayed under this category.',
+    'COPY_PERMISSIONS_ADD_EXPLAIN'     => 'Once created, the Forum will have the same Permissions as the one you select HERE. If No Forum is selected the newly Created Forum will NOT be Visible until Permissions had been Set.',
 
-	'SETTING_TOO_LOW'				=> 'The provided value for the setting “%1$s” is too low. The minimum acceptable value is %2$d.',
-	'SETTING_TOO_BIG'				=> 'The provided value for the setting “%1$s” is too high. The maximum acceptable value is %2$d.',
-	'SETTING_TOO_LONG'				=> 'The provided value for the setting “%1$s” is too long. The maximum acceptable length is %2$d.',
-	'SETTING_TOO_SHORT'				=> 'The provided value for the setting “%1$s” is too short. The minimum acceptable length is %2$d.',
-	'EDIT_FORUM'					=> 'Edit forum',
-	'ENABLE_INDEXING'				=> 'Enable search indexing',
-	'ENABLE_INDEXING_EXPLAIN'		=> 'If set to yes posts made to this forum will be indexed for searching.',
-	'ENABLE_POST_REVIEW'			=> 'Enable post review',
-	'ENABLE_POST_REVIEW_EXPLAIN'	=> 'If set to yes users are able to review their post if new posts were made to the topic while users wrote theirs. This should be disabled for chat forums.',
-	'ENABLE_QUICK_REPLY'			=> 'Enable quick reply',
-	'ENABLE_QUICK_REPLY_EXPLAIN'	=> 'Enables the quick reply in this forum. This setting is not considered if the quick reply is disabled board wide. The quick reply will only be displayed for users who have permission to post in this forum.',
-	'ENABLE_RECENT'					=> 'Display active topics',
-	'ENABLE_RECENT_EXPLAIN'			=> 'If set to yes topics made to this forum will be shown in the active topics list.',
-	'ENABLE_TOPIC_ICONS'			=> 'Enable topic icons',
+    'COPY_PERMISSIONS_EDIT_EXPLAIN'    => 'If you select to Copy Permissions, the Forum will have the same Permissions as the one you select HERE. This will Overwrite any Permissions you have previously set for this Forum with the Permissions of the Forum you select HERE. If No Forum is selected the Current Permissions will be kept.',
 
-	'FORUM_ADMIN'						=> 'Forum administration',
-	'FORUM_ADMIN_EXPLAIN'				=> 'In phpBB3 there are no categories, everything is forum based. Each forum can have an unlimited number of sub-forums and you can determine whether each may be posted to or not (i.e. whether it acts like an old category). Here you can add, edit, delete, lock, unlock individual forums as well as set certain additional controls. If your posts and topics have got out of sync you can also resynchronise a forum. <strong>You need to copy or set appropriate permissions for newly created forums to have them displayed.</strong>',
-	'FORUM_AUTO_PRUNE'					=> 'Enable auto-pruning',
-	'FORUM_AUTO_PRUNE_EXPLAIN'			=> 'Prunes the forum of topics, set the frequency/age parameters below.',
-	'FORUM_CREATED'						=> 'Forum created successfully.',
-	'FORUM_DATA_NEGATIVE'				=> 'Pruning parameters cannot be negative.',
-	'FORUM_DESC_TOO_LONG'				=> 'The forum description is too long, it must be less than 4000 characters.',
-	'FORUM_DELETE'						=> 'Delete forum',
-	'FORUM_DELETE_EXPLAIN'				=> 'The form below will allow you to delete a forum. If the forum is postable you are able to decide where you want to put all topics (or forums) it contained.',
-	'FORUM_DELETED'						=> 'Forum fully deleted.',
-	'FORUM_DESC'						=> 'Description',
-	'FORUM_DESC_EXPLAIN'				=> 'Any HTML markup entered here will be displayed as is.',
-	'FORUM_EDIT_EXPLAIN'				=> 'The form below will allow you to customise this forum. Please note that moderation and post count controls are set via forum permissions for each user or usergroup.',
-	'FORUM_IMAGE'						=> 'Forum image',
-	'FORUM_IMAGE_EXPLAIN'				=> 'Location, rsuccesselative to the phpBB root directory, of an additional image to associate with this forum.',
-	'FORUM_IMAGE_NO_EXIST'				=> 'The specified forum image does not exist',
-	'FORUM_LINK_EXPLAIN'				=> 'Full URL (including the protocol, i.e.: <samp>http://</samp>) to the destination location that clicking this forum will take the user, e.g.: <samp>http://www.phpbb.com/</samp>.',
-	'FORUM_LINK_TRACK'					=> 'Track link redirects',
-	'FORUM_LINK_TRACK_EXPLAIN'			=> 'Records the number of times a forum link was clicked.',
-	'FORUM_NAME'						=> 'Forum name',
-	'FORUM_NAME_EMPTY'					=> 'You must enter a name for this forum.',
-	'FORUM_PARENT'						=> 'Parent forum',
-	'FORUM_PASSWORD'						=> 'Forum password',
-	'FORUM_PASSWORD_CONFIRM'				=> 'Confirm forum password',
-	'FORUM_PASSWORD_CONFIRM_EXPLAIN'		=> 'Only needs to be set if a forum password is entered.',
-	'FORUM_PASSWORD_EXPLAIN'				=> 'Defines a password for this forum, use the permission system in preference.',
-	'FORUM_PASSWORD_UNSET'					=> 'Remove forum password',
-	'FORUM_PASSWORD_UNSET_EXPLAIN'			=> 'Check here if you want to remove the forum password.',
-	'FORUM_PASSWORD_OLD'					=> 'The forum password is using an old hashing method and should be changed.',
-	'FORUM_PASSWORD_MISMATCH'				=> 'The passwords you entered did not match.',
-	'FORUM_PRUNE_SETTINGS'					=> 'Forum prune settings',
-	'FORUM_RESYNCED'						=> 'Forum “%s” successfully resynced',
-	'FORUM_RULES_EXPLAIN'					=> 'Forum rules are displayed at any page within the given forum.',
-	'FORUM_RULES_LINK'						=> 'Link to forum rules',
-	'FORUM_RULES_LINK_EXPLAIN'				=> 'You are able to enter the URL of the page/post containing your forum rules here. This setting will override the forum rules text you specified.',
-	'FORUM_RULES_PREVIEW'					=> 'Forum rules preview',
-	'FORUM_RULES_TOO_LONG'					=> 'The forum rules must be less than 4000 characters.',
-	'FORUM_SETTINGS'						=> 'Forum settings',
-	'FORUM_STATUS'							=> 'Forum status',
-	'FORUM_STYLE'							=> 'Forum style',
-	'FORUM_TOPICS_PAGE'						=> 'Topics per page',
-	'FORUM_TOPICS_PAGE_EXPLAIN'				=> 'If non-zero this value will override the default topics per page setting.',
-	'FORUM_TYPE'							=> 'Forum type',
-	'FORUM_UPDATED'							=> 'Forum information updated successfully.',
-	'FORUM_WITH_SUBFORUMS_NOT_TO_LINK'		=> 'You want to change a postable forum having subforums to a link. Please move all subforums out of this forum before you proceed, because after changing to a link you are no longer able to see the subforums currently connected to this forum.',
-	'GENERAL_FORUM_SETTINGS'			=> 'General forum settings',
-	'LINK'								=> 'Link',
-	'LIST_INDEX'						=> 'List subforum in parent-forum’s legend',
-	'LIST_INDEX_EXPLAIN'		=> 'Displays this forum on the index and elsewhere as a link within the legend of its parent-forum if the parent-forum’s “List subforums in legend” option is enabled.',
-	'LIST_SUBFORUMS'			=> 'List subforums in legend',
-	'LIST_SUBFORUMS_EXPLAIN'	=> 'Displays this forum’s subforums on the index and elsewhere as a link within the legend if their “List subforum in parent-forum’s legend” option is enabled.',
-	'LOCKED'					=> 'Locked',
-	'MOVE_POSTS_NO_POSTABLE_FORUM'	=> 'The forum you selected for moving the posts to is not postable. Please select a postable forum.',
-	'MOVE_POSTS_TO'					=> 'Move posts to',
-	'MOVE_SUBFORUMS_TO'				=> 'Move subforums to',
-	'NO_DESTINATION_FORUM'			=> 'You have not specified a forum to move content to.',
-	'NO_FORUM_ACTION'				=> 'No action defined for what happens with the forum content.',
-	'NO_PARENT'						=> 'No parent',
-	'NO_PERMISSIONS'				=> 'Do not copy permissions',
-	'NO_PERMISSION_FORUM_ADD'		=> 'You do not have the necessary permissions to add forums.',
-	'NO_PERMISSION_FORUM_DELETE'	=> 'You do not have the necessary permissions to delete forums.',
-	'PARENT_IS_LINK_FORUM'		=> 'The parent you specified is a forum link. Link forums are not able to hold other forums, please specify a category or forum as the parent forum.',
-	'PARENT_NOT_EXIST'			=> 'Parent does not exist.',
-	'PRUNE_ANNOUNCEMENTS'		=> 'Prune announcements',
-	'PRUNE_STICKY'				=> 'Prune stickies',
-	'PRUNE_OLD_POLLS'			=> 'Prune old polls',
-	'PRUNE_OLD_POLLS_EXPLAIN'	=> 'Removes topics with polls not voted in for post age days.',
-	'REDIRECT_ACL'				=> 'Now you are able to %sset permissions%s for this forum.',
-	'SYNC_IN_PROGRESS'			=> 'Synchronizing forum',
-	'SYNC_IN_PROGRESS_EXPLAIN'	=> 'Currently resyncing topic range %1$d/%2$d.',
-	'TYPE_CAT'					=> 'Category',
-	'TYPE_FORUM'				=> 'Forum',
-	'TYPE_LINK'					=> 'Link',
-));
-$lang = array_merge($lang, array(
-	'ACP_PRUNE_USERS_EXPLAIN'	=> 'This section allows you to delete or deactivate users on your board. Accounts can be filtered in a variety of ways; by post count, most recent activity, etc. Criteria may be combined to narrow down which accounts are affected. For example, you can prune users with fewer than 10 posts, who were also inactive after 2002-01-01. Alternatively, you may skip the criteria selection completely by entering a list of users (each on a separate line) into the text field. Take care with this facility! Once a user is deleted, there is no way to reverse the action.',
+    'COPY_TO_ACL'                      => 'Alternatively, you are also able to %ssetup New Permissions%s for this Forum.',
+    'CREATE_FORUM'                     => 'Create New Forum',
+    'DECIDE_MOVE_DELETE_CONTENT'       => 'Delete Content or Move to Forum',
+    'DECIDE_MOVE_DELETE_SUBFORUMS'     => 'Delete Sub Forums or Move to Forum',
+    'DEFAULT_STYLE'                    => 'Default Style',
+    'DELETE_ALL_POSTS'                 => 'Delete Posts',
+    'DELETE_SUBFORUMS'                 => 'Delete Sub-forums and Posts',
+    'DISPLAY_ACTIVE_TOPICS'            => 'Enable Active Topics',
+    'DISPLAY_ACTIVE_TOPICS_EXPLAIN'    => 'If set to Yes Active Topics in selected Sub-Forums will be displayed under this Category.',
 
-	'DEACTIVATE_DELETE'			=> 'Deactivate or delete',
-	'DEACTIVATE_DELETE_EXPLAIN'	=> 'Choose whether to deactivate users or delete them entirely. Please note that deleted users cannot be restored!',
-	'DELETE_USERS'				=> 'Delete',
-	'DELETE_USER_POSTS'			=> 'Delete pruned user posts',
-	'DELETE_USER_POSTS_EXPLAIN' => 'Removes posts made by deleted users, has no effect if users are deactivated.',
+    'SETTING_TOO_LOW'                  => 'The provided value for the setting “%1$s” is too Low. The Minimum acceptable value is %2$d.',
 
-	'JOINED_EXPLAIN'			=> 'Enter a date in <kbd>YYYY-MM-DD</kbd> format.',
+    'SETTING_TOO_BIG'                  => 'The provided value for the setting “%1$s” is too High. The Maximum acceptable value is %2$d.',
 
-	'LAST_ACTIVE_EXPLAIN'		=> 'Enter a date in <kbd>YYYY-MM-DD</kbd> format. Enter <kbd>0000-00-00</kbd> to prune users who never logged in, <em>Before</em> and <em>After</em> conditions will be ignored.',
+    'SETTING_TOO_LONG'                 => 'The provided value for the setting “%1$s” is too Long. The Maximum acceptable length is %2$d.',
 
-	'PRUNE_USERS_LIST'				=> 'Users to be pruned',
-	'PRUNE_USERS_LIST_DELETE'		=> 'With the selected critera for pruning users the following accounts will be removed.',
-	'PRUNE_USERS_LIST_DEACTIVATE'	=> 'With the selected critera for pruning users the following accounts will be deactivated.',
+    'SETTING_TOO_SHORT'                => 'The provided value for the setting “%1$s” is too Short. The Minimum acceptable length is %2$d.',
 
-	'SELECT_USERS_EXPLAIN'		=> 'Enter specific usernames here, they will be used in preference to the criteria above. Founders cannot be pruned.',
+    'EDIT_FORUM'                       => 'Edit Forum',
+    'ENABLE_INDEXING'                  => 'Enable Search Indexing',
+    'ENABLE_INDEXING_EXPLAIN'          => 'If set to Yes Posts made to this Forum will be Indexed for Searching.',
+    'ENABLE_POST_REVIEW'               => 'Enable Post Review',
+    'ENABLE_POST_REVIEW_EXPLAIN'       => 'If set to Yes Users are able to Review their Post, if New Posts were made to the Topic while Users wrote theirs. This should be Disabled for Chat Forums.',
 
-	'USER_DEACTIVATE_SUCCESS'	=> 'The selected users have been deactivated successfully.',
-	'USER_DELETE_SUCCESS'		=> 'The selected users have been deleted successfully.',
-	'USER_PRUNE_FAILURE'		=> 'No users fit the selected criteria.',
+    'ENABLE_QUICK_REPLY'               => 'Enable Quick Reply',
+    'ENABLE_QUICK_REPLY_EXPLAIN'       => 'Enables the Quick Reply in this Forum. This setting is NOT considered if the Quick Reply is Disabled Site Wide. The Quick Reply will Only be displayed for Users who have Permission to Post in this Forum.',
 
-	'WRONG_ACTIVE_JOINED_DATE'	=> 'The date entered is wrong, it is expected in <kbd>YYYY-MM-DD</kbd> format.',
-));
+    'ENABLE_RECENT'                    => 'Display Active Topics',
+    'ENABLE_RECENT_EXPLAIN'            => 'If set to Yes Topics made to this Forum will be shown in the Active Topics List.',
+    'ENABLE_TOPIC_ICONS'               => 'Enable Topic Icons',
 
-// Forum Pruning
-$lang = array_merge($lang, array(
-	'ACP_PRUNE_FORUMS'			=> 'Prune forums',
-	'ALL_FORUMS'					=> 'All forums',
-	'ACP_PRUNE_FORUMS_EXPLAIN'	=> 'This will delete any topic which has not been posted to or viewed within the number of days you select. If you do not enter a number then all topics will be deleted. By default, it will not remove topics in which polls are still running nor will it remove stickies and announcements.',
-	'LOOK_UP_FORUM'			=> 'Select a forum',
-	'LOOK_UP_FORUMS_EXPLAIN'=> 'You are able to select more than one forum.',
+    'FORUM_ADMIN'                      => 'Forum Administration',
+    'FORUM_ADMIN_EXPLAIN'              => 'In phpBB3 there are NO Categories, everything is Forum Based. Each Forum can have an Unlimited number of Sub-Forums and you can determine whether each may be posted to or not (i.e. whether it acts like an Old Category). Here you can Add, Edit, Delete, Lock, Unlock individual Forums as well as set certain Additional Controls. If your Posts and Topics have got out of Sync you can also Resynchronise a Forum. <strong>You need to Copy or Set appropriate Permissions for Newly Created Forums to have them displayed.</strong>',
 
-	'FORUM_PRUNE'		=> 'Forum prune',
+    'FORUM_AUTO_PRUNE'                 => 'Enable Auto-pruning',
+    'FORUM_AUTO_PRUNE_EXPLAIN'         => 'Prunes the Forum of Topics, set the Frequency/Age Parameters below.',
+    'FORUM_CREATED'                    => 'Forum Created Successfully.',
+    'FORUM_DATA_NEGATIVE'              => 'Pruning Parameters cannot be Negative.',
+    'FORUM_DESC_TOO_LONG'              => 'The Forum Description is too Long, it must be less than 4000 Characters.',
+    'FORUM_DELETE'                     => 'Delete Forum',
+    'FORUM_DELETE_EXPLAIN'             => 'The Form below will allow you to Delete a Forum. If the Forum is Postable you are able to decide where you want to put ALL Topics (or Forums) it contained.',
 
-	'NO_PRUNE'			=> 'No forums pruned.',
+    'FORUM_DELETED'                    => 'Forum Fully Deleted.',
+    'FORUM_DESC'                       => 'Description',
+    'FORUM_DESC_EXPLAIN'               => 'Any HTML markup entered here will be displayed as is.',
+    'FORUM_EDIT_EXPLAIN'               => 'The Form below will allow you to Customise this Forum. Please Note that Moderation and Post Count Controls are Set via Forum Permissions for each User or User Group.',
 
-	'SELECTED_FORUM'	=> 'Selected forum',
-	'SELECTED_FORUMS'	=> 'Selected forums',
+    'FORUM_IMAGE'                      => 'Forum Image',
+    'FORUM_IMAGE_EXPLAIN'              => 'Location, relative to the phpBB Root Directory, of an Additional Image to associate with this Forum.',
 
-	'POSTS_PRUNED'					=> 'Posts pruned',
-	'PRUNE_ANNOUNCEMENTS'			=> 'Prune announcements',
-	'PRUNE_FINISHED_POLLS'			=> 'Prune closed polls',
-	'PRUNE_FINISHED_POLLS_EXPLAIN'	=> 'Removes topics with polls which have ended.',
-	'PRUNE_FORUM_CONFIRM'			=> 'Are you sure you want to prune the selected forums with the settings specified? Once removed, there is no way to recover the pruned posts and topics.',
-	'PRUNE_NOT_POSTED'				=> 'Days since last posted',
-	'PRUNE_NOT_VIEWED'				=> 'Days since last viewed',
-	'PRUNE_OLD_POLLS'				=> 'Prune old polls',
-	'PRUNE_OLD_POLLS_EXPLAIN'		=> 'Removes topics with polls not voted in for post age days.',
-	'PRUNE_STICKY'					=> 'Prune stickies',
-	'PRUNE_SUCCESS'					=> 'Pruning of forums was successful.',
+    'FORUM_IMAGE_NO_EXIST'             => 'The specified Forum Image Does NOT Exist',
+    'FORUM_LINK_EXPLAIN'               => 'Full URL (including the Protocol, i.e.: <samp>http://</samp>) to the Destination Location that clicking this Forum will take the User, e.g.: <samp>http://www.phpbb.com/</samp>.',
 
-	'TOPICS_PRUNED'		=> 'Topics pruned',
+    'FORUM_LINK_TRACK'                 => 'Track Link Redirects',
+    'FORUM_LINK_TRACK_EXPLAIN'         => 'Records the Number of Times a Forum Link was Clicked.',
+    'FORUM_NAME'                       => 'Forum Name',
+    'FORUM_NAME_EMPTY'                 => 'You Must enter a Name for this Forum.',
+    'FORUM_PARENT'                     => 'Parent Forum',
+    'FORUM_PASSWORD'                   => 'Forum Password',
+    'FORUM_PASSWORD_CONFIRM'           => 'Confirm Forum Password',
+    'FORUM_PASSWORD_CONFIRM_EXPLAIN'   => 'Only needs to be set if a Forum Password is entered.',
+    'FORUM_PASSWORD_EXPLAIN'           => 'Defines a Password for this Forum, use the Permission System in Preference.',
+    'FORUM_PASSWORD_UNSET'             => 'Remove Forum Password',
+    'FORUM_PASSWORD_UNSET_EXPLAIN'     => 'Check Here if you want to Remove the Forum Password.',
+    'FORUM_PASSWORD_OLD'               => 'The Forum Password is using an Old Hashing Method and should be changed.',
+    'FORUM_PASSWORD_MISMATCH'          => 'The Passwords you entered Did NOT match.',
+    'FORUM_PRUNE_SETTINGS'             => 'Forum Prune Settings',
+    'FORUM_RESYNCED'                   => 'Forum “%s” Successfully Resynced',
+    'FORUM_RULES_EXPLAIN'              => 'Forum Rules are displayed on any Page within the given Forum.',
+    'FORUM_RULES_LINK'                 => 'Link to Forum Rules',
+    'FORUM_RULES_LINK_EXPLAIN'         => 'You are able to enter the URL of the Page/Post containing your Forum Rules HERE. This Setting will Override the Forum Rules text you specified.',
+
+    'FORUM_RULES_PREVIEW'              => 'Forum Rules Preview',
+    'FORUM_RULES_TOO_LONG'             => 'The Forum Rules Must be Less than 4000 Characters.',
+    'FORUM_SETTINGS'                   => 'Forum Settings',
+    'FORUM_STATUS'                     => 'Forum Status',
+    'FORUM_STYLE'                      => 'Forum Style',
+    'FORUM_TOPICS_PAGE'                => 'Topics Per Page',
+    'FORUM_TOPICS_PAGE_EXPLAIN'        => 'If Non-Zero this value will Override the Default Topics Per Page Setting.',
+    'FORUM_TYPE'                       => 'Forum Type',
+    'FORUM_UPDATED'                    => 'Forum Information Updated Successfully.',
+    'FORUM_WITH_SUBFORUMS_NOT_TO_LINK' => 'You want to change a Postable Forum having Sub-Forums to a Link. Please Move All Sub-Forums out of this Forum before you proceed, because after changing to a Link you will no longer able to see the Sub-Forums currently connected to this Forum.',
+
+    'GENERAL_FORUM_SETTINGS'           => 'General Forum Settings',
+    'LINK'                             => 'Link',
+    'LIST_INDEX'                       => 'List Sub-Forum in Parent-Forum’s Legend',
+    'LIST_INDEX_EXPLAIN'               => 'Displays this Forum on the Index and elsewhere as a Link within the Legend of its Parent-Forum if the Parent-Forum’s “List Sub-Forums in Legend” option is Enabled.',
+
+    'LIST_SUBFORUMS'                   => 'List Sub-Forums in Legend',
+    'LIST_SUBFORUMS_EXPLAIN'           => 'Displays this Forum’s Sub-Forums on the Index and elsewhere as a Link within the Legend if their “List Sub-Forum in Parent-Forum’s Legend” option is Enabled.',
+
+    'LOCKED'                           => 'Locked',
+    'MOVE_POSTS_NO_POSTABLE_FORUM'     => 'The Forum you selected for Moving the Posts to is Not Postable. Please select a Postable Forum.',
+
+    'MOVE_POSTS_TO'                    => 'Move Posts to',
+    'MOVE_SUBFORUMS_TO'                => 'Move Sub-Forums to',
+    'NO_DESTINATION_FORUM'             => 'You have Not specified a Forum to Move content to.',
+    'NO_FORUM_ACTION'                  => 'No action defined for what happens with the Forum Content.',
+    'NO_PARENT'                        => 'No Parent',
+    'NO_PERMISSIONS'                   => 'DO NOT Copy Permissions',
+    'NO_PERMISSION_FORUM_ADD'          => 'You DO NOT Have The Necessary Permissions to Add Forums.',
+    'NO_PERMISSION_FORUM_DELETE'       => 'You DO NOT Have The Necessary Permissions to Delete Forums.',
+    'PARENT_IS_LINK_FORUM'             => 'The Parent you specified is a Forum Link. Link Forums are NOT able to hold other Forums, please specify a Category or Forum as the Parent Forum.',
+
+    'PARENT_NOT_EXIST'                 => 'Parent Does Not Exist.',
+    'PRUNE_ANNOUNCEMENTS'              => 'Prune Announcements',
+    'PRUNE_STICKY'                     => 'Prune Stickies',
+    'PRUNE_OLD_POLLS'                  => 'Prune Old Polls',
+    'PRUNE_OLD_POLLS_EXPLAIN'          => 'Removes Topics with Polls Not Voted in for Post Age Days.',
+    'REDIRECT_ACL'                     => 'Now you are able to %sset Permissions%s for this Forum.',
+    'SYNC_IN_PROGRESS'                 => 'Synchronizing Forum',
+    'SYNC_IN_PROGRESS_EXPLAIN'         => 'Currently Resyncing Topic Range %1$d/%2$d.',
+    'TYPE_CAT'                         => 'Category',
+    'TYPE_FORUM'                       => 'Forum',
+    'TYPE_LINK'                        => 'Link',
+
+    'ACP_PRUNE_USERS_EXPLAIN'          => 'This section allows you to Delete or Deactivate Users on your Site. Accounts can be filtered in a variety of ways; by Post Count, Most Recent Activity, etc. Criteria may be combined to narrow down which accounts are affected. For example, you can Prune Users with fewer than 10 Posts, who were also Inactive After 2002-01-01. Alternatively, you may skip the criteria selection completely by entering a List of Users (each on a separate line) into the text field. Take care with this facility! Once a User is Deleted, there is No Way to reverse the action.',
+
+    'DEACTIVATE_DELETE'                => 'Deactivate or Delete',
+    'DEACTIVATE_DELETE_EXPLAIN'        => 'Choose whether to Deactivate Users or Delete them entirely. Please Note that Deleted Users Cannot be Restored!',
+
+    'DELETE_USERS'                     => 'Delete',
+    'DELETE_USER_POSTS'                => 'Delete Pruned User Posts',
+    'DELETE_USER_POSTS_EXPLAIN'        => 'Removes Posts made by Deleted Users, has NO effect if Users are Deactivated.',
+    'JOINED_EXPLAIN'                   => 'Enter a Date in <kbd>YYYY-MM-DD</kbd> Format.',
+    'LAST_ACTIVE_EXPLAIN'              => 'Enter a Date in <kbd>YYYY-MM-DD</kbd> Format. Enter <kbd>0000-00-00</kbd> to Prune Users who Never Logged In, <em>Before</em> and <em>After</em> conditions will be ignored.',
+
+    'PRUNE_USERS_LIST'                 => 'Users to be Pruned',
+    'PRUNE_USERS_LIST_DELETE'          => 'With the Selected Criteria for Pruning Users the following Accounts will be Removed.',
+    'PRUNE_USERS_LIST_DEACTIVATE'      => 'With the Selected Criteria for Pruning Users the following Accounts will be Deactivated.',
+
+    'SELECT_USERS_EXPLAIN'             => 'Enter Specific Usernames HERE, they will be used in preference to the criteria above. Founders cannot be pruned.',
+
+    'USER_DEACTIVATE_SUCCESS'          => 'The Selected Users have been Deactivated Successfully.',
+    'USER_DELETE_SUCCESS'              => 'The Selected Users have been Deleted Successfully.',
+    'USER_PRUNE_FAILURE'               => 'NO Users Matched the Selected Criteria.',
+    'WRONG_ACTIVE_JOINED_DATE'         => 'The Date entered is wrong, it is expected in <kbd>YYYY-MM-DD</kbd> Format.',
+    'ACP_PRUNE_FORUMS'                 => 'Prune Forums',
+    'ALL_FORUMS'                       => 'All Forums',
+    'ACP_PRUNE_FORUMS_EXPLAIN'         => 'This will Delete any Topic which has NOT been Posted to or Viewed within the Number of Days you select. If you DO NOT enter a Number then ALL Topics will be Deleted. By Default, it will NOT Remove Topics in which Polls are still running nor will it Remove Stickies or Announcements.',
+
+    'LOOK_UP_FORUM'                    => 'Select a Forum',
+    'LOOK_UP_FORUMS_EXPLAIN'           => 'You can select more than one Forum.',
+    'FORUM_PRUNE'                      => 'Forum Prune',
+    'NO_PRUNE'                         => 'No Forums Pruned.',
+    'SELECTED_FORUM'                   => 'Selected Forum',
+    'SELECTED_FORUMS'                  => 'Selected Forums',
+    'POSTS_PRUNED'                     => 'Posts Pruned',
+    'PRUNE_ANNOUNCEMENTS'              => 'Prune Announcements',
+    'PRUNE_FINISHED_POLLS'             => 'Prune Closed Polls',
+    'PRUNE_FINISHED_POLLS_EXPLAIN'     => 'Removes Topics with Polls which have ended.',
+    'PRUNE_FORUM_CONFIRM'              => 'Are You Sure you want to Prune the Selected Forums with the Settings specified? Once Removed, there is NO Way to Recover the Pruned Posts and Topics.',
+
+    'PRUNE_NOT_POSTED'                 => 'Days Since Last Posted',
+    'PRUNE_NOT_VIEWED'                 => 'Days Since Last Viewed',
+    'PRUNE_OLD_POLLS'                  => 'Prune Old Polls',
+    'PRUNE_OLD_POLLS_EXPLAIN'          => 'Removes Topics with Polls Not Voted in for Post Age Days.',
+    'PRUNE_STICKY'                     => 'Prune Stickies',
+    'PRUNE_SUCCESS'                    => 'Pruning of Forums was Successful.',
+    'TOPICS_PRUNED'                    => 'Topics Pruned',
 ));
 
 ?>

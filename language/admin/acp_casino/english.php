@@ -1,93 +1,132 @@
 <?php
-/*
-*----------------------------phpMyBitTorrent V 3.0.0---------------------------*
-*--- The Ultimate BitTorrent Tracker and BMS (Bittorrent Management System) ---*
-*--------------   Created By Antonio Anzivino (aka DJ Echelon)   --------------*
-*-------------------   And Joe Robertson (aka joeroberts)   -------------------*
-*-------------               http://www.p2pmania.it               -------------*
-*------------ Based on the Bit Torrent Protocol made by Bram Cohen ------------*
-*-------------              http://www.bittorrent.com             -------------*
-*------------------------------------------------------------------------------*
-*------------------------------------------------------------------------------*
-*--   This program is free software; you can redistribute it and/or modify   --*
-*--   it under the terms of the GNU General Public License as published by   --*
-*--   the Free Software Foundation; either version 2 of the License, or      --*
-*--   (at your option) any later version.                                    --*
-*--                                                                          --*
-*--   This program is distributed in the hope that it will be useful,        --*
-*--   but WITHOUT ANY WARRANTY; without even the implied warranty of         --*
-*--   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          --*
-*--   GNU General Public License for more details.                           --*
-*--                                                                          --*
-*--   You should have received a copy of the GNU General Public License      --*
-*--   along with this program; if not, write to the Free Software            --*
-*-- Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA --*
-*--                                                                          --*
-*------------------------------------------------------------------------------*
-*------              ©2010 phpMyBitTorrent Development Team              ------*
-*-----------               http://phpmybittorrent.com               -----------*
-*------------------------------------------------------------------------------*
-*--------------------   Sunday, May 17, 2009 1:05 AM   ------------------------*
-*
-* @package phpMyBitTorrent
-* @version $Id: 3.0.0 functions.php  2010-11-04 00:22:48 joeroberts $
-* @copyright (c) 2010 phpMyBitTorrent Group
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License
-*
-*/
 
 /**
-* DO NOT CHANGE
-*/
-if (!defined('IN_PMBT')) die ("You can't access this file directly");
+**********************
+** BTManager v3.0.1 **
+**********************
+** http://www.btmanager.org/
+** https://github.com/blackheart1/BTManager
+** http://demo.btmanager.org/index.php
+** Licence Info: GPL
+** Copyright (C) 2018
+** Formerly Known As phpMyBitTorrent
+** Created By Antonio Anzivino (aka DJ Echelon)
+** And Joe Robertson (aka joeroberts)
+** Project Leaders: Black_heart, Thor.
+** File acp_casino.php 2018-02-21 07:44:00 Thor
+**
+** CHANGES
+**
+** 2018-02-21 - Added New Masthead
+** 2018-02-21 - Added New !defined('IN_PMBT')
+** 2018-02-21 - Fixed Spelling
+**/
+
+if (!defined('IN_PMBT'))
+{
+    ?>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html>
+        <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+            <title>
+                <?php if (isset($_GET['error']))
+            {
+                echo htmlspecialchars($_GET['error']);
+            }
+            ?> Error</title>
+
+            <link rel='stylesheet' type='text/css' href='/errors/error-style.css' />
+        </head>
+
+        <body>
+            <div id='container'>
+                <div align='center' style='padding-top: 15px'>
+                    <img src='/errors/error-images/alert.png' width='89' height='94' alt='' title='' />
+                </div>
+
+                <h1 class='title'>Error 404 - Page Not Found</h1>
+                <p class='sub-title' align='center'>The page that you are looking for does not appear to exist on this site.</p>
+                <p>If you typed the address of the page into the address bar of your browser, please check that you typed it in correctly.</p>
+                <p>If you arrived at this page after you used an old Boomark or Favorite, the page in question has probably been moved. Try locating the page via the navigation menu and then update your bookmarks.</p>
+            </div>
+        </body>
+    </html>
+
+    <?php
+    exit();
+}
+
 if (empty($lang) || !is_array($lang))
 {
 	$lang = array();
 }
+
 $lang = array_merge($lang, array(
-		'MAIN_TEXT'							=> 'Casino Configuation Settings',
-		'MAIN_INTRO_EXP'					=> 'Set Up your Casino Basic configuration so that you can limit users that may access make bets.',
-		'CASINO_CONFIG'						=> 'Casino Settings',
-		'_admpenable'						=> "Enable The Casino",
-		'_admpenableexplain'				=> "Turning On your cassino Well enable your user to Play Betting games that they can use some of there Uploaded credit on.<br />This Can go good for some users and very bad for others But it is all in fun.",
-		'_admpratio_mini'					=> "Minimun Ratio",
-		'_admpratio_miniexplain'			=> "Set the Minimun Ratio That a user Must have in order to Access the Casino.<br />This setting is in percentage 2.00, 1.50, 1.00, .95, .90",
-		'_admpmaxtrys'						=> "Casino Max Trys",
-		'_admpmaxtrysexplain'				=> "How many times users can play? After that they have to wait 5 hours in order to play again.",
-		'_admpwin_amount_on_number'			=> "Win Amount in Bet on Number Game",
-		'_admpwin_amount_on_numberexplain'	=> "How much do the player win in the bet on Number game eg.<br />bet 300, <br />win amount = 3<br />300*3<br />900 win",
-		'_admpwin_amount'					=> "Win Amount in Bet on a Color",
-		'_admpwin_amountexplain'			=> "How much do the player win in the bet on Color game eg.<br />bet 300, <br />win amount = 3<br />300*3<br />900 win",
-		'_admpmaxusrbet'					=> "Amount of bets to allow per person",
-		'_admpmaxusrbetexplain'				=> "How Many open Bets is a user allowed to Have for P2P Games",
-		'_admpmaxtotbet'					=> "Amount of total open bets allowed",
-		'_admpmaxtotbetexplain'				=> "How many open bets are allowed total on P2P Games",
-		'_admpcheat_value'					=> "Casino Cheat Value",
-		'_admpcheat_valueexplain'			=> "higher value -> less winner",
-		'_admpcheat_value_max'				=> "Casino Cheat Value Max",
-		'_admpcheat_value_maxexplain'		=> "The cheat value = cheat value max -->> I hope you know what i mean. ps: must be higher then cheat value.",
-		'_admpcheat_breakpoint'				=> "Casino Cheat Breackpoint",
-		'_admpcheat_breakpointexplain'		=> "Very important value -> if (win MB > max download global/cheat breakpoint)",
-		'_admpcheat_ratio_user'				=> "Casino Cheat Ratio User",
-		'_admpcheat_ratio_userexplain'		=> "If casino ratio user > cheat ratio user -> cheat value = random(cheat value,cheat value max)",
-		'_admpcheat_ratio_global'			=> "Casino Cheat Ratio Global",
-		'_admpcheat_ratio_globalexplain'	=> "(same as user just global)",
-		'_admpclass_allowed'				=> "Access Level",
-		'_admpclass_allowedexplain'			=> "What Group is allow to Play in the Casino",
-		'YES_NO_OPTION'						=> array('1'=> 'Yes', '0' => 'No'),
-		'ERR_RATIO'		=> 'The Number you interd for Minimun Ratio Is Not numeric please go Back and inter a numeric number',
-		'ERR_MATRY'		=> 'The Number you interd for Casino Max Trys Is Not numeric please go Back and inter a numeric number',
-		'ERR_WIN_NUMBER'		=> 'The Number you interd for Win Amount in Bet on Number Game Is Not numeric please go Back and inter a numeric number',
-		'ERR_WIN_COLOR'		=> 'The Number you interd for Win Amount in Bet on a Color Is Not numeric please go Back and inter a numeric number',
-		'ERR_M_USER_BETS'		=> 'The Number you interd for Amount of bets to allow per person Is Not numeric please go Back and inter a numeric number',
-		'ERR_M_TOT_BETS'		=> 'The Number you interd for Amount of total open bets allowed Is Not numeric please go Back and inter a numeric number',
-		'ERR_CHEAT_VAL'		=> 'The Number you interd for Casino Cheat Value Is Not numeric please go Back and inter a numeric number',
-		'ERR_CHEAT_VAL_MAX'		=> 'The Number you interd for Casino Cheat Value Max Is Not numeric please go Back and inter a numeric number',
-		'ERR_CHEAT_BREAK'		=> 'The Number you interd for Casino Cheat Breackpoint Is Not numeric please go Back and inter a numeric number',
-		'ERR_CHEAT_RATIO'		=> 'The Number you interd for Casino Cheat Ratio User Is Not numeric please go Back and inter a numeric number',
-		'ERR_CHEAT_RATIO_GLOBAL'		=> 'The Number you interd for Casino Cheat Ratio Global Is Not numeric please go Back and inter a numeric number',
-		'ERR_BAD_LEVEL'		=> 'One or more of the Groups you intered Is not Valid please go back and try again',
-		'CONFIG_NOT_SET'		=> 'A error accurd while Processing the new Settings Please read Bellow!',
+    'MAIN_TEXT'                        => 'Casino Configuration Settings',
+    'MAIN_INTRO_EXP'                   => 'Set up the Casino Basic Configuration so that you can limit Users that can access making Bets.',
+
+    'CASINO_CONFIG'                    => 'Casino Settings',
+    '_admpenable'                      => "Enable The Casino",
+    '_admpenableexplain'               => "Turning On the Casino will enable your Users to play Betting Games that they can use some of there Uploaded Credit on.<br />This can be good for some Users and very bad for others But it's' all in fun.",
+
+    '_admpratio_mini'                  => "Minimum Ratio",
+    '_admpratio_miniexplain'           => "Set the Minimum Ratio that a User must have in order to Access the Casino.<br />This setting is in percentages 2.00, 1.50, 1.00, .95, .90",
+
+    '_admpmaxtrys'                     => "Casino Maximum Tries",
+    '_admpmaxtrysexplain'              => "How many times Users can play? After that they have to wait 5 hours in order to play again.",
+
+    '_admpwin_amount_on_number'        => "Winning amount in Bet on Number game",
+    '_admpwin_amount_on_numberexplain' => "How much does the player win in the Bet on Number game eg.<br />bet 300, <br />Winning amount = 3<br />300*3<br />900 won.",
+
+    '_admpwin_amount'                  => "Winning amount in Bet on a Colour",
+    '_admpwin_amountexplain'           => "How much does the player win in the Bet on Colour game eg.<br />bet 300, <br />Winning amount = 3<br />300*3<br />900 won.",
+
+    '_admpmaxusrbet'                   => "amount of Bets allowed per person",
+    '_admpmaxusrbetexplain'            => "How Many Open Bets is a User allowed to Have for P2P Games",
+    '_admpmaxtotbet'                   => "amount of Total Open Bets allowed",
+    '_admpmaxtotbetexplain'            => "How many Open Bets are allowed total on P2P Games",
+    '_admpcheat_value'                 => "Casino Cheat Value",
+    '_admpcheat_valueexplain'          => "Higher Value -> Less Wins",
+    '_admpcheat_value_max'             => "Casino Cheat Value Maximum",
+    '_admpcheat_value_maxexplain'      => "The Cheat Value = Cheat Value Maximum -->> I hope you know what I mean. PS: must be Higher than Cheat Value.",
+
+    '_admpcheat_breakpoint'            => "Casino Cheat Breakpoint",
+    '_admpcheat_breakpointexplain'     => "Very Important Value -> if (Win MB > Maximum Download Global/cheat Breakpoint)",
+    '_admpcheat_ratio_user'            => "Casino Cheat Ratio User",
+    '_admpcheat_ratio_userexplain'     => "If Casino Ratio User > Cheat Ratio User -> Cheat Value = Random(Cheat Value, Cheat Value Maximum)",
+
+    '_admpcheat_ratio_global'          => "Casino Cheat Ratio Global",
+    '_admpcheat_ratio_globalexplain'   => "(same as User but just Global)",
+    '_admpclass_allowed'               => "Access Level",
+    '_admpclass_allowedexplain'        => "What Group is allowed to play in the Casino",
+    'YES_NO_OPTION'                    => array('1'=> 'Yes', '0' => 'No'),
+    'ERR_RATIO'                        => 'The Number you intend for Minimum Ratio is Not Numeric.  Please go Back and enter a Numeric Value',
+
+    'ERR_MATRY'                        => 'The Number you intend for Casino Maximum Tries is NOT Numeric.  Please go Back and enter a Numeric Value',
+
+    'ERR_WIN_NUMBER'                   => 'The Number you intend for the Winning amount in Bet on Number Game is NOT Numeric.  Please go Back and enter a Numeric Value',
+
+    'ERR_WIN_COLOR'                    => 'The Number you intend for the Winning amount in Bet on a Colour is NOT Numeric.  Please go Back and enter a Numeric Value',
+
+    'ERR_M_USER_BETS'                  => 'The Number you intend for amount of Bets to Allow Per Person is NOT Numeric.  Please go Back and enter a Numeric Value',
+
+    'ERR_M_TOT_BETS'                   => 'The Number you intend for amount of Total Open Bets Allowed is NOT Numeric.  Please go Back and enter a Numeric Value',
+
+    'ERR_CHEAT_VAL'                    => 'The Number you intend for Casino Cheat Value is NOT Numeric.  Please go Back and enter a Numeric Value',
+
+    'ERR_CHEAT_VAL_MAX'                => 'The Number you intend for Casino Cheat Value Maximum is NOT Numeric.  Please go Back and enter a Numeric Value',
+
+    'ERR_CHEAT_BREAK'                  => 'The Number you intend for Casino Cheat Breakpoint is NOT Numeric.  Please go Back and enter a Numeric Value',
+
+    'ERR_CHEAT_RATIO'                  => 'The Number you intend for Casino Cheat Ratio User is NOT Numeric.  Please go Back and enter a numeric number',
+
+    'ERR_CHEAT_RATIO_GLOBAL'           => 'The Number you intend for Casino Cheat Ratio Global is NOT Numeric.  Please go Back and enter a Numeric Value',
+
+    'ERR_BAD_LEVEL'                    => 'One or more of the Groups you intended is NOT Valid.  Please go back and try again',
+    'CONFIG_NOT_SET'                   => 'A error occurred while Processing the New Settings.  Please read below!',
 ));
 
 ?>
