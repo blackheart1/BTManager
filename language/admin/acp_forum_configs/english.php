@@ -1,116 +1,177 @@
 <?php
-/**
-*
-* ucp [English]
-*
-* @package language
-* @version $Id$
-* @copyright (c) 2010 phpMyBitTorrent Group
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License
-*
-*/
 
 /**
-* DO NOT CHANGE
-*/
-if (!defined('IN_PMBT')) die ("You can't access this file directly");
+**********************
+** BTManager v3.0.1 **
+**********************
+** http://www.btmanager.org/
+** https://github.com/blackheart1/BTManager
+** http://demo.btmanager.org/index.php
+** Licence Info: GPL
+** Copyright (C) 2018
+** Formerly Known As phpMyBitTorrent
+** Created By Antonio Anzivino (aka DJ Echelon)
+** And Joe Robertson (aka joeroberts)
+** Project Leaders: Black_heart, Thor.
+** File acp_forum_configs.php 2018-02-18 11:03:00 Thor
+**
+** CHANGES
+**
+** 2018-02-18 - Added New Masthead
+** 2018-02-18 - Added New !defined('IN_PMBT')
+** 2018-02-18 - Fixed Spelling
+**/
+
+if (!defined('IN_PMBT'))
+{
+    ?>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html>
+        <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+            <title>
+                <?php if (isset($_GET['error']))
+            {
+                echo htmlspecialchars($_GET['error']);
+            }
+            ?> Error</title>
+
+            <link rel='stylesheet' type='text/css' href='/errors/error-style.css' />
+        </head>
+
+        <body>
+            <div id='container'>
+                <div align='center' style='padding-top: 15px'>
+                    <img src='/errors/error-images/alert.png' width='89' height='94' alt='' title='' />
+                </div>
+
+                <h1 class='title'>Error 404 - Page Not Found</h1>
+                <p class='sub-title' align='center'>The page that you are looking for does not appear to exist on this site.</p>
+                <p>If you typed the address of the page into the address bar of your browser, please check that you typed it in correctly.</p>
+                <p>If you arrived at this page after you used an old Boomark or Favorite, the page in question has probably been moved. Try locating the page via the navigation menu and then update your bookmarks.</p>
+            </div>
+        </body>
+    </html>
+
+    <?php
+    exit();
+}
+
 if (empty($lang) || !is_array($lang))
 {
 	$lang = array();
 }
+
 $lang = array_merge($lang, array(
-'TITLE'		=> 'Forum features',
-'TITLE_EXPLAIN'		=> 'Here you can enable/disable several forum features.',
-	'ALLOW_ATTACHMENTS'			=> 'Allow attachments',
-	'_admpmax_filesize'					=> 'Maximum attachment file size',
-	'_admpmax_filesizeexplain'			=> 'For uploaded attachment files.',
-	'_admpmax_attachments'				=>	'Maximum Attachments per post',
-	'_admpmax_attachmentsexplain'		=>	'',
-	'_admpmin_post_chars'				=>	'Minimum Charictors perpost',
-	'_admpmin_post_charsexplain'		=>	'',
-	'_admpimg_display_inlined'=>'Display attached images in line of the post',
-	'_admpimg_display_inlinedexplain'=>'',
-	'_admpload_search'					=>	'Load searcg bar on pages',
-	'_admpload_searchexplain'					=>	'',
-	'_admpload_moderators'				=> 'Enable display of moderators',
-	'_admpboard_hide_emails'			=> 'Hide e-mail addresses',
-	'_admpboard_hide_emailsexplain'		=> 'This function keeps e-mail addresses completely private.',
-	'_admpenable_queue_trigger'			=> 'Enable queued posts',
-	'_admpenable_queue_triggerexplain'	=> 'Ability to put registered users posts to post approval if their post count is lower than the specified value below. This setting has no effect on the permission setting for post/topic approval.',
-	'_admpqueue_trigger_posts'			=> 'Maximum post count for queued posts',
-	'_admpqueue_trigger_postsexplain'	=> 'If queued posts is enabled, this is the post count the user need to reach in order to post without post approval. If the users post count is below this number, the post is stored in the queue automatically.',
-	'_admpallow_birthdays'				=> 'Allow birthdays',
-	'_admpallow_birthdaysexplain'		=> 'Allow birthdays to be entered and age being displayed in profiles. Please note the birthday list within the board index is controlled by a separate load setting.',
-	'_admpenable_urls'					=> 'Allow links in posts/private messages',
-	'_admpenable_urlsexplain'			=> 'If disallowed the <code>[URL]</code> BBCode tag and automatic/magic URLs are disabled.',
-	'_admpallow_post_flash'				=> 'Allow use of <code>[FLASH]</code> BBCode tag in posts',
-	'_admpallow_post_flashexplain'		=> 'If disallowed the <code>[FLASH]</code> BBCode tag is disabled in posts. Otherwise the permission system controls which users can use the <code>[FLASH]</code> BBCode tag.',
-	'_admpemail_enable'					=> 'Enable board-wide e-mails',
-	'_admpemail_enableexplain'			=> 'If this is set to disabled no e-mails will be sent by the board at all.',
-	'_admpdisplay_last_edited'			=> 'Display last edited time information',
-	'_admpdisplay_last_editedexplain'	=> 'Choose if the last edited by information to be displayed on posts.',
-	'_admpedit_time'					=> 'Limit editing time',
-	'_admpedit_timeexplain'				=> 'Limits the time available to edit a new post. Setting the value to 0 disables this behaviour.',
-	'_admphot_threshold'				=> 'Popular topic threshold',
-	'_admphot_thresholdexplain'			=> 'Posts per topic threshold required for the popular topic annotation. Set to 0 to disable popular topics.',
-	'_admpmax_poll_options'				=> 'Maximum number of poll options',
-	'_admpmax_poll_optionsexplain'		=>	'',
-	'_admpmax_post_font_size'			=> 'Maximum font size per post',
-	'_admpmax_post_font_sizeexplain'	=> 'Maximum font size allowed in a post. Set to 0 for unlimited font size.',
-	'_admpimg_link_height'				=> 'Maximum image height per post',
-	'_admpimg_link_heightexplain'		=> 'Maximum height of an image/flash file in postings. Set to 0 for unlimited size.',
-	'_admpimg_link_width'				=> 'Maximum image width per post',
-	'_admpimg_link_widthexplain'		=> 'Maximum width of an image/flash file in postings. Set to 0 for unlimited size.',
-	'_admpmax_post_urls'				=> 'Maximum links per post',
-	'_admpmax_post_urlsexplain'			=> 'Maximum number of URLs in a post. Set to 0 for unlimited links.',
-	'_admpmax_quote_depth'				=> 'Maximum nested quotes per post',
-	'_admpmax_quote_depthexplain'		=> 'Maximum number of nested quotes in a post. Set to 0 for unlimited depth.',
-	'_admpmax_post_smilies'				=> 'Maximum smilies per post',
-	'_admpmax_post_smiliesexplain'		=> 'Maximum number of smilies in a post. Set to 0 for unlimited smilies.',
-'_admpforum_open'						=> 'Inable board',
-'_admpforum_openexplain'				=> 'This will make the board available to users.',
-'_admpboard_disable_msg'				=> 'Disable board message',
-'_admpboard_disable_msgexplain'			=> 'You can enter a short (255 character) message to display if you wish.',
-'_admpcensor_words'						=> 'Cenor Words',
-'_admpcensor_wordsexplain'				=> 'Enable word censor well replace selected words and change them to replacement words.',
-'_admppostsper_page'					=> 'Posts Listed Perpage',
-'_admppostsper_pageexplain'				=> '',
-'_admptopics_per_page'		=> 'Topics Listed Perpage',
-'_admptopics_per_pageexplain'		=> '',
-'_admpmax_subject_length'		=> 'Maximum characters in Subject',
-'_admpmax_subject_lengthexplain'		=> '',
-'_admpmax_post_length'		=> 'Maximum characters per post',
-'_admpmax_post_lengthexplain'		=> 'The number of characters allowed within a post. <br />Set to 0 for unlimited characters.',
-'_admpshow_latest_topic'		=> 'show_latest_topic',
-'_admpshow_latest_topicexplain'		=> '',
-'_admpsearch_word_min'		=> 'search_word_min',
-'_admpsearch_word_minexplain'		=> '',
-'_admpallow_bookmarks'		=> 'Allow bookmarking topics',
-'_admpallow_bookmarksexplain'		=> 'User is able to store personal bookmarks.',
-'_admpshout_new_topic'		=> 'shout_new_topic',
-'_admpshout_new_topicexplain'		=> '',
-'_admpshout_new_post'		=> 'shout_new_post',
-'_admpshout_new_postexplain'		=> '',
-'_admpallow_smilies'		=> 'Allow smilies:',
-'_admpallow_smiliesexplain'		=> '',
-'_admpallow_bbcode'		=> 'Allow BBCode:',
-'_admpallow_bbcodeexplain'		=> '',
-'_admpallow_signatures'		=> 'Allow signatures:',
-'_admpallow_signaturesexplain'		=> '',
-'_admpallow_disable_censor'		=> 'Allow disabling of word censoring:',
-'_admpallow_disable_censorexplain'		=> 'Users can choose to disable the automatic word censoring of posts.',
-'_admpcan_use_attachments'		=> 'Allow attachments',
-'_admpcan_use_attachmentsexplain'		=> '',
-'_admpflood_intervals'		=> 'Flood interval',
-'_admpflood_intervalsexplain'		=> 'Number of seconds a user must wait between posting new messages. To enable users to ignore this alter their permissions.',
-'_admpbump_intervals'		=> 'Bump interval',
-'_admpbump_intervalsexplain'		=> 'Number of minutes, hours or days between the last post to a topic and the ability to bump this topic.',
-'_admpallow_quick_reply'		=> 'allow_quick_reply',
-'_admpallow_quick_replyexplain'		=> '',
-'YES_NO_TF'					=> array('true'=> 'Yes','false'=>'No'),
-'YES_NO'					=> array('yes'=> 'Yes','no'=>'No'),
-'SEL_TIME_A'			=>array('m'=>'Minutes','h'=>'Hours','d'=>'Days'),
-'SEL_TIME_B'			=>array('s'=>'Seconds','m'=>'Minutes'),
-'FORM_UPDATED'			=> 'Forum configs',
+    'TITLE'                            => 'Forum Features',
+    'TITLE_EXPLAIN'                    => 'Here you can Enable/Disable Several Forum Features.',
+    'ALLOW_ATTACHMENTS'                => 'Allow Attachments',
+    'FORM_UPDATED'                     => 'Forum Configuration',
+    'YES_NO_TF'                        => array('true'=>'Yes','false'=>'No'),
+    'YES_NO'                           => array('yes' =>'Yes','no'   =>'No'),
+    'SEL_TIME_A'                       => array('m'   =>'Minutes','h'=>'Hours','d'=>'Days'),
+    'SEL_TIME_B'                       => array('s'   =>'Seconds','m'=>'Minutes'),
+
+    '_admpmax_filesize'                => 'Maximum Attachment File Size',
+    '_admpmax_filesizeexplain'         => 'For Uploaded Attachment Files.',
+    '_admpmax_attachments'             => 'Maximum Attachments Per Post',
+    '_admpmax_attachmentsexplain'      => 'Maximum Number of Attachments Allowed Per Post.',
+    '_admpmin_post_chars'              => 'Minimum Characters Per Post',
+    '_admpmin_post_charsexplain'       => 'Minimum Number of Characters Allowed Per Post.',
+    '_admpimg_display_inlined'         => 'Display Attached Images Inline',
+    '_admpimg_display_inlinedexplain'  => 'Display Attached Images Inline on Posts.',
+    '_admpload_search'                 => 'Load Search Bar on Pages',
+    '_admpload_searchexplain'          => 'Display the Search Bar on Pages.',
+    '_admpload_moderators'             => 'Enable Display of Moderators',
+    '_admpload_moderatorsexplain'      => 'Display the Forum Moderators on Pages',
+    '_admpboard_hide_emails'           => 'Hide e-mail Addresses',
+    '_admpboard_hide_emailsexplain'    => 'This Function keeps e-mail Addresses Completely Private.',
+    '_admpenable_queue_trigger'        => 'Enable Queued Posts',
+    '_admpenable_queue_triggerexplain' => 'Ability to put Registered Users Posts to Post Approval if their Post Count is Lower than the Specified Value below. This Setting has NO effect on the Permission Setting for Post/Topic Approval.',
+
+    '_admpqueue_trigger_posts'         => 'Maximum Post Count for Queued Posts',
+    '_admpqueue_trigger_postsexplain'  => 'If Queued Posts is Enabled, this is the Post Count that the User needs to reach in order to Post without Post Approval. If the Users Post Count is Below this number, the Post is stored in the Queue Automatically.',
+
+    '_admpallow_birthdays'             => 'Allow Birthdays',
+    '_admpallow_birthdaysexplain'      => 'Allow Birthdays to be entered the Users age to be displayed in Profiles. Please Note the Birthday List within the Board Index is Controlled by a Separate Load Setting.',
+
+    '_admpenable_urls'                 => 'Allow Links in Posts/Private Messages',
+    '_admpenable_urlsexplain'          => 'If Disallowed the <code>[URL]</code> BBCode Tag and Automatic/Magic URLs are Disabled.',
+    '_admpallow_post_flash'            => 'Allow use of <code>[FLASH]</code> BBCode Tag in Posts',
+
+    '_admpallow_post_flashexplain'     => 'If Disallowed the <code>[FLASH]</code> BBCode tag is Disabled in Posts. Otherwise the Permission System controls which Users can use the <code>[FLASH]</code> BBCode Tag.',
+
+    '_admpemail_enable'                => 'Enable Forum wide e-mails',
+    '_admpemail_enableexplain'         => 'If this is Set to Disabled then No e-mails will be sent by the Forum at all.',
+    '_admpdisplay_last_edited'         => 'Display Last Edited Time Information',
+    '_admpdisplay_last_editedexplain'  => 'Choose if the Last Edited by Information is to be displayed on Posts.',
+    '_admpedit_time'                   => 'Limit Editing Time',
+    '_admpedit_timeexplain'            => 'Limits the time available to Edit a New Post. Setting the value to 0 Disables this feature.',
+
+    '_admphot_threshold'               => 'Popular Topic Threshold',
+    '_admphot_thresholdexplain'        => 'Posts Per Topic Threshold Required for the Popular Topic Annotation. Set to 0 to Disable Popular Topics.',
+
+    '_admpmax_poll_options'            => 'Maximum Number of Poll Options',
+    '_admpmax_poll_optionsexplain'     => 'Maximum Number of Allowed Poll Questions.',
+    '_admpmax_post_font_size'          => 'Maximum Font Size Per Post',
+    '_admpmax_post_font_sizeexplain'   => 'Maximum Font Size Allowed in a Post. Set to 0 for Unlimited Font Size.',
+    '_admpimg_link_height'             => 'Maximum Image Height Per Post',
+    '_admpimg_link_heightexplain'      => 'Maximum Height of an Image/Flash File in Posts. Set to 0 for Unlimited Size.',
+    '_admpimg_link_width'              => 'Maximum Image Width Per Post',
+    '_admpimg_link_widthexplain'       => 'Maximum Width of an Image/Flash File in Posts. Set to 0 for Unlimited Size.',
+    '_admpmax_post_urls'               => 'Maximum Links Allowed Per Post',
+    '_admpmax_post_urlsexplain'        => 'Maximum Number of URLs Allowed in a Post. Set to 0 for Unlimited Links.',
+    '_admpmax_quote_depth'             => 'Maximum Nested Quotes Per Post',
+    '_admpmax_quote_depthexplain'      => 'Maximum Number of Nested Quotes Allowed in a Post. Set to 0 for Unlimited Depth.',
+    '_admpmax_post_smilies'            => 'Maximum Smilies Per Post',
+    '_admpmax_post_smiliesexplain'     => 'Maximum Number of Smilies Allowed in a Post. Set to 0 for Unlimited Smilies.',
+    '_admpforum_open'                  => 'Enable Forum',
+    '_admpforum_openexplain'           => 'This will make the Forum Visible to Users.',
+    '_admpboard_disable_msg'           => 'Disable Forum Message',
+    '_admpboard_disable_msgexplain'    => 'You can enter a Short (255 character) Message to Display if you wish?',
+    '_admpcensor_words'                => 'Censor Words',
+    '_admpcensor_wordsexplain'         => 'Enable Word Censor will Replace Selected Words and Change them to Replacement Words.',
+    '_admppostsper_page'               => 'Posts Listed Per Page',
+    '_admppostsper_pageexplain'        => 'Maximum Number of Posts Displayed Per Page',
+    '_admptopics_per_page'             => 'Topics Listed Per Page',
+    '_admptopics_per_pageexplain'      => 'Maximum Number of Topics Displayed Per Page',
+    '_admpmax_subject_length'          => 'Maximum Characters in Subject',
+    '_admpmax_subject_lengthexplain'   => 'Maximum Number of Character Allowed in Subject Title',
+    '_admpmax_post_length'             => 'Maximum Characters Per Post',
+    '_admpmax_post_lengthexplain'      => 'Maximum Number of Characters Allowed within a Post. <br />Set to 0 for Unlimited Characters.',
+
+    '_admpshow_latest_topic'           => 'Show Latest Topic',
+    '_admpshow_latest_topicexplain'    => 'Show the Latest Topic.',
+    '_admpsearch_word_min'             => 'Search Word Min',
+    '_admpsearch_word_minexplain'      => 'Minimum Number of Character Allowed when Searching.',
+    '_admpallow_bookmarks'             => 'Allow Bookmarking Topics',
+    '_admpallow_bookmarksexplain'      => 'User is able to Store Personal Bookmarks.',
+    '_admpshout_new_topic'             => 'Shout New Topic',
+    '_admpshout_new_topicexplain'      => 'Display New Topics in Shoutbox.',
+    '_admpshout_new_post'              => 'Shout New Post',
+    '_admpshout_new_postexplain'       => 'Display New Posts in Shoutbox.',
+    '_admpallow_smilies'               => 'Allow Smilies:',
+    '_admpallow_smiliesexplain'        => 'Allow Smilies in Posts.',
+    '_admpallow_bbcode'                => 'Allow BBCode:',
+    '_admpallow_bbcodeexplain'         => 'Allow BBCode to be used in Posts.',
+    '_admpallow_signatures'            => 'Allow Signatures:',
+    '_admpallow_signaturesexplain'     => 'Show User Signature in Forum Posts.',
+    '_admpallow_attachments'           => 'Allow Attachments:',
+    '_admpallow_attachmentsexplain'    => 'Allow Attachments to be Uploaded on Forum Posts.',
+    '_admpallow_disable_censor'        => 'Allow Disabling of Word Censoring:',
+    '_admpallow_disable_censorexplain' => 'Users can choose to Disable the Automatic Word Censoring of Posts.',
+    '_admpcan_use_attachments'         => 'Allow Attachments',
+    '_admpcan_use_attachmentsexplain'  => 'Allow Attachments to be Posted in Posts.',
+    '_admpflood_intervals'             => 'Flood Interval',
+    '_admpflood_intervalsexplain'      => 'Number of Seconds a User must wait between Posting New Messages. To Enable Users to Ignore this alter their Permissions.',
+
+    '_admpbump_intervals'              => 'Bump Interval',
+    '_admpbump_intervalsexplain'       => 'Number of Minutes, Hours or Days between the Last Post to a Topic and the ability to Bump this Topic.',
+
+    '_admpallow_quick_reply'           => 'Allow Quick Reply',
+    '_admpallow_quick_replyexplain'    => 'Display The Quick Reply Button.',
 ));
+
 ?>

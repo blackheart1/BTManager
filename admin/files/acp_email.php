@@ -46,13 +46,13 @@ class acp_email
 					'vars'	=> array(
 						'legend1'				=> 'GENERAL_SETTINGS',
 						'email_enable'			=> array('lang' => 'ENABLE_EMAIL',			'validate' => 'bool',	'type' => 'radio:enabled_disabled', 'explain' => true),
-						'board_email_form'		=> array('lang' => 'BOARD_EMAIL_FORM',		'validate' => 'bool',	'type' => 'radio:enabled_disabled', 'explain' => true),
+						'board_email_form'		=> array('lang' => 'SITE_EMAIL_FORM',		'validate' => 'bool',	'type' => 'radio:enabled_disabled', 'explain' => true),
 						'email_function_name'	=> array('lang' => 'EMAIL_FUNCTION_NAME',	'validate' => 'string',	'type' => 'text:20:50', 'explain' => true),
 						'email_package_size'	=> array('lang' => 'EMAIL_PACKAGE_SIZE',	'validate' => 'int:0',	'type' => 'text:5:5', 'explain' => true),
 						'board_contact'			=> array('lang' => 'CONTACT_EMAIL',			'validate' => 'email',	'type' => 'text:25:100', 'explain' => true),
 						'board_email'			=> array('lang' => 'ADMIN_EMAIL',			'validate' => 'email',	'type' => 'text:25:100', 'explain' => true),
 						'board_email_sig'		=> array('lang' => 'EMAIL_SIG',				'validate' => 'string',	'type' => 'textarea:5:30', 'explain' => true),
-						'board_hide_emails'		=> array('lang' => 'BOARD_HIDE_EMAILS',		'validate' => 'bool',	'type' => 'radio:yes_no', 'explain' => true),
+						'board_hide_emails'		=> array('lang' => 'SITE_HIDE_EMAILS',		'validate' => 'bool',	'type' => 'radio:yes_no', 'explain' => true),
 
 						'legend2'				=> 'SMTP_SETTINGS',
 						'smtp_delivery_ssl'		=> array('lang' => 'USE_SMTP_SSL',			'validate' => 'string',	'type' => 'select', 'method' => 'mail_auth_ssl_select', 'explain' => true),
@@ -428,7 +428,7 @@ class acp_email
 		{
 			$act_ary['ACC_USER'] = 1;
 			$act_ary['ACC_ADMIN'] = 2;
-		}		
+		}
 		$act_options = '';
 
 		foreach ($act_ary as $key => $value)
