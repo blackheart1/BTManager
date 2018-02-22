@@ -62,13 +62,21 @@ echo "<br />";
 //MySQL
 echo _mysqlcheck;
 echo " - ";
-if (!extension_loaded("mysql") OR !extension_loaded("mysqli")) {
+if (!extension_loaded("mysql") AND !extension_loaded("mysqli")) {
         $error = true;
         err();
         echo " - "._mysqlfail;
 } else {
         ok();
-        echo " - ".(extension_loaded("mysql"))?mysql_get_client_info() : mysqli_get_client_info() ;
+        echo " - ";
+		if(extension_loaded("mysql"))
+		{
+			echo "MySql " . mysql_get_client_info();
+		}
+		else
+		{
+			echo "MySqli " . mysqli_get_client_info();
+		}
 }
 
 echo "<br />";

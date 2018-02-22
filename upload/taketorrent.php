@@ -728,7 +728,7 @@ if($autoscrape AND $announce != "") {
 
         $tmp_tracker = str_replace("announce", "scrape", $announce).((strpos($announce,"?")) ? "&" : "?")."info_hash=".urlencode($infohash);
                         $scrape = getscrapedata($tmp_tracker, false,array($infohash=>preg_replace_callback('/./s', "hex_esc", str_pad($infohash,20))));
-						die();
+						//die();
         if ($scrape) {
                 #Check data
                 if (!entry_exists($scrape,"files(dictionary)","Scrape")) {
