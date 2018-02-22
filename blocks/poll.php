@@ -128,7 +128,7 @@ if ($user->user){
 
     	// Count votes
     	while ($arr2 = $db->sql_fetchrow($res))
-      	@$vs[$arr2[0]] += 1;
+      	@$vs[$arr2['selection']] += 1;
 
     	reset($o);
     	for ($i = 0; $i < count($o); ++$i)
