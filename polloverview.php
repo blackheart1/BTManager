@@ -33,7 +33,7 @@ $template = new Template();
 $op						= request_var('op', '');
 $pollid					= request_var('id', '0');
 set_site_var($user->lang['POLL_OVER_VIEW']);
-if (!$pollid)
+if ($pollid == 0)
 {
 	 
 	$sql = $db->sql_query("SELECT id, added, question FROM ".$db_prefix."_polls ORDER BY id DESC");
@@ -50,7 +50,7 @@ if (!$pollid)
 else
 {
 
-	if($pollid)
+	if($pollid > 0)
 	{
 		$sql = $db->sql_query("SELECT * FROM ".$db_prefix."_polls WHERE id = {$pollid} ORDER BY id DESC") or sqlerr();
 	

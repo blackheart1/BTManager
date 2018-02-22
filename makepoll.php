@@ -96,7 +96,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 		"option9 = '" . $option9 . "', " .
 		"sort = '" . $sort . "' " .
     	"WHERE id = $pollid";
-		die($sql);
   
 		$db->sql_query($sql);
   }
