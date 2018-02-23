@@ -1,49 +1,28 @@
 <?php
-/*
-*----------------------------phpMyBitTorrent V 3.0.1---------------------------*
-*--- The Ultimate BitTorrent Tracker and BMS (Bittorrent Management System) ---*
-*--------------   Created By Antonio Anzivino (aka DJ Echelon)   --------------*
-*-------------------   And Joe Robertson (aka joeroberts)   -------------------*
-*-------------               http://www.p2pmania.it               -------------*
-*------------ Based on the Bit Torrent Protocol made by Bram Cohen ------------*
-*-------------              http://www.bittorrent.com             -------------*
-*------------------------------------------------------------------------------*
-*------------------------------------------------------------------------------*
-*--   This program is free software; you can redistribute it and/or modify   --*
-*--   it under the terms of the GNU General Public License as published by   --*
-*--   the Free Software Foundation; either version 2 of the License, or      --*
-*--   (at your option) any later version.                                    --*
-*--                                                                          --*
-*--   This program is distributed in the hope that it will be useful,        --*
-*--   but WITHOUT ANY WARRANTY; without even the implied warranty of         --*
-*--   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          --*
-*--   GNU General Public License for more details.                           --*
-*--                                                                          --*
-*--   You should have received a copy of the GNU General Public License      --*
-*--   along with this program; if not, write to the Free Software            --*
-*-- Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA --*
-*--                                                                          --*
-*------------------------------------------------------------------------------*
-*------              ©2016 phpMyBitTorrent Development Team              ------*
-*-----------               http://phpmybittorrent.com               -----------*
-*------------------------------------------------------------------------------*
-*--------------------   Sunday, May 17, 2009 1:05 AM   ------------------------*
-*
-* @package phpMyBitTorrent
-* @version $Id$ 3.0.1 acp_attachments.php 2016-02-21 07:37:00 joeroberts $
-* @copyright (c) 2016 phpMyBitTorrent Group
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License
-*
-*/
-
 /**
-* @ignore
-*/
-if (!defined('IN_PMBT')) die ("You can't access this file directly");
-
-/**
-* @package acp
-*/
+**********************
+** BTManager v3.0.1 **
+**********************
+** http://www.btmanager.org/
+** https://github.com/blackheart1/BTManager
+** http://demo.btmanager.org/index.php
+** Licence Info: GPL
+** Copyright (C) 2018
+** Formerly Known As phpMyBitTorrent
+** Created By Antonio Anzivino (aka DJ Echelon)
+** And Joe Robertson (aka joeroberts/Black_Heart)
+** Project Leaders: Black_Heart, Thor.
+** File acp_attachments.php 2018-02-17 14:32:00 Black_Heart
+**
+** CHANGES
+**
+** EXAMPLE 26-04-13 - Added Auto Ban
+**/
+if (!defined('IN_PMBT'))
+{
+	include_once './../../security.php';
+	die ("You can't access this file directly");
+}
 class acp_attachments
 {
 	var $u_action;
@@ -152,7 +131,7 @@ class acp_attachments
 						'img_create_thumbnail'		=> array('lang' => 'CREATE_THUMBNAIL',		'validate' => 'bool',	'type' => 'radio:yes_no', 'explain' => true),
 						'img_max_thumb_width'		=> array('lang' => 'MAX_THUMB_WIDTH',		'validate' => 'int',	'type' => 'text:7:15', 'explain' => true, 'append' => ' ' . $user->lang['PIXEL']),
 						'img_min_thumb_filesize'	=> array('lang' => 'MIN_THUMB_FILESIZE',	'validate' => 'int',	'type' => 'text:7:15', 'explain' => true, 'append' => ' ' . $user->lang['BYTES']),
-						'img_imagick'				=> array('lang' => 'IMAGICK_PATH',			'validate' => 'string',	'type' => 'text:20:200', 'explain' => true, 'append' => '&nbsp;&nbsp;<span>[ <a href="' . $this->u_action . '&amp;action=imgmagick">' . $user->lang['SEARCH_IMAGICK'] . '</a> ]</span>'),
+						'img_imagick'				=> array('lang' => 'IMAGICK_PATH',			'validate' => 'string',	'type' => 'text:20:200', 'explain' => true, 'append' => '&nbsp;&nbsp;<span>[ <a href="' . $this->u_action . '&amp;actions=imgmagick">' . $user->lang['SEARCH_IMAGICK'] . '</a> ]</span>'),
 						'img_max'					=> array('lang' => 'MAX_IMAGE_SIZE',		'validate' => 'int',	'type' => 'dimension:3:4', 'explain' => true, 'append' => ' ' . $user->lang['PIXEL']),
 						'img_link'					=> array('lang' => 'IMAGE_LINK_SIZE',		'validate' => 'int',	'type' => 'dimension:3:4', 'explain' => true, 'append' => ' ' . $user->lang['PIXEL']),
 					)
@@ -189,11 +168,13 @@ class acp_attachments
 
 					if ($submit)
 					{
-						$db->sql_query("UPDATE 
+						/*$db->sql_query("UPDATE 
 							`".$db_prefix."_attachments_config` SET 
 							`config_value` = '" . $config_value . "' 
 							WHERE 
-							`config_name` = '" . $config_name . "';");//set_config($config_name, $config_value);
+							`config_name` = '" . $config_name . "';");
+*/
+							set_config($config_name, $config_value);
 					}
 				}
 
@@ -214,8 +195,9 @@ class acp_attachments
 				}
 
 				$template->assign_var('S_ATTACHMENT_SETTINGS', true);
+				$actions = request_var('actions', '');
 
-				if ($action == 'imgmagick')
+				if ($actions == 'imgmagick')
 				{
 					$this->new_config['img_imagick'] = $this->search_imagemagick();
 				}
@@ -243,7 +225,7 @@ class acp_attachments
 				}
 
 				$template->assign_vars(array(
-					'U_SEARCH_IMAGICK'		=> $this->u_action . '&amp;action=imgmagick',
+					'U_SEARCH_IMAGICK'		=> $this->u_action . '&amp;actions=imgmagick',
 					'S_THUMBNAIL_SUPPORT'	=> (!$this->new_config['img_imagick'] && (!isset($supported_types['format']) || !sizeof($supported_types['format']))) ? false : true)
 				);
 
@@ -251,7 +233,7 @@ class acp_attachments
 				$allow_deny = ($this->new_config['secure_allow_deny']) ? 'ALLOWED' : 'DISALLOWED';
 
 				$sql = 'SELECT *
-					FROM ' . SITELIST_TABLE;
+					FROM ' . $db_prefix . '_sitelist';
 				$result = $db->sql_query($sql);
 
 				$defined_ips = '';
@@ -1070,7 +1052,7 @@ class acp_attachments
 						'PHYSICAL_FILENAME'	=> utf8_basename($row['physical_filename']),
 						'ATTACH_ID'			=> $row['attach_id'],
 						'POST_IDS'			=> (!empty($post_ids[$row['attach_id']])) ? $post_ids[$row['attach_id']] : '',
-						'U_FILE'			=> append_sid($phpbb_root_path . 'download/file.' . $phpEx, 'mode=view&amp;id=' . $row['attach_id']))
+						'U_FILE'			=> append_sid($phpbb_root_path . 'file.' . $phpEx, 'mode=view&amp;id=' . $row['attach_id']))
 					);
 				}
 				$db->sql_freeresult($result);
@@ -1354,7 +1336,7 @@ class acp_attachments
 			}
 
 			$sql = 'SELECT site_ip, site_hostname
-				FROM ' . SITELIST_TABLE . "
+				FROM ' . $db_prefix . "_sitelist
 				WHERE ip_exclude = $ip_exclude";
 			$result = $db->sql_query($sql);
 
@@ -1397,7 +1379,7 @@ class acp_attachments
 			{
 				foreach ($iplist as $ip_entry)
 				{
-					$sql = 'INSERT INTO ' . SITELIST_TABLE . " (site_ip, ip_exclude)
+					$sql = 'INSERT INTO ' . $db_prefix . "_sitelist (site_ip, ip_exclude)
 						VALUES ($ip_entry, $ip_exclude)";
 					$db->sql_query($sql);
 				}
@@ -1407,7 +1389,7 @@ class acp_attachments
 			{
 				foreach ($hostlist as $host_entry)
 				{
-					$sql = 'INSERT INTO ' . SITELIST_TABLE . " (site_hostname, ip_exclude)
+					$sql = 'INSERT INTO ' . $db_prefix . "_sitelist (site_hostname, ip_exclude)
 						VALUES ($host_entry, $ip_exclude)";
 					$db->sql_query($sql);
 				}
@@ -1432,7 +1414,7 @@ class acp_attachments
 
 				// Grab details of ips for logging information later
 				$sql = 'SELECT site_ip, site_hostname
-					FROM ' . SITELIST_TABLE . '
+					FROM ' . $db_prefix . '_sitelist
 					WHERE ' . $db->sql_in_set('site_id', $unip_sql);
 				$result = $db->sql_query($sql);
 
@@ -1442,7 +1424,7 @@ class acp_attachments
 				}
 				$db->sql_freeresult($result);
 
-				$sql = 'DELETE FROM ' . SITELIST_TABLE . '
+				$sql = 'DELETE FROM ' . $db_prefix . '_sitelist
 					WHERE ' . $db->sql_in_set('site_id', $unip_sql);
 				$db->sql_query($sql);
 
