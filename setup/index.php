@@ -59,20 +59,34 @@ require_once("graphics/graphics.php");
 function check_chmod($file_check)
 {
 }
-function is__writable($path) 
+function is__writable($path, $file = '') 
 {
-	if ($path{strlen($path)-1}=='/') return is__writable($path.uniqid(mt_rand()).'.tmp');
+	if ($path{strlen($path)-1}=='/' AND $file == '') return is__writable($path, uniqid(mt_rand()).'.tmp');
+	//die($path);
 
-	if (file_exists($path)) {
-		if (!($f = @fopen($path, 'r+'))) return false;
-		fclose($f);
-		return true;
+	if (!is_dir($path))
+	{
+		return false;
 	}
-
-
-	if (!($f = @fopen($path, 'w')))	return false;
-	fclose($f);
-	unlink($path);
+	else
+	{
+		$path = $path.$file;
+		//die($path);
+		$fp = @fopen($path,"w");
+		if (!$fp)
+		{
+			return false;
+		}
+		else
+		{
+			if (!fputs($fp,"Test Write"))
+			{
+				return false;
+			}
+		}
+		@unlink($path); //Deleting the mess we just done
+		@fclose($fp);
+	}
 	return true;
 }
 

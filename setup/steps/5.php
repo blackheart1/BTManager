@@ -164,7 +164,6 @@ function drawConfig() {
         drawRow("minupload_file_size","text");
         drawRow("allow_backup_tracker","checkbox");
         drawRow("stealthmode","checkbox");
-		drawRow("upload_dead","checkbox");
 		drawRow("invites_open","checkbox");
         drawRow("invite_only","checkbox");
         drawRow("max_members","text");
