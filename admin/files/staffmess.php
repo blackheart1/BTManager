@@ -42,7 +42,6 @@ $user->set_lang('admin/staffmess',$user->ulanguage);
 							'L_TITLE' => $user->lang['SECTION_TITLE_SENEMAIL'],
 							'U_TITLE' => append_sid($u_action,'page=sendmail'),
 							));
-//include'include/textarea.php';
 if($page=="pm"){
 		include_once('include/function_posting.php');
 		include_once('include/message_parser.php');

@@ -417,7 +417,7 @@ if($op == 'settings_bbcode')
 					$langdir = "language/common";
 					$langhandle = opendir($langdir);
 					while ($langfile = readdir($langhandle)) {
-							if (eregi("\.php$",$langfile) AND strtolower($langfile) != "mailtexts.php")
+							if (preg_match("/.php/",$langfile) AND strtolower($langfile) != "mailtexts.php")
 									$languages[str_replace(".php","",$langfile)] = ucwords(str_replace(".php","",$langfile));
 					}
 					closedir($langhandle);
