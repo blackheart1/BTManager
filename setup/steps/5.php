@@ -198,7 +198,7 @@ if (!isset($postback)) { //Set default parameters
         $cfgrow["siteurl"] = $pmbturl["scheme"]."://".$pmbturl["host"].$pmpath;
         $cfgrow["cookiedomain"] = $pmbturl["host"];
         $cfgrow["cookiepath"] = $pmpath;
-        $cfgrow["sourcedir"] = dirname($_SERVER['DOCUMENT_ROOT']) . DIRECTORY_SEPARATOR;
+        $cfgrow["sourcedir"] = str_replace('/setup/index.php','',preg_replace("!${_SERVER['SCRIPT_NAME']}$!", '', $_SERVER['SCRIPT_FILENAME'])) . DIRECTORY_SEPARATOR;
         $cfgrow["admin_email"] = array_key_exists("SERVER_ADMIN",$_SERVER) ? $_SERVER["SERVER_ADMIN"] : "admin@".$pmbturl["host"];
         $cfgrow["language"] = $language;
         $cfgrow["theme"] = "pmbt";
