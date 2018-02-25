@@ -1,15 +1,28 @@
 <?php
-/*
- * ntlm_sasl_client.php
- *
- * @(#) $Id: ntlm_sasl_client.php,v 1.3 2004/11/17 08:00:37 mlemos Exp $
- *
- **
- ** Source: http://www.phpclasses.org/browse/file/7495.html
- ** License: BSD (http://www.phpclasses.org/package/1888-PHP-Single-API-for-standard-authentication-mechanisms.html)
- ** Bundled with Permission
- **
- */
+/**
+**********************
+** BTManager v3.0.1 **
+**********************
+** http://www.btmanager.org/
+** https://github.com/blackheart1/BTManager
+** http://demo.btmanager.org/index.php
+** Licence Info: GPL
+** Copyright (C) 2018
+** Formerly Known As phpMyBitTorrent
+** Created By Antonio Anzivino (aka DJ Echelon)
+** And Joe Robertson (aka joeroberts/Black_Heart)
+** Project Leaders: Black_Heart, Thor.
+** File ntlm_sasl_client.php 2018-02-18 14:32:00 joeroberts
+**
+** CHANGES
+**
+** EXAMPLE 26-04-13 - Added Auto Ban
+**/
+if (!defined('IN_PMBT'))
+{
+	include_once './../security.php';
+	die ();
+}
 
 define("SASL_NTLM_STATE_START",             0);
 define("SASL_NTLM_STATE_IDENTIFY_DOMAIN",   1);

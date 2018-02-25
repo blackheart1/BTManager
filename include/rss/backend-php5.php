@@ -1,32 +1,28 @@
 <?php
-/*
-*-------------------------------phpMyBitTorrent--------------------------------*
-*--- The Ultimate BitTorrent Tracker and BMS (Bittorrent Management System) ---*
-*--------------   Created By Antonio Anzivino (aka DJ Echelon)   --------------*
-*-------------               http://www.p2pmania.it               -------------*
-*------------ Based on the Bit Torrent Protocol made by Bram Cohen ------------*
-*-------------              http://www.bittorrent.com             -------------*
-*------------------------------------------------------------------------------*
-*------------------------------------------------------------------------------*
-*--   This program is free software; you can redistribute it and/or modify   --*
-*--   it under the terms of the GNU General Public License as published by   --*
-*--   the Free Software Foundation; either version 2 of the License, or      --*
-*--   (at your option) any later version.                                    --*
-*--                                                                          --*
-*--   This program is distributed in the hope that it will be useful,        --*
-*--   but WITHOUT ANY WARRANTY; without even the implied warranty of         --*
-*--   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          --*
-*--   GNU General Public License for more details.                           --*
-*--                                                                          --*
-*--   You should have received a copy of the GNU General Public License      --*
-*--   along with this program; if not, write to the Free Software            --*
-*-- Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA --*
-*--                                                                          --*
-*------------------------------------------------------------------------------*
-*------              �2005 phpMyBitTorrent Development Team              ------*
-*-----------               http://phpmybittorrent.com               -----------*
-*------------------------------------------------------------------------------*
-*/
+/**
+**********************
+** BTManager v3.0.1 **
+**********************
+** http://www.btmanager.org/
+** https://github.com/blackheart1/BTManager
+** http://demo.btmanager.org/index.php
+** Licence Info: GPL
+** Copyright (C) 2018
+** Formerly Known As phpMyBitTorrent
+** Created By Antonio Anzivino (aka DJ Echelon)
+** And Joe Robertson (aka joeroberts/Black_Heart)
+** Project Leaders: Black_Heart, Thor.
+** File backend-php5.php 2018-02-18 14:32:00 joeroberts
+**
+** CHANGES
+**
+** EXAMPLE 26-04-13 - Added Auto Ban
+**/
+if (!defined('IN_PMBT'))
+{
+	include_once './../../security.php';
+	die ();
+}
 
 header('Content-Type: text/xml');
 
@@ -130,66 +126,6 @@ header('Content-Type: text/xml');
 
        $channel->appendChild( $item );
      }
-/*
-       {
-         $items = $rss->createElement( "items" );
-         {
-           $rdf_Seq = $rss->createElement( "rdf:Seq" );
-
-           foreach ( $ids as $tid )
-           {
-             $rdf_li = $rss->createElement( "rdf:li" );
-             $rdf_li->setAttribute( "rdf:resource" , $siteurl."/details.php?id=".$tid );
-             $rdf_Seq->appendChild( $rdf_li );
-           }
-
-         }
-         $items->appendChild( $rdf_Seq );
-       }
-       $channel->appendChild( $items );
-     }
-
-
-     $rdf->appendChild( $channel );
-     for ( $i = 0; $i < count( $ids ); $i++ )
-     {
-       $item = $rss->createElement( "item" );
-       $item->setAttribute( "rdf:about" , $siteurl . "/details.php?id=" . $ids[ $i ] );
-       {
-         $title = $rss->createElement( "title" );
-         $title->appendChild( $rss->createTextNode( $names[ $i ] ) );
-       }
-       $item->appendChild( $title );
-       {
-         $link = $rss->createElement( "link" );
-         $link->appendChild( $rss->createTextNode( $siteurl."/details.php?id=" . $ids[ $i ] ) );
-       }
-       $item->appendChild( $link );
-       {
-         $description = $rss->createElement( "description" );
-         $description->appendChild( $rss->createTextNode( $descrs[ $i ] ) );
-       }
-       $item->appendChild( $description );
-	   {
-		$enclosures = $rss->createElement( "enclosure" );
-		$enclosures->setAttribute( "url" , $siteurl."/download.php?id=" . $ids[ $i ] );
-		$enclosures->setAttribute( "Length" , "432080416" );
-		$enclosures->setAttribute( "Type" , "application/x-bittorrent" );
-	   }
-       $item->appendChild( $enclosures );
-       {
-         $seeders = $rss->createElement( "seeders" );
-         $seeders->appendChild( $rss->createTextNode( $seeds[ $i ] ) );
-       }
-       $item->appendChild( $seeders );
-       {
-         $leechers = $rss->createElement( "leechers" );
-         $leechers->appendChild( $rss->createTextNode( $leeches[ $i ] ) );
-       }
-       $item->appendChild( $leechers );
-
-       $rdf->appendChild( $item );
-     }*/
 }
 
 $rss->appendChild( $rdf );

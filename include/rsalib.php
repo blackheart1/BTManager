@@ -1,30 +1,28 @@
 <?php
-/*
-*-------------------------------------RSALib-----------------------------------*
-*----    An implementation of the RSA (Rivest/Shamir/Adelman) algorithm    ----*
-*----------                http://www.rsasecurity.com                ----------*
-*------------------------------------------------------------------------------*
-*------------------------------------------------------------------------------*
-*----     This library is free software; you can redistribute it and/or    ----*
-*----      modify it under the terms of the GNU Lesser General Public      ----*
-*----     License as published by the Free Software Foundation; either     ----*
-*----  version 2.1 of the License, or (at your option) any later version.  ----*
-*----                                                                      ----*
-*----   This library is distributed in the hope that it will be useful,    ----*
-*----    but WITHOUT ANY WARRANTY; without even the implied warranty of    ----*
-*----  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU   ----*
-*----            Lesser General Public License for more details.           ----*
-*----                                                                      ----*
-*----   You should have received a copy of the GNU Lesser General Public   ----*
-*----  License along with this library; if not, write to the Free Software ----*
-*----        Foundation, Inc., 51 Franklin St, Fifth Floor, Boston,        ----*
-*----                          MA  02110-1301  USA                         ----*
-*------------------------------------------------------------------------------*
-*------------------------------------------------------------------------------*
-*------                Copyright © 2005 Antonio Anzivino                 ------*
-*------------------------------------------------------------------------------*
-*/
-
+/**
+**********************
+** BTManager v3.0.1 **
+**********************
+** http://www.btmanager.org/
+** https://github.com/blackheart1/BTManager
+** http://demo.btmanager.org/index.php
+** Licence Info: GPL
+** Copyright (C) 2018
+** Formerly Known As phpMyBitTorrent
+** Created By Antonio Anzivino (aka DJ Echelon)
+** And Joe Robertson (aka joeroberts/Black_Heart)
+** Project Leaders: Black_Heart, Thor.
+** File rsalib.php 2018-02-18 14:32:00 joeroberts
+**
+** CHANGES
+**
+** EXAMPLE 26-04-13 - Added Auto Ban
+**/
+if (!defined('IN_PMBT'))
+{
+	include_once './../security.php';
+	die ();
+}
 class RSA {
         var $n; //modulo
         var $e; //public

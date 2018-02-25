@@ -1,41 +1,28 @@
 <?php
-/*
-*----------------------------   BT.Manager V 3.0.1  ---------------------------*
-*--- The Ultimate BitTorrent Tracker and BMS (Bittorrent Management System) ---*
-*--------------   Created By Antonio Anzivino (aka DJ Echelon)   --------------*
-*-------------------   And Joe Robertson (aka joeroberts)   -------------------*
-*-------------               http://www.p2pmania.it               -------------*
-*------------ Based on the Bit Torrent Protocol made by Bram Cohen ------------*
-*-------------              http://www.bittorrent.com             -------------*
-*------------------------------------------------------------------------------*
-*------------------------------------------------------------------------------*
-*--   This program is free software; you can redistribute it and/or modify   --*
-*--   it under the terms of the GNU General Public License as published by   --*
-*--   the Free Software Foundation; either version 2 of the License, or      --*
-*--   (at your option) any later version.                                    --*
-*--                                                                          --*
-*--   This program is distributed in the hope that it will be useful,        --*
-*--   but WITHOUT ANY WARRANTY; without even the implied warranty of         --*
-*--   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          --*
-*--   GNU General Public License for more details.                           --*
-*--                                                                          --*
-*--   You should have received a copy of the GNU General Public License      --*
-*--   along with this program; if not, write to the Free Software            --*
-*-- Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA --*
-*--                                                                          --*
-*------------------------------------------------------------------------------*
-*------                 ©2016 BT.Manager Development Team                ------*
-*-----------                  http://BTManager.org                  -----------*
-*------------------------------------------------------------------------------*
-*-------------------   Sunday, April 02, 2016 1:05 AM   -----------------------*
-*
-* @package BT.Manager
-* @version $Id: 3.0.1 upload/taketorrent.php  2016-04-02 00:22:48 joeroberts $
-* @copyright (c) 2016 BT.Manager Group
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License
-*
-*/
-if (!defined('IN_PMBT')) die ("You can't access this file directly");
+/**
+**********************
+** BTManager v3.0.1 **
+**********************
+** http://www.btmanager.org/
+** https://github.com/blackheart1/BTManager
+** http://demo.btmanager.org/index.php
+** Licence Info: GPL
+** Copyright (C) 2018
+** Formerly Known As phpMyBitTorrent
+** Created By Antonio Anzivino (aka DJ Echelon)
+** And Joe Robertson (aka joeroberts/Black_Heart)
+** Project Leaders: Black_Heart, Thor.
+** File taketorrent.php 2018-02-18 14:32:00 joeroberts
+**
+** CHANGES
+**
+** EXAMPLE 26-04-13 - Added Auto Ban
+**/
+if (!defined('IN_PMBT'))
+{
+	include_once './../security.php';
+	die ();
+}
 @ini_set("upload_max_filesize",$max_torrent_size);
 @set_time_limit(60);
 @ini_set("memory_limit","64M");
@@ -539,7 +526,7 @@ unset($info);
 
 #eXeem Alternate Link
 if (isset($exeem) AND $exeem != "" AND $info_intact) {
-        if (!eregi("^exeem://[\\d]{1,2}/".$infohash_hex."/", $exeem)) bterror($user->lang['INVALID_EXEEM_LINK'],_btuploaderror);
+        if (!preg_match("/exeem:\/\/[\\d]{1,2}/".$infohash_hex."*/i", $exeem)) bterror(_btinvalidexeem,_btuploaderror);
 } else {
         $exeem = "";
 }

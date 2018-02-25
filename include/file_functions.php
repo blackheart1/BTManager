@@ -1,44 +1,28 @@
 <?php
-/** 
-*
-* @package phpAR
-* @version $Id: file_functions.php
-* @copyright (c) 2007 gfxPros
-* @website http://www.gfx-pros.com
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License 
-*
-*/
-
 /**
-*
-* Functions (24)
-* +------------+
-* file_md5($file) - get the md5 of a file
-* file_create($file, $contents, $overwrite = false) - creates a file with the information provided
-* file_copy($source, $destination) - copies a file to the destination overwriting anything there
-* file_contents($file) - opens a file and returns the contents
-* file_edited_check($file, $find) - opens a file and checks if it has been edited already
-* file_add_after($file, $find, $add) - opens a file and finds a spot in the file then adds text after that spot
-* file_add_before($file, $find, $add) - opens a file and finds a spot in the file then adds text before that spot
-* file_replace($file, $find, $replace) - opens a file and finds a spot in the file then replaces the text in that spot
-* file_remove($file, $remove) - opens a file and removes specified text from the file
-* file_compare($file, $file2) - compare two files returns true if they are identical and false if they are different
-* file_temp_name($ext) - create a random name for a file returns the name
-* file_rename($file, $new_file, $overwrite = false) - rename a file, set overwrite position to true to overwrite any files that might be there
-* dir_create($dir) - create a directory
-* dir_get_files($dir) - get a list of files in a directory
-* dir_get_dirs($dir) - get a list of directories in a directory
-* dir_count_files($dir) - get the number of files in a directory
-* dir_count_dirs($dir) - get the number of directories in a directory
-* scan_dir($dir) - used by other functions to get the contents in a directory
-* dir_delete($dir, $deletefiles = false) - delete a directory, set the delete files position to true to delete the directory even if files are inside of it
-* get_file_size($file) - returns file size in bytes, kb, mb, gb, and tb
-* convert_file_size($size) - returns size converted to bytes, kb, mb, gb, tb
-* getmod($filename) - get the chmod of a directory
-* create_thumb($src_image, $dest_file, $max_size) - creates a thumbnail at the specified location from the specified file
-* get_file_type($file)
-*
-*/
+**********************
+** BTManager v3.0.1 **
+**********************
+** http://www.btmanager.org/
+** https://github.com/blackheart1/BTManager
+** http://demo.btmanager.org/index.php
+** Licence Info: GPL
+** Copyright (C) 2018
+** Formerly Known As phpMyBitTorrent
+** Created By Antonio Anzivino (aka DJ Echelon)
+** And Joe Robertson (aka joeroberts/Black_Heart)
+** Project Leaders: Black_Heart, Thor.
+** File file_functions.php 2018-02-18 14:32:00 joeroberts
+**
+** CHANGES
+**
+** EXAMPLE 26-04-13 - Added Auto Ban
+**/
+if (!defined('IN_PMBT'))
+{
+	include_once './../security.php';
+	die ();
+}
 function file_md5($file)
 {
 	$contents = file_contents($file);

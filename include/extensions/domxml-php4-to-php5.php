@@ -1,37 +1,28 @@
 <?php
-/*
- Requires PHP5, uses built-in DOM extension.
- To be used in PHP4 scripts using DOMXML extension.
- Allows PHP4/DOMXML scripts to run on PHP5/DOM.
- (Requires PHP5/XSL extension for domxml_xslt functions)
-
- Typical use:
- {
-  if (version_compare(PHP_VERSION,'5','>='))
-   require_once('domxml-php4-to-php5.php');
- }
-
- Version 1.15, 2007-02-05, http://alexandre.alapetite.net/doc-alex/domxml-php4-php5/
-
- ------------------------------------------------------------------
- Written by Alexandre Alapetite, http://alexandre.alapetite.net/cv/
-
- Copyright 2004-2007, Licence: Creative Commons "Attribution-ShareAlike 2.0 France" BY-SA (FR),
- http://creativecommons.org/licenses/by-sa/2.0/fr/
- http://alexandre.alapetite.net/divers/apropos/#by-sa
- - Attribution. You must give the original author credit
- - Share Alike. If you alter, transform, or build upon this work,
-   you may distribute the resulting work only under a license identical to this one
-   (Can be included in GPL/LGPL projects)
- - The French law is authoritative
- - Any of these conditions can be waived if you get permission from Alexandre Alapetite
- - Please send to Alexandre Alapetite the modifications you make,
-   in order to improve this file for the benefit of everybody
-
- If you want to distribute this code, please do it as a link to:
- http://alexandre.alapetite.net/doc-alex/domxml-php4-php5/
-*/
-if (!defined('IN_PMBT')) die ("You can't access this file directly");
+/**
+**********************
+** BTManager v3.0.1 **
+**********************
+** http://www.btmanager.org/
+** https://github.com/blackheart1/BTManager
+** http://demo.btmanager.org/index.php
+** Licence Info: GPL
+** Copyright (C) 2018
+** Formerly Known As phpMyBitTorrent
+** Created By Antonio Anzivino (aka DJ Echelon)
+** And Joe Robertson (aka joeroberts/Black_Heart)
+** Project Leaders: Black_Heart, Thor.
+** File domxml-php4-to-php5.php 2018-02-18 14:32:00 joeroberts
+**
+** CHANGES
+**
+** EXAMPLE 26-04-13 - Added Auto Ban
+**/
+if (!defined('IN_PMBT'))
+{
+	include_once './../../security.php';
+	die ();
+}
 
 function domxml_new_doc($version) {return new php4DOMDocument('');}
 function domxml_new_xmldoc($version) {return new php4DOMDocument('');}

@@ -1,25 +1,33 @@
 <?php
 /**
-*
-* @package search
-* @version $Id: fulltext_native.php,v 1.6 2009/09/17 02:39:05 joerobe Exp $
-* @copyright (c) 2005 phpBB Group
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License
-*
-*/
-
-/**
-* @ignore
-*/
+**********************
+** BTManager v3.0.1 **
+**********************
+** http://www.btmanager.org/
+** https://github.com/blackheart1/BTManager
+** http://demo.btmanager.org/index.php
+** Licence Info: GPL
+** Copyright (C) 2018
+** Formerly Known As phpMyBitTorrent
+** Created By Antonio Anzivino (aka DJ Echelon)
+** And Joe Robertson (aka joeroberts/Black_Heart)
+** Project Leaders: Black_Heart, Thor.
+** File fulltext_native.php 2018-02-18 14:32:00 joeroberts
+**
+** CHANGES
+**
+** EXAMPLE 26-04-13 - Added Auto Ban
+**/
 if (!defined('IN_PMBT'))
 {
-	exit;
+	include_once './../security.php';
+	die ();
 }
 
 /**
 * @ignore
 */
-include_once($phpbb_root_path . 'include/search/search.' . $phpEx);
+include_once('include/search/search.php');
 
 /**
 * fulltext_native
