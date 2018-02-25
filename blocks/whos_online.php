@@ -1,41 +1,28 @@
 <?php
-/*
-*------------------------------phpMyBitTorrent V 3.0.0-------------------------* 
-*--- The Ultimate BitTorrent Tracker and BMS (Bittorrent Management System) ---*
-*--------------   Created By Antonio Anzivino (aka DJ Echelon)   --------------*
-*-------------------   And Joe Robertson (aka joeroberts)   -------------------*
-*-------------               http://www.p2pmania.it               -------------*
-*------------ Based on the Bit Torrent Protocol made by Bram Cohen ------------*
-*-------------              http://www.bittorrent.com             -------------*
-*------------------------------------------------------------------------------*
-*------------------------------------------------------------------------------*
-*--   This program is free software; you can redistribute it and/or modify   --*
-*--   it under the terms of the GNU General Public License as published by   --*
-*--   the Free Software Foundation; either version 2 of the License, or      --*
-*--   (at your option) any later version.                                    --*
-*--                                                                          --*
-*--   This program is distributed in the hope that it will be useful,        --*
-*--   but WITHOUT ANY WARRANTY; without even the implied warranty of         --*
-*--   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          --*
-*--   GNU General Public License for more details.                           --*
-*--                                                                          --*
-*--   You should have received a copy of the GNU General Public License      --*
-*--   along with this program; if not, write to the Free Software            --*
-*-- Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA --*
-*--                                                                          --*
-*------------------------------------------------------------------------------*
-*------              ©2010 phpMyBitTorrent Development Team              ------*
-*-----------               http://phpmybittorrent.com               -----------*
-*------------------------------------------------------------------------------*
-*--------------------   Sunday, May 14, 2010 9:05 PM   ------------------------*
-*
-* @package phpMyBitTorrent
-* @version $Id: 3.0.0 whos_online.php  2010-11-04 00:22:48 joeroberts $
-* @copyright (c) 2010 phpMyBitTorrent Group
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License
-*
-*/
-if (!defined('IN_PMBT')) die ("You can't access this file directly");
+/**
+**********************
+** BTManager v3.0.1 **
+**********************
+** http://www.btmanager.org/
+** https://github.com/blackheart1/BTManager
+** http://demo.btmanager.org/index.php
+** Licence Info: GPL
+** Copyright (C) 2018
+** Formerly Known As phpMyBitTorrent
+** Created By Antonio Anzivino (aka DJ Echelon)
+** And Joe Robertson (aka joeroberts/Black_Heart)
+** Project Leaders: Black_Heart, Thor.
+** File whos_online.php 2018-02-18 14:32:00 joeroberts
+**
+** CHANGES
+**
+** EXAMPLE 26-04-13 - Added Auto Ban
+**/
+if (!defined('IN_PMBT'))
+{
+	include_once './../security.php';
+	die ();
+}
 global $db_prefix, $user, $auth, $db, $shout_config,$template,$siteurl,$language,$pmbt_cache;
 $user->set_lang('whos_online',$user->ulanguage);
 $sqlev = "SELECT group_id, group_name, group_colour, group_legend FROM ".$db_prefix."_level_settings";
@@ -52,7 +39,7 @@ $reslev = $db->sql_query($sqlev);
    ));
 }
 $db->sql_freeresult($reslev);
-$sql = "SELECT O.id AS id, O.page AS page, UNIX_TIMESTAMP(O.logged_in) AS logged_in, IF(U.name IS NULL, U.username, U.name) as name, U.lastpage as lastpage, U.donator AS donator, U.warned AS warned, U.can_do as can_do, U.level AS level, U.Show_online AS Show_online, U.uploaded as uploaded, U.downloaded AS downloaded FROM ".$db_prefix."_online_users O LEFT JOIN ".$db_prefix."_users U ON O.id = U.id WHERE UNIX_TIMESTAMP(NOW()-U.lastlogin) < 1800 ;";
+$sql = "SELECT O.id AS id, O.page AS page, UNIX_TIMESTAMP(O.logged_in) AS logged_in, IF(U.name IS NULL, U.username, U.name) as name, U.lastpage as lastpage, U.donator AS donator, U.warned AS warned, U.can_do as can_do, U.level AS level, U.Show_online AS Show_online, U.uploaded as uploaded, U.downloaded AS downloaded FROM ".$db_prefix."_online_users O LEFT JOIN ".$db_prefix."_users U ON O.id = U.id WHERE UNIX_TIMESTAMP( NOW( ) ) - UNIX_TIMESTAMP( U.lastlogin )  < 1800 ;";
 $res = $db->sql_query($sql);
 $tot = $db->sql_numrows($res);
 $i = 1;

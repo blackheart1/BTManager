@@ -126,12 +126,11 @@ if($op == 'change_type_torrent')
 		if( !isset( $torrent ) || !is_numeric($torrent) )
 			{
 				error("Invalid torrent!" );
-			}
 		ob_end_flush();
 $db->sql_close();
 die();
+			}
 
-		}
 		// check is mod or higher
 		if(!$user->moderator){
 		error("Invalid permissions!" );
@@ -156,12 +155,11 @@ if($op == 'save_type_torrent')
 		if( !isset( $torrent ) || !is_numeric($torrent) )
 			{
 				error("Invalid torrent!" );
-			}
 		ob_end_flush();
 $db->sql_close();
 die();
+			}
 
-		}
 		// check is mod or higher
 		if(!$user->moderator){
 		error("Invalid permissions!" );
@@ -220,7 +218,6 @@ if($op == 'save_torrent_comment')
 		die();
 		}
 
-		}
 		// get comment details
 		$sql = "SELECT `user` FROM `".$db_prefix."_comments` WHERE `id` = '".$comment."' LIMIT 1";
 		$res = $db->sql_query($sql);
@@ -264,4 +261,5 @@ if($op == 'delete_torrent_comment')
 		ob_end_flush();
 $db->sql_close();
 die();
+	}
 ?>
