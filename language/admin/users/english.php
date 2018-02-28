@@ -1,19 +1,63 @@
 <?php
-/**
-*
-* acp_users [English]
-*
-* @package language
-* @version $Id: users.php,v 1.6 2009/09/17 14:09:33 joerobe Exp $
-* @copyright (c) 2005 phpBB Group
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License
-*
-*/
 
 /**
-* DO NOT CHANGE
-*/
-if (!defined('IN_PMBT')) die ("You can't access this file directly");
+**********************
+** BTManager v3.0.1 **
+**********************
+** http://www.btmanager.org/
+** https://github.com/blackheart1/BTManager
+** http://demo.btmanager.org/index.php
+** Licence Info: GPL
+** Copyright (C) 2018
+** Formerly Known As phpMyBitTorrent
+** Created By Antonio Anzivino (aka DJ Echelon)
+** And Joe Robertson (aka joeroberts)
+** Project Leaders: Black_heart, Thor.
+** File users/english.php 2018-02-28 22:07:00 Thor
+**
+** CHANGES
+**
+** 2018-02-25 - Added New Masthead
+** 2018-02-25 - Added New !defined('IN_PMBT')
+** 2018-02-25 - Fixed Spelling
+**/
+
+if (!defined('IN_PMBT'))
+{
+    ?>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html>
+        <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+            <title>
+        <?php if (isset($_GET['error']))
+            {
+        echo htmlspecialchars($_GET['error']);
+            }
+            ?> Error</title>
+
+            <link rel='stylesheet' type='text/css' href='/errors/error-style.css' />
+        </head>
+
+        <body>
+            <div id='container'>
+        <div align='center' style='padding-top: 15px'>
+            <img src='/errors/error-images/alert.png' width='89' height='94' alt='' title='' />
+        </div>
+
+        <h1 class='title'>Error 404 - Page Not Found</h1>
+        <p class='sub-title' align='center'>The page that you are looking for does not appear to exist on this site.</p>
+        <p>If you typed the address of the page into the address bar of your browser, please check that you typed it in correctly.</p>
+        <p>If you arrived at this page after you used an old Bookmark or Favourite, the page in question has probably been moved. Try locating the page via the navigation menu and then update your bookmarks.</p>
+            </div>
+        </body>
+    </html>
+
+    <?php
+    exit();
+}
 
 if (empty($lang) || !is_array($lang))
 {
@@ -22,108 +66,111 @@ if (empty($lang) || !is_array($lang))
 
 // DEVELOPERS PLEASE NOTE
 //
-// All language files should use UTF-8 as their encoding and the files must not contain a BOM.
+// All language files must use UTF-8 as their encoding and the files must Not contain a BOM.
 //
 // Placeholders can now contain order information, e.g. instead of
 // 'Page %s of %s' you can (and should) write 'Page %1$s of %2$s', this allows
 // translators to re-order the output of data while ensuring it remains correct
 //
-// You do not need this where single placeholders are used, e.g. 'Message %d' is fine
-// equally where a string contains only two placeholders which are used to wrap text
-// in a url you again do not need to specify an order e.g., 'Click %sHERE%s' is fine
+// You Do Not need this where single placeholders are used, e.g. 'Message %d' is fine
+// equally where a String contains only two placeholders which are used to wrap text
+// in a URL you again Do Not need to specify an order e.g., 'Click %sHERE%s' is fine
 
 $lang = array_merge($lang, array(
-	'ADMIN_SIG_PREVIEW'		=> 'Signature preview',
-	'AT_LEAST_ONE_FOUNDER'	=> 'You are not able to change this founder to a normal user. There needs to be at least one founder enabled for this board. If you want to change this users founder status, promote another user to be a founder first.',
+    'ADMIN_SIG_PREVIEW'           => 'Signature Preview',
+    'AT_LEAST_ONE_FOUNDER'        => 'You are NOT able to Change this Founder to a Normal User. Their needs to be at least one Founder Enabled for this board. If you want to Change this Users Founder Status, Promote another User to be a Founder First.',
 
-	'BAN_ALREADY_ENTERED'	=> 'The ban had been previously entered successfully. The ban list has not been updated.',
-	'BAN_SUCCESSFUL'		=> 'Ban entered successfully.',
+    'BAN_ALREADY_ENTERED'         => 'The Ban had been Previously Entered Successfully. The Ban List has NOT Been Updated.',
+    'BAN_SUCCESSFUL'              => 'Ban Entered Successfully.',
 
-	'CANNOT_BAN_FOUNDER'			=> 'You are not allowed to ban founder accounts.',
-	'CANNOT_BAN_YOURSELF'			=> 'You are not allowed to ban yourself.',
-	'CANNOT_DEACTIVATE_BOT'			=> 'You are not allowed to deactivate bot accounts. Please deactivate the bot within the bots page instead.',
-	'CANNOT_DEACTIVATE_FOUNDER'		=> 'You are not allowed to deactivate founder accounts.',
-	'CANNOT_DEACTIVATE_YOURSELF'	=> 'You are not allowed to deactivate your own account.',
-	'CANNOT_FORCE_REACT_BOT'		=> 'You are not allowed to force reactivation on bot accounts. Please reactivate the bot within the bots page instead.',
-	'CANNOT_FORCE_REACT_FOUNDER'	=> 'You are not allowed to force reactivation on founder accounts.',
-	'CANNOT_FORCE_REACT_YOURSELF'	=> 'You are not allowed to force reactivation of your own account.',
-	'CANNOT_REMOVE_ANONYMOUS'		=> 'You are not able to remove the guest user account.',
-	'CANNOT_REMOVE_YOURSELF'		=> 'You are not allowed to remove your own user account.',
-	'CANNOT_SET_FOUNDER_IGNORED'	=> 'You are not able to promote ignored users to be founders.',
-	'CANNOT_SET_FOUNDER_INACTIVE'	=> 'You need to activate users before you promote them to founders, only activated users are able to be promoted.',
-	'CONFIRM_EMAIL_EXPLAIN'			=> 'You only need to specify this if you are changing the users e-mail address.',
+    'CANNOT_BAN_FOUNDER'          => 'You are NOT Allowed to Ban Founder Accounts.',
+    'CANNOT_BAN_YOURSELF'         => 'You are NOT Allowed to Ban Yourself.',
+    'CANNOT_DEACTIVATE_BOT'       => 'You are NOT Allowed to Deactivate BOT Accounts. Please Deactivate the BOT within the BOTS Page instead.',
 
-	'DELETE_POSTS'			=> 'Delete posts',
-	'DELETE_USER'			=> 'Delete user',
-	'DELETE_USER_EXPLAIN'	=> 'Please note that deleting a user is final, they cannot be recovered.',
+    'CANNOT_DEACTIVATE_FOUNDER'   => 'You are NOT Allowed to Deactivate Founder Accounts.',
+    'CANNOT_DEACTIVATE_YOURSELF'  => 'You are NOT Allowed to Deactivate your Own Account.',
+    'CANNOT_FORCE_REACT_BOT'      => 'You are NOT Allowed to Force Reactivation on BOT Accounts. Please Reactivate the BOT within the Bots Page instead.',
 
-	'FORCE_REACTIVATION_SUCCESS'	=> 'Successfully forced reactivation.',
-	'FOUNDER'						=> 'Founder',
-	'FOUNDER_EXPLAIN'				=> 'Founders have all administrative permissions and can never be banned, deleted or altered by non-founder members.',
+    'CANNOT_FORCE_REACT_FOUNDER'  => 'You are NOT Allowed to Force Reactivation on Founder Accounts.',
+    'CANNOT_FORCE_REACT_YOURSELF' => 'You are NOT Allowed to Force Reactivation of your Own Account.',
+    'CANNOT_REMOVE_ANONYMOUS'     => 'You are NOT Allowed to Remove a Guest User Account.',
+    'CANNOT_REMOVE_YOURSELF'      => 'You are NOT Allowed to Remove your Own User Account.',
+    'CANNOT_SET_FOUNDER_IGNORED'  => 'You are NOT Allowed to Promote Ignored Users to be Founders.',
+    'CANNOT_SET_FOUNDER_INACTIVE' => 'You need to Activate Users before you Promote them to Founders.  Only Activated Users are able to be Promoted.',
 
-	'GROUP_APPROVE'					=> 'Approve member',
-	'GROUP_DEFAULT'					=> 'Make group default for member',
-	'GROUP_DELETE'					=> 'Remove member from group',
-	'GROUP_DEMOTE'					=> 'Demote group leader',
-	'GROUP_PROMOTE'					=> 'Promote to group leader',
+    'CONFIRM_EMAIL_EXPLAIN'       => 'You Only need to Specify this if you are Changing the Users email Address.',
 
-	'IP_WHOIS_FOR'			=> 'IP whois for %s',
+    'DELETE_POSTS'                => 'Delete Posts',
+    'DELETE_USER'                 => 'Delete User',
+    'DELETE_USER_EXPLAIN'         => 'Please Note that Deleting a User is Final, they can NOT be Recovered.',
 
-	'LAST_ACTIVE'			=> 'Last active',
+    'FORCE_REACTIVATION_SUCCESS'  => 'Successfully Forced Reactivation.',
+    'FOUNDER'                     => 'Founder',
+    'FOUNDER_EXPLAIN'             => 'Founders have ALL Administrator Permissions and can Never be Banned, Deleted or Altered by Non Founder Members.',
 
-	'MOVE_POSTS_EXPLAIN'	=> 'Please select the forum to which you wish to move all the posts this user has made.',
+    'GROUP_APPROVE'               => 'Approve Member',
+    'GROUP_DEFAULT'               => 'Make Group Default for Member',
+    'GROUP_DELETE'                => 'Remove Member from Group',
+    'GROUP_DEMOTE'                => 'Demote from Group Leader',
+    'GROUP_PROMOTE'               => 'Promote to Group Leader',
 
-	'NO_SPECIAL_RANK'		=> 'No special rank assigned',
-	'NOT_MANAGE_FOUNDER'	=> 'You tried to manage a user with founder status. Only founders are allowed to manage other founders.',
+    'IP_WHOIS_FOR'                => 'IP Whois for %s',
 
-	'QUICK_TOOLS'			=> 'Quick tools',
+    'LAST_ACTIVE'                 => 'Last Active',
 
-	'REGISTERED'			=> 'Registered',
-	'REGISTERED_IP'			=> 'Registered from IP',
-	'RETAIN_POSTS'			=> 'Retain posts',
+    'MOVE_POSTS_EXPLAIN'          => 'Please Select the Forum to which you wish to Move ALL the Posts this User has made.',
 
-	'SELECT_FORM'			=> 'Select form',
-	'SELECT_USER'			=> 'Select user',
+    'NO_SPECIAL_RANK'             => 'No Special Rank Assigned',
+    'NOT_MANAGE_FOUNDER'          => 'You tried to Manage a User with Founder Status. Only Founders are Allowed to Manage Other Founders.',
 
-	'USER_ADMIN'					=> 'User administration',
-	'USER_ADMIN_ACTIVATE'			=> 'Activate account',
-	'USER_ADMIN_ACTIVATED'			=> 'User activated successfully.',
-	'USER_ADMIN_AVATAR_REMOVED'		=> 'Successfully removed avatar from user account.',
-	'USER_ADMIN_BAN_EMAIL'			=> 'Ban by e-mail',
-	'USER_ADMIN_BAN_EMAIL_REASON'	=> 'E-mail address banned via user management',
-	'USER_ADMIN_BAN_IP'				=> 'Ban by IP',
-	'USER_ADMIN_BAN_IP_REASON'		=> 'IP banned via user management',
-	'USER_ADMIN_BAN_NAME_REASON'	=> 'Username banned via user management',
-	'USER_ADMIN_BAN_USER'			=> 'Ban by username',
-	'USER_ADMIN_DEACTIVATE'			=> 'Deactivate account',
-	'USER_ADMIN_DEACTIVED'			=> 'User deactivated successfully.',
-	'USER_ADMIN_DEL_ATTACH'			=> 'Delete all attachments',
-	'USER_ADMIN_DEL_AVATAR'			=> 'Delete avatar',
-	'USER_ADMIN_DEL_POSTS'			=> 'Delete all posts',
-	'USER_ADMIN_DEL_SIG'			=> 'Delete signature',
-	'USER_ADMIN_EXPLAIN'			=> 'Here you can change your users information and certain specific options.',
-	'USER_ADMIN_FORCE'				=> 'Force reactivation',
-	'USER_ADMIN_MOVE_POSTS'			=> 'Move all posts',
-	'USER_ADMIN_SIG_REMOVED'		=> 'Successfully removed signature from user account.',
-	'USER_ATTACHMENTS_REMOVED'		=> 'Successfully removed all attachments made by this user.',
-	'USER_AVATAR_UPDATED'			=> 'Successfully updated user avatars details.',
-	'USER_CUSTOM_PROFILE_FIELDS'	=> 'Custom profile fields',
-	'USER_DELETED'					=> 'User deleted successfully.',
-	'USER_GROUP_ADD'				=> 'Add user to group',
-	'USER_GROUP_NORMAL'				=> 'User defined groups user is a member of',
-	'USER_GROUP_PENDING'			=> 'Groups user is in pending mode',
-	'USER_GROUP_SPECIAL'			=> 'Pre-defined groups user is a member of',
-	'USER_NO_ATTACHMENTS'			=> 'There are no attached files to display.',
-	'USER_OVERVIEW_UPDATED'			=> 'User details updated.',
-	'USER_POSTS_DELETED'			=> 'Successfully removed all posts made by this user.',
-	'USER_POSTS_MOVED'				=> 'Successfully moved users posts to target forum.',
-	'USER_PREFS_UPDATED'			=> 'User preferences updated.',
-	'USER_PROFILE'					=> 'User profile',
-	'USER_PROFILE_UPDATED'			=> 'User profile updated.',
-	'USER_RANK'						=> 'User rank',
-	'USER_RANK_UPDATED'				=> 'User rank updated.',
-	'USER_SIG_UPDATED'				=> 'User signature successfully updated.',
-	'USER_TOOLS'					=> 'Basic tools',
+    'QUICK_TOOLS'                 => 'Quick Tools',
+
+    'REGISTERED'                  => 'Registered',
+    'REGISTERED_IP'               => 'Registered from IP',
+    'RETAIN_POSTS'                => 'Retain Posts',
+
+    'SELECT_FORM'                 => 'Select Form',
+    'SELECT_USER'                 => 'Select User',
+
+    'USER_ADMIN'                  => 'User Administration',
+    'USER_ADMIN_ACTIVATE'         => 'Activate Account',
+    'USER_ADMIN_ACTIVATED'        => 'User Activated Successfully.',
+    'USER_ADMIN_AVATAR_REMOVED'   => 'Successfully Removed Avatar from User Account.',
+    'USER_ADMIN_BAN_EMAIL'        => 'Ban by email',
+    'USER_ADMIN_BAN_EMAIL_REASON' => 'email Address Banned via User Management',
+    'USER_ADMIN_BAN_IP'           => 'Ban by IP',
+    'USER_ADMIN_BAN_IP_REASON'    => 'IP Banned via User Management',
+    'USER_ADMIN_BAN_NAME_REASON'  => 'Username Banned via User Management',
+    'USER_ADMIN_BAN_USER'         => 'Ban by Username',
+    'USER_ADMIN_DEACTIVATE'       => 'Deactivate Account',
+    'USER_ADMIN_DEACTIVED'        => 'User Deactivated Successfully.',
+    'USER_ADMIN_DEL_ATTACH'       => 'Delete ALL Attachments',
+    'USER_ADMIN_DEL_AVATAR'       => 'Delete Avatar',
+    'USER_ADMIN_DEL_POSTS'        => 'Delete ALL Posts',
+    'USER_ADMIN_DEL_SIG'          => 'Delete Signature',
+    'USER_ADMIN_EXPLAIN'          => 'Here you can Change your Users Information and Certain Specific Options.',
+    'USER_ADMIN_FORCE'            => 'Force Reactivation',
+    'USER_ADMIN_MOVE_POSTS'       => 'Move ALL Posts',
+    'USER_ADMIN_SIG_REMOVED'      => 'Successfully Removed Signature from User Account.',
+    'USER_ATTACHMENTS_REMOVED'    => 'Successfully Removed ALL Attachments made by this User.',
+    'USER_AVATAR_UPDATED'         => 'Successfully Updated User Avatars Details.',
+    'USER_CUSTOM_PROFILE_FIELDS'  => 'Custom Profile Fields',
+    'USER_DELETED'                => 'User Deleted Successfully.',
+    'USER_GROUP_ADD'              => 'Add User to Group',
+    'USER_GROUP_NORMAL'           => 'User Defined Groups User is a Member of',
+    'USER_GROUP_PENDING'          => 'Groups User is in Pending Mode',
+    'USER_GROUP_SPECIAL'          => 'Pre Defined Groups User is a Member of',
+    'USER_NO_ATTACHMENTS'         => 'There are NO Attached Files to Display.',
+    'USER_OVERVIEW_UPDATED'       => 'User Details Updated.',
+    'USER_POSTS_DELETED'          => 'Successfully Removed ALL Posts made by this User.',
+    'USER_POSTS_MOVED'            => 'Successfully Moved Users Posts to Target Forum.',
+    'USER_PREFS_UPDATED'          => 'User Preferences Updated.',
+    'USER_PROFILE'                => 'User Profile',
+    'USER_PROFILE_UPDATED'        => 'User Profile Updated.',
+    'USER_RANK'                   => 'User Rank',
+    'USER_RANK_UPDATED'           => 'User Rank Updated.',
+    'USER_SIG_UPDATED'            => 'User Signature Successfully Updated.',
+    'USER_TOOLS'                  => 'Basic Tools',
 ));
 
 ?>

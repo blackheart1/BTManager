@@ -1,34 +1,61 @@
 <?php
-/*
-*-------------------------------phpMyBitTorrent--------------------------------*
-*--- The Ultimate BitTorrent Tracker and BMS (Bittorrent Management System) ---*
-*--------------   Created By Antonio Anzivino (aka DJ Echelon)   --------------*
-*-------------               http://www.p2pmania.it               -------------*
-*------------ Based on the Bit Torrent Protocol made by Bram Cohen ------------*
-*-------------              http://www.bittorrent.com             -------------*
-*------------------------------------------------------------------------------*
-*------------------------------------------------------------------------------*
-*--   This program is free software; you can redistribute it and/or modify   --*
-*--   it under the terms of the GNU General Public License as published by   --*
-*--   the Free Software Foundation; either version 2 of the License, or      --*
-*--   (at your option) any later version.                                    --*
-*--                                                                          --*
-*--   This program is distributed in the hope that it will be useful,        --*
-*--   but WITHOUT ANY WARRANTY; without even the implied warranty of         --*
-*--   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          --*
-*--   GNU General Public License for more details.                           --*
-*--                                                                          --*
-*--   You should have received a copy of the GNU General Public License      --*
-*--   along with this program; if not, write to the Free Software            --*
-*-- Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA --*
-*--                                                                          --*
-*------------------------------------------------------------------------------*
-*------              ©2005 phpMyBitTorrent Development Team              ------*
-*-----------               http://phpmybittorrent.com               -----------*
-*------------------------------------------------------------------------------*
-*/
 
-if (!defined('IN_PMBT')) die ("You can't access this file directly");
+/**
+**********************
+** BTManager v3.0.1 **
+**********************
+** http://www.btmanager.org/
+** https://github.com/blackheart1/BTManager
+** http://demo.btmanager.org/index.php
+** Licence Info: GPL
+** Copyright (C) 2018
+** Formerly Known As phpMyBitTorrent
+** Created By Antonio Anzivino (aka DJ Echelon)
+** And Joe Robertson (aka joeroberts)
+** Project Leaders: joeroberts, Thor.
+**
+** CHANGES
+**
+** 20-02-18 - Added New Masthead
+** 20-02-18 - Added New !defined('IN_PMBT')
+**/
+
+if (!defined('IN_PMBT'))
+{
+    ?>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html>
+        <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+            <title>
+                <?php if (isset($_GET['error']))
+            {
+                echo htmlspecialchars($_GET['error']);
+            }
+            ?> Error</title>
+
+            <link rel='stylesheet' type='text/css' href='/errors/error-style.css' />
+        </head>
+
+        <body>
+            <div id='container'>
+                <div align='center' style='padding-top: 15px'>
+                    <img src='/errors/error-images/alert.png' width='89' height='94' alt='' title='' />
+                </div>
+
+                <h1 class='title'>Error 404 - Page Not Found</h1>
+                <p class='sub-title' align='center'>The page that you are looking for does not appear to exist on this site.</p>
+                <p>If you typed the address of the page into the address bar of your browser, please check that you typed it in correctly.</p>
+                <p>If you arrived at this page after you used an old Boomark or Favorite, the page in question has probably been moved. Try locating the page via the navigation menu and then update your bookmarks.</p>
+            </div>
+        </body>
+    </html>
+
+    <?php
+    exit();
+}
 
 define("_admsavebtn","Salva");
 define("_admresetbtn","Azzera");
@@ -56,6 +83,7 @@ define("_admtotalspeed","Totale velocit&agrave; di trasferimento:");
 define("_admtotalseeders","Totale seeder:");
 define("_admtotalleechers","Totale leecher:");
 define("_admmostusedclient","Client pi&ugrave; utilizzato:");
+
 #DONATION
 define("_admppaypal_email","PayPal E-Mail");
 define("_admppaypal_emailexplain","E-Mail Address Used with Paypal");
@@ -82,7 +110,7 @@ define("_admpnodonateopt3","US");
 define("_admconfigttl","Configurazione di Bit Torrent");
 
 define("_admpupload_dead","Torrenti di Unscrapeable");
-define("_admpupload_deadexplain","Usi questo per tenere conto affinchè i torrenti seminati ONU uploaded all'inseguitore che possono essere rimossi al tempo più tardo.");
+define("_admpupload_deadexplain","Usi questo per tenere conto affinch?i torrenti seminati ONU uploaded all'inseguitore che possono essere rimossi al tempo pi? tardo.");
 
 define("_admpsitename","Nome del Sito");
 define("_admpsitenameexplain","Il nome di questa installazione di phpMyBitTorrent. Verr&agrave; visualizzato come titolo pagina.");
@@ -97,7 +125,7 @@ define("_admpcookiepath","Percorso dei Cookie");
 define("_admpcookiepathexplain","Percorso dei Cookie. Cambia questo parametro <b>solo</b> se phpMyBitTorrent &egrave; installato in una sottodirectory sul server.");
 
 define("_admpuse_gzip","Utilizza compressione GZIP");
-define("_admpuse_gzipexplain","Questa opzione permette di abilitare o meno la compressione GZIP di PHP sulle pagine e sull'output del tracker. Se attivata, verrà risparmiata banda ma l'uso della CPU del server sarà maggiore. Inoltre si è visto che non è sempre possibile utilizzare questa funzionalità a causa dell'incompatibilità di alcuni server. Verificare che il proprio client di Bit Torrent legga correttamente l'output del tracker.");
+define("_admpuse_gzipexplain","Questa opzione permette di abilitare o meno la compressione GZIP di PHP sulle pagine e sull'output del tracker. Se attivata, verr?risparmiata banda ma l'uso della CPU del server sar?maggiore. Inoltre si ?visto che non ?sempre possibile utilizzare questa funzionalit?a causa dell'incompatibilit?di alcuni server. Verificare che il proprio client di Bit Torrent legga correttamente l'output del tracker.");
 
 define("_admpadmin_email","E-Mail Amministratore");
 define("_admpadmin_emailexplain","Indirizzo email da cui risulteranno spedite tutte le comunicazioni agli utenti (registrazione, autorizzazioni, ecc.). Non &egrave; necessario che sia un indirizzo vero, tuttavia &egrave; bene che sia identificativo per questo sito.");
@@ -304,7 +332,7 @@ define("_admtrksummarystr","Trovati <b>**seed**</b> seeders, <b>**leechers**</b>
 define("_admbannewtracker","Escludi un tracker");
 define("_admbannewtrackerintro","Inserisci l'URL Announce di un tracker che intendi escludere. Tutti i Torrent associati ad esso verranno rifiutati.");
 
-#TORRENTCLINIC
+#TORRENT CLINIC
 define("_admclinicintro","TorrentClinic&trade; ti permette di verificare lo stato di salute dei tuoi Torrent.<br />
 Se hai problemi con un Torrent puoi provare a verificare che sia stato creato correttamente, oppure puoi semplicemente curiosare al suo interno.<br />
 Facendo l'upload di un Torrent dal disco rigido potrai verificare tutte le informazioni in esso contenute e persino controllare se ha fonti!");
@@ -312,7 +340,7 @@ define("_admclinicshowxml","Mostra Strutture XML Avanzate (utili per il debug)")
 define("_admclinicforcescrape","Forza lo scrape sui Torrent Esterni");
 define("_admclinicdiag","Diagnostica");
 define("_admclinicdecoding","Lettura del Torrent in corso...");
-define("_admclinicdecodeerror","Errore di Decodifica. Probabilmente il file non è un valido metainfo di BitTorrent.");
+define("_admclinicdecodeerror","Errore di Decodifica. Probabilmente il file non ?un valido metainfo di BitTorrent.");
 define("_admclinicxmlstruct","Struttura XML");
 define("_admclinickchkannounce","Controllo del tracker predefinito...");
 define("_admclinicchkannounceerror","Il tracker predefinito non &egrave; impostato. Torrent non valido.");
@@ -360,7 +388,7 @@ define("_admircinvalidchannel","Nome canale non valido");
 define("_admircinvalidadvanced","Sintassi non valida per i parametri avanzati");
 define("_admirccantsave","Impossibile salvare il file <i>include/irc.ini</i> perch&egrave; &egrave; protetto da scrittura. Salvalo manualmente con il contenuto di seguito riportato:");
 
-#WEB UPDATE
+#UPDATE
 define("_admupdintro","phpMyBitTorrent tenter&agrave; ora di verificare se &egrave; disponibile una versione aggiornata del software. &Egrave; necessario che il server sia in grado di effettuare connessioni HTTP.");
 define("_admupderror","Errore: impossibile connettersi.");
 define("_admupdcurver","La versione attuale di phpMyBitTorrent &egrave; la");
@@ -396,4 +424,5 @@ define("_admmassscrapelater","Rimanda il controllo delle fonti. Questa opzione s
 define("_admmassanonupload","Upload anonimo. Se non selezionata, sembrer&agrave; che tu abbia caricato manualmente il Torrent.");
 define("_admmassuploaded","Torrent caricato con successo");
 define("_admmasscantdeleteuploaded","Impossibile eliminare i Torrent gi&agrave; elaborati (con successo o meno). Per favore sbarazzatene manualmente o controlla i permessi della direcory.");
+
 ?>

@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File acp_cache.php 2018-02-21 07:27:00 Thor
+** File acp_cache/english.php 2018-02-27 11:55:00 Thor
 **
 ** CHANGES
 **
@@ -75,13 +75,13 @@ $lang = array_merge($lang, array(
 	'_admptheme_time'				=>	'Theme Cache Time',
 	'_admptheme_timeexplain'		=>	'Maximum Time to Hold Cache Files for your Themes',
 	'_admpcache_dir'				=>	'Cache Directory',
-	'_admpcache_direxplain'			=>	'This Directory will need to be Writeable by the System.<br>Do NOT add the trailing slash `/`',
+	'_admpcache_direxplain'			=>	'This Directory will need to be Writeable by the System.<br>DO NOT add the trailing slash `/`',
 
-	'ERR_SQL_TIME'					=>	'There seems to be an issue with the Time you set for the SQl Cache.  Please check the Form and try again. (%1$s)',
+	'ERR_SQL_TIME'					=>	'There seems to be an Issue with the Time you Set for the SQL Cache.  Please check the Form and try again. (%1$s)',
 
-	'ERR_THEME_TIME'				=>	'There seems to be an issue with the Time you set for the Theme Cache.  Please check the Form and try again. (%1$s)',
+	'ERR_THEME_TIME'				=>	'There seems to be an Issue with the Time you Set for the Theme Cache.  Please check the Form and try again. (%1$s)',
 
-	'ERR_CACHE_DIR_NOTSET'			=>	'There seems to be an issue locating the Cache Directory you chose (%1$s).  Please check the form and try again.',
+	'ERR_CACHE_DIR_NOTSET'			=>	'There seems to be an Issue Locating the Cache Directory you chose (%1$s).  Please check the Form and try again.',
 
 	'ERR_CACHE_DIR_NOT_WRITEABLE'	=>	'The Directory is NOT Writeable (%1$s)',
 	'ERR_ARRAY_MESS'				=>	'<li>%s</li>',

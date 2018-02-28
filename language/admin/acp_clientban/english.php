@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File acp_clientban.php 2018-02-21 08:29:00 Thor
+** File acp_clientban/english.php 2018-02-27 12:06:00 Thor
 **
 ** CHANGES
 **
@@ -66,23 +66,23 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, array(
 	'INTRO'					=>	'Client Ban',
-	'INTRO_EXP'				=>	'This is where you can Ban Torrent Clients!<br />You can either Ban the whole Client or one version of the Client <br />To Add a Client you will need the <b>pier_id</b> info from the Client.<br />Example &micro;Torrent 1.8.1 you would Add UT1810.<br />The reason for the Ban will be shown in the Client so you will want to keep this short.',
+	'INTRO_EXP'				=>	'This is where you can Ban Torrent Clients!<br />You can either Ban the whole Client or one version of the Client <br />To Add a Client you will need the <b>pier_id</b> Information from the Client.<br />Example &micro;Torrent 1.8.1 you would Add UT1810.<br />The reason for the Ban will be shown in the Client so you will want to keep this short.',
 
 	'REASON'				=>	'Reason',
 	'CLIENT'				=>	'Client',
 	'NO_CLIENT_BANS'		=>	'No Banned Client\'s At This Time',
 	'BANNED_CLIENTS'		=>	'Current Banned Client\'s',
-	'BANNED_CLIENTS_EXP'	=>	'Here is a list of the currently Banned Client\'s and the Reason why.',
+	'BANNED_CLIENTS_EXP'	=>	'Here is a list of the Currently Banned Client\'s and the Reason Why.',
 	'BANNED_CLIENT'			=>	'Add/Edit Banned Client\'s',
-	'BANNED_CLIENT_EXP'		=>	'Here you can Add/Edit Banned Client\'s and the Reason why.',
+	'BANNED_CLIENT_EXP'		=>	'Here you can Add/Edit Banned Client\'s and the Reason Why.',
 	'CANCEL_MOD'			=>	'Cancel Modifications',
-	'NO_REASON'				=>	'No reason given for the Ban',
+	'NO_REASON'				=>	'No Reason given for the Ban',
 	'SUCES_BAN'				=>	'Client Successfully Banned',
-	'SUCES_BAN_EXP'			=>	'The Client “%1$s” was Successfully Banned for “%2$s”',
+	'SUCES_BAN_EXP'			=>	'The Client "%1$s" was Successfully Banned for "%2$s"',
 	'SUCES_DEL'				=>	'Client Successfully Removed',
 	'SUCES_DEL_EXP'			=>	'The Client was Successfully Removed from Banned ',
 	'SUCES_EDT'				=>	'Client Successfully Edited',
-	'SUCES_EDT_EXP'			=>	'The Client “%1$s” was Successfully Updated for “%2$s”',
+	'SUCES_EDT_EXP'			=>	'The Client "%1$s" was Successfully Updated for "%2$s"',
 	'CONFIRM_OPERATION'		=>	'Are you sure you wish to Remove this Client from the Ban list?',
  ));
 

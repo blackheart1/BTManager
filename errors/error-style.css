@@ -1,0 +1,57 @@
+html, body, div, h1, p
+{
+    margin  : 0;
+    padding : 0;
+}
+
+/* PNG fix */
+img, div, a
+{
+    behavior : url(error-images/iepngfix.htc)
+}
+
+body
+{
+    background : #3B454F url(error-images/bg.jpg) no-repeat center;
+}
+
+#container
+{
+    background : url(error-images/center.png) no-repeat center;
+    width      : 622px;
+    height     : 485px;
+    margin     : 0 auto;
+    margin-top : 40px;
+}
+
+/* Error Title */
+#container h1.title
+{
+    padding        : 0 10px 20px 10px;
+    text-align     : center;
+    font-family    : Verdana, sans-serif;
+    font-size      : 22px;
+    font-weight    : bold;
+    letter-spacing : -1px;
+    color          : #A52A2A;
+}
+
+#container p.sub-title
+{
+    font-weight : bold;
+    color       : #800020;
+    padding     : 0 19px 15px;
+}
+
+/* Error Message */
+#container p
+{
+    padding        : 5px 35px;
+    font-family    : Verdana, sans-serif;
+    font-size      : 12px;
+    font-style     : normal;
+    font-weight    : normal;
+    letter-spacing : normal;
+    line-height    : 1.2em;
+    color          : #480607;
+}

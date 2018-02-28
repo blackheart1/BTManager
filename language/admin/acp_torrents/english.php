@@ -1,30 +1,72 @@
 <?php
-/**
-*
-* client_bans [English]
-*
-* @package language
-* @version $Id$
-* @copyright (c) 2005 phpMyBitTorrent Group
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License
-*
-*/
 
 /**
-* DO NOT CHANGE
-*/
-if (!defined('IN_PMBT')) die ("You can't access this file directly");
+**********************
+** BTManager v3.0.1 **
+**********************
+** http://www.btmanager.org/
+** https://github.com/blackheart1/BTManager
+** http://demo.btmanager.org/index.php
+** Licence Info: GPL
+** Copyright (C) 2018
+** Formerly Known As phpMyBitTorrent
+** Created By Antonio Anzivino (aka DJ Echelon)
+** And Joe Robertson (aka joeroberts)
+** Project Leaders: Black_heart, Thor.
+** File acp_torrents/english.php 2018-02-28 11:17:00 Thor
+**
+** CHANGES
+**
+** 2018-02-23 - Added New Masthead
+** 2018-02-23 - Added New !defined('IN_PMBT')
+** 2018-02-23 - Fixed Spelling
+**/
+
+if (!defined('IN_PMBT'))
+{
+    ?>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html>
+        <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+            <title>
+        <?php if (isset($_GET['error']))
+            {
+        echo htmlspecialchars($_GET['error']);
+            }
+            ?> Error</title>
+
+            <link rel='stylesheet' type='text/css' href='/errors/error-style.css' />
+        </head>
+
+        <body>
+            <div id='container'>
+        <div align='center' style='padding-top: 15px'>
+            <img src='/errors/error-images/alert.png' width='89' height='94' alt='' title='' />
+        </div>
+
+        <h1 class='title'>Error 404 - Page Not Found</h1>
+        <p class='sub-title' align='center'>The page that you are looking for does not appear to exist on this site.</p>
+        <p>If you typed the address of the page into the address bar of your browser, please check that you typed it in correctly.</p>
+        <p>If you arrived at this page after you used an old Bookmark or Favourite, the page in question has probably been moved. Try locating the page via the navigation menu and then update your bookmarks.</p>
+            </div>
+        </body>
+    </html>
+
+    <?php
+    exit();
+}
+
 if (empty($lang) || !is_array($lang))
 {
 	$lang = array();
 }
+
 $lang = array_merge($lang, array(
-	'INTRO'					=>	'Client Ban',
-	'INTRO_EXP'				=>	'This is Where you can ban Torrent Client!<br />You can ban eather the hole client or one version of the Client <br />To add  client you well need the pier_id info from the Client You well use such as With<br /> &micro;Torrent 1.8.1 You would add UT1810.<br />The reason for the Ban well be shown in the client So you well want to keep this short.',
-	'NO_ENTRIES'			=> 'No Torrent entries for this period.',
-	'TOR_NAME'				=>	'Torrent Name',
-	'TRACKER'				=> 'Tracker',
-	'LEECHERS'				=> 'Leechers',
+    'INTRO'      =>	'Torrent Monitoring System',
+    'INTRO_EXP'  =>	'This is where you can Monitor ALL Torrents that are Uploaded to the Site.  You can also Edit/Delete Torrents from here',
  ));
 
 ?>

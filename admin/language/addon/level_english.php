@@ -1,40 +1,99 @@
 <?php
+
+/**
+**********************
+** BTManager v3.0.1 **
+**********************
+** http://www.btmanager.org/
+** https://github.com/blackheart1/BTManager
+** http://demo.btmanager.org/index.php
+** Licence Info: GPL
+** Copyright (C) 2018
+** Formerly Known As phpMyBitTorrent
+** Created By Antonio Anzivino (aka DJ Echelon)
+** And Joe Robertson (aka joeroberts)
+** Project Leaders: joeroberts, Thor.
+**
+** CHANGES
+**
+** 20-02-18 - Added New Masthead
+** 20-02-18 - Added New !defined('IN_PMBT')
+**/
+
+if (!defined('IN_PMBT'))
+{
+    ?>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html>
+        <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+            <title>
+                <?php if (isset($_GET['error']))
+            {
+                echo htmlspecialchars($_GET['error']);
+            }
+            ?> Error</title>
+
+            <link rel='stylesheet' type='text/css' href='/errors/error-style.css' />
+        </head>
+
+        <body>
+            <div id='container'>
+                <div align='center' style='padding-top: 15px'>
+                    <img src='/errors/error-images/alert.png' width='89' height='94' alt='' title='' />
+                </div>
+
+                <h1 class='title'>Error 404 - Page Not Found</h1>
+                <p class='sub-title' align='center'>The page that you are looking for does not appear to exist on this site.</p>
+                <p>If you typed the address of the page into the address bar of your browser, please check that you typed it in correctly.</p>
+                <p>If you arrived at this page after you used an old Boomark or Favorite, the page in question has probably been moved. Try locating the page via the navigation menu and then update your bookmarks.</p>
+            </div>
+        </body>
+    </html>
+
+    <?php
+    exit();
+}
+
 if (empty($lang) || !is_array($lang))
 {
 	$lang = array();
 }
+
 $lang = array_merge($lang, array(
-	'ACP_GROUPS_MANAGE_EXPLAIN'		=> 'From this panel you can administrate all your usergroups. You can delete, create and edit existing groups. Furthermore, you may choose group leaders, toggle open/hidden/closed group status and set the group name and description.',
-	'GROUP_EDIT_EXPLAIN'			=> 'Here you can edit an existing group. You can change its name, description and type (open, closed, etc.). You can also set certain group wide options such as colouration, rank, etc. Changes made here override users’ current settings. Please note that group members can override group-avatar settings, unless you set appropriate user permissions.',
-	'COPY_PERMISSIONS'				=> 'Copy permissions from',
-	'COPY_PERMISSIONS_EXPLAIN'		=> 'Once created, the group will have the same permissions as the one you select here.',
-	'CREATE_GROUP'					=> 'Create new group',
-	'PRIMARY_GROUP'					=> 'Primary group',
-	'REMOVE_SELECTED'				=> 'Remove selected',
-	'USER_GROUP_CHANGE'				=> 'From “%1$s” group to “%2$s”',
-	'GROUP_AVATAR'					=> 'Group avatar',
-	'GROUP_COLOR'					=> 'Group colour',
-	'GROUP_COLOR_EXPLAIN'			=> 'Defines the colour members’ usernames will appear in, leave blank for user default.',
-	'GROUP_CREATED'					=> 'Group has been created successfully.',
-	'GROUP_DEFAULT'					=> 'Make group default for member',
-	'GROUP_DEFS_UPDATED'			=> 'Default group set for all selected members.',
-	'GROUP_DELETED'					=> 'Group deleted and user default groups set successfully.',
-	'GROUP_DESC'					=> 'Group description',
-	'GROUP_LEGEND'					=> 'Display group in legend',
-	'GROUP_LIST'					=> 'Current members',
-	'GROUP_LIST_EXPLAIN'			=> 'This is a complete list of all the current users with membership of this group. You can delete members (except in certain special groups) or add new ones as you see fit.',
-	'GROUP_MEMBERS'					=> 'Group members',
-	'GROUP_NAME'					=> 'Group name',
-	'GROUP_NAME_TAKEN'				=> 'The group name you entered is already in use, please select an alternative.',
-	'GROUP_MAX_RECIPIENTS'			=> 'Maximum number of allowed recipients per private message',
-	'GROUP_MAX_RECIPIENTS_EXPLAIN'	=> 'The maximum number of allowed recipients in a private message. If 0 is entered, the board-wide setting is used.',
-	'GROUP_RECEIVE_PM'				=> 'Group able to receive private messages',
-	'GROUP_UPDATED'					=> 'Group preferences updated successfully.',
-	'NO_GROUPS_CREATED'			=> 'No groups created yet.',
-	'NO_PERMISSIONS'			=> 'Do not copy permissions',
-	'TOTAL_MEMBERS'				=> 'Members',
-	'USER_DEF_GROUPS_EXPLAIN'		=> 'These are groups created by you or another admin on this board. You can manage memberships as well as edit group properties or even delete the group.',
-	'USER_GROUP_DEFAULT_EXPLAIN'	=> 'Saying yes here will set this group as the default group for the added users.',
+    'ACP_GROUPS_MANAGE_EXPLAIN'    => 'From this panel you can Administrate all your Usergroups. You can Delete, Create and Edit Existing Groups. Furthermore, you may choose Group Leaders, Toggle Open/Hidden/Closed Group Status and set the Group Name and Description.',
+    'GROUP_EDIT_EXPLAIN'           => 'Here you can Edit an existing Group. You can change its Name, Description and Type (Open, Closed, etc.). You can also set certain Group Wide Options such as Colouration, Rank, etc. Changes made here override the Users Current Settings. Please note that Group Members can override Group Avatar Settings, unless you set appropriate User Permissions.',
+    'COPY_PERMISSIONS'             => 'Copy Permissions From',
+    'COPY_PERMISSIONS_EXPLAIN'     => 'Once created, the Group will have the same Permissions as the one you select here.',
+    'CREATE_GROUP'                 => 'Create New Group',
+    'PRIMARY_GROUP'                => 'Primary Group',
+    'REMOVE_SELECTED'              => 'Remove Selected',
+    'USER_GROUP_CHANGE'            => 'From ?%1$s? Group to ?%2$s?',
+    'GROUP_AVATAR'                 => 'Group Avatar',
+    'GROUP_COLOR'                  => 'Group Colour',
+    'GROUP_COLOR_EXPLAIN'          => 'Defines the colour a members Usernames will appear in, leave Blank for User Default.',
+    'GROUP_CREATED'                => 'Group has been Created Successfully.',
+    'GROUP_DEFAULT'                => 'Make Group Default for Member',
+    'GROUP_DEFS_UPDATED'           => 'Default Group Set for All Selected Members.',
+    'GROUP_DELETED'                => 'Group Deleted and User Default Groups Set Successfully.',
+    'GROUP_DESC'                   => 'Group Description',
+    'GROUP_LEGEND'                 => 'Display Group in Legend',
+    'GROUP_LIST'                   => 'Current Members',
+    'GROUP_LIST_EXPLAIN'           => 'This is a complete list of all the current Users with Membership of this Group. You can Delete Members (except in certain Special Groups) or Add new ones as you see fit.',
+    'GROUP_MEMBERS'                => 'Group Members',
+    'GROUP_NAME'                   => 'Group Name',
+    'GROUP_NAME_TAKEN'             => 'The Group name you entered is already in use, please select an alternative.',
+    'GROUP_MAX_RECIPIENTS'         => 'Maximum number of Allowed Recipients per Private Message',
+    'GROUP_MAX_RECIPIENTS_EXPLAIN' => 'The Maximum number of allowed Recipients in a Private Message. If 0 is entered, the Board-wide Setting is Used.',
+    'GROUP_RECEIVE_PM'             => 'Group able to receive Private Messages',
+    'GROUP_UPDATED'                => 'Group Preferences Updated Successfully.',
+    'NO_GROUPS_CREATED'            => 'No Groups Created yet.',
+    'NO_PERMISSIONS'               => 'Do Not Copy Permissions',
+    'TOTAL_MEMBERS'                => 'Members',
+    'USER_DEF_GROUPS_EXPLAIN'      => 'These are Groups created by you or another Admin on this board. You can Manage Memberships as well as Edit Group Properties or even Delete the Group.',
+    'USER_GROUP_DEFAULT_EXPLAIN'   => 'Saying yes here will set this Group as the Default Group for the Added Users.'
 ));
 
 ?>

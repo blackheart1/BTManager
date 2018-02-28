@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File acp_forum_configs.php 2018-02-18 11:03:00 Thor
+** File acp_forum_configs/english.php 2018-02-28 06:16:00 Thor
 **
 ** CHANGES
 **
@@ -87,28 +87,28 @@ $lang = array_merge($lang, array(
     '_admpload_moderators'             => 'Enable Display of Moderators',
     '_admpload_moderatorsexplain'      => 'Display the Forum Moderators on Pages',
     '_admpboard_hide_emails'           => 'Hide e-mail Addresses',
-    '_admpboard_hide_emailsexplain'    => 'This Function keeps e-mail Addresses Completely Private.',
+    '_admpboard_hide_emailsexplain'    => 'This Function keeps email Addresses Completely Private.',
     '_admpenable_queue_trigger'        => 'Enable Queued Posts',
     '_admpenable_queue_triggerexplain' => 'Ability to put Registered Users Posts to Post Approval if their Post Count is Lower than the Specified Value below. This Setting has NO effect on the Permission Setting for Post/Topic Approval.',
 
     '_admpqueue_trigger_posts'         => 'Maximum Post Count for Queued Posts',
-    '_admpqueue_trigger_postsexplain'  => 'If Queued Posts is Enabled, this is the Post Count that the User needs to reach in order to Post without Post Approval. If the Users Post Count is Below this number, the Post is stored in the Queue Automatically.',
+    '_admpqueue_trigger_postsexplain'  => 'If Queued Posts is Enabled, this is the Post Count that the User needs to reach in order to Post without Post Approval. If the Users Post Count is below this number, the Post is stored in the Queue Automatically.',
 
     '_admpallow_birthdays'             => 'Allow Birthdays',
-    '_admpallow_birthdaysexplain'      => 'Allow Birthdays to be entered the Users age to be displayed in Profiles. Please Note the Birthday List within the Board Index is Controlled by a Separate Load Setting.',
+    '_admpallow_birthdaysexplain'      => 'Allow Birthdays to be entered.  The Users age will be displayed in Profiles. Please Note the Birthday List within the Board Index is Controlled by a Separate Load Setting.',
 
     '_admpenable_urls'                 => 'Allow Links in Posts/Private Messages',
     '_admpenable_urlsexplain'          => 'If Disallowed the <code>[URL]</code> BBCode Tag and Automatic/Magic URLs are Disabled.',
     '_admpallow_post_flash'            => 'Allow use of <code>[FLASH]</code> BBCode Tag in Posts',
 
-    '_admpallow_post_flashexplain'     => 'If Disallowed the <code>[FLASH]</code> BBCode tag is Disabled in Posts. Otherwise the Permission System controls which Users can use the <code>[FLASH]</code> BBCode Tag.',
+    '_admpallow_post_flashexplain'     => 'If Disallowed the <code>[FLASH]</code> BBCode tag is Disabled in Posts. Otherwise the Permission System Controls which Users can use the <code>[FLASH]</code> BBCode Tag.',
 
-    '_admpemail_enable'                => 'Enable Forum wide e-mails',
-    '_admpemail_enableexplain'         => 'If this is Set to Disabled then No e-mails will be sent by the Forum at all.',
+    '_admpemail_enable'                => 'Enable Forum wide emails',
+    '_admpemail_enableexplain'         => 'If this is Set to Disabled then NO emails will be sent by the Forum.',
     '_admpdisplay_last_edited'         => 'Display Last Edited Time Information',
-    '_admpdisplay_last_editedexplain'  => 'Choose if the Last Edited by Information is to be displayed on Posts.',
+    '_admpdisplay_last_editedexplain'  => 'Choose if the Last Edited by Information is to be Displayed on Posts.',
     '_admpedit_time'                   => 'Limit Editing Time',
-    '_admpedit_timeexplain'            => 'Limits the time available to Edit a New Post. Setting the value to 0 Disables this feature.',
+    '_admpedit_timeexplain'            => 'Limits the Time Available to Edit a New Post. Setting the Value to 0 Disables this Option.',
 
     '_admphot_threshold'               => 'Popular Topic Threshold',
     '_admphot_thresholdexplain'        => 'Posts Per Topic Threshold Required for the Popular Topic Annotation. Set to 0 to Disable Popular Topics.',
@@ -122,7 +122,7 @@ $lang = array_merge($lang, array(
     '_admpimg_link_width'              => 'Maximum Image Width Per Post',
     '_admpimg_link_widthexplain'       => 'Maximum Width of an Image/Flash File in Posts. Set to 0 for Unlimited Size.',
     '_admpmax_post_urls'               => 'Maximum Links Allowed Per Post',
-    '_admpmax_post_urlsexplain'        => 'Maximum Number of URLs Allowed in a Post. Set to 0 for Unlimited Links.',
+    '_admpmax_post_urlsexplain'        => 'Maximum Number of URL\'s Allowed in a Post. Set to 0 for Unlimited Links.',
     '_admpmax_quote_depth'             => 'Maximum Nested Quotes Per Post',
     '_admpmax_quote_depthexplain'      => 'Maximum Number of Nested Quotes Allowed in a Post. Set to 0 for Unlimited Depth.',
     '_admpmax_post_smilies'            => 'Maximum Smilies Per Post',
@@ -130,9 +130,9 @@ $lang = array_merge($lang, array(
     '_admpforum_open'                  => 'Enable Forum',
     '_admpforum_openexplain'           => 'This will make the Forum Visible to Users.',
     '_admpboard_disable_msg'           => 'Disable Forum Message',
-    '_admpboard_disable_msgexplain'    => 'You can enter a Short (255 character) Message to Display if you wish?',
+    '_admpboard_disable_msgexplain'    => 'You can enter a Short (255 Character) Message to Display if you wish?',
     '_admpcensor_words'                => 'Censor Words',
-    '_admpcensor_wordsexplain'         => 'Enable Word Censor will Replace Selected Words and Change them to Replacement Words.',
+    '_admpcensor_wordsexplain'         => 'Enabling Word Censor will Replace Selected Words and Change them to Replacement Words.',
     '_admppostsper_page'               => 'Posts Listed Per Page',
     '_admppostsper_pageexplain'        => 'Maximum Number of Posts Displayed Per Page',
     '_admptopics_per_page'             => 'Topics Listed Per Page',
@@ -165,7 +165,7 @@ $lang = array_merge($lang, array(
     '_admpcan_use_attachments'         => 'Allow Attachments',
     '_admpcan_use_attachmentsexplain'  => 'Allow Attachments to be Posted in Posts.',
     '_admpflood_intervals'             => 'Flood Interval',
-    '_admpflood_intervalsexplain'      => 'Number of Seconds a User must wait between Posting New Messages. To Enable Users to Ignore this alter their Permissions.',
+    '_admpflood_intervalsexplain'      => 'Number of Seconds a User must wait between making/replying to Posts. To Enable Users to Ignore this alter their Permissions.',
 
     '_admpbump_intervals'              => 'Bump Interval',
     '_admpbump_intervalsexplain'       => 'Number of Minutes, Hours or Days between the Last Post to a Topic and the ability to Bump this Topic.',
