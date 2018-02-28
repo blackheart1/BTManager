@@ -1,44 +1,28 @@
 <?
-/*
-*-------------------------------phpMyBitTorrent--------------------------------*
-*--- The Ultimate BitTorrent Tracker and BMS (Bittorrent Management System) ---*
-*--------------   Created By Antonio Anzivino (aka DJ Echelon)   --------------*
-*-------------               http://www.p2pmania.it               -------------*
-*------------ Based on the Bit Torrent Protocol made by Bram Cohen ------------*
-*-------------              http://www.bittorrent.com             -------------*
-*------------------------------------------------------------------------------*
-*------------------------------------------------------------------------------*
-*--   This program is free software; you can redistribute it and/or modify   --*
-*--   it under the terms of the GNU General Public License as published by   --*
-*--   the Free Software Foundation; either version 2 of the License, or      --*
-*--   (at your option) any later version.                                    --*
-*--                                                                          --*
-*--   This program is distributed in the hope that it will be useful,        --*
-*--   but WITHOUT ANY WARRANTY; without even the implied warranty of         --*
-*--   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          --*
-*--   GNU General Public License for more details.                           --*
-*--                                                                          --*
-*--   You should have received a copy of the GNU General Public License      --*
-*--   along with this program; if not, write to the Free Software            --*
-*-- Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA --*
-*--                                                                          --*
-*------------------------------------------------------------------------------*
-*------              ©2005 phpMyBitTorrent Development Team              ------*
-*-----------               http://phpmybittorrent.com               -----------*
-*------------------------------------------------------------------------------*
-*/
-
-/*
- * A PHP implementation of the Secure Hash Algorithm, SHA-1, as defined
- * in FIPS PUB 180-1
- * Adjusted from the Javascript implementation by Joror (daan@parse.nl).
- *
- * Javascript Version 2.1 Copyright Paul Johnston 2000 - 2002.
- * Other contributors: Greg Holt, Andrew Kepert, Ydnar, Lostinet
- * Distributed under the BSD License
- * See http://pajhome.org.uk/crypt/md5 for details.
- */
-if (eregi("sha1lib.php",$_SERVER["PHP_SELF"])) die ("You can't access this file directly");
+/**
+**********************
+** BTManager v3.0.1 **
+**********************
+** http://www.btmanager.org/
+** https://github.com/blackheart1/BTManager
+** http://demo.btmanager.org/index.php
+** Licence Info: GPL
+** Copyright (C) 2018
+** Formerly Known As phpMyBitTorrent
+** Created By Antonio Anzivino (aka DJ Echelon)
+** And Joe Robertson (aka joeroberts/Black_Heart)
+** Project Leaders: Black_Heart, Thor.
+** File sha1lib.php 2018-02-18 14:32:00 joeroberts
+**
+** CHANGES
+**
+** EXAMPLE 26-04-13 - Added Auto Ban
+**/
+if (!defined('IN_PMBT'))
+{
+	include_once './../security.php';
+	die ();
+}
 class Sha1Lib
 {
         /*

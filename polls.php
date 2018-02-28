@@ -69,9 +69,9 @@ $returnto					= strip_tags(request_var('returnto', ''));
 		confirm_box(false, $user->lang['CONFIRM_OPERATION'], $hidden,'confirm_body.html','polls.php');
 	}
   }
-  $rows = $db->sql_query("SELECT COUNT(*) FROM ".$db_prefix."_polls") or sqlerr();
+  $rows = $db->sql_query("SELECT COUNT(*) as count FROM ".$db_prefix."_polls") or sqlerr();
   $row = $db->sql_fetchrow($rows);
-  $pollcount = $row[0];
+  $pollcount = $row['count'];
   if ($pollcount == 0)
   	bterror("There are no polls!","Error");
   $polls = $db->sql_query("SELECT * FROM ".$db_prefix."_polls ORDER BY id DESC") or sqlerr();
