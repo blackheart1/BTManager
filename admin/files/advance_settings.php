@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File advance_settings.php 2018-02-26 11:52:00 Thor
+** File advance_settings.php 2018-03-01 11:52:00 Thor
 **
 ** CHANGES
 **
@@ -90,13 +90,13 @@ if (!defined('IN_PMBT'))
 				'U_ACTION'					=> "./admin.php",
 				'S_FORM_TOKEN'			=> $hidden,
 				));
-	drawRow("sitename","text", false ,'General settings');
+	drawRow("sitename","text", false ,'General Settings');
 	drawRow("allow_privmsg","selecty_n",NULL,false,'allow_privmsg');
 	drawRow("pm_max_boxes","text");
 	drawRow('pm_max_msgs','text');
 	drawRow('full_folder_action','select',$user->lang["PMFULLOPTION"]);
 	drawRow('pm_edit_time','text',NULL,false,'Minutes');
-	drawRow("sitename","text", false ,'General options');
+	drawRow("sitename","text", false ,'General Options');
 	drawRow("allow_mass_pm","selecty_n",NULL,false,'allow_mass_pm');
 	drawRow("auth_bbcode_pm","selecty_n",NULL,false,'auth_bbcode_pm');
 	drawRow("auth_smilies_pm","selecty_n",NULL,false,'auth_smilies_pm');
