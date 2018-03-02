@@ -313,12 +313,22 @@ switch ($action)
 			$hide['id']	=	$id;
 			$hide['secret']	=	$psecret;
 			if ($gfx_check) {
-					$rnd_code = strtoupper(RandomAlpha(5));
-					$template->assign_vars(array(
-							'GFX_CODE'			=> base64_encode($rnd_code),
-							'S_CAPTCHA'			=> true,
-					));
-					$hide['gfxcheck'] = md5($rnd_code);
+					if($recap_puplic_key)
+					{
+							   $template->assign_vars(array(
+										'META'						=> "<script src='https://www.google.com/recaptcha/api.js'></script>",
+										'RECAPTCHA'					=>	$recap_puplic_key,
+										'S_CAPTCHA'			=> true,
+                                ));
+							$gfximage = true;
+					}else{
+						$rnd_code = strtoupper(RandomAlpha(5));
+						$template->assign_vars(array(
+								'GFX_CODE'			=> base64_encode($rnd_code),
+								'S_CAPTCHA'			=> true,
+						));
+						$hide['gfxcheck'] = md5($rnd_code);
+					}
 			}
 
 			if ($disclaimer_check) {
@@ -358,6 +368,16 @@ switch ($action)
 			$password												= request_var('password', '',true);
 			$cpassword												= request_var('cpassword', '');
 			$md5 = $secret;
+			$recaptcha_response_field									= request_var('g-recaptcha-response', '');
+			$recaptcha_challenge_field									= request_var('recaptcha_challenge_field', '');
+			$recap_pass = true;
+			if ($gfx_check AND $recap_puplic_key)
+			{
+				$ip = $_SERVER['REMOTE_ADDR'];
+				$response=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$recap_private_key."&response=".$recaptcha_response_field."&remoteip=".$ip);
+				$responseKeys = json_decode($response,true);	     
+				$recap_pass = intval($responseKeys["success"]) !== 1 ? false : true;
+			}
 							$errmsg = Array();
 			if (!isset($id) OR $id == "")$errmsg[] =$user->lang[" USERNAME_NOT_SET"];
 			if (count($errmsg) == 0) {
@@ -373,7 +393,11 @@ switch ($action)
 			if ($row["active"] != "0")$errmsg[] = $user->lang["USER_IS_ACTIVE"];
         if ($disclaimer_check AND $disclaimer != "yes")
                 $errmsg[] = $user->lang["DISCL_NOT_ACCP"];
-        if ($gfx_check == "true" AND $gfxcheck != md5(strtoupper($gfxcode)))
+				if ($gfx_check AND $recap_puplic_key AND !$recap_pass)
+					{
+                        $errmsg[] = $user->lang['SEC_CODE_ERROR'];
+					}
+			        elseif ($gfx_check AND $gfxcheck != md5(strtoupper($gfxcode)))
                 $errmsg[] = $user->lang["SEC_CODE_ERROR"];
                   $sec = md5($row["password"]);
 			 if ($md5 != $sec)$errmsg[] = $user->lang["PASS_DONT_MATCH"];

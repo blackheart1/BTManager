@@ -26,14 +26,24 @@ $op = request_var('op', '');
 $user->set_lang('ucp',$user->ulanguage);
 $id = request_var('id', 0);
 $returnto												= strip_tags(request_var('returnto', ''));
+$hidden = array();
 switch ($op) {
         case "loginform": {
 				$template = new Template();
 				$gfximage = '';
                 if ($gfx_check) {
+					if($recap_puplic_key)
+					{
+							   $template->assign_vars(array(
+										'META'						=> "<script src='https://www.google.com/recaptcha/api.js'></script>",
+										'RECAPTCHA'					=>	$recap_puplic_key,
+                                ));
+                        //$gfximage = recaptcha_get_html($recap_puplic_key, null, $recap_https);
+					}else{
                         $rnd_code = strtoupper(RandomAlpha(5));
 						$hidden ['gfxcheck'] = md5($rnd_code);
                         $gfximage = "<img src=\"gfxgen.php?code=".base64_encode($rnd_code)."\">";
+					}
                 }
 				$hidden['op'] = 'login';
 							   $template->assign_vars(array(

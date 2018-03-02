@@ -43,7 +43,6 @@ if ($i !== false)
 	$returnto = substr($returnto, $i + 8);
 }
 if($returnto == '')$returnto = 'index.php';
-//die(print_r($hidden));
 		$op									= request_var('op', '');
 switch($op)
 {
@@ -54,16 +53,15 @@ switch($op)
 			$gfxcode									= request_var('gfxcode', '');
 			$returnto									= request_var('returnto', '');
 			$remember									= request_var('remember', '');
-			$recaptcha_response_field									= request_var('recaptcha_response_field', '');
+			$recaptcha_response_field									= request_var('g-recaptcha-response', '');
 			$recaptcha_challenge_field									= request_var('recaptcha_challenge_field', '');
 			$recap_pass = true;
 			if ($gfx_check AND $recap_puplic_key)
 			{
-				$resp = recaptcha_check_answer ($recap_private_key,
-					$_SERVER["REMOTE_ADDR"],
-					$recaptcha_challenge_field,
-					$recaptcha_response_field);
-					$recap_pass = $resp->is_valid;
+				$ip = $_SERVER['REMOTE_ADDR'];
+				$response=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$recap_private_key."&response=".$recaptcha_response_field."&remoteip=".$ip);
+				$responseKeys = json_decode($response,true);	     
+				$recap_pass = intval($responseKeys["success"]) !== 1 ? false : true;
 			}
                if ($username == "" OR $password == "") {
                                 $template->assign_vars(array(
@@ -178,12 +176,15 @@ switch($op)
                 }
 		}
 }
-			//$hidden = array();
 			$gfximage = '';
                 if ($gfx_check) {
 					if($recap_puplic_key)
 					{
-                        $gfximage = recaptcha_get_html($recap_puplic_key, null, $recap_https);
+							   $template->assign_vars(array(
+										'META'						=> "<script src='https://www.google.com/recaptcha/api.js'></script>",
+										'RECAPTCHA'					=>	$recap_puplic_key,
+                                ));
+                        $gfximage = true;
 					}else{
                         $rnd_code = strtoupper(RandomAlpha(5));
 						$hidden ['gfxcheck'] = md5($rnd_code);
@@ -196,7 +197,6 @@ switch($op)
 										'S_GFX_CHECK'				=>	($gfx_check)? $gfximage : false,
 										'HIDDEN'					=>	build_hidden_fields($hidden),
 										'U_ACTION'					=>	'login.php',
-										'RECAPTCHA'					=>	$recap_puplic_key,
                                 ));
 
 echo $template->fetch('login.html');
