@@ -16,7 +16,8 @@
 **
 ** CHANGES
 **
-** EXAMPLE 26-04-13 - Added Auto Ban
+** 2018-02-28 Added new Header
+** 2018-02-25 Added New Security check
 **/
 if (!defined('IN_PMBT'))
 {

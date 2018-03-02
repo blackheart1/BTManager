@@ -12,11 +12,11 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts/Black_Heart)
 ** Project Leaders: Black_Heart, Thor.
-** File user.php 2018-02-23 14:32:00 Black_Heart
+** File user.php 2018-02-28 14:32:00 Black_Heart
 **
 ** CHANGES
 **
-** EXAMPLE 26-04-13 - Added Auto Ban
+** 2018-02-28 Fix links
 **/
 if (!defined('IN_PMBT'))
 {
@@ -58,19 +58,29 @@ include_once 'include/user.functions.php';
 							'S_SELECTED'	=> ('setting_user_local' ==$vas && !$action)? true:false,
 							'IMG' => '',
 							'L_TITLE' => $user->lang['ACP_USERS_FORUM_PERMISSIONS'],
-							'U_TITLE' => "admin.php?i=" . $i . "&amp;op=user",
+							'U_TITLE' => "admin.php?i=" . $i . "&amp;op=user&amp;vas=setting_user_local&amp;mode=setting_user_local",
 							));
 							$template->assign_block_vars('l_block1.l_block2.l_block3',array(
 							'S_SELECTED'	=> ('setting_user_global' ==$vas && !$action)? true:false,
 							'IMG' => '',
 							'L_TITLE' => $user->lang['ACP_USERS_PERMISSIONS'],
-							'U_TITLE' => "admin.php?i=" . $i . "&amp;op=user",
+							'U_TITLE' => "admin.php?i=" . $i . "&amp;op=user&amp;vas=setting_user_global&amp;mode=setting_user_global",
 							));
 		switch ($vas)
 		{
 			case 'setting_user_local':
 			case 'setting_user_global':
+			require_once("include/auth.php");
+			require_once("include/class.bbcode.php");
+			require_once("include/functions_forum.php");
 			require_once("admin/files/acp_permissions.php");
+			$auth = new auth();
+			$auth->acl($user);
+			$admin_role = new acp_permissions();
+			$admin_role->u_action = '/admin.php?op=' . $op.'&amp;i=userinfo' . (($mode)? '&amp;mode=' . $mode : '') . '&amp;vas=' . $vas;
+			$admin_role->main('',$mode);
+			$temp = $admin_role->tpl_name;
+			//die($admin_role->tpl_name . 'lol');
 			break;
 			case 'overview':
 			case 'profile':

@@ -79,30 +79,32 @@
 		</tbody>
 	</table>
 <!-- ELSEIF ACTION == read -->
-    <fieldset>
+<table class="tablebg" width="100%" cellspacing="{$CA_SPACING}">
 		<legend>{L_READ_USER_PMS}</legend>
-         <dl>
-			<dt style="text-align:left"><label for="{settingrow.ID}">{L_SENT}:</label></dt>
-			<dd>{DATE_SENT}</dd>
+	<tr>
+		<td class="row1" style="width:25%"><b class="genmed">{L_SENT}:</b></td>
+		<td class="row2">{DATE_SENT}</td>
+	</tr>
+	<tr>
+		<td class="row1"><b class="genmed">{L_TO}:</b><br />{L_LINK_TO_USER}</td>
+		<td class="row2">{MESSAGE_RESIP_FULL}</dd>
 		</dl>
-       <dl>
-			<dt style="text-align:left"><label for="{settingrow.ID}">{L_TO}:</label><br />{L_LINK_TO_USER}</dt>
-			<dd>{MESSAGE_RESIP_FULL}</dd>
-		</dl>
-       <dl>
-			<dt style="text-align:left"><label for="{settingrow.ID}">{L_FROM}:</label><br />{L_LINK_TO_USER}</dt>
-			<dd>{MESSAGE_AUTHOR_FULL}</dd>
-		</dl>
-       <dl>
-			<dt style="text-align:left"><label for="{settingrow.ID}">{L_SUBJECT}:</label></dt>
-			<dd>{SUBJECT}</dd>
-		</dl>
-       <dl>
-			<dt style="text-align:left"><label for="{settingrow.ID}">{L_MESSAGE}:</label></dt>
-			<dd>{TEXT}</dd>
-		</dl>
-		<p><input class="button" value="{L_GO_BACK}" title="" tabindex="1" onclick="window.location='javascript:history.back(1)';" type="button"></p>
-	</fieldset>
+	<tr>
+		<td class="row1"><b class="genmed">{L_FROM}:</b><br />{L_LINK_TO_USER}</td>
+		<td class="row2">{MESSAGE_AUTHOR_FULL}</td>
+	</tr>
+    <tr>
+		<td class="row1"><b class="genmed">{L_SUBJECT}:</b></td>
+		<td class="row2">{SUBJECT}</td>
+	</tr>
+	<tr>
+		<td class="row1"><b class="genmed">{L_MESSAGE}:</b></td>
+		<td class="row2">{TEXT}</td>
+	</tr>
+	<tr>
+		<td colspan="2"><input class="button" value="{L_GO_BACK}" title="" tabindex="1" onclick="window.location='javascript:history.back(1)';" type="button"></p></td>
+	</tr>
+ </table>
 <!-- ELSEIF ACTION == search -->
 	<table align="center" border="1" width="95%" cellpadding="5" cellspacing="0">
 		<legend>Search Results for {SEARCH_MATCH}: {SEARCH_WORD}</legend>
