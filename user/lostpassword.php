@@ -44,7 +44,10 @@ if (!$subd) {
         if ($gfx_check) {
 					if($recap_puplic_key)
 					{
-                        $gfximage = recaptcha_get_html($recap_puplic_key, null, $recap_https);
+ 							   $template->assign_vars(array(
+										'META'						=> "<script src='https://www.google.com/recaptcha/api.js'></script>",
+                                ));
+                       $gfximage = true;
 					}else{
 						$hidden ['gfxcheck'] = md5($rnd_code);
                         $gfximage = "<img src=\"gfxgen.php?code=".base64_encode($rnd_code)."\">";
@@ -67,16 +70,15 @@ else
 		$npasswd				= request_var('npasswd', '');
 		$cpasswd				= request_var('cpasswd', '');
 		$gfxcode				= request_var('gfxcode', '');
-		$recaptcha_response_field									= request_var('recaptcha_response_field', '');
+		$recaptcha_response_field									= request_var('g-recaptcha-response', '');
 		$recaptcha_challenge_field									= request_var('recaptcha_challenge_field', '');
 		$recap_pass = true;
 			if ($gfx_check AND $recap_puplic_key)
 			{
-				$resp = recaptcha_check_answer ($recap_private_key,
-					$_SERVER["REMOTE_ADDR"],
-					$recaptcha_challenge_field,
-					$recaptcha_response_field);
-					$recap_pass = $resp->is_valid;
+				$ip = $_SERVER['REMOTE_ADDR'];
+				$response=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$recap_private_key."&response=".$recaptcha_response_field."&remoteip=".$ip);
+				$responseKeys = json_decode($response,true);	     
+				$recap_pass = intval($responseKeys["success"]) !== 1 ? false : true;
 			}
       $errmsg = Array();
         if (!isset($username) OR $username == "")

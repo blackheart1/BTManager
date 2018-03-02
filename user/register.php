@@ -58,6 +58,10 @@ $hide = array('op' => 'takeregister');
 if ($gfx_check) {
 					if($recap_puplic_key)
 					{
+							   $template->assign_vars(array(
+										'META'						=> "<script src='https://www.google.com/recaptcha/api.js'></script>",
+										'RECAPTCHA'					=>	$recap_puplic_key,
+                                ));
                         $gfximage = recaptcha_get_html($recap_puplic_key, null, $recap_https);
 					}else{
                         $rnd_code = strtoupper(RandomAlpha(5));
@@ -67,7 +71,6 @@ if ($gfx_check) {
 		$template->assign_vars(array(
 				'GFX_CODE'			=> $gfximage,
 				'S_CAPTCHA'			=> true,
-				'RECAPTCHA'					=>	$recap_puplic_key,
 		));
 }
 if ($disclaimer_check) {
