@@ -363,7 +363,7 @@ CREATE TABLE IF NOT EXISTS `#prefix#_bans` (
   `ban_exclude` int(1) NOT NULL DEFAULT '0',
   `reason` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
   `ban_give_reason` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `ip_unique` (`ipstart`,`ipend`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
@@ -474,7 +474,7 @@ CREATE TABLE IF NOT EXISTS `#prefix#_client_ban` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `client` varchar(60) COLLATE utf8_bin NOT NULL,
   `reason` varchar(255) COLLATE utf8_bin NOT NULL,
-  `date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `client` (`client`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
@@ -489,14 +489,14 @@ CREATE TABLE IF NOT EXISTS `#prefix#_comments` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user` int(10) unsigned NOT NULL DEFAULT '0',
   `torrent` int(10) unsigned NOT NULL DEFAULT '0',
-  `added` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `added` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `text` text COLLATE utf8_bin NOT NULL,
   `ori_text` text COLLATE utf8_bin,
   `news` int(10) NOT NULL DEFAULT '0',
   `nzb` int(10) NOT NULL DEFAULT '0',
   `offer` int(11) NOT NULL DEFAULT '0',
   `reqid` int(11) NOT NULL DEFAULT '0',
-  `editedat` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `editedat` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `editedby` int(10) unsigned NOT NULL DEFAULT '0',
   `bbcode_bitfield` varchar(225) COLLATE utf8_bin NOT NULL DEFAULT '',
   `bbcode_uid` varchar(8) COLLATE utf8_bin NOT NULL DEFAULT '',
@@ -531,7 +531,7 @@ CREATE TABLE IF NOT EXISTS `#prefix#_complaints` (
   `torrent` int(15) unsigned NOT NULL DEFAULT '0',
   `user` int(11) unsigned NOT NULL DEFAULT '0',
   `host` varchar(60) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `datetime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `datetime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `score` smallint(1) unsigned zerofill NOT NULL DEFAULT '0',
   PRIMARY KEY (`torrent`,`user`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
@@ -552,7 +552,7 @@ CREATE TABLE IF NOT EXISTS `#prefix#_config` (
   `admin_email` varchar(60) COLLATE utf8_bin NOT NULL,
   `on_line` enum('true','false') COLLATE utf8_bin NOT NULL DEFAULT 'true',
   `off_line_mess` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `start_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `start_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `time_zone` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT 'America/Los_Angeles',
   `language` varchar(15) COLLATE utf8_bin NOT NULL DEFAULT '',
   `theme` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
@@ -652,7 +652,7 @@ CREATE TABLE IF NOT EXISTS `#prefix#_countries` (
 CREATE TABLE IF NOT EXISTS `#prefix#_download_completed` (
   `user` int(11) unsigned NOT NULL DEFAULT '0',
   `torrent` int(15) unsigned NOT NULL DEFAULT '0',
-  `completed` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `completed` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`user`,`torrent`),
   KEY `torrent` (`torrent`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
@@ -1247,8 +1247,8 @@ CREATE TABLE IF NOT EXISTS `#prefix#_modules` (
 CREATE TABLE IF NOT EXISTS `#prefix#_online_users` (
   `id` int(60) unsigned NOT NULL DEFAULT '0',
   `page` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `logged_in` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `last_action` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `logged_in` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `last_action` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -1289,8 +1289,8 @@ CREATE TABLE IF NOT EXISTS `#prefix#_peers` (
   `upload_speed` int(11) unsigned NOT NULL DEFAULT '0',
   `to_go` bigint(20) unsigned NOT NULL DEFAULT '0',
   `seeder` enum('yes','no') COLLATE utf8_bin NOT NULL DEFAULT 'no',
-  `started` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `last_action` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `started` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `last_action` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `connectable` enum('yes','no') COLLATE utf8_bin NOT NULL DEFAULT 'yes',
   `client` varchar(60) COLLATE utf8_bin DEFAULT NULL,
   `version` varchar(10) COLLATE utf8_bin NOT NULL DEFAULT '',
@@ -1329,7 +1329,7 @@ CREATE TABLE IF NOT EXISTS `#prefix#_pollanswers` (
 
 CREATE TABLE IF NOT EXISTS `#prefix#_polls` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `added` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `added` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `question` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
   `option0` varchar(40) COLLATE utf8_bin NOT NULL DEFAULT '',
   `option1` varchar(40) COLLATE utf8_bin NOT NULL DEFAULT '',
@@ -1474,7 +1474,7 @@ CREATE TABLE IF NOT EXISTS `#prefix#_private_messages` (
   `subject` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
   `text` longtext COLLATE utf8_bin NOT NULL,
   `is_read` enum('true','false') COLLATE utf8_bin NOT NULL DEFAULT 'false',
-  `sent` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `sent` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `sender_del` enum('true','false') COLLATE utf8_bin NOT NULL DEFAULT 'false',
   `recipient_del` enum('true','false') COLLATE utf8_bin NOT NULL DEFAULT 'false',
   `save` enum('true','false') COLLATE utf8_bin NOT NULL DEFAULT 'false',
@@ -1605,7 +1605,7 @@ CREATE TABLE IF NOT EXISTS `#prefix#_ratings` (
   `torrent` int(10) unsigned NOT NULL DEFAULT '0',
   `user` int(10) unsigned NOT NULL DEFAULT '0',
   `rating` tinyint(3) unsigned NOT NULL DEFAULT '0',
-  `added` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `added` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`torrent`,`user`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -1620,8 +1620,8 @@ CREATE TABLE IF NOT EXISTS `#prefix#_ratiowarn` (
   `userid` int(11) NOT NULL DEFAULT '0',
   `warned` enum('yes','no') COLLATE utf8_bin NOT NULL DEFAULT 'no',
   `banned` enum('yes','no') COLLATE utf8_bin NOT NULL DEFAULT 'no',
-  `ratiodate` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `warntime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `ratiodate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `warntime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -1825,7 +1825,7 @@ CREATE TABLE IF NOT EXISTS `#prefix#_shouts` (
   `text` longtext COLLATE utf8_bin NOT NULL,
   `bbcode_bitfield` varchar(255) COLLATE utf8_bin NOT NULL,
   `bbcode_uid` varchar(8) COLLATE utf8_bin NOT NULL,
-  `posted` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `posted` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `id_to` int(10) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `posted` (`posted`)
@@ -1922,16 +1922,16 @@ CREATE TABLE IF NOT EXISTS `#prefix#_snatched` (
   `speedup` bigint(20) unsigned NOT NULL DEFAULT '0',
   `speeddown` bigint(20) unsigned NOT NULL DEFAULT '0',
   `seeder` enum('yes','no') COLLATE utf8_bin NOT NULL DEFAULT 'no',
-  `last_action` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `startdat` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `completedat` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `last_action` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `startdat` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `completedat` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `connectable` enum('yes','no') COLLATE utf8_bin NOT NULL DEFAULT 'yes',
   `agent` varchar(60) COLLATE utf8_bin DEFAULT NULL,
   `finished` enum('yes','no') COLLATE utf8_bin NOT NULL DEFAULT 'no',
   `seeding_time` int(10) DEFAULT '0',
   `warned` enum('yes','no') COLLATE utf8_bin DEFAULT 'no',
   `hnr_warning` enum('yes','no') COLLATE utf8_bin DEFAULT 'no',
-  `hitrun` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `hitrun` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `hitrunwarn` enum('yes','pending','no') COLLATE utf8_bin NOT NULL DEFAULT 'no',
   PRIMARY KEY (`id`),
   UNIQUE KEY `torrentid_3` (`torrentid`,`userid`),
@@ -1951,7 +1951,7 @@ CREATE TABLE IF NOT EXISTS `#prefix#_thanks` (
   `tid` bigint(10) NOT NULL AUTO_INCREMENT,
   `uid` bigint(10) NOT NULL DEFAULT '0',
   `torid` bigint(10) NOT NULL DEFAULT '0',
-  `thank_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `thank_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`tid`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -2087,7 +2087,7 @@ CREATE TABLE IF NOT EXISTS `#prefix#_torrents` (
   `category` int(10) unsigned NOT NULL DEFAULT '0',
   `type` enum('single','multi','link') CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT 'single',
   `numfiles` int(10) unsigned NOT NULL DEFAULT '0',
-  `added` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `added` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `exeem` varchar(250) COLLATE utf8_bin DEFAULT NULL,
   `dht` enum('yes','no') CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT 'no',
   `backup_tracker` enum('true','false') CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT 'false',
@@ -2113,8 +2113,8 @@ CREATE TABLE IF NOT EXISTS `#prefix#_torrents` (
   `complaints` char(3) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '0,0',
   `tracker` varchar(250) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `tracker_list` text CHARACTER SET utf8 COLLATE utf8_unicode_ci,
-  `tracker_update` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `last_action` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `tracker_update` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `last_action` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `nuked` enum('yes','no','unnuked') CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT 'no',
   `ratiobuild` enum('yes','no') CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT 'no',
   `nukereason` varchar(225) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -2152,7 +2152,7 @@ CREATE TABLE IF NOT EXISTS `#prefix#_trackers` (
   `url` varchar(120) COLLATE utf8_bin NOT NULL DEFAULT '',
   `support` enum('selective','global','single') COLLATE utf8_bin NOT NULL DEFAULT 'selective',
   `status` enum('active','dead','blacklisted') COLLATE utf8_bin NOT NULL DEFAULT 'active',
-  `updated` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `url` (`url`),
   KEY `update` (`updated`)
@@ -2182,7 +2182,7 @@ CREATE TABLE IF NOT EXISTS `#prefix#_users` (
   `clean_username` varchar(25) COLLATE utf8_bin NOT NULL DEFAULT '',
   `name` varchar(50) COLLATE utf8_bin DEFAULT NULL,
   `email` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `regdate` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `regdate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `password` varchar(40) COLLATE utf8_bin NOT NULL DEFAULT '',
   `theme` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `language` varchar(15) COLLATE utf8_bin DEFAULT NULL,
@@ -2219,7 +2219,7 @@ CREATE TABLE IF NOT EXISTS `#prefix#_users` (
   `banreason` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `lastip` int(10) unsigned NOT NULL DEFAULT '0',
   `lasthost` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `lastlogin` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `lastlogin` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `rem` enum('yes','no') COLLATE utf8_bin NOT NULL DEFAULT 'no',
   `modcomment` longtext COLLATE utf8_bin,
   `warned` int(1) unsigned NOT NULL DEFAULT '0',
@@ -2233,16 +2233,16 @@ CREATE TABLE IF NOT EXISTS `#prefix#_users` (
   `can_shout` enum('true','false') COLLATE utf8_bin NOT NULL DEFAULT 'true',
   `Show_online` enum('true','false') COLLATE utf8_bin NOT NULL DEFAULT 'true',
   `invites` smallint(5) NOT NULL DEFAULT '0',
-  `invitedate` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `invitedate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `seedbonus` decimal(10,1) NOT NULL DEFAULT '0.0',
   `donator` enum('true','false') COLLATE utf8_bin NOT NULL DEFAULT 'false',
   `donated` decimal(10,1) unsigned NOT NULL DEFAULT '0.0',
-  `dondate` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `dondate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `torrent_per_page` int(10) DEFAULT NULL,
-  `donator_tell` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `donator_tell` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `dongift` int(1) unsigned NOT NULL DEFAULT '0',
   `inactwarning` tinyint(1) NOT NULL DEFAULT '0',
-  `inactive_warn_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `inactive_warn_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `hitruns` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `HNR_W` int(11) NOT NULL DEFAULT '0',
   `helper` enum('true','false') COLLATE utf8_bin NOT NULL DEFAULT 'false',
