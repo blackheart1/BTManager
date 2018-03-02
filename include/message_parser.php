@@ -111,7 +111,7 @@ class bbcode_firstpass extends bbcode
 	*/
 	function bbcode_init()
 	{
-		global $db_prefix;
+		global $db_prefix, $db;
 		static $rowset;
 
 		// This array holds all bbcode data. BBCodes will be processed in this
@@ -143,7 +143,7 @@ class bbcode_firstpass extends bbcode
 
 		if (!is_array($rowset))
 		{
-			global $db;
+			global $db, $db_prefix;
 			$rowset = array();
 
 			$sql = 'SELECT *
@@ -1206,6 +1206,7 @@ class parse_message extends bbcode_firstpass
 	*/
 	function format_display($allow_bbcode, $allow_magic_url, $allow_smilies, $update_this_message = true)
 	{
+		global $db_prefix, $db;
 		// If false, then the parsed message get returned but internal message not processed.
 		if (!$update_this_message)
 		{
@@ -1637,7 +1638,7 @@ class parse_message extends bbcode_firstpass
 	*/
 	function parse_poll(&$poll)
 	{
-		global $auth, $user, $config;
+		global $auth, $user, $config, $db_prefix, $db;
 
 		$poll_max_options = $poll['poll_max_options'];
 

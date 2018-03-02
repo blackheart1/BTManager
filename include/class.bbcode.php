@@ -12,7 +12,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts/Black_Heart)
 ** Project Leaders: Black_Heart, Thor.
-** File class.bbcoder.php 2018-02-18 14:32:00 joeroberts
+** File class.bbcoder.php 2018-02-26 14:32:00 joeroberts
 **
 ** CHANGES
 **
@@ -408,32 +408,50 @@ class acp_bbcodes
 	{
 		$bbcode_match = trim($bbcode_match);
 		$bbcode_tpl = trim($bbcode_tpl);
+		$utf8 = strpos($bbcode_match, 'INTTEXT') !== false;
+
+		// make sure we have utf8 support
+		$utf8_pcre_properties = false;
+		if (version_compare(PHP_VERSION, '5.1.0', '>=') || (version_compare(PHP_VERSION, '5.0.0-dev', '<=') && version_compare(PHP_VERSION, '4.4.0', '>=')))
+		{
+			// While this is the proper range of PHP versions, PHP may not be linked with the bundled PCRE lib and instead with an older version
+			if (@preg_match('/\p{L}/u', 'a') !== false)
+			{
+				$utf8_pcre_properties = true;
+			}
+		}
 
 		$fp_match = preg_quote($bbcode_match, '!');
-		$fp_replace = preg_replace('#^\[(.*?)\]#', '[$1]', $bbcode_match);
-		$fp_replace = preg_replace('#\[/(.*?)\]$#', '[/$1]', $fp_replace);
+		$fp_replace = preg_replace('#^\[(.*?)\]#', '[$1:$uid]', $bbcode_match);
+		$fp_replace = preg_replace('#\[/(.*?)\]$#', '[/$1:$uid]', $fp_replace);
 
 		$sp_match = preg_quote($bbcode_match, '!');
-		$sp_match = preg_replace('#^\\\\\[(.*?)\\\\\]#', '\[$1\]', $sp_match);
-		$sp_match = preg_replace('#\\\\\[/(.*?)\\\\\]$#', '\[/$1\]', $sp_match);
+		$sp_match = preg_replace('#^\\\\\[(.*?)\\\\\]#', '\[$1:$uid\]', $sp_match);
+		$sp_match = preg_replace('#\\\\\[/(.*?)\\\\\]$#', '\[/$1:$uid\]', $sp_match);
 		$sp_replace = $bbcode_tpl;
 
 		// @todo Make sure to change this too if something changed in message parsing
 		$tokens = array(
 			'URL'	 => array(
-				'!(?:(' . str_replace(array('!', '\#'), array('\!', '#'), get_preg_expression('url')) . ')|(' . str_replace(array('!', '\#'), array('\!', '#'), get_preg_expression('www_url')) . '))!i'	=>	"\$this->bbcode_specialchars(('\$1') ? '\$1' : 'http://\$2')"
+				'!(?:(' . str_replace(array('!', '\#'), array('\!', '#'), get_preg_expression('url')) . ')|(' . str_replace(array('!', '\#'), array('\!', '#'), get_preg_expression('www_url')) . '))!ie'	=>	"\$this->bbcode_specialchars(('\$1') ? '\$1' : 'http://\$2')"
 			),
 			'LOCAL_URL'	 => array(
-				'!(' . str_replace(array('!', '\#'), array('\!', '#'), get_preg_expression('relative_url')) . ')!s'	=>	"\$this->bbcode_specialchars('$1')"
+				'!(' . str_replace(array('!', '\#'), array('\!', '#'), get_preg_expression('relative_url')) . ')!e'	=>	"\$this->bbcode_specialchars('$1')"
+			),
+			'RELATIVE_URL'	=> array(
+				'!(' . str_replace(array('!', '\#'), array('\!', '#'), get_preg_expression('relative_url')) . ')!e'	=>	"\$this->bbcode_specialchars('$1')"
 			),
 			'EMAIL' => array(
-				'!(' . get_preg_expression('email') . ')!i'	=>	"\$this->bbcode_specialchars('$1')"
+				'!(' . get_preg_expression('email') . ')!ie'	=>	"\$this->bbcode_specialchars('$1')"
 			),
 			'TEXT' => array(
-				'!(.*?)!s'	 =>	"str_replace(array(\"\\r\\n\", '\\\"', '\\'', '(', ')'), array(\"\\n\", '\"', '&#39;', '&#40;', '&#41;'), trim('\$1'))"
+				'!(.*?)!es'	 =>	"str_replace(array(\"\\r\\n\", '\\\"', '\\'', '(', ')'), array(\"\\n\", '\"', '&#39;', '&#40;', '&#41;'), trim('\$1'))"
 			),
 			'SIMPLETEXT' => array(
 				'!([a-zA-Z0-9-+.,_ ]+)!'	 =>	"$1"
+			),
+			'INTTEXT' => array(
+				($utf8_pcre_properties) ? '!([\p{L}\p{N}\-+,_. ]+)!u' : '!([a-zA-Z0-9\-+,_. ]+)!u'	 =>	"$1"
 			),
 			'IDENTIFIER' => array(
 				'!([a-zA-Z0-9-_]+)!'	 =>	"$1"
@@ -449,9 +467,11 @@ class acp_bbcodes
 		$sp_tokens = array(
 			'URL'	 => '(?i)((?:' . str_replace(array('!', '\#'), array('\!', '#'), get_preg_expression('url')) . ')|(?:' . str_replace(array('!', '\#'), array('\!', '#'), get_preg_expression('www_url')) . '))(?-i)',
 			'LOCAL_URL'	 => '(?i)(' . str_replace(array('!', '\#'), array('\!', '#'), get_preg_expression('relative_url')) . ')(?-i)',
+			'RELATIVE_URL'	 => '(?i)(' . str_replace(array('!', '\#'), array('\!', '#'), get_preg_expression('relative_url')) . ')(?-i)',
 			'EMAIL' => '(' . get_preg_expression('email') . ')',
 			'TEXT' => '(.*?)',
 			'SIMPLETEXT' => '([a-zA-Z0-9-+.,_ ]+)',
+			'INTTEXT' => ($utf8_pcre_properties) ? '([\p{L}\p{N}\-+,_. ]+)' : '([a-zA-Z0-9\-+,_. ]+)',
 			'IDENTIFIER' => '([a-zA-Z0-9-_]+)',
 			'COLOR' => '([a-zA-Z]+|#[0-9abcdefABCDEF]+)',
 			'NUMBER' => '([0-9]+)',
@@ -459,6 +479,7 @@ class acp_bbcodes
 
 		$pad = 0;
 		$modifiers = 'i';
+		$modifiers .= ($utf8 && $utf8_pcre_properties) ? 'u' : '';
 
 		if (preg_match_all('/\{(' . implode('|', array_keys($tokens)) . ')[0-9]*\}/i', $bbcode_match, $m))
 		{
@@ -473,7 +494,7 @@ class acp_bbcodes
 				if (preg_match_all('/(?<!\\\\)\$([0-9]+)/', $replace, $repad))
 				{
 					$repad = $pad + sizeof(array_unique($repad[0]));
-					$replace = preg_replace('/(?<!\\\\)\$([0-9]+)/', "'\$' . (\$1 + \$pad) . ''", $replace);
+					$replace = preg_replace('/(?<!\\\\)\$([0-9]+)/e', "'\${' . (\$1 + \$pad) . '}'", $replace);
 					$pad = $repad;
 				}
 
@@ -503,11 +524,15 @@ class acp_bbcodes
 				$fp_replace = str_replace($token, $replace, $fp_replace);
 
 				$sp_match = str_replace(preg_quote($token, '!'), $sp_tokens[$token_type], $sp_match);
-				$sp_replace = str_replace($token, '$' . ($n + 1) . '', $sp_replace);
+
+				// Prepend the board url to local relative links
+				$replace_prepend = ($token_type === 'LOCAL_URL') ? generate_board_url() . '/' : '';
+
+				$sp_replace = str_replace($token, $replace_prepend . '${' . ($n + 1) . '}', $sp_replace);
 			}
 
 			$fp_match = '!' . $fp_match . '!' . $modifiers;
-			$sp_match = '!' . $sp_match . '!s';
+			$sp_match = '!' . $sp_match . '!s' . (($utf8) ? 'u' : '');
 
 			if (strpos($fp_match, 'e') !== false)
 			{
@@ -530,14 +555,14 @@ class acp_bbcodes
 
 		if (!preg_match('/^[a-zA-Z0-9_-]+=?$/', $bbcode_tag))
 		{
-			global $user, $db_prefix;
+			global $user;
 			trigger_error($user->lang['BBCODE_INVALID'] . adm_back_link($this->u_action), E_USER_WARNING);
 		}
 
-		$fp_match = preg_replace('#\[/?' . $bbcode_search . '#i', "strtolower('\$0')", $fp_match);
-		$fp_replace = preg_replace('#\[/?' . $bbcode_search . '#i', "strtolower('\$0')", $fp_replace);
-		$sp_match = preg_replace('#\[/?' . $bbcode_search . '#i', "strtolower('\$0')", $sp_match);
-		$sp_replace = preg_replace('#\[/?' . $bbcode_search . '#i', "strtolower('\$0')", $sp_replace);
+		$fp_match = preg_replace('#\[/?' . $bbcode_search . '#ie', "strtolower('\$0')", $fp_match);
+		$fp_replace = preg_replace('#\[/?' . $bbcode_search . '#ie', "strtolower('\$0')", $fp_replace);
+		$sp_match = preg_replace('#\[/?' . $bbcode_search . '#ie', "strtolower('\$0')", $sp_match);
+		$sp_replace = preg_replace('#\[/?' . $bbcode_search . '#ie', "strtolower('\$0')", $sp_replace);
 
 		return array(
 			'bbcode_tag'				=> $bbcode_tag,

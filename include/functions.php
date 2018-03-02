@@ -684,7 +684,7 @@ function format_date2($gmepoch, $format = false, $forcedate = false)
 	}
 function confirm_box($check, $title = '', $hidden = '', $html_body = 'confirm_body.html', $u_action = '', $gfx = false)
 {
-	global $user, $template, $db, $gfx_check;
+	global $user, $template, $db, $gfx_check, $recap_puplic_key, $recap_private_key;
 	$gfx = $gfx_check;
 	if (isset($_POST['cancel']))
 	{
@@ -702,15 +702,24 @@ function confirm_box($check, $title = '', $hidden = '', $html_body = 'confirm_bo
 
 	if ($check && $confirm)
 	{
-		$user_id = request_var('user_id', 0);
-		$session_id = request_var('sess', '');
-		$confirm_key = request_var('confirm_key', '');
-		$gfxcheck = request_var('gfxcheck', '');
-		$gfxcode = request_var('gfxcode', '');
-		$gfxcon = request_var('gfxcon', '');
+		$user_id 					= request_var('user_id', 0);
+		$session_id 				= request_var('sess', '');
+		$confirm_key				= request_var('confirm_key', '');
+		$gfxcheck 					= request_var('gfxcheck', '');
+		$gfxcode 					= request_var('gfxcode', '');
+		$gfxcon 					= request_var('gfxcon', '');
+		$recaptcha_response_field	= request_var('g-recaptcha-response', '');
+		$recap_pass = true;
+		if ($gfx_check AND $recap_puplic_key)
+		{
+			$ip = $_SERVER['REMOTE_ADDR'];
+			$response=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$recap_private_key."&response=".$recaptcha_response_field."&remoteip=".$ip);
+			$responseKeys = json_decode($response,true);	     
+			$recap_pass = intval($responseKeys["success"]) !== 1 ? false : true;
+		}
 		if($gfxcon == '1')
 		{
-			if($gfx_check AND $gfxcheck != md5(strtoupper($gfxcode)))
+			if($gfx_check AND $gfxcheck != md5(strtoupper($gfxcode)) AND !$recap_pass)
 			{
 				return false;
 			}
@@ -742,6 +751,16 @@ function confirm_box($check, $title = '', $hidden = '', $html_body = 'confirm_bo
 
 	// generate activation key
 	$confirm_key = RandomAlpha(10);
+	if ($gfx_check) {
+		if($recap_puplic_key)
+		{
+		   $template->assign_vars(array(
+					'META'						=> "<script src='https://www.google.com/recaptcha/api.js'></script>",
+					'RECAPTCHA'					=>	$recap_puplic_key,
+
+			));
+		}
+	}
 
 
 	// If activation key already exist, we better do not re-use the key (something very strange is going on...)
@@ -2174,16 +2193,14 @@ function loginrequired($level, $guickclose = false) {
 					$gfxcode									= request_var('gfxcode', '');
 					$returnto									= request_var('returnto', '');
 					$remember									= request_var('remember', '');
-					$recaptcha_response_field									= request_var('recaptcha_response_field', '');
-					$recaptcha_challenge_field									= request_var('recaptcha_challenge_field', '');
+					$recaptcha_response_field					= request_var('g-recaptcha-response', '');
 					$recap_pass = true;
 					if ($gfx_check AND $recap_puplic_key)
 					{
-						$resp = recaptcha_check_answer ($recap_private_key,
-							$_SERVER["REMOTE_ADDR"],
-							$recaptcha_challenge_field,
-							$recaptcha_response_field);
-							$recap_pass = $resp->is_valid;
+						$ip = $_SERVER['REMOTE_ADDR'];
+						$response=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$recap_private_key."&response=".$recaptcha_response_field."&remoteip=".$ip);
+						$responseKeys = json_decode($response,true);	     
+						$recap_pass = intval($responseKeys["success"]) !== 1 ? false : true;
 					}
 					   if ($username == "" OR $password == "") {
 										$template->assign_vars(array(
@@ -2255,7 +2272,10 @@ function loginrequired($level, $guickclose = false) {
 			if ($gfx_check) {
 				if($recap_puplic_key)
 				{
-					$gfximage = recaptcha_get_html($recap_puplic_key, null, $recap_https);
+							   $template->assign_vars(array(
+										'META'						=> "<script src='https://www.google.com/recaptcha/api.js'></script>",
+                                ));
+					$gfximage = true;
 				}else{
 					$rnd_code = strtoupper(RandomAlpha(5));
 					$hidden ['gfxcheck'] = md5($rnd_code);
