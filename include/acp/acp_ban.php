@@ -38,7 +38,7 @@ class acp_ban
 		global $config, $db, $db_prefix, $user, $auth, $template, $cache;
 		global $phpbb_root_path, $phpbb_admin_path, $phpEx, $table_prefix;
 
-		include_once($phpbb_root_path . 'includes/user.functions.' . $phpEx);
+		//include_once('includes/user.functions.' . $phpEx);
 
 		$bansubmit	= (isset($_POST['bansubmit'])) ? true : false;
 		$unbansubmit = (isset($_POST['unbansubmit'])) ? true : false;
@@ -103,7 +103,7 @@ class acp_ban
 			break;
 
 			case 'email':
-				$l_ban_cell = $user->lang['EMAIL_ADDRESS'];
+				$l_ban_cell = $user->lang['EMAIL'];
 			break;
 		}
 
@@ -123,6 +123,64 @@ class acp_ban
 			'U_ACTION'			=> $this->u_action,
 			'U_FIND_USERNAME'	=> append_sid("{$phpbb_root_path}userfind_to_pm.$phpEx", 'mode=searchuser&amp;form=acp_ban&amp;field=ban'),
 		));
+				// As a "service" we will check if any post id is specified and populate the username of the poster id if given
+		$post_id = request_var('p', 0);
+		$user_id = request_var('u', 0);
+		$username = $pre_fill = false;
+
+		if ($user_id && $user_id <> 0)
+		{
+			$sql = 'SELECT username, email, lastip AS user_ip
+				FROM ' . $db_prefix . '_users
+				WHERE id = ' . $user_id;
+			$result = $db->sql_query($sql);
+			switch ($mode)
+			{
+				case 'user':
+					$pre_fill = (string) $db->sql_fetchfield('username');
+				break;
+				
+				case 'ip':
+					$pre_fill = (string) long2ip($db->sql_fetchfield('user_ip'));
+				break;
+
+				case 'email':
+					$pre_fill = (string) $db->sql_fetchfield('email');
+				break;
+			}
+			$db->sql_freeresult($result);
+		}
+		else if ($post_id)
+		{
+			$post_info = get_post_data($post_id, 'm_ban');
+
+			if (sizeof($post_info) && !empty($post_info[$post_id]))
+			{
+				switch ($mode)
+				{
+					case 'user':
+						$pre_fill = $post_info[$post_id]['username'];
+					break;
+
+					case 'ip':
+						$pre_fill = $post_info[$post_id]['poster_ip'];
+					break;
+
+					case 'email':
+						$pre_fill = $post_info[$post_id]['user_email'];
+					break;
+				}
+
+			}
+		}
+
+		if ($pre_fill)
+		{
+			// left for legacy template compatibility
+			$template->assign_var('USERNAMES', $pre_fill);
+			$template->assign_var('BAN_QUANTIFIER', $pre_fill);
+		}
+
 	}
 
 	/**
@@ -153,25 +211,27 @@ class acp_ban
 					WHERE (b.ban_end >= ' . time() . '
 							OR b.ban_end = 0)
 						AND u.id = b.ban_userid
+						AND u.id > 0
 					ORDER BY u.clean_username ASC';
 			break;
 
 			case 'ip':
 
-				$field = 'ban_ip';
+				$field = 'ipstart';
 				$l_ban_cell = $user->lang['IP_HOSTNAME'];
 
 				$sql = 'SELECT *
-					FROM ' . $db_prefix . '_banlist
+					FROM ' . $db_prefix . '_bans
 					WHERE (ban_end >= ' . time() . "
 							OR ban_end = 0)
-						AND ban_ip <> ''";
+						AND ipstart <> ''
+						AND ban_userid > 0 ";
 			break;
 
 			case 'email':
 
 				$field = 'ban_email';
-				$l_ban_cell = $user->lang['EMAIL_ADDRESS'];
+				$l_ban_cell = $user->lang['EMAIL'];
 
 				$sql = 'SELECT *
 					FROM ' . $db_prefix . '_bans
@@ -187,13 +247,13 @@ class acp_ban
 
 		while ($row = $db->sql_fetchrow($result))
 		{
-			$banned_options .= '<option' . (($row['ban_exclude']) ? ' class="sep"' : '') . ' value="' . $row['ban_id'] . '">' . (($mode == 'ip')? long2ip($row[$field]) : $row[$field]) . '</option>';
+			$banned_options .= '<option' . (($row['ban_exclude']) ? ' class="sep"' : '') . ' value="' . $row['id'] . '">' . (($mode == 'ip')? long2ip($row[$field]) : $row[$field]) . '</option>';
 
 			$time_length = ($row['ban_end']) ? ($row['ban_end'] - $row['ban_start']) / 60 : 0;
-			$ban_length[$row['ban_id']] = (isset($ban_end_text[$time_length])) ? $ban_end_text[$time_length] : $user->lang['UNTIL'] . ' -> ' . $user->format_date($row['ban_end']);
+			$ban_length[$row['id']] = (isset($ban_end_text[$time_length])) ? $ban_end_text[$time_length] : $user->lang['UNTIL'] . ' -> ' . $user->format_date($row['ban_end']);
 
-			$ban_reasons[$row['ban_id']] = $row['ban_reason'];
-			$ban_give_reasons[$row['ban_id']] = $row['ban_give_reason'];
+			$ban_reasons[$row['id']] = $row['reason'];
+			$ban_give_reasons[$row['id']] = $row['ban_give_reason'];
 		}
 		$db->sql_freeresult($result);
 		//die(print_r($ban_reasons));

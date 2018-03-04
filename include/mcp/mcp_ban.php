@@ -104,7 +104,9 @@ class mcp_ban
 					confirm_box(false, $user->lang['CONFIRM_OPERATION'], build_hidden_fields(array(
 						'mode'			=> $mode,
 						'unbansubmit'	=> true,
-						'unban'			=> $ban)));
+						'unban'			=> $ban,
+						'action_mcp'	=> 'mcp',
+						'i'				=> 'ban')),'confirm_body.html','forum.php');
 				}
 			}
 		}

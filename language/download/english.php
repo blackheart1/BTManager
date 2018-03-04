@@ -46,5 +46,7 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, array(
 	'AUTH_REQ_MAIL_SUB'				=>	'Download Request on %1$s',
 	'MAIL_NEWSEEDER'				=>	'New seed on %1$s',
+	'ACCOUNT_PARKED'				=> 'This Account Has been parked! If you are the owner of this account please Disable account parked in settings',
+	'ACCOUNT_DISABLED'				=> 'This account has Been Disabled for %1$s',
 ));
 ?>

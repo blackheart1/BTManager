@@ -24,6 +24,43 @@ if (!defined('IN_PMBT'))
 	die ("You can't access this file directly");
 }
 $user->set_lang('admin/bans',$user->ulanguage);
+		$user->set_lang('ban',$user->ulanguage);
+		$user->set_lang('admin/users',$user->ulanguage);
+		$mode = request_var('mode', 'user');
+							$template->assign_block_vars('l_block1.l_block2',array(
+							'L_TITLE' => $user->lang['ACP_BAN'],
+							'S_SELECTED'	=> true,
+							'U_TITLE'		=> '1',));
+							$template->assign_block_vars('l_block1.l_block2.l_block3',array(
+							'S_SELECTED'	=> ('user' ==$mode)? true:false,
+							'IMG' => '',
+							'L_TITLE' => $user->lang['ACP_BAN_USERNAMES'],
+							'U_TITLE' => append_sid("{$siteurl}/admin.$phpEx", 'i=userinfo&amp;op=bans&amp;mode=user'),
+							));
+							$template->assign_block_vars('l_block1.l_block2.l_block3',array(
+							'S_SELECTED'	=> ('ip' ==$mode)? true:false,
+							'IMG' => '',
+							'L_TITLE' => $user->lang['ACP_BAN_IPS'],
+							'U_TITLE' => append_sid("{$siteurl}/admin.$phpEx", 'i=userinfo&amp;op=bans&amp;mode=ip'),
+							));
+							$template->assign_block_vars('l_block1.l_block2.l_block3',array(
+							'S_SELECTED'	=> ('email' ==$mode)? true:false,
+							'IMG' => '',
+							'L_TITLE' => $user->lang['ACP_BAN_EMAILS'],
+							'U_TITLE' => append_sid("{$siteurl}/admin.$phpEx", 'i=userinfo&amp;op=bans&amp;mode=email'),
+							));
+		include_once('include/message_parser.php');
+		include_once('include/class.bbcode.php');
+		include_once($phpbb_root_path . 'include/user.functions.' . $phpEx);
+		include_once($phpbb_root_path . 'include/acp/acp_ban.' . $phpEx);
+	include_once($phpbb_root_path . 'include/modules.' . $phpEx);
+	$module = new acp_ban();
+	$module->module =  'acp_ban';
+	$module->u_action =  append_sid("{$siteurl}/admin.$phpEx", 'i=userinfo&amp;op=bans&amp;mode=' . $mode);
+	$module->main('',$mode);
+	//die($module->tpl_name);
+	echo $template->fetch('admin/' . $module->tpl_name . '.html');
+	close_out();
 $is_edituser = false;
 $is_edit = false;
 $banedit_ip = Array("ipstart"=>"","ipend"=>"","reason"=>"");
@@ -95,7 +132,7 @@ switch ($op) {
 				}
                if (!isset($postback_ip)) {
                         $is_edit = true;
-                        $sql = "SELECT * FROM ".$db_prefix."_banlist WHERE ban_id='".$id."' LIMIT 1;";
+                        $sql = "SELECT * FROM ".$db_prefix."_bans WHERE ban_id='".$id."' LIMIT 1;";
                         $res = $db->sql_query($sql);
                         if ($db->sql_numrows($res) < 1) $is_edit = false;
                         else $banedit_ip = $db->sql_fetchrow($res);
@@ -106,7 +143,7 @@ switch ($op) {
                                 bterror(_admbaninvalidip,_admban,false);
                                 break;
                         }
-                        $sql = "UPDATE ".$db_prefix."_banlist SET ipstart = '".$ipstart."', ipend = '".$ipend."', reason = '".$reason_ip."' WHERE id = '".$id."';";
+                        $sql = "UPDATE ".$db_prefix."_bans SET ipstart = '".$ipstart."', ipend = '".$ipend."', reason = '".$reason_ip."' WHERE id = '".$id."';";
                         $db->sql_query($sql) or btsqlerror($sql);
                 }
                 break;
@@ -125,14 +162,15 @@ switch ($op) {
         }
 }
 
-$sql = "SELECT * FROM ".$db_prefix."_banlist;";
+$sql = "SELECT * FROM ".$db_prefix."_bans;";
 $res = $db->sql_query($sql);
         while ($ban = $db->sql_fetchrow($res)) {
 			$template->assign_block_vars('ipbans', array(
-				'IPSTART'			=> @long2ip($ban["ban_ipstart"]),
-				'IPEND'				=> @long2ip($ban["ban_ip"]),
-				'REASON'				=> htmlspecialchars($ban["ban_reason"]),
-				'ID'			=> $ban["ban_id"],
+				'IPSTART'			=> @long2ip($ban["ipstart"]),
+				'IPEND'				=> @long2ip($ban["ipend"]),
+				'REASON'			=> htmlspecialchars($ban["reason"]),
+				'GIVEN_REASON'		=> htmlspecialchars($ban["ban_give_reason"]),
+				'ID'				=> $ban["id"],
 				)
 			);
         }
