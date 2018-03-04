@@ -107,6 +107,7 @@ $lang = array_merge($lang, array(
 	'BOARD_LANGUAGE'			=> 'My language',
 	'BOARD_STYLE'				=> 'My board style',
 	'BOARD_TIMEZONE'			=> 'My timezone',
+	'BOARD_COUNTRY'				=> 'My Country',
 	'BOOKMARKS'					=> 'Bookmarks',
 	'BOOKMARKS_EXPLAIN'			=> 'You can bookmark topics for future reference. Select the checkbox for any bookmark you wish to delete, then press the <em>Remove marked bookmarks</em> button.',
 	'BOOKMARKS_DISABLED'		=> 'Bookmarks are disabled on this board.',
@@ -149,6 +150,9 @@ $lang = array_merge($lang, array(
 	'RESSET_PASSKEY'			=>	'Reset Passkey',
 	'RES_PASSKEY_WARNING'		=>	'<b>WARNING</b>: all the torrent files you downloaded so far will NOT be Valid any more!',
 	'ACCEPT_EMAIL'		=>	'Accept E-mail by Other Users',
+	'ACCEPT_EMAIL_EXP'		=>	'Allow Users of this site to see your Email Address',
+	'ACCEPT_EMAIL_ACP'		=>	'Administrators can e-mail me information',
+	'ACCEPT_EMAIL_ACP_EXP'		=>	'Allow mass E-mail From this site',
 	'INACTIVE'		=>	'Inactive',
 	'ACC_LEVEL'		=>	'Access Level',
 	'ERROR_SUBJECT_NUBER'		=>	'The Subscription Is not a number please go back and try again',
@@ -157,6 +161,11 @@ $lang = array_merge($lang, array(
 	'VIEW_FORUM_TOPICS'		=> '%d topics',
 	'VIEW_FORUM_TOPIC'		=> '1 topic',
 	'M_SITE_HELPER'			=> 'Site Helper',
+	'ACP_PM_NOTICE_EMAIL'			=> 'Accespt pm notifacation',
+	'ACP_PM_NOTICE_EMAIL_EXP'			=> 'Allow system to send you a E-mail Notice of new PM\'s',
+	'TOR_PERPAGE'				=> 'Torrents Perpage',
+	'PARK_ACC'					=> 'Park account',
+	'PARK_ACC_EXP'				=>	'You can park your account for up to 90 days while on vacation or without internet, etc. Your account cannot be deleted during this time but on day 91 it can. HnR\'s will not accrue while parked but they will resume when unparked. You can not download any torrents while your account is parked!',
 
 ));
 

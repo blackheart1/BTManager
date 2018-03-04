@@ -23,10 +23,7 @@ if (!defined('IN_PMBT'))
 	include_once './../../security.php';
 	die ();
 }
-if(!$user->ulanguage == '' && file_exists('language/attachment/'.$user->ulanguage.'.php'))include'language/attachment/'.$user->ulanguage.'.php';
-elseif (file_exists('language/attachment/'.$language.'.php'))include_once'language/attachment/'.$language.'.php';
-else
-include_once'language/attachment/english.php';
+$user->set_lang('pm',$user->ulanguage);
 		$start		= request_var('start', 0);
 		$sort_key	= request_var('sk', 'a');
 		$sort_dir	= request_var('sd', 'a');
@@ -76,7 +73,7 @@ include_once'language/attachment/english.php';
 
 				delete_attachments('attach', $delete_ids);
 
-				$message = ((sizeof($delete_ids) == 1) ? ATTACHMENT_DELETED : ATTACHMENTS_DELETED) . '<br /><br />' . sprintf(RETURN_UCP, '<a href="' . $siteurl . '/user.php?op=editprofile&action=overview&mode=attachments">', '</a>');
+				$message = ((sizeof($delete_ids) == 1) ? $user->lang['_ATTACHMENT_DELETED'] : $user->lang['_ATTACHMENTS_DELETED']) . '<br /><br />' . sprintf(RETURN_UCP, '<a href="' . $siteurl . '/user.php?op=editprofile&action=overview&mode=attachments">', '</a>');
                                 $template->assign_vars(array(
 										'S_REFRESH'				=> true,
 										'META' 				  	=> '<meta http-equiv="refresh" content="5;url=' . $siteurl . '/user.php?op=editprofile&amp;action=overview&amp;mode=attachments" />',
@@ -94,7 +91,7 @@ include_once'language/attachment/english.php';
 		}
 
 		// Select box eventually
-		$sort_key_text = array('a' => $user->lang['NAME'], 'b' => _btrequestdetails_comments, 'c' => $user->lang['EXTENTION'], 'd' => _btrequest_added, 'e' => $user->lang['DOWNED'], 'f' => $user->lang['UPLODED'], 'g' => $user->lang['SORT_TOPIC_TITLE']);
+		$sort_key_text = array('a' => $user->lang['NAME'], 'b' => $user->lang['DATE_ADDED'], 'c' => $user->lang['EXTENTION'], 'd' => $user->lang['SIZE'], 'e' => $user->lang['DOWNED'], 'f' => $user->lang['UPLODED'], 'g' => $user->lang['SORT_TOPIC_TITLE']);
 		$sort_key_sql = array('a' => 'a.real_filename', 'b' => 'a.attach_comment', 'c' => 'a.extension', 'd' => 'a.filesize', 'e' => 'a.download_count', 'f' => 'a.filetime', 'g' => 't.topic_title');
 
 		$sort_dir_text = array('a' =>  $user->lang['ASCENDING'], 'd' => $user->lang['DESCENDING']);

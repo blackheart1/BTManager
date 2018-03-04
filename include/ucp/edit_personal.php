@@ -40,6 +40,7 @@ if (!defined('IN_PMBT'))
 		$customlang							=  request_var('customlang', '0');
 		$user_torrent_per_page				=  request_var('user_torrent_per_page', '0');
 		$u_country							=  request_var('u_country', '0');
+		$u_parked							=  request_var('parked', '0');
 
 
 
@@ -53,6 +54,11 @@ if (!defined('IN_PMBT'))
                 $sqlval['mass_mail'] = "yes";
         } else {
                 $sqlval['mass_mail'] = "no";
+        }
+        if ($u_parked == "1") {
+                $sqlval['parked'] = "true";
+        } else {
+                $sqlval['parked'] = "false";
         }
         if ($pm_popup == "1") {
                 $sqlval['pm_popup'] = "true";
