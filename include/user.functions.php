@@ -1663,7 +1663,7 @@ function user_ban($mode, $ban, $ban_len, $ban_len_other, $ban_exclude, $ban_reas
 	global $db, $db_prefix, $user, $auth, $cache;
 
 	// Delete stale bans
-	$sql = 'DELETE FROM ' . $db_prefix . '_banlist
+	$sql = 'DELETE FROM ' . $db_prefix . '_bans
 		WHERE ban_end < ' . time() . '
 			AND ban_end <> 0';
 	$db->sql_query($sql);
@@ -1922,7 +1922,7 @@ function user_ban($mode, $ban, $ban_len, $ban_len_other, $ban_exclude, $ban_reas
 	$sql_where = ($type == 'ban_userid') ? 'ban_userid <> 0' : "$type <> ''";
 
 	$sql = "SELECT $type
-		FROM " . $db_prefix . "banlist
+		FROM " . $db_prefix . "_bans
 		WHERE $sql_where
 			AND ban_exclude = " . (int) $ban_exclude;
 	$result = $db->sql_query($sql);
@@ -1969,12 +1969,19 @@ function user_ban($mode, $ban, $ban_len, $ban_len_other, $ban_exclude, $ban_reas
 				'ban_start'			=> (int) $current_time,
 				'ban_end'			=> (int) $ban_end,
 				'ban_exclude'		=> (int) $ban_exclude,
-				'ban_reason'		=> (string) $ban_reason,
+				'reason'			=> (string) $ban_reason,
 				'ban_give_reason'	=> (string) $ban_give_reason,
 			);
+			if($type == 'ban_userid')
+			{
+				$sql = 'UPDATE ' . $db_prefix . "_users  SET `ban` = '1', `banreason` = '" . $ban_give_reason . "' WHERE `id` ='" . $ban_entry . "';";
+				//die($sql);
+				$db->sql_query($sql);
+			}
+
 		}
 
-		$db->sql_multi_insert($db_prefix . '_banlist', $sql_ary);
+		$db->sql_multi_insert($db_prefix . '_bans', $sql_ary);
 
 		// If we are banning we want to logout anyone matching the ban
 		if (!$ban_exclude)
@@ -2028,6 +2035,83 @@ function user_ban($mode, $ban, $ban_len, $ban_len_other, $ban_exclude, $ban_reas
 		add_log('mod', 0, 0, $log_entry . strtoupper($mode), $ban_reason, $ban_list_log);
 		return true;
 	}
+	return false;
+}
+function user_unban($mode, $ban)
+{
+	global $db, $db_prefix, $user, $auth, $pmbt_cache;
+
+	// Delete stale bans
+	$sql = 'DELETE FROM ' . $db_prefix . '_bans
+		WHERE ban_end < ' . time() . '
+			AND ban_end <> 0';
+	$db->sql_query($sql);
+
+	if (!is_array($ban))
+	{
+		$ban = array($ban);
+	}
+
+	$unban_sql = array_map('intval', $ban);
+
+	if (sizeof($unban_sql))
+	{
+		// Grab details of bans for logging information later
+		switch ($mode)
+		{
+			case 'user':
+				$sql = 'SELECT u.username AS unban_info, u.id AS user_id
+					FROM ' . $db_prefix . '_users u, ' . $db_prefix . '_bans b
+					WHERE ' . $db->sql_in_set('b.id', $unban_sql) . '
+						AND u.id = b.ban_userid';
+			break;
+
+			case 'email':
+				$sql = 'SELECT ban_email AS unban_info
+					FROM ' . $db_prefix . '_bans
+					WHERE ' . $db->sql_in_set('ban_id', $unban_sql);
+			break;
+
+			case 'ip':
+				$sql = 'SELECT ban_ip AS unban_info
+					FROM ' . $db_prefix . '_bans
+					WHERE ' . $db->sql_in_set('ban_id', $unban_sql);
+			break;
+		}
+		$result = $db->sql_query($sql);
+
+		$l_unban_list = '';
+		$user_ids_ary = array();
+		while ($row = $db->sql_fetchrow($result))
+		{
+			$l_unban_list .= (($l_unban_list != '') ? ', ' : '') . $row['unban_info'];
+			if ($mode == 'user')
+			{
+				$user_ids_ary[] = $row['user_id'];
+			}
+		}
+		$db->sql_freeresult($result);
+
+		$sql = 'DELETE FROM ' . $db_prefix . '_bans
+			WHERE ' . $db->sql_in_set('id', $unban_sql);
+		$db->sql_query($sql);
+
+		// Add to moderator log, admin log and user notes
+		add_log('admin', 'LOG_UNBAN_' . strtoupper($mode), $l_unban_list);
+		add_log('mod', 0, 0, 'LOG_UNBAN_' . strtoupper($mode), $l_unban_list);
+		if ($mode == 'user')
+		{
+			foreach ($user_ids_ary as $user_id)
+			{
+				add_log('user', $user_id, 'LOG_UNBAN_' . strtoupper($mode), $l_unban_list);
+				$sql = 'UPDATE ' . $db_prefix . '_users  SET `ban` = \'0\', `banreason` = \'\' WHERE `id` =' . $user_id . ';';
+				$db->sql_query($sql);
+			}
+		}
+	}
+
+	//$pmbt_cache->destroy('sql', $db_prefix . '_bans');
+
 	return false;
 }
 /**
@@ -2830,7 +2914,7 @@ function group_user_del($group_id, $user_id_ary = false, $username_ary = false, 
 {
 	global $db, $db_prefix, $auth, $config;
 
-		$group_order = array('OWNER', 'ADMINISTRATORS', 'MODERATOR', 'PREMIUM_USER', 'USER', 'GUEST');
+		$group_order = array('Owner', 'ADMINISTRATORS', 'MODERATOR', 'PREMIUM_USER', 'USER', 'Guest');
 
 	// We need both username and user_id info
 	$result = user_get_id_name($user_id_ary, $username_ary);

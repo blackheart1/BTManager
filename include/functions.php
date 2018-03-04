@@ -2425,7 +2425,7 @@ function is_banned($user, &$reason) {
         global $db, $db_prefix, $_SERVER;
         $ip = sprintf("%u",ip2long(getip()));
 
-        $sqlip = "SELECT reason as reason FROM ".$db_prefix."_bans WHERE  ipstart <= '".$ip."' AND ipend >= '".$ip."'  LIMIT 1;";
+        $sqlip = "SELECT ban_give_reason as reason FROM ".$db_prefix."_bans WHERE  ipstart <= '".$ip."' AND ipend >= '".$ip."'  LIMIT 1;";
         $resip = $db->sql_query($sqlip) or btsqlerror($sqlip);
         $sql = "SELECT banreason as reason FROM ".$db_prefix."_users WHERE id = '".$user->id."' AND ban = 1 UNION SELECT reason FROM ".$db_prefix."_bans WHERE ipstart <= '".$ip."' AND ipend >= '".$ip."'  LIMIT 1;";
         $res = $db->sql_query($sql) or btsqlerror($sql);
@@ -2467,19 +2467,17 @@ function is_moderator($user) {//Deprecated
 }
 
 function can_download($user, &$torrent) {
-       // if ($user->premium) return true; #u_download
-        global $db, $db_prefix, $download_level, $torrent_global_privacy;
-       // if ($download_level == "all" OR $torrent["tracker"] != "") return true;
-        if (checkaccess("u_download") AND $torrent["tracker"] != "") return true;
+        global $db, $db_prefix, $download_level, $torrent_global_privacy, $auth;
+        if ($auth->acl_get('u_download_torrents') AND checkaccess("u_download") AND $torrent["tracker"] != "" AND !$user->parked) return true;
         if (checkaccess("u_download") AND !$torrent_global_privacy) return true;
         if (checkaccess("m_down_load_private_torrents") AND $torrent_global_privacy) return true;
-        if (!checkaccess("m_down_load_private_torrents") AND $torrent_global_privacy) {
-                if ($torrent["ownertype"] == 2 OR $torrent["private"] != "true") return true;
+        if (!checkaccess("m_down_load_private_torrents") AND $torrent_global_privacy)
+		{
+                if (checkaccess("u_download") AND $torrent["ownertype"] == 2 OR $torrent["private"] != "true") return true;
                 $ratioqry = "SELECT uploaded, downloaded FROM ".$db_prefix."_users WHERE id = '".$user->id."';";
                 $ratiores = $db->sql_query($ratioqry);
                 list ($uploaded, $downloaded) = $db->fetch_array($ratiores);
                 $db->sql_freeresult($ratiores);
-                //if ($downloaded == 0) return true;
                 if ($torrent["min_ratio"] > "0.00" AND ($downloaded > 0) AND $uploaded/$downloaded >= $torrent["min_ratio"]) return true;
 
                 $sql = "SELECT status FROM ".$db_prefix."_privacy_global WHERE master = '".$torrent["owner"]."' AND slave = '".$user->id."';";

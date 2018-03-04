@@ -160,5 +160,7 @@ Only Internal Torrents can be Password Protected.',
 	'DUPLICATE_FILES'						=>	'Duplicate File',
 	'DUPLICATE_FILES_NOT_ALL'				=>	'Duplicate File are NOT Allowed',
 	'LIST_ALTERED'							=>	'The File List has been Altered! It has NOT been created using this Tool.',
+	'ACCOUNT_PARKED'						=> 'This Account Has been parked! If you are the owner of this account please Disable account parked in settings',
+	'ACCOUNT_DISABLED'						=> 'This account has Been Disabled for %1$s',
 ));
 ?>

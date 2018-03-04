@@ -27,7 +27,7 @@ include_once 'include/utf/utf_tools.php';
 function add_attach($form_name, $forum_id, $local = false, $local_storage = '', $is_message = false, $local_filedata = false)
 {
 	global $db_prefix, $user, $db, $siteurl, $attach_config;
-	include_once('language/attachment/english.php');
+	$user->set_lang('pm',$user->ulanguage);
 	include_once('include/function_attach.php');
 	$filedata = array(
 		'error'	=> array()

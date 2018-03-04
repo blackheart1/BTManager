@@ -16,7 +16,7 @@
 **
 ** CHANGES
 **
-** EXAMPLE 26-04-13 - Added Auto Ban
+** 04-03-2016 added park feature
 **/
 if (!defined('IN_PMBT'))
 {

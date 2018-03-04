@@ -16,7 +16,7 @@
 **
 ** CHANGES
 **
-** EXAMPLE 26-04-13 - Added Auto Ban
+** 04-03-2018 added parked, disabled keys
 **/
 if (!defined('IN_PMBT'))
 {
@@ -50,6 +50,8 @@ class User {
 		var $load = 0;
 		var $img;
 		var $lastpage;
+		var $parked;
+		var $disabled_reason;
 		var $data = array();
 		var $img_array = array();
 		var $keyoptions = array('viewimg' => 0, 'viewflash' => 1, 'viewsmilies' => 2, 'viewsigs' => 3, 'viewavatars' => 4, 'viewcensors' => 5, 'attachsig' => 6, 'bbcode' => 8, 'smilies' => 9, 'popuppm' => 10, 'sig_bbcode' => 15, 'sig_smilies' => 16, 'sig_links' => 17, 'offensive' => 18);
@@ -129,22 +131,22 @@ class User {
 	}
 	function set_lang($path, $langfile)
 	{
-	global $db, $db_prefix;
-	if(file_exists("language/" . $path . "/" . $langfile . ".php"))
-	{
-		require_once("language/" . $path . "/" . $langfile . ".php");
-	}
-	else
-	{
-		require_once("language/" . $path . "/english.php");
-	}
-	if(isset($lang))
-	{
-		foreach($lang as $key => $value){
-			$this->lang[$key] = $value;
+		global $db, $db_prefix;
+		if(file_exists("language/" . $path . "/" . $langfile . ".php"))
+		{
+			require_once("language/" . $path . "/" . $langfile . ".php");
 		}
-	}
-	return @constant;
+		else
+		{
+			require_once("language/" . $path . "/english.php");
+		}
+		if(isset($lang))
+		{
+			foreach($lang as $key => $value){
+				$this->lang[$key] = $value;
+			}
+		}
+		return @constant;
 	}
 	function img($img, $alt = '', $width = false, $suffix = '', $type = 'full_tag')
 	{
@@ -352,18 +354,18 @@ class User {
 			$page_dir = substr($page_dir, 0, -1);
 		}
 
-		// Current page from phpBB root (for example: adm/index.php?i=10&b=2)
+		// Current page from BTManager root (for example: adm/index.php?i=10&b=2)
 		$page = (($page_dir) ? $page_dir . '/' : '') . $page_name . (($query_string) ? "?$query_string" : '');
 
 		// The script path from the webroot to the current directory (for example: /phpBB3/adm/) : always prefixed with / and ends in /
 		$script_path = trim(str_replace('\\', '/', dirname($script_name)));
 
-		// The script path from the webroot to the phpBB root (for example: /phpBB3/)
+		// The script path from the webroot to the BTManager root (for example: /BTManager/)
 		$script_dirs = explode('/', $script_path);
 		array_splice($script_dirs, -sizeof($page_dirs));
 		$root_script_path = implode('/', $script_dirs) . (sizeof($root_dirs) ? '/' . implode('/', $root_dirs) : '');
 
-		// We are on the base level (phpBB root == webroot), lets adjust the variables a bit...
+		// We are on the base level (BTManager root == webroot), lets adjust the variables a bit...
 		if (!$root_script_path)
 		{
 			$root_script_path = ($page_dir) ? str_replace($page_dir, '', $script_path) : $script_path;
@@ -530,11 +532,14 @@ class User {
 								$this->lastpost = $row['user_lastpost_time'];
 								$this->posts = $row['user_posts'];
 								$this->optionset('viewimg', 1);
+								$this->parked = (($row['parked'] == 'true')? true : false);
+								$this->disabled = (($row['disabled'] == 'true')? true : false);
+								$this->disabled_reason = $row['disabled_reason'];
                                 $this->admin = true;
                                 $this->moderator = true;
                                 $this->premium = true;
                                 $this->user = true;
-		$this->browser				= (!empty($_SERVER['HTTP_USER_AGENT'])) ? htmlspecialchars((string) $_SERVER['HTTP_USER_AGENT']) : '';
+								$this->browser	= (!empty($_SERVER['HTTP_USER_AGENT'])) ? htmlspecialchars((string) $_SERVER['HTTP_USER_AGENT']) : '';
                                 return;
                         } else die ("FATAL ERROR! NO ADMINISTRATOR SET. THIS SHOULD NEVER HAPPEN");
                         return;
@@ -613,6 +618,9 @@ class User {
 								$this->posts = $row['user_posts'];
 								$this->optionset('viewimg', 1);
 								$this->date_format = $this->data['user_dateformat'];
+								$this->parked = (($row['parked'] == 'true')? true : false);
+								$this->disabled = (($row['disabled'] == 'true')? true : false);
+								$this->disabled_reason = $row['disabled_reason'];
                                 if ($row["level"] == "admin") {
                                         $this->admin = true;
                                         $this->moderator = true;
@@ -638,7 +646,7 @@ class User {
                                 return;
                         }
                 }
-                $this->id = 0;
+                $this->id = '0';
                 $this->name = "Anonymous";
                 $this->level = "guest";
                 $this->ulanguage = $language;

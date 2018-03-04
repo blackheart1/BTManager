@@ -908,7 +908,7 @@ class Template {
 	global $theme, $phpEx;
 		$filename = $this->cache_dir.$theme.'_'.str_replace("admin/","admin_",$handle).'.'.$phpEx;
 		//die($filename);
-		$data = "<?php if (!defined('IN_PMBT')) die('cheat');" . ((strpos($data, '<?php') === 0) ? substr($data, 5) : ' ?>' . $data);
+		$data = "<?php\n if (!defined('IN_PMBT'))\n{\n include_once './../security.php';\n}\n" . ((strpos($data, '<?php') === 0) ? substr($data, 5) : ' ?>' . $data);
 		if ($fp = @fopen($filename, 'wb'))
 		{
 			@flock($fp, LOCK_EX);
