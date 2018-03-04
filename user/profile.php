@@ -291,7 +291,7 @@ $template->assign_vars(array(
 		'U_SKYPE'			    => (!empty($userrow["skype"])) ? pic("button_yahoo.gif","http://edit.yahoo.com/config/send_webmesg?.target=".$userrow["yahoo"]) : '',
 		'AGE'				    => ($age = (int) substr($userrow['birthday'], -4)) ? ($now['year'] - $age) : '',
 		'RANK_IMG'              => '<img src="themes/' . $theme . '/pics/group/' . $userrow["can_do"] . '.png" title="' . $userrow["can_do"] . '" alt="' . $userrow["can_do"] . '">',
-		'U_BAN_USER'            => (checkaccess('m_banusers'))? (($userrow["ban"] == '0') ? '<a href="admin.php?op=addban&amp;username=' . $userrow["username"] . '">' . $user->lang['UCP_BAN_USER'] .  '</a>' : '<a href="admin.php?op=delban&amp;uid=' . $userrow["id"] . '">' . $user->lang['UCP_UNBAN_USER'] .  '</a>') :'',
+		'U_BAN_USER'            => (checkaccess('m_banusers'))? (($userrow["ban"] == '0') ? '<a href="admin.php?op=addban&amp;u=' . $userrow["id"] . '">' . $user->lang['UCP_BAN_USER'] .  '</a>' : '<a href="admin.php?op=delban&amp;uid=' . $userrow["id"] . '">' . $user->lang['UCP_UNBAN_USER'] .  '</a>') :'',
 		'U_BAN_SHOUTS'          => (checkaccess('m_bann_shouts'))? (($userrow["can_shout"] == 'true') ? '<a href="user.php?op=banchat&amp;id=' . $userrow["id"] . '">' . $user->lang['UCP_SHOUT_BAN'] . '</a>' : '<a href="user.php?op=unbanchat&amp;id=' . $userrow["id"] . '">' . $user->lang['UCP_UNSHOUT_BAN'] . '</a>') : '',
 		));
 $template->assign_vars(array(
