@@ -45,66 +45,69 @@ if (!function_exists('htmlspecialchars_decode'))
 		return strtr($string, array_flip(get_html_translation_table(HTML_SPECIALCHARS, $quote_style)));
 	}
 }
-function user_ipwhois($ip)
+if (!function_exists('user_ipwhois'))
 {
-	$ipwhois = '';
-
-	// Check IP
-	// Only supporting IPv4 at the moment...
-	if (empty($ip) || !preg_match(get_preg_expression('ipv4'), $ip))
+	function user_ipwhois($ip)
 	{
-		return '';
-	}
-
-	if (($fsk = fsockopen('whois.arin.net', 43, $errno, $errstr, 10)))
-	{
-		// CRLF as per RFC3912
-		fputs($fsk, "$ip\r\n");
-		while (!feof($fsk))
+		$ipwhois = '';
+	
+		// Check IP
+		// Only supporting IPv4 at the moment...
+		if (empty($ip) || !preg_match(get_preg_expression('ipv4'), $ip))
 		{
-			$ipwhois .= fgets($fsk, 1024);
+			return '';
 		}
-		fclose($fsk);
-	}
-
-	$match = array();
-
-	// Test for referrals from ARIN to other whois databases, roll on rwhois
-	if (preg_match('#ReferralServer: whois://(.+)#im', $ipwhois, $match))
-	{
-		if (strpos($match[1], ':') !== false)
+	
+		if (($fsk = fsockopen('whois.arin.net', 43, $errno, $errstr, 10)))
 		{
-			$pos	= strrpos($match[1], ':');
-			$server	= substr($match[1], 0, $pos);
-			$port	= (int) substr($match[1], $pos + 1);
-			unset($pos);
-		}
-		else
-		{
-			$server	= $match[1];
-			$port	= 43;
-		}
-
-		$buffer = '';
-
-		if (($fsk = fsockopen($server, $port)))
-		{
+			// CRLF as per RFC3912
 			fputs($fsk, "$ip\r\n");
 			while (!feof($fsk))
 			{
-				$buffer .= fgets($fsk, 1024);
+				$ipwhois .= fgets($fsk, 1024);
 			}
-			@fclose($fsk);
+			fclose($fsk);
 		}
-
-		// Use the result from ARIN if we don't get any result here
-		$ipwhois = (empty($buffer)) ? $ipwhois : $buffer;
+	
+		$match = array();
+	
+		// Test for referrals from ARIN to other whois databases, roll on rwhois
+		if (preg_match('#ReferralServer: whois://(.+)#im', $ipwhois, $match))
+		{
+			if (strpos($match[1], ':') !== false)
+			{
+				$pos	= strrpos($match[1], ':');
+				$server	= substr($match[1], 0, $pos);
+				$port	= (int) substr($match[1], $pos + 1);
+				unset($pos);
+			}
+			else
+			{
+				$server	= $match[1];
+				$port	= 43;
+			}
+	
+			$buffer = '';
+	
+			if (($fsk = fsockopen($server, $port)))
+			{
+				fputs($fsk, "$ip\r\n");
+				while (!feof($fsk))
+				{
+					$buffer .= fgets($fsk, 1024);
+				}
+				@fclose($fsk);
+			}
+	
+			// Use the result from ARIN if we don't get any result here
+			$ipwhois = (empty($buffer)) ? $ipwhois : $buffer;
+		}
+	
+		$ipwhois = htmlspecialchars($ipwhois);
+	
+		// Magic URL ;)
+		return trim(make_clickable($ipwhois, false, ''));
 	}
-
-	$ipwhois = htmlspecialchars($ipwhois);
-
-	// Magic URL ;)
-	return trim(make_clickable($ipwhois, false, ''));
 }
 		$ip	= request_var('ip', '');
    

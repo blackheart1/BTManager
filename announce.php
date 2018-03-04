@@ -233,7 +233,7 @@ if ($passkey != "") {
         $sql_where = "lastip = '".$ip."' OR seedbox = '".$ip."' ";
 }
 //GET THE USERS INFO
-$user_sql = "SELECT id, level, uploaded, downloaded, ban, banreason, can_do, dongift FROM ".$db_prefix."_users WHERE ".$sql_where." ORDER BY lastlogin DESC LIMIT 1;";
+$user_sql = "SELECT id, level, uploaded, downloaded, ban, banreason, can_do, dongift, parked, disabled, disabled_reason FROM ".$db_prefix."_users WHERE ".$sql_where." ORDER BY lastlogin DESC LIMIT 1;";
 if (!$userres = $db->sql_query($user_sql)) err("SQL Error: ". $user_sql ,$db->sql_error());
 if ($userrow = $db->sql_fetchrow($userres)) {
         $uid = $userrow["id"];
@@ -246,6 +246,14 @@ if ($userrow = $db->sql_fetchrow($userres)) {
         $ulevel = "guest";
 }
 $db->sql_freeresult($userres);
+if($userrow["parked"] == 'true')
+{
+	err('Your account is Parked');
+}
+if($userrow["disabled"] == 'true')
+{
+	err('Your account has been Disabled Reason Given is ' . $userrow["disabled_reason"]);
+}
 # Check If Client is banned
                         $sql = "SELECT client, reason FROM ".$db_prefix."_client_ban";
                         $res = $db->sql_query($sql);

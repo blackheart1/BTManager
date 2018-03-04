@@ -32,6 +32,7 @@ $template = new Template();
 set_site_var($user->lang['DOWNLOAD']);
 $id = request_var('id', 0);
 $rsskey = request_var('rsskey', '');
+$user->set_lang('download',$user->ulanguage);
 
 if(!checkaccess("u_download")){
 				$template->assign_vars(array(
@@ -83,6 +84,28 @@ if (!$row) { //Torrent not present
 					'S_FORWARD'			=> false,
 					'TITTLE_M'			=> $user->lang['BT_ERROR'],
 					'MESSAGE'			=> $user->lang['NO_SUCH_TORRENT'],
+				));
+				echo $template->fetch('message_body.html');
+				close_out();
+}
+if($user->parked)
+{
+				$template->assign_vars(array(
+					'S_ERROR'			=> true,
+					'S_FORWARD'			=> false,
+					'TITTLE_M'			=> $user->lang['BT_ERROR'],
+					'MESSAGE'			=> $user->lang['ACCOUNT_PARKED'],
+				));
+				echo $template->fetch('message_body.html');
+				close_out();
+}
+if($user->disabled)
+{
+				$template->assign_vars(array(
+					'S_ERROR'			=> true,
+					'S_FORWARD'			=> false,
+					'TITTLE_M'			=> $user->lang['BT_ERROR'],
+					'MESSAGE'			=> sprintf($user->lang['ACCOUNT_DISABLED'], $user->disabled_reason),
 				));
 				echo $template->fetch('message_body.html');
 				close_out();

@@ -41,6 +41,28 @@ if(!checkaccess("u_upload")){
 				echo $template->fetch('message_body.html');
 				close_out();
 }
+if($user->parked)
+{
+				$template->assign_vars(array(
+					'S_ERROR'			=> true,
+					'S_FORWARD'			=> false,
+					'TITTLE_M'			=> $user->lang['BT_ERROR'],
+					'MESSAGE'			=> $user->lang['ACCOUNT_PARKED'],
+				));
+				echo $template->fetch('message_body.html');
+				close_out();
+}
+if($user->disabled)
+{
+				$template->assign_vars(array(
+					'S_ERROR'			=> true,
+					'S_FORWARD'			=> false,
+					'TITTLE_M'			=> $user->lang['BT_ERROR'],
+					'MESSAGE'			=> sprintf($user->lang['ACCOUNT_DISABLED'], $user->disabled_reason),
+				));
+				echo $template->fetch('message_body.html');
+				close_out();
+}
 $pop = request_var('pop','');
 if($pop == 'smilies')
 {
