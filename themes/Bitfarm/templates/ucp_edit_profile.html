@@ -17,7 +17,7 @@
 </td></tr><tr valign="middle">
 
 <!-- IF ACTION != overview --><td class="row2" onmouseover="this.className='row1'" onmouseout="this.className='row2'" onclick="location.href=this.firstChild.href;" nowrap="nowrap"><a class="nav" href="{PMBT_LINK_BACK}action=overview&amp;mode=front">Overview</a><!-- ELSE --><td class="row1"><b class="nav">Overview</b><!-- ENDIF -->
-<!-- IF ACTION == overview -->			
+<!-- IF ACTION == overview -->
 			<ul class="nav" style="margin: 0; padding: 0; list-style-type: none; line-height: 175%;">
 							<li>&#187; <!-- IF MODE != front --><a href="{PMBT_LINK_BACK}action=overview&amp;mode=front">Front page</a><!-- ELSE --><b>Front page</b><!-- ENDIF --></li>
 							<li>&#187; <!-- IF MODE != subscribed --><a href="{PMBT_LINK_BACK}action=overview&amp;mode=subscribed">Manage subscriptions</a><!-- ELSE --><b>Manage subscriptions</b><!-- ENDIF --></li>
@@ -78,7 +78,7 @@
 </div>
 </td></tr><tr valign="middle">
 		<td class="row1" align="center">
-		
+
 			<b class="genmed" style="color:green">{L_ON_LINE}</b>
 
 			<ul class="nav" style="margin: 0; padding: 0; list-style-type: none; line-height: 175%;">
@@ -107,7 +107,7 @@
 		</td>
 	</tr>
 	</table>
-	
+
 </td>
 <td><img src="images/spacer.gif" width="4" alt="" /></td>
 <td width="80%" valign="top">
@@ -135,23 +135,23 @@
 <tr>
 	<td colspan="2" class="row2">
 		<script type="text/javascript">
-		// <![CDATA[		
+		// <![CDATA[
 			var form_name = 'ucp';
 			var text_name = 'signature';
 		// ]]>
 		</script>
-		
+
 		<table cellspacing="0" cellpadding="2" border="0" width="99%">
 		<tr valign="middle" align="left">
 	<td colspan="2">
 		<script type="text/javascript">
 		// <![CDATA[
-		
+
 		// Define the bbCode tags
 		var bbcode = new Array();
 		var bbtags = new Array('[b]','[/b]','[i]','[/i]','[u]','[/u]','[quote]','[/quote]','[code]','[/code]','[list]','[/list]','[list=]','[/list]','[img]','[/img]','[url]','[/url]','[flash=]', '[/flash]','[size=]','[/size]');
 		var imageTag = false;
-		
+
 		// Helpline messages
 		var help_line = {
 			b: 'Bold text: [b]text[/b]',
@@ -170,7 +170,7 @@
 			t: '{ BBCODE_T_HELP }',
 			tip: 'Tip: Styles can be applied quickly to selected text.'
 					}
-		
+
 		// ]]>
 
 		</script>
@@ -183,7 +183,7 @@
 				<input type="button" class="btnbbcode" accesskey="c" name="addbbcode8" value="Code" style="width: 40px" onclick="bbstyle(8)" onmouseover="helpline('c')" onmouseout="helpline('tip')" />
 		<input type="button" class="btnbbcode" accesskey="l" name="addbbcode10" value="List" style="width: 40px" onclick="bbstyle(10)" onmouseover="helpline('l')" onmouseout="helpline('tip')" />
 		<input type="button" class="btnbbcode" accesskey="o" name="addbbcode12" value="List=" style="width: 40px" onclick="bbstyle(12)" onmouseover="helpline('o')" onmouseout="helpline('tip')" />
-		<input type="button" class="btnbbcode" accesskey="t" name="addlitsitem" value="[*]" style="width: 40px" onclick="bbstyle(-1)" onmouseover="helpline('e')" onmouseout="helpline('tip')" />				
+		<input type="button" class="btnbbcode" accesskey="t" name="addlitsitem" value="[*]" style="width: 40px" onclick="bbstyle(-1)" onmouseover="helpline('e')" onmouseout="helpline('tip')" />
 					<input type="button" class="btnbbcode" accesskey="p" name="addbbcode14" value="Img" style="width: 40px" onclick="bbstyle(14)" onmouseover="helpline('p')" onmouseout="helpline('tip')" />
 
 					<input type="button" class="btnbbcode" accesskey="w" name="addbbcode16" value="URL" style="text-decoration: underline; width: 40px" onclick="bbstyle(16)" onmouseover="helpline('w')" onmouseout="helpline('tip')" />
@@ -229,7 +229,7 @@
 	<tr>
 		<th colspan="2" valign="middle">{L_SIGNATURE_PREVIEW}</th>
 	</tr>
-	<tr> 
+	<tr>
 		<td class="row1" colspan="2"><div class="postbody" style="padding: 6px;">{SIGNATURE_PREVIEW}</div></td>
 	</tr>
 <!-- ENDIF -->
@@ -256,20 +256,20 @@
 </tr>
 <!-- IF ALLOW_AVATAR  -->
 <!-- IF ALLOW_AVATAR_UPLOAD  -->
-	<tr> 
+	<tr>
 		<td class="row1" width="35%"><b class="genmed">Upload from your machine: </b></td>
 		<td class="row2"><input class="post" type="file" name="avupload" /></td>
 	</tr>
 <!-- ENDIF -->
 <!-- IF ALLOW_AVATAR_UPLOAD  -->
-	<tr> 
+	<tr>
 		<td class="row1" width="35%"><b class="genmed">Upload from a URL: </b><br /><span class="gensmall">Enter the URL of the location containing the image. The image will be copied to this site.</span></td>
 
 		<td class="row2"><input class="post" type="text" name="uploadurl" size="40" value="" /></td>
 	</tr>
 <!-- ENDIF -->
 <!-- IF ALLOW_AVATAR_UPLOAD  -->
-	<tr> 
+	<tr>
 		<td class="row1" width="35%"><b class="genmed">Link off-site: </b><br /><span class="gensmall">Enter the URL of the location containing the avatar image you wish to link to.</span></td>
 		<td class="row2"><input class="post" type="text" name="remotelink" size="40" value="" /></td>
 	</tr>
@@ -279,12 +279,12 @@ function ChangeThumb(pic) {
         document.images.Thumb.src = '{AVATAR_GALORY}/'+pic
 }
 </script>
-	<tr> 
+	<tr>
 		<td class="row1" width="35%"><b class="genmed">Avatar dimensions: </b><br /><span class="gensmall">Specify the width and height of the avatar, leave blank to attempt automatic verification.</span></td>
 
 		<td class="row2"><input class="post" type="text" name="width" size="3" value="{AVATAR_SETWT}" /> <span class="gen">px X </span> <input class="post" type="text" name="height" size="3" value="{AVATAR_SETHT}" /> <span class="gen">px</span></td>
 	</tr>
-	<tr> 
+	<tr>
 		<td class="row1" width="35%"><b class="genmed">Local gallery: </b></td>
 		<td class="row2"><img src="avatars/blank.gif" name="Thumb" class="image" /><br><select name="avgallery" onChange="if(this.options[this.selectedIndex].value != 'none') ChangeThumb(this.options[this.selectedIndex].value);" onKeyUp="if(this.options[this.selectedIndex].value != 'none') ChangeThumb(this.options[this.selectedIndex].value);">{AVATAR_MAXSZ_SEL}</select></td>
 	</tr>
@@ -292,7 +292,7 @@ function ChangeThumb(pic) {
 	<tr>
 		<td colspan="2" align="center"><input class="btnmain" type="submit" name="submit" value="Submit" />&nbsp;&nbsp;<input class="btnlite" type="reset" value="Reset" name="reset" /></td>
 	</tr>
-<tr> 
+<tr>
 <!-- ENDIF -->
 </table>
 </form>
@@ -331,7 +331,7 @@ function ChangeThumb(pic) {
 	<br>
     <input type="text" rows="5" size ="40" name="warnpm"><br />
 	{L_UCP_WARN_REASON_EXPL}
-	
+
 	<!-- ENDIF -->
 	</td>
 </tr>
@@ -463,46 +463,46 @@ function ChangeThumb(pic) {
 		}
 		e.style.display = (s == 1) ? 'block' : 'none';
 	}
-	
+
 	var default_dateformat = 'D M d, Y g:i a';
 // ]]>
 </script>
 
 <table class="tablebg" width="100%" cellspacing="0">
 
-<tr> 
+<tr>
 	<td class="row1" width="50%"><b class="genmed">{L_ACCEPT_EMAIL}:</b>
 	<br /><span class="gensmall">Allow Users of this site to see your Email Address</span></td>
 
 	<td class="row2"><input type="radio" class="radio" name="accept_mail" value="1" <!-- IF U_ALLOW_EMAIL -->checked="checked"<!-- ENDIF --> /><span class="genmed">Yes</span>&nbsp;&nbsp;<input type="radio" class="radio" name="accept_mail" value="0" <!-- IF not U_ALLOW_EMAIL -->checked="checked"<!-- ENDIF --> /><span class="genmed">No</span></td>
 </tr>
-<tr> 
+<tr>
 	<td class="row1" width="50%"><b class="genmed">Accespt pm notifacation:</b>
 	<br /><span class="gensmall">Allow system to send you a E-mail Notice of new PM's</span></td>
 
 	<td class="row2"><input type="radio" class="radio" name="pm_notify" value="1" <!-- IF CP_PM_NOTIVY -->checked="checked"<!-- ENDIF --> /><span class="genmed">Yes</span>&nbsp;&nbsp;<input type="radio" class="radio" name="pm_notify" value="0" <!-- IF not CP_PM_NOTIVY -->checked="checked"<!-- ENDIF --> /><span class="genmed">No</span></td>
 </tr>
-<tr> 
+<tr>
 	<td class="row1" width="50%"><b class="genmed">Administrators can e-mail me information:</b>
 	<br /><span class="gensmall">Allow mass E-mail From this site</span></td>
 	<td class="row2"><input type="radio" class="radio" name="mass_mail" value="1" <!-- IF CP_ALLOW_MASS_MAIL -->checked="checked"<!-- ENDIF --> /><span class="genmed">Yes</span>&nbsp;&nbsp;<input type="radio" class="radio" name="mass_mail" value="0" <!-- IF not CP_ALLOW_MASS_MAIL -->checked="checked"<!-- ENDIF --> /><span class="genmed">No</span></td>
 </tr>
-<tr> 
+<tr>
 	<td class="row1" width="50%"><b class="genmed">Allow users to send you private messages:</b>
 	<br /><span class="gensmall">Note that administrators and moderators will always be able to send you messages.</span></td>
 
 	<td class="row2"><input type="radio" class="radio" name="user_allow_pm" value="1" <!-- IF CP_ALLOW_PM -->checked="checked"<!-- ENDIF --> /><span class="genmed">Yes</span>&nbsp;&nbsp;<input type="radio" class="radio" name="user_allow_pm" value="0" <!-- IF not CP_ALLOW_PM -->checked="checked"<!-- ENDIF -->/><span class="genmed">No</span></td>
 </tr>
-	<tr> 
+	<tr>
 		<td class="row1" width="50%"><b class="genmed">Hide my online status:</b>
 		<br /><span class="gensmall">Changing this setting won’t become effective until your next visit to the board.</span></td>
 		<td class="row2"><input type="radio" class="radio" name="Show_online" value="1" <!-- IF CP_SHOW_ONLINE -->checked="checked"<!-- ENDIF -->/><span class="genmed">Yes</span>&nbsp;&nbsp;<input type="radio" class="radio" name="Show_online" value="0" <!-- IF not CP_SHOW_ONLINE -->checked="checked"<!-- ENDIF --> /><span class="genmed">No</span></td>
 	</tr>
-<tr> 
+<tr>
 	<td class="row1" width="50%"><b class="genmed">Pop up window on new private message:</b></td>
 	<td class="row2"><input type="radio" class="radio" name="pm_popup" value="1" <!-- IF CP_PM_POPUP -->checked="checked"<!-- ENDIF --> /><span class="genmed">Yes</span>&nbsp;&nbsp;<input type="radio" class="radio" name="pm_popup" value="0" <!-- IF not CP_PM_POPUP -->checked="checked"<!-- ENDIF --> /><span class="genmed">No</span></td>
 </tr>
-<tr> 
+<tr>
 	<td class="row1" width="50%"><b class="genmed">Torrents Perpage:</b></td>
 	<td class="row2"><input type="text" name="user_torrent_per_page" value="{CP_TORPERPAGE}" size ="40" /><br /><span class="gensmall">Note that 0 Reverts to Site Default.</span></td>
 </tr>
@@ -580,44 +580,44 @@ function ChangeThumb(pic) {
 </div>
 </div>
 <table class="tablebg" width="100%" cellspacing="0">
-<tr> 
+<tr>
 	<td class="row1" colspan="2"><span class="gensmall">Please note that this information may be viewable to other members. Be careful when including any personal details. Any fields marked with a * must be completed.</span></td>
 </tr>
 
-<tr> 
+<tr>
 	<td class="row1" width="35%"><img src="themes/Bitfarm/pics/button_icq.gif" alt="" title="" border="0"> <b class="genmed">ICQ number: </b></td>
 	<td class="row2"><input class="post" type="text" name="icq" size="30" maxlength="15" value="{U_ICQ}" /></td>
 </tr>
-<tr> 
+<tr>
 	<td class="row1" width="35%"><img src="themes/Bitfarm/pics/button_aim.gif" alt="" title="" border="0"> <b class="genmed">AOL Instant Messenger: </b></td>
 	<td class="row2"><input class="post" type="text" name="aim" size="30" maxlength="255" value="{U_AIM}" /></td>
 </tr>
-<tr> 
+<tr>
 	<td class="row1" width="35%"><img src="themes/Bitfarm/pics/button_msn.gif" alt="" title="" border="0"> <b class="genmed">MSN Messenger: </b></td>
 	<td class="row2"><input class="post" type="text" name="msn" size="30" maxlength="255" value="{U_MSN}" /></td>
 
 </tr>
-<tr> 
+<tr>
 	<td class="row1" width="35%"><img src="themes/Bitfarm/pics/button_yahoo.gif" alt="" title="" border="0"> <b class="genmed">Yahoo Messenger: </b></td>
 	<td class="row2"><input class="post" type="text" name="yahoo" size="30" maxlength="255" value="{U_YIM}" /></td>
 </tr>
-<tr> 
+<tr>
 	<td class="row1" width="35%"><img src="themes/Bitfarm/pics/button_jabber.gif" alt="" title="" border="0"> <b class="genmed">Jabber address: </b></td>
 	<td class="row2"><input class="post" type="text" name="jabber" size="30" maxlength="255" value="{U_JABBER}" /></td>
 </tr>
-<tr> 
+<tr>
 	<td class="row1" width="35%"><img src="themes/Bitfarm/pics/button_skype.gif" alt="" title="" border="0"> <b class="genmed">Skype Messenger: </b></td>
 	<td class="row2"><input class="post" type="text" name="skype" size="30" maxlength="255" value="{U_SKYPE}" /></td>
 </tr>
-<tr> 
+<tr>
 	<td class="row1" width="35%"><b class="genmed">Location: </b></td>
 	<td class="row2"><select name="country">
 	{LOCATION}</select></td>
 </tr>
-	<tr> 
+	<tr>
 		<td class="row1" width="35%"><b class="genmed">Birthday: </b><br /><span class="gensmall">Setting a year will list your age when it is your birthday.</span></td>
 		<td class="row2">
-		<span class="genmed">Day:</span> 
+		<span class="genmed">Day:</span>
 		     <select name="bday_day">
 			      <option <!-- IF U_BITH_D == 0 -->selected="selected" <!-- ENDIF -->value="0">--</option>
 				  <option <!-- IF U_BITH_D == 1 -->selected="selected" <!-- ENDIF -->value="1">1</option>
@@ -651,8 +651,8 @@ function ChangeThumb(pic) {
 				  <option <!-- IF U_BITH_D == 29 -->selected="selected" <!-- ENDIF -->value="29">29</option>
 				  <option <!-- IF U_BITH_D == 30 -->selected="selected" <!-- ENDIF -->value="30">30</option>
 				  <option <!-- IF U_BITH_D == 31 -->selected="selected" <!-- ENDIF -->value="31">31</option>
-				</select> 
-		<span class="genmed">Month:</span> 
+				</select>
+		<span class="genmed">Month:</span>
 		  <select name="bday_month">
 		    <option <!-- IF U_BITH_M == 0 -->selected="selected" <!-- ENDIF -->value="0">--</option>
 			<option <!-- IF U_BITH_M == 1 -->selected="selected" <!-- ENDIF -->value="1">1</option>
@@ -667,8 +667,8 @@ function ChangeThumb(pic) {
 			<option <!-- IF U_BITH_M == 10 -->selected="selected" <!-- ENDIF -->value="10">10</option>
 			<option <!-- IF U_BITH_M == 11 -->selected="selected" <!-- ENDIF -->value="11">11</option>
 			<option <!-- IF U_BITH_M == 12 -->selected="selected" <!-- ENDIF -->value="12">12</option>
-	     </select> 
-	   <span class="genmed">Year:</span> 
+	     </select>
+	   <span class="genmed">Year:</span>
 	     <select name="bday_year">
 		   <option <!-- IF U_BITH_Y == 0 -->selected="selected" <!-- ENDIF -->value="0">--</option>
 		   <option <!-- IF U_BITH_Y == 1910 -->selected="selected" <!-- ENDIF -->value="1910">1910</option>
@@ -1031,7 +1031,7 @@ function ChangeThumb(pic) {
 		<td class="row1" width="22%"><b class="genmed">{L_SUBMIT}:</b></td>
 		<td class="row2"><input class="post" style="width:450px" type="text" name="subject" size="45" maxlength="64" tabindex="2" value="{DRAFT_SUBJECT}" /></td>
 	</tr>
-	<tr> 
+	<tr>
 		<td class="row1" width="22%"><b class="genmed">{L_MESSAGE}: </b><br /><span class="gensmall">{L_EDIT_DRAFT_EXPLAIN}</span></td>
 		<td class="row2">
 			<script type="text/javascript">
@@ -1045,12 +1045,12 @@ function ChangeThumb(pic) {
 	<td colspan="2">
 		<script type="text/javascript">
 		// <![CDATA[
-		
+
 		// Define the bbCode tags
 		var bbcode = new Array();
 		var bbtags = new Array('[b]','[/b]','[i]','[/i]','[u]','[/u]','[quote]','[/quote]','[code]','[/code]','[list]','[/list]','[list=]','[/list]','[img]','[/img]','[url]','[/url]','[flash=]', '[/flash]','[size=]','[/size]'<!-- BEGIN custom_tags --> {custom_tags.BBCODE_NAME}<!-- END custom_tags -->);
 		var imageTag = false;
-		
+
 		// Helpline messages
 		var help_line = {
 			b: '{L__BBCODE_B_HELP}',
@@ -1085,7 +1085,7 @@ function ChangeThumb(pic) {
 		<input type="button" class="btnbbcode" accesskey="c" name="addbbcode8" value="Code" style="width: 40px" onclick="bbstyle(8)" onmouseover="helpline('c')" onmouseout="helpline('tip')" />
 		<input type="button" class="btnbbcode" accesskey="l" name="addbbcode10" value="List" style="width: 40px" onclick="bbstyle(10)" onmouseover="helpline('l')" onmouseout="helpline('tip')" />
 		<input type="button" class="btnbbcode" accesskey="o" name="addbbcode12" value="List=" style="width: 40px" onclick="bbstyle(12)" onmouseover="helpline('o')" onmouseout="helpline('tip')" />
-		<input type="button" class="btnbbcode" accesskey="t" name="addlitsitem" value="[*]" style="width: 40px" onclick="bbstyle(-1)" onmouseover="helpline('e')" onmouseout="helpline('tip')" />				
+		<input type="button" class="btnbbcode" accesskey="t" name="addlitsitem" value="[*]" style="width: 40px" onclick="bbstyle(-1)" onmouseover="helpline('e')" onmouseout="helpline('tip')" />
 		<!-- IF S_BBCODE_IMG -->
 			<input type="button" class="btnbbcode" accesskey="p" name="addbbcode14" value="Img" style="width: 40px" onclick="bbstyle(14)" onmouseover="helpline('p')" onmouseout="helpline('tip')" />
 		<!-- ENDIF -->
@@ -1135,7 +1135,7 @@ function ChangeThumb(pic) {
 					</tr>
 					</table>
 				</td>
-			</tr>			
+			</tr>
 			</table>
 		</td>
 	</tr>
@@ -1196,7 +1196,7 @@ function ChangeThumb(pic) {
 		<td class="row" style="padding: 4px;" align="center" valign="middle"><input type="checkbox" class="radio" name="attachment[{attachrow.ATTACH_ID}]" value="1" /></td>
 	</tr>
 	<!-- END attachrow -->
-	<tr> 
+	<tr>
 		<td colspan="6"><div style="float: left;"><span class="gensmall">{L_SORT_BY}: </span><select name="sk">{S_SORT_OPTIONS}</select> <select name="sd">{S_ORDER_SELECT}</select>&nbsp;<input class="btnlite" type="submit" name="sort" value="{L_SORT}" /></div><div style="float: right;"><input class="btnlite" type="submit" name="delete" value="{L_DELETE_MARKED}" />&nbsp;</div></td>
 	</tr>
 	</table>
@@ -1217,7 +1217,7 @@ function ChangeThumb(pic) {
        </div>
 	   </td>
 	   </tr>
-	
+
 	<tr>
 		<td class="row1" align="center"><b class="genmed">{L_UCP_NO_ATTACHMENTS}</b></td>
 	</tr>
@@ -1254,17 +1254,17 @@ function ChangeThumb(pic) {
 <tr>
 	<td class="row1" colspan="3">
 		<table width="100%" cellspacing="1" cellpadding="4">
-		<tr> 
+		<tr>
 			<td align="right" valign="top" nowrap="nowrap"><b class="genmed">Joined: </b></td>
 
 			<td width="100%"><b class="gen">{CP_UREGDATE}</b></td>
 		</tr>
-		<tr> 
+		<tr>
 			<td align="right" valign="top" nowrap="nowrap"><b class="genmed">Lastseen: </b></td>
 
 			<td width="100%"><b class="gen">{CP_ULASTSEEN}</b></td>
 		</tr>
-		<tr> 
+		<tr>
 			<td align="right" valign="top" nowrap="nowrap"><b class="genmed">Total posts: </b></td>
 			<td><b class="gen">{CP_POST_COUNT}</b><br /><span class="genmed">[{POSTS_PCT} / {POSTS_DAY}]<br /><a href="./forum.php?action=search&search_id={CP_UID}">Show your posts</a></span></td>
 		</tr>

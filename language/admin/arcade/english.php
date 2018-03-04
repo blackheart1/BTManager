@@ -13,13 +13,13 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File arcade/english.php 2018-02-28 08:28:00 Thor
+** File arcade/english.php 2018-03-02 08:28:00 Thor
 **
 ** CHANGES
 **
-** 2018-02-18 - Added New Masthead
-** 2018-02-18 - Added New !defined('IN_PMBT')
-** 2018-02-18 - Fixed Spelling
+** 2018-03-02 - Added New Masthead
+** 2018-03-02 - Added New !defined('IN_PMBT')
+** 2018-03-02 - Fixed Spelling
 **/
 
 if (!defined('IN_PMBT'))
@@ -77,12 +77,13 @@ if (empty($lang) || !is_array($lang))
 // in a URL you again Do Not need to specify an order e.g., 'Click %sHERE%s' is fine
 
 $lang = array_merge($lang, array(
+	'TITLE'				=>	'Arcade',
     'ACP_ADDED'          => 'ACP Modules Added Successfully.',
-    'ACP_EXISTS'         => 'ACP Modules Already Exist nothing changed.',
+    'ACP_EXISTS'         => 'ACP Modules Already Exist.  Nothing Changed!',
     'ACP_MODULES'        => 'ACP Modules:',
     'ADDED_GAME'         => 'The following Game has been Added Successfully to the Database.',
     'ADD_GAME'           => 'Add Game',
-    'ADD_GAME_DESC'      => 'Here you can Add a Game to the Arcade.',
+    'ADD_GAME_DESC'      => 'Add a Game to the Arcade.',
     'ADD_MODULES'        => 'Add Modules',
     'ALLOW_COMMENTS'     => 'Allow Games to be Commented On',
     'ALLOW_GUEST'        => 'Allow Guest View',
@@ -196,8 +197,8 @@ $lang = array_merge($lang, array(
     'RATINGS_RESET'      => 'The Ratings for ALL Games have been Reset.',
     'RATING_RESET'       => 'The Game you asked for Ratings to be Reset has had its Ratings Reset.',
     'REMOVE_IMAGE_C'     => 'Remove Image: ',
-    'RESET_HIGHSCORE'    => 'Reset High Scores for this Game: ',
-    'RESET_HIGHSCORES'   => 'Reset ALL High Scores For Games: ',
+    'RESET_HIGHSCORE'    => 'Reset Highscores for this Game: ',
+    'RESET_HIGHSCORES'   => 'Reset ALL Highscores For Games: ',
     'RESET_RATING'       => 'Reset Ratings for this Game: ',
     'RESET_RATINGS'      => 'Reset ALL Ratings for Games: ',
     'RESET_VIEW'         => 'Reset Views for this Game: ',
