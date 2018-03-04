@@ -115,7 +115,7 @@ switch ($cron_type)
 
 	case 'tidy_cache':
 
-		if (time() - $config['cache_gc'] <= $config['cache_last_gc'] || !method_exists($cache, 'tidy'))
+		if (time() - $config['cache_gc'] <= $config['cache_last_gc'] || !method_exists($pmbt_cache, 'tidy'))
 		{
 			break;
 		}

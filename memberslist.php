@@ -546,7 +546,8 @@ switch ($mode)
 
 			if ($member['sig_bbcode_bitfield'])
 			{
-				include_once($phpbb_root_path . 'includes/bbcode.' . $phpEx);
+				include_once($phpbb_root_path . 'include/class.bbcode.' . $phpEx);
+				include_once($phpbb_root_path . 'include/bbcode.' . $phpEx);
 				$bbcode = new bbcode();
 				$bbcode->bbcode_second_pass($member['signature'], $member['sig_bbcode_uid'], $member['sig_bbcode_bitfield']);
 			}
@@ -636,7 +637,7 @@ switch ($mode)
 			'S_CUSTOM_FIELDS'	=> (isset($profile_fields['row']) && sizeof($profile_fields['row'])) ? true : false,
 
 			'U_USER_ADMIN'			=> ($auth->acl_get('a_user')) ? append_sid("{$siteurl}/admin.$phpEx", 'op=user&amp;i=userinfo&amp;mode=overview&amp;u=' . $user_id, true, $user->session_id) : '',
-			'U_USER_BAN'			=> ($auth->acl_get('m_ban') && $user_id != $user->id) ? append_sid("{$siteurl}/admin.$phpEx", 'op=addban&amp;id=' . $user_id, true, $user->session_id) : '',
+			'U_USER_BAN'			=> ($auth->acl_get('m_ban') && $user_id != $user->id) ? append_sid("{$siteurl}/admin.$phpEx", 'op=addban&amp;mode=user&amp;u=' . $user_id, true, $user->session_id) : '',
 			'U_MCP_QUEUE'			=> ($auth->acl_getf_global('m_approve')) ? append_sid("{$phpbb_root_path}mcp.$phpEx", 'i=queue', true, $user->session_id) : '',
 
 			//'U_SWITCH_PERMISSIONS'	=> ($auth->acl_get('a_switchperm') && $user->id != $user_id) ? append_sid("{$phpbb_root_path}ucp.$phpEx", "mode=switch_perm&amp;u={$user_id}&amp;hash=" . generate_link_hash('switchperm')) : '',
@@ -1818,8 +1819,6 @@ function _sort_last_active($first, $second)
 		}
 	}
 
-if (!function_exists("display_user_activity"))
-{ 
 	function display_user_activity(&$userdata)
 	{
 		global $auth, $template, $db, $user, $db_prefix;
@@ -1937,5 +1936,4 @@ if (!function_exists("display_user_activity"))
 			'S_SHOW_ACTIVITY'		=> true)
 		);
 	}
-}
 ?>
