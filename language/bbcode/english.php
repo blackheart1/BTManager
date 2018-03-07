@@ -1,106 +1,358 @@
 <?php
-/**
-*
-* bbcode [English]
-*
-* @package language
-* @version $Id$
-* @copyright (c) 2005 phpMyBitTorrent Group
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License
-*
-*/
 
 /**
-* DO NOT CHANGE
-*/
-if (!defined('IN_PMBT')) die ("You can't access this file directly");
+**********************
+** BTManager v3.0.1 **
+**********************
+** http://www.btmanager.org/
+** https://github.com/blackheart1/BTManager
+** http://demo.btmanager.org/index.php
+** Licence Info: GPL
+** Copyright (C) 2018
+** Formerly Known As phpMyBitTorrent
+** Created By Antonio Anzivino (aka DJ Echelon)
+** And Joe Robertson (aka joeroberts)
+** Project Leaders: Black_heart, Thor.
+** File bbcode/english.php 2018-03-06 23:23:00 Thor
+**
+** CHANGES
+**
+** 2018-03-02 - Added New Masthead
+** 2018-03-02 - Added New !defined('IN_PMBT')
+** 2018-03-02 - Fixed Spelling
+**/
+
+if (!defined('IN_PMBT'))
+{
+    include_once './../../security.php';
+    die ("You can't access this file directly");
+}
 if (empty($lang) || !is_array($lang))
 {
 	$lang = array();
 }
-$lang = array_merge($lang, array(
-));
+
+$lang = array_merge($lang, array());
+
 $help = array(
 	array(
 		0 => '--',
-		1 => 'Introduction'
+		1 => '<strong>Introduction</strong>'
 	),
+
 	array(
 		0 => 'What is BBCode?',
-		1 => 'BBCode is a special implementation of HTML. Whether you can actually use BBCode in your posts on the forum is determined by the administrator. In addition you can disable BBCode on a per post basis via the posting form. BBCode itself is similar in style to HTML, tags are enclosed in square brackets [ and ] rather than &lt; and &gt; and it offers greater control over what and how something is displayed. Depending on the template you are using you may find adding BBCode to your posts is made much easier through a clickable interface above the message area on the posting form. Even with this you may find the following guide useful.'
+		1 => '<ul>BBCode is a Special Implementation of HTML. Whether you can actually use BBCode in your Posts on the Forum is determined by the Administrator. In addition you can Disable BBCode on a Per Post Basis via the Posting Form. BBCode itself is similar in style to HTML, Tags are enclosed in Square Brackets [ and ] rather than &lt; and &gt; and it offers Greater Control over what and how something is Displayed. Depending on the Template you are using you may find adding BBCode to your Posts is made much easier through a Clickable Interface above the Message Area on the Posting Form. Even with this you may find the following Guide useful.</ul><br />'
 	),
+
 	array(
 		0 => '--',
-		1 => 'Text Formatting'
+		1 => '<strong>Text Formatting</strong>'
 	),
+
 	array(
-		0 => 'How to create bold, italic and underlined text',
-		1 => 'BBCode includes tags to allow you to quickly change the basic style of your text. This is achieved in the following ways: <ul><li>To make a piece of text bold enclose it in <strong>[b][/b]</strong>, e.g. <br /><br /><strong>[b]</strong>Hello<strong>[/b]</strong><br /><br />will become <strong>Hello</strong></li><li>For underlining use <strong>[u][/u]</strong>, for example:<br /><br /><strong>[u]</strong>Good Morning<strong>[/u]</strong><br /><br />becomes <span style="text-decoration: underline">Good Morning</span></li><li>To italicise text use <strong>[i][/i]</strong>, e.g.<br /><br />This is <strong>[i]</strong>Great!<strong>[/i]</strong><br /><br />would give This is <i>Great!</i></li></ul>'
+		0 => 'How to Create Bold, Italic and Underlined Text',
+		1 => '<ul>BBCode Includes Tags to allow you to quickly change the Basic Style of your Text. This is achieved in the following ways:<br /><br />
+
+        To make a piece of text <strong>Bold</strong> enclose it in <strong>[b][/b]</strong>:<br /><br />
+
+        For example: <br /><br /><strong>[b]</strong>Hello<strong>[/b]</strong><br /><br />
+
+        Will become <strong>Hello</strong><br /><br />
+
+        To <strong>Underline</strong> a piece of text use: <strong>[u][/u]</strong><br /><br />
+
+        For example:<br /><br />
+
+        <strong>[u]</strong>Good Morning<strong>[/u]</strong><br /><br />
+
+        Will become:<br /><br />
+
+        <span style="text-decoration: underline">Good Morning</span><br /><br />
+
+        To <strong>Italicise</strong> a piece of text use <strong>[i][/i]</strong><br /><br />
+
+        For example:<br /><br />
+
+        This is <strong>[i]</strong>Great!<strong>[/i]</strong><br /><br />
+
+        Will become: <i>Great!</i>
+        </ul><br />'
 	),
+
 	array(
-		0 => 'How to change the text colour or size',
-		1 => 'To alter the colour or size of your text the following tags can be used. Keep in mind that how the output appears will depend on the viewers browser and system: <ul><li>Changing the colour of text is achieved by wrapping it in <strong>[color=][/color]</strong>. You can specify either a recognised colour name (eg. red, blue, yellow, etc.) or the hexadecimal triplet alternative, e.g. #FFFFFF, #000000. For example, to create red text you could use:<br /><br /><strong>[color=red]</strong>Hello!<strong>[/color]</strong><br /><br />or<br /><br /><strong>[color=#FF0000]</strong>Hello!<strong>[/color]</strong><br /><br />Both will output <span style="color:red">Hello!</span></li><li>Changing the text size is achieved in a similar way using <strong>[size=][/size]</strong>. This tag is dependent on the template the user has selected but the recommended format is a numerical value representing the text size in percent, starting at 20 (very small) through to 200 (very large) by default. For example:<br /><br /><strong>[size=30]</strong>SMALL<strong>[/size]</strong><br /><br />will generally be <span style="font-size:30%;">SMALL</span><br /><br />whereas:<br /><br /><strong>[size=200]</strong>HUGE!<strong>[/size]</strong><br /><br />will be <span style="font-size:200%;">HUGE!</span></li></ul>'
+		0 => 'How to Change the Text Colour or Size',
+		1 => '<ul>To Alter the Colour or Size of your Text the following Tags can be used. Keep in mind that how the Output Appears will Depend on the Viewers Browser and System:<br /><br />
+
+        Changing the Colour of Text is Achieved by Wrapping it in <strong>[color=][/color]</strong>. You can Specify either a Recognised Colour Name (eg. red, blue, yellow, etc.) or the Hexadecimal Alternative, e.g. #FFFFFF, #000000.<br /><br />
+
+        For example, to Create Red Text you could use:<br /><br />
+
+        <strong>[color=\'red\']</strong>Hello!<strong>[/color]</strong><br /><br />
+
+        Or <br /><br />
+
+        <strong>[color=#FF0000]</strong>Hello!<strong>[/color]</strong><br /><br />
+
+        Both will Output:<br /><br />
+
+        <span style="color:red">Hello!</span><br /><br />
+
+        Changing the Text Size is achieved in a similar way using <strong>[size=][/size]</strong>.<br /><br />
+
+        This Tag is Dependent on the Template the User has Selected.  The Recommended Format is a Numerical Value representing the Text Size as a  Percentage, starting at 20 (Very Small) through to 200 (Very Large).<br /><br />
+
+        For example:<br /><br />
+
+        <strong>[size=70]</strong>SMALL<strong>[/size]</strong><br /><br />
+
+        Will generally be:<br /><br />
+
+        <span style="font-size:70%;">SMALL</span><br /><br />
+
+        Whereas:<br /><br />
+
+        <strong>[size=30</strong>HUGE!<strong>[/size]</strong><br /><br />
+
+        Will be:<br /><br />
+
+        <span style="font-size:300%;">HUGE!</span>
+        </ul><br /><br />'
 	),
+
 	array(
-		0 => 'Can I combine formatting tags?',
-		1 => 'Yes, of course you can, for example to get someones attention you may write:<br /><br /><strong>[size=200][color=red][b]</strong>LOOK AT ME!<strong>[/b][/color][/size]</strong><br /><br />this would output <span style="color:red;font-size:200%;"><strong>LOOK AT ME!</strong></span><br /><br />We don’t recommend you output lots of text that looks like this though! Remember it is up to you, the poster, to ensure tags are closed correctly. For example the following is incorrect:<br /><br /><strong>[b][u]</strong>This is wrong<strong>[/b][/u]</strong>'
+		0 => 'Can I combine Formatting Tags?',
+		1 => '<ul>Yes, of course you can, for example to get someone\'s attention you may write:<br /><br />
+
+        <strong>[size=200][color=\'red\'][b]</strong>LOOK AT ME!<strong>[/b][/color][/size]</strong><br /><br />
+
+        This would output:<br /><br />
+
+        <span style="color:red;font-size:200%;"><strong>LOOK AT ME!</strong></span><br /><br />
+
+        We don’t recommend you output lots of text that looks like this though! Remember it is up to You, the Poster, to Ensure Tags are Closed Correctly.<br /><br />
+
+        For example the following is Incorrect:<br /><br />
+
+        <strong>[b][u]</strong>This is wrong<strong>[/b][/u]</strong>
+        </ul><br />'
 	),
+
 	array(
 		0 => '--',
-		1 => 'Quoting and outputting fixed-width text'
+		1 => '<strong>Quoting and Outputting Fixed Width Text</strong>'
 	),
+
 	array(
-		0 => 'Quoting text in replies',
-		1 => 'There are two ways you can quote text, with a reference or without.<ul><li>When you utilise the Quote function to reply to a post on the board you should notice that the post text is added to the message window enclosed in a <strong>[quote=&quot;&quot;][/quote]</strong> block. This method allows you to quote with a reference to a person or whatever else you choose to put! For example to quote a piece of text Mr. Blobby wrote you would enter:<br /><br /><strong>[quote=&quot;Mr. Blobby&quot;]</strong>The text Mr. Blobby wrote would go here<strong>[/quote]</strong><br /><br />The resulting output will automatically add &quot;Mr. Blobby wrote:&quot; before the actual text. Remember you <strong>must</strong> include the quotation marks &quot;&quot; around the name you are quoting, they are not optional.</li><li>The second method allows you to blindly quote something. To utilise this enclose the text in <strong>[quote][/quote]</strong> tags. When you view the message it will simply show the text within a quotation block.</li></ul>'
+		0 => 'Quoting Text in Replies',
+		1 => '<ul>There are Two Ways you can Quote Text, with or without a Reference.<br /><br />
+
+        When you Utilise the Quote Function to Reply to a Post on the Board you should Notice that the Post Text is Added to the Message Window enclosed in a <strong>[quote=&quot;&quot;][/quote]</strong> Block. This method allows you to Quote with a Reference to a Person or whatever else you wanted to put!<br /><br />
+
+        For example to Quote a Piece of Text Mr. Blobby wrote you would enter:<br /><br />
+
+        <strong>[quote=&quot;Mr. Blobby&quot;]</strong>The text Mr. Blobby wrote would go here<strong>[/quote]</strong><br /><br />
+
+        The Resulting Output will Automatically Add &quot;Mr. Blobby wrote:&quot; before the Actual Text. Remember you <strong>Must</strong> Include the Quotation Marks <strong>&quot;&nbsp;&nbsp;&nbsp;&quot;</strong> around the Name you are Quoting, they are <strong>NOT</strong> Optional.<br /><br />
+
+        The Second Method Allows you to Blindly Quote something. To Utilise this Enclose the Text in <strong>[quote][/quote]</strong> Tags. When you View the Message it will simply Show the Text within a Quotation Block.
+        </ul><br /><br />'
 	),
+
 	array(
-		0 => 'Outputting code or fixed width data',
-		1 => 'If you want to output a piece of code or in fact anything that requires a fixed width, e.g. Courier type font you should enclose the text in <strong>[code][/code]</strong> tags, e.g.<br /><br /><strong>[code]</strong>echo &quot;This is some code&quot;;<strong>[/code]</strong><br /><br />All formatting used within <strong>[code][/code]</strong> tags is retained when you later view it. PHP syntax highlighting can be enabled using <strong>[code=php][/code]</strong> and is recommended when posting PHP code samples as it improves readability.'
+		0 => 'Outputting Code or Fixed Width Data',
+		1 => '<ul>If you want to Output a Piece of Code or in fact anything that Requires a Fixed Width, e.g. Courier Type Font you should Enclose the Text in <strong>[code][/code]</strong> Tags.<br /><br />
+
+        For example:<br /><br />
+
+        <strong>[code]</strong>echo &quot;This is some code&quot;;<strong>[/code]</strong><br /><br />
+
+        All Formatting used within <strong>[code][/code]</strong> Tags is Retained when you later view it. PHP Syntax Highlighting can be Enabled using <strong>[code=php][/code]</strong> and is Recommended when Posting PHP Code Samples as it Improves Readability.
+        </ul><br />'
 	),
+
 	array(
 		0 => '--',
-		1 => 'Generating lists'
+		1 => '<strong>Generating Lists</strong>'
 	),
+
 	array(
 		0 => 'Creating an Unordered list',
-		1 => 'BBCode supports two types of lists, unordered and ordered. They are essentially the same as their HTML equivalents. An unordered list outputs each item in your list sequentially one after the other indenting each with a bullet character. To create an unordered list you use <strong>[list][/list]</strong> and define each item within the list using <strong>[*]</strong>. For example to list your favourite colours you could use:<br /><br /><strong>[list]</strong><br /><strong>[*]</strong>Red<br /><strong>[*]</strong>Blue<br /><strong>[*]</strong>Yellow<br /><strong>[/list]</strong><br /><br />This would generate the following list:<ul><li>Red</li><li>Blue</li><li>Yellow</li></ul>'
+		1 => '<ul>BBCode supports Two Types of Lists, Unordered and Ordered. They are essentially the same as their HTML equivalents.<br /><br />
+
+        An Unordered List Outputs each item in your List Sequentially one after the other Indenting each with a Bullet Character.<br /><br />
+
+        To Create an Unordered List you use <strong>[list][/list]</strong> and Define each item within the List using <strong>[*]</strong>.<br /><br />
+
+        For example to List your Favourite Colours you could use:<br /><br />
+
+        <strong>[list]</strong><br />
+        <strong>[*]</strong>Red<br />
+        <strong>[*]</strong>Blue<br />
+        <strong>[*]</strong>Yellow<br />
+        <strong>[/list]</strong><br /><br />
+
+        This would Generate the following List:<br /><br />
+
+        <ul><li>Red</li>
+            <li>Blue</li>
+            <li>Yellow</li>
+        </ul></ul><br />'
 	),
+
 	array(
 		0 => 'Creating an Ordered list',
-		1 => 'The second type of list, an ordered list, gives you control over what is output before each item. To create an ordered list you use <strong>[list=1][/list]</strong> to create a numbered list or alternatively <strong>[list=a][/list]</strong> for an alphabetical list. As with the unordered list, items are specified using <strong>[*]</strong>. For example:<br /><br /><strong>[list=1]</strong><br /><strong>[*]</strong>Go to the shops<br /><strong>[*]</strong>Buy a new computer<br /><strong>[*]</strong>Swear at computer when it crashes<br /><strong>[/list]</strong><br /><br />will generate the following:<ol style="list-style-type: decimal;"><li>Go to the shops</li><li>Buy a new computer</li><li>Swear at computer when it crashes</li></ol>Whereas for an alphabetical list you would use:<br /><br /><strong>[list=a]</strong><br /><strong>[*]</strong>The first possible answer<br /><strong>[*]</strong>The second possible answer<br /><strong>[*]</strong>The third possible answer<br /><strong>[/list]</strong><br /><br />giving<ol style="list-style-type: lower-alpha"><li>The first possible answer</li><li>The second possible answer</li><li>The third possible answer</li></ol>'
+		1 => '<ul>The Second type of List, an Ordered List, gives you control over what is Output before each Item.<br /><br />
+
+        To Create an Ordered List you use <strong>[list=1][/list]</strong> to Create a Numbered List<br /><br />
+
+        Alternatively <strong>[list=a][/list]</strong> for an Alphabetical List.<br /><br />
+
+        As with the Unordered List, items are specified using <strong>[*]</strong>.<br /><br />
+
+        For example:<br /><br />
+
+        <strong>[list=1]</strong><br />
+        <strong>[*]</strong>Go to the Shops<br />
+        <strong>[*]</strong>Buy a New Computer<br />
+        <strong>[*]</strong>Swear at Computer when it Crashes<br />
+        <strong>[/list]</strong><br /><br />
+
+        Will generate the following:<br /><br />
+
+        <ol style="list-style-type: decimal;">
+            <li>Go to the Shops</li>
+            <li>Buy a New Computer</li>
+            <li>Swear at Computer when it Crashes</li>
+        </ol><br />
+
+        Whereas for an Alphabetical List you would use:<br /><br />
+
+        <strong>[list=a]</strong><br />
+        <strong>[*]</strong>The First Possible Answer<br />
+        <strong>[*]</strong>The Second Possible Answer<br />
+        <strong>[*]</strong>The Third Possible Answer<br />
+        <strong>[/list]</strong><br /><br />
+
+        Giving:<br /><br />
+
+        <ol style="list-style-type: lower-alpha">
+            <li>The First Possible Answer</li>
+            <li>The Second Possible Answer</li>
+            <li>The Third Possible Answer</li>
+        </ol>
+        </ul><br />'
 	),
-	// This block will switch the FAQ-Questions to the second template column
+
+	// This Block Will Switch The FAQ Questions To The Second Template Column
 	array(
 		0 => '--',
 		1 => '--'
 	),
+
 	array(
 		0 => '--',
-		1 => 'Creating Links'
+		1 => '<strong>Creating Links</strong>'
 	),
+
 	array(
-		0 => 'Linking to another site',
-		1 => 'phpBB BBCode supports a number of ways of creating URIs (Uniform Resource Indicators) better known as URLs.<ul><li>The first of these uses the <strong>[url=][/url]</strong> tag, whatever you type after the = sign will cause the contents of that tag to act as a URL. For example to link to phpBB.com you could use:<br /><br /><strong>[url=http://www.phpbb.com/]</strong>Visit phpBB!<strong>[/url]</strong><br /><br />This would generate the following link, <a href="http://www.phpbb.com/">Visit phpBB!</a> Please notice that the link opens in the same window or a new window depending on the users browser preferences.</li><li>If you want the URL itself displayed as the link you can do this by simply using:<br /><br /><strong>[url]</strong>http://www.phpbb.com/<strong>[/url]</strong><br /><br />This would generate the following link, <a href="http://www.phpbb.com/">http://www.phpbb.com/</a></li><li>Additionally, phpBB features something called <i>Magic Links</i>, this will turn any syntactically correct URL into a link without you needing to specify any tags or even the leading http://. For example typing www.phpbb.com into your message will automatically lead to <a href="http://www.phpbb.com/">www.phpbb.com</a> being output when you view the message.</li><li>The same thing applies equally to e-mail addresses, you can either specify an address explicitly for example:<br /><br /><strong>[email]</strong>no.one@domain.adr<strong>[/email]</strong><br /><br />which will output <a href="mailto:no.one@domain.adr">no.one@domain.adr</a> or you can just type no.one@domain.adr into your message and it will be automatically converted when you view.</li></ul>As with all the BBCode tags you can wrap URLs around any of the other tags such as <strong>[img][/img]</strong> (see next entry), <strong>[b][/b]</strong>, etc. As with the formatting tags it is up to you to ensure the correct open and close order is following, for example:<br /><br /><strong>[url=http://www.google.com/][img]</strong>http://www.google.com/intl/en_ALL/images/logo.gif<strong>[/url][/img]</strong><br /><br />is <span style="text-decoration: underline">not</span> correct which may lead to your post being deleted so take care.'
+		0 => 'Linking to another Site',
+		1 => '<ul>phpBB BBCode supports a number of ways of creating URI\'s (Uniform Resource Indicators) better known as URL\'s.<br /><br />
+
+        <ul><li>The first of these uses the <strong>[url=][/url]</strong> Tag, whatever you type after the <strong>=</strong> sign will cause the Contents of that Tag to Act as a URL.<br /><br />
+
+        For example to Link to phpBB.com you could use:<br /><br />
+
+        <strong>[url=http://www.phpbb.com/]</strong>Visit phpBB!<strong>[/url]</strong><br /><br />
+
+        This would Generate the following Link:<br /><br />
+
+        <a href="http://www.phpbb.com/">Visit phpBB!</a><br /><br />
+
+        Please Notice that the Link Opens in the Same Window or a New Window depending on the Users Browser Preferences.</li>
+
+        <li>If you want the URL itself Displayed as the Link you can do this by simply using:<br /><br />
+
+        <strong>[url]</strong>http://www.phpbb.com/<strong>[/url]</strong><br /><br />
+
+        This would Generate the following Link:<br /><br />
+
+        <a href="http://www.phpbb.com/">http://www.phpbb.com/</a></li><br />
+
+        <li>Additionally, phpBB Features something called <strong><i>Magic Links</i></strong>, this will turn any Syntactically Correct URL into a Link without you needing to specify any Tags or even the Leading http://.<br /><br />
+
+        For example typing www.phpbb.com into your Message will Automatically Lead to:<br /><br />
+
+        <a href="http://www.phpbb.com/">www.phpbb.com</a><br /><br />
+
+        Being Output when you View the Message.</li><br />
+
+        <li>The same thing applies equally to email Addresses, you can either Specify an Address Explicitly for example:<br /><br />
+
+        <strong>[email]</strong>no.one@domain.adr<strong>[/email]</strong><br /><br />
+
+        Which will Output:<br /><br />
+
+        <a href="mailto:no.one@domain.adr">no.one@domain.adr</a><br /><br />
+
+        Or you can just type:no.one@domain.adr into your Message and it will be Automatically Converted when you View.<br /><br />
+
+        As with ALL the BBCode Tags you can Wrap URLs around any of the other Tags such as:<br /><br />
+
+        <strong>[img][/img]</strong> (See Next Entry), <strong>[b][/b]</strong>, etc.<br /><br />
+
+        As with the Formatting Tags it is up to you to ensure the Correct Open and Close Order is followed:<br /><br />
+
+        For example:<br /><br />
+
+        <strong>[url=http://www.google.com/][img]</strong>http://www.google.com/intl/en_ALL/images/logo.gif<strong>[/url][/img]</strong><br /><br />
+
+        Which is <span style="text-decoration: underline">NOT</span> Correct and could lead to your Post being Deleted so take care. </li>
+        </ul><br />'
 	),
+
 	array(
 		0 => '--',
-		1 => 'Showing images in posts'
+		1 => '<strong>Showing Images in Posts</strong>'
 	),
+
 	array(
-		0 => 'Adding an image to a post',
-		1 => 'phpBB BBCode incorporates a tag for including images in your posts. Two very important things to remember when using this tag are: many users do not appreciate lots of images being shown in posts and secondly the image you display must already be available on the internet (it cannot exist only on your computer for example, unless you run a webserver!). To display an image you must surround the URL pointing to the image with <strong>[img][/img]</strong> tags. For example:<br /><br /><strong>[img]</strong>http://www.google.com/intl/en_ALL/images/logo.gif<strong>[/img]</strong><br /><br />As noted in the URL section above you can wrap an image in a <strong>[url][/url]</strong> tag if you wish, e.g.<br /><br /><strong>[url=http://www.google.com/][img]</strong>http://www.google.com/intl/en_ALL/images/logo.gif<strong>[/img][/url]</strong><br /><br />would generate:<br /><br /><a href="http://www.google.com/"><img src="http://www.google.com/intl/en_ALL/images/logo.gif" alt="" /></a>'
+		0 => 'Adding an Image to a Post',
+		1 => '<ul>phpBB BBCode Incorporates a Tag for Including Images in your Posts. Two Very Important things to remember when using this Tag are:<br /><br />
+
+        Many Users DO NOT appreciate lots of Images being Shown in Posts, Secondly the Image you Display must already be Available on the Internet (it can NOT Exist Only on your Computer for example, unless you run a Web Server!).<br /><br />
+
+        To Display an Image you must Surround the URL Pointing to the Image with <strong>[img][/img]</strong> Tags.<br /><br />
+
+        For example:<br /><br />
+
+        <strong>[img]</strong>http://www.google.com/intl/en_ALL/images/logo.gif<strong>[/img]</strong><br /><br />
+
+        As Noted in the URL Section above you can Wrap an Image in a <strong>[url][/url]</strong> Tag if you wish:<br /><br />
+
+        For example:<br /><br />
+
+        <strong>[url=http://www.google.com/][img]</strong>http://www.google.com/intl/en_ALL/images/logo.gif<strong>[/img][/url]</strong><br /><br /><br /><br />
+
+        Would Generate:<br /><br />
+
+        <a href="http://www.google.com/"><img src="http://www.google.com/intl/en_ALL/images/logo.gif" alt="" /></a>
+        </ul><br />'
 	),
+
 	array(
-		0 => 'Adding attachments into a post',
-		1 => 'Attachments can now be placed in any part of a post by using the new <strong>[attachment=][/attachment]</strong> BBCode, if the attachments functionality has been enabled by a board administrator and if you are given the appropriate permissions to create attachments. Within the posting screen is a drop-down box (respectively a button) for placing attachments inline.'
+		0 => 'Adding Attachments into a Post',
+		1 => '<ul>Attachments can now be placed in any part of a Post by using the New <strong>[attachment=][/attachment]</strong> BBCode.  If the Attachments Functionality has been Enabled by a Board Administrator and if you are given the Appropriate Permissions to Create Attachments. Within the Posting Screen is a Drop Down Box (respectively a Button) for Placing Attachments Inline.</ul><br />'
 	),
+
 	array(
 		0 => '--',
-		1 => 'Other matters'
+		1 => '<strong>Other Matters</strong>'
 	),
+
 	array(
-		0 => 'Can I add my own tags?',
-		1 => 'If you are an administrator on this board and have the proper permissions, you can add further BBCodes through the Custom BBCodes section.'
+		0 => 'Can I Add my own Tags?',
+		1 => '<ul>If you are an Administrator on this Board and have the Proper Permissions, you can Add further BBCodes through the Custom BBCodes Section.</ul><br />'
 	)
 );
 
