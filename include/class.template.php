@@ -47,6 +47,7 @@ class Template {
 	global $theme, $phpEx, $pmbt_cache;
 	$this->expire = $pmbt_cache->theme_expire;
 	$this->cache_dir = $pmbt_cache->cache_dir;
+	$this->cachepath = $pmbt_cache->cache_dir;
 	if($file){
         $this->file = $this->check_file($file);
 		}
@@ -143,16 +144,41 @@ class Template {
      *
      * @param $file string the template file name
      */
+	function destroy_block_vars($blockname)
+	{
+		if (strpos($blockname, '.') !== false)
+		{
+			// Nested block.
+			$blocks = explode('.', $blockname);
+			$blockcount = sizeof($blocks) - 1;
+
+			$str = &$this->_tpldata;
+			for ($i = 0; $i < $blockcount; $i++)
+			{
+				$str = &$str[$blocks[$i]];
+				$str = &$str[sizeof($str) - 1];
+			}
+
+			unset($str[$blocks[$blockcount]]);
+		}
+		else
+		{
+			// Top-level block.
+			unset($this->_tpldata[$blockname]);
+		}
+
+		return true;
+	}
 	function destroy()
 	{
 		$this->_tpldata = array('.' => array(0 => array()));
 	}
 	function _tpl_load(&$handle)
 	{
-		global $user, $phpEx, $config;
+		global $user, $phpEx, $config,$theme;
 
 		$filename = $this->cachepath . str_replace('/', '.', $this->filename[$handle]) . '.' . $phpEx;
-		$this->files_template[$handle] = $user->theme;
+		$this->files_template[$handle] = $user->theme . '\'';
 		
 		$recompile = false;
 		//die($filename);
@@ -176,7 +202,8 @@ class Template {
 		{
 			return $filename;
 		}
-		$data = $this->compile(trim(file_get_contents($this->files[$handle])));
+		//die("themes/".$theme."/templates/".$this->files[$handle]);
+		$data = $this->compile(trim(file_get_contents("themes/".$theme."/templates".$this->files[$handle])));
 		//die(str_replace($this->root . '/','',$this->files[$handle]));
 		$this->compiled_code[$handle] = $data;
 		//die($this->compiled_code);

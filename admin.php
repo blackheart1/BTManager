@@ -296,8 +296,13 @@ else
 						{
 							trigger_error($user->lang['NO_AUTH_OPERATION'] . adm_back_link($this->u_action), E_USER_WARNING);
 						}
-
-						$db->sql_query("UPDATE ".$db_prefix."_config SET `start_date ` =  NOW()");
+						$start = date("Y-m-d H:i:s");
+						$db->sql_query("UPDATE ".$db_prefix."_config SET `start_date ` =  '" . $start . "'");
+						$pmbt_cache->remove_file("sql_".md5("config").".php");
+						$sql = "SELECT * FROM ".$db_prefix."_config LIMIT 1;";
+						$configquery = $db->sql_query($sql);
+						if (!$row = $db->sql_fetchrow($configquery)) die("phpMyBitTorrent not correctly installed! Ensure you have run setup.php or config_default.sql!!");
+						$pmbt_cache->set_sql("config", $row);
 						add_log('admin', 'LOG_RESET_DATE');
 					break;
 

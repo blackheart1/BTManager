@@ -103,29 +103,29 @@ include_once 'include/class.bbcode.php';
 					$cfgrow = $config;
 					$user->set_lang('admin/acp_forum_configs',$user->ulanguage);
 					drawRow("forumsettings","text", false ,'Forum Settings');
-					drawRow("forum_open","select",$user->lang["YES_NO_TF"]);
+					drawRow("forum_open","select",$user->lang["YES_NO_NUM"]);
 					drawRow("board_disable_msg","text");
-					drawRow("email_enable","select",$user->lang["YES_NO_TF"]);
+					drawRow("email_enable","select",$user->lang["YES_NO_NUM"]);
 					drawRow("topics_per_page","text");
 					drawRow("postsper_page","text");
 					drawRow("max_post_length","text");
-					drawRow("show_latest_topic","select",$user->lang["YES_NO_TF"]);
+					drawRow("show_latest_topic","select",$user->lang["YES_NO_NUM"]);
 					drawRow("search_word_min","text");
-					drawRow("allow_bookmarks","select",$user->lang["YES_NO_TF"]);
-					drawRow("shout_new_topic","select",$user->lang["YES_NO_TF"]);
-					drawRow("shout_new_post","select",$user->lang["YES_NO_TF"]);
-					drawRow("allow_smilies","select",$user->lang["YES_NO_TF"]);
-					drawRow("allow_bbcode","select",$user->lang["YES_NO_TF"]);
-					drawRow("allow_signatures","select",$user->lang["YES_NO_TF"]);
-					//drawRow("allow_disable_censor","select",$user->lang["YES_NO_TF"]);
-					drawRow("allow_attachments","select",$user->lang["YES_NO_TF"]);
+					drawRow("allow_bookmarks","select",$user->lang["YES_NO_NUM"]);
+					drawRow("shout_new_topic","select",$user->lang["YES_NO_NUM"]);
+					drawRow("shout_new_post","select",$user->lang["YES_NO_NUM"]);
+					drawRow("allow_smilies","select",$user->lang["YES_NO_NUM"]);
+					drawRow("allow_bbcode","select",$user->lang["YES_NO_NUM"]);
+					drawRow("allow_signatures","select",$user->lang["YES_NO_NUM"]);
+					//drawRow("allow_disable_censor","select",$user->lang["YES_NO_NUM"]);
+					drawRow("allow_attachments","select",$user->lang["YES_NO_NUM"]);
 					drawRow("flood_intervals","textplus",$user->lang["SEL_TIME_B"],false,'set_flood_intervals');
 					drawRow("bump_intervals","textplus",$user->lang["SEL_TIME_A"],false,'set_bump_intervals');
-					drawRow("img_display_inlined","select",$user->lang["YES_NO_TF"]);
+					drawRow("img_display_inlined","select",$user->lang["YES_NO_NUM"]);
 					drawRow("img_link_width","text");
 					drawRow("img_link_height","text");
-					drawRow("enable_urls","select",$user->lang["YES_NO_TF"]);
-					drawRow("allow_quick_reply","select",$user->lang["YES_NO_TF"]);
+					drawRow("enable_urls","select",$user->lang["YES_NO_NUM"]);
+					drawRow("allow_quick_reply","select",$user->lang["YES_NO_NUM"]);
 					drawRow("max_post_font_size","text");
 					drawRow("max_attachments","text");
 					drawRow("min_post_chars","text");
@@ -136,13 +136,13 @@ include_once 'include/class.bbcode.php';
 					drawRow("max_post_urls","text");
 					drawRow("max_post_smilies","text");
 					drawRow("max_quote_depth","text");
-					drawRow("load_search","select",$user->lang["YES_NO_TF"]);
-					drawRow("board_hide_emails","select",$user->lang["YES_NO_TF"]);
-					drawRow("allow_birthdays","select",$user->lang["YES_NO_TF"]);
-					drawRow("display_last_edited","select",$user->lang["YES_NO_TF"]);
-					drawRow("load_moderators","select",$user->lang["YES_NO_TF"]);
-					drawRow("allow_post_flash","select",$user->lang["YES_NO_TF"]);
-					drawRow("enable_queue_trigger","select",$user->lang["YES_NO_TF"]);
+					drawRow("load_search","select",$user->lang["YES_NO_NUM"]);
+					drawRow("board_hide_emails","select",$user->lang["YES_NO_NUM"]);
+					drawRow("allow_birthdays","select",$user->lang["YES_NO_NUM"]);
+					drawRow("display_last_edited","select",$user->lang["YES_NO_NUM"]);
+					drawRow("load_moderators","select",$user->lang["YES_NO_NUM"]);
+					drawRow("allow_post_flash","select",$user->lang["YES_NO_NUM"]);
+					drawRow("enable_queue_trigger","select",$user->lang["YES_NO_NUM"]);
 					drawRow("queue_trigger_posts","text");
 						$hidden = build_hidden_fields(array(
 							'update'	=> 'save',
@@ -605,34 +605,21 @@ include_once 'include/class.bbcode.php';
 				$display_last_edited = request_var('sub_display_last_edited', '');
 				$load_moderators = request_var('sub_load_moderators', '');
 				$allow_post_flash = request_var('sub_allow_post_flash', '');
+				$allow_quick_reply = request_var('sub_allow_quick_reply', '');
 				$enable_queue_trigger = request_var('sub_enable_queue_trigger', '');
+				//die($allow_post_flash . '  ' . $config['allow_post_flash']);
 				$queue_trigger_posts = request_var('sub_queue_trigger_posts', '0');
 				//die($forum_open);
-				if($forum_open){
-					set_config("forum_open",($forum_open == 'false'? "false" : "true"));
-						$sqlfields[] = ($forum_open == 'false'? "false" : "true");
-						$sqlvalues[] = "forum_open";
-				}
-				else
-					$errors[] = "1";
+					set_config("forum_open",(!$forum_open ? "0" : "1"));
+					set_config("allow_quick_reply",(!$allow_quick_reply ? "0" : "1"));
 
 					set_config("board_disable_msg",$board_disable_msg);
-					$sqlfields[] = $board_disable_msg;
-					$sqlvalues[] = "board_disable_msg";
 
-				if($email_enable){
-					set_config("email_enable",(($email_enable == 'false')? "false" : "true"));
-					$sqlfields[] = (($email_enable == 'false')? "false" : "true");
-					$sqlvalues[] = "email_enable";
-				}
-				else
-					$errors[] = "1";
+					set_config("email_enable",((!$email_enable)? "0" : "1"));
 
 				if($topics_per_page){
 					if(is_numeric($topics_per_page)){
 					set_config("topics_per_page",$topics_per_page);
-						$sqlfields[] = $topics_per_page;
-						$sqlvalues[] = "topics_per_page";
 					}
 					else
 						$errors[] = "Topics Perpage not Numeric";
@@ -665,13 +652,7 @@ include_once 'include/class.bbcode.php';
 				else
 					$errors[] = "max_post_length";
 
-				if($show_latest_topic){
-					set_config("show_latest_topic",(($show_latest_topic == 'false')? "false" : "true"));
-					$sqlfields[] = (($show_latest_topic == 'false')? "false" : "true");
-					$sqlvalues[] = "show_latest_topic";
-				}
-				else
-					$errors[] = "1";
+					set_config("show_latest_topic",((!$show_latest_topic)? "0" : "1"));
 
 				if($search_word_min >= 0){
 					if(is_numeric($search_word_min)){
@@ -685,54 +666,14 @@ include_once 'include/class.bbcode.php';
 				else
 					$errors[] = "search_word_min";
 
-				if($allow_bookmarks){
-					set_config("allow_bookmarks",(($allow_bookmarks == 'false')? 0 : 1));
-					$sqlfields[] = (($allow_bookmarks == 'false')? "false" : "true");
-					$sqlvalues[] = "allow_bookmarks";
-				}
-				else
-					$errors[] = "1";
+					set_config("allow_bookmarks",((!$allow_bookmarks)? 0 : 1));
 
-				if($shout_new_topic){
-					set_config("shout_new_topic",(($shout_new_topic == 'false')? 0 : 1));
-					$sqlfields[] = (($shout_new_topic == 'false')? "false" : "true");
-					$sqlvalues[] = "shout_new_topic";
-				}
-				else
-					$errors[] = "1";
+					set_config("shout_new_topic",((!$shout_new_topic)? 0 : 1));
+					set_config("shout_new_post",((!$shout_new_post)? 0 : 1));
+					set_config("allow_smilies",((!$allow_smilies)? 0 : 1));
+					set_config("allow_bbcode",((!$allow_bbcode)? 0 : 1));
 
-				if($shout_new_post){
-					set_config("shout_new_post",(($shout_new_post == 'false')? 0 : 1));
-					$sqlfields[] = (($shout_new_post == 'false')? "false" : "true");
-					$sqlvalues[] = "shout_new_post";
-				}
-				else
-					$errors[] = "1";
-
-				if($allow_smilies){
-					set_config("allow_smilies",(($allow_smilies == 'false')? 0 : 1));
-					$sqlfields[] = (($allow_smilies == 'false')? "false" : "true");
-					$sqlvalues[] = "allow_smilies";
-				}
-				else
-					$errors[] = "1";
-
-				if($allow_bbcode){
-					set_config("allow_bbcode",(($allow_bbcode == 'false')? 0 : 1));
-					$sqlfields[] = (($allow_bbcode == 'false')? "false" : "true");
-					$sqlvalues[] = "allow_bbcode";
-				}
-				else
-					$errors[] = "1";
-
-				if($allow_signatures){
-					set_config("allow_signatures",(($allow_signatures == 'false')? 0 : 1));
-					$sqlfields[] = (($allow_signatures == 'false')? "false" : "true");
-					$sqlvalues[] = "allow_signatures";
-				}
-				else
-					$errors[] = "1";
-
+					set_config("allow_signatures",((!$allow_signatures)? 0 : 1));
 				/*if($allow_disable_censor){
 					set_config("allow_disable_censor",(($allow_disable_censor == 'false')? 0 : 1));
 					$sqlfields[] = (($allow_disable_censor == 'false')? "false" : "true");
@@ -741,14 +682,7 @@ include_once 'include/class.bbcode.php';
 				else
 					$errors[] = "1";*/
 
-				if($allow_attachments){
-					set_config("allow_attachments",(($allow_attachments == 'false')? 0 : 1));
-					$sqlfields[] = (($allow_attachments == 'false')? "false" : "true");
-					$sqlvalues[] = "allow_attachments";
-				}
-				else
-					$errors[] = "1";
-
+					set_config("allow_attachments",((!$allow_attachments)? 0 : 1));
 				if($flood_intervals >= 0){
 					if(is_numeric($flood_intervals)){
 					set_config("flood_intervals",$flood_intervals);
@@ -763,17 +697,13 @@ include_once 'include/class.bbcode.php';
 
 				if($set_flood_intervals){
 					set_config("set_flood_intervals",(($set_flood_intervals == 'm')? "m" : "s"));
-					$sqlfields[] = (($set_flood_intervals == 'm')? "m" : "s");
-					$sqlvalues[] = "set_flood_intervals";
 				}
 				else
-					$errors[] = "1";
+					$errors[] = "4";
 
 				if($bump_intervals >= 0){
 					if(is_numeric($bump_intervals)){
 					set_config("bump_intervals",$bump_intervals);
-					$sqlfields[] = $bump_intervals;
-					$sqlvalues[] = "bump_intervals";
 					}
 					else
 					$errors[] = "Topics Perpage not Numeric";
@@ -783,20 +713,11 @@ include_once 'include/class.bbcode.php';
 				
 				if($set_bump_intervals){
 					set_config("set_bump_intervals",(($set_bump_intervals == 'm')? "m" : (($set_bump_intervals == 'h')? "h" : "d")));
-					$sqlfields[] = (($set_bump_intervals == 'm')? "m" : (($set_bump_intervals == 'h')? "h" : "d"));
-					$sqlvalues[] = "bump_type";
 				}
 				else
-					$errors[] = "1";
+					$errors[] = "5";
 				
-				if($img_display_inlined){
-					set_config("img_display_inlined",(($img_display_inlined == 'false')? "false" : "true"));
-					$sqlfields[] = (($img_display_inlined == 'false')? "false" : "true");
-					$sqlvalues[] = "img_display_inlined";
-				}
-				else
-					$errors[] = "1";
-				
+					set_config("img_display_inlined",((!$img_display_inlined)? "0" : "1"));
 				if($img_link_width >= 0){
 					if(is_numeric($img_link_width)){
 					set_config("img_link_width",$img_link_width);
@@ -821,14 +742,7 @@ include_once 'include/class.bbcode.php';
 				else
 					$errors[] = "img_link_height";
 				
-				if($enable_urls){
-					set_config("enable_urls",(($enable_urls == 'false')? 0 : 1));
-					$sqlfields[] = (($enable_urls == 'false')? "false" : "true");
-					$sqlvalues[] = "enable_urls";
-				}
-				else
-					$errors[] = "1";
-				
+					set_config("enable_urls",((!$enable_urls)? 0 : 1));
 				if($max_post_font_size >= 0){
 					if(is_numeric($max_post_font_size)){
 					set_config("max_post_font_size",$max_post_font_size);
@@ -949,62 +863,13 @@ include_once 'include/class.bbcode.php';
 				else
 					$errors[] = "max_quote_depth";
 				
-				if($load_search){
-					set_config("load_search",(($load_search == 'false')? 0 : 1));
-					$sqlfields[] = (($load_search == 'false')? "false" : "true");
-					$sqlvalues[] = "load_search";
-				}
-				else
-					$errors[] = "1";
-				
-				if($board_hide_emails){
-					set_config("board_hide_emails",(($board_hide_emails == 'false')? 0 : 1));
-					$sqlfields[] = (($board_hide_emails == 'false')? "false" : "true");
-					$sqlvalues[] = "board_hide_emails";
-				}
-				else
-					$errors[] = "1";
-				
-				if($allow_birthdays){
-					set_config("allow_birthdays",(($allow_birthdays == 'false')? 0 : 1));
-					$sqlfields[] = (($allow_birthdays == 'false')? "false" : "true");
-					$sqlvalues[] = "allow_birthdays";
-				}
-				else
-					$errors[] = "1";
-				
-				if($display_last_edited){
-					set_config("display_last_edited",(($display_last_edited == 'false')? 0 : 1));
-					$sqlfields[] = (($display_last_edited == 'false')? "false" : "true");
-					$sqlvalues[] = "display_last_edited";
-				}
-				else
-					$errors[] = "1";
-				
-				if($load_moderators){
-					set_config("load_moderators",(($load_moderators == 'false')? 0 : 1));
-					$sqlfields[] = (($load_moderators == 'false')? "false" : "true");
-					$sqlvalues[] = "load_moderators";
-				}
-				else
-					$errors[] = "1";
-				
-				if($allow_post_flash){
-					set_config("allow_post_flash",(($allow_post_flash == 'false')? 0 : 1));
-					$sqlfields[] = (($allow_post_flash == 'false')? "false" : "true");
-					$sqlvalues[] = "allow_post_flash";
-				}
-				else
-					$errors[] = "1";
-				
-				if($enable_queue_trigger){
-					set_config("enable_queue_trigger",(($enable_queue_trigger == 'false')? 0 : 1));
-					$sqlfields[] = (($enable_queue_trigger == 'false')? "false" : "true");
-					$sqlvalues[] = "enable_queue_trigger";
-				}
-				else
-					$errors[] = "1";
-				
+					set_config("load_search",((!$load_search)? 0 : 1));
+					set_config("board_hide_emails",((!$board_hide_emails)? 0 : 1));
+					set_config("allow_birthdays",((!$allow_birthdays)? 0 : 1));
+					set_config("display_last_edited",((!$display_last_edited)? 0 : 1));
+					set_config("load_moderators",((!$load_moderators)? 0 : 1));
+					set_config("allow_post_flash",((!$allow_post_flash)? 0 : 1));
+					set_config("enable_queue_trigger",((!$enable_queue_trigger)? 0 : 1));
 				if($queue_trigger_posts >= 0){
 					if(is_numeric($queue_trigger_posts)){
 					set_config("queue_trigger_posts",(($queue_trigger_posts == 'false')? 0 : 1));

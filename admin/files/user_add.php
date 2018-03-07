@@ -16,7 +16,7 @@
 **
 ** CHANGES
 **
-** EXAMPLE 26-04-13 - Added Auto Ban
+** 04-03-2018 fix error in default group
 **/
 if (!defined('IN_PMBT'))
 {
@@ -42,7 +42,7 @@ $default_group = $db->sql_fetchrow($res);
 	        $seed						= request_var('seed', '0.0');
 	        $invite						= request_var('invite', '0');
 	        $active						= request_var('active', 0);
-	        $group						= request_var('group', $default_group[0]);
+	        $group						= request_var('group', $default_group['group_id']);
 	        $level						= request_var('level', 1);
 			$lev_sel = array('user','user','premium','moderator','admin');
 			if($level==4 AND !$user->admin) $level = ($level -1);
@@ -192,7 +192,7 @@ $template->assign_vars(array(
         'L_TITLE'					=> $user->lang["NEW_USER_CREAT"],
         'L_EXPLANE'					=> $user->lang["NEW_USER_CREAT_EXP"],
 		'U_ACTION_NEW'				=> $u_action,
-		'GROUPS'					=> group_select_options_id($default_group[0], false, false),
+		'GROUPS'					=> group_select_options_id($default_group['group_id'], false, false),
 		'S_LEVELS'					=>	$level_sel,
 		'ACTIVE'					=> '<option  class="sep" value="1">' . $user->lang["YES"] . '</option><option  class="sep" value="0">' . $user->lang["NO"] . '</option>',
 		'HIDDEN'					=> $s_hidden_fields,

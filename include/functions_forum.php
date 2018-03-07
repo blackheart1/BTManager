@@ -240,7 +240,9 @@ function parse_attachments($forum_id, &$message, &$attachments, &$update_count, 
 
 	if (!isset($template->filename['attachment_tpl']))
 	{
-		$template->check_file('attachment.html');
+		$template->set_filenames(array(
+			'attachment_tpl'	=> 'attachment.html')
+		);
 	}
 
 	if (empty($extensions) || !is_array($extensions))
@@ -312,14 +314,14 @@ function parse_attachments($forum_id, &$message, &$attachments, &$update_count, 
 		}
 
 		// We need to reset/empty the _file block var, because this function might be called more than once
-		//$template->destroy_block_vars('_file');
+		$template->destroy_block_vars('_file');
 
 		$block_array = array();
 
 		// Some basics...
 		$attachment['extension'] = strtolower(trim($attachment['extension']));
-		$filename = $attach_config['upload_path'] . '/' . utf8_basename($attachment['physical_filename']);
-		$thumbnail_filename = $attach_config['upload_path'] . '/thumb_' . utf8_basename($attachment['physical_filename']);
+		$filename = $config['upload_path'] . '/' . utf8_basename($attachment['physical_filename']);
+		$thumbnail_filename = $config['upload_path'] . '/thumb_' . utf8_basename($attachment['physical_filename']);
 
 		$upload_icon = '';
 
@@ -331,7 +333,7 @@ function parse_attachments($forum_id, &$message, &$attachments, &$update_count, 
 			}
 			else if ($extensions[$attachment['extension']]['upload_icon'])
 			{
-				$upload_icon = '<img src="' . $phpbb_root_path . 'files/' . trim($extensions[$attachment['extension']]['upload_icon']) . '" alt="" />';
+				$upload_icon = '<img src="' . $phpbb_root_path . $config['upload_path'] . '/' . trim($extensions[$attachment['extension']]['upload_icon']) . '" alt="" />';
 				
 			}
 		}
@@ -408,7 +410,6 @@ function parse_attachments($forum_id, &$message, &$attachments, &$update_count, 
 			}*/
 
 			$download_link = append_sid("{$siteurl}/file.$phpEx", 'id=' . $attachment['attach_id']);
-
 			switch ($display_cat)
 			{
 				// Images
@@ -506,10 +507,12 @@ function parse_attachments($forum_id, &$message, &$attachments, &$update_count, 
 				'L_DOWNLOAD_COUNT'		=> $l_download_count
 			);
 		}
+		//unset($template->_tpldata['_file']);
 		$template->assign_block_vars('_file', $block_array);
-		$compiled_attachments[] = $template->fetch('attachment.html');
+		$compiled_attachments[] = $template->assign_display('attachment_tpl');
 	}
 	$attachments = $compiled_attachments;
+//print_r($attachments);
 	unset($compiled_attachments);
 
 	$tpl_size = sizeof($attachments);
@@ -722,7 +725,7 @@ function posting_gen_attachment_entry($attachment_data, &$filename_data, $show_a
 				$hidden .= '<input type="hidden" name="attachment_data[' . $count . '][' . $key . ']" value="' . $value . '" />';
 			}
 
-			$download_link = append_sid("{$phpbb_root_path}download/file.$phpEx", 'mode=view&amp;id=' . (int) $attach_row['attach_id'], true, ($attach_row['is_orphan']) ? $user->session_id : false);
+			$download_link = append_sid("{$phpbb_root_path}file.$phpEx", 'mode=view&amp;id=' . (int) $attach_row['attach_id'], true, ($attach_row['is_orphan']) ? $user->session_id : false);
 
 			$template->assign_block_vars('attach_row', array(
 				'FILENAME'			=> $attach_row['real_filename'],

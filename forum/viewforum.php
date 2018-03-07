@@ -86,14 +86,23 @@ if (isset($_GET['e']) && !$user->user)
 	$mes .= $user->lang['LOGIN_NOTIFY_FORUM'];
 			$gfximage = '';
                 if ($gfx_check) {
+					if($recap_puplic_key)
+					{
+							   $template->assign_vars(array(
+										'META'						=> "<script src='https://www.google.com/recaptcha/api.js'></script>",
+										'RECAPTCHA'					=>	$recap_puplic_key,
+                                ));
+                        //$gfximage = recaptcha_get_html($recap_puplic_key, null, $recap_https);
+					}else{
                         $rnd_code = strtoupper(RandomAlpha(5));
 						$hidden ['gfxcheck'] = md5($rnd_code);
                         $gfximage = "<img src=\"gfxgen.php?code=".base64_encode($rnd_code)."\">";
+					}
                 }
 				$hidden['op'] = 'login';
-				$hidden['returnto'] = $rd;
+				$hidden['returnto'] = $redirect;
 							   $template->assign_vars(array(
-							   			'U_ACTION'					=>	'user' . $phpEx,
+							   			'U_ACTION'					=>	'login.' . $phpEx,
 							   			'S_ERROR'					=>	true,
 										'S_ERROR_MESS'				=>	$mes,
 										'S_GFX_CHECK'				=>	($gfx_check)? $gfximage : false,
@@ -122,14 +131,23 @@ if (!acl_gets('f_list', 'f_read', $forum_id) || ($forum_data['forum_type'] == 2 
 	$mes .= $user->lang['LOGIN_VIEWFORUM'];
 			$gfximage = '';
                 if ($gfx_check) {
+					if($recap_puplic_key)
+					{
+							   $template->assign_vars(array(
+										'META'						=> "<script src='https://www.google.com/recaptcha/api.js'></script>",
+										'RECAPTCHA'					=>	$recap_puplic_key,
+                                ));
+                        //$gfximage = recaptcha_get_html($recap_puplic_key, null, $recap_https);
+					}else{
                         $rnd_code = strtoupper(RandomAlpha(5));
 						$hidden ['gfxcheck'] = md5($rnd_code);
                         $gfximage = "<img src=\"gfxgen.php?code=".base64_encode($rnd_code)."\">";
+					}
                 }
 				$hidden['op'] = 'login';
-				$hidden['returnto'] = $rd;
+				$hidden['returnto'] = $redirect;
 							   $template->assign_vars(array(
-							   			'U_ACTION'					=>	'user' . $phpEx,
+							   			'U_ACTION'					=>	'login.' . $phpEx,
 							   			'S_ERROR'					=>	true,
 										'S_ERROR_MESS'				=>	$mes,
 										'S_GFX_CHECK'				=>	($gfx_check)? $gfximage : false,

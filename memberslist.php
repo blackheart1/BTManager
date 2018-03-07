@@ -29,6 +29,7 @@ else
 require_once("common.php");
 require_once("include/torrent_functions.php");
 include_once("include/utf/utf_tools.php");
+include_once("include/class.bbcode.php");
 $template = new Template();
 $user->set_lang('memberslist',$user->ulanguage);
 set_site_var($user->lang['TITLE']);
@@ -68,6 +69,7 @@ switch ($mode)
 }
 
 $start	= request_var('page', 0);
+//$start	= $torrent_per_page * ($start == '0')? '1' : $start;
 $submit = (isset($_POST['submit'])) ? true : false;
 
 $default_key = 'c';
@@ -948,7 +950,7 @@ switch ($mode)
 			$template->assign_vars(array(
 				'EMAIL'				=> $email,
 				'NAME'				=> $name,
-				'S_LANG_OPTIONS'	=> language_select($email_lang),
+				'S_LANG_OPTIONS'	=> 'english',//language_select($email_lang),
 
 				'L_EMAIL_BODY_EXPLAIN'	=> $user->lang['EMAIL_TOPIC_EXPLAIN'],
 				'S_POST_ACTION'			=> append_sid("{$phpbb_root_path}memberslist.$phpEx", 'mode=email&amp;t=' . $topic_id))
@@ -1479,8 +1481,11 @@ switch ($mode)
 			WHERE u.user_type IN (0, 3)
 				$sql_where
 			ORDER BY $order_by";
-			//die($sql . ' LIMIT ' . $start . ',5');
-		$result = $db->sql_query($sql . ' LIMIT ' . $start . ',' . $torrent_per_page);
+			if(!$start == '0')$page = $torrent_per_page*($start-1);
+			else
+			$page = 0;
+			//die($sql . ' LIMIT ' . $page . ', ' . $torrent_per_page);
+		$result = $db->sql_query($sql . ' LIMIT ' . $page . ',' . $torrent_per_page);
 
 		$user_list = array();
 		while ($row = $db->sql_fetchrow($result))
@@ -1596,8 +1601,8 @@ switch ($mode)
 
 		// Generate page
 		$template->assign_vars(array(
-			'PAGINATION'	=> generate_pagination($pagination_url, $total_users, $torrent_per_page, $start),
-			'PAGE_NUMBER'	=> on_page($total_users, $torrent_per_page, $start),
+			'PAGINATION'	=> generate_pagination($pagination_url, $total_users, $torrent_per_page, $page),
+			'PAGE_NUMBER'	=> on_page($total_users, $torrent_per_page, $page),
 			'TOTAL_USERS'	=> ($total_users == 1) ? $user->lang['LIST_USER'] : sprintf($user->lang['LIST_USERS'], $total_users),
 
 			'PROFILE_IMG'	=> $user->img('icon_user_profile', $user->lang['PROFILE']),

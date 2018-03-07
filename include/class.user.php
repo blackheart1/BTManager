@@ -477,7 +477,7 @@ class User {
                                 $this->id = $row["id"];
                                 $this->name = $row["username"];
                                 $this->level = $row["level"];
-                                $this->theme = (($row["theme"])? $row["theme"] : $theme);
+                                $this->theme = (($row["theme"] AND $row["theme"] != 'NULL')? $row["theme"] : $theme);
                                 $this->email = $row["email"];
 								if(isset($_COOKIE["bttestperm"]) AND $row["level"]== "admin")$this->group = $_COOKIE["bttestperm"];
 								else
@@ -561,7 +561,7 @@ class User {
                                 $this->name = $row["username"];
                                 $this->nick = $row["name"];
                                 $this->level = $row["level"];
-                                $this->theme = (($row["theme"])? $row["theme"] : $theme);
+                                $this->theme = (($row["theme"] AND $row["theme"] != 'NULL')? $row["theme"] : $theme);
 								if(isset($_COOKIE["bttestperm"]) AND $row["level"]== "admin")$this->group = $_COOKIE["bttestperm"];
 								else
                                 $this->group = $row["can_do"];
