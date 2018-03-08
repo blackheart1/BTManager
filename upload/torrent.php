@@ -87,7 +87,7 @@ if (!defined('IN_PMBT'))
 	$template->assign_vars(array(
 		'L_TITLE_TABLE'				=> $user->lang['UPLOAD_TABLE'],
 		'L_INTRO_TORRENT'			=> $user->lang['INTRO_TORRENT'],
-		'L_INTRO_TORRENT_EXP'		=> sprintf($user->lang['INTRO_TORRENT_EXP'],$announce_url),
+		'L_INTRO_TORRENT_EXP'		=> sprintf($user->lang['INTRO_TORRENT_EXP'], '<br>' . implode('<br>', $site_announce)),
 		'ALOW_POSTER'				=> checkaccess("u_add_poster"),
 		'ALOW_SCREEN_SHOT'			=> checkaccess("u_add_screen_shots"),
 		'ALOW_NFO'					=> checkaccess("u_add_nfo"),
