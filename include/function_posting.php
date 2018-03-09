@@ -1293,11 +1293,11 @@ function submit_post($mode, $subject, $username, $topic_type, &$poll, &$data, $u
 			}
 			$db->sql_freeresult($result);
 		}
-
 		foreach ($data['attachment_data'] as $pos => $attach_row)
 		{
 			if ($attach_row['is_orphan'] && !isset($orphan_rows[$attach_row['attach_id']]))
 			{
+//die(print_r($orphan_rows));
 				continue;
 			}
 
@@ -1308,13 +1308,15 @@ function submit_post($mode, $subject, $username, $topic_type, &$poll, &$data, $u
 					SET attach_comment = '" . $db->sql_escape($attach_row['attach_comment']) . "'
 					WHERE attach_id = " . (int) $attach_row['attach_id'] . '
 						AND is_orphan = 0';
+						//die($sql);
 				$db->sql_query($sql);
 			}
 			else
 			{
 				// insert attachment into db
-				if (!@file_exists('.'.$config['upload_path'] . '/' . basename($orphan_rows[$attach_row['attach_id']]['physical_filename'])))
+				if (!@file_exists($config['upload_path'] . '/' . basename($orphan_rows[$attach_row['attach_id']]['physical_filename'])))
 				{
+					//die('hold up');
 					continue;
 				}
 
@@ -1333,6 +1335,7 @@ function submit_post($mode, $subject, $username, $topic_type, &$poll, &$data, $u
 					WHERE attach_id = ' . $attach_row['attach_id'] . '
 						AND is_orphan = 1
 						AND poster_id = ' . $user->id;
+						//die($sql);
 				$db->sql_query($sql);
 			}
 		}
