@@ -18,7 +18,7 @@
 **
 ** EXAMPLE 26-04-13 - Added Auto Ban
 **/
-
+if (!defined('INSETUP'))die ("You can't access this file directly");
 echo "<p align=\"center\"><font size=\"5\">Please select your language:</font></p>\n";
 
 echo "<table width=\"100%\" border=\"0\" cellpadding=\"2\" cellspacing=\"2\">\n";

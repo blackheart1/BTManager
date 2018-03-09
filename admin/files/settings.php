@@ -53,12 +53,6 @@ $db->sql_freeresult($cfgres);
 							'U_TITLE' => append_sid("{$siteurl}/admin.$phpEx", 'i=siteinfo&amp;op=settings_pm'),
 							));
 							$template->assign_block_vars('l_block1.l_block2.l_block3',array(
-							'S_SELECTED'	=> ('settings_bbcode' ==$op)? true:false,
-							'IMG' => '',
-							'L_TITLE' => $user->lang['MENU_BBCODE'],
-							'U_TITLE' => append_sid("{$siteurl}/admin.$phpEx", 'i=siteinfo&amp;op=settings_bbcode'),
-							));
-							$template->assign_block_vars('l_block1.l_block2.l_block3',array(
 							'S_SELECTED'	=> ('sig_settings' ==$op)? true:false,
 							'IMG' => '',
 							'L_TITLE' => $user->lang['MENU_SIG_SETTINGS'],
