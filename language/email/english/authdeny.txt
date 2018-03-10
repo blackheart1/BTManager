@@ -1,11 +1,15 @@
 Hi $gr_name,
-we're sorry to inform you that user $granter refused your download request for the Torrent $gr_tname.
 
-You won't be able to download the Torrent until its owner gives you the authorization...
+We're sorry to inform you that User $granter Declined your Download Request for the Torrent $gr_tname.
 
-Remember that the Torrent Owner may change your authorizations at any time.
-You'll be sent a confirmation message at any authorization change for this and for any Torrent you requested to download.
+You won't be able to Download the Torrent until its Owner gives you the Authorization...
+
+Remember that the Torrent Owner may change your Authorizations at any time.
+
+You'll be sent a Confirmation Message at any Authorization change for this and for any Torrent you Requested to Download.
 
 Regards,
+
 $sitename Staff
+
 $siteurl

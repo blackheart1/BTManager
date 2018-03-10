@@ -291,4 +291,5 @@ $lang = array_merge($lang, array(
     'DISPLAY_STATS'      => 'Display Arcade Statistics in Arcade',
     'HOTLINK_LENGTH'     => 'Hotlink Protection Length',
 ));
+
 ?>

@@ -65,7 +65,7 @@ if (empty($lang) || !is_array($lang))
 }
 
 $lang = array_merge($lang, array(
-    'YES_NO_OPTION'             => array('1'=> 'Yes', '0' => 'No'),
+    'YES_NO_OPTION'             => array('1'=>'Yes', '0' =>'No'),
 
     'INTRO'                     => 'Offers Configuration',
     'INTRO_EXP'                 => 'Configure the Offers System',

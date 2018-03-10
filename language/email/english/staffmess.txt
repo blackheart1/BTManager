@@ -1,6 +1,6 @@
-Subject: {SUB_JECT} 
+Subject: {SUB_JECT}
 
-Message received from  {SENDER} on {SEND_DATE}  GMT.
+Message Received from  {SENDER} on {SEND_DATE}  GMT.
 ---------------------------------------------------------------------
 
 {STAFF_MESSAGE}

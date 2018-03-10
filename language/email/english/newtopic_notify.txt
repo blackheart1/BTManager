@@ -1,12 +1,12 @@
-Subject: New topic notification - "{FORUM_NAME}"
+Subject: New Topic Notification - "{FORUM_NAME}"
 
 Hello {USERNAME},
 
-You are receiving this notification because you are watching the forum, "{FORUM_NAME}" at "{SITENAME}". This forum has received a new topic<!-- IF AUTHOR_NAME !== '' --> by {AUTHOR_NAME}<!-- ENDIF --> since your last visit, "{TOPIC_TITLE}". You can use the following link to view the forum, no more notifications will be sent until you visit the forum.
+You are receiving this Notification because you are Watching the Forum, "{FORUM_NAME}" at "{SITENAME}". This Forum has received a New Topic<!-- IF AUTHOR_NAME !== '' --> by {AUTHOR_NAME}<!-- ENDIF --> since your last visit, "{TOPIC_TITLE}". You can use the following Link to View the Forum.  NO more Notifications will be sent until you Visit the Forum.
 
 {U_FORUM}
 
-If you no longer wish to watch this forum you can either click the "Unsubscribe forum" link found in the forum above, or by clicking the following link:
+If you NO longer wish to Watch this Forum you can either Click the "Unsubscribe Forum" Link found in the Forum above, or by Clicking the Following Link:
 
 {U_STOP_WATCHING_FORUM}
 

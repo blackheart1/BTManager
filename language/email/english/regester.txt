@@ -1,26 +1,35 @@
-Subject: {SUB_JECT} 
+Subject: {SUB_JECT}
 
 Hi {U_NAME},
 
-you have registered an account on {SITENAME}.
-This e-mail is supposed to verify that the registration indeed comes from the owner of this email account.
+You have Registered an Account on {SITENAME}.
 
-To activate your account on {SITENAME}, please click the following activation link (or copy&paste it to your browser):
-{REG_URL} 
-Once the registration has been confirmed, you will be able to log on to the site with the credentials you provided:
+This email is supposed to Verify that the Registration indeed comes from the Owner of this email Account.
+
+To Activate your Account on {SITENAME}, please Click the following Activation Link (or Copy & Paste it to your Browser):
+
+{REG_URL}
+
+Once the Registration has been Confirmed, you will be able to Log On to the Site with the Credentials you provided:
 
 ------------
 Username: {U_NAME}
 Password: {U_PASS_W}
 ------------
 
-Your account is strongly protected against attacks.
-Keep your password save.
-In case of loss, you will be required to change it.
-You should delete this message if you share your computer with other users.
-Time to start sharing. Thanks for joining {SITENAME},
+Your Account is Strongly Protected against Attacks.
 
-If you get this message without having requested registration to our services, please DO NOT click the above link.
-The account will not be activated and your data will soon be removed from our database.
+Keep your Password safe.
+
+In case of Loss, you will be Required to change it.
+
+You should Delete this Message if you Share your Computer with Other Users.
+
+Time to Start Sharing. Thanks for Joining {SITENAME},
+
+If you get this Message without having Requested Registration to our Services, please DO NOT click the above Link.
+
+The Account will Not be Activated and your Data will soon be Removed from our Database.
+
 
 {EMAIL_SIG}

@@ -1,12 +1,17 @@
 Hi $gr_name,
-we're glad to inform you that user $granter approved your download request for the Torrent $gr_tname.
 
-You can download it here:
+We're pleased to inform you that User $granter Approved your Download Request for the Torrent $gr_tname.
+
+You can Download it here:
+
 $siteurl/download.php?id=$gr_tid
 
-Remember that the Torrent owner may at any time change your authorizations.
-You'll be sent a confirmation message at any authorization change for this and for any other Torrent you requested to download.
+Remember that the Torrent Owner may at any time change your Authorizations.
+
+You'll be sent a Confirmation Message at any Authorization change for this and for any other Torrent you Requested to Download.
 
 Regards,
+
 $sitename Staff
+
 $siteurl

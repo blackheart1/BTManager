@@ -1,13 +1,13 @@
-Subject: Post approved - "{POST_SUBJECT}"
+Subject: Post Approved - "{POST_SUBJECT}"
 
 Hello {USERNAME},
 
-You are receiving this notification because your post "{POST_SUBJECT}" at "{SITENAME}" was approved by a moderator or administrator.
+You are receiving this Notification because your Post "{POST_SUBJECT}" at "{SITENAME}" was Approved by a Moderator or Administrator.
 
-If you want to view the post, click the following link:
+If you want to View the Post, Click the following Link:
 {U_VIEW_POST}
 
-If you want to view the topic, click the following link:
+If you want to View the Topic, Click the following Link:
 {U_VIEW_TOPIC}
 
 

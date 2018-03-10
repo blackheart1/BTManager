@@ -1,12 +1,13 @@
-Subject: {SUB_JECT} 
+Subject: {SUB_JECT}
 
 Hi,
 
-you are receiving this message because you requested to be notified when a new comment was added to the torrent titled
+You are receiving this Message because you Requested to be Notified when a New Comment was added to the Torrent titled
 {TOR_NAME} on {SITENAME}.
-Read the comment here: {TOR_URL}
 
-You will not be notified of any further comments on the torrent until you visit that page. You can also turn off notifications
-for the torrent altogether here: {TOR_URL_WATCH}
+Read the Comment Here: {TOR_URL}
+
+You will NOT be Notified of any further Comments on the Torrent until you Visit that page. You can also Turn Off Notifications
+for the Torrent altogether Here: {TOR_URL_WATCH}
 
 {EMAIL_SIG}
