@@ -27,6 +27,7 @@ if (!defined('IN_PMBT'))
     include_once './../../security.php';
     die ("You can't access this file directly");
 }
+
 if (empty($lang) || !is_array($lang))
 {
 	$lang = array();

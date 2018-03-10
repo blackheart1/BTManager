@@ -1,9 +1,10 @@
-Subject: A request to join your group has been made
+Subject: A Request to Join your Group has been made
 
 Dear {USERNAME},
 
-The user "{REQUEST_USERNAME}" has requested to join the group "{GROUP_NAME}" you moderate on "{SITENAME}".
-To approve or deny this request for group membership please visit the following link:
+The User "{REQUEST_USERNAME}" has Requested to Join the Group "{GROUP_NAME}" you Moderate on "{SITENAME}".
+
+To Approve or Deny this Request for Group Membership please visit the following Link:
 
 {U_PENDING}
 

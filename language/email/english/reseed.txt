@@ -1,11 +1,11 @@
 Dear $name,
-you are receiving this message because user $send sent you a requist for reseed on a torrent (($f_name)) on $sitename.
 
-You can read it at $siteurl/pm.php?mid=$mid2 
-or go here $tor for more info on $f_name after you logged in
+You are receiving this Message because User $send Sent you a Request for Reseed on Torrent (($f_name)) on $sitename.
 
-
+You can Read it at $siteurl/pm.php?mid=$mid2 or go Here $tor for more Information on $f_name after you logged in
 
 Regards,
+
 $sitename Staff
+
 $siteurl

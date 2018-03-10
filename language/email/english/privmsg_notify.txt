@@ -1,15 +1,15 @@
-Subject: New private message has arrived
+Subject: New Private Message has arrived
 
 Hello {USERNAME},
 
-You have received a new private message from "{AUTHOR_NAME}" to your account on "{SITENAME}" with the following subject:
+You have received a New Private Message from "{AUTHOR_NAME}" to your Account on "{SITENAME}" with the following Subject:
 
 {SUBJECT}
 
-You can view your new message by clicking on the following link:
+You can View your New Message by Clicking on the following Link:
 
 {U_VIEW_MESSAGE}
 
-You have requested that you be notified on this event, remember that you can always choose not to be notified of new messages by changing the appropriate setting in your profile.
+You have Requested that you be Notified on this Event, remember that you can always choose NOT to be Notified of New Messages by changing the appropriate Setting in your Profile.
 
 {EMAIL_SIG}

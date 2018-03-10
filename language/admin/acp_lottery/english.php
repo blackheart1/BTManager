@@ -65,9 +65,9 @@ if (empty($lang) || !is_array($lang))
 }
 
 $lang = array_merge($lang, array(
-        'YES_NO_TF'                      => array('1'=> 'Yes','0'=>'No'),
+        'YES_NO_TF'                      => array('1'=>'Yes','0'=>'No'),
         'YES_NO'                         => array('yes'=> 'Yes','no'=>'No'),
-        'GB_MB'                          => array('GB'=> 'GB','MB'=>'MB'),
+        'GB_MB'                          => array('GB'=>'GB','MB'=>'MB'),
 
         'AUTH_UPDATED'                   => 'Settings were Successfully Changed',
         'TITLE'                          =>	'Lottery Configuration',
@@ -75,6 +75,7 @@ $lang = array_merge($lang, array(
         'ERR_LOTTERY_OPEN'               =>	'Lottery Enabled',
         'ERR_LOTTERY_OPEN_EXP'           =>	'The Lottery is currently Enabled, so this Configuration Page is Closed.<br /><br />Users currently Playing in this Lottery, are: <br /> %s',
         'TABLE_OPEN'                     => 'The Lottery',
+
         '_admpenable'                    => 'Enable the Lottery',
         '_admpenableexplain'             => 'Once you have Enabled the Lottery you will NO longer be able to Edit it!<br />So make sure it is how you want before doing so.',
         '_admpuse_prize_fund'            => 'Use Prize Fund',

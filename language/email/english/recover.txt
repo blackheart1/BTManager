@@ -2,14 +2,17 @@ Subject: {SUB_JECT}
 
 Attention {USER_NAME},
 
-you are receiving this message because you requested a new password on {SITENAME}.
-Your new password is: 
+You are receiving this Message because you Requested a New Password on {SITENAME}.
+
+Your New Password is:
 
 {REG_PASS}
 
-For the change to become effective, you'll have to confirm it using the following link:
-{REG_URL} 
+For the change to become effective, you'll have to Confirm it using the following Link:
 
-If you did not intend to change your password, please disregard this message.
+{REG_URL}
+
+If you did NOT intend to Change your Password, please Disregard this Message.
+
 
 {EMAIL_SIG}

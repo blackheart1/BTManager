@@ -1,11 +1,13 @@
-Subject: You have been added to this usergroup
+Subject: You have been Added to this User Group
 
 Congratulations,
 
-You have been added to the "{GROUP_NAME}" group on "{SITENAME}".
-This action was done by a group leader or the site administrator, contact them for more information.
+You have been Added to the "{GROUP_NAME}" Group on "{SITENAME}".
 
-You can view your groups information here:
+This action was done by a Group Leader or the Site Administrator, contact them for more information.
+
+You can View your Groups Information Here:
+
 {U_GROUP}
 
 {EMAIL_SIG}

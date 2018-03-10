@@ -1,9 +1,11 @@
-Subject: {SUB_JECT} 
+Subject: {SUB_JECT}
 
 Hi,
-Your email Well be updated on Comfermation of this Notice
-Please click on the link below for new email.
-Or Copy and past it to your Browsers Navagation bar.
+
+Your email will be Updated on Confirmation of this Notice
+
+Please Click on the Link below for New email or Copy and Paste it to your Browsers Navigation bar.
+
 {U_BOARD}/user.php?op=confirmemail&user={U_ID}&mail_key={MAIL_KEY}
 
 
