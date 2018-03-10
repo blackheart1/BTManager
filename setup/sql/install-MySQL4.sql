@@ -171,29 +171,6 @@ CREATE TABLE IF NOT EXISTS `#prefix#_avps` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `torrent_banlist`
---
-
-CREATE TABLE IF NOT EXISTS `#prefix#_banlist` (
-  `ban_id` mediumint(8) unsigned NOT NULL auto_increment,
-  `ban_userid` mediumint(8) unsigned NOT NULL default '0',
-  `ban_ip` varchar(40) binary NOT NULL default '',
-  `ban_email` varchar(100) binary NOT NULL default '',
-  `ban_start` int(11) unsigned NOT NULL default '0',
-  `ban_end` int(11) unsigned NOT NULL default '0',
-  `ban_exclude` tinyint(1) unsigned NOT NULL default '0',
-  `ban_reason` varchar(255) binary NOT NULL default '',
-  `ban_give_reason` varchar(255) binary NOT NULL default '',
-  PRIMARY KEY  (`ban_id`),
-  KEY `ban_end` (`ban_end`),
-  KEY `ban_user` (`ban_userid`,`ban_exclude`),
-  KEY `ban_email` (`ban_email`,`ban_exclude`),
-  KEY `ban_ip` (`ban_ip`,`ban_exclude`)
-) TYPE=MyISAM  AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `torrent_bans`
 --
 
