@@ -40,9 +40,9 @@ define("WRONG_FILESIZE",'The File is too Big, Maximum Allowed Size is %1d %2s.')
 define("WRONG_SIZE",'The Image must be at least %1$d Pixels Wide, %2$d Pixels High and at most %3$d Pixels Wide and %4$d Pixels High. The Submitted Image is %5$d Pixels Wide and %6$d Pixels High.');
 
 define("EMPTY_FILEUPLOAD",'The Uploaded File is Empty.');
-define("PHP_SIZE_NA",'The Attachment’s File Size is too Large.<br />Could NOT determine the Maximum Size Defined by PHP in php.ini.');
+define("PHP_SIZE_NA",'The Attachment\'s File Size is too Large.<br />Could NOT determine the Maximum Size Defined by PHP in php.ini.');
 
-define("PHP_SIZE_OVERRUN",'The Attachment’s File Size is too Large, the Maximum Upload Size is %d MB.<br />Please Note this is Set in php.ini and can NOT be Overridden.');
+define("PHP_SIZE_OVERRUN",'The Attachment\'s File Size is too Large, the Maximum Upload Size is %d MB.<br />Please Note this is Set in php.ini and can NOT be Overridden.');
 
 define("NOT_UPLOADED",'File Could NOT be Uploaded.');
 define("URL_INVALID",'The URL you Specified is Invalid.');

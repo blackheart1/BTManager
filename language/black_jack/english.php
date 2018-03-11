@@ -58,15 +58,15 @@ $lang = array_merge($lang, array(
     'WELCOME_USER'    => 'Welcome',
     'WON_BLACK_JACK'  => 'Black Jack, you have Hit 21 points',
     'BOTH_BLACK_JACK' => 'Both you and your opponent Hit Black Jack so there are No Winners or Losers',
-    'WON_YOU'         => 'You Won the game you had %1$d your Opponent “%2$d” had %3$d',
-    'WON_OPT'         => 'You Lost the game you had %1$d your Opponent “%2$d” had %3$d',
+    'WON_YOU'         => 'You Won the game you had %1$d your Opponent "%2$d" had %3$d',
+    'WON_OPT'         => 'You Lost the game you had %1$d your Opponent "%2$d" had %3$d',
     'WON_NONE'        => 'This Game was awash there are NO Winners',
     'BUST'            => 'Bust!!!<br /> You have gone Over 21.  You have Lost this Game',
     'MUST_WAIT'       => 'You have %1$d Points, there are NO other Players, so you\'ll have to wait for someone to play against you. You will be PM\'d about the Game Results',
 
-    'PM_WON_YOU'      => "We are PM\'ing you to inform you that the Black Jack game you have Played is Now Over.\nYour Opponent was <a href=\"user.php?op=profile&amp;id=" . '%1$s>%2$s</a> ' . "\n" . 'they had “%3$s” Points and you have “%4$s” therefore you [b]Win the Game[/b].' . "\n" . 'You have had “%5$s” Upload Credit Added to your Account ' . "\n" . '<a href="./blackjack.php">Play another Game?</a>',
+    'PM_WON_YOU'      => "We are PM\'ing you to inform you that the Black Jack game you have Played is Now Over.\nYour Opponent was <a href=\"user.php?op=profile&amp;id=" . '%1$s>%2$s</a> ' . "\n" . 'they had "%3$s" Points and you have "%4$s" therefore you [b]Win the Game[/b].' . "\n" . 'You have had "%5$s" Upload Credit Added to your Account ' . "\n" . '<a href="./blackjack.php">Play another Game?</a>',
 
-    'PM_WON_OPT'      => "We are PM\'ing you to inform you that the Black Jack game you have Played is now Over.\nYour Opponent was <a href=\"user.php?op=profile&amp;id=" . '%1$s>%2$s</a> ' . "\n" . 'they had “%3$s” Points and you have “%4$s” therefore you [b]Lost the Game[/b].' . "\n" . 'You have had “%5$s” Upload Credit Removed from your account ' . "\n" . '<a href="./blackjack.php">Play another Game?</a>',
+    'PM_WON_OPT'      => "We are PM\'ing you to inform you that the Black Jack game you have Played is now Over.\nYour Opponent was <a href=\"user.php?op=profile&amp;id=" . '%1$s>%2$s</a> ' . "\n" . 'they had "%3$s" Points and you have "%4$s" therefore you [b]Lost the Game[/b].' . "\n" . 'You have had "%5$s" Upload Credit Removed from your account ' . "\n" . '<a href="./blackjack.php">Play another Game?</a>',
 
     'PM_SUBJECT'      => 'Your Black Jack Game Results',
 ));
