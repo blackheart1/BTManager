@@ -330,7 +330,7 @@ $lang = array_merge($lang, array(
     'LOGIN_GROUP'            => 'The Site Requires you to be Registered and have a Group Level of %1$s.',
     'LOGIN_SUCCESS'          => 'Success.  Full Login enjoy your stay!',
     'LOGOUT_SUCCESS'         => 'You have Logged out.  Come Back soon!',
-    'LOG_GROUP_DEFAULTS'     => '<strong>Group “%1$s” was made Default for Members</strong><br>» %2$s',
+    'LOG_GROUP_DEFAULTS'     => '<strong>Group "%1$s" was made Default for Members</strong><br>» %2$s',
     'LOG_GROUP_REMOVE'       => '<strong>Members Removed from Usergroup</strong> %1$s<br>» %2$s',
     'LOG_GROUP_CREATED'      => '<strong>New Usergroup Created</strong><br>» %s',
     'LOG_GROUP_UPDATED'      => '<strong>Usergroup Details Updated</strong><br>» %s',
@@ -354,15 +354,15 @@ $lang = array_merge($lang, array(
     'NO_SUCH_USER'           => 'NO such User',
     'NOT_AUTH_DOWNLOAD'      => 'You are NOT Authorized to Download from this Site!',
     'NOTIFY_EMAIL'           => 'email Notifications',
-    'NOTIFY_ADMIN_EMAIL'     => 'Please Notify the Board Administrator or Webmaster: <a href="mailto:%1$s">%1$s</a>',
+    'NOTIFY_ADMIN_EMAIL'     => 'Please Notify the Board Administrator or Webmaster: <a href=\'mailto:%1$s\'>%1$s</a>',
 
-    'NOTIFY_SEEDERS'         => 'If you want to be emailed when the First <b>SEED</b> shows up, please click <a href="details.php?op=seeder&amp;trig=on&amp;id=%1$s#notify">HERE</a>',
+    'NOTIFY_SEEDERS'         => 'If you want to be emailed when the First <b>SEED</b> shows up, please click <a href=\'details.php?op=seeder&amp;trig=on&amp;id=%1$s#notify\'>HERE</a>',
 
-    'NOTIFY_COMMENTS'        => 'If you want to be emailed when the First Comment is added, please click <a href="details.php?op=comment&amp;trig=on&amp;id=%1$s#notify">HERE</a>',
+    'NOTIFY_COMMENTS'        => 'If you want to be emailed when the First Comment is added, please click <a href=\'details.php?op=comment&amp;trig=on&amp;id=%1$s#notify\'>HERE</a>',
 
-    'NOTIFY_SEEDERS_REMOVE'  => 'You are Currently Listed to be Notified when a Seed pops up. If you don\'t want to be emailed any more, please click <a href="details.php?op=seeder&trig=off&id=%1$s#notify">HERE</a>',
+    'NOTIFY_SEEDERS_REMOVE'  => 'You are Currently Listed to be Notified when a Seed pops up. If you don\'t want to be emailed any more, please click <a href=\'details.php?op=seeder&trig=off&id=%1$s#notify\'>HERE</a>',
 
-    'NOTIFY_COMMENTS_REMOVE' => 'You are currently listed to Receive Comment email. If you Don\'t want to be emailed any more, please click <a href="details.php?op=comment&trig=off&id=%1$s#notify">HERE</a>',
+    'NOTIFY_COMMENTS_REMOVE' => 'You are currently listed to Receive Comment email. If you Don\'t want to be emailed any more, please click <a href=\'details.php?op=comment&trig=off&id=%1$s#notify\'>HERE</a>',
 
     'NO_NAME_SET'              => 'No Name was Set.',
     'NO_ACTIVATION_KEY_SET'    => 'Activation Key NOT Specified!',

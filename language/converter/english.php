@@ -61,7 +61,7 @@ $lang = array_merge($lang, array(
     'BACK_UP_DB_OPTION'   => 'Database Backup',
     'BACK_UP_COMPLETE'    => 'Backup Completed Successfully',
 
-    'DOWN_LOAD_BACK_START' => 'Your Backup was Successfully Completed and the Download will begin shortly.  If your Browser Does NOT give you the Option to Start the Download then <a href="%1$s">(Click Here)</a>',
+    'DOWN_LOAD_BACK_START' => 'Your Backup was Successfully Completed and the Download will begin shortly.  If your Browser Does NOT give you the Option to Start the Download then <a href=\'%1$s\'>(Click Here)</a>',
 
     'BACKUP_SUCCESSFULL' => 'Your Backup was Successfully Completed!',
     'TABLE_COMPAIR'      => 'We have Marked the Matched Tables!',
@@ -86,9 +86,9 @@ $lang = array_merge($lang, array(
 
     'SUCCES_MOD_TAKEN'   => 'The Table has been Modified and the Information Imported you may now Proceed to the Next Table',
 
-    'SUCCES_TABLES_CONV' => 'You have finished Modifying your Tables and the Information has been Imported<br />We can now proceed to process your Users <form action="converter.php" ><input type="hidden" name="op" value="4"><input type="hidden" name="op" value="2"><input class="btnmain" accesskey="s" tabindex="11" name="post" value="Build Users" type="submit">',
+    'SUCCES_TABLES_CONV' => 'You have finished Modifying your Tables and the Information has been Imported<br />We can now proceed to process your Users <form action=\'converter.php\' ><input type=\'hidden\' name=\'op\' value=\'4\'><input type=\'hidden\' name=\'op\' value=\'2\'><input class=\'btnmain\' accesskey=\'s\' tabindex=\'11\' name=\'post\' value=\'Build Users\' type=\'submit\'>',
 
-    'NEXT_STEP' => 'Now that we have finished your Backup we can move to the Next Stage of building the SQL Insert File to Import your Old Site To BTManager <form action="converter.php" ><input type="hidden" name="op" value="2"><input class="btnmain" accesskey="s" tabindex="11" name="post" value="Build SQL" type="submit">',
+    'NEXT_STEP' => 'Now that we have finished your Backup we can move to the Next Stage of building the SQL Insert File to Import your Old Site To BTManager <form action=\'converter.php\' ><input type=\'hidden\' name=\'op\' value=\'2\'><input class=\'btnmain\' accesskey=\'s\' tabindex=\'11\' name=\'post\' value=\'Build SQL\' type=\'submit\'>',
 
     'DATA_ONLY'              => 'Data Only',
     'USER_TABLE_QA'          => 'User Table Information',
@@ -118,18 +118,18 @@ $lang = array_merge($lang, array(
     'USER_TABLE_INFO'        => 'We need a little Information to get started',
     'STRUCTURE_ONLY'         => 'Structure Only',
 
-    'SUCCESS_USERS_IMPORTED' => 'Your Users have been Successfully Imported.  You will want to go through your Administrator and Moderator Accounts and Adjust there Levels and Groups <form action="converter.php" ><input type="hidden" name="op" value="5"><input class="btnmain" accesskey="s" tabindex="11" name="post" value="Next" type="submit"></form>',
+    'SUCCESS_USERS_IMPORTED' => 'Your Users have been Successfully Imported.  You will want to go through your Administrator and Moderator Accounts and Adjust there Levels and Groups <form action=\'converter.php\' ><input type=\'hidden\' name=\'op\' value='5'><input class=\'btnmain\' accesskey=\'s\' tabindex='11' name=\'post\' value=\'Next\' type=\'submit\'></form>',
 
     'EMAIL_NOTCE_SUB' => '%1$s Has changed your Password',
 
-    'EMAIL_BODY'      => 'Dear %1$s,' . "\n\n We have changed our source code and in doing so have had to change your password\nWe have taken this time to inform you of this Action and provide you with your New Password\n" . '%2$s ' . "\n" . 'You can login and change it back if you like Here %3$s' . "\n" . '%4$s',
+    'EMAIL_BODY'      => 'Dear %1$s,' . '\n\n We have changed our source code and in doing so have had to change your password\nWe have taken this time to inform you of this Action and provide you with your New Password\n' . '%2$s ' . '\n' . 'You can login and change it back if you like Here %3$s' . '\n' . '%4$s',
 
     'BACK_UP_EXP'     => 'Here you can Backup ALL your Site Data. You may Store the Resulting Archive in your <samp>Backups/</samp> Folder or Download it Directly. Depending on your Server Configuration you may be able to Compress the File in a Number of Formats.  Or you could try to email it to yourself',
 
     'TABLE_USE' => array(
         'PREFIX_acl_groups'         => 'Permission Roles and/or Individual Permissions Assigned to Groups',
 
-        'PREFIX_acl_options'        => 'This Table contains the information which Permissions ("can Read Forum", "can Post Topics" etc.) are available.',
+        'PREFIX_acl_options'        => 'This Table contains the information which Permissions (\'can Read Forum\', \'can Post Topics\' etc.) are available.',
 
         'PREFIX_acl_roles'          => 'Permission Roles (Standard Moderator, Simple Moderator etc.)',
         'PREFIX_acl_roles_data'     => 'This Table Stores which Permissions each Role Contains.',
@@ -163,7 +163,7 @@ $lang = array_merge($lang, array(
         'PREFIX_forums'             => 'Forum Table For the Forum Topics and Forums.',
         'PREFIX_forums_access'      => 'Forum Access Table for listing Users in a Forum.',
 
-        'PREFIX_forums_track'       => 'This Table keeps a Record for Visited Forums in Order to Mark them as Read or Unread. We use the "mark_time timestamp" in conjunction with last post of Forum X\'s Timestamp to know when ALL Topics in Forum X were Last Marked Read. ',
+        'PREFIX_forums_track'       => 'This Table keeps a Record for Visited Forums in Order to Mark them as Read or Unread. We use the \'mark_time timestamp\' in conjunction with last post of Forum X\'s Timestamp to know when ALL Topics in Forum X were Last Marked Read. ',
 
         'PREFIX_forums_watch'       => 'Forum Watch Table used for Users that wish to Watch a Forum for New Posts.',
         'PREFIX_forum_config'       => 'Forum Configuration Table.',
