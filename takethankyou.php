@@ -22,6 +22,7 @@ if (defined('IN_PMBT'))die ("You can't include this file");
 define("IN_PMBT",true);
 require_once("common.php");
 include_once('include/function_posting.php');
+include_once('include/function_messenger.php');
 include_once("include/utf/utf_tools.php");
 $user->set_lang('comment',$user->ulanguage);
 $template = new Template();

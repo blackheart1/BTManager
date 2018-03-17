@@ -36,6 +36,8 @@ if (preg_match("/(Mozilla|Opera|Lynx|Netscape|Links)$/", $agent) ||
 $phpEx = 'php';
 require_once("include/config_lite.php");
 include_once("include/utf/utf_tools.php");
+include_once('include/auth.php');
+require_once'include/class.cache.php';
 $debug = false; //Enable to get mailed the full response. Useful if you don't have Ethereal
 $user->set_lang('common',$user->ulanguage);
 #Clear any unwanted blank spaces
@@ -233,12 +235,20 @@ if ($passkey != "") {
         $sql_where = "lastip = '".$ip."' OR seedbox = '".$ip."' ";
 }
 //GET THE USERS INFO
-$user_sql = "SELECT id, level, uploaded, downloaded, ban, banreason, can_do, dongift, parked, disabled, disabled_reason FROM ".$db_prefix."_users WHERE ".$sql_where." ORDER BY lastlogin DESC LIMIT 1;";
+$user_sql = "SELECT id, username, password, act_key, level, uploaded, downloaded, ban, banreason, can_do, dongift, parked, disabled, disabled_reason FROM ".$db_prefix."_users WHERE ".$sql_where." ORDER BY lastlogin DESC LIMIT 1;";
 if (!$userres = $db->sql_query($user_sql)) err("SQL Error: ". $user_sql ,$db->sql_error());
 if ($userrow = $db->sql_fetchrow($userres)) {
         $uid = $userrow["id"];
 		$usergift = $userrow['dongift'];
         $ulevel = $userrow["level"];
+		$cookiedata = array($userrow["id"],addslashes($userrow["username"]),$userrow["password"],$userrow["act_key"]);
+		$user = cookie_encode($cookiedata);
+		$user = @new User($user);
+		$auth = new auth();
+		$auth->acl($user);
+		if(!$auth->acl_get('u_download_torrents')){
+			err("You are not allowed to Access this Download");
+		}
 } else {
 	//REJECR INVALED PASSKEY
         if ($passkey != "") err("Invalid Passkey. It may have been renewed.");

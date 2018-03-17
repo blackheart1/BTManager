@@ -1,6 +1,8 @@
-Hi $gr_name,
+Subject: {SUB_JECT} 
 
-We're sorry to inform you that User $granter Declined your Download Request for the Torrent $gr_tname.
+Hi {GR_NAME},
+
+We're sorry to inform you that User {GRANTER} Declined your Download Request for the Torrent {GR_TNAME}.
 
 You won't be able to Download the Torrent until its Owner gives you the Authorization...
 
@@ -8,8 +10,4 @@ Remember that the Torrent Owner may change your Authorizations at any time.
 
 You'll be sent a Confirmation Message at any Authorization change for this and for any Torrent you Requested to Download.
 
-Regards,
-
-$sitename Staff
-
-$siteurl
+{EMAIL_SIG}

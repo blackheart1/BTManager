@@ -155,7 +155,7 @@ $do				= request_var('do', '');
 								$template->assign_block_vars('sent', array(
 										'PM_ID'					=>	(int)$pm['id'],
 										'RECP'					=>	rpm_get_name(str_replace('u_','',$pm['recipient'])),
-										'DATE_SENT'				=>	format_date2(sql_timestamp_to_unix_timestamp($pm['sent'])),
+										'DATE_SENT'				=>	$user->format_date(sql_timestamp_to_unix_timestamp($pm['sent'])),
 										'SUBJECT'				=>	$pm['subject'],
 								));
 					}
@@ -165,7 +165,7 @@ $do				= request_var('do', '');
 								$template->assign_block_vars('received', array(
 										'PM_ID'					=>	(int)$pm['id'],
 										'FROM'					=>	rpm_get_name($pm['sender']),
-										'DATE_SENT'				=>	format_date2(sql_timestamp_to_unix_timestamp($pm['sent'])),
+										'DATE_SENT'				=>	$user->format_date(sql_timestamp_to_unix_timestamp($pm['sent'])),
 										'SUBJECT'				=>	$pm['subject'],
 								));
 					}
@@ -324,7 +324,7 @@ $do				= request_var('do', '');
 				}
 			//die($pm['autgroup_name']);
 				$template->assign_vars(array(
-				'DATE_SENT'					=>	format_date2(sql_timestamp_to_unix_timestamp($pm['sent'])),
+				'DATE_SENT'					=>	$user->format_date(sql_timestamp_to_unix_timestamp($pm['sent'])),
 				'FROM'						=>	$pm['autusername'],
 				'SUBJECT'					=>	$pm['subject'],
 				'MESSAGE_AUTHOR_FULL'		=> get_username_string('full', $pm['sender'], $pm['autusername'], '#'.$pm['aut_colour'], $pm['autusername']),//$user_info['username'],
@@ -416,7 +416,7 @@ $do				= request_var('do', '');
 										'MESSAGE_RESIP_COLOUR'		=> get_username_string('colour', $pm['recipient'], $pm['recusername'], '#'.$pm['rec_colour'], $pm['recusername']),//getusercolor($user_info['can_do']),
 										'MESSAGE_RESIP'				=> get_username_string('username', $pm['recipient'], $pm['recusername'], '#'.$pm['rec_colour'], $pm['recusername']),//$user_info['username'],
 										'U_MESSAGE_RESIP'			=> get_username_string('profile', $pm['recipient'], $pm['recusername'], '#'.$pm['rec_colour'], $pm['recusername']),//$user_info['username'],
-										'DATE_SENT'					=>	format_date2(sql_timestamp_to_unix_timestamp($pm['sent'])),
+										'DATE_SENT'					=>	$user->format_date(sql_timestamp_to_unix_timestamp($pm['sent'])),
 										'SUBJECT'					=>	$pm['subject'],
 								));
 					}
@@ -474,7 +474,7 @@ $do				= request_var('do', '');
 													'MESSAGE_RESIP_COLOUR'		=> get_username_string('colour', $pm['recipient'], $pm['recusername'], '#'.$pm['rec_colour'], $pm['recusername']),//getusercolor($user_info['can_do']),
 													'MESSAGE_RESIP'				=> get_username_string('username', $pm['recipient'], $pm['recusername'], '#'.$pm['rec_colour'], $pm['recusername']),//$user_info['username'],
 													'U_MESSAGE_RESIP'			=> get_username_string('profile', $pm['recipient'], $pm['recusername'], '#'.$pm['rec_colour'], $pm['recusername']),//$user_info['username'],
-													'DATE_SENT'					=>	format_date2(sql_timestamp_to_unix_timestamp($pm['sent'])),
+													'DATE_SENT'					=>	$user->format_date(sql_timestamp_to_unix_timestamp($pm['sent'])),
 													'SUBJECT'					=>	$pm['subject'],
 											));
 				}

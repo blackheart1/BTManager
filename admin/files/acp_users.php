@@ -1344,7 +1344,7 @@ class acp_users
 				}
 
 				$dateformat_options = '';
-				echo $u_datetime;
+				//echo $u_datetime;
 				foreach ($user->lang['dateformats'] as $format => $null)
 				{
 					$dateformat_options .= '<option value="' . $format . '"' . (($format == $data['dateformat']) ? ' selected="selected"' : '') . '>';

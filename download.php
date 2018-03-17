@@ -34,7 +34,7 @@ $id = request_var('id', 0);
 $rsskey = request_var('rsskey', '');
 $user->set_lang('download',$user->ulanguage);
 
-if(!checkaccess("u_download")){
+if(!$auth->acl_get('u_download_torrents')){
 				$template->assign_vars(array(
 					'S_ERROR'			=> true,
 					'S_FORWARD'			=> false,
