@@ -436,15 +436,15 @@ class User {
 
 			if ($gmepoch > $midnight + 86400)
 			{
-				$day = 'TOMORROW';
+				$day = $this->lang['TOMORROW'];
 			}
 			else if ($gmepoch > $midnight)
 			{
-				$day = 'TODAY';
+				$day = $this->lang['TODAY'];
 			}
 			else if ($gmepoch > $midnight - 86400)
 			{
-				$day = 'YESTERDAY';
+				$day = $this->lang['YESTERDAY'];
 			}
 
 			if ($day !== false)

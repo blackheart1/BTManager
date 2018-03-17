@@ -425,7 +425,6 @@ function view_folder($id, $mode, $folder_id, $folder)
 				$data[] = array(
 					'subject'	=> censor_text($row['subject']),
 					'sender'	=> $row['username'],
-					// ISO 8601 date. For PHP4 we are able to hardcode the timezone because format_date2() does not set it.
 					'date'		=> $user->format_date(sql_timestamp_to_unix_timestamp($row['sent'])),
 					'to'		=> ($folder_id == -2 || $folder_id == -1) ? $address[$message_id] : '',
 					'message'	=> $message_row['text']

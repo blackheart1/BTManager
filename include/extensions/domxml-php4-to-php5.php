@@ -20,18 +20,21 @@
 **/
 if (!defined('IN_PMBT'))
 {
-	include_once './../../security.php';
-	die ();
+	//include_once './../../security.php';
+	//die ();
 }
 
 function domxml_new_doc($version) {return new php4DOMDocument('');}
 function domxml_new_xmldoc($version) {return new php4DOMDocument('');}
 function domxml_open_file($filename) {return new php4DOMDocument($filename);}
-function domxml_open_mem($str)
+if (!function_exists("domxml_open_mem"))
 {
- $dom=new php4DOMDocument('');
- $dom->myDOMNode->loadXML($str);
- return $dom;
+	function domxml_open_mem($str)
+	{
+	 $dom=new php4DOMDocument('');
+	 $dom->myDOMNode->loadXML($str);
+	 return $dom;
+	}
 }
 function html_doc($html_doc,$from_file=false)
 {
@@ -41,9 +44,18 @@ function html_doc($html_doc,$from_file=false)
  return $dom;
 }
 function html_doc_file($filename) {return html_doc($filename,true);}
-function xmldoc($str) {return domxml_open_mem($str);}
-function xmldocfile($filename) {return new php4DOMDocument($filename);}
-function xpath_eval($xpath_context,$eval_str,$contextnode=null) {return $xpath_context->xpath_eval($eval_str,$contextnode);}
+if (!function_exists("xmldoc"))
+{
+	function xmldoc($str) {return domxml_open_mem($str);}
+}
+if (!function_exists("xmldocfile"))
+{
+	function xmldocfile($filename) {return new php4DOMDocument($filename);}
+}
+if (!function_exists("xpath_eval"))
+{
+	function xpath_eval($xpath_context,$eval_str,$contextnode=null) {return $xpath_context->xpath_eval($eval_str,$contextnode);}
+}
 function xpath_new_context($dom_document) {return new php4DOMXPath($dom_document);}
 function xpath_register_ns($xpath_context,$prefix,$namespaceURI) {return $xpath_context->myDOMXPath->registerNamespace($prefix,$namespaceURI);}
 

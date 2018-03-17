@@ -97,13 +97,14 @@ class mcp_warn
 
 		foreach ($highest as $row)
 		{
+			//die(print_r($row));
 			$template->assign_block_vars('highest', array(
-				'U_NOTES'		=> append_sid("{$phpbb_root_path}forum.$phpEx?action_mcp=mcp", 'i=notes&amp;mode=user_notes&amp;u=' . $row['user_id']),
+				'U_NOTES'		=> append_sid("{$phpbb_root_path}forum.$phpEx?action_mcp=mcp", 'i=notes&amp;mode=user_notes&amp;u=' . $row['id']),
 
-				'USERNAME_FULL'		=> get_username_string('full', $row['user_id'], $row['username'], $row['user_colour']),
+				'USERNAME_FULL'		=> get_username_string('full', $row['id'], $row['username'], $row['user_colour']),
 				'USERNAME'			=> $row['username'],
 				'USERNAME_COLOUR'	=> ($row['user_colour']) ? '#' . $row['user_colour'] : '',
-				'U_USER'			=> append_sid("{$phpbb_root_path}userfind_to_pm.$phpEx", 'mode=viewprofile&amp;u=' . $row['user_id']),
+				'U_USER'			=> append_sid("{$phpbb_root_path}userfind_to_pm.$phpEx", 'mode=viewprofile&amp;u=' . $row['id']),
 
 				'WARNING_TIME'	=> $user->format_date($row['user_last_warning']),
 				'WARNINGS'		=> $row['user_warnings'],
