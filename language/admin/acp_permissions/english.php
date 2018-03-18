@@ -24,39 +24,8 @@
 
 if (!defined('IN_PMBT'))
 {
-    ?>
-    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-    <html>
-        <head>
-            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-            <title>
-        <?php if (isset($_GET['error']))
-            {
-        echo htmlspecialchars($_GET['error']);
-            }
-            ?> Error</title>
-
-            <link rel='stylesheet' type='text/css' href='/errors/error-style.css' />
-        </head>
-
-        <body>
-            <div id='container'>
-        <div align='center' style='padding-top: 15px'>
-            <img src='/errors/error-images/alert.png' width='89' height='94' alt='' title='' />
-        </div>
-
-        <h1 class='title'>Error 404 - Page Not Found</h1>
-        <p class='sub-title' align='center'>The page that you are looking for does not appear to exist on this site.</p>
-        <p>If you typed the address of the page into the address bar of your browser, please check that you typed it in correctly.</p>
-        <p>If you arrived at this page after you used an old Bookmark or Favourite, the page in question has probably been moved. Try locating the page via the navigation menu and then update your bookmarks.</p>
-            </div>
-        </body>
-    </html>
-
-    <?php
-    exit();
+	include_once './../../../security.php';
+	die ("You can't access this file directly");
 }
 
 if (empty($lang) || !is_array($lang))
@@ -393,6 +362,8 @@ $lang = array_merge($lang, array(
         'settings'      => 'Settings',
         'topic_actions' => 'Topic Actions',
         'user_group'    => 'Users &amp; Groups',
+		'trac'			=> 'Tracker',
+		'arcade'		=> 'Arcade',
 	),
 
 	// With Defining 'Global' Here we are able to specify what is Printed Out if the Permission is within the Global Scope.
@@ -444,6 +415,7 @@ $lang = array_merge($lang, array(
     'acl_u_hideonline'   => array('lang' => 'Can Hide Online Status', 'cat' => 'misc'),
     'acl_u_viewonline'   => array('lang' => 'Can View Hidden Online Users', 'cat' => 'misc'),
     'acl_u_search'       => array('lang' => 'Can Search Board', 'cat' => 'misc'),
+    'acl_u_download_torrents'       => array('lang' => 'Can Download Torrents', 'cat' => 'trac'),
 ));
 
 // Forum Permissions
@@ -551,13 +523,12 @@ $lang = array_merge($lang, array(
     'acl_a_reasons'         => array('lang' => 'Can Manage Report/Denial Reasons', 'cat' => 'misc'),
     'acl_a_backup'          => array('lang' => 'Can Backup/Restore Database', 'cat' => 'misc'),
     'acl_a_search'          => array('lang' => 'Can Manage Search Backend and Settings', 'cat' => 'misc'),
-    'acl_a_cache_dir'       => array('lang' => 'Can Manage Cache', 'cat' => 'misc'),
-    'acl_a_cache_settings'  => array('lang' => 'Can Alter Cache Settings', 'cat' => 'misc'),
-    'acl_a_cache_time_sql'  => array('lang' => 'Can Manage Cache Times', 'cat' => 'misc'),
-    'acl_a_cache_time_tmpl' => array('lang' => 'Can Alter Cache Time Settings', 'cat' => 'misc'),
+    'acl_a_cache_dir'       => array('lang' => 'Can Manage Cache Directory', 'cat' => 'settings'),
+    'acl_a_cache_settings'  => array('lang' => 'Can Alter Cache Settings', 'cat' => 'settings'),
+    'acl_a_cache_time_sql'  => array('lang' => 'Can Manage Cache Data base Times Settings', 'cat' => 'settings'),
+    'acl_a_cache_time_tmpl' => array('lang' => 'Can Manage Cache Theme Time Settings', 'cat' => 'settings'),
 
 ));
-$lang['permission_cat']['arcade'] = 'Arcade';
 
 // Adding the Permissions
 $lang = array_merge($lang, array(

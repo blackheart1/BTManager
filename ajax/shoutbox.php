@@ -126,7 +126,7 @@ $template->assign_vars(array(
 		$quote = preg_replace('/<!-- s(.*?) -->(.*?)<!-- s(.*?) -->/i', '\\1', $shout["text"]);
 		$quote = preg_replace('/<!-- m -->(.*?)<!-- m -->/i', '\\1', $quote);
 						$showusername = true;
-						$shout_time = gmdate("Y-m-d H:i:s", sql_timestamp_to_unix_timestamp($shout['posted'])+(60 * get_user_timezone($user->id)));
+						$shout_time = gmdate($shout_config['dateformat'], sql_timestamp_to_unix_timestamp($shout['posted'])+(60 * get_user_timezone($user->id)));
 						if(preg_match("/\/notice (.*)/",$text,$m))
 						{
 							$text = preg_replace('/\/notice/','',$text);
@@ -555,7 +555,7 @@ if ($user->id == $shout['id_to'] OR $user->id == $shout['uid']){
 								if(preg_match("/\/staffmesage (.*)/",$text,$m) AND $user->moderator){
 								}
 								if($shout["warned"] == "1") $warn = '<img src="images/warning.gif" alt="warned" />';
-								$shout_time = gmdate("Y-m-d H:i:s", sql_timestamp_to_unix_timestamp($shout['posted'])+(60 * get_user_timezone($user->id)));
+								$shout_time = gmdate($shout_config['dateformat'], sql_timestamp_to_unix_timestamp($shout['posted'])+(60 * get_user_timezone($user->id)));
                                 echo "<div class=\"".$utc3."\" onMouseOver=\"this.className='over';\" onMouseOut=\"this.className='$utc3';\"><p class=\"shout\" bgcolor=\"#53B54F\">";
                                 if(preg_match("/\/notice (.*)/",$text,$m)){
 								$text = preg_replace('/\/notice/','',$text);
@@ -577,7 +577,7 @@ if ($user->id == $shout['id_to'] OR $user->id == $shout['uid']){
 								$text = format_comment($shout["text"], false, true);
                                 parse_smiles($text);
 								if($shout["warned"] == "1") $warn = '<img src="images/warning.gif" alt="warned" />';
-								$shout_time = gmdate("Y-m-d H:i:s", sql_timestamp_to_unix_timestamp($shout['posted'])+(60 * get_user_timezone($user->id)));
+								$shout_time = gmdate($shout_config['dateformat'], sql_timestamp_to_unix_timestamp($shout['posted'])+(60 * get_user_timezone($user->id)));
                                 echo "<div class=\"".$utc3."\" onMouseOver=\"this.className='over';\" onMouseOut=\"this.className='$utc3';\"><p class=\"shout\" bgcolor=\"#53B54F\">";
                                 if(preg_match("/\/notice (.*)/",$text,$m)){
 								$text = preg_replace('/\/notice/','',$text);
@@ -671,7 +671,7 @@ if($op == 'private__chat')
 								$text = format_comment($shout["text"], false, true);
                                 parse_smiles($text);
 								if($shout["warned"] == "1") $warn = '<img src="images/warning.gif" alt="warned" />';
-								$shout_time = gmdate("Y-m-d H:i:s", sql_timestamp_to_unix_timestamp($shout['posted'])+(60 * get_user_timezone($user->id)));
+								$shout_time = gmdate($shout_config['dateformat'], sql_timestamp_to_unix_timestamp($shout['posted'])+(60 * get_user_timezone($user->id)));
                                 echo "<div class=\"".$utc3."\" onMouseOver=\"this.className='over';\" onMouseOut=\"this.className='$utc3';\"><p class=\"shout\" bgcolor=\"#53B54F\">";
                                 if(preg_match("/\/notice (.*)/",$text,$m)){
 								$text = preg_replace('/\/notice/','',$text);

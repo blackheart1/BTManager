@@ -120,7 +120,7 @@ if($shout_config['turn_on']=='yes')
 		$quote = preg_replace('/<!-- s(.*?) -->(.*?)<!-- s(.*?) -->/i', '\\1', $shout["text"]);
 		$quote = preg_replace('/<!-- m -->(.*?)<!-- m -->/i', '\\1', $quote);
 								$showusername = true;
-								$shout_time = gmdate("Y-m-d H:i:s", sql_timestamp_to_unix_timestamp($shout['posted'])+(60 * get_user_timezone($user->id)));
+								$shout_time = gmdate($shout_config['dateformat'], sql_timestamp_to_unix_timestamp($shout['posted'])+(60 * get_user_timezone($user->id)));
                                 if(preg_match("/\/notice (.*)/",$text,$m)){
 								$text = preg_replace('/\/notice/','',$text);
 								$showusername = false;

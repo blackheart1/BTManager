@@ -411,7 +411,8 @@ $lang = array_merge($lang, array(
 
     '_admpmax_sig_img_height'            => 'Maximum Signature Image Height',
     '_admpmax_sig_img_heightexplain'     => 'Maximum Height of an Image/Flash File in Users Signatures. Set to 0 for Unlimited Height.',
-
+    '_admpallow_magnet'					 => 'Allow eD2K/Magnet link\'s',
+    '_admpallow_magnetexplain'			 => '',
     '_admpsourcedir'                     => 'Sources Directory',
     '_admpsourcedirexplain'              => 'Please give the Full Source Directory Path for System use.<br />DO NOT use / or ./',
     'ACP_ATTACHMENTS'                    => 'Attachments',
@@ -420,6 +421,7 @@ $lang = array_merge($lang, array(
     'ACP_EXTENSION_GROUPS'               => 'Manage Extension Groups',
     'ACP_MANAGE_EXTENSIONS'              => 'Manage Extensions',
     'ACP_ORPHAN_ATTACHMENTS'             => 'Orphaned Attachments',
+    'YES_NO_NUM'                           => array('1' =>'Yes','0'   =>'No'),
 ));
 
 ?>

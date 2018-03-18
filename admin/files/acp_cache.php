@@ -23,6 +23,18 @@ if (!defined('IN_PMBT'))
 	include_once './../../security.php';
 	die ("You can't access this file directly");
 }
+if(!$auth->acl_get('a_cache_settings'))
+{
+	$user->set_lang('common',$user->ulanguage);
+	$template->assign_vars(array(
+		'S_USER_NOTICE'			=> false,
+		'S_FORWARD'				=> false,
+		'MESSAGE_TITLE'			=> $user->lang['BT_ERROR'],
+		'MESSAGE_TEXT'			=> $user->lang['GROUP_NO_ACCESS_PAGE'],
+	));
+	echo $template->fetch('admin/message_body.html');
+	close_out();
+}
 $user->set_lang('admin/acp_cache',$user->ulanguage);
 $cfgquery = "SELECT * FROM ".$db_prefix."_cache_con;";
 $cfgrow = array();
@@ -50,9 +62,9 @@ function is__writable($path)
 	return true;
 }
 if ($do == "take_config") {
-		$sub_sql_time									= request_var('sub_sql_time', 0);
-		$sub_theme_time									= request_var('sub_theme_time', 0);
-		$sub_cache_dir									= request_var('sub_cache_dir', '');
+		$sub_sql_time									= request_var('sub_sql_time',$cfgrow['sql_time']);
+		$sub_theme_time									= request_var('sub_theme_time', $cfgrow['theme_time']);
+		$sub_cache_dir									= request_var('sub_cache_dir', $cfgrow['cache_dir']);
         $params = array();
         $values = array();
         $errors = array();
@@ -94,8 +106,8 @@ if ($do == "take_config") {
 		if (!$db->sql_multi_insert($db_prefix."_cache_con", $sql_ary)) btsqlerror($db->sql_build_array('INSERT', $sql_ary[0]));
 		$db->sql_query("TRUNCATE TABLE ".$db_prefix."_cache_con;");
 		$db->sql_multi_insert($db_prefix."_cache_con", $sql_ary);
-		$pmbt_cache->remove_file("sql_".md5('caache').".php");
-		$pmbt_cache->set_sql("caache", $sql_ary);
+		$pmbt_cache->remove_file("sql_".md5('cache').".php");
+		$pmbt_cache->set_sql("cache", $sql_ary);
 				logerror($user->lang['LOG_CACHE_SETTING_UPDATE'],'admin');
                                 $template->assign_vars(array(
 								        'S_USER_NOTICE'					=> true,
@@ -116,9 +128,9 @@ $template->assign_vars(array(
 		'HIDDEN'					=> $hidden,
 ));
 drawRow(true,false, false ,$user->lang['CACHE']);
-drawRow("sql_time","text");
-drawRow("theme_time","text");
-drawRow("cache_dir","text");
+if($auth->acl_get('a_cache_time_sql'))drawRow("sql_time","text");
+if($auth->acl_get('a_cache_time_tmpl'))drawRow("theme_time","text");
+if($auth->acl_get('a_cache_dir'))drawRow("cache_dir","text");
 echo $template->fetch('admin/acp_cache.html');
 		close_out();
 ?>
