@@ -161,29 +161,6 @@ CREATE TABLE IF NOT EXISTS `#prefix#_avps" (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `torrent_banlist`
---
-
-CREATE TABLE IF NOT EXISTS `#prefix#_banlist" (
-  "ban_id" mediumint(8) unsigned NOT NULL,
-  "ban_userid" int(20) unsigned NOT NULL DEFAULT '0',
-  "ban_ip" varchar(40) COLLATE utf8_bin NOT NULL DEFAULT '',
-  "ban_email" varchar(100) COLLATE utf8_bin NOT NULL DEFAULT '',
-  "ban_start" int(11) unsigned NOT NULL DEFAULT '0',
-  "ban_end" int(11) unsigned NOT NULL DEFAULT '0',
-  "ban_exclude" tinyint(1) unsigned NOT NULL DEFAULT '0',
-  "ban_reason" varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
-  "ban_give_reason" varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
-  PRIMARY KEY ("ban_id"),
-  KEY "ban_end" ("ban_end"),
-  KEY "ban_user" ("ban_userid","ban_exclude"),
-  KEY "ban_email" ("ban_email","ban_exclude"),
-  KEY "ban_ip" ("ban_ip","ban_exclude")
-);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `torrent_bans`
 --
 

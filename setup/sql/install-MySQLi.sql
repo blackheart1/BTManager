@@ -538,6 +538,7 @@ CREATE TABLE IF NOT EXISTS `#prefix#_config` (
   `announce_ments` longtext COLLATE utf8_bin,
   `announce_text` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `allow_html` enum('true','false') COLLATE utf8_bin NOT NULL DEFAULT 'true',
+  `allow_magnet` int(10) NOT NULL DEFAULT '1',
   `rewrite_engine` enum('true','false') COLLATE utf8_bin NOT NULL DEFAULT 'true',
   `torrent_prefix` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `torrent_per_page` int(10) unsigned NOT NULL DEFAULT '10',
@@ -1844,7 +1845,8 @@ CREATE TABLE IF NOT EXISTS `#prefix#_shout_config` (
   `canedit_on` enum('yes','no') COLLATE utf8_bin NOT NULL DEFAULT 'yes',
   `candelete_on` enum('yes','no') COLLATE utf8_bin NOT NULL DEFAULT 'yes',
   `autodelet` enum('true','false') COLLATE utf8_bin NOT NULL DEFAULT 'false',
-  `can_quote` enum('true','false') COLLATE utf8_bin NOT NULL DEFAULT 'false'
+  `can_quote` enum('true','false') COLLATE utf8_bin NOT NULL DEFAULT 'false',
+  `dateformat` varchar(30) COLLATE utf8_bin NOT NULL DEFAULT 'd M Y H:i'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------

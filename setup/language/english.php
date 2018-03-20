@@ -40,7 +40,7 @@ define("_domxmlcantload","Cannot load DOM XML. Check out how to compile and inst
 define("_externalcheck","Testing outgoing connections");
 define("_externalfail","Cannot update External Torrent statistics realtime nor determine Active and Passive users");
 define("_oscheck","Checking Operating System");
-define('_files_folder','Checking to see if your Files folder is write able');
+define('_files_folder','Checking to see if your files folder is write able');
 define('_files_folder_fail','This folder well need to be write able for you to beable to use Forum attachments');
 define('_cat_pics','Checking to see if your Cat Pics folder is Write able');
 define('_cat_pics_fail','This folder well need to be write able for you to beable to use Category image upload');
@@ -210,6 +210,9 @@ define("_admpWAITBexplain","Set the second wait period in hours");
 
 define("_admpWAITC","Must Wait for this many hours");
 define("_admpWAITCexplain","Set the third wait period in hours");
+
+define("_admpallow_magnet","Allow eD2K/Magnet link's");
+define("_admpallow_magnetexplain","");
 
 define("_admpWAITD","Must Wait for this many hours");
 define("_admpWAITDexplain","Set the fourth wait period in hours");

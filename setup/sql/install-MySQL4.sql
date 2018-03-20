@@ -379,6 +379,7 @@ CREATE TABLE IF NOT EXISTS `#prefix#_config` (
   `announce_ments` longtext,
   `announce_text` varchar(255) binary default NULL,
   `allow_html` enum('true','false') NOT NULL default 'true',
+  `allow_magnet` int(10) NOT NULL DEFAULT '1',
   `rewrite_engine` enum('true','false') NOT NULL default 'true',
   `torrent_prefix` varchar(255) default NULL,
   `torrent_per_page` int(10) unsigned NOT NULL default '10',
@@ -1624,7 +1625,8 @@ CREATE TABLE IF NOT EXISTS `#prefix#_shout_config` (
   `canedit_on` enum('yes','no') NOT NULL default 'yes',
   `candelete_on` enum('yes','no') NOT NULL default 'yes',
   `autodelet` enum('true','false') NOT NULL default 'false',
-  `can_quote` enum('true','false') NOT NULL default 'false'
+  `can_quote` enum('true','false') NOT NULL default 'false',
+  `dateformat` varchar(30) COLLATE utf8_bin NOT NULL DEFAULT 'd M Y H:i'
 ) TYPE=MyISAM;
 
 -- --------------------------------------------------------

@@ -130,6 +130,7 @@ function drawConfig() {
         drawRow("announce_text","text");
 		drawRow("announce_url","text3");
         drawRow("allow_html","checkbox");
+        drawRow("allow_magnet","checkbox");
         drawRow("rewrite_engine","checkbox");
         drawRow("torrent_prefix","text");
         drawRow("torrent_per_page","text");
@@ -206,6 +207,7 @@ if (!isset($postback)) { //Set default parameters
         $cfgrow["announce_text"] = "";
         $cfgrow["announce_url"] = "";
         $cfgrow["allow_html"] = true;
+		$cfgrow["allow_magnet"] = true;
         $cfgrow["rewrite_engine"] = false;
         $cfgrow["torrent_prefix"] = "";
         $cfgrow["torrent_per_page"] = 10;
@@ -274,6 +276,7 @@ if (!isset($postback)) { //Set default parameters
         $cfgrow["announce_text"] = $sub_announce_text;
         $cfgrow["announce_url"] = $announce_url;
         $cfgrow["allow_html"] = (isset($sub_allow_html) AND $sub_allow_html == "true") ? true : false;
+		$cfgrow["allow_magnet"] = (isset($sub_allow_magnet) AND $sub_allow_magnet == "true") ? true : false;
         $cfgrow["rewrite_engine"] = (isset($sub_rewrite_engine) AND $sub_rewrite_engine == "true") ? true : false;
         $cfgrow["torrent_prefix"] = $sub_torrent_prefix;
         $cfgrow["torrent_per_page"] = $sub_torrent_per_page;
@@ -356,6 +359,7 @@ if (isset($postback)) {
         array_push($params,"welcome_message"); array_push($values,esc_magic($sub_welcome_message));
         array_push($params,"announce_text"); array_push($values,esc_magic($sub_announce_text));
         if ($sub_allow_html != "true") $sub_allow_html = "false"; array_push($params,"allow_html"); array_push($values,$sub_allow_html);
+		if ($sub_allow_magnet != "true") $sub_allow_magnet = "false"; array_push($params,"allow_magnet"); array_push($values,($sub_allow_magnet == 'true')? '1' : '0');
         if (!isset($sub_rewrite_engine) OR $sub_rewrite_engine != "true") $sub_rewrite_engine = "false"; array_push($params,"rewrite_engine"); array_push($values,$sub_rewrite_engine);
         array_push($params,"torrent_prefix"); array_push($values,$sub_torrent_prefix);
         array_push($params,"torrent_per_page"); array_push($values,intval($sub_torrent_per_page));
