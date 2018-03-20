@@ -1,9 +1,51 @@
-<!-- INCLUDE themes/Bitfarm/templates/admin/over_all_header.html -->
-<script type="text/javascript" src="{SITE_URL}/global.js"></script>
+<!-- IF EDIT_SHOUT -->
+		<form mane="shoutedit" id="shoutedit">
+					<textarea name="textedit" id="textedit" rows="1" cols="80" style="border:1px" >{EDIT_TEXT}</textarea>
+					<input type="button" onClick="sndReq('op=take_edit_shout&shout={EDIT_ID}&shout_text='+textedit.value, 'shoutTD')" value="{L_SHOUT}" />
+					<input type="button" onClick="sndReq('op=take_edit_shout_cancel', 'shoutTD')" value="Cancel" />
+				</form>
+<!-- ELSEIF U_USER_CAN_SHOUT -->
 
-<script type="text/javascript" src="overlib/overlib.js"><!-- overLIB (c) Erik Bosrup --></script>
-<script type="text/javascript" src="overlib/overlib_shadow.js"><!-- overLIB (c) Erik Bosrup --></script>
-<script type="text/javascript" src="bbcode.js"></script>
+<!-- IF DETACH -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><!-- testing -->
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 6 November 2007), see www.w3.org">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="generator" content="PMBT {PMBT_VER}">
+<meta http-equiv="PRAGMA" content="NO-CACHE">
+<meta http-equiv="EXPIRES" content="-1">
+<meta http-equiv="Cache-Control" content="no-cache">
+<link rel="shortcut icon" href="{SITE_URL}/themes/Bitfarm/favicon.ico" type="image/x-icon" >
+<link rel="search" type="application/opensearchdescription+xml" title="{SITENAME}" href="{SITE_URL}/opensearch.php">
+<link rel="alternate" type="application/rss+xml" title="Last Torrents" href="{SITE_URL}/backend.php?op=last">
+<link rel="alternate" type="application/rss+xml" title="Best Torrents" href="{SITE_URL}/backend.php?op=best">
+<link rel="StyleSheet" href="{SITE_URL}/themes/Bitfarm/style.css" type="text/css">
+<link rel="stylesheet" href="{SITE_URL}/css/lightbox.css" type="text/css">
+{META}
+<!--[if lt IE 7]>
+<script defer type="text/javascript" src="{SITE_URL}/pngfix.js"></script>
+<![endif]-->
+<title>{SITENAME} &bull; <!-- IF S_IN_MCP -->{L_MCP} &bull; <!-- ELSEIF S_IN_UCP -->{L_USER_CPANNEL} &bull; <!-- ENDIF -->{PAGE_TITLE}</title>
+<script type="text/javascript" src="{SITE_URL}/js/prototype.js"></script>
+<script type="text/javascript" src="{SITE_URL}/js/scriptaculous.js?load=effects,builder"></script>
+<script type="text/javascript" src="{SITE_URL}/js/lightbox.js"></script>
+<script type="text/javascript" src="{SITE_URL}/js/java_klappe.js"></script>
+<script type="text/javascript" src="{SITE_URL}/themes/Bitfarm/js/jquery.smoothmenu.js"></script>
+<script type="text/javascript" src="{SITE_URL}/themes/Bitfarm/js/core.js"></script>
+<script type="text/javascript" src="{SITE_URL}/js/ncode_imageresizer.js"></script>
+<script type="text/javascript">
+<!--
+NcodeImageResizer.MODE = 'newwindow';
+NcodeImageResizer.MAXWIDTH = 500;
+NcodeImageResizer.MAXHEIGHT =400;
+
+NcodeImageResizer.Msg1 = 'Click here to view the full image.';
+NcodeImageResizer.Msg2 = 'This image has been resized. Click image to view the full image.';
+NcodeImageResizer.Msg3 = 'This image has been resized. Click image to view the full image.';
+NcodeImageResizer.Msg4 = 'Click here to view the small image.';
+//-->
+</script>
 <script type="text/javascript">
 pmbtsite_url = "{SITE_URL}";
 tag_prompt = "Enter a Text:";
@@ -14,49 +56,350 @@ link_url_prompt = "Enter the Full Address on the left of:";
 link_email_prompt = "Enter your Full Link:";
 list_type_prompt = "Which type of List would you like? Give ' 1 ' for a Numerical List, 'a' for an Alphabetical List, or nothing at all for a Simple Point List.";
 list_item_prompt = "Enter one point of list. Press OK to enter another point of list or press 'Cancel' to Finish.";
+_btshoutnowprivate = "{L_PRIVATE_SHOUT}";
+shoutrefresht = "{S_SHOUT_REF}";
+shoutidle = "{S_SHOUT_IDL}";
+function change_bg(img, state)
+{
+if (state == "1") 
+img.src = img.src.replace(".gif","_over.gif");
+else if (state == "0") 
+img.src = img.src.replace("_over.gif",".gif");
+else if (state == "2") 
+img.src = img.src.replace("_over.gif",".gif");
+else if (state == "3") 
+img.src = img.src.replace("_over.gif",".gif");
+}
+var pd = new Date();
+var last_reload = pd.getTime();
+function do_breload() {
+    if (document.location.href.match(/\/torrents\.php/)) {
+	   var d = new Date();
+	   if (last_reload && last_reload > (d.getTime() - "4000")) return;
+	      last_reload = d.getTime();   
+	   bparam('page=1')	   
+
+	}
+}
+
+function toggle2(nome) {
+if(document.getElementById(nome).style.display=='none')
+{
+SetCookie(nome,'');
+document.getElementById(nome).style.display = '';
+document.getElementById(nome+"img").src="themes/Bitfarm/pics/minus.gif";
+} else {
+SetCookie(nome,'none',200);
+document.getElementById(nome).style.display = 'none';
+document.getElementById(nome+"img").src="themes/Bitfarm/pics/plus.gif";
+}
+}
+
+function SetCookie(cookieName,cookieValue,nDays) {
+ var today = new Date();
+ var expire = new Date();
+ if (nDays==null || nDays==0) nDays=1;
+ expire.setTime(today.getTime() + 3600000*24*nDays);
+ document.cookie = cookieName+"="+escape(cookieValue)
+                 + ";expires="+expire.toGMTString();
+}
+function bparam(){
+    document.getElementById('myAnchor').href="torrents.php"
+}
+// <![CDATA[
+var jump_page = '{LA_JUMP_PAGE}:';
+var on_page = '{ON_PAGE}';
+var per_page = '{PER_PAGE}';
+var base_url = '{A_BASE_URL}';
+
+var menu_state = 'shown';
+
+
+/**
+* Jump to page
+*/
+function jumpto()
+{
+	var page = prompt(jump_page, on_page);
+
+	if (page !== null && !isNaN(page) && page == Math.floor(page) && page > 0)
+	{
+		if (base_url.indexOf('?') == -1)
+		{
+			document.location.href = base_url + '?page=' + ((page - 1) * per_page/per_page+1);
+		}
+		else
+		{
+			document.location.href = base_url.replace(/&amp;/g, '&') + '&page=' + ((page - 1) * per_page/per_page+1);
+		}
+	}
+}
+
+/**
+* Set display of page element
+* s[-1,0,1] = hide,toggle display,show
+*/
+function dE(n, s, type)
+{
+	if (!type)
+	{
+		type = 'block';
+	}
+
+	var e = document.getElementById(n);
+	if (!s)
+	{
+		s = (e.style.display == '') ? -1 : 1;
+	}
+	e.style.display = (s == 1) ? type : 'none';
+}
+// ]]>
 </script>
-<a name="maincontent"></a>
-
-<h1>{L_TITLE}</h1>
-
-<p>{L_TITLE_EXPLAIN}</p>
-
-<form name="formdata" id="acp_board" method="post" action="{U_ACTION}">
-
-<!-- BEGIN options -->
-	<!-- IF options.S_LEGEND -->
-		<!-- IF not options.S_FIRST_ROW -->
-			</fieldset>
-		<!-- ENDIF -->
-		<fieldset>
-			<legend>{options.LEGEND}</legend>
-	<!-- ELSE -->
-
-		<dl>
-			<dt><label for="{options.KEY}">{options.TITLE}:</label><!-- IF options.S_EXPLAIN --><br /><span>{options.TITLE_EXPLAIN}</span><!-- ENDIF --></dt>
-			<dd>{options.CONTENT}</dd>
-		</dl>
-
-	<!-- ENDIF -->
-<!-- END options -->
-
-<!-- IF S_AUTH -->
-	<!-- BEGIN auth_tpl -->
-		{auth_tpl.TPL}
-	<!-- END auth_tpl -->
+<script type="text/javascript" src="{SITE_URL}/global.js"></script>
+<script type="text/javascript" src="{SITE_URL}/overlib/overlib.js"><!-- overLIB (c) Erik Bosrup --></script>
+<script type="text/javascript" src="{SITE_URL}/overlib/overlib_shadow.js"><!-- overLIB (c) Erik Bosrup --></script>
+<script src="{SITE_URL}/themes/Bitfarm/js/jquery.js" type="text/javascript"></script>
+<script src="{SITE_URL}/themes/Bitfarm/js/jquery-ui-1.7.2.custom.min.js" type="text/javascript"></script>
+<script src="{SITE_URL}/themes/Bitfarm/js/ui.selectmenu.js" type="text/javascript"></script>
+<script src="{SITE_URL}/themes/Bitfarm/js/jquery.cookie.js" type="text/javascript"></script>
+<script src="{SITE_URL}/themes/Bitfarm/js/jquery.thumbnailScroller.js" type="text/javascript"></script>
+<script type="text/javascript" src="{SITE_URL}/themes/Bitfarm/js/jquery.smoothmenu.js"></script>
+<script type="text/javascript" src="{SITE_URL}/themes/Bitfarm/js/core.js"></script>	
+<script src="{SITE_URL}/themes/Bitfarm/js/jquery.jcarousel.js" type="text/javascript"></script>
+<script type="text/javascript" src="{SITE_URL}/themes/Bitfarm/js/jquery.qtip-1.0.0-rc3.min.js"></script>
+<script src="{SITE_URL}/themes/Bitfarm/js/init.js" type="text/javascript"></script>
+<script type="text/javascript" src="{SITE_URL}/themes/Bitfarm/js/jquery.jqDock.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var jqDockOpts = {align: 'left', duration: 200, labels: 'tc', size: 48, distance: 85};
+		$('#jqDock').jqDock(jqDockOpts);
+	});
+</script>
+</head>
+<!--[if lt IE 7]><link rel="stylesheet" type="text/css" media="screen" href="{SITE_URL}/themes/Bitfarm/iestyle.css">
+<![endif]-->
+<!--[if IE]>
+<link rel="stylesheet" type="text/css" media="screen" href="{SITE_URL}/themes/Bitfarm/iestyle.css">
+<![endif]-->
+<body class="ltr" onLoad="shoutthis_ajax()">
 <!-- ENDIF -->
-	<dl> 
-		<dt><label for="dateoptions">{L_DATE_FORMAT}:</label><br /><span>{L_DATE_FORMAT_EXPLAIN}</span></dt>
-		<dd><select name="dateoptions" id="dateoptions" onchange="if(this.value=='custom'){dE('custom_date',1);}else{dE('custom_date',-1);} if (this.value == 'custom') { document.getElementById('dateformat').value = default_dateformat; } else { document.getElementById('dateformat').value = this.value; }">{S_DATEFORMAT_OPTIONS}</select></dd>
-		<dd><div id="custom_date"<!-- IF not S_CUSTOM_DATEFORMAT --> style="display:none;"<!-- ENDIF -->><input type="text" name="dateformat" id="dateformat" value="{DATE_FORMAT}" maxlength="30" /></div></dd>
-	</dl>
+<!-- IF not S_SHOUTBOX_AJAX -->
+<a name="shout"></a>
+<script type="text/javascript" src="bbcode.js"></script>
+							<script type="text/javascript">
+								// <![CDATA[
+						
+								var form_name = 'Shoutform';
+								var text_name = 'text';
+								// ]]>
+							</script>		
+<table class="tablebg" width="100%" cellspacing="0">
+	<tr>
+		<td>
+			<div class="caption">
+				<div class="cap-left">
+					<div class="cap-right">
+						<a class="c4" style="cursor: pointer;float:left;" onClick="toggle2('nnShoutbox_(Detach)_&bull;_(Archives)');">
+						Shoutbox </a>
+						<a href="javascript:popshout('shoutdetach.php');">(Detach)</a>
+						 &bull; 
+						<a href="shoutboxarchive.php">(Archives)</a>
+					</div>
+				</div>
+			</div>
+		</td>
+	</tr>
+	<tr valign="middle">
+		<td  class="row3" >
+			<div id="nnShoutbox_(Detach)_&bull;_(Archives)">
+				<span id='shoutTD'></span>
+				<div id="shoutidle"></div>
 
-	<p class="submit-buttons">
-		<input class="button1" type="submit" id="submit" name="submit" value="{L_SUBMIT}" />&nbsp;
-		<input class="button2" type="reset" id="reset" name="reset" value="{L_RESET}" />
-	</p>
-	{S_FORM_TOKEN}
-</fieldset>
-</form>
+				<div class="alt2" style="border: 0px none  ! important; margin: 0px; padding: 0px;">
+					<table width="100%" cellpadding="0" cellspacing="0">
+						<tr>
+							<td style="border: 0px none  ! important; margin: 0px; padding: 0px;" class="alt2">
+								<div class="alt2" style="border: 0px none  ! important; margin: 0px; padding: 0px;">
+								  <span style="border: 0px none  ! important; margin: 0px; padding: 0px; float: right;">
+									 <span class="alt1" style="border: 0px none  ! important; margin: 0px; padding: 0px; display: block;">
+										<span class="alt2" style="border: 0px none  ! important; margin: 0px; padding: 0px; overflow: hidden; width: 1px; height: 1px; display: block;"></span>
+										<span class="alt2" style="border: 0px none  ! important; margin: 0px; padding: 0px; overflow: hidden; width: 2px; height: 1px; display: block;"></span>
+										<span class="alt2" style="border: 0px none  ! important; margin: 0px; padding: 0px; overflow: hidden; width: 3px; height: 1px; display: block;"></span>
+									 </span>
+								  </span>
+								  <span class="alt1" style="border: 0px none  ! important; margin: 0px; padding: 0px; overflow: hidden; width: 3px; height: 1px; display: block;"></span>
+								  <span class="alt1" style="border: 0px none  ! important; margin: 0px; padding: 0px; overflow: hidden; width: 2px; height: 1px; display: block;"></span>
+								  <span class="alt1" style="border: 0px none  ! important; margin: 0px; padding: 0px; overflow: hidden; width: 1px; height: 1px; display: block;"></span>
+								</div>
+								<div class="smallfont" style="border: 0px none  ! important; margin: 0px; padding: 0px 5px 4px; background: transparent none repeat scroll 0% 0%; text-align: center; white-space: nowrap; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
+								  <span id="shoutthisch" onClick="sndReq('op=view_shout', 'shout_out');" style="cursor: pointer;">Shout Box</span>
+								</div>
+							</td>
+							<td style="border: 0px none  ! important; margin: 0px; padding: 0px;" class="alt1">&nbsp;</td>
+							<td style="border: 0px none  ! important; margin: 0px; padding: 0px;" class="alt2">
+								<div class="alt2" style="border: 0px none  ! important; margin: 0px; padding: 0px;">
+									<span style="border: 0px none  ! important; margin: 0px; padding: 0px; float: right;">
+										<span class="alt1" style="border: 0px none  ! important; margin: 0px; padding: 0px; display: block;">
+											<span class="alt2" style="border: 0px none  ! important; margin: 0px; padding: 0px; overflow: hidden; width: 1px; height: 1px; display: block;">
+											</span>
+											<span class="alt2" style="border: 0px none  ! important; margin: 0px; padding: 0px; overflow: hidden; width: 2px; height: 1px; display: block;">
+											</span>
+											<span class="alt2" style="border: 0px none  ! important; margin: 0px; padding: 0px; overflow: hidden; width: 3px; height: 1px; display: block;">
+											</span>
+										</span>
+									</span>
+									<span class="alt1" style="border: 0px none  ! important; margin: 0px; padding: 0px; overflow: hidden; width: 3px; height: 1px; display: block;">
+									</span>
+									<span class="alt1" style="border: 0px none  ! important; margin: 0px; padding: 0px; overflow: hidden; width: 2px; height: 1px; display: block;">
+									</span>
+									<span class="alt1" style="border: 0px none  ! important; margin: 0px; padding: 0px; overflow: hidden; width: 1px; height: 1px; display: block;">
+									</span>
+								</div>
+								<div class="smallfont" style="border: 0px none  ! important; margin: 0px; padding: 0px 5px 4px; background: transparent none repeat scroll 0% 0%; text-align: center; white-space: nowrap; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
+									<span onClick="sndReq('op=activeusers', 'shout_out');" style="cursor: pointer;" />Active Users: 
+									<span id="shoutbox_activity">1</span>
+									</span>
+								</div>
+							</td>
+							<td style="border: 0px none  ! important; margin: 0px; padding: 0px;" class="alt1">&nbsp;</td>
+							<td class="alt1" style="border: 0px none  ! important; margin: 0px; padding: 0px;" width="100%">&nbsp;</td>
+						</tr>
+					</table>
+				</div>
+				<span id="active_user" class='shoutbox'>
+					<span id="shout_out" class='shoutbox'>
+						<span id="Private_shout" class='shoutbox'>
+	<!-- ENDIF -->
+							<div class="" onMouseOver="this.className='over';" onMouseOut="this.className='';">
+								<p class="shout" bgcolor="#53B54F">{SHOUT_WELCOME}</p>
+							</div>
+<!-- BEGIN shout_var -->
+							<div class="{shout_var.CLASS}" onMouseOver="this.className='{shout_var.CLASS_CH}';" onMouseOut="this.className='{shout_var.CLASS}';">
+							<p class="shout" bgcolor="#{shout_var.BACKG}">
+							<!-- IF shout_var.SHOW_USER --><!-- IF shout_var.CAN_DEL --><a onDblClick="if(confirm('Delete Shout?')==true)sndReq('op=take_delete_shout&amp;shout={shout_var.SHOUTID}', 'shoutTD')"><img src="themes/Bitfarm/pics/drop.gif" alt="Edit" title="Edit" border="0"></a><!-- ENDIF -->
+							<!-- IF shout_var.CAN_ED --><a onDblClick="sndReq('op=edit_shout&amp;shout={shout_var.SHOUTID}', 'shoutTD')"><img src="themes/Bitfarm/pics/edit.gif" alt="Edit" title="Edit" border="0"></a><!-- ENDIF -->
+							<!-- IF shout_var.CAN_QU --><a onClick="comment_smile('{shout_var.QUOTE}',Shoutform.text);"><img src="images/bbcode/bbcode_quote.gif" alt="quote" border="0"></a><!-- ENDIF -->
+							[<span class="shout_time">{shout_var.TIME}</span>]{shout_var.U_PRVATE_S}
+							<b><span class="admin" onDblClick="sndReq('op=private__chat&amp;to={shout_var.UID}', 'shout_out'); toggleprivate('shout_send','{shout_var.UID}');"><font color="#000" style='background-color: {shout_var.U_COLOR};'>{shout_var.U_NAME}</font>{shout_var.U_WARNED}<!-- IF shout_var.U_DONER --><img src="images/donator.gif" height="16" width="16" title="donator" alt="donator" /><!-- ENDIF --></span></b>
+							:  <!-- ENDIF -->{shout_var.SHOUT}
+							</p>
+							<hr>
+							</div>
+							<!-- END shout_var -->
+							<!-- IF not S_SHOUTBOX_AJAX -->
+							</div>
+							</p>
+						</span>
+					</span>
+				</span>
+					<p>
 
-<!-- INCLUDE themes/Bitfarm/templates/admin/over_all_footer.html -->
+				<form name="Shoutform" method="POST" action="#" target="Shoutbox" onSubmit="sendshout(text.value);">
+					<input type="text" readonly="readonly" name="helpbox" style="width:100%" class="helpline" value="{L__STYLES_TIP}" />
+					<br />
+					<script type="text/javascript">
+					// <![CDATA[
+					
+					// Define the bbCode tags
+					var bbcode = new Array();
+					var bbtags = new Array('[b]','[/b]','[i]','[/i]','[u]','[/u]','[quote]','[/quote]','[code]','[/code]','[list]','[/list]','[list=]','[/list]','[img]','[/img]','[url]','[/url]','[flash=]', '[/flash]','[size=]','[/size]'<!-- BEGIN custom_tags -->, {custom_tags.BBCODE_NAME}<!-- END custom_tags -->);
+					var imageTag = false;
+		
+					// Helpline messages
+					var help_line = {
+						b: '{LA__BBCODE_B_HELP}',
+						i: '{LA__BBCODE_I_HELP}',
+						u: '{LA__BBCODE_U_HELP}',
+						q: '{LA__BBCODE_Q_HELP}',
+						c: '{LA__BBCODE_C_HELP}',
+						l: '{LA__BBCODE_L_HELP}',
+						o: '{LA__BBCODE_O_HELP}',
+						p: '{LA__BBCODE_P_HELP}',
+						w: '{LA__BBCODE_W_HELP}',
+						s: '{LA__BBCODE_S_HELP}',
+						f: '{LA__BBCODE_F_HELP}',
+						e: '{LA__BBCODE_E_HELP}',
+						d: '{LA__BBCODE_D_HELP}',
+						t: '{LA__BBCODE_T_HELP}',
+						tip: '{L__STYLES_TIP}'
+						<!-- BEGIN custom_tags -->
+							,cb_{custom_tags.BBCODE_ID}: '{custom_tags.A_BBCODE_HELPLINE}'
+						<!-- END custom_tags -->
+					}
+					
+					// ]]>
+					</script>
+					<script type="text/javascript" src="{SITE_URL}/{T_TEMPLATE_PATH}/editor.js"></script>
+					<input type="button" class="btnbbcode" accesskey="b" name="addbbcode0" value=" B " style="font-weight:bold; width: 30px;" onClick="bbstyle(0)" onMouseOver="helpline('b')" onMouseOut="helpline('tip')" />
+					<input type="button" class="btnbbcode" accesskey="i" name="addbbcode2" value=" i " style="font-style:italic; width: 30px;" onClick="bbstyle(2)" onMouseOver="helpline('i')" onMouseOut="helpline('tip')" />
+					<input type="button" class="btnbbcode" accesskey="u" name="addbbcode4" value=" u " style="text-decoration: underline; width: 30px;" onClick="bbstyle(4)" onMouseOver="helpline('u')" onMouseOut="helpline('tip')" />
+					<!-- IF S_BBCODE_QUOTE -->
+					<input type="button" class="btnbbcode" accesskey="q" name="addbbcode6" value="Quote" style="width: 50px" onClick="bbstyle(6)" onMouseOver="helpline('q')" onMouseOut="helpline('tip')" />
+					<!-- ENDIF -->
+					<input type="button" class="btnbbcode" accesskey="c" name="addbbcode8" value="Code" style="width: 40px" onClick="bbstyle(8)" onMouseOver="helpline('c')" onMouseOut="helpline('tip')" />
+					<input type="button" class="btnbbcode" accesskey="l" name="addbbcode10" value="List" style="width: 40px" onClick="bbstyle(10)" onMouseOver="helpline('l')" onMouseOut="helpline('tip')" />
+					<input type="button" class="btnbbcode" accesskey="o" name="addbbcode12" value="List=" style="width: 40px" onClick="bbstyle(12)" onMouseOver="helpline('o')" onMouseOut="helpline('tip')" />
+					<input type="button" class="btnbbcode" accesskey="t" name="addlitsitem" value="[*]" style="width: 40px" onClick="bbstyle(-1)" onMouseOver="helpline('e')" onMouseOut="helpline('tip')" />				
+					<!-- IF S_BBCODE_IMG -->
+					<input type="button" class="btnbbcode" accesskey="p" name="addbbcode14" value="Img" style="width: 40px" onClick="bbstyle(14)" onMouseOver="helpline('p')" onMouseOut="helpline('tip')" />
+					<!-- ENDIF -->
+					<!-- IF S_LINKS_ALLOWED -->
+					<input type="button" class="btnbbcode" accesskey="w" name="addbbcode16" value="URL" style="text-decoration: underline; width: 40px" onClick="bbstyle(16)" onMouseOver="helpline('w')" onMouseOut="helpline('tip')" />
+					<!-- ENDIF -->
+					<!-- IF S_BBCODE_FLASH -->
+					<input type="button" class="btnbbcode" accesskey="d" name="addbbcode18" value="Flash" onClick="bbstyle(18)" onMouseOver="helpline('d')" onMouseOut="helpline('tip')" />
+					<!-- ENDIF -->
+					<span class="genmed nowrap">{L__FONT_SIZE}: 
+						<select class="gensmall" name="addbbcode20" onChange="bbfontstyle('[size=' + this.form.addbbcode20.options[this.form.addbbcode20.selectedIndex].value + ']', '[/size]');this.form.addbbcode20.selectedIndex = 2;" onmouseover="helpline('f')" onmouseout="helpline('tip')">
+						<option value="50">{L__FONT_TINY}</option>
+						<option value="85">{L__FONT_SMALL}</option>
+						<option value="100" selected="selected">{L__FONT_NORMAL}</option>
+						<option value="150">{L__FONT_LARGE}</option>
+						<option value="200">{L__FONT_HUGE}</option>
+						</select>
+					</span>
+					<span class="genmed nowrap">
+						<select class="gensmall" id=fontselect onchange=fontformat(Shoutform,this.options[this.selectedIndex].value,'font',text)>
+						<option value=0>FONT</option>
+                        <option value=arial><font face="arial">Arial</font></option>
+                        <option value=comic sans ms>Comic</option>
+                        <option value=courier new>Courier New</option>
+                        <option value=tahoma>Tahoma</option>
+                        <option value=times new roman>Times New Roman</option>
+                        <option value=verdana>Verdana</option>
+						</select>
+					</span>
+					<br />
+					  {L__FONT_COLOR}:
+						<script type="text/javascript">
+						// <![CDATA[
+							colorPalette('h', 16, 7)
+						// ]]>
+						</script>
+						<a href=bbcode.php>BBcode help</a>
+					<br />
+					<!-- BEGIN smiley -->
+					<a href="#" onClick="insert_text('{smiley.A_SMILEY_CODE}', true); return false;" style="line-height: 20px;"><img src="{smiley.SMILEY_IMG}" alt="{smiley.SMILEY_CODE}" title="{smiley.SMILEY_DESC}" hspace="2" vspace="2" /></a>
+<!-- END smiley -->		
+					<br />				
+					<input type="hidden" name="op" value="shout">
+					<textarea id="shout_text_area" name="text" rows="1" cols="90"  onkeyup=" if (event.keyCode == 13) {this.value=''}" onKeyPress="if (event.keyCode == 13) {sendshoutout(this.value, 'shout_out');}"></textarea>
+					</p>
+				   <input type="button" id="shout_send" onClick="sendshoutout(text.value, 'shout_out'); text.value = '';" value="Shout!" />
+				   <input type="button" onClick="sndReq('op=view_shout', 'shout_out');" value="Update" />
+				   <input type="button" onClick="sndReq('op=more_smiles', 'shoutTD')" value="More Smiles" />
+				</form>		
+			</div>
+		</td>
+	</tr>
+</table>
+<br clear="all" >
+<!-- ENDIF -->
+<!-- ELSE -->
+<div><span>{L_BAND_SHOUTS}</span></div>
+<!-- ENDIF -->
+<!-- IF DETACH -->
+</body>
+
+</html>
+<!-- ENDIF -->
