@@ -23,6 +23,7 @@ if (!defined('IN_PMBT'))
 	include_once './../../security.php';
 	die ();
 }
+require_once("include/constants.php");
 $global_privmsgs_rules = array(
 	CHECK_SUBJECT	=> array(
 		RULE_IS_LIKE		=> array('check0' => 'message_subject', 'function' => 'preg_match("/" . preg_quote({STRING}, "/") . "/i", {CHECK0})'),

@@ -1398,7 +1398,7 @@ $template->assign_vars(array(
 			// Reset user_message_rules if no more assigned
 			$sql = 'SELECT rule_id
 				FROM ' . $db_prefix . '_private_messages_rules
-				WHERE user_id = ' . $user->id . 'LIMIT 1';
+				WHERE user_id = ' . $user->id . ' LIMIT 1';
 			$result = $db->sql_query($sql) or btsqlerror($sql);
 			$row = $db->sql_fetchrow($result);
 			$db->sql_freeresult($result);

@@ -204,6 +204,7 @@ $min_num_seed_e = $row["min_num_seed_e"];
 $min_size_seed_e = $row["min_size_seed_e"];
 $minupload_size_file = $row["minupload_size_file"];
 $allow_backup_tracker = ($row["allow_backup_tracker"] == "true") ? true : false;
+$allow_magnet = $row["allow_magnet"];
 $stealthmode = ($row["stealthmode"] == "true") ? true : false;
 $version = $row["version"];
 $force_upload = ($row["upload_dead"]=="true") ? true : false;

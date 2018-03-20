@@ -23,6 +23,7 @@ if (!defined('IN_PMBT'))
 	include_once './../../security.php';
 	die ();
 }
+require_once("include/constants.php");
 function view_message($id, $mode, $folder_id, $msg_id, $folder, $message_row)
 {
 	global $user, $db_prefix, $template, $auth, $db, $pmbt_cache;

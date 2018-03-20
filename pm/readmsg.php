@@ -30,6 +30,7 @@ $msg_id = $mid;
 include_once('include/ucp/ucp_pm_viewmessage.php');
 require_once("include/ucp/functions_privmsgs.php");
 require_once("include/class.bbcode.php");
+require_once("include/constants.php");
 $user->set_lang('pm',$user->ulanguage);
 require_once("include/ucp/functions_privmsgs.php");
 require_once("include/class.bbcode.php");
@@ -51,7 +52,7 @@ $id 	= request_var('i', '');
 				}
 				else
 				{
-					$folder_id = request_var('f', PRIVMSGS_NO_BOX);
+					$folder_id = request_var('f', '-3');
 					$action = request_var('action', 'view_folder');
 				}
 
@@ -66,7 +67,7 @@ $id 	= request_var('i', '');
 
 
 				// Do not allow hold messages to be seen
-				if ($folder_id == PRIVMSGS_HOLD_BOX)
+				if ($folder_id == '-4')
 				{
 					trigger_error('NO_AUTH_READ_HOLD_MESSAGE');
 				}
@@ -76,7 +77,7 @@ $id 	= request_var('i', '');
 				$submit_mark	= (isset($_POST['submit_mark'])) ? true : false;
 				$move_pm		= (isset($_POST['move_pm'])) ? true : false;
 				$mark_option	= request_var('mark_option', '');
-				$dest_folder	= request_var('dest_folder', PRIVMSGS_NO_BOX);
+				$dest_folder	= request_var('dest_folder', '-3');
 
 				// Is moving PM triggered through mark options?
 				if (!in_array($mark_option, array('mark_important', 'delete_marked')) && $submit_mark)
@@ -90,7 +91,7 @@ $id 	= request_var('i', '');
 				if ($move_pm)
 				{
 					$move_msg_ids	= (isset($_POST['marked_msg_id'])) ? request_var('marked_msg_id', array(0)) : array();
-					$cur_folder_id	= request_var('cur_folder_id', PRIVMSGS_NO_BOX);
+					$cur_folder_id	= request_var('cur_folder_id', '-3');
 
 					if (move_pm($user->id, $user->data['message_limit'], $move_msg_ids, $dest_folder, $cur_folder_id))
 					{
@@ -98,7 +99,7 @@ $id 	= request_var('i', '');
 						if ($action == 'view_message')
 						{
 							$msg_id		= 0;
-							$folder_id	= request_var('cur_folder_id', PRIVMSGS_NO_BOX);
+							$folder_id	= request_var('cur_folder_id', '-3');
 							$action		= 'view_folder';
 						}
 					}
@@ -121,16 +122,16 @@ $id 	= request_var('i', '');
 					$num_removed = $return['removed'];
 				}
 
-				if (!$msg_id && $folder_id == PRIVMSGS_NO_BOX)
+				if (!$msg_id && $folder_id == '-3')
 				{
 					$folder_id = PRIVMSGS_INBOX;
 				}
-				else if ($msg_id && $folder_id == PRIVMSGS_NO_BOX)
+				else if ($msg_id && $folder_id == '-3')
 				{
 					$sql = 'SELECT folder_id
 						FROM ' . $db_prefix . "_privmsgs_to
 						WHERE msg_id = $msg_id
-							AND folder_id <> " . PRIVMSGS_NO_BOX . '
+							AND folder_id <> " . '-3' . '
 							AND user_id = ' . $user->id;
 					$result = $db->sql_query($sql);
 					$row = $db->sql_fetchrow($result);
@@ -200,12 +201,12 @@ $id 	= request_var('i', '');
 				$s_folder_options = $s_to_folder_options = '';
 				foreach ($folder as $f_id => $folder_ary)
 				{
-					$option = '<option' . ((!in_array($f_id, array(PRIVMSGS_INBOX, PRIVMSGS_OUTBOX, PRIVMSGS_SENTBOX))) ? ' class="sep"' : '') . ' value="' . $f_id . '"' . (($f_id == $folder_id) ? ' selected="selected"' : '') . '>' . $folder_ary['folder_name'] . (($folder_ary['unread_messages']) ? ' [' . $folder_ary['unread_messages'] . '] ' : '') . '</option>';
+					$option = '<option' . ((!in_array($f_id, array(PRIVMSGS_INBOX, '-2', '-1'))) ? ' class="sep"' : '') . ' value="' . $f_id . '"' . (($f_id == $folder_id) ? ' selected="selected"' : '') . '>' . $folder_ary['folder_name'] . (($folder_ary['unread_messages']) ? ' [' . $folder_ary['unread_messages'] . '] ' : '') . '</option>';
 
-					$s_to_folder_options .= ($f_id != PRIVMSGS_OUTBOX && $f_id != PRIVMSGS_SENTBOX) ? $option : '';
+					$s_to_folder_options .= ($f_id != '-2' && $f_id != '-1') ? $option : '';
 					$s_folder_options .= $option;
 				}
-				clean_sentbox($folder[PRIVMSGS_SENTBOX]['num_messages']);
+				clean_sentbox($folder['-1']['num_messages']);
 
 				// Header for message view - folder and so on
 				$folder_status = get_folder_status($folder_id, $folder);
@@ -231,8 +232,8 @@ $id 	= request_var('i', '');
 					'U_CURRENT_FOLDER'		=> $u_action . '&amp;folder=' . $folder_id,
 
 					'S_IN_INBOX'			=> ($folder_id == PRIVMSGS_INBOX) ? true : false,
-					'S_IN_OUTBOX'			=> ($folder_id == PRIVMSGS_OUTBOX) ? true : false,
-					'S_IN_SENTBOX'			=> ($folder_id == PRIVMSGS_SENTBOX) ? true : false,
+					'S_IN_OUTBOX'			=> ($folder_id == '-2') ? true : false,
+					'S_IN_SENTBOX'			=> ($folder_id == '-1') ? true : false,
 
 					'FOLDER_STATUS'				=> $folder_status['message'],
 					'FOLDER_MAX_MESSAGES'		=> $folder_status['max'],
