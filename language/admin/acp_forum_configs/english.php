@@ -65,15 +65,16 @@ if (empty($lang) || !is_array($lang))
 }
 
 $lang = array_merge($lang, array(
-    'TITLE'                            => 'Forum Features',
-    'TITLE_EXPLAIN'                    => 'Here you can Enable/Disable Several Forum Features.',
-    'ALLOW_ATTACHMENTS'                => 'Allow Attachments',
-    'FORM_UPDATED'                     => 'Forum Configuration',
-    'YES_NO_TF'                        => array('true'=>'Yes','false'=>'No'),
-    'YES_NO'                           => array('yes' =>'Yes','no'   =>'No'),
-    'YES_NO_NUM'                           => array('1' =>'Yes','0'   =>'No'),
-    'SEL_TIME_A'                       => array('m'   =>'Minutes','h'=>'Hours','d'=>'Days'),
-    'SEL_TIME_B'                       => array('s'   =>'Seconds','m'=>'Minutes'),
+    'YES_NO_TF'  => array('true'=>'Yes','false'=>'No'),
+    'YES_NO'     => array('yes' =>'Yes','no'   =>'No'),
+    'YES_NO_NUM' => array('1' =>'Yes','0'   =>'No'),
+    'SEL_TIME_A' => array('m'   =>'Minutes','h'=>'Hours','d'=>'Days'),
+    'SEL_TIME_B' => array('s'   =>'Seconds','m'=>'Minutes'),
+
+    'TITLE'             => 'Forum Features',
+    'TITLE_EXPLAIN'     => 'Here you can Enable/Disable Several Forum Features.',
+    'ALLOW_ATTACHMENTS' => 'Allow Attachments',
+    'FORM_UPDATED'      => 'Forum Configuration',
 
     '_admpmax_filesize'                => 'Maximum Attachment File Size',
     '_admpmax_filesizeexplain'         => 'For Uploaded Attachment Files.',

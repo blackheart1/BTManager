@@ -34,8 +34,8 @@ if (empty($lang) || !is_array($lang))
 }
 
 $lang = array_merge($lang, array(
-	'_LOCALE'			=>	'en_UK',
-	'_DATESTRING'		=> '%A, %B %d %Y @ %T %Z',
+    '_LOCALE'          =>	'en_UK',
+    '_DATESTRING'      => '%A, %B %d %Y @ %T %Z',
     'TRANSLATION_INFO' => '',
     'DIRECTION'        => 'ltr',
     'DATE_FORMAT'      => '|d M Y|', // 01 Jan 2007 (with Relative Days Enabled)
