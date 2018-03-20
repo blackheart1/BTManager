@@ -1,5 +1,4 @@
 <?php
-
 /**
 **********************
 ** BTManager v3.0.1 **
@@ -11,23 +10,19 @@
 ** Copyright (C) 2018
 ** Formerly Known As phpMyBitTorrent
 ** Created By Antonio Anzivino (aka DJ Echelon)
-** And Joe Robertson (aka joeroberts)
-** Project Leaders: Black_heart, Thor.
-** File advance_settings.php 2018-03-01 11:52:00 Thor
+** And Joe Robertson (aka joeroberts/Black_Heart)
+** Project Leaders: Black_Heart, Thor.
+** File advance_settings.php 2018-02-17 14:32:00 Black_Heart
 **
 ** CHANGES
 **
-** 2018-02-26 - Added New Masthead
-** 2018-02-26 - Added New !defined('IN_PMBT')
-** 2018-02-26 - Fixed Spelling
+** EXAMPLE 26-04-13 - Added Auto Ban
 **/
-
 if (!defined('IN_PMBT'))
 {
-    include_once './../../security.php';
-    die ("You can't access this file directly");
+	include_once './../../security.php';
+	die ("You can't access this file directly");
 }
-
 		$sql = 'SELECT * FROM `'.$db_prefix.'_settings`';
 		$avres = $db->sql_query($sql) or btsqlerror($avsql);
 		$cfgrow = array();
@@ -85,18 +80,18 @@ if (!defined('IN_PMBT'))
 							'op'		=> 'settings_pm',
 						));
 				$template->assign_vars(array(
-				'L_TITLE'                   => 'Private Message Settings',
-                'L_TITLE_EXPLAIN'           => 'Here you can Set ALL the Default Settings for Private Messaging.',
+				'L_TITLE'					=> $user->lang['PM_SETTING_TITLE'],
+				'L_TITLE_EXPLAIN'			=> $user->lang['PM_SETTING_TITLE_EXPLAIN'],
 				'U_ACTION'					=> "./admin.php",
 				'S_FORM_TOKEN'			=> $hidden,
 				));
-	drawRow("sitename","text", false ,'General Settings');
+	drawRow("sitename","text", false ,'General settings');
 	drawRow("allow_privmsg","selecty_n",NULL,false,'allow_privmsg');
 	drawRow("pm_max_boxes","text");
 	drawRow('pm_max_msgs','text');
 	drawRow('full_folder_action','select',$user->lang["PMFULLOPTION"]);
 	drawRow('pm_edit_time','text',NULL,false,'Minutes');
-	drawRow("sitename","text", false ,'General Options');
+	drawRow("sitename","text", false ,'General options');
 	drawRow("allow_mass_pm","selecty_n",NULL,false,'allow_mass_pm');
 	drawRow("auth_bbcode_pm","selecty_n",NULL,false,'auth_bbcode_pm');
 	drawRow("auth_smilies_pm","selecty_n",NULL,false,'auth_smilies_pm');

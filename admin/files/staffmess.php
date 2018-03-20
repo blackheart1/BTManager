@@ -47,7 +47,7 @@ if($page=="pm"){
 		include_once('include/message_parser.php');
 		include_once('include/class.bbcode.php');
 		include_once('include/ucp/functions_privmsgs.php');
-		define('BBCODE_UID_LEN', 8);
+require_once("include/constants.php");
 		$subject			= request_var('subject', '',true);
 		$sender				= request_var('sender', '');
 		$message			= request_var('message', '', true);
