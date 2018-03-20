@@ -423,6 +423,8 @@ switch ($op) {
                                         $sql = "SELECT U.email, U.language, U.username FROM ".$db_prefix."_users U WHERE U.id = ".$auth.";";
 										$gr_res = $db->sql_query($gr_sql);
 										list ($gr_email, $gr_language, $gr_name) = $db->fetch_array($gr_res);
+												if (!$gr_language OR !file_exists("language/email/".$gr_language."/authreset.txt")) $lang_email = $language;
+												else $lang_email = $gr_language;
 												$messenger = new messenger();
 												$messenger->template('authreset', $lang_email);
 												$messenger->to($gr_email, $gr_name);
