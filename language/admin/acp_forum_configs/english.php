@@ -71,6 +71,7 @@ $lang = array_merge($lang, array(
     'FORM_UPDATED'                     => 'Forum Configuration',
     'YES_NO_TF'                        => array('true'=>'Yes','false'=>'No'),
     'YES_NO'                           => array('yes' =>'Yes','no'   =>'No'),
+    'YES_NO_NUM'                           => array('1' =>'Yes','0'   =>'No'),
     'SEL_TIME_A'                       => array('m'   =>'Minutes','h'=>'Hours','d'=>'Days'),
     'SEL_TIME_B'                       => array('s'   =>'Seconds','m'=>'Minutes'),
 

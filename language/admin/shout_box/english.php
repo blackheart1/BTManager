@@ -65,6 +65,7 @@ if (empty($lang) || !is_array($lang))
 }
 
 $lang = array_merge($lang, array(
+    'YES_NO_NM'                        => array('1'=>'Yes', '0'=>'No'),
     'YES_NO'                        => array('yes'=>'Yes', 'no'=>'No'),
     'SHOUT_CONF'                    => 'ShoutBox Configuration',
     'SHOUT_CONF_EXP'                => 'Here is where you Set ALL your Settling\'s for the Site\'s Shoutbox Including, Refresh Rate, Idle Time, and Turning it On or Off.',
@@ -100,6 +101,8 @@ $lang = array_merge($lang, array(
     '_admpshout_new_torrentexplain' => 'Automatically Post a Shout when a New Torrent is Uploaded',
     '_admpshout_new_porn'           => 'Announce New Porn Torrents ',
     '_admpshout_new_pornexplain'    => 'Automatically Post a Shout when a Torrent is Uploaded in the Porn Category.<br />This DOES NOT Override the Announce New Torrents if it\'s Turned OFF',
+	'DATE_FORMAT'					=> 'Date format',
+	'DATE_FORMAT_EXPLAIN'			=> 'The syntax used is identical to the PHP <a href="http://www.php.net/date">date()</a> function.',
 ));
 
 ?>

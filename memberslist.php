@@ -1723,8 +1723,8 @@ function show_profile($data, $user_notes_enabled = false, $warn_user_enabled = f
 	return array(
 		'AGE'			=> $age,
 		'RANK_TITLE'	=> $rank_title,
-		'JOINED'		=> format_date2(sql_timestamp_to_unix_timestamp($data['regdate'])),
-		'VISITED'		=> (empty($last_visit)) ? ' - ' : format_date2(sql_timestamp_to_unix_timestamp($last_visit)),
+		'JOINED'		=> $user->format_date(sql_timestamp_to_unix_timestamp($data['regdate'])),
+		'VISITED'		=> (empty($last_visit)) ? ' - ' : $user->format_date(sql_timestamp_to_unix_timestamp($last_visit)),
 		'POSTS'			=> ($data['user_posts']) ? $data['user_posts'] : 0,
 		'WARNINGS'		=> isset($data['user_warnings']) ? $data['user_warnings'] : 0,
 

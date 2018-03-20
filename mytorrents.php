@@ -28,6 +28,8 @@ else
 }
 require_once("common.php");
 require_once("include/torrent_functions.php");
+require_once("include/class.email.php");
+include_once('include/function_messenger.php');
 include_once("include/utf/utf_tools.php");
 $user->set_lang('my_torrents',$user->ulanguage);
 $template = new Template();
@@ -116,22 +118,20 @@ switch ($op) {
                                                 $gr_sql = "SELECT U.email, U.language, U.username, T.name, T.id FROM ".$db_prefix."_users U LEFT JOIN ".$db_prefix."_torrents T ON T.id = '".$id."' WHERE U.id = ".$auth.";";
 												$gr_res = $db->sql_query($gr_sql);
 												list ($gr_email, $gr_language, $gr_name, $gr_tname, $gr_tid) = $db->fetch_array($gr_res);
-												if (!$gr_language OR !file_exists("language/email/".$gr_language."/authreq.txt")) $lang_email = $language;
+												if (!$gr_language OR !file_exists("language/email/".$gr_language."/authgrant.txt")) $lang_email = $language;
 												else $lang_email = $gr_language;
-                                                $confirm_mail = new eMail;
-												$data = $confirm_mail->get_mail_text('authgrant',$lang_email);
-												$pass = array(
-												'gr_name' => $gr_name,
-												'granter' => $user->name,
-												'gr_tname' => $gr_tname,
-												'gr_tid' => $gr_tid,
-												'data'	=> $data);
-												$confirm_mail->clean_body($pass);
-                                                $confirm_mail->sender = $admin_email;
-                                                $confirm_mail->Add($gr_email);
-                                                $confirm_mail->subject = sprintf($user->lang['AUTH_EMAIL_SUB'],$sitename);
-                                                $notifications->Insert($confirm_mail);
-                                                //unset($confirm_mail);
+												$messenger = new messenger();
+												$messenger->template('authgrant', $lang_email);
+												$messenger->to($gr_email, $gr_name);
+												$messenger->assign_vars(array(
+															'SUB_JECT'				=>	sprintf($user->lang['AUTH_EMAIL_SUB'],$sitename),
+															'GR_TNAME'				=>	$gr_name,
+															'GRANTER'				=>	$user->name,
+															'GR_NAME'				=>	$gr_name,
+															'GR_TID'				=>	$gr_tid,
+															));
+												$messenger->send(0);
+												$messenger->save_queue();
                                         }
                                         break;
 
@@ -145,22 +145,19 @@ switch ($op) {
                                                 $gr_sql = "SELECT U.email, U.language, U.username, T.name, T.id FROM ".$db_prefix."_users U LEFT JOIN ".$db_prefix."_torrents T ON T.id = '".$id."' WHERE U.id = ".$auth.";";
 												$gr_res = $db->sql_query($gr_sql);
 												list ($gr_email, $gr_language, $gr_name, $gr_tname, $gr_tid) = $db->fetch_array($gr_res);
-												if (!$gr_language OR !file_exists("language/email/".$gr_language."/authreq.txt")) $lang_email = $language;
+												if (!$gr_language OR !file_exists("language/email/".$gr_language."/authdeny.txt")) $lang_email = $language;
 												else $lang_email = $gr_language;
-                                                $confirm_mail = New eMail;
-												$data = $confirm_mail->get_mail_text('authdeny',$lang_email);
-												$pass = array(
-												'gr_name' => $gr_name,
-												'granter' => $user->name,
-												'gr_tname' => $gr_tname,
-												'gr_tid' => $gr_tid,
-												'data'	=> $data);
-												$confirm_mail->clean_body($pass);
-                                                $confirm_mail->sender = $admin_email;
-                                                $confirm_mail->Add($gr_email);
-                                                $confirm_mail->subject = sprintf($user->lang['AUTH_EMAIL_SUB'],$sitename);
-                                                $notifications->Insert($confirm_mail);
-                                                //unset($confirm_mail);
+												$messenger = new messenger();
+												$messenger->template('authdeny', $lang_email);
+												$messenger->to($gr_email, $gr_name);
+												$messenger->assign_vars(array(
+															'SUB_JECT'				=>	sprintf($user->lang['AUTH_EMAIL_SUB'],$sitename),
+															'GR_TNAME'				=>	$gr_name,
+															'GRANTER'				=>	$user->name,
+															'GR_NAME'				=>	$gr_name,
+															));
+												$messenger->send(0);
+												$messenger->save_queue();
                                         }
                                         break;
                                 }
@@ -179,20 +176,18 @@ switch ($op) {
                                         $sql = "SELECT U.email, U.language, U.username FROM ".$db_prefix."_users U WHERE U.id = ".$auth.";";
 										$gr_res = $db->sql_query($gr_sql);
 										list ($gr_email, $gr_language, $gr_name) = $db->fetch_array($gr_res);
-												if (!$gr_language OR !file_exists("language/email/".$gr_language."/authreq.txt")) $lang_email = $language;
+												if (!$gr_language OR !file_exists("language/email/".$gr_language."/authallgrant.txt")) $lang_email = $language;
 												else $lang_email = $gr_language;
-                                        $confirm_mail = New eMail;
-												$data = $confirm_mail->get_mail_text('authallgrant',$lang_email);
-												$pass = array(
-												'gr_name' => $gr_name,
-												'granter' => $user->name,
-												'data'	=> $data);
-												$confirm_mail->clean_body($pass);
-                                        $confirm_mail->sender = $admin_email;
-                                        $confirm_mail->Add($gr_email);
-                                        $confirm_mail->subject = sprintf($user->lang['AUTH_EMAIL_SUB'],$sitename);
-                                        $notifications->Insert($confirm_mail);
-                                        //unset($confirm_mail);
+												$messenger = new messenger();
+												$messenger->template('authallgrant', $lang_email);
+												$messenger->to($gr_email, $gr_name);
+												$messenger->assign_vars(array(
+															'SUB_JECT'				=>	sprintf($user->lang['AUTH_EMAIL_SUB'],$sitename),
+															'GR_TNAME'				=>	$gr_name,
+															'GRANTER'				=>	$user->name,
+															));
+												$messenger->send(0);
+												$messenger->save_queue();
                                         break;
 
                                 }
@@ -211,20 +206,18 @@ switch ($op) {
                                         $gr_sql = "SELECT U.email, U.language, U.username FROM ".$db_prefix."_users U WHERE U.id = ".$auth.";";
 										$gr_res = $db->sql_query($gr_sql);
 										list ($gr_email, $gr_language, $gr_name) = $db->fetch_array($gr_res);
-												if (!$gr_language OR !file_exists("language/email/".$gr_language."/authreq.txt")) $lang_email = $language;
+												if (!$gr_language OR !file_exists("language/email/".$gr_language."/authalldeny.txt")) $lang_email = $language;
 												else $lang_email = $gr_language;
-                                        $confirm_mail = New eMail;
-												$data = $confirm_mail->get_mail_text('authalldeny',$lang_email);
-												$pass = array(
-												'gr_name' => $gr_name,
-												'granter' => $user->name,
-												'data'	=> $data);
-												$confirm_mail->clean_body($pass);
-                                        $confirm_mail->sender = $admin_email;
-                                        $confirm_mail->Add($gr_email);
-                                        $confirm_mail->subject = sprintf($user->lang['AUTH_EMAIL_SUB'],$sitename);
-                                        $notifications->Insert($confirm_mail);
-                                        //unset($confirm_mail);
+												$messenger = new messenger();
+												$messenger->template('authalldeny', $lang_email);
+												$messenger->to($gr_email, $gr_name);
+												$messenger->assign_vars(array(
+															'SUB_JECT'				=>	sprintf($user->lang['AUTH_EMAIL_SUB'],$sitename),
+															'GR_TNAME'				=>	$gr_name,
+															'GRANTER'				=>	$user->name,
+															));
+												$messenger->send(0);
+												$messenger->save_queue();
                                         break;
                                 }
                         }
@@ -384,20 +377,18 @@ switch ($op) {
                                         $gr_sql = "SELECT U.email, U.language, U.username FROM ".$db_prefix."_users U WHERE U.id = ".$auth.";";
 										$gr_res = $db->sql_query($gr_sql);
 										list ($gr_email, $gr_language, $gr_name) = $db->fetch_array($gr_res);
-												if (!$gr_language OR !file_exists("language/email/".$gr_language."/authreq.txt")) $lang_email = $language;
+												if (!$gr_language OR !file_exists("language/email/".$gr_language."/authallgrant.txt")) $lang_email = $language;
 												else $lang_email = $gr_language;
-                                        $confirm_mail = New eMail;
-												$data = $confirm_mail->get_mail_text('authallgrant',$lang_email);
-												$pass = array(
-												'gr_name' => $gr_name,
-												'granter' => $user->name,
-												'data'	=> $data);
-												$confirm_mail->clean_body($pass);
-                                        $confirm_mail->sender = $admin_email;
-                                        $confirm_mail->Add($gr_email);
-                                        $confirm_mail->subject = sprintf($user->lang['AUTH_EMAIL_SUB'],$sitename);
-                                        $notifications->Insert($confirm_mail);
-                                        //unset($confirm_mail);
+												$messenger = new messenger();
+												$messenger->template('authallgrant', $lang_email);
+												$messenger->to($gr_email, $gr_name);
+												$messenger->assign_vars(array(
+															'SUB_JECT'				=>	sprintf($user->lang['AUTH_EMAIL_SUB'],$sitename),
+															'GRANTER'				=>	$user->name,
+															'GR_NAME'				=>	$gr_name,
+															));
+												$messenger->send(0);
+												$messenger->save_queue();
                                         break;
                                 }
                                 case "alwaysdeny": {
@@ -406,20 +397,18 @@ switch ($op) {
                                         $gr_sql = "SELECT U.email, U.language, U.username FROM ".$db_prefix."_users U WHERE U.id = ".$auth.";";
 										$gr_res = $db->sql_query($gr_sql);
 										list ($gr_email, $gr_language, $gr_name) = $db->fetch_array($gr_res);
-												if (!$gr_language OR !file_exists("language/email/".$gr_language."/authreq.txt")) $lang_email = $language;
+												if (!$gr_language OR !file_exists("language/email/".$gr_language."/authalldeny.txt")) $lang_email = $language;
 												else $lang_email = $gr_language;
-                                        $confirm_mail = New eMail;
- 												$data = $confirm_mail->get_mail_text('authalldeny',$lang_email);
-												$pass = array(
-												'gr_name' => $gr_name,
-												'granter' => $user->name,
-												'data'	=> $data);
-												$confirm_mail->clean_body($pass);
-                                       $confirm_mail->sender = $admin_email;
-                                        $confirm_mail->Add($gr_email);
-                                        $confirm_mail->subject = sprintf($user->lang['AUTH_EMAIL_SUB'],$sitename);
-                                        $notifications->Insert($confirm_mail);
-                                        //unset($confirm_mail);
+												$messenger = new messenger();
+												$messenger->template('authalldeny', $lang_email);
+												$messenger->to($gr_email, $gr_name);
+												$messenger->assign_vars(array(
+															'SUB_JECT'				=>	sprintf($user->lang['AUTH_EMAIL_SUB'],$sitename),
+															'GRANTER'				=>	$user->name,
+															'GR_NAME'				=>	$gr_name,
+															));
+												$messenger->send(0);
+												$messenger->save_queue();
                                         break;
                                 }
                                 case "reset": {
@@ -434,18 +423,16 @@ switch ($op) {
                                         $sql = "SELECT U.email, U.language, U.username FROM ".$db_prefix."_users U WHERE U.id = ".$auth.";";
 										$gr_res = $db->sql_query($gr_sql);
 										list ($gr_email, $gr_language, $gr_name) = $db->fetch_array($gr_res);
-                                        $confirm_mail = New eMail;
- 												$data = $confirm_mail->get_mail_text('authreset',$lang_email);
-												$pass = array(
-												'gr_name' => $gr_name,
-												'granter' => $user->name,
-												'data'	=> $data);
-												$confirm_mail->clean_body($pass);
-                                        $confirm_mail->sender = $admin_email;
-                                        $confirm_mail->Add($row["email"]);
-                                        $confirm_mail->subject = sprintf($user->lang['AUTH_EMAIL_SUB'],$sitename);
-                                        $notifications->Insert($confirm_mail);
-                                        //unset($confirm_mail);
+												$messenger = new messenger();
+												$messenger->template('authreset', $lang_email);
+												$messenger->to($gr_email, $gr_name);
+												$messenger->assign_vars(array(
+															'SUB_JECT'				=>	sprintf($user->lang['AUTH_EMAIL_SUB'],$sitename),
+															'GRANTER'				=>	$user->name,
+															'GR_NAME'				=>	$gr_name,
+															));
+												$messenger->send(0);
+												$messenger->save_queue();
                                         break;
                                 }
                         }

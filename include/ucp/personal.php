@@ -70,6 +70,7 @@ $hidden = array(
 $template->assign_vars(array(
 		'S_HIDDEN_FIELDS'		=> build_hidden_fields($hidden),
 		'CP_TORPERPAGE'			=> $userrow["torrent_per_page"],
+		'CP_HIDE_PROFILE'		=> ($userrow["hide_profile"] == 'true')? true : false,
 		'CP_PARKED'				=> ($userrow["parked"] == 'true')? true : false,
 		'CP_SHOW_ONLINE'		=> ($userrow["Show_online"] == 'true')? true : false,
 		'CP_PM_POPUP'			=> ($userrow["pm_popup"] == 'true')? true : false,

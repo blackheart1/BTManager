@@ -211,6 +211,7 @@ if($op == 'settings_bbcode')
 				$sub_allow_external				= request_var('sub_allow_external', '');
 				$sub_stealthmode				= request_var('sub_stealthmode', '');
 				$sub_upload_dead				= request_var('sub_upload_dead', '');
+				$sub_allow_magnet				= request_var('sub_allow_magnet', '');
 				$sub_invites_open				= request_var('sub_invites_open', '');
 				$sub_invite_only				= request_var('sub_invite_only', '');
 				$sub_max_members				= request_var('sub_max_members', '');
@@ -303,6 +304,7 @@ if($op == 'settings_bbcode')
 				if (!isset($sub_allow_multy_tracker) OR $sub_allow_multy_tracker != "true") $sub_allow_multy_tracker = "false"; array_push($params,"allow_multy_tracker"); array_push($values,$sub_allow_multy_tracker);
 				if (!isset($sub_allow_backup_tracker) OR $sub_allow_backup_tracker != "true") $sub_allow_backup_tracker = "false"; array_push($params,"allow_backup_tracker"); array_push($values,$sub_allow_backup_tracker);
 				if (!isset($sub_allow_external) OR $sub_allow_external != "true") $sub_allow_external = "false"; array_push($params,"allow_external"); array_push($values,$sub_allow_external);
+				if ($sub_allow_magnet != "1") $sub_allow_magnet = "0"; array_push($params,"allow_magnet"); array_push($values,$sub_allow_magnet);
 				if (!isset($sub_stealthmode) OR $sub_stealthmode != "true") $sub_stealthmode = "false"; array_push($params,"stealthmode"); array_push($values,$sub_stealthmode);
 				if (!isset($sub_upload_dead) OR $sub_upload_dead != "true") $sub_upload_dead = "false"; array_push($params,"upload_dead"); array_push($values,$sub_upload_dead);
 				if (!isset($sub_invites_open) OR $sub_invites_open != "true") $sub_invites_open = "false"; array_push($params,"invites_open"); array_push($values,$sub_invites_open);
@@ -327,12 +329,9 @@ if($op == 'settings_bbcode')
 				array_push($params,"most_on_line"); array_push($values,$most_users_online);
 				array_push($params,"when_most"); array_push($values,$most_users_online_when);
 				array_push($params,"start_date"); array_push($values,$start_date);
-		
 				//Now I save the settings
 				//but first I test the insertion against SQL errors, or I lose everything in case of error
 				$sql = "INSERT INTO ".$db_prefix."_config (".implode(", ",$params).") VALUES ('".implode("', '",$values)."');";
-				//echo $sql;
-				//die($sql);
 				if (!$db->sql_query($sql)) btsqlerror($sql);
 				$db->sql_query("TRUNCATE TABLE ".$db_prefix."_config;");
 				$db->sql_query($sql);
@@ -452,6 +451,7 @@ if($op == 'settings_bbcode')
 			drawRow("announce_text","text");
 			drawRow("announce_url","text3");
 			drawRow("allow_html","checkbox");
+			drawRow("allow_magnet","select",$user->lang["YES_NO_NUM"]);
 			drawRow("torrent_prefix","text");
 			drawRow("onlysearch","checkbox");
 			drawRow("time_tracker_update","text");

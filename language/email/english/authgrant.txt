@@ -1,17 +1,15 @@
-Hi $gr_name,
+Subject: {SUB_JECT} 
 
-We're pleased to inform you that User $granter Approved your Download Request for the Torrent $gr_tname.
+Hi {GR_NAME},
+
+We're pleased to inform you that User {GRANTER} Approved your Download Request for the Torrent {GR_TNAME}.
 
 You can Download it here:
 
-$siteurl/download.php?id=$gr_tid
+{GR_TID}
 
 Remember that the Torrent Owner may at any time change your Authorizations.
 
 You'll be sent a Confirmation Message at any Authorization change for this and for any other Torrent you Requested to Download.
 
-Regards,
-
-$sitename Staff
-
-$siteurl
+{EMAIL_SIG}

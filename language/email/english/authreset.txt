@@ -1,6 +1,8 @@
-Hi $gr_name,
+Subject: {SUB_JECT} 
 
-We inform you that User $granter has decided to Reset ALL your Torrent Download Authorizations for the Torrents he or she owns.
+Hi {GR_NAME},
+
+We inform you that User {GRANTER} has decided to Reset ALL your Torrent Download Authorizations for the Torrents he or she owns.
 
 Your Old Download Permissions have now been Restored. You will be still able to Download the Torrents you were Authorized for,
 but not those for which you weren't Authorized.
@@ -13,6 +15,4 @@ You'll be sent a Confirmation Message at the event of any Authorization change f
 
 Regards,
 
-$sitename Staff
-
-$siteurl
+{EMAIL_SIG}

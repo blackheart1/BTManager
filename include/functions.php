@@ -635,9 +635,11 @@ function on_page($num_items, $per_page, $start)
 
 	return sprintf($user->lang['PAGE_OF'], $on_page, max(ceil($num_items / $per_page), 1));
 }
+#DEPRICATED FUNCTION
 function format_date2($gmepoch, $format = false, $forcedate = false)
 	{
 		global $midnight,$u_datetime,$user,$db, $db_prefix;
+		return $user->format_date($gmepoch, $format, $forcedate);
 			list($d, $m, $y) = explode(' ', gmdate('j n Y', time() + $zone_offset));
 			$midnight = gmmktime(0, 0, 0, $m, $d, $y) +get_user_timezone($user->id);
 
@@ -2697,9 +2699,10 @@ function mksize($s) { //Byte, Kilobyte, Megabyte, Gigabyte size
         return $xx;
 }
 function formatTimestamp($time) {//Formats date & time
-    setlocale(LC_TIME, _LOCALE);
+	global $user;
+    setlocale(LC_TIME, $user->lang['_LOCALE']);
     preg_match("/([0-9]{4})-([0-9]{1,2})-([0-9]{1,2}) ([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2})/", $time, $datetime);
-    $datetime = strftime(_DATESTRING, mktime($datetime[4],$datetime[5],$datetime[6],$datetime[2],$datetime[3],$datetime[1]));
+    $datetime = strftime($user->lang['_DATESTRING'], mktime($datetime[4],$datetime[5],$datetime[6],$datetime[2],$datetime[3],$datetime[1]));
     $datetime = ucfirst($datetime);
     return($datetime);
 }

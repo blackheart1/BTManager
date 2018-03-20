@@ -88,11 +88,12 @@ if($pop == 'smilies')
 				echo $template->fetch('smilies.html');
 				close_out();
 }
-$op	= request_var('op', '');
+$op	= request_var('op', ($allow_magnet == 1)? '' : 'torrent');
 	$template->assign_vars(array(
 		'L_TITLE'					=> $user->lang['UPLOAD'],
 		'L_INTRO'					=> $user->lang['INTRO'],
 		'L_INTRO_EXP'				=> $user->lang['INTRO_EXP_SEL'],
+		'ALLOW_LINK'				=> ($allow_magnet == 1)? true : false,
 		'S_MESSAGE'					=> false,
 		'S_NOTICE'					=> false,
 		'S_ACTION'					=> $op,

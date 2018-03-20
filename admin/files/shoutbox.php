@@ -30,6 +30,7 @@ $db->sql_freeresult($cfgres);
 $user->set_lang('admin/shout_box',$user->ulanguage);
 		$do						= request_var('do', '');
 if ($do == "saveshout") {
+		$dateformat		= utf8_normalize_nfc(request_var('dateformat', $cfgrow['dateformat'], true));
 		$sub_announce_ment						= request_var('sub_announce_ment', '',true);
 		$sub_shoutnewuser						= request_var('sub_shoutnewuser', '');
 		$sub_shout_new_torrent					= request_var('sub_shout_new_torrent', '');
@@ -42,11 +43,13 @@ if ($do == "saveshout") {
 		$sub_autodelete_time					= request_var('sub_autodelete_time', '');
 		$sub_canedit_on							= request_var('sub_canedit_on', '');
 		$sub_candelete_on						= request_var('sub_candelete_on', '');
+		//die($dateformat);
         //First I create the two SQL arrays
         $params = Array();
         $values = Array();
         array_push($params,"announce_ment"); array_push($values,esc_magic($sub_announce_ment));
         array_push($params,"shoutnewuser"); array_push($values,$sub_shoutnewuser);
+        array_push($params,"dateformat"); array_push($values,$dateformat);
         array_push($params,"shout_new_torrent"); array_push($values,$sub_shout_new_torrent);
         array_push($params,"shout_new_porn"); array_push($values,$sub_shout_new_porn);
         array_push($params,"turn_on"); array_push($values,$sub_turn_on);
@@ -78,9 +81,32 @@ if ($do == "saveshout") {
 		close_out();
 }
 
+				$dateformat_options = '';
+				//echo $u_datetime;
+				foreach ($user->lang['dateformats'] as $format => $null)
+				{
+					$dateformat_options .= '<option value="' . $format . '"' . (($format == $cfgrow['dateformat']) ? ' selected="selected"' : '') . '>';
+					$dateformat_options .= $user->format_date(time(), $format, false) . ((strpos($format, '|') !== false) ? $user->lang['VARIANT_DATE_SEPARATOR'] . $user->format_date(time(), $format, true) : '');
+					$dateformat_options .= '</option>';
+				}
+
+				$s_custom = false;
+
+				$dateformat_options .= '<option value="custom"';
+				if (!isset($user->lang['dateformats'][$cfgrow['dateformat']]))
+				{
+					$dateformat_options .= ' selected="selected"';
+					$s_custom = true;
+				}
+				$dateformat_options .= '>' . $user->lang['CUSTOM_DATEFORMAT'] . '</option>';
 $template->assign_vars(array(
         'L_TITLE'            		=> $user->lang["SHOUT_CONF"],
         'L_TITLE_EXPLAIN'           => $user->lang["SHOUT_CONF_EXP"],
+		'S_DATEFORMAT_OPTIONS'					=> $dateformat_options,
+		'DATE_FORMAT'			=> $cfgrow['dateformat'],
+		'S_CUSTOM_DATEFORMAT'	=> $s_custom,
+
+
 		'U_ACTION'					=> "./admin.php?i=siteinfo&op=shoutbox&do=saveshout",
 ));
 

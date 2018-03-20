@@ -23,6 +23,9 @@ if (!defined('IN_PMBT'))
 	include_once './../../security.php';
 	die ("You can't access this file directly");
 }
-adminentry("acp_cache","acp_cache",$user->lang['MENU_CACHE_SETTINGS'],"siteinfo","admin");
-$op_keys = explode(",","acp_cache,cache_savesettings");
+if($auth->acl_get('a_cache_settings'))
+{
+	adminentry("acp_cache","acp_cache",$user->lang['MENU_CACHE_SETTINGS'],"siteinfo","admin");
+	$op_keys = explode(",","acp_cache,cache_savesettings");
+}
 ?>

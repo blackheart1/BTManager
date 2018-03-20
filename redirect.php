@@ -29,14 +29,15 @@ $template = new Template();
 $i = strpos($url, "&url=");
 if ($i !== false)
 	$url = substr($url, $i + 5);
+$url = str_replace('&link=', '' ,$url);
 	$title = getMetaTitle($url);
-								set_site_var($user->lang['SUCCESS']);
+				set_site_var($user->lang['REDIRECT']);
 				meta_refresh(5,strip_tags($url) );
 				$template->assign_vars(array(
 					'S_SUCCESS'			=> true,
 					'S_FORWARD'			=> false,
 					'TITTLE_M'			=> $user->lang['REDIRECT'],
-					'MESSAGE'			=> sprintf($user->lang['SUCCESS'],$title),
+					'MESSAGE'			=> sprintf($user->lang['REDIRECT_EXP'],$title),
 				));
 				echo $template->fetch('message_body.html');
 				close_out();

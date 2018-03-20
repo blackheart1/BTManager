@@ -41,6 +41,7 @@ if (!defined('IN_PMBT'))
 		$user_torrent_per_page				=  request_var('user_torrent_per_page', '0');
 		$u_country							=  request_var('u_country', '0');
 		$u_parked							=  request_var('parked', '0');
+		$hide_profile						=  request_var('hide_profile', '0');
 
 
 
@@ -74,6 +75,11 @@ if (!defined('IN_PMBT'))
                 $sqlval['Show_online'] = "true";
         } else {
                 $sqlval['Show_online'] = "false";
+        }
+        if ($hide_profile == "1") {
+                $sqlval['hide_profile'] = "true";
+        } else {
+                $sqlval['hide_profile'] = "false";
         }
         if (($userrow["passkey"] == "" AND $use_passkey == "true") OR ($use_passkey == "true" AND $passkey_reset == "true")OR($passkey_reset == "true" AND $force_passkey)) {
                 //Generate new Passkey
