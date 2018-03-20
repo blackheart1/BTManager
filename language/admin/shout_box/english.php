@@ -65,9 +65,11 @@ if (empty($lang) || !is_array($lang))
 }
 
 $lang = array_merge($lang, array(
-    'YES_NO_NM'                        => array('1'=>'Yes', '0'=>'No'),
+    'YES_NO_NM'                     => array('1'=>'Yes', '0'=>'No'),
     'YES_NO'                        => array('yes'=>'Yes', 'no'=>'No'),
+
     'SHOUT_CONF'                    => 'ShoutBox Configuration',
+
     'SHOUT_CONF_EXP'                => 'Here is where you Set ALL your Settling\'s for the Site\'s Shoutbox Including, Refresh Rate, Idle Time, and Turning it On or Off.',
 
     'BT_SHOUT'                      => 'Shout Box',
@@ -85,6 +87,7 @@ $lang = array_merge($lang, array(
     '_admpbbcode_on'                => 'Allow the Use of BBCode in Shouts ',
     '_admpbbcode_onexplain'         => 'Allow Users to be able to use BBCodes in Shouts',
     '_admpautodelete_time'          => 'Auto Delete ',
+
     '_admpautodelete_timeexplain'   => 'This is how long you want Shouts to be Displayed for before they are Deleted.  Time is Set in Minutes',
 
     '_admpcanedit_on'               => 'Can Edit Shouts ',
@@ -100,8 +103,11 @@ $lang = array_merge($lang, array(
     '_admpshout_new_torrent'        => 'Announce New Torrents ',
     '_admpshout_new_torrentexplain' => 'Automatically Post a Shout when a New Torrent is Uploaded',
     '_admpshout_new_porn'           => 'Announce New Porn Torrents ',
+
     '_admpshout_new_pornexplain'    => 'Automatically Post a Shout when a Torrent is Uploaded in the Porn Category.<br />This DOES NOT Override the Announce New Torrents if it\'s Turned OFF',
+
 	'DATE_FORMAT'					=> 'Date format',
+
 	'DATE_FORMAT_EXPLAIN'			=> 'The syntax used is identical to the PHP <a href="http://www.php.net/date">date()</a> function.',
 ));
 

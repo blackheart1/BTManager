@@ -61,21 +61,21 @@ $lang = array_merge($lang, array(
 	'FILE_NOT_FOUND_404'	=> 'The file <strong>%s</strong> does not exist.',
 	'FORK_TOPIC'			=> 'Copy topic',
 	'FULL_EDITOR'			=> 'Full Editor',
-	
+
 	'LINKAGE_FORBIDDEN'		=> 'You are not authorised to view, download or link from/to this site.',
 	'LOGIN_NOTIFY_TOPIC'	=> 'You have been notified about this topic, please login to view it.',
 	'LOGIN_VIEWTOPIC'		=> 'The board requires you to be registered and logged in to view this topic.',
 
-	'MAKE_ANNOUNCE'				=> 'Change to “Announcement”',
-	'MAKE_GLOBAL'				=> 'Change to “Global”',
-	'MAKE_NORMAL'				=> 'Change to “Standard Topic”',
-	'MAKE_STICKY'				=> 'Change to “Sticky”',
+	'MAKE_ANNOUNCE'				=> 'Change to "Announcement"',
+	'MAKE_GLOBAL'				=> 'Change to "Global"',
+	'MAKE_NORMAL'				=> 'Change to "Standard Topic"',
+	'MAKE_STICKY'				=> 'Change to "Sticky"',
 	'MAX_OPTIONS_SELECT'		=> 'You may select up to <strong>%d</strong> options',
 	'MAX_OPTION_SELECT'			=> 'You may select <strong>1</strong> option',
 	'MISSING_INLINE_ATTACHMENT'	=> 'The attachment <strong>%s</strong> is no longer available',
 	'MOVE_TOPIC'				=> 'Move topic',
 
-	'NO_ATTACHMENT_SELECTED'=> 'You haven’t selected an attachment to download or view.',
+	'NO_ATTACHMENT_SELECTED'=> 'You haven\'t selected an attachment to download or view.',
 	'NO_NEWER_TOPICS'		=> 'There are no newer topics in this forum.',
 	'NO_OLDER_TOPICS'		=> 'There are no older topics in this forum.',
 	'NO_UNREAD_POSTS'		=> 'There are no new unread posts for this topic.',

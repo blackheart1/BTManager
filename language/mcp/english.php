@@ -402,6 +402,7 @@ $lang = array_merge($lang, array(
             'OFF_TOPIC' => 'Off Topic',
             'OTHER'     => 'Other',
 		),
+
 		'DESCRIPTION' => array(
             'WAREZ'     => 'The Post contains Links to Illegal or Pirated Software.',
             'SPAM'      => 'The Reported Post\'s ONLY purpose was to Advertise for a Website or another Product.',

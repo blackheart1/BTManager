@@ -46,7 +46,7 @@ if (empty($lang) || !is_array($lang))
 // in a URL you again Do Not need to specify an order e.g., 'Click %sHERE%s' is fine
 
 $lang = array_merge($lang, array(
-	'TITLE'				=>	'Arcade',
+	'TITLE'				 =>	'Arcade',
     'ACP_ADDED'          => 'ACP Modules Added Successfully.',
     'ACP_EXISTS'         => 'ACP Modules Already Exist.  Nothing Changed!',
     'ACP_MODULES'        => 'ACP Modules:',

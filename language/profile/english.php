@@ -51,7 +51,7 @@ $lang = array_merge($lang, array(
 	'_VIEWING_USER_PROFILE'		=> 'Viewing profile Of: %1$s',
 	'ACCOUNTACTIVATESUB'		=>	'Activate your account on %1$s',
 	'PERMISSIONS_RESTORED'		=> 'Successfully restored original permissions.',
-	'PERMISSIONS_TRANSFERRED'	=> 'Successfully transferred permissions from <strong>%s</strong>, you are now able to browse the board with this user’s permissions.<br />Please note that admin permissions were not transferred. You are able to revert to your permission set at any time.',
+	'PERMISSIONS_TRANSFERRED'	=> 'Successfully transferred permissions from <strong>%s</strong>, you are now able to browse the board with this user\'s permissions.<br />Please note that admin permissions were not transferred. You are able to revert to your permission set at any time.',
 	'POST_DAY'					=> '%.2f posts per day',
 	'POST_PCT'					=> '%.2f%% of all posts',
 	'USER_POST'					=> '%d Post',
@@ -97,7 +97,7 @@ $lang = array_merge($lang, array(
 	'NO_PASSWORD_SET'				=>	'No User pass word was set.',
 	'NO_EMAIL_SET'					=>	'E-mail Address NOT Specified.',
 	'REG_SUCCESS'					=>	'Activation Complete. Your Account is now Permanently Active. From now on, you can Access our services using the User name and Password you provided. Have a nice download.',
-	'REG_SUCCESS_CONFERM'			=>	'Sign up almost complete. You have 24 hours to Confirm your Registration. If you don\'t receive the 
+	'REG_SUCCESS_CONFERM'			=>	'Sign up almost complete. You have 24 hours to Confirm your Registration. If you don\'t receive the
 E-mail Confirmation, please check the data you entered. If you\'re having problems, please contact the Webmaster at %1$s',
 	'LOGIN_ERROR_NP_WRONG'							=>	'Incorrect User name or Password!!',
 	'LOGIN_ERROR_NOT_ACTIVE'						=>	'User Registered but NOT Active!!',
