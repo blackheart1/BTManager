@@ -1,18 +1,31 @@
 <?php
+
 /**
-*
-* search_ignore_words [English]
-*
-* @package language
-* @version $Id$
-* @copyright (c) 2005 phpBB Group
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License
-*
-*/
+**********************
+** BTManager v3.0.1 **
+**********************
+** http://www.btmanager.org/
+** https://github.com/blackheart1/BTManager
+** http://demo.btmanager.org/index.php
+** Licence Info: GPL
+** Copyright (C) 2018
+** Formerly Known As phpMyBitTorrent
+** Created By Antonio Anzivino (aka DJ Echelon)
+** And Joe Robertson (aka joeroberts)
+** Project Leaders: Black_heart, Thor.
+** File search_ignore_words/english.php 2018-03-10 11:52:00 Thor
+**
+** CHANGES
+**
+** 2018-03-02 - Added New Masthead
+** 2018-03-02 - Added New !defined('IN_PMBT')
+** 2018-03-02 - Fixed Spelling
+**/
 
 if (!defined('IN_PMBT'))
 {
-	exit;
+    include_once './../../security.php';
+    die ("You can't access this file directly");
 }
 
 $words = array(

@@ -1,46 +1,66 @@
 <?php
-/**
-*
-* offers [English]
-*
-* @package language
-* @version $Id$
-* @copyright (c) 2005 phpMyBitTorrent Group
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License
-*
-*/
 
 /**
-* DO NOT CHANGE
-*/
-if (!defined('IN_PMBT')) die ("You can't access this file directly");
+**********************
+** BTManager v3.0.1 **
+**********************
+** http://www.btmanager.org/
+** https://github.com/blackheart1/BTManager
+** http://demo.btmanager.org/index.php
+** Licence Info: GPL
+** Copyright (C) 2018
+** Formerly Known As phpMyBitTorrent
+** Created By Antonio Anzivino (aka DJ Echelon)
+** And Joe Robertson (aka joeroberts)
+** Project Leaders: Black_heart, Thor.
+** File offers/english.php 2018-03-17 12:04:00 Thor
+**
+** CHANGES
+**
+** 2018-03-02 - Added New Masthead
+** 2018-03-02 - Added New !defined('IN_PMBT')
+** 2018-03-02 - Fixed Spelling
+**/
+
+if (!defined('IN_PMBT'))
+{
+    include_once './../../security.php';
+    die ("You can't access this file directly");
+}
+
 if (empty($lang) || !is_array($lang))
 {
 	$lang = array();
 }
+
 $lang = array_merge($lang, array(
-	'OFFERS'								=>	'Offers',
-	'DESCRIPTION_EXPLAIN'					=>	'Add as much info as you can so it well make it easyer on the uploader to find what it is your looking for.',
-	'OFFER_DELETED'							=>	'Your offer %1$d was Deleted by %2$d',
-	'VOTE'									=>	'Vote',
-	'VOTES'									=>	'Votes',
-	'OFFER_VOTE'							=>	'Offer Vote',
-	'VOTE_FOR'								=>	'Vote for this offer to be Uploaded.',
-	'EDIT_OFFER'							=>	'Edit Offers',
-	'OFFER_BY'								=>	'Offered by',
-	'OFFER_EDITED'							=>	'Offer Edited',
-	'OFFER_EDITED_EXP'						=>	'The offer has been success fully Edited!',
-	'OFFER_DELETED'							=>	'Offer Deleted',
-	'OFFER_DELETED_EXP'						=>	'The offer has been success fully removed!',
-	'ERROR_DESCRIP_BLANK'					=>	'The Description Fealed can not be blank',
-	'ERROR_EDIT_NOT_SAVED'					=>	'An error has accurd and the Edit was not saved',
-	'PM_VOTES_REACHED'						=>	'Your Offer "%1$d" has reached 3 Votes.\nYou can now Upload it to the tracker',
-	'PM_SUB_VOTES_REACHED'					=>	'Your Offered Torrent for upload',
-	'THANKS_FOR_VOTE'						=>	'Thank you for your Vote',
-	'VOTED_ALREADY'							=>	'You\'ve already Voted to this Offer, ONLY <strong>1</strong> Vote per Member is Allowed<br />Return to <a href=./offers.php><b>Offers List</b></a>',
-	'VOTE_TAKEN'							=>	'Your Vote has been counted<br />Back to <a href=offers.php><b>Offer List</b></a>',
-	'PERMISSION_DENIED'						=>	'You DO NOT have Permissions to Access Offers at this time',
-	'OFFER_SHOUT'							=>	'“%1$s” is making a Offer for “%2$s”',
-	'NO_NAME_GIVEN'							=>	'You should enter a name for your Offer',
+    'OFFERS'               =>	'Offers',
+
+    'DESCRIPTION_EXPLAIN'  =>	'Add as much Information as Possible, as this will make it easier on the Uploader to find your looking for.',
+
+    'OFFER_DELETED'        =>	'Your Offer %1$d was Deleted by %2$d',
+    'VOTE'                 =>	'Vote',
+    'VOTES'                =>	'Votes',
+    'OFFER_VOTE'           =>	'Offer Vote',
+    'VOTE_FOR'             =>	'Vote for this Offer to be Uploaded.',
+    'EDIT_OFFER'           =>	'Edit Offers',
+    'OFFER_BY'             =>	'Offered by',
+    'OFFER_EDITED'         =>	'Offer Edited',
+    'OFFER_EDITED_EXP'     =>	'The Offer has been Successfully Edited!',
+    'OFFER_DELETED'        =>	'Offer Deleted',
+    'OFFER_DELETED_EXP'    =>	'The Offer has been Successfully Removed!',
+    'ERROR_DESCRIP_BLANK'  =>	'The Description Field can NOT be Blank',
+    'ERROR_EDIT_NOT_SAVED' =>	'An Error has Occurred and the Edit was NOT Saved',
+    'PM_VOTES_REACHED'     =>	'Your Offer "%1$d" has Reached 3 Votes.\nYou can now Upload it',
+    'PM_SUB_VOTES_REACHED' =>	'Your Offered Torrent for Upload',
+    'THANKS_FOR_VOTE'      =>	'Thank you for your Vote',
+
+    'VOTED_ALREADY'        =>	'You\'ve already Voted on this Offer.  ONLY <strong>1</strong> Vote per Member is Allowed<br />Return to the <a href=./offers.php><b>Offers List</b></a>',
+
+    'VOTE_TAKEN'           =>	'Your Vote has been Counted<br />Return to the <a href=offers.php><b>Offer List</b></a>',
+    'PERMISSION_DENIED'    =>	'You DO NOT have Permissions to Access Offers at this time',
+    'OFFER_SHOUT'          =>	'"%1$s" is making a Offer for "%2$s"',
+    'NO_NAME_GIVEN'        =>	'You should Enter a Name for your Offer',
 ));
+
 ?>

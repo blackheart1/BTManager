@@ -1,100 +1,103 @@
 <?php
-/*
-*----------------------------phpMyBitTorrent V 3.0.0---------------------------*
-*--- The Ultimate BitTorrent Tracker and BMS (Bittorrent Management System) ---*
-*--------------   Created By Antonio Anzivino (aka DJ Echelon)   --------------*
-*-------------------   And Joe Robertson (aka joeroberts)   -------------------*
-*-------------               http://www.p2pmania.it               -------------*
-*------------ Based on the Bit Torrent Protocol made by Bram Cohen ------------*
-*-------------              http://www.bittorrent.com             -------------*
-*------------------------------------------------------------------------------*
-*------------------------------------------------------------------------------*
-*--   This program is free software; you can redistribute it and/or modify   --*
-*--   it under the terms of the GNU General Public License as published by   --*
-*--   the Free Software Foundation; either version 2 of the License, or      --*
-*--   (at your option) any later version.                                    --*
-*--                                                                          --*
-*--   This program is distributed in the hope that it will be useful,        --*
-*--   but WITHOUT ANY WARRANTY; without even the implied warranty of         --*
-*--   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          --*
-*--   GNU General Public License for more details.                           --*
-*--                                                                          --*
-*--   You should have received a copy of the GNU General Public License      --*
-*--   along with this program; if not, write to the Free Software            --*
-*-- Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA --*
-*--                                                                          --*
-*------------------------------------------------------------------------------*
-*------              ©2010 phpMyBitTorrent Development Team              ------*
-*-----------               http://phpmybittorrent.com               -----------*
-*------------------------------------------------------------------------------*
-*--------------------   Sunday, Feb 18, 2010 1:05 AM   ------------------------*
-*/
-/**
-*
-* invite [English]
-*
-* @package language
-* @version $Id$
-* @copyright (c) 2005 phpBB Group
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License
-*
-*/
 
 /**
-* DO NOT CHANGE
-*/
+**********************
+** BTManager v3.0.1 **
+**********************
+** http://www.btmanager.org/
+** https://github.com/blackheart1/BTManager
+** http://demo.btmanager.org/index.php
+** Licence Info: GPL
+** Copyright (C) 2018
+** Formerly Known As phpMyBitTorrent
+** Created By Antonio Anzivino (aka DJ Echelon)
+** And Joe Robertson (aka joeroberts)
+** Project Leaders: Black_heart, Thor.
+** File invite/english.php 2018-03-11 10:26:00 Thor
+**
+** CHANGES
+**
+** 2018-03-02 - Added New Masthead
+** 2018-03-02 - Added New !defined('IN_PMBT')
+** 2018-03-02 - Fixed Spelling
+**/
+
+if (!defined('IN_PMBT'))
+{
+    include_once './../../security.php';
+    die ("You can't access this file directly");
+}
+
 if (empty($lang) || !is_array($lang))
 {
 	$lang = array();
 }
+
 $lang = array_merge($lang, array(
-	'INVITE'						=>	'Invite',
-	'INVITE_HEADER'					=>	'Invite System',
-	'INVITES_DISSABLED'				=>	'Invites Disabled',
-	'INVITES_DISSABLED_EXP'			=>	'Our Invites are Disabled Please have your Friend Use the Registration Link',
-	'INVITE_EXP'					=>	'Welcome To our Invite system<br />Here You can send out a invite to your friends or even family members.',
-	'INVITES'						=>	'Invites',
-	'INV_MAIL_SUB'					=>	'Your Invite To %1$s',
-	'WELCOME'						=>	'Welcome to %1$s!<br />Please fill in the info below to finnish the Invite that was sent to you',
-	'USER_NAME'						=>	'User Name',
-	'PASSWORD_EXP'					=>	'(5 Chars Minimum)',
-	'TERMS_CONDITION'				=>	'Terms and Conditions',
-	'EMAIL_ADD'						=>	'Add Email Address',
-	'EMAIL_ADD_EXP'					=>	'Please enter a Valid email address for this invite to be sent to.',
-	'ADD_MESSAGE'					=>	'Add a Message',
-	'ADD_MESSAGE_EXP'				=>	'Enter a message to the person your sending this invite to so that they know who sent it.',
-	'SUBMIT_ONES'					=>	'Send Invite (PRESS ONLY ONCE)',
-	'LIMMIT_REACHED'				=>	'Site User Limmit Reached',
-	'MAX_USERS_REACHED'				=>	'The current user account limit (<strong>%s</strong>) has been reached. Inactive accounts are pruned all the time, please check back again later...',
-	'NO_INVITES'					=>	'NO Invites',
-	'NO_INVITES_EXP'				=>	'You do not have any invites to use at this time.<br />If you feel you reached this error By mistake please contact a modderator.',
-	'INVALID_ID_EXP'				=>	'There seems to be a problem with the ID provided it is invalid',
-	'DUPE_IP'						=>	'Duplicate Ip In use',
-	'DUPE_IP_EXP'					=>	'The Ip your using is already in our system We do not allow users to have more then one account',
-	'ACCOUNT_ACTIVE'				=>	'This Account is Activayed',
-	'ACCOUNT_ACTIVE_EXP'			=>	'This Account was already Activated and no further action is needed.<br />Please login.',
-	'INVALID_INVITE'				=>	'The Invite is invalid',
-	'INVALID_INVITE_RXP'			=>	'This Invite is not In our data base.<br />You may have taken to long to use it or the id number is wrong.',
-	'INVALID_ACTKEY'				=>	'Invalid Activation Key',
-	'INVALID_ACTKEY_EXP'			=>	'There seems to be a problem prossessing the Activation Key you provided Please check the link',
-	'USE_LIM_REACHED'				=>	'Not Tsking New Users',
-	'USE_LIM_REACHED_EXP'			=>	'The Current User Account Limit (%1$s) has been reached. Inactive Accounts are Pruned all the time, please check back again later...',
-	'NO_MESSAGE'					=>	'No Message',
-	'NO_MESSAGE_EXP'				=>	'You did not add a message for the user to know Who was sending it.',
-	'BAD_EMAIL'						=>	'The E-mail is Bad',
-	'BAD_EMAIL_EXP'					=>	'There seems to be a problem with the e-mail you are sending this to',
-	'EMAIL_USED'					=>	'The E-mail is in use',
-	'EMAIL_USED_EXP'				=>	'The E-mail You are sending this to is already in use Please select another E-mail Address',
-	'ACTIVATION_COMPLETE'			=>	'Activation Complete. Your Account is now Permanently Active. From now on, you can Access our services using the User name and Password you provided. Have a nice download.',
-	'USER_LINNET_REACHED'			=>	'Sorry, user limit reached. Please try again later.',
-	'USERNAME_NOT_SET'				=>	'User Name NOT Specified.',
-	'BAD_ID'						=>	'There seems to be a problem with the ID please check your link and try again.',
-	'USER_IS_ACTIVE'				=>	'User is already Active. No more Activation Required',
-	'PASS_DONT_MATCH'				=>	"Passwords don't match",
-	'YOU_HAVE_BLANK_FEALDS'			=>	'You did not fill in all fealds please go back and make sure all fealds are filled in .',
-	'INVALID_USER_NAME'				=>	'You are trying to use a invalid user name please go back and try a defrent name',
-	'DISCL_NOT_ACCP'				=>	'You MUST ACCEPT our Disclaimer in order to Sign Up.',
-	'USER_NAME_TO_LONG'				=>	'That User name is to long',
-	'PASS_TO_SHORT'					=>	'That PassWorrd is to short',
+    'INVITE'                =>	'Invite',
+    'INVITE_HEADER'         =>	'Invite System',
+    'INVITES_DISSABLED'     =>	'Invites Disabled',
+    'INVITES_DISSABLED_EXP' =>	'Our Invites System is Currently Disabled.  Please have your Friend use the Registration Link',
+
+    'INVITE_EXP'            =>	'Welcome to our Invite System<br />Here you can Send out a Invite to your Friends or even Family Members.',
+
+    'INVITES'               =>	'Invites',
+    'INV_MAIL_SUB'          =>	'Your Invite yo %1$s',
+
+    'WELCOME'               =>	'Welcome to %1$s!<br />Please Enter the Required Information below to Complete the Invite that received',
+
+    'USER_NAME'             =>	'User Name',
+    'PASSWORD_EXP'          =>	'(5 Characters Minimum)',
+    'TERMS_CONDITION'       =>	'Terms and Conditions',
+    'EMAIL_ADD'             =>	'Add email Address',
+    'EMAIL_ADD_EXP'         =>	'Please Enter a Valid email Address for the person your Sending the Invite to',
+    'ADD_MESSAGE'           =>	'Add a Message',
+    'ADD_MESSAGE_EXP'       =>	'Enter a Message to the person your Sending this Invite to so that they know Who Sent it.',
+    'SUBMIT_ONES'           =>	'Send Invite (PRESS ONLY ONCE)',
+    'LIMMIT_REACHED'        =>	'Site User Limit Reached',
+
+    'MAX_USERS_REACHED'     =>	'The Current User Account Limit (<strong>%s</strong>) has been Reached. Inactive Accounts are Pruned all the Time.  Please check back again later...',
+
+    'NO_INVITES'            =>	'NO Invites',
+
+    'NO_INVITES_EXP'        =>	'You DO NOT have any Invites to use at this time.<br />If you feel you reached this Error by mistake please contact a Moderator.',
+
+    'INVALID_ID_EXP'        =>	'The ID you provided is Invalid',
+    'DUPE_IP'               =>	'Duplicate IP in use',
+    'DUPE_IP_EXP'           =>	'The IP your using is already in our System.  We DO NOT Allow Users to have Multiple Account\'s',
+    'ACCOUNT_ACTIVE'        =>	'This Account is Activated',
+    'ACCOUNT_ACTIVE_EXP'    =>	'This Account was already Activated and NO further action is required.<br />Please Login.',
+    'INVALID_INVITE'        =>	'The Invite is Invalid',
+
+    'INVALID_INVITE_RXP'    =>	'This Invite is NOT in our Database.<br />You may have taken Too Long to use it or the ID Number is Wrong.',
+
+    'INVALID_ACTKEY'        =>	'Invalid Activation Key',
+    'INVALID_ACTKEY_EXP'    =>	'There seems to be an Issue Processing the Activation Key you provided.  Please check the Link',
+    'USE_LIM_REACHED'       =>	'Sorry.  We are NOT Accepting any New Users at this time.',
+
+    'USE_LIM_REACHED_EXP'   =>	'The Current User Account Limit (<strong>%1$s</strong>) has been Reached. Inactive Accounts are Pruned All the time, please check back again later...',
+
+    'NO_MESSAGE'            =>	'No Message',
+    'NO_MESSAGE_EXP'        =>	'You DID NOT Add a Message for the User to know Who was Sending it.',
+    'BAD_EMAIL'             =>	'The email is Bad',
+    'BAD_EMAIL_EXP'         =>	'There seems to be an Issue with the email you are Sending this to',
+    'EMAIL_USED'            =>	'The email is in already in use',
+    'EMAIL_USED_EXP'        =>	'The email You are Sending this to is already in use.  Please Select a different email Address',
+
+    'ACTIVATION_COMPLETE'   =>	'Activation Complete. Your Account is now Permanently Active. From now on, you can Access our Services using the Username and Password you provided. Have a nice Download.',
+
+    'USER_LINNET_REACHED'   =>	'Sorry, User Limit Reached. Please try again later...',
+    'USERNAME_NOT_SET'      =>	'Username NOT Specified.',
+    'BAD_ID'                =>	'There seems to be an Issue with the ID.  Please check your Link and try again.',
+    'USER_IS_ACTIVE'        =>	'User is already Active. NO more Activation Required',
+    'PASS_DONT_MATCH'       =>	'Passwords don\'t Match',
+
+    'YOU_HAVE_BLANK_FEALDS' =>	'You Did NOT Complete ALL the Required Fields.  Please go back and make sure ALL Fields are Filled in .',
+
+    'INVALID_USER_NAME'     =>	'You are trying to use a Invalid Username.  Please go back and try a different name',
+    'DISCL_NOT_ACCP'        =>	'You MUST ACCEPT our Disclaimer in Order to Sign Up.',
+    'USER_NAME_TO_LONG'     =>	'That Username is Too Long',
+    'PASS_TO_SHORT'         =>	'That Password is Too Short',
 ));
+
 ?>

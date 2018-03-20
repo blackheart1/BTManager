@@ -1,90 +1,109 @@
 <?php
-/**
-*
-* forum_search [English]
-*
-* @package language
-* @version $Id$
-* @copyright (c) 2005 phpMyBitTorrent Group
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License
-*
-*/
 
 /**
-* DO NOT CHANGE
-*/
-if (!defined('IN_PMBT')) die ("You can't access this file directly");
+**********************
+** BTManager v3.0.1 **
+**********************
+** http://www.btmanager.org/
+** https://github.com/blackheart1/BTManager
+** http://demo.btmanager.org/index.php
+** Licence Info: GPL
+** Copyright (C) 2018
+** Formerly Known As phpMyBitTorrent
+** Created By Antonio Anzivino (aka DJ Echelon)
+** And Joe Robertson (aka joeroberts)
+** Project Leaders: Black_heart, Thor.
+** File forum_search/english.php 2018-03-11 09:45:00 Thor
+**
+** CHANGES
+**
+** 2018-03-02 - Added New Masthead
+** 2018-03-02 - Added New !defined('IN_PMBT')
+** 2018-03-02 - Fixed Spelling
+**/
+
+if (!defined('IN_PMBT'))
+{
+    include_once './../../security.php';
+    die ("You can't access this file directly");
+}
+
 if (empty($lang) || !is_array($lang))
 {
 	$lang = array();
 }
+
 $lang = array_merge($lang, array(
-	'ALL_AVAILABLE'			=> 'All available',
-	'ALL_RESULTS'			=> 'All results',
+    'ALL_AVAILABLE'                  => 'ALL Available',
+    'ALL_RESULTS'                    => 'ALL Results',
 
-	'DISPLAY_RESULTS'		=> 'Display results as',
+    'DISPLAY_RESULTS'                => 'Display Results as',
 
-	'FOUND_SEARCH_MATCH'		=> 'Search found %d match',
-	'FOUND_SEARCH_MATCHES'		=> 'Search found %d matches',
-	'FOUND_MORE_SEARCH_MATCHES'	=> 'Search found more than %d matches',
+    'FOUND_SEARCH_MATCH'             => 'Search found %d Match',
+    'FOUND_SEARCH_MATCHES'           => 'Search found %d Matches',
+    'FOUND_MORE_SEARCH_MATCHES'      => 'Search found more than %d Matches',
 
-	'GLOBAL'				=> 'Global announcement',
+    'GLOBAL'                         => 'Global Announcement',
 
-	'IGNORED_TERMS'			=> 'ignored',
-	'IGNORED_TERMS_EXPLAIN'	=> 'The following words in your search query were ignored because they are too common words: <strong>%s</strong>.',
+    'IGNORED_TERMS'                  => 'Ignored',
+    'IGNORED_TERMS_EXPLAIN'          => 'The following Words in your Search Query were Ignored because the Words are Too Common: <strong>%s</strong>.',
 
-	'JUMP_TO_POST'			=> 'Jump to post',
+    'JUMP_TO_POST'                   => 'Jump to Post',
 
-	'LOGIN_EXPLAIN_EGOSEARCH'	=> 'The board requires you to be registered and logged in to view your own posts.',
-	'LOGIN_EXPLAIN_UNREADSEARCH'=> 'The board requires you to be registered and logged in to view your unread posts.',
-	'LOGIN_EXPLAIN_NEWPOSTS'	=> 'The board requires you to be registered and logged in to view new posts since your last visit.',
+    'LOGIN_EXPLAIN_EGOSEARCH'        => 'The Board Requires you to be Registered and Logged in to View your Own Posts.',
+    'LOGIN_EXPLAIN_UNREADSEARCH'     => 'The Board Requires you to be Registered and Logged in to View your Unread Posts.',
+    'LOGIN_EXPLAIN_NEWPOSTS'         => 'The Board Requires you to be Registered and Logged in to View New Posts since your Last Visit.',
 
-	'MAX_NUM_SEARCH_KEYWORDS_REFINE'	=> 'You specified too many words to search for. Please do not enter more than %1$d words.',
+    'MAX_NUM_SEARCH_KEYWORDS_REFINE' => 'You Specified Too Many Words to Search for. Please DO NOT enter more than %1$d Words.',
 
-	'NO_KEYWORDS'			=> 'You must specify at least one word to search for. Each word must consist of at least %d characters and must not contain more than %d characters excluding wildcards.',
-	'NO_RECENT_SEARCHES'	=> 'No searches have been carried out recently.',
-	'NO_SEARCH'				=> 'Sorry but you are not permitted to use the search system.',
-	'NO_SEARCH_RESULTS'		=> 'No suitable matches were found.',
-	'NO_SEARCH_TIME'		=> 'Sorry but you cannot use search at this time. Please try again in a few minutes.',
-	'NO_SEARCH_UNREADS'		=> 'Sorry but searching for unread posts has been disabled on this board.',
-	'WORD_IN_NO_POST'		=> 'No posts were found because the word <strong>%s</strong> is not contained in any post.',
-	'WORDS_IN_NO_POST'		=> 'No posts were found because the words <strong>%s</strong> are not contained in any post.',
+    'NO_KEYWORDS'                    => 'You must Specify at least One Word to Search for. Each Word must consist of at least %d Characters and must NOT contain more than %d Characters, Excluding Wildcards.',
 
-	'POST_CHARACTERS'		=> 'characters of posts',
+    'NO_RECENT_SEARCHES'             => 'NO Searches have been carried out recently.',
+    'NO_SEARCH'                      => 'Sorry but you are NOT Permitted to use the Search System.',
+    'NO_SEARCH_RESULTS'              => 'No Suitable Matches were found.',
+    'NO_SEARCH_TIME'                 => 'Sorry but you can NOT use Search at this time. Please try again in a few minutes.',
+    'NO_SEARCH_UNREADS'              => 'Sorry but Searching for Unread Posts has been Disabled on this Board.',
+    'WORD_IN_NO_POST'                => 'NO Posts were found because the Word <strong>%s</strong> is NOT Contained in any Post.',
+    'WORDS_IN_NO_POST'               => 'NO Posts were found because the Words <strong>%s</strong> are NOT Contained in any Post.',
 
-	'RECENT_SEARCHES'		=> 'Recent searches',
-	'RESULT_DAYS'			=> 'Limit results to previous',
-	'RESULT_SORT'			=> 'Sort results by',
-	'RETURN_FIRST'			=> 'Return first',
-	'RETURN_TO_SEARCH_ADV'	=> 'Return to advanced search',
+    'POST_CHARACTERS'                => 'Characters of Posts',
 
-	'SEARCHED_FOR'				=> 'Search term used',
-	'SEARCH_KEYWORDS'			=>	'Search keywords',
-	'SEARCHED_TOPIC'			=> 'Searched topic',
-	'SEARCH_ALL_TERMS'			=> 'Search for all terms or use query as entered',
-	'SEARCH_ANY_TERMS'			=> 'Search for any terms',
-	'SEARCH_AUTHOR'				=> 'Search for author',
-	'SEARCH_AUTHOR_EXPLAIN'		=> 'Use * as a wildcard for partial matches.',
-	'SEARCH_FIRST_POST'			=> 'First post of topics only',
-	'SEARCH_FORUMS'				=> 'Search in forums',
-	'SEARCH_FORUMS_EXPLAIN'		=> 'Select the forum or forums you wish to search in. Sub-forums are searched automatically if you do not disable “search sub-forums“ below.',
-	'SEARCH_IN_RESULTS'			=> 'Search these results',
-	'SEARCH_KEYWORDS_EXPLAIN'	=> 'Place <strong>+</strong> in front of a word which must be found and <strong>-</strong> in front of a word which must not be found. Put a list of words separated by <strong>|</strong> into brackets if only one of the words must be found. Use * as a wildcard for partial matches.',
-	'SEARCH_MSG_ONLY'			=> 'Message text only',
-	'SEARCH_OPTIONS'			=> 'Search options',
-	'SEARCH_QUERY'				=> 'Search query',
-	'SEARCH_SUBFORUMS'			=> 'Search sub-forums',
-	'SEARCH_TITLE_MSG'			=> 'Post subjects and message text',
-	'SEARCH_TITLE_ONLY'			=> 'Topic titles only',
-	'SEARCH_WITHIN'				=> 'Search within',
-	'SORT_ASCENDING'			=> 'Ascending',
-	'SORT_AUTHOR'				=> 'Author',
-	'SORT_DESCENDING'			=> 'Descending',
-	'SORT_FORUM'				=> 'Forum',
-	'SORT_POST_SUBJECT'			=> 'Post subject',
-	'SORT_TIME'					=> 'Post time',
+    'RECENT_SEARCHES'                => 'Recent Searches',
+    'RESULT_DAYS'                    => 'Limit Results to previous',
+    'RESULT_SORT'                    => 'Sort Results by',
+    'RETURN_FIRST'                   => 'Return First',
+    'RETURN_TO_SEARCH_ADV'           => 'Return to Advanced Search',
 
-	'TOO_FEW_AUTHOR_CHARS'	=> 'You must specify at least %d characters of the authors name.',
+    'SEARCHED_FOR'                   => 'Search Term Used',
+    'SEARCH_KEYWORDS'                =>	'Search Keywords',
+    'SEARCHED_TOPIC'                 => 'Searched Topic',
+    'SEARCH_ALL_TERMS'               => 'Search for ALL Terms or Use Query as entered',
+    'SEARCH_ANY_TERMS'               => 'Search for Any Terms',
+    'SEARCH_AUTHOR'                  => 'Search for Author',
+    'SEARCH_AUTHOR_EXPLAIN'          => 'Use * as a Wildcard for Partial Matches.',
+    'SEARCH_FIRST_POST'              => 'First Post of Topics Only',
+    'SEARCH_FORUMS'                  => 'Search in Forums',
+    'SEARCH_FORUMS_EXPLAIN'          => 'Select the Forum or Forums you wish to Search in. Sub Forums are Searched Automatically if you DO NOT Disable Search Sub-Forums below.',
+
+    'SEARCH_IN_RESULTS'              => 'Search these Results',
+
+    'SEARCH_KEYWORDS_EXPLAIN'        => 'Place an <strong>+</strong> in Front of a Word which Must be Found and place an <strong>-</strong> in Front of a Word which Must NOT be Found.  Put a List of Words Separated by an <strong>|</strong> into Brackets if Only One of the Words Must be Found. Use * as a Wildcard for Partial Matches.',
+
+    'SEARCH_MSG_ONLY'                => 'Message Text Only',
+    'SEARCH_OPTIONS'                 => 'Search Options',
+    'SEARCH_QUERY'                   => 'Search Query',
+    'SEARCH_SUBFORUMS'               => 'Search Sub-Forums',
+    'SEARCH_TITLE_MSG'               => 'Post Subjects and Message Text',
+    'SEARCH_TITLE_ONLY'              => 'Topic Titles Only',
+    'SEARCH_WITHIN'                  => 'Search within',
+    'SORT_ASCENDING'                 => 'Ascending',
+    'SORT_AUTHOR'                    => 'Author',
+    'SORT_DESCENDING'                => 'Descending',
+    'SORT_FORUM'                     => 'Forum',
+    'SORT_POST_SUBJECT'              => 'Post Subject',
+    'SORT_TIME'                      => 'Post Time',
+
+    'TOO_FEW_AUTHOR_CHARS'           => 'You must Specify at least %d Characters of the Authors Name.',
 ));
 
 ?>

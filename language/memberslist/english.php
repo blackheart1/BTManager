@@ -1,162 +1,188 @@
 <?php
-/**
-*
-* memberslist [English]
-*
-* @package language
-* @version $Id$
-* @copyright (c) 2005 phpMyBitTorrent Group
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License
-*
-*/
 
 /**
-* DO NOT CHANGE
-*/
-if (!defined('IN_PMBT')) die ("You can't access this file directly");
+**********************
+** BTManager v3.0.1 **
+**********************
+** http://www.btmanager.org/
+** https://github.com/blackheart1/BTManager
+** http://demo.btmanager.org/index.php
+** Licence Info: GPL
+** Copyright (C) 2018
+** Formerly Known As phpMyBitTorrent
+** Created By Antonio Anzivino (aka DJ Echelon)
+** And Joe Robertson (aka joeroberts)
+** Project Leaders: Black_heart, Thor.
+** File memberlist/english.php 2018-03-17 11:27:00 Thor
+**
+** CHANGES
+**
+** 2018-03-02 - Added New Masthead
+** 2018-03-02 - Added New !defined('IN_PMBT')
+** 2018-03-02 - Fixed Spelling
+**/
+
+if (!defined('IN_PMBT'))
+{
+    include_once './../../security.php';
+    die ("You can't access this file directly");
+}
+
 define('BBCODE_UID_LEN', 8);
+
 if (empty($lang) || !is_array($lang))
 {
 	$lang = array();
 }
+
 $lang = array_merge($lang, array(
-	'GROUP_INFORMATION'							=>	'',
-	'GROUP_NAME'								=>	'Group Name',
-	'GROUP_DESC'								=>	'Group Description',
-	'GROUP_AVAT'								=>	'Group Avatar',
-	'GROUP_MEMBERS'								=>	'Group members',
-	'ABOUT_USER'			=> 'Profile',
-	'ACTIVE_IN_FORUM'		=> 'Most active forum',
-	'ACTIVE_IN_TOPIC'		=> 'Most active topic',
-	'ADD_FOE'				=> 'Add foe',
-	'ADD_FRIEND'			=> 'Add friend',
-	'AFTER'					=> 'After',
+    'GROUP_INFORMATION'         =>	'',
+    'GROUP_NAME'                =>	'Group Name',
+    'GROUP_DESC'                =>	'Group Description',
+    'GROUP_AVAT'                =>	'Group Avatar',
+    'GROUP_MEMBERS'             =>	'Group Members',
+    'ABOUT_USER'                => 'Profile',
+    'ACTIVE_IN_FORUM'           => 'Most Active Forum',
+    'ACTIVE_IN_TOPIC'           => 'Most Active Topic',
+    'ADD_FOE'                   => 'Add Foe',
+    'ADD_FRIEND'                => 'Add Friend',
+    'AFTER'                     => 'After',
 
-	'ALL'					=> 'All',
+    'ALL'                       => 'All',
 
-	'BEFORE'				=> 'Before',
+    'BEFORE'                    => 'Before',
 
-	'CC_EMAIL'				=> 'Send a copy of this e-mail to yourself.',
-	'CONTACT_USER'			=> 'Contact',
+    'CC_EMAIL'                  => 'Send a Copy of this email to yourself.',
+    'CONTACT_USER'              => 'Contact',
 
-	'DEST_LANG'				=> 'Language',
-	'DEST_LANG_EXPLAIN'		=> 'Select an appropriate language (if available) for the recipient of this message.',
+    'DEST_LANG'                 => 'Language',
+    'DEST_LANG_EXPLAIN'         => 'Select an Appropriate Language (if available) for the Recipient of this Message.',
 
-	'EMAIL_BODY_EXPLAIN'	=> 'This message will be sent as plain text, do not include any HTML or BBCode. The return address for this message will be set to your e-mail address.',
-	'EMAIL_DISABLED'		=> 'Sorry but all e-mail related functions have been disabled.',
-	'EMAIL_SENT'			=> 'The e-mail has been sent.',
-	'EMAIL_TOPIC_EXPLAIN'	=> 'This message will be sent as plain text, do not include any HTML or BBCode. Please note that the topic information is already included in the message. The return address for this message will be set to your e-mail address.',
-	'EMPTY_ADDRESS_EMAIL'	=> 'You must provide a valid e-mail address for the recipient.',
-	'EMPTY_MESSAGE_EMAIL'	=> 'You must enter a message to be emailed.',
-	'EMPTY_MESSAGE_IM'		=> 'You must enter a message to be send.',
-	'EMPTY_NAME_EMAIL'		=> 'You must enter the real name of the recipient.',
-	'EMPTY_SUBJECT_EMAIL'	=> 'You must specify a subject for the e-mail.',
-	'EQUAL_TO'				=> 'Equal to',
+    'EMAIL_BODY_EXPLAIN'        => 'This Message will be Sent as Plain Text, DO NOT include any HTML or BBCode. The Return Address for this Message will be Set to your email Address.',
 
-	'FIND_USERNAME_EXPLAIN'	=> 'Use this form to search for specific members. You do not need to fill out all fields. To match partial data use * as a wildcard. When entering dates use the format <kbd>YYYY-MM-DD</kbd>, e.g. <samp>2004-02-29</samp>. Use the mark checkboxes to select one or more usernames (several usernames may be accepted depending on the form itself) and click the Select Marked button to return to the previous form.',
-	'FLOOD_EMAIL_LIMIT'		=> 'You cannot send another e-mail at this time. Please try again later.',
+    'EMAIL_DISABLED'            => 'Sorry but ALL email Related Functions have been Disabled.',
+    'EMAIL_SENT'                => 'The email has been Sent.',
 
-	'GROUP_LEADER'			=> 'Group leader',
-	'SORT_BY'					=> 'Sort by',
-	'SORT_JOINED'				=> 'Joined date',
-	'SORT_LOCATION'				=> 'Location',
-	'SORT_RANK'					=> 'Rank',
-	'SORT_POSTS'				=> 'Posts',
-	'SORT_TOPIC_TITLE'			=> 'Topic title',
-	'SORT_USERNAME'				=> 'Username',
-	'ICQ'						=> 'ICQ',
-	'AIM'							=> 'AIM',
-	'MSNM'					=> 'MSNM/WLM',
-	'YIM'				=> 'YIM',
-	'JABBER'				=> 'Jabber',
-	'HIDE_MEMBER_SEARCH'	=> 'Hide member search',
-	'MEMBERLIST'			=>	'Members',
-	'DISPLAY'				=> 'Display',
-	'TOTAL_POSTS'			=>	'Total Posts',
-	'EMAIL_ADDRESS'			=>	'E-mail address',
-	'USERGROUPS'			=>	'Groups',
-	'OCCUPATION'			=>	'Occupation',
-	'INTERESTS'				=>	'Interests',
-	'WEBSITE'				=>	'Website',
-	'SIGNATURE'				=>	'Signature',
-	'POST_PCT'				=> '%.2f%% of all posts',
-	'POST_PCT_ACTIVE'		=> '%.2f%% of user’s posts',
-	'POST_PCT_ACTIVE_OWN'	=> '%.2f%% of your posts',
-	'USER_POST'				=> '%d Post',
-	'USER_POSTS'			=> '%d Posts',
-	'POST_DAY'				=> '%.2f posts per day',
+    'EMAIL_TOPIC_EXPLAIN'       => 'This Message will be Sent as Plain Text, DO NOT include any HTML or BBCode. Please Note that the Topic Information is already included in the Message. The Return Address for this Message will be Set to your email Address.',
 
-	'IM_ADD_CONTACT'		=> 'Add Contact',
-	'IM_AIM'				=> 'Please note that you need AOL Instant Messenger installed to use this.',
-	'IM_AIM_EXPRESS'		=> 'AIM Express',
-	'IM_DOWNLOAD_APP'		=> 'Download application',
-	'IM_ICQ'				=> 'Please note that users may have selected to not receive unsolicited instant messages.',
-	'IM_JABBER'				=> 'Please note that users may have selected to not receive unsolicited instant messages.',
-	'IM_JABBER_SUBJECT'		=> 'This is an automated message please do not reply! Message from user %1$s at %2$s.',
-	'IM_MESSAGE'			=> 'Your message',
-	'IM_MSNM'				=> 'Please note that you need Windows Messenger installed to use this.',
-	'IM_MSNM_BROWSER'		=> 'Your browser does not support this.',
-	'IM_MSNM_CONNECT'		=> 'MSNM is not connected.\nYou have to connect to MSNM to continue.',
-	'IM_NAME'				=> 'Your Name',
-	'IM_NO_DATA'			=> 'There is no suitable contact information for this user.',
-	'IM_NO_JABBER'			=> 'Sorry, direct messaging of Jabber users is not supported on this board. You will need a Jabber client installed on your system to contact the recipient above.',
-	'IM_RECIPIENT'			=> 'Recipient',
-	'IM_SEND'				=> 'Send message',
-	'IM_SEND_MESSAGE'		=> 'Send message',
-	'IM_SENT_JABBER'		=> 'Your message to %1$s has been sent successfully.',
-	'IM_USER'				=> 'Send an instant message',
+    'EMPTY_ADDRESS_EMAIL'       => 'You Must Provide a Valid email Address for the Recipient.',
+    'EMPTY_MESSAGE_EMAIL'       => 'You Must Enter a Message to be emailed.',
+    'EMPTY_MESSAGE_IM'          => 'You Must Enter a Message to be Sent.',
+    'EMPTY_NAME_EMAIL'          => 'You Must Enter the Real Name of the Recipient.',
+    'EMPTY_SUBJECT_EMAIL'       => 'You Must Specify a Subject for the email.',
+    'EQUAL_TO'                  => 'Equal to',
 
-	'LAST_ACTIVE'				=> 'Last active',
-	'LESS_THAN'					=> 'Less than',
-	'LIST_USER'					=> '1 user',
-	'LIST_USERS'				=> '%d users',
-	'LOGIN_EXPLAIN_LEADERS'		=> 'The board requires you to be registered and logged in to view the team listing.',
-	'LOGIN_EXPLAIN_MEMBERLIST'	=> 'The board requires you to be registered and logged in to access the memberlist.',
-	'LOGIN_EXPLAIN_SEARCHUSER'	=> 'The board requires you to be registered and logged in to search users.',
-	'LOGIN_EXPLAIN_VIEWPROFILE'	=> 'The board requires you to be registered and logged in to view profiles.',
+    'FIND_USERNAME_EXPLAIN'     => 'Use this Form to Search for Specific Members. You DO NOT need to fill out all the fields. To Match Partial Data use * as a Wildcard. When Entering Dates use the Format <kbd>YYYY-MM-DD</kbd>, e.g. <samp>2004-02-29</samp>. Use the Check Boxes to Select One or More Usernames (Several Usernames may be Accepted depending on the Form itself) and Click the Select Marked Button to Return to the Previous Form.',
 
-	'MORE_THAN'				=> 'More than',
+    'FLOOD_EMAIL_LIMIT'         => 'You can NOT Send another email at this time.  Please try again later.',
 
-	'NO_EMAIL'				=> 'You are not permitted to send e-mail to this user.',
-	'NO_VIEW_USERS'			=> 'You are not authorised to view the member list or profiles.',
+    'GROUP_LEADER'              => 'Group Leader',
+    'SORT_BY'                   => 'Sort by',
+    'SORT_JOINED'               => 'Joined Date',
+    'SORT_LOCATION'             => 'Location',
+    'SORT_RANK'                 => 'Rank',
+    'SORT_POSTS'                => 'Posts',
+    'SORT_TOPIC_TITLE'          => 'Topic Title',
+    'SORT_USERNAME'             => 'Username',
+    'ICQ'                       => 'ICQ',
+    'AIM'                       => 'AIM',
+    'MSNM'                      => 'MSNM/WLM',
+    'YIM'                       => 'YIM',
+    'JABBER'                    => 'Jabber',
+    'HIDE_MEMBER_SEARCH'        => 'Hide Member Search',
+    'MEMBERLIST'                =>	'Members',
+    'DISPLAY'                   => 'Display',
+    'TOTAL_POSTS'               =>	'Total Posts',
+    'EMAIL_ADDRESS'             =>	'email Address',
+    'USERGROUPS'                =>	'Groups',
+    'OCCUPATION'                =>	'Occupation',
+    'INTERESTS'                 =>	'Interests',
+    'WEBSITE'                   =>	'Website',
+    'SIGNATURE'                 =>	'Signature',
+    'POST_PCT'                  => '%.2f%% of ALL Posts',
+    'POST_PCT_ACTIVE'           => '%.2f%% of User\'s Posts',
+    'POST_PCT_ACTIVE_OWN'       => '%.2f%% of Your Posts',
+    'USER_POST'                 => '%d Post',
+    'USER_POSTS'                => '%d Posts',
+    'POST_DAY'                  => '%.2f Posts Per Day',
 
-	'ORDER'					=> 'Order',
-	'OTHER'					=> 'Other',
+    'IM_ADD_CONTACT'            => 'Add Contact',
+    'IM_AIM'                    => 'Please Note that you need AOL Instant Messenger Installed to use this.',
+    'IM_AIM_EXPRESS'            => 'AIM Express',
+    'IM_DOWNLOAD_APP'           => 'Download Application',
+    'IM_ICQ'                    => 'Please Note that Users may have Opted NOT to Receive Unsolicited Instant Messages.',
+    'IM_JABBER'                 => 'Please Note that Users may have Opted NOT to Receive Unsolicited Instant Messages.',
+    'IM_JABBER_SUBJECT'         => 'This is an Automated Message.  Please DO NOT Reply! Message from User %1$s at %2$s.',
+    'IM_MESSAGE'                => 'Your Message',
+    'IM_MSNM'                   => 'Please Note that you need Windows Messenger Installed to use this.',
+    'IM_MSNM_BROWSER'           => 'Your Browser DOES NOT Support this.',
+    'IM_MSNM_CONNECT'           => 'MSNM is NOT Connected.\nYou have to Connect to MSNM to Continue.',
+    'IM_NAME'                   => 'Your Name',
+    'IM_NO_DATA'                => 'There are NO Suitable Contact Details Available for this User.',
+    'IM_NO_JABBER'              => 'Sorry.  Direct Messaging of Jabber Users is NOT Supported on this Board.  You will need a Jabber Client Installed on your System to Contact the Recipient above.',
 
-	'POST_IP'				=> 'Posted from IP/domain',
+    'IM_RECIPIENT'              => 'Recipient',
+    'IM_SEND'                   => 'Send Message',
+    'IM_SEND_MESSAGE'           => 'Send Message',
+    'IM_SENT_JABBER'            => 'Your Message to %1$s has been Sent Successfully.',
+    'IM_USER'                   => 'Send an Instant Message',
 
-	'REAL_NAME'				=> 'Recipient name',
-	'RECIPIENT'				=> 'Recipient',
-	'REMOVE_FOE'			=> 'Remove foe',
-	'REMOVE_FRIEND'			=> 'Remove friend',
+    'LAST_ACTIVE'               => 'Last Active',
+    'LESS_THAN'                 => 'Less than',
+    'LIST_USER'                 => '1 User',
+    'LIST_USERS'                => '%d Users',
+    'LOGIN_EXPLAIN_LEADERS'     => 'The Board Requires you to be Registered and Logged In to View the Team Listing.',
+    'LOGIN_EXPLAIN_MEMBERLIST'  => 'The Board Requires you to be Registered and Logged In to Access the Member List.',
+    'LOGIN_EXPLAIN_SEARCHUSER'  => 'The Board Requires you to be Registered and Logged In to Search Users.',
+    'LOGIN_EXPLAIN_VIEWPROFILE' => 'The Board Requires you to be Registered and Logged In to View Profiles.',
 
-	'SELECT_MARKED'			=> 'Select marked',
-	'SELECT_SORT_METHOD'	=> 'Select sort method',
-	'SEND_AIM_MESSAGE'		=> 'Send AIM message',
-	'SEND_ICQ_MESSAGE'		=> 'Send ICQ message',
-	'SEND_IM'				=> 'Instant messaging',
-	'SEND_JABBER_MESSAGE'	=> 'Send Jabber message',
-	'SEND_MESSAGE'			=> 'Message',
-	'SEND_MSNM_MESSAGE'		=> 'Send MSNM/WLM message',
-	'SEND_YIM_MESSAGE'		=> 'Send YIM message',
-	'SORT_EMAIL'			=> 'E-mail',
-	'SORT_LAST_ACTIVE'		=> 'Last active',
-	'SORT_POST_COUNT'		=> 'Post count',
+    'MORE_THAN'                 => 'More than',
 
-	'USERNAME_BEGINS_WITH'	=> 'Username begins with',
-	'USER_ADMIN'			=> 'Administer user',
-	'USER_BAN'				=> 'Banning',
-	'USER_FORUM'			=> 'User statistics',
-	'USER_LAST_REMINDED'	=> array(
-		0		=> 'No reminder sent at this time',
-		1		=> '%1$d reminder sent<br />» %2$s',
-	),
-	'USER_ONLINE'			=> 'Online',
-	'USER_PRESENCE'			=> 'Board presence',
+    'NO_EMAIL'                  => 'You are NOT Permitted to Send emails to this User.',
+    'NO_VIEW_USERS'             => 'You are NOT Authorised to View the Member List or Profiles.',
 
-	'VIEWING_PROFILE'		=> 'Viewing profile - %s',
-	'VISITED'				=> 'Last visited',
+    'ORDER'                     => 'Order',
+    'OTHER'                     => 'Other',
 
-	'WWW'					=> 'Website',
+    'POST_IP'                   => 'Posted from IP/Domain',
+
+    'REAL_NAME'                 => 'Recipient Name',
+    'RECIPIENT'                 => 'Recipient',
+    'REMOVE_FOE'                => 'Remove Foe',
+    'REMOVE_FRIEND'             => 'Remove Friend',
+
+    'SELECT_MARKED'             => 'Select Marked',
+    'SELECT_SORT_METHOD'        => 'Select Sort Method',
+    'SEND_AIM_MESSAGE'          => 'Send AIM Message',
+    'SEND_ICQ_MESSAGE'          => 'Send ICQ Message',
+    'SEND_IM'                   => 'Instant Messaging',
+    'SEND_JABBER_MESSAGE'       => 'Send Jabber Message',
+    'SEND_MESSAGE'              => 'Message',
+    'SEND_MSNM_MESSAGE'         => 'Send MSNM/WLM Message',
+    'SEND_YIM_MESSAGE'          => 'Send YIM Message',
+    'SORT_EMAIL'                => 'email',
+    'SORT_LAST_ACTIVE'          => 'Last Active',
+    'SORT_POST_COUNT'           => 'Post Count',
+
+    'USERNAME_BEGINS_WITH'      => 'Username begins with',
+    'USER_ADMIN'                => 'Administer User',
+    'USER_BAN'                  => 'Banning',
+    'USER_FORUM'                => 'User Statistics',
+
+
+
+    'USER_ONLINE'               => 'Online',
+    'USER_PRESENCE'             => 'Board Presence',
+
+    'VIEWING_PROFILE'           => 'Viewing Profile - %s',
+    'VISITED'                   => 'Last Visited',
+
+    'WWW'                       => 'Website',
+
+    'USER_LAST_REMINDED'    => array(
+        0 => 'NO Reminder was Sent at this time',
+        1 => '%1$d Reminder Sent<br />» %2$s',
+    ),
 ));
+
 ?>
