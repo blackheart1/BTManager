@@ -1,30 +1,46 @@
 <?php
-/**
-*
-* scrape_ext [English]
-*
-* @package language
-* @version $Id$
-* @copyright (c) 2005 phpMyBitTorrent Group
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License
-*
-*/
 
 /**
-* DO NOT CHANGE
-*/
-if (!defined('IN_PMBT')) die ("You can't access this file directly");
+**********************
+** BTManager v3.0.1 **
+**********************
+** http://www.btmanager.org/
+** https://github.com/blackheart1/BTManager
+** http://demo.btmanager.org/index.php
+** Licence Info: GPL
+** Copyright (C) 2018
+** Formerly Known As phpMyBitTorrent
+** Created By Antonio Anzivino (aka DJ Echelon)
+** And Joe Robertson (aka joeroberts)
+** Project Leaders: Black_heart, Thor.
+** File scrape/english.php 2018-03-20 15:04:00 Thor
+**
+** CHANGES
+**
+** 2018-03-02 - Added New Masthead
+** 2018-03-02 - Added New !defined('IN_PMBT')
+** 2018-03-02 - Fixed Spelling
+**/
+
+if (!defined('IN_PMBT'))
+{
+    include_once './../../security.php';
+    die ("You can't access this file directly");
+}
+
 if (empty($lang) || !is_array($lang))
 {
 	$lang = array();
 }
+
 $lang = array_merge($lang, array(
-	'TITLE'				=>	'Peer update for',
-	'AUTH_FAILD'		=>	'Autherazation Failed',
-	'GROUP_NOT_AU'		=>	'Your Group permitions do not allow you to update Peers',
-	'TRACKER_MISSING'	=>	'Tracker not listed',
-	'ERROR_TRACKER_MIS'	=>	'There seems to be an error the tracker you requested %1$s is not listed',
-	'INFO_HASH'			=>	'Info Hash',
-	'DECODED_DATA'		=>	'Here id the decoded responce from the tracker.',
+    'TITLE'             => 'Peer Update for',
+    'AUTH_FAILD'        => 'Authorisation Failed',
+    'GROUP_NOT_AU'      => 'Your Group Permissions DO NOT Allow you to Update Peers',
+    'TRACKER_MISSING'   => 'Tracker NOT Listed',
+    'ERROR_TRACKER_MIS' => 'There appears to be an Error.  The Tracker you Requested %1$s is NOT Listed',
+    'INFO_HASH'         => 'Info Hash',
+    'DECODED_DATA'      => 'Here is the ID Decoded Response from the Tracker.',
 ));
+
 ?>
