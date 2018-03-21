@@ -34,9 +34,9 @@ if (empty($lang) || !is_array($lang))
 }
 
 $lang = array_merge($lang, array(
-    'NEW_PM_EMAIL' =>	'%1$,' . "\n\n" . 'You are receiving this message because User %2$ has sent you a Private Message on %3$.\nYou can read the message at %4$/pm.php?mid=%5$* after logging in.\nIf you feel bothered by the Sender, use the Blacklist Function.  This way you won\'t receive any more messages from the User.' . "\n\n" . 'Regards,' . "\n" . '%3$ Staff' . "\n" . '%4$',
+    'NEW_PM_EMAIL' => '%1$,' . "\n\n" . 'You are receiving this message because User %2$ has sent you a Private Message on %3$.\nYou can read the message at %4$/pm.php?mid=%5$* after logging in.\nIf you feel bothered by the Sender, use the Blacklist Function.  This way you won\'t receive any more messages from the User.' . "\n\n" . 'Regards,' . "\n" . '%3$ Staff' . "\n" . '%4$',
 
-    'NEW_PM_SUB'   =>	'New Private Message on %1$',
+    'NEW_PM_SUB' => 'New Private Message on %1$',
 ));
 
 ?>

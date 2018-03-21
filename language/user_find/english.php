@@ -1,30 +1,48 @@
 <?php
-/**
-*
-* common [English]
-*
-* @package language
-* @version $Id$
-* @copyright (c) 2005 phpMyBitTorrent Group
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License
-*
-*/
 
 /**
-* DO NOT CHANGE
-*/
-if (!defined('IN_PMBT')) die ("You can't access this file directly");
+**********************
+** BTManager v3.0.1 **
+**********************
+** http://www.btmanager.org/
+** https://github.com/blackheart1/BTManager
+** http://demo.btmanager.org/index.php
+** Licence Info: GPL
+** Copyright (C) 2018
+** Formerly Known As phpMyBitTorrent
+** Created By Antonio Anzivino (aka DJ Echelon)
+** And Joe Robertson (aka joeroberts)
+** Project Leaders: Black_heart, Thor.
+** File user_find/english.php 2018-03-20 16:09:00 Thor
+**
+** CHANGES
+**
+** 2018-03-02 - Added New Masthead
+** 2018-03-02 - Added New !defined('IN_PMBT')
+** 2018-03-02 - Fixed Spelling
+**/
+
+if (!defined('IN_PMBT'))
+{
+    include_once './../../security.php';
+    die ("You can't access this file directly");
+}
+
 if (empty($lang) || !is_array($lang))
 {
 	$lang = array();
 }
+
 $lang = array_merge($lang, array(
-	'FIND_USER_PM'					=>	'Find A User To PM',
-	'FIND_USER_PM_EXP'				=>	'Inter the Users name that you wish to find',	
-	'ERROR_FIND_USER_PM'			=>	'No User Was Found To PM',
-	'ERROR_FIND_USER_PM_EXP'		=>	'No User Was Found!<br />Please If you tried a Full name try and use a partial name or defrent name.',
-	'ERROR_TO_MANY_FOUND'			=>	'To Many Users Where Found',	
-	'ERROR_TO_MANY_FOUND_EXP'		=>	'Your Search returned to many users!<br />Please narrow your search by adding more carectors to the search feald.',	
-	'USER_NAME'						=>	'User Name:',
+    'FIND_USER_PM'            => 'Find a User to PM',
+    'FIND_USER_PM_EXP'        => 'Enter the Username that you wish to Find',
+    'ERROR_FIND_USER_PM'      => 'NO User was Found to PM',
+    'ERROR_FIND_USER_PM_EXP'  => 'NO User was Found!<br />If you tried using the Full Name, try and use a Partial Name instead',
+    'ERROR_TO_MANY_FOUND'     => 'Too many Users were Found',
+
+    'ERROR_TO_MANY_FOUND_EXP' => 'Your Search Returned Too Many Users!<br />Please narrow your Search by Adding more Characters to the Search Field.',
+
+    'USER_NAME'               => 'Username:',
 ));
+
 ?>
