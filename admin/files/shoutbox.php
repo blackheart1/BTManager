@@ -49,7 +49,7 @@ if ($do == "saveshout") {
         $values = Array();
         array_push($params,"announce_ment"); array_push($values,esc_magic($sub_announce_ment));
         array_push($params,"shoutnewuser"); array_push($values,$sub_shoutnewuser);
-        array_push($params,"dateformat"); array_push($values,$dateformat);
+        array_push($params,"dateformat"); array_push($values,$db->sql_escape($dateformat));
         array_push($params,"shout_new_torrent"); array_push($values,$sub_shout_new_torrent);
         array_push($params,"shout_new_porn"); array_push($values,$sub_shout_new_porn);
         array_push($params,"turn_on"); array_push($values,$sub_turn_on);
