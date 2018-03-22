@@ -72,7 +72,7 @@ $lang = array_merge($lang, array(
     'PRIVACY_MODE'            => 'PRIVACY MODE',
     'STEALTH_MODE'            => 'STEALTH MODE',
 
-    'PASSWORD_EXP'            => 'You may choose a Password to Protect your Torrent from Unauthorized Viewing. If a Password is Set, the Torrent will NOT be Visible to Anyone Except Select Groups which have been SET by the Administrator\'s in the Torrent List and Torrent Search. You will have to provide a Direct Link to the Users that you want to Access the Torrent. Only Internal Torrents can be Password Protected.',
+    'PASSWORD_EXP'            => 'You may choose a Password to Protect your Torrent from Unauthorised Viewing. If a Password is Set, the Torrent will NOT be Visible to Anyone Except Select Groups which have been SET by the Administrator\'s in the Torrent List and Torrent Search. You will have to provide a Direct Link to the Users that you want to Access the Torrent. Only Internal Torrents can be Password Protected.',
 
     'RATIO_BUILDER'           => 'Ratio Builder',
     'NUKED_REASON'            => 'Nuke Reason',
