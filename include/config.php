@@ -279,10 +279,6 @@ if (isset($btlanguage) AND is_readable("language/".$btlanguage.".php")) $languag
 $theme = $user->theme;
 if (isset($bttheme) AND is_readable("themes/".$bttheme."/main.php")) $theme = $bttheme;
 
-if (file_exists("./language/".$language.".php"))
-        require_once("./language/".$language.".php");
-else
-        require_once("./language/english.php");
 $user->set_lang('common',$user->ulanguage);
 
 if (file_exists("./themes/".$theme."/main.php")) {
