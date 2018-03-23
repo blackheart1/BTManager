@@ -1,0 +1,14 @@
+DEVELOPERS PLEASE NOTE
+
+ALL Language Files MUST be Encoded in UTF-8 Without BOM.
+
+Placeholders can now contain Order Information, e.g. instead of
+'Page %s of %s' you can (and should) write 'Page %1$s of %2$s', this allows
+Translators to Re-order the Output of Data while ensuring it remains correct
+
+You DO NOT need this where Single Placeholders are used, e.g. 'Message %d' is fine
+equally where a String contains Only Two Placeholders which are used to Wrap Text
+in a URL you again DO NOT need to specify an Order e.g., 'Click %sHERE%s' is fine
+
+Privacy Policy and T&C
+Common Language Entries
