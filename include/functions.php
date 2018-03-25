@@ -2573,8 +2573,9 @@ function RandomAlpha($num) {
         return $resp;
 }
 function spellmail($email) {
+	global $user;
         $search = Array("@",".");
-        $replace = Array(_at,_dot);
+        $replace = Array($user->lang['_at'],$user->lang['_dot']);
         return "<i>".str_replace($search,$replace,$email)."</i>";
 }
 
@@ -2707,6 +2708,7 @@ function formatTimestamp($time) {//Formats date & time
     return($datetime);
 }
 function mkprettytime($s) {//Formats date&time?
+	global $user;
         if ($s < 0)
                 $s = 0;
         $t = array();
@@ -2722,12 +2724,12 @@ function mkprettytime($s) {//Formats date&time?
         }
 
         if ($t["day"])
-                return $t["day"]._btdays.", ".$t["hour"]._bthours. $t["min"]._btmins.$t["sec"]._btsecs;
+                return $t["day"].$user->lang['_btdays'].", ".$t["hour"].$user->lang['_bthours']. $t["min"].$user->lang['_btmins'].$t["sec"].$user->lang['_btsecs'];
         if ($t["hour"])
-                return $t["hour"]._bthours. $t["min"]._btmins. $t["sec"]._btsecs;
+                return $t["hour"].$user->lang['_bthours']. $t["min"].$user->lang['_btmins']. $t["sec"].$user->lang['_btsecs'];
         if ($t["min"])
-                return $t["min"]._btmins. $t["sec"]._btsecs;
-        return $t["sec"]. _btsecs;
+                return $t["min"].$user->lang['_btmins']. $t["sec"].$user->lang['_btsecs'];
+        return $t["sec"]. $user->lang['_btsecs'];
 }
 
 function urlparse($m) { //Makes URLs clickable

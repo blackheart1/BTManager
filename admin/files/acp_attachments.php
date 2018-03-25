@@ -554,7 +554,7 @@ class acp_attachments
 
 						if ($action == 'add')
 						{
-							$group_ary['download_mode'] = INLINE_LINK;
+							$group_ary['download_mode'] = 1;
 						}
 
 						$sql = ($action == 'add') ? 'INSERT INTO ' . $db_prefix . '_extension_groups' . ' ' : 'UPDATE ' . $db_prefix . '_extension_groups SET ';
@@ -778,7 +778,7 @@ class acp_attachments
 							'S_NO_IMAGE'				=> $no_image_select,
 							'S_FORUM_IDS'				=> (sizeof($forum_ids)) ? true : false,
 
-							'U_EXTENSIONS'		=> append_sid("{$phpbb_admin_path}index.$phpEx", "i=$id&amp;mode=extensions"),
+							'U_EXTENSIONS'		=> append_sid("{$phpbb_admin_path}admin.$phpEx", "i=siteinfo&amp;op=settings&amp;action=ext_groups&amp;action=extensions"),
 							'U_BACK'			=> $this->u_action,
 
 							'L_LEGEND'			=> $user->lang[strtoupper($action) . '_EXTENSION_GROUP'])
