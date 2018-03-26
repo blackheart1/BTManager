@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File viewtopic/english.php 2018-03-20 14:08:00 Thor
+** File viewtopic/english.php 2018-03-22 09:13:00 Thor
 **
 ** CHANGES
 **
@@ -50,80 +50,80 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, array(
     'ATTACHMENT'                        => 'Attachment',
-    'ATTACHMENT_FUNCTIONALITY_DISABLED' => 'The attachments feature has been disabled.',
+    'ATTACHMENT_FUNCTIONALITY_DISABLED' => 'The Attachments Feature has been Disabled.',
 
-    'BOOKMARK_ADDED'            => 'Bookmarked topic successfully.',
-    'BOOKMARK_ERR'              => 'Bookmarking the topic failed. Please try again.',
-    'BOOKMARK_REMOVED'          => 'Removed bookmarked topic successfully.',
-    'BOOKMARK_TOPIC'            => 'Bookmark topic',
-    'BOOKMARK_TOPIC_REMOVE'     => 'Remove from bookmarks',
-    'BUMPED_BY'                 => 'Last bumped by %1$s on %2$s.',
-    'BUMP_TOPIC'                => 'Bump topic',
+    'BOOKMARK_ADDED'            => 'Bookmarked Topic Successfully.',
+    'BOOKMARK_ERR'              => 'Bookmarking the Topic Failed.  Please try again.',
+    'BOOKMARK_REMOVED'          => 'Removed Bookmarked Topic Successfully.',
+    'BOOKMARK_TOPIC'            => 'Bookmark Topic',
+    'BOOKMARK_TOPIC_REMOVE'     => 'Remove from Bookmarks',
+    'BUMPED_BY'                 => 'Last Bumped by %1$s on %2$s.',
+    'BUMP_TOPIC'                => 'Bump Topic',
 
     'CODE'                      => 'Code',
     'COLLAPSE_QR'               => 'Hide Quick Reply',
 
-    'DELETE_TOPIC'              => 'Delete topic',
-    'DOWNLOAD_NOTICE'           => 'You do not have the required permissions to view the files attached to this post.',
+    'DELETE_TOPIC'              => 'Delete Topic',
+    'DOWNLOAD_NOTICE'           => 'You DO NOT have the Required Permissions to View the Files Attached to this Post.',
 
     'EDITED_TIMES_TOTAL'        => 'Last edited by %1$s on %2$s, edited %3$d times in total.',
     'EDITED_TIME_TOTAL'         => 'Last edited by %1$s on %2$s, edited %3$d time in total.',
-    'EMAIL_TOPIC'               => 'email friend',
-    'ERROR_NO_ATTACHMENT'       => 'The selected attachment does not exist anymore.',
+    'EMAIL_TOPIC'               => 'email Friend',
+    'ERROR_NO_ATTACHMENT'       => 'The Selected Attachment DOES NOT Exist any more.',
 
-    'FILE_NOT_FOUND_404'        => 'The file <strong>%s</strong> does not exist.',
-    'FORK_TOPIC'                => 'Copy topic',
+    'FILE_NOT_FOUND_404'        => 'The File <strong>%s</strong> DOES NOT Exist.',
+    'FORK_TOPIC'                => 'Copy Topic',
     'FULL_EDITOR'               => 'Full Editor',
 
-    'LINKAGE_FORBIDDEN'         => 'You are not authorised to view, download or link from/to this site.',
-    'LOGIN_NOTIFY_TOPIC'        => 'You have been notified about this topic, please login to view it.',
-    'LOGIN_VIEWTOPIC'           => 'The board requires you to be registered and logged in to view this topic.',
+    'LINKAGE_FORBIDDEN'         => 'You are NOT Authorised to View, Download or Link from/to this Site.',
+    'LOGIN_NOTIFY_TOPIC'        => 'You have been Notified about this Topic.  Please Login to View it.',
+    'LOGIN_VIEWTOPIC'           => 'The Board Requires you to be Registered and Logged in to View this Topic.',
 
     'MAKE_ANNOUNCE'             => 'Change to "Announcement"',
     'MAKE_GLOBAL'               => 'Change to "Global"',
     'MAKE_NORMAL'               => 'Change to "Standard Topic"',
     'MAKE_STICKY'               => 'Change to "Sticky"',
-    'MAX_OPTIONS_SELECT'        => 'You may select up to <strong>%d</strong> options',
-    'MAX_OPTION_SELECT'         => 'You may select <strong>1</strong> option',
-    'MISSING_INLINE_ATTACHMENT' => 'The attachment <strong>%s</strong> is no longer available',
-    'MOVE_TOPIC'                => 'Move topic',
+    'MAX_OPTIONS_SELECT'        => 'You may Select up to <strong>%d</strong> Options',
+    'MAX_OPTION_SELECT'         => 'You may Select <strong>1</strong> Option',
+    'MISSING_INLINE_ATTACHMENT' => 'The Attachment <strong>%s</strong> is NO Longer Available',
+    'MOVE_TOPIC'                => 'Move Topic',
 
-    'NO_ATTACHMENT_SELECTED'    => 'You haven\'t selected an attachment to download or view.',
-    'NO_NEWER_TOPICS'           => 'There are no newer topics in this forum.',
-    'NO_OLDER_TOPICS'           => 'There are no older topics in this forum.',
-    'NO_UNREAD_POSTS'           => 'There are no new unread posts for this topic.',
-    'NO_VOTE_OPTION'            => 'You must specify an option when voting.',
-    'NO_VOTES'                  => 'No votes',
+    'NO_ATTACHMENT_SELECTED'    => 'You haven\'t Selected an Attachment to Download or View.',
+    'NO_NEWER_TOPICS'           => 'There are NO Newer Topics in this Forum.',
+    'NO_OLDER_TOPICS'           => 'There are NO Older Topics in this Forum.',
+    'NO_UNREAD_POSTS'           => 'There are NO New Unread Posts for this Topic.',
+    'NO_VOTE_OPTION'            => 'You Must Specify an Option when Voting.',
+    'NO_VOTES'                  => 'NO Votes',
 
-    'POLL_ENDED_AT'             => 'Poll ended at %s',
-    'POLL_RUN_TILL'             => 'Poll runs till %s',
-    'POLL_VOTED_OPTION'         => 'You voted for this option',
-    'PRINT_TOPIC'               => 'Print view',
+    'POLL_ENDED_AT'             => 'Poll Ended at %s',
+    'POLL_RUN_TILL'             => 'Poll Runs until %s',
+    'POLL_VOTED_OPTION'         => 'You Voted for this Option',
+    'PRINT_TOPIC'               => 'Print View',
 
-    'QUICK_MOD'                 => 'Quick-mod tools',
+    'QUICK_MOD'                 => 'Quick Mod Tools',
     'QUICKREPLY'                => 'Quick Reply',
     'QUOTE'                     => 'Quote',
 
-    'REPLY_TO_TOPIC'            => 'Reply to topic',
-    'RETURN_POST'               => '%sReturn to the post%s',
+    'REPLY_TO_TOPIC'            => 'Reply to Topic',
+    'RETURN_POST'               => '%sReturn to the Post%s',
 
     'SHOW_QR'                   => 'Quick Reply',
-    'SUBMIT_VOTE'               => 'Submit vote',
+    'SUBMIT_VOTE'               => 'Submit Vote',
 
-    'TOTAL_VOTES'               => 'Total votes',
+    'TOTAL_VOTES'               => 'Total Votes',
 
-    'UNLOCK_TOPIC'              => 'Unlock topic',
+    'UNLOCK_TOPIC'              => 'Unlock Topic',
 
-    'VIEW_INFO'                 => 'Post details',
-    'VIEW_NEXT_TOPIC'           => 'Next topic',
-    'VIEW_PREVIOUS_TOPIC'       => 'Previous topic',
-    'VIEW_RESULTS'              => 'View results',
-    'VIEW_TOPIC_POST'           => '1 post',
-    'VIEW_TOPIC_POSTS'          => '%d posts',
-    'VIEW_UNREAD_POST'          => 'First unread post',
+    'VIEW_INFO'                 => 'Post Details',
+    'VIEW_NEXT_TOPIC'           => 'Next Topic',
+    'VIEW_PREVIOUS_TOPIC'       => 'Previous Topic',
+    'VIEW_RESULTS'              => 'View Results',
+    'VIEW_TOPIC_POST'           => '1 Post',
+    'VIEW_TOPIC_POSTS'          => '%d Posts',
+    'VIEW_UNREAD_POST'          => 'First Unread Post',
     'VISIT_WEBSITE'             => 'WWW',
-    'VOTE_SUBMITTED'            => 'Your vote has been cast.',
-    'VOTE_CONVERTED'            => 'Changing votes is not supported for converted polls.',
+    'VOTE_SUBMITTED'            => 'Your Vote has been Cast.',
+    'VOTE_CONVERTED'            => 'Changing Votes is Not Supported for Converted Polls.',
 ));
 
 ?>

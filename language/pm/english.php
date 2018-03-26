@@ -116,8 +116,8 @@ $lang = array_merge($lang, array(
 
     '_ADMIN_EMAIL'                 => 'Administrators can email me Information',
     '_AGREE'                       => 'I agree to these Terms',
-    '_ALLOW_PM'                    => 'Allow Users to send you Private Messages',
-    '_ALLOW_PM_EXPLAIN'            => 'Note:- Administrators and Moderators will Always be able to Send you Messages.',
+    '_ALLOW_PM'                    => 'Allow Users to Send you Private Messages',
+    '_ALLOW_PM_EXPLAIN'            => 'Note that Administrators and Moderators will Always be able to Send you Messages.',
     '_ALREADY_ACTIVATED'           => 'Your Account is already Activated.',
     '_ATTACHMENTS_EXPLAIN'         => 'This is a List of Attachments you have made in Posts to this Board.',
     '_ATTACHMENTS_DELETED'         => 'Attachments Successfully Deleted.',
@@ -289,9 +289,9 @@ $lang = array_merge($lang, array(
     '_HIDE_ONLINE'             => 'Hide my Online Status',
     '_HIDE_ONLINE_EXPLAIN'     => 'Changing this Setting won\'t become Effective until your Next Visit to the Board.',
 
-    '_HOLD_NEW_MESSAGES'       => 'DO NOT Accept New Messages (New Messages will be held back until enough space is available)',
+    '_HOLD_NEW_MESSAGES'       => 'DO NOT Accept New Messages (New Messages will be Held Back until enough Space is Available)',
 
-    '_HOLD_NEW_MESSAGES_SHORT' => 'New Messages will be held back',
+    '_HOLD_NEW_MESSAGES_SHORT' => 'New Messages will be Held Back',
 
     '_IF_FOLDER_FULL'             => 'If Folder is FULL',
     '_IMPORTANT_NEWS'             => 'Important Announcements',
@@ -337,7 +337,7 @@ $lang = array_merge($lang, array(
     '_MOVE_UP'                     => 'Move up',
     'FORM_INVALID'                 => 'Invalid ID',
 
-    '_NEW_EMAIL_ERROR'             => 'The email Addresses you Entered DO NOT Match.',
+    '_NEW_EMAIL_ERROR'             => 'The email Address\'s you Entered DO NOT Match.',
     '_NEW_FOLDER_NAME'             => 'New Folder Name',
     '_NEW_PASSWORD'                => 'New Password',
     '_NEW_PASSWORD_ERROR'          => 'The Passwords you Entered DO NOT Match.',
@@ -595,13 +595,13 @@ $lang = array_merge($lang, array(
 
     '_USERNAME_ALPHA_ONLY_EXPLAIN'    => 'Username Must be between %1$d and %2$d Characters Long and Use Only Alphanumeric Characters.',
 
-    '_USERNAME_ALPHA_SPACERS_EXPLAIN' => 'Username Must be between %1$d and %2$d Characters Long and use Alphanumeric, Space or -+_[] Characters.',
+    '_USERNAME_ALPHA_SPACERS_EXPLAIN' => 'Username Must be between %1$d and %2$d Characters Long and Use Alphanumeric, Space or -+_[] Characters.',
 
-    '_USERNAME_ASCII_EXPLAIN'         => 'Username Must be between %1$d and %2$d Characters Long and use Only ASCII Characters, so <strong>NO</strong> Special Symbols.',
+    '_USERNAME_ASCII_EXPLAIN'         => 'Username Must be between %1$d and %2$d Characters Long and Use Only ASCII Characters, so <strong>NO</strong> Special Symbols.',
 
-    '_USERNAME_LETTER_NUM_EXPLAIN'    => 'Username Must be between %1$d and %2$d Characters Long and use Only Letters or Number Characters.',
+    '_USERNAME_LETTER_NUM_EXPLAIN'    => 'Username Must be between %1$d and %2$d Characters Long and Use Only Letters or Number Characters.',
 
-    '_USERNAME_LETTER_NUM_SPACERS_EXPLAIN' => 'Username Must be between %1$d and %2$d Characters Long and use Letters, Number, Space or -+_[] Characters.',
+    '_USERNAME_LETTER_NUM_SPACERS_EXPLAIN' => 'Username Must be between %1$d and %2$d Characters Long and Use Letters, Number, Space or -+_[] Characters.',
 
     '_USERNAME_CHARS_ANY_EXPLAIN'   => 'Length Must be between %1$d and %2$d Characters.',
     '_USERNAME_TAKEN_USERNAME'      => 'The Username Already Exists.  Please Select an Alternative.',

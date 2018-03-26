@@ -66,7 +66,7 @@ class acp_email
 						'smtp_authentication'	=> array('lang' => 'USE_AUTHEN',			'validate' => 'bool',	'type' => 'radio:yes_no', 'explain' => true),
 						'smtp_debug'			=> array('lang' => 'USE_DEBUGING',			'validate' => 'bool',	'type' => 'radio:yes_no', 'explain' => true),
 						'smtp_delivery'			=> array('lang' => 'USE_SMTP',				'validate' => 'bool',	'type' => 'radio:yes_no', 'explain' => true),
-						'smtp_host'				=> array('lang' => 'SMTP_SERVER',			'validate' => 'string',	'type' => 'text:25:50', 'explain' => false),
+						'smtp_host'				=> array('lang' => 'SMTP_SERVER',			'validate' => 'string',	'type' => 'text:25:50', 'explain' => true),
 						'smtp_port'				=> array('lang' => 'SMTP_PORT',				'validate' => 'int:0',	'type' => 'text:4:5', 'explain' => true),
 						'smtp_auth_method'		=> array('lang' => 'SMTP_AUTH_METHOD',		'validate' => 'string',	'type' => 'select', 'method' => 'mail_auth_select', 'explain' => true),
 						'smtp_username'			=> array('lang' => 'SMTP_USERNAME',			'validate' => 'string',	'type' => 'text:25:255', 'explain' => true),
@@ -435,7 +435,7 @@ class acp_email
 		{
 			$act_ary['ACC_USER'] = 1;
 			$act_ary['ACC_ADMIN'] = 2;
-		}		
+		}
 		$act_options = '';
 
 		foreach ($act_ary as $key => $value)

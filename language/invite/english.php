@@ -39,12 +39,12 @@ $lang = array_merge($lang, array(
     'INVITES_DISSABLED'     => 'Invites Disabled',
     'INVITES_DISSABLED_EXP' => 'Our Invites System is Currently Disabled.  Please have your Friend use the Registration Link',
 
-    'INVITE_EXP'            => 'Welcome to our Invite System<br />Here you can Send out a Invite to your Friends or even Family Members.',
+    'INVITE_EXP'            => 'Welcome to our Invite System<br />Here you can Send out an Invite to your Friends or even Family Members.',
 
     'INVITES'               => 'Invites',
-    'INV_MAIL_SUB'          => 'Your Invite yo %1$s',
+    'INV_MAIL_SUB'          => 'Your Invite to %1$s',
 
-    'WELCOME'               => 'Welcome to %1$s!<br />Please Enter the Required Information below to Complete the Invite that received',
+    'WELCOME'               => 'Welcome to %1$s!<br />Please Enter the Required Information below to Complete the Invite that you received',
 
     'USER_NAME'             => 'User Name',
     'PASSWORD_EXP'          => '(5 Characters Minimum)',
@@ -56,15 +56,15 @@ $lang = array_merge($lang, array(
     'SUBMIT_ONES'           => 'Send Invite (PRESS ONLY ONCE)',
     'LIMMIT_REACHED'        => 'Site User Limit Reached',
 
-    'MAX_USERS_REACHED'     => 'The Current User Account Limit (<strong>%s</strong>) has been Reached. Inactive Accounts are Pruned all the Time.  Please check back again later...',
+    'MAX_USERS_REACHED'     => 'The Current User Account Limit (<strong>%s</strong>) has been Reached. Inactive Accounts are Pruned ALL the time.  Please check back again later...',
 
     'NO_INVITES'            => 'NO Invites',
 
-    'NO_INVITES_EXP'        => 'You DO NOT have any Invites to use at this time.<br />If you feel you reached this Error by mistake please contact a Moderator.',
+    'NO_INVITES_EXP'        => 'You DO NOT have any Invites to use at this time.<br />If you feel you reached this Error by mistake, please contact a Moderator.',
 
     'INVALID_ID_EXP'        => 'The ID you provided is Invalid',
     'DUPE_IP'               => 'Duplicate IP in use',
-    'DUPE_IP_EXP'           => 'The IP your using is already in our System.  We DO NOT Allow Users to have Multiple Account\'s',
+    'DUPE_IP_EXP'           => 'The IP your using is Already in our System.  We DO NOT Allow Users to have Multiple Account\'s',
     'ACCOUNT_ACTIVE'        => 'This Account is Activated',
     'ACCOUNT_ACTIVE_EXP'    => 'This Account was already Activated and NO further action is required.<br />Please Login.',
     'INVALID_INVITE'        => 'The Invite is Invalid',
@@ -75,26 +75,26 @@ $lang = array_merge($lang, array(
     'INVALID_ACTKEY_EXP'    => 'There seems to be an Issue Processing the Activation Key you provided.  Please check the Link',
     'USE_LIM_REACHED'       => 'Sorry.  We are NOT Accepting any New Users at this time.',
 
-    'USE_LIM_REACHED_EXP'   => 'The Current User Account Limit (<strong>%1$s</strong>) has been Reached. Inactive Accounts are Pruned All the time, please check back again later...',
+    'USE_LIM_REACHED_EXP'   => 'The Current User Account Limit (<strong>%s</strong>) has been Reached. Inactive Accounts are Pruned ALL the time.  Please check back again later...',
 
-    'NO_MESSAGE'            => 'No Message',
+    'NO_MESSAGE'            => 'NO Message',
     'NO_MESSAGE_EXP'        => 'You DID NOT Add a Message for the User to know Who was Sending it.',
     'BAD_EMAIL'             => 'The email is Bad',
     'BAD_EMAIL_EXP'         => 'There seems to be an Issue with the email you are Sending this to',
-    'EMAIL_USED'            => 'The email is in already in use',
-    'EMAIL_USED_EXP'        => 'The email You are Sending this to is already in use.  Please Select a different email Address',
+    'EMAIL_USED'            => 'The email is in Already in Use',
+    'EMAIL_USED_EXP'        => 'The email you are Sending this to is Already in Use.  Please Select a different email Address',
 
-    'ACTIVATION_COMPLETE'   => 'Activation Complete. Your Account is now Permanently Active. From now on, you can Access our Services using the Username and Password you provided. Have a nice Download.',
+    'ACTIVATION_COMPLETE'   => 'Activation Complete.  Your Account is now Activated. You can Access our Services using the Username and Password that you provided.  Have a nice Download.',
 
-    'USER_LINNET_REACHED'   => 'Sorry, User Limit Reached. Please try again later...',
+    'USER_LINNET_REACHED'   => 'Sorry, User Limit Reached.  Please try again later...',
     'USERNAME_NOT_SET'      => 'Username NOT Specified.',
     'BAD_ID'                => 'There seems to be an Issue with the ID.  Please check your Link and try again.',
-    'USER_IS_ACTIVE'        => 'User is already Active. NO more Activation Required',
-    'PASS_DONT_MATCH'       => 'Passwords don\'t Match',
+    'USER_IS_ACTIVE'        => 'User is Already Active. NO more Activation Required',
+    'PASS_DONT_MATCH'       => 'Passwords Don\'t Match',
 
     'YOU_HAVE_BLANK_FEALDS' => 'You Did NOT Complete ALL the Required Fields.  Please go back and make sure ALL Fields are Filled in .',
 
-    'INVALID_USER_NAME'     => 'You are trying to use a Invalid Username.  Please go back and try a different name',
+    'INVALID_USER_NAME'     => 'You are trying to use an Invalid Username.  Please go back and try a Different Name',
     'DISCL_NOT_ACCP'        => 'You MUST ACCEPT our Disclaimer in Order to Sign Up.',
     'USER_NAME_TO_LONG'     => 'That Username is Too Long',
     'PASS_TO_SHORT'         => 'That Password is Too Short',
