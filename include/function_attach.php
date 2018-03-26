@@ -252,7 +252,7 @@ class filespec
 	*/
 	function move_file($destination, $overwrite = false, $skip_image_check = false, $chmod = 0666)
 	{
-		global  $siteurl;
+		global  $siteurl, $user;
 
 		if (sizeof($this->error))
 		{
@@ -294,7 +294,7 @@ class filespec
 					{
 						if (!@move_uploaded_file($this->filename, $this->destination_file))
 						{
-							$this->error[] = sprintf(GENERAL_UPLOAD_ERROR, $this->destination_file);
+							$this->error[] = sprintf($user->lang['GENERAL_UPLOAD_ERROR'], $this->destination_file);
 							return false;
 						}
 					}
@@ -309,7 +309,7 @@ class filespec
 					{
 						if (!@copy($this->filename, $this->destination_file))
 						{
-							$this->error[] = sprintf( GENERAL_UPLOAD_ERROR , $this->destination_file);
+							$this->error[] = sprintf( $user->lang['GENERAL_UPLOAD_ERROR'] , $this->destination_file);
 							return false;
 						}
 					}
@@ -322,7 +322,7 @@ class filespec
 
 					if (!@copy($this->filename, $this->destination_file))
 					{
-						$this->error[] = sprintf( GENERAL_UPLOAD_ERROR , $this->destination_file);
+						$this->error[] = sprintf( $user->lang['GENERAL_UPLOAD_ERROR'] , $this->destination_file);
 						return false;
 					}
 					@unlink($this->filename);
@@ -357,23 +357,23 @@ class filespec
 				{
 					if (!isset($types[$this->image_info[2]]))
 					{
-						$this->error[] = sprintf( IMAGE_FILETYPE_INVALID , $this->image_info[2], $this->mimetype);
+						$this->error[] = sprintf( $user->lang['IMAGE_FILETYPE_INVALID'] , $this->image_info[2], $this->mimetype);
 					}
 					else
 					{
-						$this->error[] = sprintf( IMAGE_FILETYPE_MISMATCH , $types[$this->image_info[2]][0], $this->extension);
+						$this->error[] = sprintf( $user->lang['IMAGE_FILETYPE_MISMATCH'] , $types[$this->image_info[2]][0], $this->extension);
 					}
 				}
 
 				// Make sure the dimensions match a valid image
 				if (empty($this->width) || empty($this->height))
 				{
-					$this->error[] =  ATTACHED_IMAGE_NOT_IMAGE ;
+					$this->error[] =  $user->lang['ATTACHED_IMAGE_NOT_IMAGE'] ;
 				}
 			}
 			else
 			{
-				$this->error[] =  UNABLE_GET_IMAGE_SIZE ;
+				$this->error[] =  $user->lang['UNABLE_GET_IMAGE_SIZE'] ;
 			}
 		}
 
@@ -389,6 +389,7 @@ class filespec
 	*/
 	function additional_checks()
 	{
+	global $user;
 
 		if (!$this->file_moved)
 		{
@@ -401,14 +402,14 @@ class filespec
 			$size_lang = ($this->upload->max_filesize >= 1048576) ?  MB  : (($this->upload->max_filesize >= 1024) ?  KB  :  BYTES  );
 			$max_filesize = ($this->upload->max_filesize >= 1048576) ? round($this->upload->max_filesize / 1048576 * 100) / 100 : (($this->upload->max_filesize >= 1024) ? round($this->upload->max_filesize / 1024 * 100) / 100 : $this->upload->max_filesize);
 	
-			$this->error[] = sprintf( WRONG_FILESIZE , $max_filesize, $size_lang);
+			$this->error[] = sprintf( $user->lang['WRONG_FILESIZE'] , $max_filesize, $size_lang);
 
 			return false;
 		}
 
 		if (!$this->upload->valid_dimensions($this))
 		{
-			$this->error[] = sprintf( WRONG_SIZE , $this->upload->min_width, $this->upload->min_height, $this->upload->max_width, $this->upload->max_height, $this->width, $this->height);
+			$this->error[] = sprintf( $user->lang['WRONG_SIZE'] , $this->upload->min_width, $this->upload->min_height, $this->upload->max_width, $this->upload->max_height, $this->width, $this->height);
 
 			return false;
 		}
@@ -509,6 +510,7 @@ class fileupload
 	*/
 	function form_upload($form_name)
 	{
+	global $user;
 
 		unset($_FILES[$form_name]['local_mode']);
 		$file = new filespec($_FILES[$form_name], $this);
@@ -534,21 +536,21 @@ class fileupload
 		// Check if empty file got uploaded (not catched by is_uploaded_file)
 		if (isset($_FILES[$form_name]['size']) && $_FILES[$form_name]['size'] == 0)
 		{
-			$file->error[] =  EMPTY_FILEUPLOAD ;
+			$file->error[] =  $user->lang['EMPTY_FILEUPLOAD'] ;
 			return $file;
 		}
 
 		// PHP Upload filesize exceeded
 		if ($file->get('filename') == 'none')
 		{
-			$file->error[] = (@ini_get('upload_max_filesize') == '') ?  PHP_SIZE_NA  : sprintf( PHP_SIZE_OVERRUN , @ini_get('upload_max_filesize'));
+			$file->error[] = (@ini_get('upload_max_filesize') == '') ?  $user->lang['PHP_SIZE_NA']  : sprintf( $user->lang['PHP_SIZE_OVERRUN'] , @ini_get('upload_max_filesize'));
 			return $file;
 		}
 
 		// Not correctly uploaded
 		if (!$file->is_uploaded())
 		{
-			$file->error[] =  NOT_UPLOADED ;
+			$file->error[] =  $user->lang['NOT_UPLOADED'] ;
 			return $file;
 		}
 
@@ -562,6 +564,7 @@ class fileupload
 	*/
 	function local_upload($source_file, $filedata = false)
 	{
+	global $user;
 
 		$form_name = 'local';
 
@@ -616,14 +619,14 @@ class fileupload
 		// PHP Upload filesize exceeded
 		if ($file->get('filename') == 'none')
 		{
-			$file->error[] = (@ini_get('upload_max_filesize') == '') ?  PHP_SIZE_NA  : sprintf( PHP_SIZE_OVERRUN , @ini_get('upload_max_filesize'));
+			$file->error[] = (@ini_get('upload_max_filesize') == '') ?  $user->lang['PHP_SIZE_NA']  : sprintf( $user->lang['PHP_SIZE_OVERRUN'] , @ini_get('upload_max_filesize'));
 			return $file;
 		}
 
 		// Not correctly uploaded
 		if (!$file->is_uploaded())
 		{
-			$file->error[] = NOT_UPLOADED . "2" ;
+			$file->error[] = $user->lang['NOT_UPLOADED'] ;
 			return $file;
 		}
 
@@ -642,20 +645,20 @@ class fileupload
 	*/
 	function remote_upload($upload_url)
 	{
-		global $siteurl;
+		global $siteurl, $user;
 
 		$upload_ary = array();
 		$upload_ary['local_mode'] = true;
 
 		if (!preg_match('#^(https?://).*?\.(' . implode('|', $this->allowed_extensions) . ')$#i', $upload_url, $match))
 		{
-			$file = new fileerror( URL_INVALID );
+			$file = new fileerror( $user->lang['URL_INVALID'] );
 			return $file;
 		}
 
 		if (empty($match[2]))
 		{
-			$file = new fileerror( URL_INVALID );
+			$file = new fileerror( $user->lang['URL_INVALID'] );
 			return $file;
 		}
 
@@ -680,7 +683,7 @@ class fileupload
 
 		if (!($fsock = @fsockopen($host, $port, $errno, $errstr)))
 		{
-			$file = new fileerror( NOT_UPLOADED );
+			$file = new fileerror( $user->lang['NOT_UPLOADED'] );
 			return $file;
 		}
 
@@ -718,7 +721,7 @@ class fileupload
 					}
 					else if (stripos($line, '404 not found') !== false)
 					{
-						$file = new fileerror( URL_NOT_FOUND );
+						$file = new fileerror( $user->lang['URL_NOT_FOUND'] );
 						return $file;
 					}
 				}
@@ -728,7 +731,7 @@ class fileupload
 
 		if (empty($data))
 		{
-			$file = new fileerror( EMPTY_REMOTE_DATA );
+			$file = new fileerror( $user->lang['EMPTY_REMOTE_DATA'] );
 			return $file;
 		}
 
@@ -737,7 +740,7 @@ class fileupload
 
 		if (!($fp = @fopen($filename, 'wb')))
 		{
-			$file = new fileerror( NOT_UPLOADED );
+			$file = new fileerror( $user->lang['NOT_UPLOADED'] );
 			return $file;
 		}
 
@@ -759,30 +762,31 @@ class fileupload
 	*/
 	function assign_internal_error($errorcode)
 	{
+		global $user;
 
 		switch ($errorcode)
 		{
 			case 1:
-				$error = (@ini_get('upload_max_filesize') == '') ?  PHP_SIZE_NA  : sprintf( PHP_SIZE_OVERRUN , @ini_get('upload_max_filesize'));
+				$error = (@ini_get('upload_max_filesize') == '') ?  $user->lang['PHP_SIZE_NA']  : sprintf( $user->lang['PHP_SIZE_OVERRUN'] , @ini_get('upload_max_filesize'));
 			break;
 
 			case 2:
-				$size_lang = ($this->max_filesize >= 1048576) ?  MB  : (($this->max_filesize >= 1024) ?  KB  :  BYTES  );
+				$size_lang = ($this->max_filesize >= 1048576) ?  $user->lang['MB']  : (($this->max_filesize >= 1024) ?  $user->lang['KB']  :  $user->lang['BYTES']  );
 				$max_filesize = ($this->max_filesize >= 1048576) ? round($this->max_filesize / 1048576 * 100) / 100 : (($this->max_filesize >= 1024) ? round($this->max_filesize / 1024 * 100) / 100 : $this->max_filesize);
 
-				$error = sprintf( WRONG_FILESIZE , $max_filesize, $size_lang);
+				$error = sprintf( $user->lang['WRONG_FILESIZE'] , $max_filesize, $size_lang);
 			break;
 
 			case 3:
-				$error =  PARTIAL_UPLOAD ;
+				$error =  $user->lang['PARTIAL_UPLOAD'] ;
 			break;
 
 			case 4:
-				$error =  NOT_UPLOADED ;
+				$error =  $user->lang['NOT_UPLOADED'] ;
 			break;
 
 			case 6:
-				$error = 'Temporary folder could not be found. Please check your PHP installation.';
+				$error = $user->lang['PHP_TEMP_FOLDER_NF'] ;
 			break;
 
 			default:
@@ -798,26 +802,27 @@ class fileupload
 	*/
 	function common_checks(&$file)
 	{
+		global $user;
 
 		// Filesize is too big or it's 0 if it was larger than the maxsize in the upload form
 		if ($this->max_filesize && ($file->get('filesize') > $this->max_filesize || $file->get('filesize') == 0))
 		{
-			$size_lang = ($this->max_filesize >= 1048576) ?  MB  : (($this->max_filesize >= 1024) ?  KB  :  BYTES  );
+			$size_lang = ($this->max_filesize >= 1048576) ?  $user->lang['MB']  : (($this->max_filesize >= 1024) ?  $user->lang['KB']  :  $user->lang['BYTES']  );
 			$max_filesize = ($this->max_filesize >= 1048576) ? round($this->max_filesize / 1048576 * 100) / 100 : (($this->max_filesize >= 1024) ? round($this->max_filesize / 1024 * 100) / 100 : $this->max_filesize);
 
-			$file->error[] = sprintf( WRONG_FILESIZE , $max_filesize, $size_lang);
+			$file->error[] = sprintf( $user->lang['WRONG_FILESIZE'] , $max_filesize, $size_lang);
 		}
 
 		// check Filename
 		if (preg_match("#[\\/:*?\"<>|]#i", $file->get('realname')))
 		{
-			$file->error[] = sprintf( INVALID_FILENAME , $file->get('realname'));
+			$file->error[] = sprintf( $user->lang['INVALID_FILENAME'] , $file->get('realname'));
 		}
 
 		// Invalid Extension
 		if (!$this->valid_extension($file))
 		{
-			$file->error[] = sprintf( DISALLOWED_EXTENSION , $file->get('extension'));
+			$file->error[] = sprintf( $user->lang['DISALLOWED_EXTENSION'] , $file->get('extension'));
 		}
 	}
 

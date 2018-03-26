@@ -510,6 +510,7 @@ $lang = array_merge($lang, array(
     'VIEW_RESULTS'              => 'View Results',
     'MOD_OPTIONS'               => 'Moderator Options',
     'FREE_LEACH_EXP'            => 'Any Torrents with this Symbol are Ratio Boosters. Only your Upload is Recorded!!<br> This is a great way to Boost your Ratio. Normal Site Seeding Rules Apply.<br>Seed to 1.0 or 36 hours to avoid Hit and Runs.',
+	'NO_SAVED_DRAFTS'			=> 'No drafts saved.',
 
     'NUKED_EXP'                 => 'Any Torrents with this Symbol are Nuked. <br>This means that for some reason someone has determined that there is something wrong with the Release,<br>and it may or may not be viewable. Use your own discretion when Downloading these Torrents.<br>Normal Site Seeding Rules still Apply unless also made Free. Please Read Details for Reason',
 
@@ -678,15 +679,14 @@ $lang = array_merge($lang, array(
 	),
 		// 3.0.1 Addons
 		'VARIANT_DATE_SEPARATOR' => ' / ', // Used in Date Format Dropdown, eg: 'Today, 13:37 / 01 Jan 2007, 13:37' ... to Join a Relative Date with Calendar Date
+		'_btdays'				=> 'd ',
+		'_bthours'				=> 'h ',
+		'_btmins'				=> 'm ',
+		'_btsecs'				=> 's ',
+		'_at'					=> ' at ',
+		'_dot'					=> ' dot ',
 ));
 
-    define('_at',' at ');
-    define('_dot',' dot ');
-    define('_DATESTRING','%A, %B %d %Y @ %T %Z');
-    define('_btdays','d ');
-    define('_bthours','h ');
-    define('_btmins','m ');
-    define('_btsecs','s ');
 
         $u_datetime = array(
         'TODAY'		=> 'Today',

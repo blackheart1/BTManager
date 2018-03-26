@@ -73,7 +73,7 @@ $user->set_lang('pm',$user->ulanguage);
 
 				delete_attachments('attach', $delete_ids);
 
-				$message = ((sizeof($delete_ids) == 1) ? $user->lang['_ATTACHMENT_DELETED'] : $user->lang['_ATTACHMENTS_DELETED']) . '<br /><br />' . sprintf(RETURN_UCP, '<a href="' . $siteurl . '/user.php?op=editprofile&action=overview&mode=attachments">', '</a>');
+				$message = ((sizeof($delete_ids) == 1) ? $user->lang['_ATTACHMENT_DELETED'] : $user->lang['_ATTACHMENTS_DELETED']) . '<br /><br />' . sprintf($user->lang['_RETURN_UCP'], '<a href="' . $siteurl . '/user.php?op=editprofile&action=overview&mode=attachments">', '</a>');
                                 $template->assign_vars(array(
 										'S_REFRESH'				=> true,
 										'META' 				  	=> '<meta http-equiv="refresh" content="5;url=' . $siteurl . '/user.php?op=editprofile&amp;action=overview&amp;mode=attachments" />',

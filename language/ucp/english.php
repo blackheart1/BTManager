@@ -181,6 +181,8 @@ $lang = array_merge($lang, array(
     'TOR_PERPAGE'               => 'Torrents Perpage',
     'PARK_ACC'                  => 'Park account',
     'PARK_ACC_EXP'              => 'You can park your account for up to 90 days while on vacation or without internet, etc. Your account cannot be deleted during this time but on day 91 it can. HnR\'s will not accrue while parked but they will resume when unparked. You can not download any torrents while your account is parked!',
+	'DELETE_DRAFT'				=>	'Remove selected drafts',
+	'DELETE_DRAFT_CONFIRM'		=>	'Are you sure you want to delete all selected drafts?',
 ));
 
 ?>

@@ -71,7 +71,7 @@ if (!defined('IN_PMBT'))
 							if(isset($check))$check=true;
 							else
 							$check = false;
-										confirm_box($check, 'bt_fm_del_draft', $hidden,'confirm_body.html','');							
+										confirm_box($check, 'DELETE_DRAFT', $hidden,'confirm_body.html','');							
 							    if(!isset($d) OR !count($d) >=1)
 								{
 								$template->assign_vars(array('ERROR' => $user->lang['NO_DRAFTS_SET']));

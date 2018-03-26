@@ -583,7 +583,7 @@ if ($save && $user->user && $auth->acl_get('u_savedrafts') && ($mode == 'reply' 
 				'draft_message'	=> (string) $message)
 			);
 			//die($sql);
-			$db->sql_query($sql);
+			$db->sql_query($sql) or die(print_r($db->sql_error()));
 
 			$meta_info = ($mode == 'post') ? append_sid("{$phpbb_root_path}forum.$phpEx", 'action=viewforum&amp;f=' . $forum_id) : append_sid("{$phpbb_root_path}forum.$phpEx", "action=viewtopic&amp;f=$forum_id&amp;t=$topic_id");
 

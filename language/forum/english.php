@@ -20,6 +20,7 @@
 ** 2018-03-02 - Added New Masthead
 ** 2018-03-02 - Added New !defined('IN_PMBT')
 ** 2018-03-02 - Fixed Spelling
+** 2018-03-26 - Added Missing Text
 **/
 
 if (!defined('IN_PMBT'))
@@ -32,7 +33,6 @@ if (empty($lang) || !is_array($lang))
 {
 	$lang = array();
 }
-
 $lang = array_merge($lang, array(
     'COM_NEW'                    => 'Compose New Thread',
     'LAST_POST'                  => 'Last Post',
@@ -305,11 +305,8 @@ $lang = array_merge($lang, array(
     'DISABLE_SMILIES'            => 'Disable Smilies',
     'DISALLOWED_CONTENT'         => 'The Upload was Rejected because the Uploaded File was Identified as a possible Attack Vector.',
     'DISALLOWED_EXTENSION'       => 'The Extension %s is NOT Allowed.',
-
     'DRAFT_LOADED'               => 'Draft Loaded into Posting Area, you may want to Finish your Post now.<br />Your Draft will be Deleted after Submitting this Post.',
-
     'DRAFT_LOADED_PM'            => 'Draft Loaded into Message Area, you may want to Finish your Private Message now.<br />Your Draft will be Deleted after Submitting this Private Message.',
-
     'DRAFT_SAVED'                => 'Draft Successfully Saved.',
     'DRAFT_TITLE'                => 'Draft Title',
 
@@ -345,6 +342,10 @@ $lang = array_merge($lang, array(
     'TOTAL_USERS_OTHER'          => 'Total Members <strong>%d</strong>',
     'TOTAL_USERS_ZERO'           => 'Total Members <strong>0</strong>',
     'GENERAL_UPLOAD_ERROR'       => 'Could NOT Upload Attachment to %s.',
+	'IMAGE_FILETYPE_INVALID'	=> 'Image file type %d for mimetype %s not supported.',
+	'IMAGE_FILETYPE_MISMATCH'	=> 'Image file type mismatch: expected extension %1$s but extension %2$s given.',
+	'ATTACHED_IMAGE_NOT_IMAGE'		=> 'The image file you tried to attach is invalid.',
+	'UNABLE_GET_IMAGE_SIZE'	=> 'It was not possible to determine the dimensions of the image. Please verify that the URL you entered is correct.',
 
     'IMAGES_ARE_OFF'             => '[img] is <em>OFF</em>',
     'IMAGES_ARE_ON'              => '[img] is <em>ON</em>',
@@ -393,6 +394,16 @@ $lang = array_merge($lang, array(
     'VIEW_TOPIC'                 => 'View Topic',
     'FULL_EDITOR'                => 'Full Editor',
     'QUICKREPLY'                 => 'Quick Reply',
+	'WRONG_FILESIZE'			=> 'The file is too big, maximum allowed size is %1$d %2$s.',
+	'WRONG_SIZE'				=> 'The image must be at least %1$s wide, %2$s high and at most %3$s wide and %4$s high. The submitted image is %5$s wide and %6$s high.',
+	'EMPTY_FILEUPLOAD'			=> 'The uploaded file is empty.',
+	'PARTIAL_UPLOAD'			=> 'The uploaded file was only partially uploaded.',
+	'PHP_UPLOAD_STOPPED'		=> 'A PHP extension has stopped the file upload.',
+	'URL_INVALID'				=> 'The URL you specified is invalid.',
+	'URL_NOT_FOUND'				=> 'The file specified could not be found.',
+	'URL_IS_OFF'				=> '[url] is <em>OFF</em>',
+	'URL_IS_ON'					=> '[url] is <em>ON</em>',
+	'PHP_TEMP_FOLDER_NF'		=> 'Temporary folder could not be found. Please check your PHP installation.'
 ));
 
 $ignore_words = array(

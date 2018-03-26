@@ -143,7 +143,7 @@ $template->assign_vars(array(
 									AND user_id = " . $user->id;
 							$db->sql_query($sql);
 
-							$message = $user->lang['DRAFT_UPDATED'] . '<br /><br />' . sprintf($user->lang['RETURN_UCP'], '<a href="' . $u_action . '">', '</a>');
+							$message = $user->lang['DRAFT_UPDATED'] . '<br /><br />' . sprintf($user->lang['_RETURN_UCP'], '<a href="' . $u_action . '">', '</a>');
 
 							meta_refresh(3, $u_action);
 							trigger_error($message);
@@ -162,7 +162,7 @@ $template->assign_vars(array(
 				if (!$pm_drafts)
 				{
 					$sql = 'SELECT d.*, f.forum_name
-						FROM ' . $db_prefix . '_drafts d, ' . FORUMS_TABLE . ' f
+						FROM ' . $db_prefix . '_drafts d, ' . $db_prefix . '_forums f
 						WHERE d.user_id = ' . $user->id . ' ' .
 							(($edit) ? "AND d.draft_id = $draft_id" : '') . '
 							AND f.forum_id = d.forum_id
@@ -194,7 +194,7 @@ $template->assign_vars(array(
 				if (sizeof($topic_ids))
 				{
 					$sql = 'SELECT topic_id, forum_id, topic_title
-						FROM ' . TOPICS_TABLE . '
+						FROM ' . $db_prefix . '_topics
 						WHERE ' . $db->sql_in_set('topic_id', array_unique($topic_ids));
 					$result = $db->sql_query($sql);
 
@@ -217,18 +217,18 @@ $template->assign_vars(array(
 					if (isset($topic_rows[$draft['topic_id']]) && acl_get('f_read', $topic_rows[$draft['topic_id']]['forum_id']))
 					{
 						$link_topic = true;
-						$view_url = append_sid("{$phpbb_root_path}viewtopic.$phpEx", 'f=' . $topic_rows[$draft['topic_id']]['forum_id'] . '&amp;t=' . $draft['topic_id']);
+						$view_url = append_sid("{$phpbb_root_path}forum.$phpEx", 'action=viewtopic&amp;f=' . $topic_rows[$draft['topic_id']]['forum_id'] . '&amp;t=' . $draft['topic_id']);
 						$title = $topic_rows[$draft['topic_id']]['topic_title'];
 
-						$insert_url = append_sid("{$phpbb_root_path}posting.$phpEx", 'f=' . $topic_rows[$draft['topic_id']]['forum_id'] . '&amp;t=' . $draft['topic_id'] . '&amp;mode=reply&amp;d=' . $draft['draft_id']);
+						$insert_url = append_sid("{$phpbb_root_path}forum.$phpEx", 'action=posting&amp;f=' . $topic_rows[$draft['topic_id']]['forum_id'] . '&amp;t=' . $draft['topic_id'] . '&amp;mode=reply&amp;d=' . $draft['draft_id']);
 					}
 					else if (!$pm_drafts AND acl_get('f_read', $draft['forum_id']))
 					{
 						$link_forum = true;
-						$view_url = append_sid("{$phpbb_root_path}viewforum.$phpEx", 'f=' . $draft['forum_id']);
+						$view_url = append_sid("{$phpbb_root_path}forum.$phpEx", 'action=viewforum&amp;f=' . $draft['forum_id']);
 						$title = $draft['forum_name'];
 
-						$insert_url = append_sid("{$phpbb_root_path}posting.$phpEx", 'f=' . $draft['forum_id'] . '&amp;mode=post&amp;d=' . $draft['draft_id']);
+						$insert_url = append_sid("{$phpbb_root_path}forum.$phpEx", 'action=posting&amp;f=' . $draft['forum_id'] . '&amp;mode=post&amp;d=' . $draft['draft_id']);
 					}
 					else if ($pm_drafts)
 					{
