@@ -34,7 +34,7 @@ if (empty($lang) || !is_array($lang))
 }
 
 $lang = array_merge($lang, array(
-    'REQ_TO_LESTIN'        => 'You will need Windows Media Player 10+ or Real Player to listen to the Radio Stream!',
+    'REQ_TO_LESTIN'        => 'You will need Windows Media Player 10+ or Real Player to Listen to the Radio Stream!',
     'POWERED_BY'           => 'Radio Powered by Shoutcast &amp; Winamp.',
     'LAST_TRACKS'          => 'Last Tracks Played....',
     'MEMBERS_LESTINING'    => 'Members Listening',

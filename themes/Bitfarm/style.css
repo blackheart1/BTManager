@@ -165,13 +165,13 @@ color:#FFFFFF;
 	text-decoration: none;
 }
 span.login {
-width:99px; 
+width:99px;
 background:url(pics/top_login.gif) repeat-x;
 font-size:12px;
 position:absolute;
 }
 span.login a:hover{
-width:99px; 
+width:99px;
 background:url(pics/top_login_over.gif) repeat-x;
 font-size:12px;
 position:absolute;
@@ -295,13 +295,13 @@ h4 {
 	font-weight: bold;
 }
 caption, caption h1, caption h2, caption h3, caption h4, caption span,
-.cap-div, .cap-div h1, .cap-div h2, .cap-div h3, .cap-div h4, .cap-div span { 
+.cap-div, .cap-div h1, .cap-div h2, .cap-div h3, .cap-div h4, .cap-div span {
 	font-size: 12px;
 	font-weight: bold;
 	color: #E6EAF0;
 }
 caption h1, caption h2, caption h3, caption h4, caption span,
-.cap-div h1, .cap-div h2, .cap-div h3, .cap-div h4, .cap-div span { 
+.cap-div h1, .cap-div h2, .cap-div h3, .cap-div h4, .cap-div span {
 	display: inline;
 }
 caption a, caption a:visited, .cap-div a, .cap-div a:visited {
@@ -313,9 +313,9 @@ caption a, caption a:visited, .cap-div a, .cap-div a:visited {
 	margin: 0 auto;
 	padding: 2px;
 }
-.legend-viewforum { 
-	margin: 0; 
-	text-align: left; 
+.legend-viewforum {
+	margin: 0;
+	text-align: left;
 }
 .poll{
 font-size:10px;}
@@ -449,7 +449,7 @@ html, body {
 }
 /* ********** [ logo ] ********** */
 #nav-holder {
-    background: url(pics/menub.png) repeat-x scroll 0 -4px #83B842;    
+    background: url(pics/menub.png) repeat-x scroll 0 -4px #83B842;
 	background-repeat: repeat-x;
     border-bottom: 1px solid #C4A355;
     border-top-left-radius: 4px;
@@ -605,7 +605,7 @@ div#h_w {
     width: 80%;
 	height:90px
 	}
-	
+
 /* ********** [ MAIN NAVIGATION ] ********** */
 div#h_n {
 	margin:0px auto;
@@ -618,14 +618,14 @@ div#h_n {
     }
 
 div#h_n ul {
-	height:36px;	
+	height:36px;
 	list-style:none;
 	}
-	
+
 div#h_n li  {
 	float:left;
 	}
-	
+
 div#h_n a {
 	margin:4px 4px 0px 4px;
     padding:0px 8px;
@@ -636,13 +636,13 @@ div#h_n a {
 	color:#ffffff;
 	text-decoration:none;
 	}
-	
+
 div#h_n a:hover, div#h_n a.set {
 	background:#5c9425 url('pics/menub.png') repeat-x 0px -11px;
 	color:#f2f2f2;
 	-moz-border-radius:4px;-webkit-border-radius:4px;border-radius:4px;
 	}
-	
+
 /* ********** [ CONTAINER ] ********** */
 div#c_w {
 	margin: 0px auto;
@@ -758,8 +758,8 @@ font-weight : bold;
 color : #0000cc;
 }
 th {
-	color: #00BF00; 
-	font-size: 11px; 
+	color: #00BF00;
+	font-size: 11px;
 	font-weight: bold;
 	background-position: center center;
     background-repeat: repeat;
@@ -776,8 +776,8 @@ th a, th a:visited {
 	color: #CCDFF0 !important;
 	text-decoration: underline;
 }
-td.postbottom { 
-	background: #2D2D2D url(pics/profile.gif) top left repeat-x; 
+td.postbottom {
+	background: #2D2D2D url(pics/profile.gif) top left repeat-x;
 	font-size: 10px;
 	color: #444;
 	white-space: nowrap;
@@ -794,17 +794,17 @@ td.postbottom {
 	color: #444;
 }
 td.postbuttons { padding-top: 3px; }
-.postdetails f { 
+.postdetails f {
 	color: #444;
-	font-size: 10px; 
+	font-size: 10px;
 	text-align: left;
 }
 .postdetails fb {
 	color: #444;
 }
-.postdetails { 
+.postdetails {
 	color: #444;
-	font-size: 10px; 
+	font-size: 10px;
 	text-align: left;
 }
 .postdetails b {
@@ -927,9 +927,9 @@ margin-left : 318px;
 div.mainbox {
     width: 100%;
 	background-color:#DBE2EC;
-	font-size: 8pt; 
+	font-size: 8pt;
 	/*font-weight:bold;*/
-	
+
 	color: #1C1C1C;
 	/* background-image:url(/img/bg.jpg); */
 	border:1px solid #999;
@@ -938,8 +938,8 @@ div.mainbox {
 	margin-right: 0.5em;
 	margin-bottom: 1.5em;
 	-moz-border-radius:8px;}
-	
-.caption { 
+
+.caption {
     background: url("pics/menub.png") repeat-x scroll center top #83B842;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
@@ -953,7 +953,7 @@ div.mainbox {
     text-indent: 20px;
     width: 100%;
 }
-div.caption { 
+div.caption {
     background: url("pics/menub.png") repeat-x scroll center top #83B842;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
@@ -1008,7 +1008,7 @@ div.caption {
     text-indent: 20px;
     width: 100%;
 	}
-	
+
 .cap-right {
     background: url("pics/menub.png") repeat-x scroll center top #83B842;
     border-top-left-radius: 4px;
@@ -1030,7 +1030,7 @@ div.caption {
     margin: 0;
     padding-bottom: 10px;
     width: 100%;
-	
+
 }
 .myF-caption {
     background:#83b842 url(pics/menub.png) repeat-x 0px -4px;
@@ -2316,12 +2316,12 @@ dl.codebox dt {
 	border: solid 1px #090909;
 }
 .quotewrapper { background-image: url(pics/quote_header.gif); }
-.quotewrapper .quotetitle, .codewrapper .codetitle, .attachwrapper .attachtitle { 
-	margin: 0; 
+.quotewrapper .quotetitle, .codewrapper .codetitle, .attachwrapper .attachtitle {
+	margin: 0;
 	border-width: 0 0 1px 1px;
 }
 .quotewrapper .quotecontent, .codewrapper .codecontent, .attachwrapper .attachcontent {
-	margin: 0; 
+	margin: 0;
 	border-width: 0 0 0 1px;
 }
 .attachcontent, html>body .postbody {

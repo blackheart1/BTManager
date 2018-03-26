@@ -45,7 +45,7 @@ switch($do){
 				}
                 break;
 		}
-		
+
         case "editclientban": {
                 if (!isset($id) OR !is_numeric($id)) break;
                 if (!$postback_client) {

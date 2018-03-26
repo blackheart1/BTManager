@@ -13,10 +13,13 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File acp_email/english.php 2018-03-24 01:25:00 Thor
+** File acp_email/english.php 2018-03-24 24:21:00 Thor
 **
 ** CHANGES
 **
+** 2018-02-21 - Added New Masthead
+** 2018-02-21 - Added New !defined('IN_PMBT')
+** 2018-02-21 - Fixed Spelling
 ** 2018-03-24 - Amended !defined('IN_PMBT')
 ** 2018-03-24 - Additions to Language
 **/
@@ -33,35 +36,35 @@ if (empty($lang) || !is_array($lang))
 }
 
 $lang = array_merge($lang, array(
-    'ACP_EMAIL_SETTINGS_EXPLAIN'  => 'This Information is used when your Site Sends emails to your Users.  Please ensure the email Address you Specify is Valid.  If your Host DOES NOT provide a native (PHP based) email Service you can instead Send Messages Directly using SMTP.  This Requires the Address of an Appropriate Server (ask your Provider if necessary). If the Server Requires Authentication (and ONLY if it does) Enter the necessary Username, Password and Authentication Method.',
+    'ACP_EMAIL_SETTINGS_EXPLAIN' => 'This Information is used when your Site Sends emails to your Users.  Please ensure the email Address you Specify is Valid.  If your Host DOES NOT provide a native (PHP based) email Service you can instead Send Messages Directly using SMTP.  This Requires the Address of an Appropriate Server (ask your Provider if necessary). If the Server Requires Authentication (and ONLY if it Does) Enter the Required Username, Password and Authentication Method.',
 
-    'ADMIN_EMAIL'                 => 'Return email Address',
+    'ADMIN_EMAIL'                => 'Return email Address',
 
-    'ADMIN_EMAIL_EXPLAIN'         => 'This will be used as the Return Address on ALL emails.  It will always be used as the <em>Return Path</em> and <em>Sender Address</em> in emails.',
+    'ADMIN_EMAIL_EXPLAIN'        => 'This will be used as the Return Address on ALL emails.  It will always be used as the <em>Return Path</em> and <em>Sender Address</em> in emails.',
 
-    'BOARD_EMAIL_FORM'             => 'Users Send email via Site',
-    'BOARD_EMAIL_FORM_EXPLAIN'     => 'Instead of Showing the Users email Address, Users are able to Send emails via the Site.',
-    'BOARD_HIDE_EMAILS'            => 'Hide email Address',
-    'BOARD_HIDE_EMAILS_EXPLAIN'    => 'This Function Keeps email Addresses Completely Private.',
-    'CONTACT_EMAIL'                => 'Contact email Address',
+    'BOARD_EMAIL_FORM'           => 'Users Send email via Site',
+    'BOARD_EMAIL_FORM_EXPLAIN'   => 'Instead of Showing the Users email Address, Users are able to Send emails via the Site.',
+    'BOARD_HIDE_EMAILS'          => 'Hide email Address',
+    'BOARD_HIDE_EMAILS_EXPLAIN'  => 'This Function Keeps email Addresses Completely Private.',
+    'CONTACT_EMAIL'              => 'Contact email Address',
 
-    'CONTACT_EMAIL_EXPLAIN'        => 'This Address will be used whenever a Specific Contact Point is needed, e.g. Spam, Error Output, etc.  It will always be used as the <em>From</em> and <em>Reply to</em> Address in emails.',
+    'CONTACT_EMAIL_EXPLAIN'      => 'This Address will be used whenever a Specific Contact Point is needed, e.g. Spam, Error Output, etc.  It will always be used as the <em>From</em> and <em>Reply to</em> Address in emails.',
 
     'EMAIL_FUNCTION_NAME'         => 'email Function Name',
     'EMAIL_FUNCTION_NAME_EXPLAIN' => 'The email Function used to Send Mail through PHP.',
     'EMAIL_PACKAGE_SIZE'          => 'email Package Size',
 
-    'EMAIL_PACKAGE_SIZE_EXPLAIN'  => 'This is the Number of Maximum emails Sent out in one Package.  This Setting is applied to the Internal Message Queue.  Set this Value to 0 if you have problems with non-delivered Notification emails.',
+    'EMAIL_PACKAGE_SIZE_EXPLAIN'  => 'This is the Number of Maximum emails Sent out in one Package.  This Setting is applied to the Internal Message Queue.  Set this Value to 0 if you have problems with Non-Delivered Notification emails.',
 
     'EMAIL_SIG'                   => 'email Signature',
-    'EMAIL_SIG_EXPLAIN'           => 'This text will be Attached to ALL emails the Site Sends.',
+    'EMAIL_SIG_EXPLAIN'           => 'This Text will be Attached to ALL emails the Site Sends.',
     'ENABLE_EMAIL'                => 'Enable Site Wide emails',
 
     'ENABLE_EMAIL_EXPLAIN'        => 'If this is Set to Disabled then emails will NOT be sent by the Site. <em>Note the User and Administrator Account Activation Settings Require this Setting to be Enabled.  If your currently using User or Administrator Activation in the Activation Settings, then Disabling this Setting will Require NO Activation of New Accounts.</em>',
 
     'SMTP_AUTH_METHOD'            => 'Authentication Method for SMTP',
 
-    'SMTP_AUTH_METHOD_EXPLAIN'    => 'Only used if a Username/Password is Set.  Ask your Provider if you are unsure which method to use.',
+    'SMTP_AUTH_METHOD_EXPLAIN'    => 'Only used if a Username/Password is Set.  (Ask your Provider if you are unsure which method to use)',
 
     'SMTP_CRAM_MD5'               => 'CRAM-MD5',
     'SMTP_NTLM'                   => 'NTLM',
@@ -73,9 +76,9 @@ $lang = array_merge($lang, array(
     'SMTP_PLAIN'                  => 'PLAIN',
     'SMTP_POP_BEFORE_SMTP'        => 'POP-BEFORE-SMTP',
     'SMTP_PORT'                   => 'SMTP Server Port',
-    'SMTP_PORT_EXPLAIN'           => 'Only change this if you know your SMTP Server is on a Different Port.',
+    'SMTP_PORT_EXPLAIN'           => 'Only Change this if you know your SMTP Server is on a Different Port.',
     'SMTP_SERVER'                 => 'SMTP Server Address',
-    'SMTP_SERVER_EXPLAIN'         => 'Enter your SMTP Server Address.  If you are unsure what it is then ask your Provider.',
+    'SMTP_SERVER_EXPLAIN'         => 'Enter your SMTP Server Address.  (Ask your Provider if you are unsure).',
     'SMTP_SETTINGS'               => 'SMTP Settings',
     'SMTP_USERNAME'               => 'SMTP Username',
     'SMTP_USERNAME_EXPLAIN'       => 'Only Enter a Username if your SMTP Server Requires it.',

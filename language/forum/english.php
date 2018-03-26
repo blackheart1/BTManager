@@ -33,6 +33,7 @@ if (empty($lang) || !is_array($lang))
 {
 	$lang = array();
 }
+
 $lang = array_merge($lang, array(
     'COM_NEW'                    => 'Compose New Thread',
     'LAST_POST'                  => 'Last Post',
@@ -220,10 +221,10 @@ $lang = array_merge($lang, array(
     'LINKAGE_FORBIDDEN'          => 'You are NOT Authorised to View, Download or Link from/to this Site.',
     'LOGIN_NOTIFY_TOPIC'         => 'You have been Notified about this Topic, please Login to View it.',
     'LOGIN_VIEWTOPIC'            => 'The Board Requires you to be Registered and Logged in to View this Topic.',
-    'MAKE_ANNOUNCE'              => 'Change to "Announcement"',
-    'MAKE_GLOBAL'                => 'Change to "Global"',
-    'MAKE_NORMAL'                => 'Change to "Standard Topic"',
-    'MAKE_STICKY'                => 'Change to "Sticky"',
+    'MAKE_ANNOUNCE'              => 'Change to Announcement',
+    'MAKE_GLOBAL'                => 'Change to Global',
+    'MAKE_NORMAL'                => 'Change to Standard Topic',
+    'MAKE_STICKY'                => 'Change to Sticky',
     'MAX_OPTIONS_SELECT'         => 'You may Select up to <strong>%d</strong> Options',
     'MAX_OPTION_SELECT'          => 'You may Select <strong>1</strong> Option',
     'MISSING_INLINE_ATTACHMENT'  => 'The Attachment <strong>%s</strong> is NO Longer Available',
@@ -305,8 +306,11 @@ $lang = array_merge($lang, array(
     'DISABLE_SMILIES'            => 'Disable Smilies',
     'DISALLOWED_CONTENT'         => 'The Upload was Rejected because the Uploaded File was Identified as a possible Attack Vector.',
     'DISALLOWED_EXTENSION'       => 'The Extension %s is NOT Allowed.',
+
     'DRAFT_LOADED'               => 'Draft Loaded into Posting Area, you may want to Finish your Post now.<br />Your Draft will be Deleted after Submitting this Post.',
+
     'DRAFT_LOADED_PM'            => 'Draft Loaded into Message Area, you may want to Finish your Private Message now.<br />Your Draft will be Deleted after Submitting this Private Message.',
+
     'DRAFT_SAVED'                => 'Draft Successfully Saved.',
     'DRAFT_TITLE'                => 'Draft Title',
 

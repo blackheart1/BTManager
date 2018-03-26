@@ -52,7 +52,7 @@ $lang = array_merge($lang, array(
     'NUKED_TORRENT'    => 'Nuked Torrent',
     'FREE_TORRENT'     => 'Free Torrent',
 
-    'DHT_SUPPORT_EXP'  => 'This Torrent supports DHT. With a state-of-the-art Client, you\'ll be able to Download this Torrent even if a Central Tracker goes down.',
+    'DHT_SUPPORT_EXP'  => 'This Torrent supports DHT.  With a state-of-the-art Client, you\'ll be able to Download this Torrent even if a Central Tracker goes down.',
 
     'STATS_UPTO_DATE'  => 'Statistics Updated less than 30 minutes ago',
     'TORRENT_DETAILS'  => 'Torrent Details',

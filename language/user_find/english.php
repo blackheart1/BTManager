@@ -37,12 +37,12 @@ $lang = array_merge($lang, array(
     'FIND_USER_PM'            => 'Find a User to PM',
     'FIND_USER_PM_EXP'        => 'Enter the Username that you wish to Find',
     'ERROR_FIND_USER_PM'      => 'NO User was Found to PM',
-    'ERROR_FIND_USER_PM_EXP'  => 'NO User was Found!<br />If you tried using the Full Name, try and use a Partial Name instead',
+    'ERROR_FIND_USER_PM_EXP'  => 'NO User was Found!<br />If you tried using the Full Name, try using a Partial Name instead',
     'ERROR_TO_MANY_FOUND'     => 'Too many Users were Found',
 
     'ERROR_TO_MANY_FOUND_EXP' => 'Your Search Returned Too Many Users!<br />Please narrow your Search by Adding more Characters to the Search Field.',
 
-    'USER_NAME'               => 'Username:',
+    'USER_NAME' => 'Username:',
 ));
 
 ?>

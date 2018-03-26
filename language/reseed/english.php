@@ -35,8 +35,8 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, array(
     'RESEED_REQ'       => 'Reseed Request',
-    'ALREAD_REQUISTED' => 'You have recently made a Request for this Re-Seed. Please wait a little longer for another Request.',
-    'ALREADY_SEEDED'   => 'NO need for this Request as it already has <br />%1$s<br /> on this Torrent',
+    'ALREAD_REQUISTED' => 'You have recently made a Request for this Re-Seed.  Please wait a little longer for another Request.',
+    'ALREADY_SEEDED'   => 'NO need for this Request as it already has <br />%1$s<br /> Seeder on this Torrent',
     'RESEED_REQ_SENT'  => 'Your Request for a Re-Seed has been Sent to Members that have Completed this Torrent: <br />%1$s',
 
     'RESEED_PM'        => '%1$s has Requested a Re-Seed on the %2$s because there are currently Few or NO SEEDERS: <br />Click Here for more on this File %3$s',

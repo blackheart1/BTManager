@@ -13,50 +13,21 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File acp_cache/english.php 2018-02-27 11:55:00 Thor
+** File acp_cache/english.php 2018-03-24 23:07:00 Thor
 **
 ** CHANGES
 **
 ** 2018-02-21 - Added New Masthead
 ** 2018-02-21 - Added New !defined('IN_PMBT')
 ** 2018-02-21 - Fixed Spelling
+** 2018-03-24 - Amended !defined('IN_PMBT')
+** 2018-03-24 - Amended the Wording of some Sentences
 **/
 
 if (!defined('IN_PMBT'))
 {
-    ?>
-    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-    <html>
-        <head>
-            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-            <title>
-                <?php if (isset($_GET['error']))
-            {
-                echo htmlspecialchars($_GET['error']);
-            }
-            ?> Error</title>
-
-            <link rel='stylesheet' type='text/css' href='/errors/error-style.css' />
-        </head>
-
-        <body>
-            <div id='container'>
-                <div align='center' style='padding-top: 15px'>
-                    <img src='/errors/error-images/alert.png' width='89' height='94' alt='' title='' />
-                </div>
-
-                <h1 class='title'>Error 404 - Page Not Found</h1>
-                <p class='sub-title' align='center'>The page that you are looking for does not appear to exist on this site.</p>
-                <p>If you typed the address of the page into the address bar of your browser, please check that you typed it in correctly.</p>
-                <p>If you arrived at this page after you used an old Bookmark or Favourite, the page in question has probably been moved. Try locating the page via the navigation menu and then update your bookmarks.</p>
-            </div>
-        </body>
-    </html>
-
-    <?php
-    exit();
+    include_once './../../security.php';
+    die ("You can't access this file directly");
 }
 
 if (empty($lang) || !is_array($lang))
@@ -65,26 +36,29 @@ if (empty($lang) || !is_array($lang))
 }
 
 $lang = array_merge($lang, array(
-	'CACHE'							=>	'Cache',
-	'TITLE'							=>	'Site Cache',
-	'TITLE_EXP'						=>	'Here is where you can Set the Maximum Time to Hold Cache Files for before they get Updated.<br>The longer you can keep them the better the Site Speed will be.',
+    'CACHE'                  => 'Cache',
+    'TITLE'                  => 'Site Cache',
 
-	'_admpsql_time'					=>	'SQL Cache Time',
-	'_admpsql_timeexplain'			=>	'These Files are some of the Base Query`s used for the Site such as the Configuration Settings, Shout Box Configuration and more',
+    'TITLE_EXP'              => 'Here is where you can Set the Maximum Time to Hold Cache Files for before they get Updated.<br>The Longer you Keep them, the Better the Site Speed will be.',
 
-	'_admptheme_time'				=>	'Theme Cache Time',
-	'_admptheme_timeexplain'		=>	'Maximum Time to Hold Cache Files for your Themes',
-	'_admpcache_dir'				=>	'Cache Directory',
-	'_admpcache_direxplain'			=>	'This Directory will need to be Writeable by the System.<br>DO NOT add the trailing slash `/`',
+    '_admpsql_time'          => 'SQL Cache Time',
 
-	'ERR_SQL_TIME'					=>	'There seems to be an Issue with the Time you Set for the SQL Cache.  Please check the Form and try again. (%1$s)',
+    '_admpsql_timeexplain'   =>  'Note:- The Value that you Enter Here is also used for the Site\'s Configuration Settings, Shout Box Configuration and more...',
 
-	'ERR_THEME_TIME'				=>	'There seems to be an Issue with the Time you Set for the Theme Cache.  Please check the Form and try again. (%1$s)',
+    '_admptheme_time'        => 'Theme Cache Time',
+    '_admptheme_timeexplain' => 'Maximum Time to Hold Cache Files for your Themes',
+    '_admpcache_dir'         => 'Cache Directory',
 
-	'ERR_CACHE_DIR_NOTSET'			=>	'There seems to be an Issue Locating the Cache Directory you chose (%1$s).  Please check the Form and try again.',
+    '_admpcache_direxplain'  => 'This Directory will Need to be Writeable by the System.<br /><strong>DO NOT</strong> Add the Trailing Slash <strong>/</strong>',
 
-	'ERR_CACHE_DIR_NOT_WRITEABLE'	=>	'The Directory is NOT Writeable (%1$s)',
-	'ERR_ARRAY_MESS'				=>	'<li>%s</li>',
+    'ERR_SQL_TIME'           => 'There Appears to be an Issue with the Time you Set for the SQL Cache<br /><br />You Entered %1$s<br /><br /> Please Go Back and Enter a Numeric Value.',
+
+    'ERR_THEME_TIME'         => 'There Appears to be an Issue with the Time you Set for the Theme\'s Cache<br /><br />You Entered %1$s<br /><br />Please Go Back and Enter a Numeric Value.',
+
+    'ERR_CACHE_DIR_NOTSET'   => 'There Appears to be an Issue Locating the Cache Directory you chose (%1$s).<br /><br />Please Go Back and make sure that you\'ve Entered the Correct Path to your Cache Directory and that it\'s Writeable.',
+
+    'ERR_CACHE_DIR_NOT_WRITEABLE' => 'The Directory is NOT Writeable<br /><br />(%1$s)',
+    'ERR_ARRAY_MESS'              => '<li>%s</li>',
 ));
 
 ?>

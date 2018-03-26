@@ -13,13 +13,12 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File arcade/english.php 2018-03-02 07:39:00 Thor
+** File arcade/english.php 2018-03-24 11:09:00 Thor
 **
 ** CHANGES
 **
-** 2018-03-02 - Added New Masthead
-** 2018-03-02 - Added New !defined('IN_PMBT')
-** 2018-03-02 - Fixed Spelling
+** 2018-03-24 - Amended New !defined('IN_PMBT')
+** 2018-03-24 - Added Missing Language
 **/
 
 if (!defined('IN_PMBT'))
@@ -33,18 +32,6 @@ if (empty($lang) || !is_array($lang))
 	$lang = array();
 }
 
-// DEVELOPERS PLEASE NOTE
-//
-// All language files must use UTF-8 as their encoding and the files must Not contain a BOM.
-//
-// Placeholders can now contain order information, e.g. instead of
-// 'Page %s of %s' you can (and should) write 'Page %1$s of %2$s', this allows
-// translators to re-order the output of data while ensuring it remains correct
-//
-// You Do Not need this where single placeholders are used, e.g. 'Message %d' is fine
-// equally where a String contains only two placeholders which are used to wrap text
-// in a URL you again Do Not need to specify an order e.g., 'Click %sHERE%s' is fine
-
 $lang = array_merge($lang, array(
 	'TITLE'				 =>	'Arcade',
     'ACP_ADDED'          => 'ACP Modules Added Successfully.',
@@ -57,6 +44,7 @@ $lang = array_merge($lang, array(
     'ALLOW_COMMENTS'     => 'Allow Games to be Commented On',
     'ALLOW_GUEST'        => 'Allow Guest View',
     'ARCADE'             => 'Arcade Room',
+
     'ARCADE_WELCOME'     => 'Welcome to the Arcade Room, in the User Control Panel.  From here you can View your Favourite Games, Remove Games that are NO Longer your Favourites.',
 
     'AR_EXPLAIN'         => 'This Installer was written for RC7 Only and has NOT been tested on any other version of phpBB3.  If you wish to Install/Update and are using a different phpBB3 version please consult the Install.xml file in the zip that you have Downloaded.  We are going to walk you through Installing the Arcade Room today beginning with adding MySQL Databases.',
@@ -143,6 +131,7 @@ $lang = array_merge($lang, array(
     'HIGHSCORES_FOR'     => 'High Scores for ',
     'HIGHSCORES_RESET'   => 'The High Scores for ALL Games have been Reset.',
     'HIGHSCORE_RESET'    => 'The Game you asked for High Scores to be Reset has had its High Scores Reset.',
+
     'IF_OK'              => 'The Installer is Done if everything is fine Click Delete to Delete the Install File and return to the Index.',
 
     'IMAGE_DUP'          => 'An Image on the Server Already Uses that Filename please Rename the File and try Uploading Again.',
@@ -152,6 +141,7 @@ $lang = array_merge($lang, array(
     'MANAGE_CAT_DESC'    => 'Here you can Add/Remove Categories.',
     'MANAGE_GAMES'       => 'Manage Games',
     'MANAGE_GAMES_DESC'  => 'Here you can Add/Edit/Remove Games.',
+
     'MODULES_DONE'       => 'Finished Adding Modules to the ACP if they DID NOT Add properly or Show Up in the ACP Add them yourself.',
 
     'MYSQL_DONE'         => 'The MySQL Edits are Done if there is a problem please Read the install.xml to Add the Databases yourself.',
@@ -290,6 +280,8 @@ $lang = array_merge($lang, array(
     'ARCADE_PM_FOUR'     => ' on ',
     'DISPLAY_STATS'      => 'Display Arcade Statistics in Arcade',
     'HOTLINK_LENGTH'     => 'Hotlink Protection Length',
+    'SEARCH_MINI'        => 'Search Keyword',
+    'SEARCH_KEYWORDS'    => 'Enter Search Criteria',
 ));
 
 ?>

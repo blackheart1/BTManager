@@ -45,7 +45,7 @@ if (!defined('IN_PMBT'))
 							{
 								$subject = $db->sql_escape(stripslashes($subject));
 								$message = $db->sql_escape(stripslashes($message));
-								$sql = 'UPDATE `'.$db_prefix.'_drafts` SET `draft_subject` = \'' . $subject . '\', `draft_message` = \'' . $message . '\' WHERE `'.$db_prefix.'_drafts`.`draft_id` = ' . $edit_id . ' LIMIT 1;'; 
+								$sql = 'UPDATE `'.$db_prefix.'_drafts` SET `draft_subject` = \'' . $subject . '\', `draft_message` = \'' . $message . '\' WHERE `'.$db_prefix.'_drafts`.`draft_id` = ' . $edit_id . ' LIMIT 1;';
 								$db->sql_query($sql);
 							}
 							$template->assign_vars(array('ERROR' => $errmsg));
@@ -71,7 +71,7 @@ if (!defined('IN_PMBT'))
 							if(isset($check))$check=true;
 							else
 							$check = false;
-										confirm_box($check, 'DELETE_DRAFT', $hidden,'confirm_body.html','');							
+										confirm_box($check, 'DELETE_DRAFT', $hidden,'confirm_body.html','');
 							    if(!isset($d) OR !count($d) >=1)
 								{
 								$template->assign_vars(array('ERROR' => $user->lang['NO_DRAFTS_SET']));

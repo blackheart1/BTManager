@@ -35,20 +35,20 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, array(
 	'SHOUT_COMAND_HELP_USER' => '[quote]As a User, you have the following Commands:
-        If you want to View this Message in the Shoutbox <strong>/help</strong>
-        If you want to Slap a User <strong>/slapuser</strong> Username
-        If you want to Send a Quick Private Message <strong>/pmuser</strong> Username or ID + Message
-        If you want to Speak at 3rd Person <strong>/me</strong> Message[/quote]',
+        If you want to View this Message in the Shoutbox Use:- <strong>/help</strong>
+        If you want to Slap a User Use:- <strong>/slapuser</strong> Username
+        If you want to Send a Quick Private Message Use:- <strong>/pmuser</strong> Username or ID Plus the Message
+        If you want to Speak as a 3rd Person Use:- <strong>/me</strong> Message[/quote]',
 
 	'SHOUT_COMAND_HELP_ADMIN' => '[quote]As a Staff Member, you have the following Commands:
-        If you want to make an Notice <strong>/notice</strong>
-        If you want to Empty Shouts <strong>/empty</strong>
-        If you want to Warn or Unwarn a User <strong>/warn</strong> Username AND <strong>/unwarn</strong> Username
-        If you want to Ban(Disable) or Unban(Enable) a User <strong>/ban</strong> Username AND <strong>/unban</strong> Username
-        To Delete All Notices from the Shout <strong>/deletenotice</strong>
-        If you want to Slap a User <strong>/slapuser</strong> Username
-        If you want to Send a Quick Private Message <strong>/pmuser</strong> Username or ID + Message
-        If you want to Speak at 3rd Person <strong>/me</strong> Message[/quote]',
+        If you want to make a Notice use:- <strong>/notice</strong>
+        If you want to Empty Shouts use:- <strong>/empty</strong>
+        If you want to Warn or Unwarn a User use:- <strong>/warn</strong> Username <strong>/unwarn</strong> Username
+        If you want to Ban(Disable) or Unban(Enable) a User use:- <strong>/ban</strong> Username <strong>/unban</strong> Username
+        If you want to Delete ALL Notices use:- <strong>/deletenotice</strong>
+        If you want to Slap a User use:- <strong>/slapuser</strong> Username
+        If you want to Send a Quick Private Message use:- <strong>/pmuser</strong> Username or ID + Message
+        If you want to Speak as a 3rd Person use:- <strong>/me</strong> Message[/quote]',
 
     'NO_SHOUTS'           => 'NO Shouts at this Time!',
     'SHOUTBOX_ARCHIVE'    => 'Shoutbox Archive',
