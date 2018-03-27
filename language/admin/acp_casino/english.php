@@ -40,45 +40,45 @@ $lang = array_merge($lang, array(
     'MAIN_INTRO_EXP'         => 'Setup the Casino Basic Configuration so that you can Limit Users that can Access Making Bets.',
 
     'CASINO_CONFIG'          => 'Casino Settings',
-    '_admpenable'            => "Enable the Casino",
+    '_admpenable'            => 'Enable the Casino',
 
-    '_admpenableexplain'     => "Turning ON the Casino will Enable your Users to Play Betting Games, that they can use some of there Uploaded Credit on.<br />This can be good for some Users and very bad for others.  But it's' all in fun.",
+    '_admpenableexplain'     => 'Turning ON the Casino will Enable your Users to Play Betting Games, that they can use some of their Uploaded Credit on.<br />This can be Good for some Users and Very Bad for Others.  But it\'s all in Fun.',
 
-    '_admpratio_mini'        => "Minimum Ratio",
+    '_admpratio_mini'        => 'Minimum Ratio',
 
-    '_admpratio_miniexplain' => "Set the Minimum Ratio that a User must have in Order to Access the Casino.<br />This Setting is in Percentages 2.00, 1.50, 1.00, .95, .90",
+    '_admpratio_miniexplain' => 'Set the Minimum Ratio that a User must have in Order to Access the Casino.<br />This Setting is in Percentages 2.00, 1.50, 1.00, .95, .90',
 
-    '_admpmaxtrys'           => "Casino Maximum Tries",
-    '_admpmaxtrysexplain'    => "How many times can a User Play before they have to Wait 5 Hours to Play again?",
+    '_admpmaxtrys'           => 'Casino Maximum Tries',
+    '_admpmaxtrysexplain'    => 'How many times can a User Play before they have to Wait 5 Hours to Play again?',
 
-    '_admpwin_amount_on_number' => "Winning Amount in Bet on Number Game",
+    '_admpwin_amount_on_number' => 'Winning Amount in Bet on Number Game',
 
-    '_admpwin_amount_on_numberexplain' => "How much does the Player Win in the Bet on Number Game eg.<br />Bet 300, <br />Winning Amount = 3<br />300*3<br />900 Won.",
+    '_admpwin_amount_on_numberexplain' => 'How much does the Player Win in the Bet on Number Game eg.<br />Bet 300, <br />Winning Amount = 3<br />300*3<br />900 Won.',
 
-    '_admpwin_amount'              => "Winning Amount in Bet on a Colour",
+    '_admpwin_amount'              => 'Winning Amount in Bet on a Colour',
 
-    '_admpwin_amountexplain'       => "How much does the Player Win in the Bet on Colour Game eg.<br />Bet 300, <br />Winning Amount = 3<br />300*3<br />900 Won.",
+    '_admpwin_amountexplain'       => 'How much does the Player Win in the Bet on Colour Game eg.<br />Bet 300, <br />Winning Amount = 3<br />300*3<br />900 Won.',
 
-    '_admpmaxusrbet'               => "Amount of Bets Allowed Per Person",
-    '_admpmaxusrbetexplain'        => "How many Open Bets is a User Allowed to have for P2P Games?",
-    '_admpmaxtotbet'               => "Amount of Total Open Bets Allowed",
-    '_admpmaxtotbetexplain'        => "How many Open Bets are Allowed Total on P2P Games?",
-    '_admpcheat_value'             => "Casino Cheat Value",
-    '_admpcheat_valueexplain'      => "Higher Value -> Less Wins",
-    '_admpcheat_value_max'         => "Casino Cheat Value Maximum",
+    '_admpmaxusrbet'               => 'Amount of Bets Allowed Per Person',
+    '_admpmaxusrbetexplain'        => 'How many Open Bets is a User Allowed to have for P2P Games?',
+    '_admpmaxtotbet'               => 'Amount of Total Open Bets Allowed',
+    '_admpmaxtotbetexplain'        => 'How many Open Bets are Allowed Total on P2P Games?',
+    '_admpcheat_value'             => 'Casino Cheat Value',
+    '_admpcheat_valueexplain'      => 'Higher Value -> Less Wins',
+    '_admpcheat_value_max'         => 'Casino Cheat Value Maximum',
 
-    '_admpcheat_value_maxexplain'  => "The Cheat Value = Cheat Value Maximum -->> I hope you know what I mean.  PS: must be Higher than Cheat Value.",
+    '_admpcheat_value_maxexplain'  => 'The Cheat Value = Cheat Value Maximum -->> I hope you know what I mean.  PS: must be Higher than Cheat Value.',
 
-    '_admpcheat_breakpoint'        => "Casino Cheat Breakpoint",
-    '_admpcheat_breakpointexplain' => "Very Important Value -> If (Win MB > Maximum Download Global/Cheat Breakpoint)",
-    '_admpcheat_ratio_user'        => "Casino Cheat Ratio User",
+    '_admpcheat_breakpoint'        => 'Casino Cheat Breakpoint',
+    '_admpcheat_breakpointexplain' => 'Very Important Value -> If (Win MB > Maximum Download Global/Cheat Breakpoint)',
+    '_admpcheat_ratio_user'        => 'Casino Cheat Ratio User',
 
-    '_admpcheat_ratio_userexplain' => "If Casino Ratio User > Cheat Ratio User -> Cheat Value = Random(Cheat Value, Cheat Value Maximum)",
+    '_admpcheat_ratio_userexplain' => 'If Casino Ratio User > Cheat Ratio User -> Cheat Value = Random (Cheat Value, Cheat Value Maximum)',
 
-    '_admpcheat_ratio_global'        => "Casino Cheat Ratio Global",
-    '_admpcheat_ratio_globalexplain' => "(same as User but just Global)",
-    '_admpclass_allowed'             => "Access Level",
-    '_admpclass_allowedexplain'      => "What Group is Allowed to Play in the Casino?",
+    '_admpcheat_ratio_global'        => 'Casino Cheat Ratio Global',
+    '_admpcheat_ratio_globalexplain' => '(same as User but Global Instead)',
+    '_admpclass_allowed'             => 'Access Level',
+    '_admpclass_allowedexplain'      => 'What Group is Allowed to Play in the Casino?',
 
     'YES_NO_OPTION'     => array('1'=> 'Yes', '0' => 'No'),
 
