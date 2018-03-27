@@ -1,4 +1,5 @@
 <?php
+
 /**
 **********************
 ** BTManager v3.0.1 **
@@ -10,16 +11,23 @@
 ** Copyright (C) 2018
 ** Formerly Known As phpMyBitTorrent
 ** Created By Antonio Anzivino (aka DJ Echelon)
-** And Joe Robertson (aka joeroberts/Black_Heart)
-** Project Leaders: Black_Heart, Thor.
-** File ajax.php 2018-02-19 14:32:00 Black_Heart
+** And Joe Robertson (aka joeroberts)
+** Project Leaders: Black_heart, Thor.
+** File ajax.php 2018-03-28 00:20:00 Thor
 **
 ** CHANGES
 **
-** EXAMPLE 26-04-13 - Added Auto Ban
+** 2018-03-28 - Amended defined('IN_PMBT')
+** 2018-03-28 - Removed Deprecated Code
 **/
-if (defined('IN_PMBT'))die ("You can't include this file");
+
+if (defined('IN_PMBT'))
+{
+    die ("You can't Include this File");
+}
+
 define("IN_PMBT",true);
+
 require_once("common.php");
 $template = new Template();
 set_site_var('');
@@ -39,16 +47,12 @@ function str_links($text)
 
 if (isset($btlanguage) AND is_readable("language/".$btlanguage.".php")) $language = $btlanguage;
 if (isset($bttheme) AND is_readable("themes/".$bttheme."/main.php")) $theme = $bttheme;
-if (is_readable("language/$language.php"))
-        include_once("language/$language.php");
-else
-        include_once("language/english.php");
 
 if (!is_readable("themes/$theme/main.php")) {
         die("You should not see this...");
 }
 //Stop Banned users
-if (is_banned($user, $reason)) 
+if (is_banned($user, $reason))
 {
 	echo "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">
 		<html>
