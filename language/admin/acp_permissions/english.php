@@ -69,7 +69,7 @@ $lang = array_merge($lang, array(
 	'ACL_NEVER'				=> 'Never',
 	'ACL_SET'				=> 'Setting Permissions',
 
-	'ACL_SET_EXPLAIN'		=> 'Permissions are based on a Simple <samp>YES</samp>/<samp>NO</samp> System. Setting an option to <samp>NEVER</samp> for a User or Usergroup overrides any other value assigned to it. If you DO NOT wish to assign a value for an option for this User or Group Select <samp>NO</samp>. If values are assigned to this option elsewhere they will be used in preference, else <samp>NEVER</samp> is assumed. ALL objects marked (with the checkbox in front of them) will Copy the Permission Set you defined.',
+	'ACL_SET_EXPLAIN'		=> 'Permissions are based on a Simple YES/NO System. Setting an option to NEVER for a User or Usergroup overrides any other value assigned to it. If you DO NOT wish to assign a value for an option for this User or Group Select NO. If values are assigned to this option elsewhere they will be used in preference, else NEVER is assumed. ALL objects marked (with the checkbox in front of them) will Copy the Permission Set you defined.',
 
 	'ACL_SETTING'			=> 'Setting',
 
