@@ -20,6 +20,8 @@
 ** 2018-03-02 - Added New Masthead
 ** 2018-03-02 - Added New !defined('IN_PMBT')
 ** 2018-03-02 - Fixed Spelling
+** 2018-03-26 - Added Missing Text
+** 2018-03-26 - Removed Unused Define Vars
 **/
 
 if (!defined('IN_PMBT'))
@@ -34,7 +36,7 @@ if (empty($lang) || !is_array($lang))
 }
 
 $lang = array_merge($lang, array(
-    '_LOCALE'          =>	'en_UK',
+    '_LOCALE'          => 'en_UK',
     '_DATESTRING'      => '%A, %B %d %Y @ %T %Z',
     'TRANSLATION_INFO' => '',
     'DIRECTION'        => 'ltr',
@@ -44,6 +46,7 @@ $lang = array_merge($lang, array(
     'GB'               => 'GB',
     'MB'               => 'MB',
     'KB'               => 'KB',
+    'BYTES'            => 'Bytes',
 
 	'dateformats'	=> array(
         'd M Y, H:i'       => '01 Jan 2007, 13:37',
