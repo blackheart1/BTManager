@@ -26,7 +26,7 @@ if (!defined('IN_PMBT'))
 include_once 'include/utf/utf_tools.php';
 function add_attach($form_name, $forum_id, $local = false, $local_storage = '', $is_message = false, $local_filedata = false)
 {
-	global $db_prefix, $user, $db, $siteurl, $attach_config;
+	global $db_prefix, $user, $db, $siteurl, $config;
 	$user->set_lang('pm',$user->ulanguage);
 	include_once('include/function_attach.php');
 	$filedata = array(
@@ -58,20 +58,21 @@ $upload->set_allowed_extensions($extensions);
 		$filedata['post_attach'] = false;
 		return $filedata;
 	}
-	$cat_id = (isset($extensions[$file->get('extension')]['display_cat'])) ? $extensions[$file->get('extension')]['display_cat'] : 0;
+	$cat_id = (isset($extensions[$file->get('extension')]['display_cat'])) ? $extensions[$file->get('extension')]['display_cat'] == 1 : false;
 	if ($cat_id == 1 && !$file->is_image())
 	{
 		$file->remove();
 		bterror("Error", 'ATTACHED_IMAGE_NOT_IMAGE');
 	}
-	$filedata['thumbnail'] = ($cat_id == 1 && $attach_config['img_create_thumbnail']) ? 1 : 0;
+	$filedata['thumbnail'] = ($file->is_image() && $config['img_create_thumbnail']) ? 1 : 0;
 
+	//die(print($filedata['thumbnail']));
 	if (!$user->admin && $cat_id == 1)
 	{
-		$file->upload->set_allowed_dimensions(0, 0, $attach_config['img_max_width'], $attach_config['img_max_height']);
+		$file->upload->set_allowed_dimensions(0, 0, $config['img_max_width'], $config['img_max_height']);
 	}
 
-	if (!$user->admin && !$user->moderator)
+	if ($user->admin)
 	{
 		if (!empty($extensions[$file->get('extension')]['max_filesize']))
 		{
@@ -79,7 +80,7 @@ $upload->set_allowed_extensions($extensions);
 		}
 		else
 		{
-			$allowed_filesize = ($is_message) ? $attach_config['max_filesize_pm'] : $attach_config['max_filesize'];
+			$allowed_filesize = ($is_message) ? $config['max_filesize_pm'] : $config['max_filesize'];
 		}
 
 		$file->upload->set_max_filesize($allowed_filesize);
@@ -89,7 +90,7 @@ $upload->set_allowed_extensions($extensions);
 
 	$no_image = ($cat_id == 1) ? false : true;
 
-	$file->move_file($attach_config['upload_path'], false, $no_image);
+	$file->move_file($config['upload_path'], false, $no_image);
 
 	if (sizeof($file->error))
 	{
@@ -106,9 +107,9 @@ $upload->set_allowed_extensions($extensions);
 	$filedata['real_filename'] = $file->get('uploadname');
 	$filedata['filetime'] = time();
 
-	if ($attach_config['attachment_quota'])
+	if ($config['attachment_quota'])
 	{
-		if ($attach_config['upload_dir_size'] + $file->get('filesize') > $attach_config['attachment_quota'])
+		if ($config['upload_dir_size'] + $file->get('filesize') > $config['attachment_quota'])
 		{
 			$filedata['error'][] = 'ATTACH_QUOTA_REACHED';
 			$filedata['post_attach'] = false;
@@ -118,7 +119,7 @@ $upload->set_allowed_extensions($extensions);
 			return $filedata;
 		}
 	}
-	if ($free_space = @disk_free_space("/" . $attach_config['upload_path']))
+	if ($free_space = @disk_free_space("/" . $config['upload_path']))
 	{
 		if ($free_space <= $file->get('filesize'))
 		{
@@ -130,6 +131,22 @@ $upload->set_allowed_extensions($extensions);
 			return $filedata;
 		}
 	}
+		// Create Thumbnail
+	/**
+	 * Create thumbnail for file if necessary
+	 *
+	 * @return array Updated $filedata
+	 */
+		if ($filedata['thumbnail'])
+		{
+			$source = $file->get('destination_file');
+			$destination = $file->get('destination_path') . '/thumb_' . $file->get('realname');
+
+			if (!create_thumbnail($source, $destination, $file->get('mimetype')))
+			{
+				$filedata['thumbnail'] = 0;
+			}
+		}
 
 	return $filedata;
 }
@@ -258,7 +275,7 @@ function posting_gen_topic_icons($mode, $icon_id)
 }
 function delete_attachments($mode, $ids, $resync = true)
 {
-	global $db, $attach_config, $db_prefix;
+	global $db, $config, $db_prefix;
 	if (is_array($ids) && sizeof($ids))
 	{
 		$ids = array_unique($ids);
@@ -457,7 +474,7 @@ function delete_attachments($mode, $ids, $resync = true)
 }
 function _unlink($filename, $mode = 'file', $entry_removed = false)
 {
-	global $db, $db_prefix, $attach_config;
+	global $db, $db_prefix, $config;
 
 	// Because of copying topics or modifications a physical filename could be assigned more than once. If so, do not remove the file itself.
 	$sql = 'SELECT COUNT(attach_id) AS num_entries
@@ -474,7 +491,7 @@ function _unlink($filename, $mode = 'file', $entry_removed = false)
 	}
 
 	$filename = ($mode == 'thumbnail') ? 'thumb_' . basename($filename) : basename($filename);
-	return @unlink($attach_config['upload_path'] . '/' . $filename);
+	return @unlink($config['upload_path'] . '/' . $filename);
 }
 function truncate_string($string, $max_length = 60, $max_store_length = 255, $allow_reply = false, $append = '')
 {
@@ -576,7 +593,7 @@ function utf8_basename($filename)
 }
 function attach_unlink($filename, $mode = 'file', $entry_removed = false)
 {
-	global $db, $db_prefix, $siteurl, $attach_config;
+	global $db, $db_prefix, $siteurl, $config;
 
 	// Because of copying topics or modifications a physical filename could be assigned more than once. If so, do not remove the file itself.
 	$sql = 'SELECT COUNT(attach_id) AS num_entries
@@ -593,11 +610,11 @@ function attach_unlink($filename, $mode = 'file', $entry_removed = false)
 	}
 
 	$filename = ($mode == 'thumbnail') ? 'thumb_' . utf8_basename($filename) : utf8_basename($filename);
-	return @unlink('./' . $attach_config['upload_path'] . '/' . $filename);
+	return @unlink('./' . $config['upload_path'] . '/' . $filename);
 }
 function system_pm($msg,$sub,$to,$icon,$send_from = false)
 {
-	global $config, $db, $db_prefix, $user, $phpEx, $template, $sitename,$siteurl, $attach_config;
+	global $config, $db, $db_prefix, $user, $phpEx, $template, $sitename,$siteurl, $config;
 		include_once('include/message_parser.php');
 		include_once('include/class.bbcode.php');
 		include_once('include/ucp/functions_privmsgs.php');
@@ -2552,5 +2569,263 @@ function update_post_information($type, $ids, $return_update_sql = false)
 	}
 
 	return;
+}
+/**
+* Return supported image types
+*/
+if (!function_exists("get_supported_image_types"))
+{
+function get_supported_image_types($type = false)
+{
+	if (@extension_loaded('gd'))
+	{
+		$format = imagetypes();
+		$new_type = 0;
+
+		if ($type !== false)
+		{
+			// Type is one of the IMAGETYPE constants - it is fetched from getimagesize()
+			switch ($type)
+			{
+				// GIF
+				case IMAGETYPE_GIF:
+					$new_type = ($format & IMG_GIF) ? IMG_GIF : false;
+				break;
+
+				// JPG, JPC, JP2
+				case IMAGETYPE_JPEG:
+				case IMAGETYPE_JPC:
+				case IMAGETYPE_JPEG2000:
+				case IMAGETYPE_JP2:
+				case IMAGETYPE_JPX:
+				case IMAGETYPE_JB2:
+					$new_type = ($format & IMG_JPG) ? IMG_JPG : false;
+				break;
+
+				// PNG
+				case IMAGETYPE_PNG:
+					$new_type = ($format & IMG_PNG) ? IMG_PNG : false;
+				break;
+
+				// WBMP
+				case IMAGETYPE_WBMP:
+					$new_type = ($format & IMG_WBMP) ? IMG_WBMP : false;
+				break;
+			}
+		}
+		else
+		{
+			$new_type = array();
+			$go_through_types = array(IMG_GIF, IMG_JPG, IMG_PNG, IMG_WBMP);
+
+			foreach ($go_through_types as $check_type)
+			{
+				if ($format & $check_type)
+				{
+					$new_type[] = $check_type;
+				}
+			}
+		}
+
+		return array(
+			'gd'		=> ($new_type) ? true : false,
+			'format'	=> $new_type,
+			'version'	=> (function_exists('imagecreatetruecolor')) ? 2 : 1
+		);
+	}
+
+	return array('gd' => false);
+}
+}
+
+/**
+* Create Thumbnail
+*/
+function create_thumbnail($source, $destination, $mimetype)
+{
+	global $config, $phpbb_filesystem;
+
+	$min_filesize = (int) $config['img_min_thumb_filesize'];
+	$img_filesize = (file_exists($source)) ? @filesize($source) : false;
+
+	if (!$img_filesize || $img_filesize <= $min_filesize)
+	{
+		return false;
+	}
+
+	$dimension = @getimagesize($source);
+
+	if ($dimension === false)
+	{
+		return false;
+	}
+
+	list($width, $height, $type, ) = $dimension;
+
+	if (empty($width) || empty($height))
+	{
+		return false;
+	}
+
+	list($new_width, $new_height) = get_img_size_formats($width, $height);
+
+	// Do not create a thumbnail if the resulting width/height is bigger than the original one
+	if ($new_width >= $width && $new_height >= $height)
+	{
+		return false;
+	}
+
+	$used_imagick = false;
+
+	// Only use ImageMagick if defined and the passthru function not disabled
+	if ($config['img_imagick'] && function_exists('passthru'))
+	{
+		if (substr($config['img_imagick'], -1) !== '/')
+		{
+			$config['img_imagick'] .= '/';
+		}
+
+		@passthru(escapeshellcmd($config['img_imagick']) . 'convert' . ((defined('PHP_OS') && preg_match('#^win#i', PHP_OS)) ? '.exe' : '') . ' -quality 85 -geometry ' . $new_width . 'x' . $new_height . ' "' . str_replace('\\', '/', $source) . '" "' . str_replace('\\', '/', $destination) . '"');
+
+		if (file_exists($destination))
+		{
+			$used_imagick = true;
+		}
+	}
+
+	if (!$used_imagick)
+	{
+		$type = get_supported_image_types($type);
+
+		if ($type['gd'])
+		{
+			// If the type is not supported, we are not able to create a thumbnail
+			if ($type['format'] === false)
+			{
+				return false;
+			}
+
+			switch ($type['format'])
+			{
+				case IMG_GIF:
+					$image = @imagecreatefromgif($source);
+				break;
+
+				case IMG_JPG:
+					@ini_set('gd.jpeg_ignore_warning', 1);
+					$image = @imagecreatefromjpeg($source);
+				break;
+
+				case IMG_PNG:
+					$image = @imagecreatefrompng($source);
+				break;
+
+				case IMG_WBMP:
+					$image = @imagecreatefromwbmp($source);
+				break;
+			}
+
+			if (empty($image))
+			{
+				return false;
+			}
+
+			if ($type['version'] == 1)
+			{
+				$new_image = imagecreate($new_width, $new_height);
+
+				if ($new_image === false)
+				{
+					return false;
+				}
+
+				imagecopyresized($new_image, $image, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
+			}
+			else
+			{
+				$new_image = imagecreatetruecolor($new_width, $new_height);
+
+				if ($new_image === false)
+				{
+					return false;
+				}
+
+				// Preserve alpha transparency (png for example)
+				@imagealphablending($new_image, false);
+				@imagesavealpha($new_image, true);
+
+				imagecopyresampled($new_image, $image, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
+			}
+
+			// If we are in safe mode create the destination file prior to using the gd functions to circumvent a PHP bug
+			if (@ini_get('safe_mode') || @strtolower(ini_get('safe_mode')) == 'on')
+			{
+				@touch($destination);
+			}
+
+			switch ($type['format'])
+			{
+				case IMG_GIF:
+					imagegif($new_image, $destination);
+				break;
+
+				case IMG_JPG:
+					imagejpeg($new_image, $destination, 90);
+				break;
+
+				case IMG_PNG:
+					imagepng($new_image, $destination);
+				break;
+
+				case IMG_WBMP:
+					imagewbmp($new_image, $destination);
+				break;
+			}
+
+			imagedestroy($new_image);
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	if (!file_exists($destination))
+	{
+		return false;
+	}
+
+	/*try
+	{
+		$phpbb_filesystem->phpbb_chmod($destination, CHMOD_READ | CHMOD_WRITE);
+	}
+	catch (\phpbb\filesystem\exception\filesystem_exception $e)
+	{
+		// Do nothing
+	}*/
+
+	return true;
+}
+function get_img_size_formats($width, $height)
+{
+	global $config;
+
+	// Maximum Width the Image can take
+	$max_width = ($config['img_max_thumb_width']) ? $config['img_max_thumb_width'] : 400;
+
+	if ($width > $height)
+	{
+		return array(
+			round($width * ($max_width / $width)),
+			round($height * ($max_width / $width))
+		);
+	}
+	else
+	{
+		return array(
+			round($width * ($max_width / $height)),
+			round($height * ($max_width / $height))
+		);
+	}
 }
 ?>

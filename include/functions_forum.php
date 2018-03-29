@@ -233,7 +233,7 @@ function parse_attachments($forum_id, &$message, &$attachments, &$update_count, 
 	}
 
 	global $template, $pmbt_cache, $user;
-	global $extensions, $config, $phpbb_root_path, $phpEx, $db ,$attach_config, $siteurl,$db_prefix;
+	global $extensions, $config, $phpbb_root_path, $phpEx, $db ,$siteurl,$db_prefix;
 
 	//
 	$compiled_attachments = array();
@@ -410,6 +410,7 @@ function parse_attachments($forum_id, &$message, &$attachments, &$update_count, 
 			}*/
 
 			$download_link = append_sid("{$siteurl}/file.$phpEx", 'id=' . $attachment['attach_id']);
+			//die(print($display_cat));
 			switch ($display_cat)
 			{
 				// Images

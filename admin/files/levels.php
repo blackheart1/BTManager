@@ -44,7 +44,7 @@ $start = request_var('page', 0)*15;
 		if(!checkaccess("a_edit_level"))
 		{
                                 $template->assign_vars(array(
-								        'S_USER_NOTICE'			=> true,
+								        'S_USER_NOTICE'			=> false,
 										'S_FORWARD'				=> false,
 								        'MESSAGE_TITLE'			=> $user->lang['GEN_ERROR'],
                                         'MESSAGE_TEXT'			=> $user->lang['NO_AUTH_OPERATION'].back_link($u_action),
@@ -304,7 +304,7 @@ $start = request_var('page', 0)*15;
 									{
 										bterror($user->lang['GEN_ERROR'],$user->lang['NO_AUTH_OPERATION'] . back_link($u_action));
 										$template->assign_vars(array(
-												'S_USER_NOTICE'			=> true,
+												'S_USER_NOTICE'			=> false,
 												'S_FORWARD'				=> false,
 												'MESSAGE_TITLE'			=> $user->lang['GEN_ERROR'],
 												'MESSAGE_TEXT'			=> $user->lang['NO_AUTH_OPERATION'].back_link($u_action),
@@ -827,7 +827,7 @@ $start = request_var('page', 0)*15;
 						$db->sql_query($sql);
 				logerror(sprintf($user->lang['LOG_ACL_ADD_GROUP_GLOBAL_U_'], $gt),'admin');
                                 $template->assign_vars(array(
-								        'S_USER_NOTICE'			=> false,
+								        'S_USER_NOTICE'			=> true,
 										'S_FORWARD'				=> false,
 								        'MESSAGE_TITLE'			=> $user->lang['SUCCESS'],
                                         'MESSAGE_TEXT'			=> $user->lang['AUTH_UPDATED'].back_link($u_action),
@@ -983,7 +983,7 @@ $start = request_var('page', 0)*15;
 				if ($action == 'edit' && !$group_id)
 				{
                                 $template->assign_vars(array(
-								        'S_USER_NOTICE'			=> true,
+								        'S_USER_NOTICE'			=> false,
 										'S_FORWARD'				=> false,
 								        'MESSAGE_TITLE'			=> $user->lang['GEN_ERROR'],
                                         'MESSAGE_TEXT'			=> $user->lang['NO_GROUP'].back_link($u_action),
@@ -996,7 +996,7 @@ $start = request_var('page', 0)*15;
 				{
 				logerror(sprintf($user->lang['LOG_ACL_ACCESS_NOTALLOW'], $user->lang['ACP_GROUPS_MANAGE']),'admin');
                                 $template->assign_vars(array(
-								        'S_USER_NOTICE'			=> true,
+								        'S_USER_NOTICE'			=> false,
 										'S_FORWARD'				=> false,
 								        'MESSAGE_TITLE'			=> $user->lang['GEN_ERROR'],
                                         'MESSAGE_TEXT'			=> $user->lang['NO_AUTH_OPERATION'].back_link($u_action),
@@ -1016,7 +1016,7 @@ $start = request_var('page', 0)*15;
 					if (!check_form_key($form_key))
 					{
                                 $template->assign_vars(array(
-								        'S_USER_NOTICE'			=> true,
+								        'S_USER_NOTICE'			=> false,
 										'S_FORWARD'				=> false,
 								        'MESSAGE_TITLE'			=> $user->lang['GEN_ERROR'],
                                         'MESSAGE_TEXT'			=> $user->lang['FORM_INVALID'].back_link($u_action),
@@ -1226,7 +1226,7 @@ $start = request_var('page', 0)*15;
 							$message = ($action == 'edit') ? 'GROUP_UPDATED' : 'GROUP_CREATED';
 								logerror(sprintf($user->lang['LOG_GROUP_CREATED'], $db->sql_escape($group_name)),'admin');
                                 $template->assign_vars(array(
-								        'S_USER_NOTICE'			=> false,
+								        'S_USER_NOTICE'			=> true,
 										'S_FORWARD'				=> false,
 								        'MESSAGE_TITLE'			=> $user->lang['SUCCESS'],
                                         'MESSAGE_TEXT'			=> $user->lang[$message] . back_link($u_action),

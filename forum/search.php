@@ -24,6 +24,7 @@ if (!defined('IN_PMBT'))
 	die ();
 }
 include_once ('include/utf/utf_tools.' . $phpEx);
+include_once ('include/class.bbcode.' . $phpEx);
 $mode			= request_var('mode', '');
 $search_id		= request_var('search_id', '');
 $start			= max(request_var('start', 0), 0);

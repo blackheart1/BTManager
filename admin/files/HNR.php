@@ -43,7 +43,7 @@ if ($do == "take_config") {
 		$sub_demote_hnr_users_to						= request_var('sub_demote_hnr_users_to', 'user');
 		$sql = 'SELECT level
 			FROM ' . $db_prefix . "_levels
-			WHERE level = '" . $db->sql_escape($sub_demote_hnr_users_to) . "'";
+			WHERE name = '" . $db->sql_escape($sub_demote_hnr_users_to) . "'";
 		$query = $db->sql_query($sql);
 		if(!$db->sql_numrows($query) > 0)$errors[] = sprintf($user->lang["ERR_DEMOTE_LEVEL"],$sub_demote_hnr_users_to);
 		$sub_seedtime									= request_var('sub_seedtime', '0');

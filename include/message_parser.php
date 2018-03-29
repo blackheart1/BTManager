@@ -1363,7 +1363,7 @@ class parse_message extends bbcode_firstpass
 	*/
 	function parse_attachments($form_name, $mode, $forum_id, $submit, $preview, $refresh, $is_message = false)
 	{
-		global $config, $auth, $user, $phpbb_root_path, $phpEx, $db, $db_prefix, $attach_config;
+		global $config, $auth, $user, $phpbb_root_path, $phpEx, $db, $db_prefix;
 
 		$error = array();
 

@@ -23,7 +23,7 @@ if (!defined('IN_PMBT'))
 	include_once './../security.php';
 	die ();
 }
-@ini_set("upload_max_filesize",$attach_config['max_filesize']);
+@ini_set("upload_max_filesize",$config['max_filesize']);
 @set_time_limit(60);
 @ini_set("memory_limit","64M");
 class fileerror extends filespec
@@ -399,7 +399,7 @@ class filespec
 		// Filesize is too big or it's 0 if it was larger than the maxsize in the upload form
 		if ($this->upload->max_filesize && ($this->get('filesize') > $this->upload->max_filesize || $this->filesize == 0))
 		{
-			$size_lang = ($this->upload->max_filesize >= 1048576) ?  MB  : (($this->upload->max_filesize >= 1024) ?  KB  :  BYTES  );
+			$size_lang = ($this->upload->max_filesize >= 1048576) ?  $user->lang['MB']  : (($this->upload->max_filesize >= 1024) ?  $user->lang['KB']  :  $user->lang['BYTES']  );
 			$max_filesize = ($this->upload->max_filesize >= 1048576) ? round($this->upload->max_filesize / 1048576 * 100) / 100 : (($this->upload->max_filesize >= 1024) ? round($this->upload->max_filesize / 1024 * 100) / 100 : $this->upload->max_filesize);
 	
 			$this->error[] = sprintf( $user->lang['WRONG_FILESIZE'] , $max_filesize, $size_lang);

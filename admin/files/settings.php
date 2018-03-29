@@ -27,6 +27,7 @@ if (!defined('IN_PMBT'))
 		include_once('include/message_parser.php');
 		include_once('include/class.bbcode.php');
 $user->set_lang('admin/site_settings',$user->ulanguage);
+$user->set_lang('forum',$user->ulanguage);
 $cfgquery = "SELECT * FROM ".$db_prefix."_config;";
 $cfgres = $db->sql_query($cfgquery);
 $cfgrow = $db->sql_fetchrow($cfgres);
