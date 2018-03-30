@@ -148,7 +148,7 @@ vB_Attachment.prototype.build_list = function(listobjid)
 /*
 Timestamp: 10/10/2012 10:25:57 PM
 Error: HierarchyRequestError: Node cannot be inserted at the specified point in the hierarchy
-Source File: http://guv2.com/3/pmbt/themes/eVo_blue/templates/attach.js
+Source File: http://guv2.com/3/pmbt/themes/Bitfarm/templates/attach.js
 Line: 140
 vB_Attachment.prototype.build_list=function(A)
 {

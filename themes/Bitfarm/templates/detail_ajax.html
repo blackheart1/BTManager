@@ -234,7 +234,7 @@
 											<tr>
 												<td>
 													<p>
-													{L_COMPLAINTS_EXP}
+													{L_COMPLAINTS_EXP} 
 													</p>
 												</td>
 											</tr>
@@ -302,7 +302,7 @@
 <!-- ENDIF -->
                     <td class="imdb-odd"  id="overview-top">
 						<h2  class="imdb-odd" class="header2">
-						<span class="itemprop" itemprop="name">{TITLE}</span>
+						<span class="itemprop" itemprop="name">{TITLE}</span> 
 						</h2>
 <!-- IF TORRENT_LINK -->
 						<a href="{TORRENT_LINK}"><img src="themes/Bitfarm/pics/download.gif" alt="Download" title="Download" border="0"></a>
@@ -313,7 +313,7 @@
 <!-- ENDIF -->
 <!-- IF EXPORT_LINK -->
 						&nbsp;
-						<span class="overlib" onmouseover="return overlib('{L_EXPORT_EXP}',CAPTION, '{L_EXPORT}',TEXTFONT,'Verdana',TEXTCOLOR,'#FFFFFF',CAPTIONFONT,'Lucida Console, Verdana',CENTER,FGCOLOR,'#000000',BGCOLOR,'#0000FF',CAPICON,'themes/eVo_blue/pics/help.png',BORDER,2,SHADOW,SHADOWOPACITY,40,SHADOWCOLOR,'#030303',SHADOWX,2,SHADOWY,2);" onmouseout="return nd();" style="cursor:help">
+						<span class="overlib" onmouseover="return overlib('{L_EXPORT_EXP}',CAPTION, '{L_EXPORT}',TEXTFONT,'Verdana',TEXTCOLOR,'#FFFFFF',CAPTIONFONT,'Lucida Console, Verdana',CENTER,FGCOLOR,'#000000',BGCOLOR,'#0000FF',CAPICON,'themes/Bitfarm/pics/help.png',BORDER,2,SHADOW,SHADOWOPACITY,40,SHADOWCOLOR,'#030303',SHADOWX,2,SHADOWY,2);" onmouseout="return nd();" style="cursor:help">
 							<a href="download.php?id=23&amp;export=1"><img src="themes/Bitfarm/pics/export.gif" alt="" title="" border="0"></a>
 						</span><!-- ENDIF -->
 <!-- IF MAGNET_LINK -->						&nbsp;<a href="{MAGNET_LINK}"><img src="themes/Bitfarm/pics/magnet.gif" alt="{L_DOWNLOAD_MAGNET_URL}" title="{L_DOWNLOAD_MAGNET_URL}" border="0"></a><!-- ENDIF -->
@@ -361,7 +361,7 @@
 		<br clear="all">
 		<div class="article" id="titleCast">
 			<h2 class="imdb-odd">{L_TORRENT_DETAILS}</h2>
-			<table class="cast_list">
+			<table class="cast_list">    
 				<tbody>
 					<tr>
 						<td colspan="4" class="castlist_label">&nbsp;</td>
@@ -427,7 +427,7 @@
 		<br clear="all">
 		<div class="article" id="titleCast">
 			<h2 class="imdb-odd">{L_DESCRIPTION}</h2>
-			<table class="cast_list">
+			<table class="cast_list">    
 				<tbody>
 					<tr>
 						<td colspan="4" class="castlist_label">&nbsp;</td>
@@ -443,7 +443,7 @@
 		<br clear="all">
 		<div class="article" id="titleCast">
 			<h2 class="imdb-odd">{L_TRACKERS}</h2>
-			<table class="cast_list">
+			<table class="cast_list">    
 				<tbody>
 					<tr>
 						<td colspan="4" class="castlist_label">{L_TRACKER_OVER_VIEW}:</td>
@@ -461,7 +461,7 @@
 		<br clear="all">
 		<div class="article" id="titleCast">
 			<h2 class="imdb-odd">{L_SCREEN_SHOTS}</h2>
-			<table class="cast_list">
+			<table class="cast_list">    
 				<tbody>
 					<tr>
 						<td colspan="4" class="castlist_label">&nbsp;</td>
@@ -491,7 +491,7 @@
 					<div class="caption">
 						<div class="cap-left">
 							<div class="cap-right">
-								<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnPeers');"><img title="Expand item" id="nnPeersimg" src="themes/Bitfarm/pics/minus.gif" alt="+"></a>{L_VIEW_NFO}
+								<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnPeers');"><img title="Expand item" id="nnPeersimg" src="themes/Bitfarm/pics/minus.gif" alt="+"></a>{L_PEER_LIST}
 							</div>
 						</div>
 					</div>
@@ -522,14 +522,14 @@
                     </td>
                     <td class="imdb-odd"  id="overview-top">
 						<h2  class="imdb-odd" class="header2">
-						<span class="itemprop" itemprop="name">{IMDB_TITLE}</span>
+						<span class="itemprop" itemprop="name">{IMDB_TITLE}</span> 
 						<span class="nobr">({IMDB_YEAR})</span>
 						</h2>
 						<div class="infobar2">
 							<span title="{IMDB_RATTING}" class="us_{IMDB_RATTING_LOWER} titlePageSprite absmiddle" itemprop="contentRating"><meta itemprop="contentRating" content="{IMDB_RATTING}"></span>
 							<time itemprop="duration" datetime="PT130M">
                 			{IMDB_RUNTIME} min
-							</time>
+							</time>        
 			                &nbsp;-&nbsp;
 <!-- BEGIN genre -->
 							<span class="itemprop" itemprop="genre">{genre.GENRE}</span>
@@ -546,32 +546,32 @@
 							  <div class="star-box-details" itemtype="http://schema.org/AggregateRating" itemscope="" itemprop="aggregateRating">
 					            {L_RATINGS}:
 								<strong><span itemprop="ratingValue">{IMDB_SCORE}</span></strong>
-								<span class="mellow">/<span itemprop="bestRating">10</span></span>
-								{L_FROM}
-
+								<span class="mellow">/<span itemprop="bestRating">10</span></span>            
+								{L_FROM} 
+								
 								<span itemprop="ratingCount">{IMDB_VOTES}</span>
 								{L_USERS}
-
-							</div>
+								
+							</div> 
     						<div class="clear"></div>
-						</div>
+						</div> 
     					<p itemprop="description">
 						{IMDB_TAGLINE}
 						</p>
-    					<div class="txt-block" itemprop="director" itemscope="" itemtype="http://schema.org/Person">
+    					<div class="txt-block" itemprop="director" itemscope="" itemtype="http://schema.org/Person"> 
         				<h4 class="inline">{L_DIRECTORS}:</h4>
 <!-- BEGIN director -->
 						<span class="itemprop" itemprop="name">{director.NAME}</span>
 <!-- IF not director.S_LAST_ROW -->							 <span class="ghost">|</span> <!-- ENDIF -->
 <!-- END director -->
-    					</div>
-    					<div class="txt-block" itemprop="creator" itemscope="" itemtype="http://schema.org/Person">
+    					</div> 
+    					<div class="txt-block" itemprop="creator" itemscope="" itemtype="http://schema.org/Person"> 
 							<h4 class="inline">{L_WRITERS}:</h4>
 <!-- BEGIN writers -->
-							<span class="itemprop" itemprop="name">{writers.NAME}</span>{writers.ROLE}
+							<span class="itemprop" itemprop="name">{writers.NAME}</span>{writers.ROLE} 
 <!-- IF not writers.S_LAST_ROW -->							 <span class="ghost">|</span> <!-- ENDIF -->
 <!-- END writers -->
-						</div>
+						</div> 
    					   </td>
 					</tr>
 				</table>
@@ -579,7 +579,7 @@
 			<br clear="all">
 			<div class="article" id="titleCast">
 				<h2 class="imdb-odd">{L_CAST}</h2>
-				<table class="cast_list">
+				<table class="cast_list">    
 					<tbody>
 						<tr>
 							<td colspan="4" class="castlist_label">{L_FIRST_CAST_BILLED}:</td>
@@ -598,7 +598,7 @@
 							</td>
 							<td class="character">
 							<div>
-							<a target="_blank" href="http://us.imdb.com/Name?{cast.LINK}">{cast.ROLE}</a>
+							<a target="_blank" href="http://us.imdb.com/Name?{cast.LINK}">{cast.ROLE}</a> 
 							</div>
 							</td>
 						</tr>
@@ -608,9 +608,9 @@
 			</div>
 			<br clear="all" />
 			<div class="article" id="titleStoryLine">
-
+			
 				<h2 class="imdb-odd">{L_STORYLINE}</h2>
-
+				
 				<div class="inline canwrap" itemprop="description">
 					<p>{IMDB_PLOT}</p>
 				</div>
@@ -624,7 +624,7 @@
 		<!-- END taglines -->
 				</div>
 				<hr>
-
+			
 			<div class="txt-block">
 						<h4>{L_MOTION_PIC_RATING}
 							({LMPAA})
@@ -639,9 +639,9 @@
 			</div>
 			<br clear="all" />
 			<div class="article" id="titleComments">
-
+			
 				<h2 class="imdb-odd">{L_COMMENTS}:</h2>
-
+				
 				<div class="inline canwrap" itemprop="description">
 					<p>
 					{MOVE_COMMENTS}
@@ -650,9 +650,9 @@
 			</div>
 			<br clear="all" />
 			<div class="article" id="titleVideos">
-
+			
 				<h2 class="imdb-odd">{L_VIDEOS}:</h2>
-
+				
 				<div class="inline canwrap" itemprop="description">
 		<!-- BEGIN trailers -->
 									<a target="_blank"  href="{trailers.LINK}" itemprop="url"><span class="itemprop" itemprop="name">{trailers.LINK}</span></a><br />
@@ -667,7 +667,7 @@
 				<div class="caption">
 					<div class="cap-left">
 						<div class="cap-right">
-							<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnRating___Comments');"><img title="Expand item" id="nnRating___Commentsimg" src="themes/eVo_blue/pics/minus.gif" alt="+"></a>{L_COMMENTS}
+							<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnRating___Comments');"><img title="Expand item" id="nnRating___Commentsimg" src="themes/Bitfarm/pics/minus.gif" alt="+"></a>{L_COMMENTS}
 						</div>
 					</div>
 				</div>
