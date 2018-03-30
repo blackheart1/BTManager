@@ -129,4 +129,5 @@ INSERT INTO `#prefix#_acl_options` (`auth_option_id`, `auth_option`, `is_global`
 (128, 'a_cache_settings', 1, 0, 1),
 (129, 'a_cache_dir', 1, 0, 0),
 (130, 'a_cache_time_sql', 1, 0, 0),
-(131, 'a_cache_time_tmpl', 1, 0, 0);
+(131, 'a_cache_time_tmpl', 1, 0, 0),
+(132, 'u_download_torrents', 1, 0, 0);
