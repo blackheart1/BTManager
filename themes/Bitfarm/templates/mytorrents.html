@@ -25,7 +25,7 @@
 
 					<div class="cap-right">
 
-						<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnMake_an_Offer');"><img title="Expand item" id="nnMake_an_Offerimg" src="themes/Bitfarm/pics/minus.gif"  alt="+"></a>{L_UCP_TORRENTS}
+						<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnMy_t_opyions');"><img title="Expand item" id="nnMy_t_opyionsimg" src="themes/Bitfarm/pics/minus.gif"  alt="-"></a>{L_UCP_TORRENTS}
 
 					</div>
 
@@ -68,7 +68,7 @@
 			<div class="caption">
 				<div class="cap-left">
 					<div class="cap-right">
-						<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnGeneral_Options');"><img title="Expand item" id="nnGeneral_Optionsimg" src="themes/eVo_blue/pics/minus.gif" alt="+"></a>General Options
+						<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnGeneral_Options');"><img title="Expand item" id="nnGeneral_Optionsimg" src="themes/Bitfarm/pics/minus.gif" alt="-"></a>{L_GENERAL_OPTIONS}
 					</div>
 				</div>
 			</div>
@@ -99,11 +99,11 @@
 							</tr>
 							<tr>
 								<td>
-								<p>Minimum Ratio</p>
+								<p>{L_AUTH_MINEATIO}</p>
 								</td>
 								<td>
 									<p><select name="minratio">
-									<option value="0.00">Disabled</option>
+									<option value="0.00">{L_DISABLE}</option>
 									<option <!-- IF AUTH_RATIO == 0.10 -->selected="" <!-- ENDIF -->value="0.10">0.10</option>
 									<option <!-- IF AUTH_RATIO == 0.20 -->selected="" <!-- ENDIF -->value="0.20">0.20</option>
 									<option <!-- IF AUTH_RATIO == 0.30 -->selected="" <!-- ENDIF -->value="0.30">0.30</option>
@@ -120,7 +120,7 @@
 							</tr>
 						</tbody>
 					</table>
-					<input value="Submit" type="submit"><input value="Cancel Modifications" type="reset">
+					<input value="{L_SUBMIT}" type="submit"><input value="{L_CANCEL_MOD}" type="reset">
 					</form>
 				</div>
 			</td>
@@ -137,7 +137,7 @@
 			<div class="caption">
 				<div class="cap-left">
 					<div class="cap-right">
-						<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnMy_Global_Authorizations');">{L_DOWNL_AUTH_PANEL}</a>
+						<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnMy_Global_Authorizations');"><img title="Expand item" id="nnMy_Global_Authorizationsimg" src="themes/Bitfarm/pics/minus.gif"  alt="-"></a>{L_DOWNL_AUTH_PANEL}
 					</div>
 				</div>
 			</div>
@@ -163,7 +163,7 @@
 <!-- ENDIF -->
 		<tr>
 			<td><p>{users.U_NAME}</p></td>
-			<td><p>Uploaded: {users.U_UPL}<br>Downloaded: {users.U_DL}<br>Ratio: {users.U_RATIO_COLOR}</p></td>
+			<td><p>Uploaded: {users.U_UPL}<br>{L_DOWNED}: {users.U_DL}<br>{L_RATIO}: {users.U_RATIO_COLOR}</p></td>
 			<td>
 			<p><input name="user{users.U_ID}" value="grant" <!-- IF users.U_AUTH_STAT == granted -->checked="checked" <!-- ENDIF -->type="radio">{L_AUTHORIZE}</p>
 			<p><input name="user{users.U_ID}" value="deny" <!-- IF users.U_AUTH_STAT == denied -->checked="checked" <!-- ENDIF -->type="radio">{L_DONT_AUTH}</p>
@@ -181,8 +181,8 @@
 	</tbody>
 </table>
 <input name="auth_users" value="{AUTH_USERS}" type="hidden">
-<input value="{L_SUBMIT}" type="submit">
-<input value="{L_CANCEL_MOD}" type="reset">
+<input value="{L_SUBMIT}" type="{L_SUBMIT}">
+<input value="{L_CANCEL_MOD}" type="{L_RESET}">
 </form>
 <!-- ENDIF -->
 <!-- BEGINELSE -->
@@ -204,7 +204,7 @@
 			<div class="caption">
 				<div class="cap-left">
 					<div class="cap-right">
-						<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnTorrents');">{L_TORRENTS}</a>
+						<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnTorrents');"><img title="Expand item" id="nnTorrentsimg" src="themes/Bitfarm/pics/minus.gif"  alt="-"></a>{L_TORRENTS}
 					</div>
 				</div>
 			</div>
@@ -308,7 +308,7 @@
 			<div class="caption">
 				<div class="cap-left">
 					<div class="cap-right">
-						<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnMy_Global_Authorizations');">{L_MY_GLONAL_AUTH}</a>
+						<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnMy_Global_Authorizations');"><img title="Expand item" id="nnMy_Global_Authorizationsimg" src="themes/Bitfarm/pics/minus.gif"  alt="-"></a>{L_MY_GLONAL_AUTH}
 					</div>
 				</div>
 			</div>
@@ -334,12 +334,12 @@
 <!-- ENDIF -->
 		<tr>
 			<td><p>{users.U_NAME}</p></td>
-			<td><p>Uploaded: {users.U_UPL}<br>Downloaded: {users.U_DL}<br>Ratio: {users.U_RATIO_COLOR}</p></td>
+			<td><p>{L_UPLODED}: {users.U_UPL}<br>{L_DOWNED}: {users.U_DL}<br>{L_RATIO}: {users.U_RATIO_COLOR}</p></td>
 			<td><!-- IF users.U_AUTH_STAT == blacklist --><p class="blacklist">{L_NEVER_AUTH}</p><!-- ELSE --><p class="whitelist">{L_ALWAYS_AUTH}</p><!-- ENDIF --></td>
 			<td>
-			<p><input name="user218" value="alwaysgrant" <!-- IF users.U_AUTH_STAT == whitelist -->checked="checked" <!-- ENDIF -->type="radio">Always Authorize</p>
-			<p><input name="user218" value="alwaysdeny" <!-- IF users.U_AUTH_STAT == blacklist -->checked="checked" <!-- ENDIF -->type="radio">Never Authorize</p>
-			<p><input name="user218" value="reset" type="radio">Reset</p>
+			<p><input name="user218" value="alwaysgrant" <!-- IF users.U_AUTH_STAT == whitelist -->checked="checked" <!-- ENDIF -->type="radio">{L_ALWAYS_AUTH}</p>
+			<p><input name="user218" value="alwaysdeny" <!-- IF users.U_AUTH_STAT == blacklist -->checked="checked" <!-- ENDIF -->type="radio">{L_NEVER_AUTH}</p>
+			<p><input name="user218" value="reset" type="radio">{L_RESET}</p>
 			</td>
 		</tr>
 		<tr>
@@ -352,8 +352,8 @@
 	</tbody>
 </table>
 <input name="auth_users" value="{AUTH_USERS}" type="hidden">
-<input value="Submit" type="submit">
-<input value="Cancel Modifications" type="reset">
+<input value="{L_SUBMIT}" type="submit">
+<input value="{L_CANCEL_MOD}" type="reset">
 </form>
 <!-- ENDIF -->
 <!-- BEGINELSE -->

@@ -35,14 +35,6 @@ if (empty($lang) || !is_array($lang))
 	$lang = array();
 }
 
-define('ATTACHMENT_CATEGORY_NONE', 0);
-define('ATTACHMENT_CATEGORY_IMAGE', 1);     // Inline Images
-define('ATTACHMENT_CATEGORY_WM', 2);        // Windows Media Files - Streaming
-define('ATTACHMENT_CATEGORY_RM', 3);        // Real Media Files - Streaming
-define('ATTACHMENT_CATEGORY_THUMB', 4);     // Not used within the Database, only while displaying posts
-define('ATTACHMENT_CATEGORY_FLASH', 5);     // Flash/SWF files
-define('ATTACHMENT_CATEGORY_QUICKTIME', 6); // Quicktime/Mov Files
-
 $lang = array_merge($lang, array(
     'BYTES'                    => 'Bytes',
     'KB'                       => 'KB',
