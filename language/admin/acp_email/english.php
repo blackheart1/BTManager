@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File acp_email/english.php 2018-03-24 24:21:00 Thor
+** File acp_email/english.php 2018-03-28 00:54:00 Thor
 **
 ** CHANGES
 **
@@ -22,12 +22,13 @@
 ** 2018-02-21 - Fixed Spelling
 ** 2018-03-24 - Amended !defined('IN_PMBT')
 ** 2018-03-24 - Additions to Language
+** 2018-03-28 - Amended !defined('IN_PMBT') Corrected Path
 **/
 
 if (!defined('IN_PMBT'))
 {
-    include_once './../../security.php';
-    die ("You can't access this file directly");
+    include_once './../../../security.php';
+    die ("Error 404 - Page Not Found");
 }
 
 if (empty($lang) || !is_array($lang))
