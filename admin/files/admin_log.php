@@ -37,7 +37,7 @@ if($deleteall)
 		if (confirm_box(true))
 		{
 		$db->sql_query("TRUNCATE `".$db_prefix."_log`;");
-						logerror($user->lang['LOG_CLEAR_ADMIN'],'LOG_CLEAR_CRITICAL');
+					add_log('admin', 'LOG_CLEAR_ADMIN');
                                 $template->assign_vars(array(
 								        'S_USER_NOTICE'				=> true,
 										'S_FORWARD'					=> $u_action,
@@ -66,7 +66,8 @@ if(isset($delmarked))
 		{
                         $sql = "DELETE FROM ".$db_prefix."_log WHERE event IN (".$del.");";
                         $db->sql_query($sql) or btsqlerror($sql);
-						logerror($user->lang['A_CLEAR_LOG'],'CLEAR_CRITICAL');//log group chonge
+					add_log('admin', 'LOG_CLEAR_ADMIN');
+						//logerror($user->lang['A_CLEAR_LOG'],'LOG_CLEAR_CRITICAL');//log group chonge
                                 $template->assign_vars(array(
 								        'S_USER_NOTICE'            => true,
 										'S_FORWARD'			=> $u_action,
