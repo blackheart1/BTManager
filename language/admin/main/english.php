@@ -13,53 +13,23 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File main/english.php 2018-02-28 11:17:00 Thor
+** File main/english.php 2018-03-29 11:12:00 Thor
 **
 ** CHANGES
 **
 ** 2018-02-24 - Added New Masthead
 ** 2018-02-24 - Added New !defined('IN_PMBT')
 ** 2018-02-24 - Fixed Spelling
+** 2018-03-29 - Amended the Wording of some Sentences
+** 2018-03-29 - Amended !defined('IN_PMBT') Corrected Path
+** 2018-03-29 - Removed define Language & Changed to Correct Format & Amended templates/admin/main.html
 **/
 
 if (!defined('IN_PMBT'))
 {
-    ?>
-    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-    <html>
-    <head>
-       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-       <title>
-       <?php if (isset($_GET['error']))
-       {
-       echo htmlspecialchars($_GET['error']);
-       }
-       ?> Error</title>
-
-       <link rel='stylesheet' type='text/css' href='/errors/error-style.css' />
-    </head>
-
-    <body>
-       <div id='container'>
-       <div align='center' style='padding-top: 15px'>
-          <img src='/errors/error-images/alert.png' width='89' height='94' alt='' title='' />
-       </div>
-
-       <h1 class='title'>Error 404 - Page Not Found</h1>
-       <p class='sub-title' align='center'>The page that you are looking for does not appear to exist on this site.</p>
-       <p>If you typed the address of the page into the address bar of your browser, please check that you typed it in correctly.</p>
-       <p>If you arrived at this page after you used an old Bookmark or Favourite, the page in question has probably been moved. Try locating the page via the navigation menu and then update your bookmarks.</p>
-       </div>
-    </body>
-    </html>
-
-    <?php
-    exit();
+    include_once './../../../security.php';
+    die ("Error 404 - Page Not Found");
 }
-
-define("btstats","Statistics");
 
 if (empty($lang) || !is_array($lang))
 {
@@ -69,18 +39,20 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, array(
     'ACP_EMAIL_SETTINGS'         => 'email Settings',
     'MAIN_TEXT'                  => 'Welcome to %s ',
-    'MAIN_INTRO_EXP'             => "Thank you for choosing BTManager<br /><br />
-    BTManager features a full fledged BitTorrent Tracker written in PHP, and has External Torrent Indexing, DHT, Compact Announce, Alternate Links (eD2K, Magnet), HTTP Basic Authentication, Passkey Authentication, Embedded HTML Editor, Mass Torrent Upload and much, much more.",
+    'MAIN_INTRO_EXP'             => 'Thank you for choosing BTManager<br /><br />
+    BTManager Features a Fully Fledged BitTorrent Tracker written in PHP, and Supports External Torrent Indexing, DHT, Compact Announce, Alternate Links (eD2K, Magnet), HTTP Basic Authentication, Passkey Authentication, Embedded HTML Editor, Mass Torrent Upload and much, much more.',
 
     'MENU_TOGGLE'                => 'Hide or Display the Side Menu',
-    'FAILED_LOGIN'               => 'Failed Login by User<br /> %s',
+    'FAILED_LOGIN'               => 'Failed Login by User <strong>%s</strong>',
     'ACP_P_RATIO_WARN'           => 'Ratio Monitoring System',
-    'SITTINGS_SAVED'             => 'Settings have been Saved for %s',
+    'SITTINGS_SAVED'             => 'Settings have been Saved for <strong>%s</strong>',
     'DIRECTION'                  => 'ltr',
     'CONTENT_ENCODING'           => 'UTF-8',
-    'DENIACC'                    => 'It seems that you are trying to Access a Section (%s) that your Privileges DO NOT Allow.<br />This Action has been Logged!',
+
+    'DENIACC'                    => 'It seems that you are trying to Access a Section <strong>%s</strong> that your Privileges DO NOT Allow.<br />This Action has been Logged!',
 
     '_SITE_STATS'                => 'Site Statistics',
+    'BTSTATS'                    => 'Statistics',
     '_NUMBER_POSTS'              => 'Number of Posts',
     '_POSTS_PER_DAY'             => 'Posts Per Day',
     '_NUMBER_TOPICS'             => 'Number of Topics',
@@ -101,11 +73,14 @@ $lang = array_merge($lang, array(
     '_STATISTIC_RESYNC_OPTIONS'  => 'Resynchronise or Reset Statistics',
     '_RESET_ONLINE'              => 'Reset Most Users Ever Online',
     '_RESET_DATE'                => 'Reset Site\'s Start Date',
-    'SETTING_TOO_LOW'            => 'The Provided Value for the Setting "%1$s" is too Low. The Minimum Acceptable Value is %2$d.',
-    'SETTING_TOO_BIG'            => 'The Provided Value for the Setting "%1$s" is too High. The Maximum Acceptable Value is %2$d.',
-    'SETTING_TOO_LONG'           => 'The Provided Value for the Setting "%1$s" is too Long. The Maximum Acceptable Length is %2$d.',
 
-    'SETTING_TOO_SHORT'          => 'The Provided Value for the Setting "%1$s" is too Short. The Minimum Acceptable Length is %2$d.',
+    'SETTING_TOO_LOW'            => 'The Provided Value for the Setting \'%1$s\' is too Low. The Minimum Acceptable Value is %2$d.',
+
+    'SETTING_TOO_BIG'            => 'The Provided Value for the Setting \'%1$s\' is too High. The Maximum Acceptable Value is %2$d.',
+
+    'SETTING_TOO_LONG'           => 'The Provided Value for the Setting \'%1$s\' is too Long. The Maximum Acceptable Length is %2$d.',
+
+    'SETTING_TOO_SHORT'          => 'The Provided Value for the Setting \'%1$s\' is too Short. The Minimum Acceptable Length is %2$d.',
 
     '_RESYNC_STATS'              => 'Resynchronise Statistic',
     '_RESYNC_STATS_EXPLAIN'      => 'Resynchronise the Site\'s Statistics',
@@ -113,12 +88,14 @@ $lang = array_merge($lang, array(
     '_PURGE_CACHE_CONFIRM'       => 'Are you sure you wish to Purge the Cache?',
     '_PURGE_CACHE_EXPLAIN'       => 'Purge ALL Cache Related Items, this includes any Cached Template Files or Queries.',
     '_ADMIN_LOG'                 => 'Logged Administrator Actions',
+
     '_ADMIN_LOG_INDEX_EXPLAIN'   => 'This gives an Overview of the Last Five Actions carried out by Board Administrators.  A Full Copy of the Log can be Viewed from the appropriate Menu Item or following the Link below.',
 
     '_RESYNC_STATS'              => 'Resynchronise Statistics',
     '_RESYNC_STATS_CONFIRM'      => 'Are you sure you wish to Resynchronise Statistics?',
     '_RESYNC_STATS_EXPLAIN'      => 'Recalculates the Total Number of Posts, Topics, Users and Files.',
-    'WRITABLE_CONFIG'            => 'Your Configuration File (config.php) is currently Globally Writeable. We strongly encourage you to Change the Permissions to 640 or at least to 644 (for example: <a href="http://en.wikipedia.org/wiki/Chmod" rel="external">chmod</a> 640 config.php).',
+
+    'WRITABLE_CONFIG'            => 'Your Configuration File (config.php) is currently Globally Writeable. We strongly encourage you to Change the Permissions to 640 or at least to 644 (for example: <a href=\'http://en.wikipedia.org/wiki/Chmod\' rel=\'external\'>chmod</a> 640 config.php).',
 
     '_VERSIONCHECK_FAIL'         => 'Failed to Obtain Latest Version Information.',
     '_VERSIONCHECK_FORCE_UPDATE' => 'Re Check Version',
@@ -175,12 +152,12 @@ $lang = array_merge($lang, array(
     'LOG_ATTACH_ORPHAN_DEL'    => '<strong>Orphan Files Deleted</strong><br /> %s',
     'LOG_ANNOUNCE'             => '<strong>Announce Error</strong><br /> %s %s',
 
-    'LOG_BAN_EXCLUDE_USER'     => '<strong>Excluded User from being Banned</strong> for Reason "<em>%1$s</em>"<br /> %2$s',
-    'LOG_BAN_EXCLUDE_IP'       => '<strong>Excluded IP from being Banned</strong> for Reason "<em>%1$s</em>"<br /> %2$s',
-    'LOG_BAN_EXCLUDE_EMAIL'    => '<strong>Excluded email from being Banned</strong> for Reason "<em>%1$s</em>"<br /> %2$s',
-    'LOG_BAN_USER'             => '<strong>Banned User</strong> for Reason "<em>%1$s</em>"<br /> %2$s',
-    'LOG_BAN_IP'               => '<strong>Banned IP</strong> for Reason "<em>%1$s</em>"<br /> %2$s',
-    'LOG_BAN_EMAIL'            => '<strong>Banned email</strong> for Reason "<em>%1$s</em>"<br /> %2$s',
+    'LOG_BAN_EXCLUDE_USER'     => '<strong>Excluded User from being Banned</strong> for Reason <em>%1$s</em><br /> %2$s',
+    'LOG_BAN_EXCLUDE_IP'       => '<strong>Excluded IP from being Banned</strong> for Reason <em>%1$s</em><br /> %2$s',
+    'LOG_BAN_EXCLUDE_EMAIL'    => '<strong>Excluded email from being Banned</strong> for Reason <em>%1$s</em><br /> %2$s',
+    'LOG_BAN_USER'             => '<strong>Banned User</strong> for Reason <em>%1$s</em><br /> %2$s',
+    'LOG_BAN_IP'               => '<strong>Banned IP</strong> for Reason <em>%1$s</em><br /> %2$s',
+    'LOG_BAN_EMAIL'            => '<strong>Banned email</strong> for Reason <em>%1$s</em><br /> %2$s',
     'LOG_UNBAN_USER'           => '<strong>Unban User</strong><br /> %s',
     'LOG_UNBAN_IP'             => '<strong>Unban IP</strong><br /> %s',
     'LOG_UNBAN_EMAIL'          => '<strong>Unban email</strong><br /> %s',
@@ -220,9 +197,9 @@ $lang = array_merge($lang, array(
 
     'LOG_APPROVE_TOPIC'        => '<strong>Approved Topic</strong><br /> %s',
     'LOG_BUMP_TOPIC'           => '<strong>User Bumped Topic</strong><br /> %s',
-    'LOG_DELETE_POST'          => '<strong>Deleted Post "%1$s" Written by</strong><br /> %2$s',
+    'LOG_DELETE_POST'          => '<strong>Deleted Post \'%1$s\' Written by</strong><br /> %2$s',
     'LOG_DELETE_SHADOW_TOPIC'  => '<strong>Deleted Shadow Topic</strong><br /> %s',
-    'LOG_DELETE_TOPIC'         => '<strong>Deleted Topic "%1$s" Written by</strong><br /> %2$s',
+    'LOG_DELETE_TOPIC'         => '<strong>Deleted Topic \'%1$s\' Written by</strong><br /> %2$s',
     'LOG_FORK'                 => '<strong>Copied Topic</strong><br /> from %s',
     'LOG_LOCK'                 => '<strong>Locked Topic</strong><br /> %s',
     'LOG_LOCK_POST'            => '<strong>Locked Post</strong><br /> %s',
@@ -231,15 +208,15 @@ $lang = array_merge($lang, array(
     'LOG_PM_REPORT_CLOSED'     => '<strong>Closed PM Report</strong><br /> %s',
     'LOG_PM_REPORT_DELETED'    => '<strong>Deleted PM Report</strong><br /> %s',
     'LOG_POST_APPROVED'        => '<strong>Approved Post</strong><br /> %s',
-    'LOG_POST_DISAPPROVED'     => '<strong>Unapproved Post "%1$s" with the following Reason</strong><br /> %2$s',
-    'LOG_POST_EDITED'          => '<strong>Edited Post "%1$s" Written by</strong><br /> %2$s',
+    'LOG_POST_DISAPPROVED'     => '<strong>Unapproved Post \'%1$s\' with the following Reason</strong><br /> %2$s',
+    'LOG_POST_EDITED'          => '<strong>Edited Post \'%1$s\' Written by</strong><br /> %2$s',
     'LOG_REPORT_CLOSED'        => '<strong>Closed Report</strong><br /> %s',
     'LOG_REPORT_DELETED'       => '<strong>Deleted Report</strong><br /> %s',
     'LOG_SPLIT_DESTINATION'    => '<strong>Moved Split Posts</strong><br /> to %s',
     'LOG_SPLIT_SOURCE'         => '<strong>Split Posts</strong><br /> from %s',
 
     'LOG_TOPIC_APPROVED'       => '<strong>Approved Topic</strong><br /> %s',
-    'LOG_TOPIC_DISAPPROVED'    => '<strong>Unapproved Topic "%1$s" with the following Reason</strong><br />%2$s',
+    'LOG_TOPIC_DISAPPROVED'    => '<strong>Unapproved Topic \'%1$s\' with the following Reason</strong><br />%2$s',
     'LOG_TOPIC_RESYNC'         => '<strong>Resynchronised Topic Counters</strong><br /> %s',
     'LOG_TOPIC_TYPE_CHANGED'   => '<strong>Changed Topic Type</strong><br /> %s',
     'LOG_UNLOCK'               => '<strong>Unlocked Topic</strong><br /> %s',
@@ -265,8 +242,11 @@ $lang = array_merge($lang, array(
     'LOG_FORUM_DEL_FORUMS'                 => '<strong>Deleted Forum and its Sub Forums</strong><br /> %s',
     'LOG_FORUM_DEL_MOVE_FORUMS'            => '<strong>Deleted Forum and Moved Sub Forums</strong> to %1$s<br /> %2$s',
     'LOG_FORUM_DEL_MOVE_POSTS'             => '<strong>Deleted Forum and Moved Posts </strong> to %1$s<br /> %2$s',
+
     'LOG_FORUM_DEL_MOVE_POSTS_FORUMS'      => '<strong>Deleted Forum and its Sub Forums, and Moved Posts</strong> to %1$s<br /> %2$s',
+
     'LOG_FORUM_DEL_MOVE_POSTS_MOVE_FORUMS' => '<strong>Deleted Forum, and Moved Posts</strong> to %1$s <strong>and Sub Forums</strong> to %2$s<br /> %3$s',
+
     'LOG_FORUM_DEL_POSTS'                  => '<strong>Deleted Forum and it\'s Posts</strong><br /> %s',
     'LOG_FORUM_DEL_POSTS_FORUMS'           => '<strong>Deleted Forum, it\'s Posts and Sub Forums</strong><br /> %s',
     'LOG_FORUM_DEL_POSTS_MOVE_FORUMS'      => '<strong>Deleted Forum and it\'s Posts, and Moved Sub Forums</strong> to %1$s<br /> %2$s',
@@ -278,7 +258,7 @@ $lang = array_merge($lang, array(
     'LOG_GENERAL_ERROR'           => '<strong>A General Error Occurred</strong>: %1$s <br /> %2$s',
 
     'LOG_GROUP_CREATED'           => '<strong>New Usergroup Created</strong><br /> %s',
-    'LOG_GROUP_DEFAULTS'          => '<strong>Group "%1$s" Made Default for Members</strong><br /> %2$s',
+    'LOG_GROUP_DEFAULTS'          => '<strong>Group \'%1$s\' Made Default for Members</strong><br /> %2$s',
     'LOG_GROUP_DELETE'            => '<strong>Usergroup Deleted</strong><br /> %s',
     'LOG_GROUP_DEMOTED'           => '<strong>Leaders Demoted in Usergroup</strong> %1$s<br /> %2$s',
     'LOG_GROUP_PROMOTED'          => '<strong>Members Promoted to Leader in Usergroup</strong> %1$s<br /> %2$s',
@@ -287,7 +267,7 @@ $lang = array_merge($lang, array(
     'LOG_MODS_ADDED'              => '<strong>Added New Leaders to Usergroup</strong> %1$s<br /> %2$s',
     'LOG_USERS_ADDED'             => '<strong>Added New Members to Usergroup</strong> %1$s<br /> %2$s',
     'LOG_USERS_APPROVED'          => '<strong>Users Approved in Usergroup</strong> %1$s<br /> %2$s',
-    'LOG_USERS_PENDING'           => '<strong>Users Requested to Join Group "%1$s" and need to be Approved</strong><br /> %2$s',
+    'LOG_USERS_PENDING'           => '<strong>Users Requested to Join Group \'%1$s\' and need to be Approved</strong><br /> %2$s',
 
     'LOG_IMAGE_GENERATION_ERROR'  => '<strong>Error While Creating Image</strong><br /> Error in %1$s on Line %2$s: %3$s',
 
@@ -297,8 +277,8 @@ $lang = array_merge($lang, array(
     'LOG_IMAGESET_EDIT_DETAILS'   => '<strong>Edited Imageset Details</strong><br /> %s',
     'LOG_IMAGESET_EDIT'           => '<strong>Edited Imageset</strong><br /> %s',
     'LOG_IMAGESET_EXPORT'         => '<strong>Exported Imageset</strong><br /> %s',
-    'LOG_IMAGESET_LANG_MISSING'   => '<strong>Imageset Missing "%2$s" Localisation</strong><br /> %1$s',
-    'LOG_IMAGESET_LANG_REFRESHED' => '<strong>Refreshed "%2$s" Localisation of Imageset</strong><br /> %1$s',
+    'LOG_IMAGESET_LANG_MISSING'   => '<strong>Imageset Missing \'%2$s\' Localisation</strong><br /> %1$s',
+    'LOG_IMAGESET_LANG_REFRESHED' => '<strong>Refreshed \'%2$s\' Localisation of Imageset</strong><br /> %1$s',
     'LOG_IMAGESET_REFRESHED'      => '<strong>Refreshed Imageset</strong><br /> %s',
 
     'LOG_INACTIVE_ACTIVATE'       => '<strong>Activated Inactive Users</strong><br /> %s',
@@ -307,7 +287,7 @@ $lang = array_merge($lang, array(
     'LOG_INSTALL_CONVERTED'       => '<strong>Converted from %1$s to phpBB %2$s</strong>',
     'LOG_INSTALL_INSTALLED'       => '<strong>Installed phpBB %s</strong>',
 
-    'LOG_IP_BROWSER_FORWARDED_CHECK' => '<strong>Session IP/Browser/X_FORWARDED_FOR Check Failed</strong><br />User IP "<em>%1$s</em>" Checked against Session IP "<em>%2$s</em>", User Browser String "<em>%3$s</em>" Checked against Session Browser String "<em>%4$s</em>" and User X_FORWARDED_FOR String "<em>%5$s</em>" Checked against Session X_FORWARDED_FOR String "<em>%6$s</em>".',
+    'LOG_IP_BROWSER_FORWARDED_CHECK' => '<strong>Session IP/Browser/X_FORWARDED_FOR Check Failed</strong><br />User IP <em>%1$s</em> Checked against Session IP <em>%2$s</em>, User Browser String <em>%3$s</em> Checked against Session Browser String <em>%4$s</em> and User X_FORWARDED_FOR String <em>%5$s</em> Checked against Session X_FORWARDED_FOR String <em>%6$s</em>.',
 
     'LOG_JAB_CHANGED'              => '<strong>Jabber Account Changed</strong>',
     'LOG_JAB_PASSCHG'              => '<strong>Jabber Password Changed</strong>',
@@ -323,7 +303,7 @@ $lang = array_merge($lang, array(
     'LOG_MASS_EMAIL'        => '<strong>Sent Mass email</strong><br /> %s',
     'LOG_MASS_PM'           => '<strong>Sent Mass email</strong><br /> %s',
 
-    'LOG_MCP_CHANGE_POSTER' => '<strong>Changed Poster in Topic "%1$s"</strong><br /> from %2$s to %3$s',
+    'LOG_MCP_CHANGE_POSTER' => '<strong>Changed Poster in Topic \'%1$s\'</strong><br /> from %2$s to %3$s',
 
     'LOG_MODULE_DISABLE'    => '<strong>Module Disabled</strong><br /> %s',
     'LOG_MODULE_ENABLE'     => '<strong>Module Enabled</strong><br /> %s',
@@ -370,7 +350,7 @@ $lang = array_merge($lang, array(
     'LOG_REASON_REMOVED'       => '<strong>Removed Report/Denial Reason</strong><br /> %s',
     'LOG_REASON_UPDATED'       => '<strong>Updated Report/Denial Reason</strong><br /> %s',
 
-    'LOG_REFERER_INVALID'      => '<strong>Referrer Validation Failed</strong><br />Referrer was "<em>%1$s</em>". The Request was Rejected and the Session Killed.',
+    'LOG_REFERER_INVALID'      => '<strong>Referrer Validation Failed</strong><br />Referrer was <em>%1$s</em>. The Request was Rejected and the Session Killed.',
 
     'LOG_RESET_DATE'           => '<strong>Board Start Date Reset</strong>',
     'LOG_RESET_ONLINE'         => '<strong>Most Users Online Reset</strong>',
@@ -409,9 +389,9 @@ $lang = array_merge($lang, array(
     'ACP_SUBMIT_CHANGES'       => 'Submit Changes',
     'GENERAL_SETTINGS'         => 'General Settings',
     'LOG_USER_ACTIVE'          => '<strong>User Activated</strong><br /> %s',
-    'LOG_USER_BAN_USER'        => '<strong>Banned User via User Management</strong> for Reason "<em>%1$s</em>"<br /> %2$s',
-    'LOG_USER_BAN_IP'          => '<strong>Banned IP via User Management</strong> for Reason "<em>%1$s</em>"<br /> %2$s',
-    'LOG_USER_BAN_EMAIL'       => '<strong>Banned email via User Management</strong> for Reason "<em>%1$s</em>"<br /> %2$s',
+    'LOG_USER_BAN_USER'        => '<strong>Banned User via User Management</strong> for Reason \'<em>%1$s</em>\'<br /> %2$s',
+    'LOG_USER_BAN_IP'          => '<strong>Banned IP via User Management</strong> for Reason \'<em>%1$s</em>\'<br /> %2$s',
+    'LOG_USER_BAN_EMAIL'       => '<strong>Banned email via User Management</strong> for Reason \'<em>%1$s</em>\'<br /> %2$s',
     'LOG_USER_DELETED'         => '<strong>Deleted User</strong><br /> %s',
     'LOG_USER_DEL_ATTACH'      => '<strong>Removed ALL Attachments made by the User</strong><br /> %s',
     'LOG_USER_DEL_AVATAR'      => '<strong>Removed User Avatar</strong><br /> %s',
@@ -419,13 +399,13 @@ $lang = array_merge($lang, array(
     'LOG_USER_DEL_POSTS'       => '<strong>Removed ALL Posts made by the User</strong><br /> %s',
     'LOG_USER_DEL_SIG'         => '<strong>Removed User Signature</strong><br /> %s',
     'LOG_USER_INACTIVE'        => '<strong>User Deactivated</strong><br /> %s',
-    'LOG_USER_MOVE_POSTS'      => '<strong>Moved User Posts</strong><br /> Posts by "%1$s" to Forum "%2$s"',
+    'LOG_USER_MOVE_POSTS'      => '<strong>Moved User Posts</strong><br /> Posts by \'%1$s\' to Forum \'%2$s\'',
     'LOG_USER_NEW_PASSWORD'    => '<strong>Changed User Password</strong><br /> %s',
     'LOG_USER_REACTIVATE'      => '<strong>Forced User Account Reactivation</strong><br /> %s',
     'LOG_USER_REMOVED_NR'      => '<strong>Removed Newly Registered Flag from User</strong><br /> %s',
 
-    'LOG_USER_UPDATE_EMAIL'    => '<strong>User "%1$s" Changed email</strong><br /> from "%2$s" to "%3$s"',
-    'LOG_USER_UPDATE_NAME'     => '<strong>Changed Username</strong><br /> from "%1$s" to "%2$s"',
+    'LOG_USER_UPDATE_EMAIL'    => '<strong>User \'%1$s\' Changed email</strong><br /> from \'%2$s\' to \'%3$s\'',
+    'LOG_USER_UPDATE_NAME'     => '<strong>Changed Username</strong><br /> from \'%1$s\' to \'%2$s\'',
     'LOG_USER_USER_UPDATE'     => '<strong>Updated User Details</strong><br /> %s',
 
     'LOG_USER_ACTIVE_USER'     => '<strong>User Account Activated</strong>',
@@ -471,7 +451,7 @@ $lang = array_merge($lang, array(
     'MENU_BONOUS'           => 'Bonus Settings',
     'MENU_CATS'             => 'Torrent Categories',
     'MENU_CLIENT_BAN'       => 'Torrent Client Bans',
-    'MENU_CLINIC'           => "Torrent Clinic",
+    'MENU_CLINIC'           => 'Torrent Clinic',
     'MENU_FAQ'              => 'FAQ Manager',
     'MENU_FILTER'           => 'Torrent Upload Filter',
     'MENU_FORUM'            => 'Forum Control Centre',

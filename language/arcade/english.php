@@ -13,27 +13,31 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File arcade/english.php 2018-03-24 11:09:00 Thor
+** File arcade/english.php 2018-03-29 09:01:00 Thor
 **
 ** CHANGES
 **
-** 2018-03-24 - Amended New !defined('IN_PMBT')
-** 2018-03-24 - Added Missing Language
+** 2018-03-02 - Added New Masthead
+** 2018-03-02 - Added New !defined('IN_PMBT')
+** 2018-03-02 - Fixed Spelling
+** 2018-03-29 - Amended the Wording of some Sentences
+** 2018-03-29 - Amended !defined('IN_PMBT') Corrected Path
+** 2018-03-29 - Added Missing Language
 **/
 
 if (!defined('IN_PMBT'))
 {
     include_once './../../security.php';
-    die ("You Can't Access This File Directly");
+    die ("Error 404 - Page Not Found");
 }
 
 if (empty($lang) || !is_array($lang))
 {
-	$lang = array();
+    $lang = array();
 }
 
 $lang = array_merge($lang, array(
-	'TITLE'				 =>	'Arcade',
+    'TITLE'              =>	'Arcade',
     'ACP_ADDED'          => 'ACP Modules Added Successfully.',
     'ACP_EXISTS'         => 'ACP Modules Already Exist.  Nothing Changed!',
     'ACP_MODULES'        => 'ACP Modules:',
@@ -44,44 +48,43 @@ $lang = array_merge($lang, array(
     'ALLOW_COMMENTS'     => 'Allow Games to be Commented On',
     'ALLOW_GUEST'        => 'Allow Guest View',
     'ARCADE'             => 'Arcade Room',
+    'ARCADE_WELCOME'     => 'Welcome to the Arcade Room.  From here you can View and Remove your Favourite Games.',
 
-    'ARCADE_WELCOME'     => 'Welcome to the Arcade Room, in the User Control Panel.  From here you can View your Favourite Games, Remove Games that are NO Longer your Favourites.',
-
-    'AR_EXPLAIN'         => 'This Installer was written for RC7 Only and has NOT been tested on any other version of phpBB3.  If you wish to Install/Update and are using a different phpBB3 version please consult the Install.xml file in the zip that you have Downloaded.  We are going to walk you through Installing the Arcade Room today beginning with adding MySQL Databases.',
+    'AR_EXPLAIN'         => 'This Installer was written for RC7 Only and has NOT been tested on any other version of phpBB3.  If you wish to Install/Update and are using a Different Version of phpBB3, then please consult the Install.xml file in the zip that you have Downloaded.  We are going to walk you through Installing the Arcade Room today beginning with Adding MySQL Databases.',
 
     'AR_SETTINGS'        => 'Arcade Room Settings',
     'AR_TASKS'           => 'Arcade Room Tasks',
-    'AR_TO_BEGIN'        => 'To begin the Installation please Click below.',
+    'AR_TO_BEGIN'        => 'To Begin the Installation Click below.',
     'AR_VERSION'         => '0.6.9c',
     'AR_WELCOME'         => 'Welcome to the Arcade Mod Installation.',
     'A_SETTINGS'         => 'Arcade Settings',
     'A_MANAGE'           =>	'Manage Arcade',
-    'A_SETTINGS_DESC'    => 'Here you can Enable/Disable Several Arcade Room Features as well as perform several different tasks.',
+    'A_SETTINGS_DESC'    => 'Here you can Enable/Disable Several Arcade Room Features.',
 
     'BEGIN'              => 'Begin',
     'CAT'                => 'Categories',
     'CAT_MANAGE'         => 'Category Management',
     'CLICK_UPDATE'       => 'Click Here to Update your phpAR Mod',
     'COMMENT'            => ' Comment',
-    'COMMENT'            => 'Comment',
     'COMMENTS'           => 'Comments',
     'COPY_DONE'          => 'File Copying Finished',
     'COPY_FILES'         => 'Copy Files',
     'COPY_PROBLEM'       => 'There was a Problem Copying ',
     'COPY_SUCCESS'       => ' Copied Successfully to ',
     'CREATE_CAT'         => 'Create Category',
-    'DATABASE_ERROR'     => ' had an Error being added to the Database.',
+    'DATABASE_ERROR'     => ' had an Error whilst trying to Add to the Database.',
     'DATABASE_EXISTS'    => ' Already Exists in the Database.',
     'DATABSE_SUCCESS'    => ' Successfully Added to the Database.',
+    'EDIT_POST'          => 'Edit Comment',
     'DELETE_COMMENT'     => 'Delete Comment',
     'DELETE_PROBLEM'     => 'There was a Problem Deleting ',
     'DISABLE'            =>	'Disable',
     'EDITED_ALREADY'     => '  was Already Previously Edited.',
     'EDITED_GAME'        => 'The following Game has been Edited Successfully in the Database.',
-    'EDITS_DONE'         => 'The File Edits are Done if there is a problem Please Read the install.xml to Edit the Files yourself.',
-
+    'EDITS_DONE'         => 'File Edits Completed.  If there any Issues please Read the install.xml to Edit the Files yourself.',
     'EDIT_FILES'         => 'Edit Files',
     'EDIT_GAME'          => 'Edit Game',
+    'PREVIOUS'           => 'Previous',
     'EDIT_GAME_DESC'     => 'Here you can Edit the Values of the Game.',
     'EDIT_SUCCESS'       => ' Edited Successfully.',
     'ENABLE_FAVORITES'   => 'Enable Game Favourites',
@@ -132,9 +135,9 @@ $lang = array_merge($lang, array(
     'HIGHSCORES_RESET'   => 'The High Scores for ALL Games have been Reset.',
     'HIGHSCORE_RESET'    => 'The Game you asked for High Scores to be Reset has had its High Scores Reset.',
 
-    'IF_OK'              => 'The Installer is Done if everything is fine Click Delete to Delete the Install File and return to the Index.',
+    'IF_OK'              => 'The Installation is Complete.   If everything is OK Click Delete to Delete the Install File and Return to the Index.',
 
-    'IMAGE_DUP'          => 'An Image on the Server Already Uses that Filename please Rename the File and try Uploading Again.',
+    'IMAGE_DUP'          => 'An Image on the Server Already Uses that Filename.  Please Rename the File and try Uploading Again.',
     'LATEST'             => 'Latest Games',
     'LIMIT'              => '10MB Limit',
     'MANAGE_CAT'         => 'Manage Categories',
@@ -142,9 +145,9 @@ $lang = array_merge($lang, array(
     'MANAGE_GAMES'       => 'Manage Games',
     'MANAGE_GAMES_DESC'  => 'Here you can Add/Edit/Remove Games.',
 
-    'MODULES_DONE'       => 'Finished Adding Modules to the ACP if they DID NOT Add properly or Show Up in the ACP Add them yourself.',
+    'MODULES_DONE'       => 'Finished Adding Modules to the ACP.  If they DID NOT Add properly or Show Up in the ACP Add them yourself.',
 
-    'MYSQL_DONE'         => 'The MySQL Edits are Done if there is a problem please Read the install.xml to Add the Databases yourself.',
+    'MYSQL_DONE'         => 'The MySQL Edits are Complete.  If there were any Issues then please Read the install.xml to Add the Databases yourself.',
 
     'MYSQL_EDITS'        => 'MySQL Edits:',
     'MINUTES'            =>	'Minutes',
@@ -157,7 +160,7 @@ $lang = array_merge($lang, array(
     'RATING_RESET'       => 'The Game you asked for Ratings to be Reset has had its Ratings Reset.',
     'REMOVE_IMAGE_C'     => 'Remove Image: ',
     'RESET_HIGHSCORE'    => 'Reset Highscores for this Game: ',
-    'RESET_HIGHSCORES'   => 'Reset ALL Highscores For Games: ',
+    'RESET_HIGHSCORES'   => 'Reset ALL Highscores for Games: ',
     'RESET_RATING'       => 'Reset Ratings for this Game: ',
     'RESET_RATINGS'      => 'Reset ALL Ratings for Games: ',
     'RESET_VIEW'         => 'Reset Views for this Game: ',
@@ -199,7 +202,7 @@ $lang = array_merge($lang, array(
     'GAME_NUM_FAVS_C'    => 'Favourites: ',
     'GAME_ID_C'          => 'ID: ',
     'GAME_PLAYS_C'       => 'Plays: ',
-    'IMAGE_LIMIT'        => 'Images larger than 50x50 will be Scaled Down',
+    'IMAGE_LIMIT'        => 'Images Larger than 50x50 will be Scaled Down',
     'GAME_NUM_RATINGS'   => 'Ratings',
     'GAME_PLAYED'        => 'Plays',
     'SAVE'               => 'Save',
@@ -220,10 +223,10 @@ $lang = array_merge($lang, array(
     'RANDOM_GAMES'       => 'Random Games',
     'CATEGORY_ADDED'     => 'The Category has been Added to the List.',
     'CATEGORY_REMOVED'   => 'The Category has been Removed from the List.',
-    'CAT_HAS_GAMES'      => 'You can\'t Delete a Category containing any Games.',
-    'YOUR_INFO_WARNING'  => 'Register or Login to see your Info',
+    'CAT_HAS_GAMES'      => 'You can\'t Delete a Category that contains any Games.',
+    'YOUR_INFO_WARNING'  => 'Register or Login to View your Info',
     'NO_HIGHSCORE'       => 'User has NO High Score',
-    'TROPHIES_WARNING'   => 'Trophies DO NOT show up until 3 people have received a High Score on this Game.',
+    'TROPHIES_WARNING'   => 'Trophies DO NOT Show up until 3 Users have Received a High Score on this Game.',
 
     'NO_FAVS'            => 'You have NO Favourite Games to Display.',
     'VISIT_ROOM'         => 'Visit the Arcade Room',
@@ -241,7 +244,7 @@ $lang = array_merge($lang, array(
     'FINISHED'           => 'Finish',
 
     'RESIZING'           => 'Resizing Requires JavaScript to be Enabled',
-    'CLICK_UPDATE_ALT'   => 'Click here if you wish to Manually Update',
+    'CLICK_UPDATE_ALT'   => 'Click Here if you wish to Manually Update',
     'GAME_ARCHIVE_ERROR' => 'Game Archive Missing game.xml File can NOT Auto Install this Game',
     'ARCADE_QUICK'       => 'Quick Links',
     'ARCADE_RANDOM'      => 'Random Game',
@@ -282,6 +285,7 @@ $lang = array_merge($lang, array(
     'HOTLINK_LENGTH'     => 'Hotlink Protection Length',
     'SEARCH_MINI'        => 'Search Keyword',
     'SEARCH_KEYWORDS'    => 'Enter Search Criteria',
+    'DISABLED'           => ' Disabled',
 ));
 
 ?>
