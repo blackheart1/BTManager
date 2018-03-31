@@ -608,10 +608,10 @@ function get_image_extension($filename, $include_dot = true, $shorter_extensions
   function photo () {
     if (empty($this->main_photo)) {
       if ($this->page["Title"] == "") $this->openpage ("Title");
-      preg_match("/\<td rowspan=\"2\" id=\"img_primary\">(.*?)\>(.*?)<img(.*?)src\=\"(.*?)\"/ms",$this->page["Title"],$match);
+      preg_match("/\<div class=\"poster\">(.*?)<a href(.*?)\>(.*?)<img(.*?)src\=\"(.*?)\"/ms",$this->page["Title"],$match);
       if (empty($match[3])) return FALSE;
-	  //echo $match[3];
-      $this->main_photo = $match[4];
+	  //die(print_r($match));
+      $this->main_photo = $match[5];
     }
     return $this->main_photo;
   }
