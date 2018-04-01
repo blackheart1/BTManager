@@ -152,7 +152,7 @@ function get_image_extension($filename, $include_dot = true, $shorter_extensions
     case "Taglines"    : $urlname="/taglines"; break;
     case "Episodes"    : $urlname="/episodes"; break;
     case "Quotes"      : $urlname="/quotes"; break;
-    case "Trailers"    : $urlname="/videosites"; break;
+    case "Trailers"    : $urlname="/videogallery"; break;
     case "Trailer"    : $urlname="/video/screenplay"; break;
     case "Goofs"       : $urlname="/goofs"; break;
     case "Trivia"      : $urlname="/trivia"; break;
@@ -609,7 +609,7 @@ function get_image_extension($filename, $include_dot = true, $shorter_extensions
     if (empty($this->main_photo)) {
       if ($this->page["Title"] == "") $this->openpage ("Title");
       preg_match("/\<div class=\"poster\">(.*?)<a href(.*?)\>(.*?)<img(.*?)src\=\"(.*?)\"/ms",$this->page["Title"],$match);
-      if (empty($match[3])) return FALSE;
+      if (empty($match[5])) return FALSE;
 	  //die(print_r($match));
       $this->main_photo = $match[5];
     }
@@ -1087,19 +1087,20 @@ function get_image_extension($filename, $include_dot = true, $shorter_extensions
     if (empty($this->trailers) ) {
       if ( $this->page["Trailers"] == "" ) $this->openpage("Trailers");
       if ( $this->page["Trailers"] == "cannot open page" ) return array(); // no such page
-      $tag_s = strpos($this->page["Trailers"], '<div class="video-gallery">');
+      $tag_s = strpos($this->page["Trailers"], '<div class="results-item slate">');
       if (!empty($tag_s)) { // trailers on the IMDB site itself
-        $tag_e = strpos($this->page["Trailers"],"</a>\n</div",$tag_s);
+        $tag_e = strpos($this->page["Trailers"],"</a>            </span",$tag_s);
         $trail = substr($this->page["Trailers"], $tag_s, $tag_e - $tag_s +1);
-        if (preg_match_all("/<a href=\"(\/rg\/VIDEO_TITLE.*?)\">/",$trail,$matches))
+        if (preg_match_all("/<a href=\"(.*?)\"/",$trail,$matches))
           for ($i=0;$i<count($matches[0]);++$i) $this->trailers[] = "http://".$this->imdbsite.$matches[1][$i];
+		//die(print_r($this->trailers));
       }
       $tag_s = strpos($this->page["Trailers"], "<h3>Trailers on Other Sites</h3>");
       if (empty($tag_s)) return FALSE;
       $tag_e = strpos($this->page["Trailers"], "<h3>Related Links</h3>", $tag_s);
       $trail = substr($this->page["Trailers"], $tag_s, $tag_e - $tag_s);
       if (preg_match_all("/<a href=\"(.*?)\">/",$trail,$matches))
-        $this->trailers = array_merge($this->trailers,$matches[1]);
+        $this->trailers = array_merge($this->trailers,$matches[0]);
     }
     return $this->trailers;
   }
