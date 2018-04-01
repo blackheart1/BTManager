@@ -23,6 +23,7 @@
 ** 2018-03-27 - Amended !defined('IN_PMBT')
 ** 2018-03-27 - Amended the Wording of some Sentences
 ** 2018-03-28 - Amended !defined('IN_PMBT') Corrected Path
+** 2018-04-01 - Added Permition Descriptions
 **/
 
 if (!defined('IN_PMBT'))
@@ -116,6 +117,46 @@ $lang = array_merge($lang, array(
         'a_prune'                    => 'Group Can Alter and Edit the User Pruning System',
         'a_aauth'                    => 'Group Can Alter the Administrator Permission Class',
         'a_uauth'                    => 'Group Can Alter the User Permission Class',
+		#ADDON FOR 3.0.1
+		'u_can_add_magnet_links'	 => 'Groups are allowed to upload/add Magnet and eD2k links',
+		'm_view_whois'				 =>	'Group is able to view the Whois IP check',
+		'u_add_imgbbcode_details'	 => 'Group can use the BBcode tag img in Torrent Details',
+		'u_upload_notify'			 => 'Group can use Notify function in upload',
+		'u_flash_in_details'		 => 'Group can use Flash code in Torrent Details',
+		'u_add_quote_details'		 =>	'Group can use BBcode quot in Torrent Details',
+		'u_torrent_attach'			 => 'Group can use Attachment feature for torrents',
+		'u_advance_upload_setting'	 => 'Group can use Advanced features in upload \'add private\' \'add dht\'',
+		'u_update_peers'			 => 'Group can update Torrent peers for External Torrents',
+		'u_shout_upload'			 => 'Group can shout new Torrent uploads',
+		'm_see_hidden_uploader'		 => 'Group can see uploaders That have selected to Hid there upload',
+		'u_games'					 => 'Group can play games',
+		'u_add_sticky_upload'		 => 'Group can make new uploads Sticky',
+		'u_hide_torrent_owner'		 => 'Group can hide Torrent owner while uploading',
+		'm_requests'				 => 'Group can edit and delete Requests',
+		'm_offers'					 => 'Group can edit and delete Offers',
+		'u_delete_comments'			 => 'Group can delete there own comments',
+		'u_apply_ratiobuild'		 => 'Group can apply Ratio Build to torrent upload',
+		'u_add_smiles_to_details'	 => 'Group can add smile\'s to Torrent Details',
+		'u_add_screen_shots'		 => 'Group can add screen shots in torrent details',
+		'a_can_add_perm'			 => 'Group can add new permissions to the site',
+		'u_links_in_details'		 => 'Group can add link in Torrent Details',
+		'u_add_password_torrent'	 => 'Group can add a Password to a torrent',
+		'u_add_nfo'					 => 'Group can add a .nfo file to torrents details',
+		'u_add_bbcode_details'		 => 'Group can Use bbcodes in Torrent Details',
+		'u_requist_reseed'			 => 'Group can Requist Reseed on local Torrents',
+		'm_mod_helpdesk'			 => 'Group can Moderate the help desk witch includes Closing/Deleting Tickets.',
+		'm_casin_users'				 => 'Group can Moderate Casino players.',
+		'm_down_load_private_torrents'			=> 'Group can By pass Private setting on Torrents',
+		'u_add_poster'				 => 'Group can Add a poster in torrent details',
+		'u_search'					 => 'Group Can use the Search feature in the Forum',
+		'u_f_download'				 => 'Group Can download forum Attachments',
+		'm_delete_comments'			 => 'Group Can delete others Comments',
+		'm_warn'					 => 'Group Can Warn Users',
+		'u_can_view_snatchlist'		 => 'Group Can View the Snatch List of a torrent Or User',
+		'u_attach'					 => 'Group Can Use forum Attachment',
+		'm_over_ride_password'		 => 'Group Can See and down load PassWord protected Torrents.',
+		'a_admin'					 => 'Gives group access to Admin sections of the Admin Pannel',
+		'a_mod'						 => 'Gives Access to moderater functions in the admin pannel.',
     ),
 
     'ACP_GROUPS_PERMISSIONS' => 'Group Permissions',
