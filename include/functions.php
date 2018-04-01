@@ -3347,7 +3347,7 @@ function set_site_var($page_title = '')
 {
     global $db, $db_prefix, $announce_message, $donatein, $donateasked, $nodonate, $donations, $phpEx, 
 	$most_users_online_when, $most_users_online, $welcome_message, $version, $pivate_mode, $addprivate, 
-	$theme, $template, $user, $sitename, $siteurl, $torrent_per_page, $allow_change_email,$shout_config;
+	$theme, $template, $user, $sitename, $siteurl, $torrent_per_page, $allow_change_email,$shout_config,$auth;
 				$languages = Array();
 				$langdir = "language/common";
 				$langhandle = opendir($langdir);
@@ -3442,6 +3442,7 @@ function set_site_var($page_title = '')
 		'DONATION_PERC'    => $perc,
 		'S_MOST_USERS_ON'  => $most_users_online,
 		'S_MOST_USERS_WN'  => $most_users_online_when,
+		'U_SHOW_ARCADE'	   => $auth->acl_get('u_arcade_play_games')? true : false,
 		'U_USER'           => $user->user,
 		'U_PREMIUM'        => $user->premium,
 		'U_MODERATOR'      => $user->moderator,
