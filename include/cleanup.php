@@ -361,7 +361,7 @@ Obrigado **sitename** Administrador
 
 $userwarninactivetext['portuguese'] = "".$warntextpor1.$warntextpor2.$warntextpor3."";
 
-$sql = "SELECT id, email, inactwarning, lastlogin, language, ban FROM ".$db_prefix."_users WHERE id > 0 AND ban != 1 AND inactwarning != 1 AND lastlogin != '0000-00-00 00:00:00' AND (UNIX_TIMESTAMP(lastlogin) < UNIX_TIMESTAMP(NOW()) - ".$inactwarning_time.") ;";
+$sql = "SELECT id, email, inactwarning, lastlogin, language, ban FROM ".$db_prefix."_users WHERE id > 0 AND parked != 'false' AND disabled != 'true' AND ban != 1 AND inactwarning != 1 AND lastlogin != '0000-00-00 00:00:00' AND (UNIX_TIMESTAMP(lastlogin) < UNIX_TIMESTAMP(NOW()) - ".$inactwarning_time.") ;";
 $res = $db->sql_query($sql);
 while ($get_info = $db->sql_fetchrow($res))
 {
