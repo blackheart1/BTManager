@@ -354,7 +354,7 @@ if (isset($postback)) {
         if (preg_match('/^\/.*/', $sub_cookiepath)) { array_push($params,"cookiepath"); array_push($values,esc_magic($sub_cookiepath)); }
         array_push($params,"sourcedir"); array_push($values,$sub_sourcedir);
         if (is_email($sub_admin_email)) { array_push($params,"admin_email"); array_push($values,esc_magic($sub_admin_email)); }
-        if (file_exists("../language/".$sub_language.".php")) { array_push($params,"language"); array_push($values,$sub_language); }
+        if (file_exists("../language/common/".$sub_language.".php")) { array_push($params,"language"); array_push($values,$sub_language); }
         if (is_dir("../themes/".$sub_theme)) { array_push($params,"theme"); array_push($values,$sub_theme); }
         array_push($params,"welcome_message"); array_push($values,esc_magic($sub_welcome_message));
         array_push($params,"announce_text"); array_push($values,esc_magic($sub_announce_text));
