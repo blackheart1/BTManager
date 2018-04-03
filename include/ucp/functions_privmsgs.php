@@ -901,7 +901,7 @@ function clean_sentbox($num_sentbox_messages)
 }
 function submit_pm($mode, $subject, &$data, $put_in_outbox = true)
 {
-	global $db, $db_prefix, $config, $phpEx, $template, $user, $sitename,$siteurl, $attach_config;
+	global $db, $db_prefix, $config, $phpEx, $template, $user, $sitename,$siteurl;
 	// We do not handle erasing pms here
 	if ($mode == 'delete')
 	{
@@ -1164,7 +1164,7 @@ function submit_pm($mode, $subject, &$data, $put_in_outbox = true)
 			else
 			{
 				// insert attachment into db
-				if (!@file_exists('./' . $attach_config['upload_path'] . '/' . $orphan_rows[$attach_row['attach_id']]['physical_filename']))
+				if (!@file_exists('./' . $config['upload_path'] . '/' . $orphan_rows[$attach_row['attach_id']]['physical_filename']))
 				{
 					continue;
 				}

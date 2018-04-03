@@ -153,7 +153,7 @@ if (!defined('IN_PMBT'))
 		$topic_row = array('topic_status'=>$topic_status,'topic_type'=>$topic_type,'topic_posted'=>'','poll_start'=>$poll_start);
 		topic_status($topic_row, $topic_replies, false, $folder_img, $folder_alt, $topic_type);
 				$template->assign_block_vars('topicrow',array(
-				'PAGINATION'	=> generate_pagination('forums.php?action=viewtopic&t='.$forum_id,$posts_t,15,1,false),
+				'PAGINATION'	=> generate_pagination('forum.php?action=viewtopic&t='.$forum_id,$posts_t,15,1,false),
 				'PAGE_NUMBER'	=> $page,
 				'TOTAL_TOPICS'	=> ($posts_t == 1) ? $user->lang['VIEW_FORUM_TOPIC'] : sprintf($user->lang['VIEW_FORUM_TOPICS'], $posts_t),
 						'FORUM_ID'					=> $forum_id,
@@ -229,8 +229,8 @@ if (!defined('IN_PMBT'))
 							'LAST_POST_AUTHOR_FULL'		=> "<a href=\"".$siteurl."/user.php?op=profile&id=".$forumname['forum_last_poster_id']."\" style=\"color: ".$forumname['forum_last_poster_colour'].";\" class=\"username-coloured\">".$forumname['forum_last_poster_name']."</a>",
 							'U_LAST_POST_AUTHOR'		=> '',
 
-							'U_LAST_POST'			=> $siteurl."/forums.php?action=viewtopic&f=" . $forum_id . "&t=$topic_id&p=" . $forumname['forum_last_post_id '] . "#p" . $forumname['forum_last_post_id '],
-							'U_VIEWFORUM'			=> 'forums.php?action=viewforum&f=' . $forum_id . '&forumid='.$forum_id
+							'U_LAST_POST'			=> $siteurl."/forum.php?action=viewtopic&f=" . $forum_id . "&t=$topic_id&p=" . $forumname['forum_last_post_id '] . "#p" . $forumname['forum_last_post_id '],
+							'U_VIEWFORUM'			=> 'forum.php?action=viewforum&f=' . $forum_id . '&forumid='.$forum_id
 ));
 }
 }

@@ -31,7 +31,7 @@ $mode											= request_var('mode', '');
 $action											= request_var('action', '');
 $take_edit										= request_var('take_edit', '');
 $admin_mode = false;
-if($user->id == 0 OR ($user->id != $userrow["id"] && !checkaccess('u_can_view_profiles'))){
+if($user->id == 0 OR ($user->id != $userrow["id"] && !$auth->acl_get('a_user'))){
               set_site_var('- '.$user->lang['USER_CPANNEL'].' - '.$user->lang['BT_ERROR']);
                                 $template->assign_vars(array(
 								        'S_ERROR'			=> true,
@@ -43,7 +43,7 @@ if($user->id == 0 OR ($user->id != $userrow["id"] && !checkaccess('u_can_view_pr
 							close_out();
 }
 if (isset($id)) {
-		if($user->id != $id && (!checkaccess('m_edit_user')) && (is_founder(getlevel_name($id)) && !is_founder($user->group))){
+		if($user->id != $id && (!$auth->acl_get('a_user')) && (is_founder($id) && !$user->user_type==3)){
               set_site_var('- '.$user->lang['USER_CPANNEL'].' - '.$user->lang['BT_ERROR']);
 			  meta_refresh('5',$siteurl."/index.php");
                                 $template->assign_vars(array(
@@ -59,9 +59,9 @@ if (isset($id)) {
     }
 }
 else $uid = $user->id;
-			if(checkaccess('m_edit_user'))
+			if($auth->acl_get('a_user'))
 			{
-			    if(is_founder(getlevel_name($id)) && !is_founder($user->group)) $admin_mode = false;
+			    if(is_founder($id) && !$user->user_type==3) $admin_mode = false;
 				else
 				$admin_mode = true;
 			

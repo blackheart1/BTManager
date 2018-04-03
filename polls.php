@@ -105,7 +105,7 @@ $returnto					= strip_tags(request_var('returnto', ''));
     $os = array(); // votes and options: array(array(123, "Option 1"), array(45, "Option 2"))
     // Count votes
     while ($pollanswer = $db->sql_fetchrow($pollanswers))
-      $vs[$pollanswer[0]] += 1;
+      $vs[$pollanswer['selection']] += 1;
     reset($o);
     for ($i = 0; $i < count($o); ++$i)
       if ($o[$i])
@@ -125,6 +125,7 @@ $returnto					= strip_tags(request_var('returnto', ''));
 		$poll_out[$key[$i] . '_ANSWERS'] = $p;
       ++$i;
     }
+	//die(print_r($poll_out));
 	$template->assign_block_vars('poll_out',$poll_out);
   }//POLLS_VIEW
 				$template->assign_vars(array(

@@ -27,8 +27,8 @@ if (!defined('IN_PMBT'))
 //else
 error_reporting(E_ALL);
 if (isset($autoscrape)) {
-include_once("include/bdecoder.php");
-include_once("include/torrent_functions.php");
+	include_once("include/bdecoder.php");
+	include_once("include/torrent_functions.php");
 }
 /*Auto Prommote system By joeroberts
 To Use call to function in clean up You Must use a new call for each level you want to Promote
@@ -73,35 +73,36 @@ $new_level New Level for user
 $old_level Level From sich to demote from
 )
 */
-function autodemote($ratio, $new_level, $old_level){
-	   global $db, $db_prefix;
+function autodemote($ratio, $new_level, $old_level)
+{
+	global $db, $db_prefix;
 	$res1 ="SELECT id FROM ".$db_prefix."_users WHERE  can_do = '".$old_level."' AND active = 1 AND uploaded / downloaded < $ratio AND warned = '0'" ;
-$res =$db->sql_query($res1)or btsqlerror($res1);
+	$res =$db->sql_query($res1)or btsqlerror($res1);
 	$prouser = array();
-       while ($arr = $db->sql_fetchrow($res))
-       {
+	while ($arr = $db->sql_fetchrow($res))
+	{
 		$prouser[] = $arr['id'];
-}
-$db->sql_freeresult($res);
-if(count($prouser) > 0)
-  $db->sql_query("UPDATE ".$db_prefix."_users SET  can_do ='".$new_level."' WHERE id IN ( '".implode("','",$prouser)."')") or btsqlerror("UPDATE ".$db_prefix."_users SET  can_do ='".$level."' WHERE id IN ( '".implode("','",$prouser)."')"); 
+	}
+	$db->sql_freeresult($res);
+	if(count($prouser) > 0)
+	$db->sql_query("UPDATE ".$db_prefix."_users SET  can_do ='".$new_level."' WHERE id IN ( '".implode("','",$prouser)."')") or btsqlerror("UPDATE ".$db_prefix."_users SET  can_do ='".$level."' WHERE id IN ( '".implode("','",$prouser)."')"); 
 }
 function autoinvites($length, $minlimit, $maxlimit, $minratio, $invites)
 {
-	   global $db, $db_prefix;
+	global $db, $db_prefix;
 	$minlimit = 1024*1024*1024*$minlimit;
 	$maxlimit = 1024*1024*1024*$maxlimit;
 	$res = $db->sql_query("SELECT id, invites FROM ".$db_prefix."_users WHERE  active = 1 AND downloaded >= $minlimit AND downloaded < $maxlimit AND uploaded / downloaded >= $minratio AND warned = '0' AND invites < 10 AND UNIX_TIMESTAMP(invitedate) < UNIX_TIMESTAMP(NOW()) - $length*86400") ;
 	if ($db->sql_numrows($res) > 0)
+	{
+		while ($arr = $db->sql_fetchrow($res))
 		{
-			while ($arr = $db->sql_fetchrow($res))
-			{
-				if ($arr['invites'] == 9)
-				$invites = 1;
-				elseif ($arr['invites'] == 8 && $invites == 3)
-				$invites = 2;
-				$db->sql_query("UPDATE ".$db_prefix."_users SET invites = invites + ".$invites.", invitedate = NOW() WHERE id='".$arr['id']."'") ; 
-			}
+			if ($arr['invites'] == 9)
+			$invites = 1;
+			elseif ($arr['invites'] == 8 && $invites == 3)
+			$invites = 2;
+			$db->sql_query("UPDATE ".$db_prefix."_users SET invites = invites + ".$invites.", invitedate = NOW() WHERE id='".$arr['id']."'") ; 
+		}
 	}
 }
 function cleanup() {
@@ -361,7 +362,7 @@ Obrigado **sitename** Administrador
 
 $userwarninactivetext['portuguese'] = "".$warntextpor1.$warntextpor2.$warntextpor3."";
 
-$sql = "SELECT id, email, inactwarning, lastlogin, language, ban FROM ".$db_prefix."_users WHERE id > 0 AND parked != 'false' AND disabled != 'true' AND ban != 1 AND inactwarning != 1 AND lastlogin != '0000-00-00 00:00:00' AND (UNIX_TIMESTAMP(lastlogin) < UNIX_TIMESTAMP(NOW()) - ".$inactwarning_time.") ;";
+$sql = "SELECT id, email, inactwarning, lastlogin, language, ban FROM ".$db_prefix."_users WHERE id > 0 AND parked != 'false' AND disabled != 'true' AND user_type != 3 AND ban != 1 AND inactwarning != 1 AND lastlogin != '0000-00-00 00:00:00' AND (UNIX_TIMESTAMP(lastlogin) < UNIX_TIMESTAMP(NOW()) - ".$inactwarning_time.") ;";
 $res = $db->sql_query($sql);
 while ($get_info = $db->sql_fetchrow($res))
 {

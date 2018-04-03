@@ -74,8 +74,8 @@ if (!defined('IN_PMBT'))
 		if($row['draft_type'] == 'topic'){
 		$tittle = get_topic_title($row['topic_id']);
 		$link_topic = true;
-		$insert_url = 'forums.php?action=viewtopic&topicid=' . $row['topic_id'] . '&d='.$row['draft_id'] . '#bottom';
-		$view_url = 'forums.php?action=viewtopic&topicid=' . $row['topic_id'];
+		$insert_url = 'forum.php?action=viewtopic&topicid=' . $row['topic_id'] . '&d='.$row['draft_id'] . '#bottom';
+		$view_url = 'forum.php?action=viewtopic&topicid=' . $row['topic_id'];
 		}
 		if($row['draft_type'] == 'forum'){
 		$link_forum = true;

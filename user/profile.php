@@ -37,7 +37,7 @@ if (!isset($p1) OR !is_numeric($p1) OR $p1 < 1) $p1 = 1;
 if (!isset($p2) OR !is_numeric($p2) OR $p2 < 1) $p2 = 1;
 if (!isset($p3) OR !is_numeric($p3) OR $p3 < 1) $p3 = 1;
 if (!isset($p4) OR !is_numeric($p4) OR $p4 < 1) $p4 = 1;
-if (!$user->premium) $passwhere = " AND T.password IS NULL ";
+if (!checkaccess('m_over_ride_password')) $passwhere = " AND T.password IS NULL ";
 else $passwhere = "";
 if (isset($id) AND $id != 0 AND is_numeric($id)) {
         $sql_profile = "SELECT count(F.post_id)AS forumposts,
@@ -109,7 +109,7 @@ if ($db->sql_numrows($res) == 1)
   $country = $arr['name'];
   $flag = $arr['flagpic'];
 }
-if($user->id == 0 OR ($user->id != $userrow["id"] && !checkaccess('u_can_view_profiles'))){
+if($user->id == 0 OR ($user->id != $userrow["id"] && !$auth->acl_get('u_viewprofile'))){
               set_site_var('- '.$user->lang['USER_CPANNEL'].' - '.$user->lang['BT_ERROR']);
                                 $template->assign_vars(array(
 								        'S_ERROR'			=> true,
@@ -233,6 +233,7 @@ $online = ((time() - $userrow['lststamp']) < 600 ?  'on' : 'off');
 	{
 		$email = '';
 	}
+	$user_owner = (!is_founder($id)? true : ($user->user_type==3)? true : false);
 $l_active_pct = ($user->user && $userrow["id"] == $user->id) ? '%.2f%% of your posts' : '%.2f%% of user\'s posts';
 $active_t_pct = ($userrow["forumposts"]) ? ($most_in['posts'] / $userrow["forumposts"]) * 100 : 0;
 $active_f_pct = ($userrow["forumposts"]) ? ($most_in_f['posts'] / $userrow["forumposts"]) * 100 : 0;
@@ -253,7 +254,7 @@ $template->assign_vars(array(
         'CP_ULEVEL'             => $ulevel,
 		'UPERMSET'              => (isset($_COOKIE["bttestperm"])) ? 'return_perm' : 'switch_perm',
         'CP_UCAN_DO'            => $userrow["can_do"],
-		'CP_WARN_USE'			=>	checkaccess('m_warn'),
+		'CP_WARN_USE'			=>	$auth->acl_get('m_warn'),
         'CP_UGROUP'             => getlevel($userrow["can_do"]),
         'CP_UREGDATE'           => formatTimeStamp($userrow["regdate"]),
         'CP_ULASTSEEN'          => formatTimeStamp($userrow["lastlogin"]),
@@ -280,8 +281,8 @@ $template->assign_vars(array(
 		'U_EMAIL'		        => $email,
 		'T_THANKS'		        => $thanks['thanks'],
 		'T_COMMENTS'	        => $tcoments['tcoments'],
-		'U_IP'                  =>  (checkaccess('a_see_ip'))? '<a href="javascript:popUp(\'whois.php?ip='.$userrow['lastip'].'\')">'.long2ip($userrow['lastip']).'</a>' : '',
-		'U_IP_HOST'             =>  (checkaccess('a_see_ip'))? $userrow['lasthost'] : '',
+		'U_IP'                  =>  ($auth->acl_get('m_info'))? '<a href="javascript:popUp(\'whois.php?ip='.$userrow['lastip'].'\')">'.long2ip($userrow['lastip']).'</a>' : '',
+		'U_IP_HOST'             =>  ($auth->acl_get('m_info'))? $userrow['lasthost'] : '',
 		'U_PM'				    => (!$db->sql_numrows($resublack)) ? pic("pm_write.png","pm.php?op=send&to=".$userrow["id"],$user->lang['NEW_PM']) : '',
 		'U_ICQ'				    => (!empty($userrow["icq"])) ? pic("button_icq.gif","http://www.icq.com/whitepages/wwp.php?to=".$userrow["icq"]) : '',
 		'U_AIM'				    => (!empty($userrow["aim"])) ? pic("button_aim.gif","aim:goim?screenname=".$userrow["aim"]).$userrow["aim"] : '',
@@ -291,8 +292,8 @@ $template->assign_vars(array(
 		'U_SKYPE'			    => (!empty($userrow["skype"])) ? pic("button_yahoo.gif","http://edit.yahoo.com/config/send_webmesg?.target=".$userrow["yahoo"]) : '',
 		'AGE'				    => ($age = (int) substr($userrow['birthday'], -4)) ? ($now['year'] - $age) : '',
 		'RANK_IMG'              => '<img src="themes/' . $theme . '/pics/group/' . $userrow["can_do"] . '.png" title="' . $userrow["can_do"] . '" alt="' . $userrow["can_do"] . '">',
-		'U_BAN_USER'            => (checkaccess('m_banusers'))? (($userrow["ban"] == '0') ? '<a href="admin.php?op=addban&amp;u=' . $userrow["id"] . '">' . $user->lang['UCP_BAN_USER'] .  '</a>' : '<a href="admin.php?op=delban&amp;uid=' . $userrow["id"] . '">' . $user->lang['UCP_UNBAN_USER'] .  '</a>') :'',
-		'U_BAN_SHOUTS'          => (checkaccess('m_bann_shouts'))? (($userrow["can_shout"] == 'true') ? '<a href="user.php?op=banchat&amp;id=' . $userrow["id"] . '">' . $user->lang['UCP_SHOUT_BAN'] . '</a>' : '<a href="user.php?op=unbanchat&amp;id=' . $userrow["id"] . '">' . $user->lang['UCP_UNSHOUT_BAN'] . '</a>') : '',
+		'U_BAN_USER'            => ($user_owner AND $auth->acl_get('a_ban'))? (($userrow["ban"] == '0') ? '<a href="admin.php?op=addban&amp;u=' . $userrow["id"] . '">' . $user->lang['UCP_BAN_USER'] .  '</a>' : '<a href="admin.php?op=delban&amp;uid=' . $userrow["id"] . '">' . $user->lang['UCP_UNBAN_USER'] .  '</a>') :'',
+		'U_BAN_SHOUTS'          => ($user_owner AND checkaccess('m_bann_shouts'))? (($userrow["can_shout"] == 'true') ? '<a href="user.php?op=banchat&amp;id=' . $userrow["id"] . '">' . $user->lang['UCP_SHOUT_BAN'] . '</a>' : '<a href="user.php?op=unbanchat&amp;id=' . $userrow["id"] . '">' . $user->lang['UCP_UNSHOUT_BAN'] . '</a>') : '',
 		));
 $template->assign_vars(array(
         'S_GENTIME'            => abs(round(microtime()-$startpagetime,2)),

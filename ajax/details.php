@@ -35,7 +35,7 @@
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License 
 *
 */
-if (!defined('IN_PMBT')) die ("You can't access this file directly");
+if (!defined('IN_PMBT'))require_once($_SERVER['DOCUMENT_ROOT']."/security.php");
 $user->set_lang('details',$user->ulanguage);
 if($op == 'close_view_details')
 	{
@@ -555,8 +555,8 @@ if($op == 'view_coments_page')
 					$bbcode->bbcode_second_pass($comment_txt, $comment['bbcode_uid'], $comment['bbcode_bitfield']);
 				}
 				// Parse the message and subject
-				$comment_txt = bbcode_nl2br($comment_txt);
-				$comment_txt = parse_smiles($comment_txt);
+				//$comment_txt = bbcode_nl2br($comment_txt);
+				//$comment_txt = parse_smiles($comment_txt);
 				$can_edit = checkaccess("u_edit_own_comments");
 				if(checkaccess("m_edit_comments")) $can_edit = true;
 				$can_del = checkaccess("u_delete_comments");
@@ -1007,7 +1007,9 @@ if($op == 'get_imdb')
                 $movie = new imdb ($thenumbers);
 				$release = $movie->release_date();
 				$mpaa  =  $movie->mpaa();
+				$movie->trailers();
 				$trailers = $movie->trailers();
+				//die($movie->trailers);
 				$tags = $movie->taglines ();
 				$director = $movie->director();
                 $cast = $movie->cast();

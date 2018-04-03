@@ -25,7 +25,7 @@ if (!defined('IN_PMBT'))
 }
 include_once'include/function_posting.php';
 $user->set_lang('ucp',$user->ulanguage);
-		if((!checkaccess('m_edit_user')) OR (is_founder(getlevel_name($id)) && !is_founder($user->group))){
+		if((!checkaccess('m_edit_user')) OR (is_founder($id) && !$user->user_type==3)){
               set_site_var('- '.$user->lang['USER_CPANNEL'].' - '.$user->lang['BT_ERROR']);
 			  meta_refresh('5',$siteurl."/index.php");
                                 $template->assign_vars(array(

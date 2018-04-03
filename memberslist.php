@@ -1201,15 +1201,15 @@ switch ($mode)
 
 			switch ($group_row['group_type'])
 			{
-				case GROUP_OPEN:
+				case '0':
 					$group_row['l_group_type'] = 'OPEN';
 				break;
 
-				case GROUP_CLOSED:
+				case '1':
 					$group_row['l_group_type'] = 'CLOSED';
 				break;
 
-				case GROUP_HIDDEN:
+				case '2':
 					$group_row['l_group_type'] = 'HIDDEN';
 
 					// Check for membership or special permissions
@@ -1219,11 +1219,11 @@ switch ($mode)
 					}
 				break;
 
-				case GROUP_SPECIAL:
+				case '3':
 					$group_row['l_group_type'] = 'SPECIAL';
 				break;
 
-				case GROUP_FREE:
+				case '4':
 					$group_row['l_group_type'] = 'FREE';
 				break;
 			}
@@ -1686,7 +1686,7 @@ function show_profile($data, $user_notes_enabled = false, $warn_user_enabled = f
 		$online = false;
 	}
 
-	if ($data['user_allow_viewonline'] || $auth->acl_get('u_viewonline'))
+	if ($data['Show_online'] || $auth->acl_get('u_viewonline'))
 	{
 		$last_visit = (!empty($data['session_time'])) ? $data['session_time'] : $data['lastlogin'];
 	}
@@ -1694,16 +1694,17 @@ function show_profile($data, $user_notes_enabled = false, $warn_user_enabled = f
 	{
 		$last_visit = '';
 	}
+	
 
 	$age = '';
 
-	if ($config['allow_birthdays'] && $data['user_birthday'])
+	if ($config['allow_birthdays'] && $data['birthday'])
 	{
-		list($bday_day, $bday_month, $bday_year) = array_map('intval', explode('-', $data['user_birthday']));
+		list($bday_day, $bday_month, $bday_year) = array_map('intval', explode('-', $data['birthday']));
 
 		if ($bday_year)
 		{
-			$now = phpbb_gmgetdate(time() + $user->timezone + $user->dst);
+			$now = btm_gmgetdate(time() + $user->timezone + $user->dst);
 
 			$diff = $now['mon'] - $bday_month;
 			if ($diff == 0)
@@ -1824,6 +1825,18 @@ function _sort_last_active($first, $second)
 		}
 	}
 
+	function btm_gmgetdate($time = false)
+	{
+		if ($time === false)
+		{
+			$time = time();
+		}
+	
+		// getdate() interprets timestamps in local time.
+		// What follows uses the fact that getdate() and
+		// date('Z') balance each other out.
+		return getdate($time - date('Z'));
+	}
 	function display_user_activity(&$userdata)
 	{
 		global $auth, $template, $db, $user, $db_prefix;

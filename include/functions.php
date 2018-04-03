@@ -963,15 +963,15 @@ function getlevel_name($userid){
 		    return $row['can_do'];
 			}
 }
-function is_founder($can_do)//group_founder_manage
+function is_founder($id)//group_founder_manage
 {
         global $db, $db_prefix, $user;
-			$sql = "SELECT group_founder_manage FROM ".$db_prefix."_level_settings WHERE `group_id` = " . $can_do . ";";
+			$sql = "SELECT user_type FROM ".$db_prefix."_users WHERE `id` = " . $id . ";";
 			$res = $db->sql_query($sql);
             if ($db->sql_numrows($res) == 0) return false;
 			else{
 			$row = $db->sql_fetchrow($res);
-		    return ($row['group_founder_manage'] == 1)? true : false;
+		    return ($row['user_type'] == 3)? true : false;
 			}
 }
 function getlevel($can_do = 0){
@@ -1098,7 +1098,7 @@ function checkaccess($access){
         $db->sql_freeresult($res);
         if (!$n) return false;
 		}
-		if(is_founder($user->group))return true;
+		if($user->user_type==3)return true;
 		//echo $row[$access];
 			if($row[$access] == "true")return true;
 			else

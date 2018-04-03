@@ -529,6 +529,7 @@ class User {
 								$this->data['signature'] = $row['signature'];
 								$this->data['sig_bbcode_bitfield'] = $row['sig_bbcode_bitfield'];
 								$this->data['sig_bbcode_uid'] = $row['sig_bbcode_uid'];
+								$this->data['clean_username'] = $row['clean_username'];
 								$this->lastpost = $row['user_lastpost_time'];
 								$this->posts = $row['user_posts'];
 								$this->optionset('viewimg', 1);
@@ -614,6 +615,7 @@ class User {
 								$this->data['sig_bbcode_bitfield'] = $row['sig_bbcode_bitfield'];
 								$this->data['sig_bbcode_uid'] = $row['sig_bbcode_uid'];
 								$this->data['user_dateformat'] = $row['user_dateformat'];
+								$this->data['clean_username'] = $row['clean_username'];
 								$this->lastpost = $row['user_lastpost_time'];
 								$this->posts = $row['user_posts'];
 								$this->optionset('viewimg', 1);

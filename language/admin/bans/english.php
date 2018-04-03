@@ -58,6 +58,8 @@ $lang = array_merge($lang, array(
     'NO_USER_BANS'     => 'There are NO Banned Users',
     'NO_IP_BANS'       => 'There are NO Banned IP\'s',
     'YEAR_MONTH_DAY'   => '(YYYY-MM-DD)',
+	#Addon for 3.0.1
+	'NO_BAN_FOUNDER'	=>	'This User is a Founder and Can Not Be Banned!',
 ));
 
 ?>

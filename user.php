@@ -75,7 +75,7 @@ switch ($op) {
         }
         case "banchat": 
 		{
-				if(!checkaccess("m_bann_shouts") OR (is_founder(getlevel_name($id)) AND !$user->user_type==3)){
+				if(!checkaccess("m_bann_shouts") OR (is_founder($id) AND !$user->user_type==3)){
 					bterror('NO_AUTHBAN_SHOUTS','ACCESS_DENIED');
 					break;
 				}
@@ -106,7 +106,7 @@ switch ($op) {
         }
         case "unbanchat": 
 		{
-				if(!checkaccess("m_bann_shouts") OR (is_founder(getlevel_name($id)) AND !$user->user_type==3)){
+				if(!checkaccess("m_bann_shouts") OR (is_founder($id) AND !$user->user_type==3)){
 					bterror('NO_AUTHBAN_SHOUTS','ACCESS_DENIED');
 				break;
 				}
@@ -268,7 +268,7 @@ switch ($op) {
                 if (isset($id)) 
 				{
                         //if (!$user->admin) loginrequired("admin");
-						if (!checkaccess('m_del_users') OR (is_founder(getlevel_name($id)) AND !$user->user_type==3)) {
+						if (!checkaccess('m_del_users') OR (is_founder($id) AND !$user->user_type==3)) {
 							bterror("INV_LEVEL_TO_EDIT");
 						}
                         else $uid = $id;
@@ -281,7 +281,7 @@ switch ($op) {
                 } 
 				else 
 					$uid = $user->id;
-				if(is_founder($can_do) && !$user->user_type==3)
+				if(is_founder($uid) && !$user->user_type==3)
 				{
 					bterror("INV_LEVEL_TO_EDIT");
 					break;

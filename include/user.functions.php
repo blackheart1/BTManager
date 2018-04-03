@@ -1699,12 +1699,12 @@ function user_ban($mode, $ban, $ban_len, $ban_len_other, $ban_exclude, $ban_reas
 		$ban_end = 0;
 	}
 
-	$founder = $founder_names = array();
+	$founder = $founder_names = $founder_ip = array();
 
 	if (!$ban_exclude)
 	{
 		// Create a list of founder...
-		$sql = 'SELECT id AS user_id, email AS user_email, clean_username AS username_clean
+		$sql = 'SELECT id AS user_id, email AS user_email, clean_username AS username_clean, lastip
 			FROM ' . $db_prefix . '_users
 			WHERE user_type = 3';
 		$result = $db->sql_query($sql);
@@ -1713,6 +1713,7 @@ function user_ban($mode, $ban, $ban_len, $ban_len_other, $ban_exclude, $ban_reas
 		{
 			$founder[$row['user_id']] = $row['user_email'];
 			$founder_names[$row['user_id']] = $row['username_clean'];
+			$founder_ip[$row['user_id']] = long2ip($row['lastip']);
 		}
 		$db->sql_freeresult($result);
 	}
@@ -1735,7 +1736,7 @@ function user_ban($mode, $ban, $ban_len, $ban_len_other, $ban_exclude, $ban_reas
 				if ($username != '')
 				{
 					$clean_name = utf8_clean_string($username);
-					if ($clean_name == $user->data['username_clean'])
+					if ($clean_name == $user->data['clean_username'])
 					{
 						trigger_error('CANNOT_BAN_YOURSELF', E_USER_WARNING);
 					}
@@ -1787,6 +1788,18 @@ function user_ban($mode, $ban, $ban_len, $ban_len_other, $ban_exclude, $ban_reas
 
 		case 'ip':
 			$type = 'ban_ip';
+			#founder and self check
+			foreach ($ban_list as $ip)
+			{
+					if ($ip == getip())
+					{
+						trigger_error('CANNOT_BAN_YOURSELF', E_USER_WARNING);
+					}
+					if (in_array($ip, $founder_ip))
+					{
+						trigger_error('CANNOT_BAN_FOUNDER', E_USER_WARNING);
+					}
+			}
 
 			foreach ($ban_list as $ban_item)
 			{
@@ -1925,6 +1938,7 @@ function user_ban($mode, $ban, $ban_len, $ban_len_other, $ban_exclude, $ban_reas
 		FROM " . $db_prefix . "_bans
 		WHERE $sql_where
 			AND ban_exclude = " . (int) $ban_exclude;
+			#die($sql);
 	$result = $db->sql_query($sql);
 
 	// Reset $sql_where, because we use it later...
@@ -2032,7 +2046,7 @@ function user_ban($mode, $ban, $ban_len, $ban_len_other, $ban_exclude, $ban_reas
 
 		// Add to moderator and admin log
 		add_log('admin', $log_entry . strtoupper($mode), $ban_reason, $ban_list_log);
-		add_log('mod', 0, 0, $log_entry . strtoupper($mode), $ban_reason, $ban_list_log);
+		//add_log('mod', 0, 0, $log_entry . strtoupper($mode), $ban_reason, $ban_list_log);
 		return true;
 	}
 	return false;
