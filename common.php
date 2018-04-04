@@ -49,6 +49,8 @@ echo "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">
 }
 if (!preg_match("/cron.php/",$_SERVER['PHP_SELF']))
 {
+	$auth = new auth();
+	$auth->acl($user);
 	if($pivate_mode AND !$user->user AND !newuserpage($_SERVER["PHP_SELF"]))
 	{
 		//die($_SERVER["PHP_SELF"]);
@@ -78,8 +80,6 @@ if (!preg_match("/cron.php/",$_SERVER['PHP_SELF']))
 				echo $template->fetch('message_body.html');
 				close_out();
 	}
-	$auth = new auth();
-	$auth->acl($user);
 	if($user->user  && !preg_match("/httperror.php/",$_SERVER['PHP_SELF'])  && !preg_match("/file.php/",$_SERVER['PHP_SELF']) && !preg_match("/ajax.php/",$_SERVER['PHP_SELF']))
 	{
 		$ip = getip();
