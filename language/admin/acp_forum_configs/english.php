@@ -34,7 +34,7 @@ if (!defined('IN_PMBT'))
 
 if (empty($lang) || !is_array($lang))
 {
-	$lang = array();
+    $lang = array();
 }
 
 $lang = array_merge($lang, array(

@@ -26,36 +26,37 @@
 
 if (!defined('IN_PMBT'))
 {
-	include_once './../../../security.php';
+    include_once './../../../security.php';
     die ("Error 404 - Page Not Found");
 }
 
 if (empty($lang) || !is_array($lang))
 {
-	$lang = array();
+    $lang = array();
 }
 
 $lang = array_merge($lang, array(
-	'ACP_PERMISSIONS_EXPLAIN' => '<p>Permissions are Grouped into Four Major Sections:</p>
+    'ACP_PERMISSIONS_EXPLAIN' => '<p>Permissions are Grouped into Four Major Sections:</p>
 
     <h2>Global Permissions</h2>
-    <p>These are used to control access on a Global Level and apply to the entire site. They are further divided into Users\' Permissions, Groups Permissions, Global Moderators and Administrators.</p>
+    <p>These are used to Control Access on a Global Level and Apply to the Entire Site.  They are further divided into Users\' Permissions, Groups Permissions, Global Moderators and Administrators.</p>
 
     <h2>Forum Based Permissions</h2>
-    <p>These are used to control access on a per Forum basis. They are further divided into Forum Permissions, Forum Moderators, Users Forum Permissions and Groups Forum Permissions.</p>
+    <p>These are used to Control Access on a per Forum Basis.  They are further divided into Forum Permissions, Forum Moderators, Users Forum Permissions and Groups Forum Permissions.</p>
 
     <h2>Permission Roles</h2>
-    <p>These are used to Create different Sets of Permissions for the different Permission Types, later being able to be assigned on a Role Based basis. The Default Roles should cover the Administration of Sites of any size.  Within each of the Four Divisions, you can Add/Edit/Delete Roles as you see fit.</p>
+    <p>These are used to Create different Sets of Permissions for the different Permission Types, later being able to be Assigned on a Role Based Basis.  The Default Roles should cover the Administration of Sites of any size.  Within each of the Four Divisions, you can Add/Edit/Delete Roles as you see fit.</p>
 
     <h2>Permission Masks</h2>
-    <p>These are used to View the Effective Permissions Assigned to Users, Moderators (Local and Global), Administrators or Forums.</p>
-
-    <br />
+    <p>These are used to View the Effective Permissions Assigned to Users, Moderators (Local and Global), Administrators or Forums.</p><br />
 
     <p>For further Information on Setting Up and Managing Permissions on your phpBB3 Board, please see <a href="http://www.phpbb.com/support/documentation/3.0/quickstart/quick_permissions.html">Chapter 1.5 of our Quick Start Guide</a>.</p>
-	',
+    ',
 
     'ACL_NEVER'          => 'Never',
+    'FORUMS'             => 'Forums',
+    'SELECT_ANONYMOUS'   => 'Select Anonymous User',
+    'FIND_USERNAME'      => 'Find a Member',
     'ACL_SET'            => 'Setting Permissions',
 
     'ACL_SET_EXPLAIN'    => 'Permissions are based on a Simple YES/NO System. Setting an Option to NEVER for a User or Usergroup Overrides any other Value Assigned to it. If you DO NOT wish to Assign a Value for an Option for this User or Group Select NO.  If Values are Assigned to this Option elsewhere they will be Used in Preference, else NEVER is assumed.  ALL Objects Marked (with the checkbox in front of them) will Copy the Permission Set you Defined.',
@@ -74,8 +75,8 @@ $lang = array_merge($lang, array(
     'ACL_TYPE_LOCAL_F_'  => 'Forum Permissions',
 
     'ACL_NO'             => 'No',
-    'ACL_VIEW'           => 'Viewing Permissions',
     'ACL_YES'            => 'Yes',
+    'ACL_VIEW'           => 'Viewing Permissions',
 
     'ACL_VIEW_EXPLAIN' => 'Here you can see the Effective Permissions that the User/Group has.  A Green Square Indicates that the User/Group DOES have the Permission.  A Pink Square Indicates that the User/Group DOES NOT have the Permission.  A Red Square Indicates that the User/Group NEVER has Permission.',
 
@@ -85,15 +86,21 @@ $lang = array_merge($lang, array(
 
     'ACP_FORUM_PERMISSIONS_EXPLAIN' => 'Here you can Assign which Users or Groups can Access which Forums.  To Assign Moderators or Define Administrators, please use the appropriate page.<br /><br />',
 
-    'ACP_GLOBAL_MODERATORS_EXPLAIN' => 'Here you can Assign Global Moderator Permissions to Users or Groups.  These Moderators are like ordinary Moderators except they have Access to Every Forum on your Board.',
+    'ACP_FORUM_PERMISSIONS_COPY_EXPLAIN'   => 'Here you can Copy Forum Permissions from one Forum to one or more other Forums.',
 
-    'ACP_ADMIN_ROLES_EXPLAIN'       => 'Here you can Manage the Roles for Administrator Permissions.  Roles are Effective Permissions.  Any Users that are Assigned to this Role will have their Permissions Changed.',
+    'ACP_GLOBAL_MODERATORS_EXPLAIN'        => 'Here you can Assign Global Moderator Permissions to Users or Groups.  These Moderators are like ordinary Moderators except they have Access to Every Forum on your Board.',
 
-    'ACP_FORUM_ROLES_EXPLAIN'       => 'Here you can Manage the Roles for Forum Permissions.  Roles are Effective Permissions.  Any Users that are Assigned to this Role will have their Permissions Changed.',
+    'ACP_GROUPS_FORUM_PERMISSIONS_EXPLAIN' => 'Here you can Assign Forum Permissions to Groups.',
 
-    'ACP_MOD_ROLES_EXPLAIN'         => 'Here you can Manage the Roles for Moderator Permissions.  Roles are Effective Permissions.  Any Users that are Assigned to this Role will have their Permissions Changed.',
+    'ACP_GROUPS_PERMISSIONS_EXPLAIN'       => 'Here you can Assign Global Permissions to Groups - User Permissions, Global Moderator Permissions and Administrator Permissions. <ul><li>User Permissions include the ability to use Avatars, Send Private Messages etc. <li>Global Moderator Permissions include the ability to Approve Posts, Manage Topics, Manage Bans etc.<li>Administrator Permissions include the ability to Alter Permissions, Define Custom BBCodes, Manage Forums etc.</ul>Individual User Permissions should ONLY be changed in rare occasions, the preferred method is putting Users in Groups and assigning the Groups Permissions.',
 
-    'ACP_USER_ROLES_EXPLAIN'        => 'Here you can Manage the Roles for User Permissions.  Roles are Effective Permissions.  Any Users that are Assigned to this Role will have their Permissions Changed.',
+    'ACP_ADMIN_ROLES_EXPLAIN' => 'Here you can Manage the Roles for Administrator Permissions.  Roles are Effective Permissions.  Any Users that are Assigned to this Role will have their Permissions Changed.',
+
+    'ACP_FORUM_ROLES_EXPLAIN' => 'Here you can Manage the Roles for Forum Permissions.  Roles are Effective Permissions.  Any Users that are Assigned to this Role will have their Permissions Changed.',
+
+    'ACP_MOD_ROLES_EXPLAIN'   => 'Here you can Manage the Roles for Moderator Permissions.  Roles are Effective Permissions.  Any Users that are Assigned to this Role will have their Permissions Changed.',
+
+    'ACP_USER_ROLES_EXPLAIN'  => 'Here you can Manage the Roles for User Permissions.  Roles are Effective Permissions.  Any Users that are Assigned to this Role will have their Permissions Changed.',
 
     'ACP_USERS_FORUM_PERMISSIONS'          => 'Users Forum Permissions',
     'ACP_GROUPS_FORUM_PERMISSIONS'         => 'Groups Forum Permissions',
@@ -135,9 +142,16 @@ $lang = array_merge($lang, array(
     'APPLY_ALL_PERMISSIONS' => 'Apply ALL Permissions',
     'APPLY_PERMISSIONS'     => 'Apply Permissions',
 
-    'APPLY_PERMISSIONS_EXPLAIN' => 'The Permissions and Roles Defined for this Item will Only be Applied to this I tem and ALL Checked Items.',
+    'APPLY_PERMISSIONS_EXPLAIN' => 'The Permissions and Roles Defined for this Item will Only be Applied to this Item and ALL Checked Items.',
 
     'AUTH_UPDATED'        => 'Permissions have been Updated.',
+
+    'Copy_permissions_confirm'            => 'Are you sure you wish to carry out this Operation?  Please be aware that this will Overwrite any Existing Permissions on the Selected Targets.',
+
+    'COPY_PERMISSIONS_FORUM_FROM_EXPLAIN' => 'The Source Forum you want to Copy Permissions from.',
+    'COPY_PERMISSIONS_FORUM_TO_EXPLAIN'   => 'The Destination Forums you want the Copied Permissions Applied to.',
+    'COPY_PERMISSIONS_FROM'               => 'Copy Permissions from',
+    'COPY_PERMISSIONS_TO'                 => 'Apply Permissions to',
 
     'CREATE_ROLE'         => 'Create a Role',
     'CREATE_ROLE_FROM'    => 'Use Settings from?',
@@ -176,6 +190,7 @@ $lang = array_merge($lang, array(
     'PERMISSION_APPLIED_TO_ALL' => 'Permissions and Roles will also be Applied to ALL Checked Objects',
     'PLUS_SUBFORUMS'            => '+Subforums',
 
+    'USERNAMES_EXPLAIN'        => 'Place each Username on a Separate Line.',
     'REMOVE_PERMISSIONS'       => 'Remove Permissions',
     'REMOVE_ROLE'              => 'Remove Role',
     'RESULTING_PERMISSION'     => 'Resulting Permission',
@@ -184,7 +199,6 @@ $lang = array_merge($lang, array(
     'ROLE_ASSIGNED_TO'         => 'Users/Groups Assigned to %s',
     'ROLE_DELETED'             => 'Role Successfully Removed.',
     'ROLE_DESCRIPTION'         => 'Role Description',
-
     'ROLE_ADMIN_FORUM'         => 'Forum Administrator',
     'ROLE_ADMIN_FULL'          => 'Full Administrator',
     'ROLE_ADMIN_STANDARD'      => 'Standard Administrator',
@@ -198,6 +212,7 @@ $lang = array_merge($lang, array(
     'ROLE_FORUM_POLLS'         => 'Standard Access + Polls',
     'ROLE_FORUM_READONLY'      => 'Read Only Access',
     'ROLE_FORUM_STANDARD'      => 'Standard Access',
+    'ROLE_FORUM_NEW_MEMBER'    => 'Newly Registered User',
     'ROLE_MOD_FULL'            => 'Full Moderator',
     'ROLE_MOD_QUEUE'           => 'Queue Moderator',
     'ROLE_MOD_SIMPLE'          => 'Simple Moderator',
@@ -207,9 +222,10 @@ $lang = array_merge($lang, array(
     'ROLE_USER_NOAVATAR'       => 'NO Avatar',
     'ROLE_USER_NOPM'           => 'NO Private Messages',
     'ROLE_USER_STANDARD'       => 'Standard Features',
+    'ROLE_USER_NEW_MEMBER'     => 'Newly Registered User',
 
     'ROLE_DESCRIPTION_ADMIN_FORUM'     => 'Can Access the Forum Management and Forum Permission Settings.',
-    'ROLE_DESCRIPTION_ADMIN_FULL'      => 'Has Access to ALL Administrator Functions of this Board.<br />NOT Recommended.',
+    'ROLE_DESCRIPTION_ADMIN_FULL'      => 'Has Access to ALL Administrator Features of this Board.<br />NOT Recommended.',
 
     'ROLE_DESCRIPTION_ADMIN_STANDARD'  => 'Has Access to Most Administrator Features but, is NOT Allowed to use Server or System Related Tools.',
 
@@ -223,26 +239,33 @@ $lang = array_merge($lang, array(
     'ROLE_DESCRIPTION_FORUM_LIMITED_POLLS' => 'As per Limited Access but can also Create Polls.',
     'ROLE_DESCRIPTION_FORUM_NOACCESS'      => 'Can NOT View or Access the Forum.',
 
-    'ROLE_DESCRIPTION_FORUM_ONQUEUE'  => 'Can use most Forum Features Including Attachments, but Posts and Topics need to be Approved by a Moderator.',
+    'ROLE_DESCRIPTION_FORUM_ONQUEUE'    => 'Can use most Forum Features Including Attachments, but Posts and Topics need to be Approved by a Moderator.',
 
-    'ROLE_DESCRIPTION_FORUM_POLLS'    => 'Like Standard Access but can also Create Polls.',
-    'ROLE_DESCRIPTION_FORUM_READONLY' => 'Can Read the Forum, but can NOT Create New Topics or Reply to Posts.',
+    'ROLE_DESCRIPTION_FORUM_POLLS'      => 'Like Standard Access but can also Create Polls.',
+    'ROLE_DESCRIPTION_FORUM_READONLY'   => 'Can Read the Forum, but can NOT Create New Topics or Reply to Posts.',
 
-    'ROLE_DESCRIPTION_FORUM_STANDARD' => 'Can use most Forum Features Including Attachments and Delete their Own Topics, but can NOT Lock their Own Topics, and can NOT Create Polls.',
+    'ROLE_DESCRIPTION_FORUM_STANDARD'   => 'Can use most Forum Features Including Attachments and Delete their Own Topics, but can NOT Lock their Own Topics, and can NOT Create Polls.',
 
-    'ROLE_DESCRIPTION_MOD_FULL'       => 'Can use ALL Moderating Features, Including Banning.',
-    'ROLE_DESCRIPTION_MOD_QUEUE'      => 'Can use the Moderation Queue to Validate and Edit Posts, but nothing else.',
-    'ROLE_DESCRIPTION_MOD_SIMPLE'     => 'Can Only use Basic Topic Actions but, can NOT Send Warnings or Use the Moderation Queue.',
-    'ROLE_DESCRIPTION_MOD_STANDARD'   => 'Can use most Moderating Tools, but can NOT Ban Users or Change the Post Author.',
+    'ROLE_DESCRIPTION_FORUM_NEW_MEMBER' => 'A Role for Members of the Special Newly Registered Users Group; contains NEVER Permissions to Lock Features for New Users.',
 
-    'ROLE_DESCRIPTION_USER_FULL'      => 'Can use ALL Available Forum Features for Users, Including Changing the User Name and Ignore The Flood Limit.<br />NOT Recommended.',
+    'ROLE_DESCRIPTION_MOD_FULL'        => 'Can use ALL Moderating Features, Including Banning.',
+    'ROLE_DESCRIPTION_MOD_QUEUE'       => 'Can use the Moderation Queue to Validate and Edit Posts, but nothing else.',
 
-    'ROLE_DESCRIPTION_USER_LIMITED'   => 'Can Access some of the User Features but, NOT Attachments, emails or Instant Messages.',
-    'ROLE_DESCRIPTION_USER_NOAVATAR'  => 'Has a Limited Feature Set, but is NOT Allowed to use the Avatar Feature.',
-    'ROLE_DESCRIPTION_USER_NOPM'      => 'Has a Limited Feature Set, but is NOT Allowed to use Private Messages.',
-    'ROLE_DESCRIPTION_USER_STANDARD'  => 'Can Access most of the User Features but can NOT Change User Name or Ignore the Flood Limit.',
+    'ROLE_DESCRIPTION_MOD_SIMPLE'      => 'Can Only use Basic Topic Actions but, can NOT Send Warnings or Use the Moderation Queue.',
 
-    'ROLE_DESCRIPTION_EXPLAIN'        => 'You are able to Enter a Short Explanation of what the Role is doing or for what it is meant for.  The Text you Enter here will be Displayed within the Permissions Screens.',
+    'ROLE_DESCRIPTION_MOD_STANDARD'    => 'Can use most Moderating Tools, but can NOT Ban Users or Change the Post Author.',
+
+    'ROLE_DESCRIPTION_USER_FULL'       => 'Can use ALL Available Forum Features for Users, Including Changing the User Name and Ignore The Flood Limit.<br />NOT Recommended.',
+
+    'ROLE_DESCRIPTION_USER_LIMITED'    => 'Can Access some of the User Features but, NOT Attachments, emails or Instant Messages.',
+    'ROLE_DESCRIPTION_USER_NOAVATAR'   => 'Has a Limited Feature Set, but is NOT Allowed to use the Avatar Feature.',
+    'ROLE_DESCRIPTION_USER_NOPM'       => 'Has a Limited Feature Set, but is NOT Allowed to use Private Messages.',
+
+    'ROLE_DESCRIPTION_USER_STANDARD'   => 'Can Access most of the User Features but can NOT Change User Name or Ignore the Flood Limit.',
+
+    'ROLE_DESCRIPTION_USER_NEW_MEMBER' => 'A Role for Members of the Special Newly Registered Users Group; contains NEVER Permissions to Lock Function for New Users.',
+
+    'ROLE_DESCRIPTION_EXPLAIN'         => 'You are able to Enter a Short Explanation of what the Role is doing or for what it is meant for.  The Text you Enter here will be Displayed within the Permissions Screens.',
 
     'ROLE_DESCRIPTION_LONG'   => 'The Role Description is Too Long.  Limit is 4000 Characters.',
     'ROLE_DETAILS'            => 'Role Details',
@@ -263,10 +286,10 @@ $lang = array_merge($lang, array(
     'SET_USERS_FORUM_PERMISSIONS'   => 'Set User Forum Permissions',
 
     'LOOK_UP_FORUM'          => 'Select a Forum',
-    'ALL_FORUMS'             =>	'ALL Forums',
+    'ALL_FORUMS'             => 'ALL Forums',
     'LOOK_UP_FORUMS_EXPLAIN' => 'You are able to Select More than One Forum.',
 
-    'TRACE_DEFAULT'        => 'By Default Every Permission is <strong>NO</strong> (Unset). The Permission can be Overwritten by Other Settings.',
+    'TRACE_DEFAULT'        => 'By Default Every Permission is <strong>NO</strong> (Unset).  The Permission can be Overwritten by Other Settings.',
 
     'TRACE_FOR'            => 'Trace for',
     'TRACE_GLOBAL_SETTING' => '%s (Global)',
@@ -284,6 +307,7 @@ $lang = array_merge($lang, array(
     'TRACE_GROUP_NEVER_TOTAL_YES_LOCAL'   => 'The Groups Permission for this Forum is Set to <strong>NEVER</strong> which Overwrites the Total <strong>YES</strong> to a <strong>NEVER</strong> for this User.',
 
     'TRACE_GROUP_NO'              => 'The Permission is <strong>NO</strong> for this Group so the Old Total Value is Kept.',
+
     'TRACE_GROUP_NO_LOCAL'        => 'The Permission is <strong>NO</strong> for this Group within this Forum so the Old Total Value is Kept.',
 
     'TRACE_GROUP_YES_TOTAL_NEVER' => 'The Groups Permission is Set to <strong>YES</strong> but the Total <strong>NEVER</strong> can NOT be Overwritten.',
@@ -354,11 +378,12 @@ $lang = array_merge($lang, array(
     'VIEW_PERMISSIONS'                => 'View Permissions',
 
     'WRONG_PERMISSION_TYPE'           => 'Wrong Permission Type Selected.',
+
     'WRONG_PERMISSION_SETTING_FORMAT' => 'The Permission Settings are in the Wrong Format, phpBB is NOT able to process them correctly.',
 ));
 
 $lang = array_merge($lang, array(
-	'permission_cat' => array(
+    'permission_cat' => array(
         'actions'       => 'Actions',
         'content'       => 'Content',
         'forums'        => 'Forums',
@@ -375,10 +400,10 @@ $lang = array_merge($lang, array(
         'user_group'    => 'Users and Groups',
         'trac'          => 'Tracker',
         'arcade'        => 'Arcade',
-	),
+    ),
 
-	// With Defining 'Global' Here we are Able to Specify what is Printed Out, if the Permission is within the Global Scope.
-	'permission_type' => array(
+    // With Defining 'Global' Here we are Able to Specify what is Printed Out, if the Permission is within the Global Scope.
+    'permission_type' => array(
         'u_' => 'User Permissions',
         'a_' => 'Administrator Permissions',
         'm_' => 'Moderator Permissions',
@@ -386,7 +411,7 @@ $lang = array_merge($lang, array(
             'global' => array(
                 'm_'     => 'Global Moderator Permissions',
         ),
-	),
+    ),
 ));
 
 // User Permissions

@@ -13,16 +13,16 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File main/english.php 2018-03-29 11:12:00 Thor
+** File main/english.php 2018-04-01 08:30:00 Thor
 **
 ** CHANGES
 **
 ** 2018-02-24 - Added New Masthead
 ** 2018-02-24 - Added New !defined('IN_PMBT')
 ** 2018-02-24 - Fixed Spelling
-** 2018-03-29 - Amended the Wording of some Sentences
-** 2018-03-29 - Amended !defined('IN_PMBT') Corrected Path
-** 2018-03-29 - Removed define Language & Changed to Correct Format & Amended templates/admin/main.html
+** 2018-04-01 - Amended the Wording of some Sentences
+** 2018-04-01 - Amended !defined('IN_PMBT') Corrected Path
+** 2018-04-01 - Removed define Language & Changed to Correct Format & Amended templates/admin/main.html
 **/
 
 if (!defined('IN_PMBT'))
@@ -74,31 +74,31 @@ $lang = array_merge($lang, array(
     '_RESET_ONLINE'              => 'Reset Most Users Ever Online',
     '_RESET_DATE'                => 'Reset Site\'s Start Date',
 
-    'SETTING_TOO_LOW'            => 'The Provided Value for the Setting \'%1$s\' is too Low. The Minimum Acceptable Value is %2$d.',
+    'SETTING_TOO_LOW'            => 'The Provided Value for the Setting \'%1$s\' is too Low.  The Minimum Acceptable Value is %2$d.',
 
-    'SETTING_TOO_BIG'            => 'The Provided Value for the Setting \'%1$s\' is too High. The Maximum Acceptable Value is %2$d.',
+    'SETTING_TOO_BIG'            => 'The Provided Value for the Setting \'%1$s\' is too High.  The Maximum Acceptable Value is %2$d.',
 
-    'SETTING_TOO_LONG'           => 'The Provided Value for the Setting \'%1$s\' is too Long. The Maximum Acceptable Length is %2$d.',
+    'SETTING_TOO_LONG'           => 'The Provided Value for the Setting \'%1$s\' is too Long.  The Maximum Acceptable Length is %2$d.',
 
-    'SETTING_TOO_SHORT'          => 'The Provided Value for the Setting \'%1$s\' is too Short. The Minimum Acceptable Length is %2$d.',
+    'SETTING_TOO_SHORT'          => 'The Provided Value for the Setting \'%1$s\' is too Short.  The Minimum Acceptable Length is %2$d.',
 
-    '_RESYNC_STATS'              => 'Resynchronise Statistic',
+    '_RESYNC_STATS'              => 'Resynchronise Statistics',
     '_RESYNC_STATS_EXPLAIN'      => 'Resynchronise the Site\'s Statistics',
     '_PURGE_CACHE'               => 'Purge the Cache',
     '_PURGE_CACHE_CONFIRM'       => 'Are you sure you wish to Purge the Cache?',
     '_PURGE_CACHE_EXPLAIN'       => 'Purge ALL Cache Related Items, this includes any Cached Template Files or Queries.',
     '_ADMIN_LOG'                 => 'Logged Administrator Actions',
 
-    '_ADMIN_LOG_INDEX_EXPLAIN'   => 'This gives an Overview of the Last Five Actions carried out by Board Administrators.  A Full Copy of the Log can be Viewed from the appropriate Menu Item or following the Link below.',
+    '_ADMIN_LOG_INDEX_EXPLAIN'   => 'This gives an Overview of the Last Five Actions carried out by Board Administrators.  A Full Copy of the Log can be Viewed from the appropriate Menu Item or Following the Link below.',
 
     '_RESYNC_STATS'              => 'Resynchronise Statistics',
     '_RESYNC_STATS_CONFIRM'      => 'Are you sure you wish to Resynchronise Statistics?',
     '_RESYNC_STATS_EXPLAIN'      => 'Recalculates the Total Number of Posts, Topics, Users and Files.',
 
-    'WRITABLE_CONFIG'            => 'Your Configuration File (config.php) is currently Globally Writeable. We strongly encourage you to Change the Permissions to 640 or at least to 644 (for example: <a href=\'http://en.wikipedia.org/wiki/Chmod\' rel=\'external\'>chmod</a> 640 config.php).',
+    'WRITABLE_CONFIG'            => 'Your Configuration File (config.php) is currently Globally Writeable.  We strongly encourage you to Change the Permissions to 640 or at least to 644 (for example: <a href=\'http://en.wikipedia.org/wiki/Chmod\' rel=\'external\'>chmod</a> 640 config.php).',
 
     '_VERSIONCHECK_FAIL'         => 'Failed to Obtain Latest Version Information.',
-    '_VERSIONCHECK_FORCE_UPDATE' => 'Re Check Version',
+    '_VERSIONCHECK_FORCE_UPDATE' => 'Re-Check Version',
     '_VIEW_ADMIN_LOG'            => 'View Administrator Log',
     '_VIEW_INACTIVE_USERS'       => 'View Inactive Users',
     'FORUMS'                     => 'Forums',
@@ -122,21 +122,21 @@ $lang = array_merge($lang, array(
     'LOG_ACL_ADD_ADMIN_GLOBAL_A_'  => '<strong>Added or Edited Administrators</strong><br /> %s',
     'LOG_ACL_ADD_MOD_GLOBAL_M_'    => '<strong>Added or Edited Global Moderators</strong><br /> %s',
 
-    'LOG_ACL_ADD_USER_LOCAL_F_'    => '<strong>Added or Edited User\'s Forum Access</strong> from %1$s<br /> %2$s',
-    'LOG_ACL_ADD_USER_LOCAL_M_'    => '<strong>Added or Edited User\'s Forum Moderator Access</strong> from %1$s<br /> %2$s',
-    'LOG_ACL_ADD_GROUP_LOCAL_F_'   => '<strong>Added or Edited Group\'s Forum Access</strong> from %1$s<br /> %2$s',
-    'LOG_ACL_ADD_GROUP_LOCAL_M_'   => '<strong>Added or Edited Group\'s Forum Moderator Access</strong> from %1$s<br /> %2$s',
+    'LOG_ACL_ADD_USER_LOCAL_F_'    => '<strong>Added or Edited User\'s Forum Access</strong> from %1$s to %2$s',
+    'LOG_ACL_ADD_USER_LOCAL_M_'    => '<strong>Added or Edited User\'s Forum Moderator Access</strong> from %1$s to %2$s',
+    'LOG_ACL_ADD_GROUP_LOCAL_F_'   => '<strong>Added or Edited Group\'s Forum Access</strong> from %1$s to %2$s',
+    'LOG_ACL_ADD_GROUP_LOCAL_M_'   => '<strong>Added or Edited Group\'s Forum Moderator Access</strong> from %1$s to %2$s',
 
-    'LOG_ACL_ADD_MOD_LOCAL_M_'     => '<strong>Added or Edited Moderators</strong> from %1$s<br /> %2$s',
-    'LOG_ACL_ADD_FORUM_LOCAL_F_'   => '<strong>Added or Edited Forum Permissions</strong> from %1$s<br /> %2$s',
+    'LOG_ACL_ADD_MOD_LOCAL_M_'     => '<strong>Added or Edited Moderators</strong> from %1$s to %2$s',
+    'LOG_ACL_ADD_FORUM_LOCAL_F_'   => '<strong>Added or Edited Forum Permissions</strong> from %1$s to %2$s',
 
     'LOG_ACL_DEL_ADMIN_GLOBAL_A_'  => '<strong>Removed Administrators</strong><br /> %s',
     'LOG_ACL_DEL_MOD_GLOBAL_M_'    => '<strong>Removed Global Moderators</strong><br /> %s',
-    'LOG_ACL_DEL_MOD_LOCAL_M_'     => '<strong>Removed Moderators</strong> from %1$s<br /> %2$s',
-    'LOG_ACL_DEL_FORUM_LOCAL_F_'   => '<strong>Removed User/Group Forum Permissions</strong> from %1$s<br /> %2$s',
+    'LOG_ACL_DEL_MOD_LOCAL_M_'     => '<strong>Removed Moderators</strong> from %1$s to %2$s',
+    'LOG_ACL_DEL_FORUM_LOCAL_F_'   => '<strong>Removed User/Group Forum Permissions</strong> from %1$s to %2$s',
 
-    'LOG_ACL_TRANSFER_PERMISSIONS' => '<strong>Permissions Transferred from</strong><br /> %s',
-    'LOG_ACL_RESTORE_PERMISSIONS'  => '<strong>Own Permissions Restored after using Permissions from</strong><br /> %s',
+    'LOG_ACL_TRANSFER_PERMISSIONS' => '<strong>Permissions Transferred from</strong> to %s',
+    'LOG_ACL_RESTORE_PERMISSIONS'  => '<strong>Own Permissions Restored after using Permissions from</strong> to %s',
 
     'LOG_ADMIN_AUTH_FAIL'          => '<strong>Failed Administration Login Attempt</strong>',
     'LOG_ADMIN_AUTH_SUCCESS'       => '<strong>Successful Administration Login</strong>',
@@ -301,14 +301,14 @@ $lang = array_merge($lang, array(
     'LOG_LANGUAGE_FILE_SUBMITTED'  => '<strong>Submitted Language File and Placed in Store Folder</strong><br /> %s',
 
     'LOG_MASS_EMAIL'        => '<strong>Sent Mass email</strong><br /> %s',
-    'LOG_MASS_PM'           => '<strong>Sent Mass email</strong><br /> %s',
+    'LOG_MASS_PM'           => '<strong>Sent Mass PM</strong><br /> %s',
 
     'LOG_MCP_CHANGE_POSTER' => '<strong>Changed Poster in Topic \'%1$s\'</strong><br /> from %2$s to %3$s',
 
     'LOG_MODULE_DISABLE'    => '<strong>Module Disabled</strong><br /> %s',
     'LOG_MODULE_ENABLE'     => '<strong>Module Enabled</strong><br /> %s',
-    'LOG_MODULE_MOVE_DOWN'  => '<strong>Module Moved Down</strong><br /> %1$s Below %2$s',
-    'LOG_MODULE_MOVE_UP'    => '<strong>Module Moved Up</strong><br /> %1$s Above %2$s',
+    'LOG_MODULE_MOVE_DOWN'  => '<strong>Module Moved Down</strong><br /> %1$s below %2$s',
+    'LOG_MODULE_MOVE_UP'    => '<strong>Module Moved Up</strong><br /> %1$s above %2$s',
     'LOG_MODULE_REMOVED'    => '<strong>Module Removed</strong><br /> %s',
     'LOG_MODULE_ADD'        => '<strong>Module Added</strong><br /> %s',
     'LOG_MODULE_EDIT'       => '<strong>Module Edited</strong><br /> %s',
@@ -350,7 +350,7 @@ $lang = array_merge($lang, array(
     'LOG_REASON_REMOVED'       => '<strong>Removed Report/Denial Reason</strong><br /> %s',
     'LOG_REASON_UPDATED'       => '<strong>Updated Report/Denial Reason</strong><br /> %s',
 
-    'LOG_REFERER_INVALID'      => '<strong>Referrer Validation Failed</strong><br />Referrer was <em>%1$s</em>. The Request was Rejected and the Session Killed.',
+    'LOG_REFERER_INVALID'      => '<strong>Referrer Validation Failed</strong><br />Referrer was <em>%1$s</em>.  The Request was Rejected and the Session Killed.',
 
     'LOG_RESET_DATE'           => '<strong>Board Start Date Reset</strong>',
     'LOG_RESET_ONLINE'         => '<strong>Most Users Online Reset</strong>',
@@ -367,7 +367,9 @@ $lang = array_merge($lang, array(
 
     'LOG_TEMPLATE_ADD_DB'         => '<strong>Added New Template Set to the Database</strong><br /> %s',
     'LOG_TEMPLATE_ADD_FS'         => '<strong>Add New Template Set on Filesystem</strong><br /> %s',
+
     'LOG_TEMPLATE_CACHE_CLEARED'  => '<strong>Deleted Cached Versions of Template Files in Template Set <em>%1$s</em></strong><br /> %2$s',
+
     'LOG_TEMPLATE_DELETE'         => '<strong>Deleted Template Set</strong><br /> %s',
     'LOG_TEMPLATE_EDIT'           => '<strong>Edited Template Set <em>%1$s</em></strong><br /> %2$s',
     'LOG_TEMPLATE_EDIT_DETAILS'   => '<strong>Edited Template Details</strong><br /> %s',
@@ -446,7 +448,7 @@ $lang = array_merge($lang, array(
     'MENU_AVATAR'           => 'Avatar Settings',
     'MENU_LOGS'             => 'Site Logs',
     'MENU_PAYPAL'           => 'PayPal Settings',
-    'MENU_BANS'             => 'Banned Users &amp; Settings',
+    'MENU_BANS'             => 'Banned Users and Settings',
     'MENU_BBCODES'          => 'BBCodes',
     'MENU_BONOUS'           => 'Bonus Settings',
     'MENU_CATS'             => 'Torrent Categories',

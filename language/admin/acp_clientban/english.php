@@ -33,7 +33,7 @@ if (!defined('IN_PMBT'))
 
 if (empty($lang) || !is_array($lang))
 {
-	$lang = array();
+    $lang = array();
 }
 
 $lang = array_merge($lang, array(
@@ -41,22 +41,22 @@ $lang = array_merge($lang, array(
 
     'INTRO_EXP' => 'This is where you can Ban Torrent Clients!<br />You can either Ban the Whole Client or One Version of a Client <br />To Add a Client you will need the <strong>pier_id</strong> Information from the Client.<br />Example &micro;Torrent 1.8.1 you would Add UT1810.<br />The Reason for the Ban will be Shown in the Client so you will want to keep this Short.',
 
-	'REASON'				=> 'Reason',
-	'CLIENT'				=> 'Client',
-	'NO_CLIENT_BANS'		=> 'No Banned Client\'s At This Time',
-	'BANNED_CLIENTS'		=> 'Current Banned Client\'s',
-	'BANNED_CLIENTS_EXP'	=> 'Here is a List of the Currently Banned Client\'s and the Reason Why!',
-	'BANNED_CLIENT'			=> 'Add/Edit Banned Client\'s',
-	'BANNED_CLIENT_EXP'		=> 'Here you can Add/Edit Banned Client\'s and the Reason Why!',
-	'CANCEL_MOD'			=> 'Cancel Modifications',
-	'NO_REASON'				=> 'No Reason given for the Ban',
-	'SUCES_BAN'				=> 'Client Successfully Banned',
-	'SUCES_BAN_EXP'			=> 'The Client %1$s was Successfully Banned with the following Reason:- %2$s',
-	'SUCES_DEL'				=> 'Client Successfully Removed',
-	'SUCES_DEL_EXP'			=> 'The Client was Successfully Removed from the Banned List ',
-	'SUCES_EDT'				=> 'Client Successfully Edited',
-	'SUCES_EDT_EXP'			=> 'The Client %1$s was Successfully Updated with the following Reason:- %2$s',
-	'CONFIRM_OPERATION'		=> 'Are you sure you wish to Remove this Client from the Ban List?',
+    'REASON'                => 'Reason',
+    'CLIENT'                => 'Client',
+    'NO_CLIENT_BANS'        => 'No Banned Client\'s At This Time',
+    'BANNED_CLIENTS'        => 'Current Banned Client\'s',
+    'BANNED_CLIENTS_EXP'    => 'Here is a List of the Currently Banned Client\'s and the Reason Why!',
+    'BANNED_CLIENT'         => 'Add/Edit Banned Client\'s',
+    'BANNED_CLIENT_EXP'     => 'Here you can Add/Edit Banned Client\'s and the Reason Why!',
+    'CANCEL_MOD'            => 'Cancel Modifications',
+    'NO_REASON'             => 'No Reason given for the Ban',
+    'SUCES_BAN'             => 'Client Successfully Banned',
+    'SUCES_BAN_EXP'         => 'The Client %1$s was Successfully Banned with the following Reason:- %2$s',
+    'SUCES_DEL'             => 'Client Successfully Removed',
+    'SUCES_DEL_EXP'         => 'The Client was Successfully Removed from the Banned List ',
+    'SUCES_EDT'             => 'Client Successfully Edited',
+    'SUCES_EDT_EXP'         => 'The Client %1$s was Successfully Updated with the following Reason:- %2$s',
+    'CONFIRM_OPERATION'     => 'Are you sure you wish to Remove this Client from the Ban List?',
  ));
 
 ?>

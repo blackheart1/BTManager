@@ -117,6 +117,7 @@ $lang = array_merge($lang, array(
     'MOVE_POSTS_EXPLAIN'          => 'Please Select the Forum to which you wish to Move ALL the Posts this User has made.',
 
     'NO_SPECIAL_RANK'             => 'NO Special Rank Assigned',
+
     'NOT_MANAGE_FOUNDER'          => 'You tried to Manage a User with Founder Status.  Only Founders are Allowed to Manage other Founders.',
 
     'QUICK_TOOLS'                 => 'Quick Tools',
@@ -149,7 +150,7 @@ $lang = array_merge($lang, array(
     'USER_ADMIN_MOVE_POSTS'       => 'Move ALL Posts',
     'USER_ADMIN_SIG_REMOVED'      => 'Successfully Removed the Signature from User Account.',
     'USER_ATTACHMENTS_REMOVED'    => 'Successfully Removed ALL the Attachments made by this User.',
-    'USER_AVATAR_UPDATED'         => 'Successfully Updated the User\'s Avatars Details.',
+    'USER_AVATAR_UPDATED'         => 'Successfully Updated the User\'s Avatar Details.',
     'USER_CUSTOM_PROFILE_FIELDS'  => 'Custom Profile Fields',
     'USER_DELETED'                => 'User Deleted Successfully.',
     'USER_GROUP_ADD'              => 'Add User to Group',

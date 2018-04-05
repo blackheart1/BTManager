@@ -33,7 +33,7 @@ if (!defined('IN_PMBT'))
 
 if (empty($lang) || !is_array($lang))
 {
-	$lang = array();
+    $lang = array();
 }
 
 $lang = array_merge($lang, array(
@@ -42,11 +42,11 @@ $lang = array_merge($lang, array(
     'GB_MB'     => array('GB'=>'GB','MB'=>'MB'),
 
     'AUTH_UPDATED'               => 'Settings were Successfully Changed',
-    'TITLE'                      =>	'Lottery Configuration',
-    'TITLE_EXPLAIN'              =>	'You can Configure the Lottery Settings Here',
-    'ERR_LOTTERY_OPEN'           =>	'Lottery Enabled',
+    'TITLE'                      => 'Lottery Configuration',
+    'TITLE_EXPLAIN'              => 'You can Configure the Lottery Settings Here',
+    'ERR_LOTTERY_OPEN'           => 'Lottery Enabled',
 
-    'ERR_LOTTERY_OPEN_EXP'       =>	'The Lottery is Currently Enabled, so this Configuration Page is Closed.<br /><br />Users Currently Playing in this Lottery, are:- <br /> %s',
+    'ERR_LOTTERY_OPEN_EXP'       => 'The Lottery is Currently Enabled, so this Configuration Page is Closed.<br /><br />Users Currently Playing in this Lottery, are:- <br /> %s',
 
     'TABLE_OPEN'                 => 'The Lottery',
 

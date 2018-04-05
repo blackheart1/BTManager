@@ -35,8 +35,8 @@ if (empty($lang) || !is_array($lang))
 }
 
 $lang = array_merge($lang, array(
-    'INTRO'      =>	'Torrent Monitoring System',
-    'INTRO_EXP'  =>	'This is where you can Monitor ALL Torrents that are Uploaded to the Site.  You can also Edit/Delete Torrents from here',
+    'INTRO'      => 'Torrent Monitoring System',
+    'INTRO_EXP'  => 'This is where you can Monitor ALL Torrents that are Uploaded to the Site.  You can also Edit/Delete Torrents from here',
  ));
 
 ?>

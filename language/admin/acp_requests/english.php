@@ -13,15 +13,15 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File acp_requests/english.php 2018-03-28 09:57:00 Thor
+** File acp_requests/english.php 2018-04-01 12:30:00 Thor
 **
 ** CHANGES
 **
 ** 2018-02-23 - Added New Masthead
 ** 2018-02-23 - Added New !defined('IN_PMBT')
 ** 2018-02-23 - Fixed Spelling
-** 2018-03-28 - Amended the Wording of some Sentences
-** 2018-03-28 - Amended !defined('IN_PMBT') Corrected Path
+** 2018-04-01 - Amended the Wording of some Sentences
+** 2018-04-01 - Amended !defined('IN_PMBT') Corrected Path
 **/
 
 if (!defined('IN_PMBT'))
@@ -40,12 +40,13 @@ $lang = array_merge($lang, array(
 
     'INTRO'                     => 'Requests Configuration',
     'INTRO_EXP'                 => 'Configure the Requests System',
+    'ERR_BAD_LEVEL'             => 'One or more of the Groups you Entered is NOT Valid.  Please Go Back and Try Again!',
+    'CONFIG_NOT_SET'            => 'A Error Occurred while Processing the New Settings.  Please Read Below!',
+
     '_admpenable'               => 'Enable Requests',
     '_admpenableexplain'        => 'Enable Requests System',
     '_admpclass_allowed'        => 'Access Level',
     '_admpclass_allowedexplain' => 'What Group is Allowed to Use the Requests System',
-    'ERR_BAD_LEVEL'             => 'One or more of the Groups you Entered is NOT Valid.  Please Go Back and Try Again!',
-    'CONFIG_NOT_SET'            => 'A Error Occurred while Processing the New Settings.  Please Read Below!',
  ));
 
 ?>

@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File bans/english.php 2018-03-29 09:22:00 Thor
+** File bans/english.php 2018-04-05 08:40:00 Thor
 **
 ** CHANGES
 **
@@ -22,6 +22,7 @@
 ** 2018-02-24 - Fixed Spelling
 ** 2018-03-29 - Amended the Wording of some Sentences
 ** 2018-03-29 - Amended !defined('IN_PMBT') Corrected Path
+** 2018-04-05 - Amended the Wording of some Sentences
 **/
 
 if (!defined('IN_PMBT'))
@@ -58,8 +59,9 @@ $lang = array_merge($lang, array(
     'NO_USER_BANS'     => 'There are NO Banned Users',
     'NO_IP_BANS'       => 'There are NO Banned IP\'s',
     'YEAR_MONTH_DAY'   => '(YYYY-MM-DD)',
-	#Addon for 3.0.1
-	'NO_BAN_FOUNDER'	=>	'This User is a Founder and Can Not Be Banned!',
+
+    #Addon for 3.0.1
+    'NO_BAN_FOUNDER'   => 'This User is a Founder and can NOT be Banned!',
 ));
 
 ?>

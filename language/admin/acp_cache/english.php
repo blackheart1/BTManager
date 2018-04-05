@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File acp_attachments/english.php 2018-03-28 00:49:00 Thor
+** File acp_cache/english.php 2018-03-28 00:49:00 Thor
 **
 ** CHANGES
 **
@@ -33,7 +33,7 @@ if (!defined('IN_PMBT'))
 
 if (empty($lang) || !is_array($lang))
 {
-	$lang = array();
+    $lang = array();
 }
 
 $lang = array_merge($lang, array(
