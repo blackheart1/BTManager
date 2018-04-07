@@ -335,7 +335,7 @@ class acp_bbcodes
 					$db->sql_query('INSERT INTO ' . $db_prefix . '_bbcodes' . $db->sql_build_array('INSERT', $sql_ary));
 
 					$lang = 'BBCODE_ADDED';
-					//$log_action = 'LOG_BBCODE_ADD';
+					$log_action = 'LOG_BBCODE_ADD';
 				}
 				else
 				{
@@ -348,6 +348,9 @@ class acp_bbcodes
 					$log_action = 'LOG_BBCODE_EDIT';
 				}
 
+					add_log('admin', $log_action, $data['bbcode_tag']);
+
+					trigger_error($user->lang[$lang] . adm_back_link($this->u_action));
 
 			break;
 

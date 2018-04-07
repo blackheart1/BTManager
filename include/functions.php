@@ -863,8 +863,8 @@ function add_log()
 	$forum_id		= ($mode == 'mod') ? intval(array_shift($args)) : '';
 	$topic_id		= ($mode == 'mod') ? intval(array_shift($args)) : '';
 	$action			= array_shift($args);
-	$data			= (!sizeof($args)) ? '' : serialize(array_shift($args));
-	//die($data);
+	$data			= (!sizeof($args)) ? '' : serialize($args);
+	//die(print_r($data));
 	return logerror(array($mode,$reportee_id,$forum_id,$topic_id,$action,$data));
 }
 function logerror($message, $error = '',$tid = 0) {

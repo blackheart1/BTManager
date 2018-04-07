@@ -93,13 +93,19 @@ switch ($op) {
                         $sql = "INSERT INTO ".$db_prefix."_bans (ipstart, ipend, reason) VALUES ('".$ipstart."', '".$ipend."', '".$reason_ip."');";
                         $db->sql_query($sql) or btsqlerror($sql);
                 } else { //Ban User
-                        $sql = "SELECT ban FROM ".$db_prefix."_users WHERE username = '".$db->sql_escape(utf8_strtolower($username))."' LIMIT 1;";
+                        $sql = "SELECT user_type, ban FROM ".$db_prefix."_users WHERE username = '".$db->sql_escape(utf8_strtolower($username))."' LIMIT 1;";
                         $res = $db->sql_query($sql);
                         if ($db->sql_numrows($res) < 1) {
                                 //echo $sql;
                                 bterror(_admbanusernoexist,_admban,false);
                                 break;
                         }
+						$banedit_user = $db->sql_fetchrow($res);
+						if($banedit_user['user_type'] == 3)
+						{
+							trigger_error($user->lang['NO_BAN_FOUNDER'] . back_link('admin.php?i=userinfo&op=bans#bans'), E_USER_WARNING);
+							die();
+						}
                         $db->sql_freeresult($res);
                         $sql = "UPDATE ".$db_prefix."_users SET ban = 1, banreason = '".strip_tags($db->sql_escape($reason_user))."' WHERE username = '".$db->sql_escape(utf8_strtolower($username))."';";
                         $db->sql_query($sql) or btsqlerror($sql);
@@ -119,7 +125,7 @@ switch ($op) {
 				}
                 if (isset($uid) AND is_numeric($uid))
 				{
-					if(is_founder(getlevel_name($uid)) && !is_founder($user->group))
+					if(is_founder($uid) && !$user->user_type==3)
 					{
 						bterror($user->lang['USER_NOT_EDIT_ABL_BYCLASS'],$user->lang['BT_ERROR'],true);
 					}

@@ -63,8 +63,10 @@ function RebuildSortIndex() {
 switch($do) {
 		case 'takenew':
 		{
-				$ct = $_FILES["catcon"];
+				$ct = request_var('catcon', '',true,false,true);//$_FILES["catcon"];
+				//die(print_r($ct));
                 $nfname = unesc($ct["name"]);
+				$errmsg = array();
                 if ($nfname != "") {
                         if (!is_filename($nfname)) $errmsg[] = $user->lang['INVALID_ICON'];
                         if (!preg_match('/^(.+)\.(gif|jpg|jpeg|png)$/si', $nfname)) $errmsg[] = $user->lang['INVALID_ICON'];
@@ -76,14 +78,16 @@ switch($do) {
                                 if ($width > 48 OR $height > 48) $errmsg[] = $user->lang['CAT_UPLOAD_TOBIG'];
 						
                 }
+				//die(print($nfname));
                 if (count($errmsg) > 0)
 				{
 					$err = "<ul>\n";
-					foreach ($error as $msg)
+					foreach ($errmsg as $msg)
 					{
 						$err .= "<li><p>".$msg."</p></li>\n";
 					}
 					$err .= "</ul>\n";
+					//die($err);
 					$template->assign_vars(array(
 								'S_MESSAGE'				=> true,
 								'S_USER_NOTICE'			=> false,

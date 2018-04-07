@@ -32,6 +32,7 @@ require_once("include/actions.php");
 require_once("admin/functions.php");
 include'include/auth.php';
 include_once("include/utf/utf_tools.php");
+include_once('include/user.functions.php');
 $user->set_lang('common',$user->ulanguage);
 $template = new Template();
 $admin_staff = array();
@@ -405,6 +406,20 @@ else
 		$sql = "SELECT event, action, results, ip, datetime, userid FROM `".$db_prefix."_log` ORDER BY datetime DESC LIMIT 0, 5 "; 
 		$res = $db->sql_query($sql);
         while ($errors = $db->sql_fetchrow($res)) {
+		$data = array();
+		$errors['ip_g'] = $errors["ip"];
+		$errors = array_merge($errors, build_user_array($errors['userid']));
+		$data = unserialize(stripslashes($errors['results']));
+				$s_data = (isset($user->lang[strtoupper($errors['action'])])) ? $user->lang[strtoupper($errors['action'])] : '{' . ucfirst(str_replace('_', ' ', $errors['action'])) . '}';
+				//echo substr_count($s_data, '%') . '<br>';
+				if ((substr_count($s_data, '%') - sizeof($data)) > 0)
+				{
+					$data = (!is_array($data))?array($data) : $data;
+					//print_r( $data);
+					$data = array_merge($data, array_fill(0, substr_count($s_data, '%') - sizeof($data), ''));
+				}
+
+				$s_data = vsprintf($s_data, $data);
 		if($errors['userid'] == "0")
 		{
 		$by2['username'] = "Unknown";
@@ -414,10 +429,10 @@ else
         $by2 = $db->sql_fetchrow($by);
 		}
 							$template->assign_block_vars('log', array(
-							'USERNAME'		=> $by2['username'],
-							'IP'		=> long2ip($errors["ip"]),
+							'USERNAME'		=> ($errors['userid'] == 0)? $user->lang['UNKNOWN'] : $errors['name'],
+							'IP'		=> ($errors['userid'] == 0)? long2ip($errors["ip_g"]) : long2ip($errors["ip"]),
 							'DATE'		=> $errors['datetime'],
-							'ACTION'		=> ((isset($user->lang[$errors['action']]))? $user->lang[$errors['action']] : '{' . ucfirst(str_replace('_', ' ', $errors['action'])) . '}'),
+							'ACTION'		=> $s_data,
 							));
         } 
 		$db->sql_freeresult($res);

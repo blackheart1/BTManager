@@ -371,7 +371,7 @@ $start = request_var('page', 0)*15;
 							}
 		
 		
-							logerror(sprintf($user->lang['LOG_GROUP_DELETE'], $gname),'admin');
+							add_log('admin','LOG_GROUP_DELETE', $gname);
 										$template->assign_vars(array(
 												'S_USER_NOTICE'			=> true,
 												'S_FORWARD'				=> false,
@@ -825,7 +825,7 @@ $start = request_var('page', 0)*15;
 						}
 						$sql = 'UPDATE ' . $db_prefix . '_levels SET ' . $db->sql_build_array('UPDATE', $auth_settings) ."WHERE group_id = {$group_id}";
 						$db->sql_query($sql);
-				logerror(sprintf($user->lang['LOG_ACL_ADD_GROUP_GLOBAL_U_'], $gt),'admin');
+				add_log('admin','LOG_GROUP_UPDATED', $gt);
                                 $template->assign_vars(array(
 								        'S_USER_NOTICE'			=> true,
 										'S_FORWARD'				=> false,
@@ -994,7 +994,7 @@ $start = request_var('page', 0)*15;
 
 				if ($action == 'add' && !checkaccess("a_edit_level"))
 				{
-				logerror(sprintf($user->lang['LOG_ACL_ACCESS_NOTALLOW'], $user->lang['ACP_GROUPS_MANAGE']),'admin');
+				add_log('admin','LOG_ACL_ACCESS_NOTALLOW', $user->lang['ACP_GROUPS_MANAGE']);
                                 $template->assign_vars(array(
 								        'S_USER_NOTICE'			=> false,
 										'S_FORWARD'				=> false,
@@ -1224,7 +1224,7 @@ $start = request_var('page', 0)*15;
 							}
 
 							$message = ($action == 'edit') ? 'GROUP_UPDATED' : 'GROUP_CREATED';
-								logerror(sprintf($user->lang['LOG_GROUP_CREATED'], $db->sql_escape($group_name)),'admin');
+								add_log('admin', 'LOG_' . $message, $db->sql_escape($group_name));
                                 $template->assign_vars(array(
 								        'S_USER_NOTICE'			=> true,
 										'S_FORWARD'				=> false,

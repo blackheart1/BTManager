@@ -703,12 +703,12 @@ class acp_users
 
 					if ($data['new_password'] && $data['password_confirm'] != $data['new_password'])
 					{
-						$error[] = 'NEW_PASSWORD_ERROR';
+						$error[] = '_NEW_PASSWORD_ERROR';
 					}
 
 					if ($data['email'] != $user_row['email'] && $data['email_confirm'] != $data['email'])
 					{
-						$error[] = 'NEW_EMAIL_ERROR';
+						$error[] = '_NEW_EMAIL_ERROR';
 					}
 
 					if (!check_form_key($form_name))
@@ -773,6 +773,7 @@ class acp_users
 						{
 							$sql_ary['username'] = $update_username;
 							$sql_ary['clean_username'] = utf8_clean_string($update_username);
+							//die(' ' . $user_row['username'] . ' ' . $update_username . ' | ' . $data['username']);
 
 							add_log('user', $user_id, 'LOG_USER_UPDATE_NAME', $user_row['username'], $update_username);
 						}
@@ -783,7 +784,7 @@ class acp_users
 								'email'		=> $update_email,
 							);
 
-							//add_log('user', $user_id, 'LOG_USER_UPDATE_EMAIL', $user_row['username'], $user_row['user_email'], $update_email);
+							add_log('user', $user_id, 'LOG_USER_UPDATE_EMAIL', $user_row['username'], $user_row['user_email'], $update_email);
 						}
 
 						if ($update_password)
@@ -793,7 +794,7 @@ class acp_users
 							);
 
 							//$user->reset_login_keys($user_id);
-							//add_log('user', $user_id, 'LOG_USER_NEW_PASSWORD', $user_row['username']);
+							add_log('user', $user_id, 'LOG_USER_NEW_PASSWORD', $user_row['username']);
 						}
 
 						if (sizeof($sql_ary))
