@@ -228,7 +228,7 @@ class acp_email
 
 		if ($submit)
 		{
-			add_log('admin', 'LOG_CONFIG_' . strtoupper($mode));
+			add_log('admin', 'LOG_CONFIG_EMAIL');
 
 			trigger_error($user->lang['CONFIG_UPDATED'] . '2' . adm_back_link($this->u_action));
 		}
@@ -435,7 +435,7 @@ class acp_email
 		{
 			$act_ary['ACC_USER'] = 1;
 			$act_ary['ACC_ADMIN'] = 2;
-		}
+		}		
 		$act_options = '';
 
 		foreach ($act_ary as $key => $value)

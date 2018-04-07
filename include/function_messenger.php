@@ -427,6 +427,7 @@ class messenger
 
 		if (empty($config['email_enable']))
 		{
+			die('test');
 			return false;
 		}
 

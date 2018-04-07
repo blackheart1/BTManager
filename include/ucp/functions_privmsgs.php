@@ -1276,7 +1276,7 @@ function pm_notification($mode, $author, $recipients, $subject, $message, $mid)
 	$messenger = new messenger();
 	foreach ($msg_list_ary as $pos => $addr)
 	{
-							if ((!$addr['lang']) OR !file_exists("language/email/".$addr['lang']."/pmnotice.txt")) $lang_email = $language;
+							if ((!$addr['lang']) OR !file_exists("language/email/".$addr['lang']."/privmsg_notify.txt")) $lang_email = $language;
 							else $lang_email = $addr['lang'];
 		$messenger->template('privmsg_notify', $lang_email);
 		$messenger->to($addr['email'], $addr['name']);

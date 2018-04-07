@@ -203,7 +203,14 @@ class Template {
 			return $filename;
 		}
 		//die("themes/".$theme."/templates/".$this->files[$handle]);
-		$data = $this->compile(trim(file_get_contents("themes/".$theme."/templates".$this->files[$handle])));
+		if(preg_match("/language\/email\//",$this->files[$handle]))
+		{
+			$data = $this->compile(trim(file_get_contents($this->files[$handle])));
+		}
+		else
+		{
+			$data = $this->compile(trim(file_get_contents("themes/".$theme."/templates".$this->files[$handle])));
+		}
 		//die(str_replace($this->root . '/','',$this->files[$handle]));
 		$this->compiled_code[$handle] = $data;
 		//die($this->compiled_code);
