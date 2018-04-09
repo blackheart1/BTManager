@@ -768,7 +768,7 @@ function smiley_text($text, $force_option = false)
 {
 	global $config, $user, $siteurl;
 
-	if ($force_option)
+	if ($force_option || !$config['allow_smilies'] || !$user->optionget('viewsmilies'))
 	{
 		return preg_replace('#<!\-\- s(.*?) \-\-><img src="smiles\/.*? \/><!\-\- s\1 \-\->#', '\1', $text);
 	}

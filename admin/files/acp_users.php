@@ -925,7 +925,6 @@ class acp_users
 
 			case 'feedback':
 
-				//$user->add_lang('mcp');
 				include_once('include/function_posting.php');
 
 				// Set up general vars
@@ -968,7 +967,7 @@ class acp_users
 							$where_sql";
 						$db->sql_query($sql);
 
-						//add_log('admin', 'LOG_CLEAR_USER', $user_row['username']);
+						add_log('admin', 'LOG_CLEAR_USER', $user_row['username']);
 					}
 				}
 
@@ -1587,7 +1586,7 @@ class acp_users
 						$sql = 'UPDATE ' . $db_prefix . '_users
 							SET ' . $db->sql_build_array('UPDATE', $sql_ary) . '
 							WHERE id = ' . $user_id;
-							die($sql);
+							//die($sql);
 						$db->sql_query($sql);
 
 						trigger_error($user->lang['USER_SIG_UPDATED'] . back_link($this->u_action . '&amp;u=' . $user_id));
@@ -1989,7 +1988,7 @@ class acp_users
 
 				//$user->add_lang('acp/permissions');
 				$user->set_lang('admin/permissions',$user->ulanguage);
-				$user->set_lang('admin/permissions_phpbb',$user->ulanguage);
+				$user->set_lang('admin/acp_permissions',$user->ulanguage);
 
 
 				$forum_id = request_var('f', 0);

@@ -42,7 +42,15 @@ if (!defined('IN_PMBT'))
 		$u_country							=  request_var('u_country', '0');
 		$u_parked							=  request_var('parked', '0');
 		$hide_profile						=  request_var('hide_profile', '0');
-
+		$view_images						= request_var('view_images', btm_optionget($user_row, 'viewimg'));
+		$view_flash							= request_var('view_flash', btm_optionget($user_row, 'viewflash'));
+		$view_smilies						= request_var('view_smilies', btm_optionget($user_row, 'viewsmilies'));
+		$view_sigs							= request_var('view_sigs', btm_optionget($user_row, 'viewsigs'));
+		$view_avatars						= request_var('view_avatars', btm_optionget($user_row, 'viewavatars'));
+		$view_wordcensor					= request_var('view_wordcensor', btm_optionget($user_row, 'viewcensors'));
+		$bbcode								= request_var('bbcode', btm_optionget($user_row, 'bbcode'));
+		$smilies							= request_var('smilies', btm_optionget($user_row, 'smilies'));
+		$sig								= request_var('sig', btm_optionget($user_row, 'attachsig'));
 
 
                 $sqlval['country'] = $u_country;
@@ -108,6 +116,16 @@ if (!defined('IN_PMBT'))
 		$sqlval['tzoffset'] = $offset;
         if ($user_torrent_per_page == "0" OR $user_torrent_per_page == "") $user_torrent_per_page = NULL;
 		$sqlval['torrent_per_page'] = $user_torrent_per_page;
+		btm_optionset($userrow, 'viewimg', $view_images);
+		btm_optionset($userrow, 'viewflash', $view_flash);
+		btm_optionset($userrow, 'viewsmilies', $view_smilies);
+		btm_optionset($userrow, 'viewsigs', $view_sigs);
+		btm_optionset($userrow, 'viewavatars', $view_avatars);
+		btm_optionset($userrow, 'viewcensors', $view_wordcensor);
+		btm_optionset($userrow, 'bbcode', $bbcode);
+		btm_optionset($userrow, 'smilies', $smilies);
+		btm_optionset($userrow, 'attachsig', $sig);
+		$sqlval['user_options'] = $userrow['user_options'];
 				$sql = 'UPDATE ' . $db_prefix . '_users SET ' . $db->sql_build_array('UPDATE', $sqlval) . '
 					WHERE id = ' . $userrow["id"];
                 if (!$db->sql_query($sql)) btsqlerror($sql);

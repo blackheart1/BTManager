@@ -2026,7 +2026,7 @@ CREATE TABLE IF NOT EXISTS `#prefix#_users` (
   `user_notify_type` tinyint(4) NOT NULL default '0',
   `user_warnings` tinyint(4) NOT NULL default '0',
   `user_last_warning` int(11) NOT NULL default '0',
-  `user_options` int(11) unsigned NOT NULL default '895',
+  `user_options` int(11) unsigned NOT NULL default '230271',
   `user_dateformat` varchar(30) binary NOT NULL default 'd M Y H:i',
   `user_dst` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`id`),
@@ -2068,6 +2068,19 @@ CREATE TABLE IF NOT EXISTS `#prefix#_warnings` (
   `warning_time` int(11) unsigned NOT NULL default '0',
   PRIMARY KEY  (`warning_id`)
 ) TYPE=MyISAM AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `torrent_words`
+--
+
+CREATE TABLE `#prefix#_words` (
+	`word_id` mediumint(8) UNSIGNED NOT NULL auto_increment,
+	`word` varchar(255) DEFAULT '' NOT NULL,
+	`replacement` varchar(255) DEFAULT '' NOT NULL,
+	PRIMARY KEY (`word_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 

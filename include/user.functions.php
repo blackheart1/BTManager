@@ -3102,4 +3102,58 @@ function group_update_listings($group_id)
 		update_foes(array($group_id));
 	}
 }
+/**
+* Get option bitfield from custom data
+*
+* @param int	$bit		The bit/value to get
+* @param int	$data		Current bitfield to check
+* @return bool	Returns true if value of constant is set in bitfield, else false
+*/
+function btm_optionget(&$user_row, $key, $data = false)
+{
+		global $user;
+
+		$var = ($data) ? $data : $user_row['user_options'];
+		return ($var & 1 << $user->keyoptions[$key]) ? true : false;
+}
+
+/**
+* Set option bitfield
+*
+* @param int	$bit		The bit/value to set/unset
+* @param bool	$set		True if option should be set, false if option should be unset.
+* @param int	$data		Current bitfield to change
+*
+* @return int	The new bitfield
+*/
+function btm_optionset(&$userrow, $key, $value, $data = false)
+	{
+		global $user;
+
+		$var = ($data) ? $data : $userrow['user_options'];
+
+		if ($value && !($var & 1 << $user->keyoptions[$key]))
+		{
+			$var += 1 << $user->keyoptions[$key];
+		}
+		else if (!$value && ($var & 1 << $user->keyoptions[$key]))
+		{
+			$var -= 1 << $user->keyoptions[$key];
+		}
+		else
+		{
+			return ($data) ? $var : false;
+		}
+
+		if (!$data)
+		{
+			$userrow['user_options'] = $var;
+			return true;
+		}
+		else
+		{
+			return $var;
+		}
+	}
+
 ?>

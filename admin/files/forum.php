@@ -50,6 +50,12 @@ include_once 'include/class.bbcode.php';
 							'L_TITLE' => $user->lang['FORUMS_PRUNE'],
 							'U_TITLE' => "admin.php?i=" . $i . "&amp;op=forum_pruning&amp;action=prune&amp;mode=forums",
 							));
+							$template->assign_block_vars('l_block1.l_block2.l_block3',array(
+							'S_SELECTED'	=> ('forum_words' ==$op)? true:false,
+							'IMG' => '',
+							'L_TITLE' => $user->lang['ACP_WORDS'],
+							'U_TITLE' => "admin.php?i=" . $i . "&amp;op=forum_words&amp;action=words",
+							));
 							$template->assign_block_vars('l_block1.l_block2',array(
 							'L_TITLE'		=> $user->lang['FORUM_BASD_PERM'],
 							'S_SELECTED'	=> true,
@@ -157,6 +163,16 @@ include_once 'include/class.bbcode.php';
 					echo $template->fetch('admin/acp_forum_settings.html');
 					close_out();
 					}
+			break;
+			case 'words':
+			require_once("admin/files/acp_word.php");
+			$auth = new auth();
+			$auth->acl($user);
+			$admin_role = new acp_words();
+			$admin_role->u_action = "admin.php?i=" . $i . "&amp;op=forum_words&amp;action=words";
+			$admin_role->main('',$mode);
+			echo $template->fetch('admin/' . $admin_role->tpl_name . '.html');
+			close_out();
 			break;
 			case 'prune':
 			require_once("admin/files/acp_prune.php");

@@ -2891,6 +2891,47 @@ function pic($name, $url = "", $alt = "", $h = false, $w = false) {//Gets a pict
         return $ret;
 }
 
+/**
+* Generate regexp for naughty words censoring
+* Depends on whether installed PHP version supports unicode properties
+*
+* @param string	$word			word template to be replaced
+* @param bool	$use_unicode	whether or not to take advantage of PCRE supporting unicode
+*
+* @return string $preg_expr		regex to use with word censor
+*/
+function get_censor_preg_expression($word, $use_unicode = true)
+{
+	static $unicode_support = null;
+
+	// Check whether PHP version supports unicode properties
+	if (is_null($unicode_support))
+	{
+		$unicode_support = ((version_compare(PHP_VERSION, '5.1.0', '>=') || (version_compare(PHP_VERSION, '5.0.0-dev', '<=') && version_compare(PHP_VERSION, '4.4.0', '>='))) && @preg_match('/\p{L}/u', 'a') !== false) ? true : false;
+	}
+
+	// Unescape the asterisk to simplify further conversions
+	$word = str_replace('\*', '*', preg_quote($word, '#'));
+
+	if ($use_unicode && $unicode_support)
+	{
+		// Replace asterisk(s) inside the pattern, at the start and at the end of it with regexes
+		$word = preg_replace(array('#(?<=[\p{Nd}\p{L}_])\*+(?=[\p{Nd}\p{L}_])#iu', '#^\*+#', '#\*+$#'), array('([\x20]*?|[\p{Nd}\p{L}_-]*?)', '[\p{Nd}\p{L}_-]*?', '[\p{Nd}\p{L}_-]*?'), $word);
+
+		// Generate the final substitution
+		$preg_expr = '#(?<![\p{Nd}\p{L}_-])(' . $word . ')(?![\p{Nd}\p{L}_-])#iu';
+	}
+	else
+	{
+		// Replace the asterisk inside the pattern, at the start and at the end of it with regexes
+		$word = preg_replace(array('#(?<=\S)\*+(?=\S)#iu', '#^\*+#', '#\*+$#'), array('(\x20*?\S*?)', '\S*?', '\S*?'), $word);
+
+		// Generate the final substitution
+		$preg_expr = '#(?<!\S)(' . $word . ')(?!\S)#iu';
+	}
+
+	return $preg_expr;
+}
 function ratingpic($num) {//Gets the correct star rating picture
         $r = round($num * 2) / 2;
 		//echo $r.'<br>';
@@ -2899,7 +2940,36 @@ function ratingpic($num) {//Gets the correct star rating picture
         return pic($r."-rating.png");
 }
 function censor_text($text){
-return $text;
+	static $censors;
+
+	// Nothing to do?
+	if ($text === '')
+	{
+		return '';
+	}
+
+	// We moved the word censor checks in here because we call this function quite often - and then only need to do the check once
+	if (!isset($censors) || !is_array($censors))
+	{
+		global $config, $user, $auth, $pmbt_cache;
+
+		// We check here if the user is having viewing censors disabled (and also allowed to do so).
+		if (!$user->optionget('viewcensors') && $config['allow_nocensors'] && $auth->acl_get('u_chgcensors'))
+		{
+			$censors = array();
+		}
+		else
+		{
+			$censors = $pmbt_cache->obtain_word_list();
+		}
+	}
+
+	if (sizeof($censors))
+	{
+		return preg_replace($censors['match'], $censors['replace'], $text);
+	}
+
+	return $text;
 }
 function no_parse_message($text_noparse) {
 	$text_noparse = str_replace('[', '**-NoParseTagBegin-**', $text_noparse);

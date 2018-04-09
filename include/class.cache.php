@@ -223,6 +223,29 @@ class pmbt_cache {
           fclose($fp);
 		  @chmod($this->cache_dir."sql_".md5($file).".php", 0755);
 	   }
+	function obtain_word_list()
+	{
+		global $db, $db_prefix;
+
+		if (($censors = $this->get('_word_censors')) === false)
+		{
+			$sql = 'SELECT word, replacement
+				FROM ' . $db_prefix . '_words';
+			$result = $db->sql_query($sql);
+
+			$censors = array();
+			while ($row = $db->sql_fetchrow($result))
+			{
+				$censors['match'][] = get_censor_preg_expression($row['word']);
+				$censors['replace'][] = $row['replacement'];
+			}
+			$db->sql_freeresult($result);
+
+			$this->put('_word_censors', $censors);
+		}
+
+		return $censors;
+	}
 	function obtain_attach_extensions($forum_id)
 	{
 		if (($extensions = $this->get('_extensions')) === false)

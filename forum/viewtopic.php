@@ -1005,7 +1005,7 @@ while ($row = $db->sql_fetchrow($result))
 	$bbcode_bitfield = $bbcode_bitfield | base64_decode($row['bbcode_bitfield']);
 
 	// Is a signature attached? Are we going to display it?
-	if ($row['enable_sig'] )
+	if ($row['enable_sig'] && $config['allow_sig'] && $user->optionget('viewsigs'))
 	{
 		$bbcode_bitfield = $bbcode_bitfield | base64_decode($row['sig_bbcode_bitfield']);
 	}
@@ -1063,7 +1063,7 @@ while ($row = $db->sql_fetchrow($result))
 			$user_sig = '';
 
 			// We add the signature to every posters entry because enable_sig is post dependant
-			if ($row['signature'])
+			if ($row['signature'] && $config['allow_sig'] && $user->optionget('viewsigs'))
 			{
 				$user_sig = $row['signature'];
 			}

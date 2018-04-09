@@ -688,6 +688,15 @@ $lang = array_merge($lang, array(
 		'_btsecs'				=> 's ',
 		'_at'					=> ' at ',
 		'_dot'					=> ' dot ',
+		'BIRTHDAYS'				=> 'Birthday\'s',
+		'COMPLIANT'				=> 'Compliant',
+		'TANSF_BONUS'			=> 'Transfer Bonus',
+		'PERSONAL_STATS'		=> 'Personal stats',
+		'THEME_CHANGER'			=> 'Theme change',
+		'SELECT'				=> 'Select',
+		'SEND_INVITE'			=> 'Send A Invite',
+		'INVITE_COUNT'			=> 'Your Total Invite count is',
+		'SELECT_FORUM'			=>	'Select Forum',
 ));
 
 
