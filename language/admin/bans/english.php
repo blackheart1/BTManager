@@ -39,7 +39,7 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, array(
     'MAIN_TITLE'       => 'User Ban',
 
-    'MAIN_TITLE_EXP'   => 'Use this page to Ban Users from your Tracker.  You can Define IP Ranges to Ban and Manage Banned IP\'s and Users.  You can also provide a Reason that is Displayed to the Banned User when they try to Log in.',
+    'MAIN_TITLE_EXP'   => 'Use this Page to Ban Users from your Tracker.  You can Define IP Ranges to Ban and Manage Banned IP\'s and Users.  You can also Provide a Reason that is Displayed to the Banned User when they try to Log in.',
 
     'BANNED_IPS'       => 'Banned IP\'s',
     'BANNED_IPS_EXP'   => 'Here is a List of the Currently Banned IP\'s and the Reason Why!',

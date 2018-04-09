@@ -604,12 +604,13 @@ $lang = array_merge($lang, array(
         'T_DIR_MES_KEY'            => 'Missing Torrent Dictionary Keys',
         'INV_DATA_IN_DIR'          => 'Invalid Data inside Torrent Dictionary',
         'HAPPY_BIRTHDAY'           => 'Congratulations to: ',
-        'NO_BIRTHDAY'              => 'No Birthdays today',
-        'NO_NEW_USERS'             => 'No New Members',
+        'NO_BIRTHDAY'              => 'NO Birthdays Today',
+        'NO_NEW_USERS'             => 'NO New Members',
         'EXTENTION'                => 'Extension',
         'WELCOME_BACK'             => 'Welcome Back',
         'CURENT_BROWS'             => 'Currently Browsing',
         'LOGEDIN_FOR'              => 'Logged in for',
+
         'HNR_REMOVED'              => 'Your Hit and Run Warning has been Removed because you have Restarted your Torrent. Please keep Seeding for 72 hours or your Warning will be Reinstated',
 
         'HIT_N_RUN'              => 'Hit and Run',

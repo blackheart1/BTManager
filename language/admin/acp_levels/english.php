@@ -66,6 +66,7 @@ $lang = array_merge($lang, array(
         'u_can_change_theme'           => 'Group Can Change Themes',
         'u_can_change_language'        => 'Group Can Change Languages',
         'u_can_view_profiles'          => 'Group Can View Other Users Profiles',
+
         'u_can_view_others_email'      => 'Group Can View Other Users email Address (this DOES NOT Override the Privacy Settings)',
         'u_see_member_list'            => 'Group Can View the Members/Groups List',
         'u_can_view_utube'             => 'Group Can View Posted YouTube Links',

@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File arcade/english.php 2018-03-29 09:01:00 Thor
+** File arcade/english.php 2018-04-06 12:09:00 Thor
 **
 ** CHANGES
 **
@@ -23,6 +23,7 @@
 ** 2018-03-29 - Amended the Wording of some Sentences
 ** 2018-03-29 - Amended !defined('IN_PMBT') Corrected Path
 ** 2018-03-29 - Added Missing Language
+** 2018-04-06 - Amended the Wording of some Sentences
 **/
 
 if (!defined('IN_PMBT'))
@@ -37,7 +38,7 @@ if (empty($lang) || !is_array($lang))
 }
 
 $lang = array_merge($lang, array(
-    'TITLE'              =>	'Arcade',
+    'TITLE'              => 'Arcade',
     'ACP_ADDED'          => 'ACP Modules Added Successfully.',
     'ACP_EXISTS'         => 'ACP Modules Already Exist.  Nothing Changed!',
     'ACP_MODULES'        => 'ACP Modules:',
@@ -46,11 +47,11 @@ $lang = array_merge($lang, array(
     'ADD_GAME_DESC'      => 'Add a Game to the Arcade.',
     'ADD_MODULES'        => 'Add Modules',
     'ALLOW_COMMENTS'     => 'Allow Games to be Commented On',
-    'ALLOW_GUEST'        => 'Allow Guest View',
+    'ALLOW_GUEST'        => 'Allow Guest to View',
     'ARCADE'             => 'Arcade Room',
     'ARCADE_WELCOME'     => 'Welcome to the Arcade Room.  From here you can View and Remove your Favourite Games.',
 
-    'AR_EXPLAIN'         => 'This Installer was written for RC7 Only and has NOT been tested on any other version of phpBB3.  If you wish to Install/Update and are using a Different Version of phpBB3, then please consult the Install.xml file in the zip that you have Downloaded.  We are going to walk you through Installing the Arcade Room today beginning with Adding MySQL Databases.',
+    'AR_EXPLAIN'         => 'This Installer was written for RC7 Only and has NOT been Tested on any other version of phpBB3.  If you wish to Install/Update and are using a Different Version of phpBB3, then please consult the Install.xml file in the zip that you have Downloaded.  We are going to walk you through Installing the Arcade Room today beginning with Adding MySQL Databases.',
 
     'AR_SETTINGS'        => 'Arcade Room Settings',
     'AR_TASKS'           => 'Arcade Room Tasks',
@@ -58,7 +59,7 @@ $lang = array_merge($lang, array(
     'AR_VERSION'         => '0.6.9c',
     'AR_WELCOME'         => 'Welcome to the Arcade Mod Installation.',
     'A_SETTINGS'         => 'Arcade Settings',
-    'A_MANAGE'           =>	'Manage Arcade',
+    'A_MANAGE'           => 'Manage Arcade',
     'A_SETTINGS_DESC'    => 'Here you can Enable/Disable Several Arcade Room Features.',
 
     'BEGIN'              => 'Begin',
@@ -78,10 +79,12 @@ $lang = array_merge($lang, array(
     'EDIT_POST'          => 'Edit Comment',
     'DELETE_COMMENT'     => 'Delete Comment',
     'DELETE_PROBLEM'     => 'There was a Problem Deleting ',
-    'DISABLE'            =>	'Disable',
-    'EDITED_ALREADY'     => '  was Already Previously Edited.',
-    'EDITED_GAME'        => 'The following Game has been Edited Successfully in the Database.',
-    'EDITS_DONE'         => 'File Edits Completed.  If there any Issues please Read the install.xml to Edit the Files yourself.',
+    'DISABLE'            => 'Disable',
+    'EDITED_ALREADY'     => '  was already Previously Edited.',
+    'EDITED_GAME'        => 'The Database was Updated Successfully for the following Game.',
+
+    'EDITS_DONE'         => 'File Edits Completed.  If there were any Issues please Read the install.xml to Manually Edit the Files.',
+
     'EDIT_FILES'         => 'Edit Files',
     'EDIT_GAME'          => 'Edit Game',
     'PREVIOUS'           => 'Previous',
@@ -104,7 +107,7 @@ $lang = array_merge($lang, array(
     'GAME_DESC_C'        => 'Description: ',
     'GAME_DIR'           => 'Directions',
     'GAME_DIR_C'         => 'Directions: ',
-    'GAME_DUP'           => 'A Game on the Server Already Uses that File Name, please Rename the File and try Uploading Again.',
+    'GAME_DUP'           => 'A Game on the Server already Uses that File Name.  Please Rename the File and try Uploading Again.',
     'GAME_FAVORITES'     => 'Game Favourites',
     'GAME_FILE_C'        => 'File: ',
     'GAME_HEIGHT_C'      => 'Height: ',
@@ -135,9 +138,9 @@ $lang = array_merge($lang, array(
     'HIGHSCORES_RESET'   => 'The High Scores for ALL Games have been Reset.',
     'HIGHSCORE_RESET'    => 'The Game you asked for High Scores to be Reset has had its High Scores Reset.',
 
-    'IF_OK'              => 'The Installation is Complete.   If everything is OK Click Delete to Delete the Install File and Return to the Index.',
+    'IF_OK'              => 'The Installation is Complete.  If everything is OK Click Delete to Remove the Install File and Return to the Index.',
 
-    'IMAGE_DUP'          => 'An Image on the Server Already Uses that Filename.  Please Rename the File and try Uploading Again.',
+    'IMAGE_DUP'          => 'An Image on the Server already Uses that Filename.  Please Rename the File and try Uploading Again.',
     'LATEST'             => 'Latest Games',
     'LIMIT'              => '10MB Limit',
     'MANAGE_CAT'         => 'Manage Categories',
@@ -145,12 +148,12 @@ $lang = array_merge($lang, array(
     'MANAGE_GAMES'       => 'Manage Games',
     'MANAGE_GAMES_DESC'  => 'Here you can Add/Edit/Remove Games.',
 
-    'MODULES_DONE'       => 'Finished Adding Modules to the ACP.  If they DID NOT Add properly or Show Up in the ACP Add them yourself.',
+    'MODULES_DONE'       => 'Finished Adding Modules to the ACP.  If there were any Issues Adding them or they did NOT Show Up in the ACP, then Manually Add them.',
 
-    'MYSQL_DONE'         => 'The MySQL Edits are Complete.  If there were any Issues then please Read the install.xml to Add the Databases yourself.',
+    'MYSQL_DONE'         => 'The MySQL Edits are Complete.  If there were any Issues then please Read the install.xml to Manually Add them to the Database.',
 
     'MYSQL_EDITS'        => 'MySQL Edits:',
-    'MINUTES'            =>	'Minutes',
+    'MINUTES'            => 'Minutes',
     'NEWSCORE_DESC'      => 'newscore.php Games Only',
     'NONE_IN_CAT'        => 'There are NO Games in this Category.',
     'NO_FAVORITES_USER'  => 'This Member has NO Favourite Games',
@@ -167,7 +170,7 @@ $lang = array_merge($lang, array(
     'RESET_VIEWS'        => 'Reset ALL Views for Games: ',
     'RUN_TASK'           => 'Run Task',
     'SAVE_GAME'          => 'Save Game',
-    'STATISTIC'          =>	'Statistics',
+    'STATISTIC'          => 'Statistics',
     'SERVER_ERROR'       => 'Error Contacting Update Server.',
     'SETTINGS_UPDATED'   => 'The Settings have been Updated.',
     'SPECIFY_CAT'        => 'Please Specify a Category for the Game.',
@@ -180,24 +183,24 @@ $lang = array_merge($lang, array(
     'TOP_RATE'           => 'Top Rated',
     'UP_GAME'            => 'You Need to Upload a Game File.',
     'UP_TO_DATE'         => 'of phpAR is Up to Date.',
-    'VALUE'              =>	'Value',
+    'VALUE'              => 'Value',
     'VIEW'               => 'View',
     'VIEWS_RESET'        => 'The Views for ALL Games have been Reset.',
     'VIEW_RESET'         => 'The Game you asked for Views to be Reset has had its Views Reset.',
-    'WRONG_GAME_TYPE'    => 'Incorrect Game File Type Must be a SWF Flash File.',
-    'WRONG_IMAGE_TYPE'   => 'Incorrect Image File Type Must be a gif, jpeg, or png File.',
+    'WRONG_GAME_TYPE'    => 'Incorrect Game File Type.  Must be a SWF Flash File.',
+    'WRONG_IMAGE_TYPE'   => 'Incorrect Image File Type.  Must be a gif, jpeg, or png File.',
     'YOUR'               => 'Your',
     'YOUR_FAVORITE'      => 'Your Favourite Games',
     'GAME_REV_SCORE_C'   => 'Reverse Scoring: ',
-    'REV_DESC'           => 'means the lower the score the better',
+    'REV_DESC'           => 'means the Lower the Score the Better',
     'INFO'               => 'Info',
     'GAME_FILENAME'      => 'Filename',
     'GAME_ENABLED_C'     => 'Enabled: ',
     'GAME_FILENAME_C'    => 'Filename: ',
     'GAME_IMAGENAME_C'   => 'Image Name: ',
     'GAME_COST_C'        => 'Cost: ',
-    'GAME_PPT_C'         => 'Points per Ticket: ',
-    'GAME_PPT_EXPLAIN'   => 'every this many points means they earn one ticket',
+    'GAME_PPT_C'         => 'Points Per Ticket: ',
+    'GAME_PPT_EXPLAIN'   => 'every this many Points means they Earn One Ticket',
     'GAME_NUM_RATING_C'  => 'Ratings: ',
     'GAME_NUM_FAVS_C'    => 'Favourites: ',
     'GAME_ID_C'          => 'ID: ',
@@ -245,7 +248,7 @@ $lang = array_merge($lang, array(
 
     'RESIZING'           => 'Resizing Requires JavaScript to be Enabled',
     'CLICK_UPDATE_ALT'   => 'Click Here if you wish to Manually Update',
-    'GAME_ARCHIVE_ERROR' => 'Game Archive Missing game.xml File can NOT Auto Install this Game',
+    'GAME_ARCHIVE_ERROR' => 'Game Archive Missing game.xml.  You can NOT Auto Install this Game',
     'ARCADE_QUICK'       => 'Quick Links',
     'ARCADE_RANDOM'      => 'Random Game',
     'GAME_ENABLED'       => 'Game Enabled',

@@ -13,26 +13,27 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File acp_forum/english.php 2018-03-26 09:40:00 Thor
+** File acp_forum/english.php 2018-03-28 00:55:00 Thor
 **
 ** CHANGES
 **
 ** 2018-02-21 - Added New Masthead
 ** 2018-02-21 - Added New !defined('IN_PMBT')
 ** 2018-02-21 - Fixed Spelling
-** 2018-03-26 - Amended New !defined('IN_PMBT')
+** 2018-03-26 - Amended !defined('IN_PMBT')
 ** 2018-03-26 - Amended the Wording of some Sentences
+** 2018-03-28 - Amended !defined('IN_PMBT') Corrected Path
 **/
 
 if (!defined('IN_PMBT'))
 {
-    include_once './../../security.php';
-    die ("You can't access this file directly");
+    include_once './../../../security.php';
+    die ("Error 404 - Page Not Found");
 }
 
 if (empty($lang) || !is_array($lang))
 {
-	$lang = array();
+    $lang = array();
 }
 
 $lang = array_merge($lang, array(
@@ -246,27 +247,30 @@ $lang = array_merge($lang, array(
     'PRUNE_SUCCESS'                    => 'Successfully Pruned Forums',
     'TOPICS_PRUNED'                    => 'Topics Pruned',
 ));
-		#3.0.1 add on
-// Word censors
+
+    #3.0.1 add on
+    // Word censors
 $lang = array_merge($lang, array(
-	'ACP_WORDS'					=> 'Word censoring',
-	'ACP_WORDS_EXPLAIN'		=> 'From this control panel you can add, edit, and remove words that will be automatically censored on your forums. People are still allowed to register with usernames containing these words. Wildcards (*) are accepted in the word field, e.g. *test* will match detestable, test* would match testing, *test would match detest.',
-	'ACP_NO_ITEMS'				=> 'There are no items yet.',
-	'ADD_WORD'				=> 'Add new word',
+    'ACP_WORDS'         => 'Word Censoring',
 
-	'EDIT_WORD'		=> 'Edit word censor',
-	'ENTER_WORD'	=> 'You must enter a word and its replacement.',
+    'ACP_WORDS_EXPLAIN' => 'From this Control Panel you can Add, Edit, and Remove Words that will be Automatically Censored on your Forums.  People are still Allowed to Register with Usernames Containing these Words.  Wildcards (*) are Accepted in the Word Field, e.g. *test* will Match Detestable, test* would Match Testing, *test would Match Detest.',
 
-	'NO_WORD'	=> 'No word selected for editing.',
+    'ACP_NO_ITEMS'      => 'There are NO Items Yet.',
+    'ADD_WORD'          => 'Add New Word',
 
-	'REPLACEMENT'	=> 'Replacement',
+    'EDIT_WORD'         => 'Edit Word Censor',
+    'ENTER_WORD'        => 'You Must Enter a Word and its Replacement.',
 
-	'UPDATE_WORD'	=> 'Update word censor',
+    'NO_WORD'           => 'NO Word Selected for Editing.',
 
-	'WORD'				=> 'Word',
-	'WORD_ADDED'		=> 'The word censor has been successfully added.',
-	'WORD_REMOVED'		=> 'The selected word censor has been successfully removed.',
-	'WORD_UPDATED'		=> 'The selected word censor has been successfully updated.',
+    'REPLACEMENT'       => 'Replacement',
+
+    'UPDATE_WORD'       => 'Update Word Censor',
+
+    'WORD'              => 'Word',
+    'WORD_ADDED'        => 'The Word Censor has been Successfully Added.',
+    'WORD_REMOVED'      => 'The Selected Word Censor has been Successfully Removed.',
+    'WORD_UPDATED'      => 'The Selected Word Censor has been Successfully Updated.',
 ));
 
 ?>

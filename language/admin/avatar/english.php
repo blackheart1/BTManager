@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File avatar/english.php 2018-03-29 09:20:00 Thor
+** File avatar/english.php 2018-04-06 12:09:00 Thor
 **
 ** CHANGES
 **
@@ -37,10 +37,10 @@ if (empty($lang) || !is_array($lang))
 }
 
 $lang = array_merge($lang, array(
-    'YES_NO_TF'              => array("true"=>'Yes', "false"=>'No'),
-    'YES_NO'                 => array("yes"=>'Yes', "no"=>'No'),
-    'ERR_ARRAY_MESS'         => '<li><p>%s</p></li>',
+    'YES_NO_TF' => array("true"=>'Yes', "false"=>'No'),
+    'YES_NO'    => array("yes"=>'Yes', "no"=>'No'),
 
+    'ERR_ARRAY_MESS'         => '<li><p>%s</p></li>',
     'AVATAR_SETTINGS'        => 'Avatar Settings',
 
     'AVATAR_SETTINGSexplain' => 'Avatars are generally small, unique images a User can associate with themselves. Depending on the style, they are usually displayed below the Username when Viewing Topics.  Here you can determine how Users can Define their Avatars.  Please Note that in Order to Upload Avatars you need to have Created the Directory you named below and ensure it CAN be Written to by the Web Server.  Please Also Note that File Size Limits are Only Imposed on Uploaded Avatars, they DO NOT Apply to Remotely Linked Images.',
@@ -53,7 +53,7 @@ $lang = array_merge($lang, array(
 
     '_admpALLOW_AVATARS'              => 'Enable Avatars',
 
-    '_admpALLOW_AVATARSexplain'       => 'Allow General Usage of Avatars:<br>If you Disable Avatars in General or Avatars of a Certain Mode, the Disabled Avatars will NO longer be shown on the Board, but Users will still be able to Download their Own Avatars in the User Control Panel.',
+    '_admpALLOW_AVATARSexplain'       => 'Allow General Usage of Avatars:<br>If you Disable Avatars in General or Avatars of a Certain Mode, then the Disabled Avatars will NO longer be shown on the Board, but Users will still be able to Download their Own Avatars in the User Control Panel.',
 
     '_admpALLOW_LOCAL'                => 'Enable Gallery Avatars',
     '_admpALLOW_LOCALexplain'         => 'Enable Users to Select a Pre-Loaded Image from the User Control Panel.',
