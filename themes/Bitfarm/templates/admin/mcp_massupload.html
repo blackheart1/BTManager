@@ -12,14 +12,14 @@
 						<!-- DEFINE $LI_USED = 0 -->
 						<!-- BEGIN tor_block1 -->
 							<!-- IF tor_block1.S_SELECTED -->
-	
+
 						<!-- BEGIN tor_block2 -->
 							<!-- IF .tor_block1.tor_block2.tor_block3 -->
 		<fieldset>
 			<legend>{tor_block1.tor_block2.L_TITLE}</legend>
 							<!-- DEFINE $LI_USED = 1 -->
 							<!-- ENDIF -->
-	
+
 							<!-- BEGIN tor_block3 -->
 								<p>{L_ANNOUNCE_URL}: {tor_block1.tor_block2.tor_block3.ANNOUMCE}</p>
 								<p>{L_INFO_HASH}: {tor_block1.tor_block2.tor_block3.HASH}</p>
@@ -60,7 +60,7 @@
 		<input type="hidden" name="upload_[{tor_block1.tor_block2.L_TITLE}][id]" value="{tor_block1.tor_block2.ID}" />
 </fieldset>
 						<!-- END tor_block2 -->
-						
+
 							<!-- ENDIF -->
 						<!-- END tor_block1 -->
 						<!-- IF not $LI_USED -->
@@ -106,7 +106,7 @@
 			{L_MAX_SEARCH}
 			</td>
 			<td>
-				<input type="text" name="maxtorrents" value="0" size="4" /> - 0 = &infin;
+				<input type="text" name="maxtorrents" value="0" size="4" />
 			<td>
 		</tr>
 		<tr class="row2">
