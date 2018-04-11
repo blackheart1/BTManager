@@ -12,3 +12,31 @@ in a URL you again DO NOT need to specify an Order e.g., 'Click %sHERE%s' is fin
 
 Privacy Policy and T&C
 Common Language Entries
+
+
+**************************
+*  MODDERS PLEASE NOTE  **
+**************************
+
+You are able to put your Permission Sets into a Separate File by
+Prefixing the New File with Permissions_ and putting it into the
+acp language Folder.
+
+An example of how the File could look:
+
+if (empty($lang) || !is_array($lang))
+{
+    $lang = array();
+}
+
+// Adding New Category
+$lang['permission_cat']['bugs'] = 'Bugs';
+
+// Adding New Permission Set
+$lang['permission_type']['bug_'] = 'Bug Permissions';
+
+// Adding the Permissions
+$lang = array_merge($lang, array(
+    'acl_bug_view' => array('lang' => 'Can view bug reports', 'cat' => 'bugs'),
+    'acl_bug_post' => array('lang' => 'Can post bugs', 'cat' => 'post'), // Using a phpBB category here
+));
