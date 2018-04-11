@@ -111,19 +111,19 @@ $template->assign_vars(array(
 ));
 
 drawRow("announce_ment","text", false , $user->lang["BT_SHOUT"]);
+drawRow("turn_on","select",$user->lang["YES_NO"]);
 drawRow("announce_ment","text", $user->lang["BT_SHOUT_ANNOUNCEMENT"]);
+drawRow("shouts_to_show","text");
 drawRow("shoutnewuser","select",$user->lang["YES_NO"]);
 drawRow("shout_new_torrent","select",$user->lang["YES_NO"]);
 drawRow("shout_new_porn","select",$user->lang["YES_NO"]);
-drawRow("turn_on","select",$user->lang["YES_NO"]);
 drawRow("refresh_time","text");
 drawRow("idle_time","text");
-drawRow("shouts_to_show","text");
 drawRow("bbcode_on","select",$user->lang["YES_NO"]);
 drawRow("allow_url","select",$user->lang["YES_NO"]);
-drawRow("autodelete_time","text");
 drawRow("canedit_on","select",$user->lang["YES_NO"]);
 drawRow("candelete_on","select",$user->lang["YES_NO"]);
+drawRow("autodelete_time","text");
 echo $template->fetch('admin/shout_box.html');
 		close_out();
 ?>
