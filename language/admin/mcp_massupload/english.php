@@ -13,15 +13,16 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File mcp_massupload/english.php 2018-04-01 09:15:00 Thor
+** File mcp_massupload/english.php 2018-04-10 08:32:00 Thor
 **
 ** CHANGES
-**
+** - 0 = &infin;
 ** 2018-02-24 - Added New Masthead
 ** 2018-02-24 - Added New !defined('IN_PMBT')
 ** 2018-02-24 - Fixed Spelling
 ** 2018-04-01 - Amended the Wording of some Sentences
 ** 2018-04-01 - Amended !defined('IN_PMBT') Corrected Path
+** 2018-04-10 - Amended the Wording of some Sentences & Removed - 0 = &infin; from /templates/admin/mcp_massupload.html
 **/
 
 if (!defined('IN_PMBT'))
@@ -38,12 +39,11 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, array(
     'INTRO'                     => 'Mass Upload',
 
-    'INTRO_EXP'                 => 'With this Tool you can Upload Multiple Torrents at a time.
-    The Torrents must be in your Site\'s Root Sub Directory called <em>massupload</em>, which should be Writeable (in Order to Delete Torrents once Uploaded or Duplicated).<br>
-    <em>Tip</em>: on UNIX systems, if you need to use a different Directory for Mass Upload, you can change the <em>massupload</em> Directory with a <em><u>Symbolic Link</u></em>.',
+    'INTRO_EXP'                 => 'With this Tool you can Upload Multiple Torrents at the same time.<br />The Torrents Must be in your Site\'s Root Sub-Directory called <em><strong>massupload</strong></em>, which should be Writeable (in Order to Delete Torrents once Uploaded or Duplicated).<br><em>Tip:</em> on UNIX systems, if you need to use a different Directory for Mass Upload, you can change the <em><strong>massupload</strong></em> Directory with a <em><u>Symbolic Link</u></em>.',
 
     'MAX_SEARCH'                => 'Maximum Torrents to Process (Prevents Memory or Time Out Errors)',
-    'TRACKER_DISABLED'          => 'Our Tracker has been Disabled: Only External Torrents can be Uploaded.',
+    'TRACKER_DISABLED'          => 'Our Tracker has been Disabled.  Only External Torrents can be Uploaded.',
+
     'BLACKLISTEDTRACKER'        => 'The Tracker used by this Torrent (<strong> %1$s </strong>) has been Blacklisted.  Please use a Different Tracker.',
 
     'AUTO_DEL_DUPE_FILE'        => 'Automatically Delete Duplicate Torrents',
@@ -57,7 +57,7 @@ $lang = array_merge($lang, array(
     'CHECK_CHMODD'              => 'Unable to Delete Duplicate Torrents.  Please Delete them Manually or Check your Directory Permissions (must be Writeable).',
 
     'TOR_EXEST'                 => 'Torrent Already Exists.',
-    'CANNOT_CANTACT_URL'        => 'Cannot Contact URL Address.  Tracker will be Set as Offline',
+    'CANNOT_CANTACT_URL'        => 'Can NOT Contact URL Address.  Tracker will be Set as Offline',
     'NO_MASSUPDIR'              => 'Mass Upload Directory DOES NOT Exist or is NOT Readable.',
     'SEARCH_OPT'                => 'Search Options:',
     'INFO_HASH'                 => 'Info Hash',
@@ -65,7 +65,7 @@ $lang = array_merge($lang, array(
     'SCAN'                      => 'Scan',
     'DESCRIPTION'               => 'Description',
 
-    'DESCRIPTION_EXP'           => 'Please Enter a Description that Indicates the File Type and Quality, particularly in the case of Media Files',
+    'DESCRIPTION_EXP'           => 'Please Enter a Description that Indicates the File Type and Quality, (especially in the case of Media Files)',
 
     'TOR_PROS_ALREADY'          => 'Torrent has already been Processed',
     'SUCCESFUL_UPLOAD'          => 'Torrent Successfully Uploaded',

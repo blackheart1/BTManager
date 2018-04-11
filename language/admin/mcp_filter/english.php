@@ -38,8 +38,7 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, array(
     'INTRO'           => 'Keyword Filter',
 
-    'INTRO_EXP'       => 'With the Keyword Filter, you can Stop Users from Uploading Torrents that may Violate the Tracker\'s Rules or Local Laws of your Country.<br>
-    This Checks the Names of the Files within a torrent.  Be careful NOT to Insert any Common Words.',
+    'INTRO_EXP'       => 'With the Keyword Filter, you can Stop Users from Uploading Torrents that may Violate the Tracker\'s Rules or Local Laws of your Country.<br>This Checks the Names of the Files within a torrent.  Be careful NOT to Insert any Common Words.',
 
     'KEYWORD'         => 'KeyWord',
     'ADD_EDIT_KEYW'   => 'Add/Edit Keyword',

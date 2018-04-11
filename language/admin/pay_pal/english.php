@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File paypal/english.php 2018-04-01 09:31:00 Thor
+** File paypal/english.php 2018-04-10 09:26:00 Thor
 **
 ** CHANGES
 **
@@ -22,6 +22,7 @@
 ** 2018-02-24 - Fixed Spelling
 ** 2018-04-01 - Amended the Wording of some Sentences
 ** 2018-04-01 - Amended !defined('IN_PMBT') Corrected Path
+** 2018-04-10 - Amended the Wording of some Sentences
 **/
 
 if (!defined('IN_PMBT'))
@@ -39,9 +40,11 @@ $lang = array_merge($lang, array(
     '_admpnodonateopt'               => array('EU'=>'EURO', 'UK'=>'GBP', 'US' => 'USD'),
 
     '_admsaved'                      => 'Settings Saved!',
-    '_admpdonations'                 => 'Donations',
-    '_admpdonationsexplain'          => '',
-    '_admppaypal_email'              => 'PayPal email',
+    '_admpdonations'                 => 'Donations Page',
+
+    '_admpdonationsexplain'          => 'In this Section you need to Enter your PayPal Details, Donation Goals and the Default Currency that you\'d like to Accept your Donations in.',
+
+    '_admppaypal_email'              => 'PayPal email Address',
 
     '_admppaypal_emailexplain'       => 'The email Address used with your Paypal Account.  Donations to this Account will Update the Progress Bar in the Donations Block on the Front Page.  Log in to your PayPal Account, go to My Account > Profile > Instant Payment Notification Preferences, and Set the URL to http://YOUR_SITE_URL/paypal.php',
 
@@ -49,7 +52,7 @@ $lang = array_merge($lang, array(
     '_admpsitecostexplain'           => 'Enter a Goal for your Donation Drive in your Chosen Currency',
     '_admpreseaved_donations'        => 'Donations Collected',
 
-    '_admpreseaved_donationsexplain' => 'Amount of Money you\'ve already Received.  Any Donations Reported by PayPal will be Added to this, if you Fill in your Data above.',
+    '_admpreseaved_donationsexplain' => 'Amount of Donations you\'ve already Received.  Any Donations Reported by PayPal will be Added to this, if you Fill in your Data above.',
 
     '_admpdonatepage'                => 'Donations Page',
 

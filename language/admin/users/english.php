@@ -13,89 +13,52 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File users/english.php 2018-02-28 22:07:00 Thor
+** File users/english.php 2018-04-11 09:34:00 Thor
 **
 ** CHANGES
 **
 ** 2018-02-25 - Added New Masthead
 ** 2018-02-25 - Added New !defined('IN_PMBT')
 ** 2018-02-25 - Fixed Spelling
+** 2018-04-11 - Amended the Wording of some Sentences
+** 2018-04-11 - Amended !defined('IN_PMBT') Corrected Path
 **/
 
 if (!defined('IN_PMBT'))
 {
-    ?>
-    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-    <html>
-        <head>
-            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-            <title>
-        <?php if (isset($_GET['error']))
-            {
-        echo htmlspecialchars($_GET['error']);
-            }
-            ?> Error</title>
-
-            <link rel='stylesheet' type='text/css' href='/errors/error-style.css' />
-        </head>
-
-        <body>
-            <div id='container'>
-        <div align='center' style='padding-top: 15px'>
-            <img src='/errors/error-images/alert.png' width='89' height='94' alt='' title='' />
-        </div>
-
-        <h1 class='title'>Error 404 - Page Not Found</h1>
-        <p class='sub-title' align='center'>The page that you are looking for does not appear to exist on this site.</p>
-        <p>If you typed the address of the page into the address bar of your browser, please check that you typed it in correctly.</p>
-        <p>If you arrived at this page after you used an old Bookmark or Favourite, the page in question has probably been moved. Try locating the page via the navigation menu and then update your bookmarks.</p>
-            </div>
-        </body>
-    </html>
-
-    <?php
-    exit();
+    include_once './../../../security.php';
+    die ("Error 404 - Page Not Found");
 }
 
 if (empty($lang) || !is_array($lang))
 {
-	$lang = array();
+    $lang = array();
 }
-
-// DEVELOPERS PLEASE NOTE
-//
-// All language files must use UTF-8 as their encoding and the files must Not contain a BOM.
-//
-// Placeholders can now contain order information, e.g. instead of
-// 'Page %s of %s' you can (and should) write 'Page %1$s of %2$s', this allows
-// translators to re-order the output of data while ensuring it remains correct
-//
-// You Do Not need this where single placeholders are used, e.g. 'Message %d' is fine
-// equally where a String contains only two placeholders which are used to wrap text
-// in a URL you again Do Not need to specify an order e.g., 'Click %sHERE%s' is fine
 
 $lang = array_merge($lang, array(
     'ADMIN_SIG_PREVIEW'           => 'Signature Preview',
-    'AT_LEAST_ONE_FOUNDER'        => 'You are NOT able to Change this Founder to a Normal User. Their needs to be at least one Founder Enabled for this board. If you want to Change this Users Founder Status, Promote another User to be a Founder First.',
 
-    'BAN_ALREADY_ENTERED'         => 'The Ban had been Previously Entered Successfully. The Ban List has NOT Been Updated.',
+    'AT_LEAST_ONE_FOUNDER'        => 'You are NOT able to Change this Founder to a Normal User.  There needs to be at least one Founder Enabled for this board.  If you want to Change this Users Founder Status, Promote another User to Founder First.',
+
+    'BAN_ALREADY_ENTERED'         => 'The Ban had Previously been Entered Successfully.  The Ban List has NOT been Updated.',
     'BAN_SUCCESSFUL'              => 'Ban Entered Successfully.',
 
     'CANNOT_BAN_FOUNDER'          => 'You are NOT Allowed to Ban Founder Accounts.',
     'CANNOT_BAN_YOURSELF'         => 'You are NOT Allowed to Ban Yourself.',
-    'CANNOT_DEACTIVATE_BOT'       => 'You are NOT Allowed to Deactivate BOT Accounts. Please Deactivate the BOT within the BOTS Page instead.',
+
+    'CANNOT_DEACTIVATE_BOT'       => 'You are NOT Allowed to Deactivate BOT Accounts.  Please Deactivate the BOT within the BOTS Page instead.',
 
     'CANNOT_DEACTIVATE_FOUNDER'   => 'You are NOT Allowed to Deactivate Founder Accounts.',
     'CANNOT_DEACTIVATE_YOURSELF'  => 'You are NOT Allowed to Deactivate your Own Account.',
-    'CANNOT_FORCE_REACT_BOT'      => 'You are NOT Allowed to Force Reactivation on BOT Accounts. Please Reactivate the BOT within the Bots Page instead.',
+
+    'CANNOT_FORCE_REACT_BOT'      => 'You are NOT Allowed to Force Reactivation on BOT Accounts.  Please Reactivate the BOT within the Bots Page instead.',
 
     'CANNOT_FORCE_REACT_FOUNDER'  => 'You are NOT Allowed to Force Reactivation on Founder Accounts.',
     'CANNOT_FORCE_REACT_YOURSELF' => 'You are NOT Allowed to Force Reactivation of your Own Account.',
     'CANNOT_REMOVE_ANONYMOUS'     => 'You are NOT Allowed to Remove a Guest User Account.',
     'CANNOT_REMOVE_YOURSELF'      => 'You are NOT Allowed to Remove your Own User Account.',
     'CANNOT_SET_FOUNDER_IGNORED'  => 'You are NOT Allowed to Promote Ignored Users to be Founders.',
+
     'CANNOT_SET_FOUNDER_INACTIVE' => 'You need to Activate Users before you Promote them to Founders.  Only Activated Users are able to be Promoted.',
 
     'CONFIRM_EMAIL_EXPLAIN'       => 'You Only need to Specify this if you are Changing the Users email Address.',
@@ -106,7 +69,8 @@ $lang = array_merge($lang, array(
 
     'FORCE_REACTIVATION_SUCCESS'  => 'Successfully Forced Reactivation.',
     'FOUNDER'                     => 'Founder',
-    'FOUNDER_EXPLAIN'             => 'Founders have ALL Administrator Permissions and can Never be Banned, Deleted or Altered by Non Founder Members.',
+
+    'FOUNDER_EXPLAIN'             => 'Founders have ALL Administrator Permissions and can Never be Banned, Deleted or Altered by Non-Founder Members.',
 
     'GROUP_APPROVE'               => 'Approve Member',
     'GROUP_DEFAULT'               => 'Make Group Default for Member',
@@ -121,7 +85,8 @@ $lang = array_merge($lang, array(
     'MOVE_POSTS_EXPLAIN'          => 'Please Select the Forum to which you wish to Move ALL the Posts this User has made.',
 
     'NO_SPECIAL_RANK'             => 'No Special Rank Assigned',
-    'NOT_MANAGE_FOUNDER'          => 'You tried to Manage a User with Founder Status. Only Founders are Allowed to Manage Other Founders.',
+
+    'NOT_MANAGE_FOUNDER'          => 'You tried to Manage a User with Founder Status.  Only Founders are Allowed to Manage Other Founders.',
 
     'QUICK_TOOLS'                 => 'Quick Tools',
 
@@ -140,8 +105,8 @@ $lang = array_merge($lang, array(
     'USER_ADMIN_BAN_EMAIL_REASON' => 'email Address Banned via User Management',
     'USER_ADMIN_BAN_IP'           => 'Ban by IP',
     'USER_ADMIN_BAN_IP_REASON'    => 'IP Banned via User Management',
-    'USER_ADMIN_BAN_NAME_REASON'  => 'Username Banned via User Management',
     'USER_ADMIN_BAN_USER'         => 'Ban by Username',
+    'USER_ADMIN_BAN_NAME_REASON'  => 'Username Banned via User Management',
     'USER_ADMIN_DEACTIVATE'       => 'Deactivate Account',
     'USER_ADMIN_DEACTIVED'        => 'User Deactivated Successfully.',
     'USER_ADMIN_DEL_ATTACH'       => 'Delete ALL Attachments',
@@ -157,9 +122,9 @@ $lang = array_merge($lang, array(
     'USER_CUSTOM_PROFILE_FIELDS'  => 'Custom Profile Fields',
     'USER_DELETED'                => 'User Deleted Successfully.',
     'USER_GROUP_ADD'              => 'Add User to Group',
-    'USER_GROUP_NORMAL'           => 'User Defined Groups User is a Member of',
+    'USER_GROUP_NORMAL'           => 'User-Defined Groups User is a Member of',
     'USER_GROUP_PENDING'          => 'Groups User is in Pending Mode',
-    'USER_GROUP_SPECIAL'          => 'Pre Defined Groups User is a Member of',
+    'USER_GROUP_SPECIAL'          => 'Pre-Defined Groups User is a Member of',
     'USER_NO_ATTACHMENTS'         => 'There are NO Attached Files to Display.',
     'USER_OVERVIEW_UPDATED'       => 'User Details Updated.',
     'USER_POSTS_DELETED'          => 'Successfully Removed ALL Posts made by this User.',

@@ -38,15 +38,13 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, array(
     'INTRO'                  =>	'TorrentClinic',
 
-    'INTRO_EXP'              =>	'Torrent Clinic Allows you to Check .torrent File Properties.<br />
-    If you are having Issues with a Torrent you can Verify that it has been Generated Correctly.<br />
-    When Uploading a Torrent from your Hard Drive, you will be able to Verify ALL the Information that it contains and even Check against Sources!',
+    'INTRO_EXP'              =>	'Torrent Clinic Allows you to Check .torrent File Properties.<br />If you are having Issues with a Torrent you can Verify that it has been Generated Correctly.<br />When Uploading a Torrent from your Hard Drive, you will be able to Verify <strong>ALL</strong> the Information that it contains and even Check against Sources!',
 
     'UPLOAD_TORRENT'         =>	'Upload a Torrent',
-    'UPLOAD_LOCAL_FILE'      =>	'Upload a Torrent from your Hard Drive to be Checked',
+    'UPLOAD_LOCAL_FILE'      =>	'Upload a Torrent from your Hard Drive to be Checked.',
     'SHOW_STRUCTURE'         =>	'Show Advanced XML Structures (Useful for Debugging)',
     'FORCE_SCRAPE'           =>	'Force Scrape on External Torrents',
-    'ERROR_DECODING'         =>	'Decoding Error.  File is probably NOT a Valid Torrent File.',
+    'ERROR_DECODING'         =>	'Decoding Error!  File is probably NOT a Valid Torrent File.',
     'DECODED_DATA'           =>	'Reading Torrent...',
     'NO_DEFAULT_ANNOUNCE'    =>	'Default Tracker is NOT Set.  Invalid Torrent File.',
     'XML_STRUCTURE'          =>	'XML Structure',
