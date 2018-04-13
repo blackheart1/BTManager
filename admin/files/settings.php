@@ -239,9 +239,9 @@ if($op == 'settings_bbcode')
 					if(is_url(strtolower($a)))array_push($vallad_ann,$a);
 				}
 				//die(serialize($vallad_ann));
-		
+
 				//Process Request
-		
+
 				//Then I accurately check each parameter before inserting it in SQL statement
 				//Some parameters that must be numeric have to be checked with an if clause because intval() function truncates to max integer
 				array_push($params,"sitename"); array_push($values,esc_magic($sub_sitename));
@@ -254,11 +254,11 @@ if($op == 'settings_bbcode')
 				if (is_dir("themes/".$sub_theme)) { array_push($params,"theme"); array_push($values,$sub_theme); }
 				if($sub_time_zone != '')
 				{
-					array_push($params,'time_zone'); 
-					array_push($values,$sub_time_zone); 
+					array_push($params,'time_zone');
+					array_push($values,$sub_time_zone);
 				}else{
-					array_push($params,'time_zone'); 
-					array_push($values,'America/Los_Angeles'); 
+					array_push($params,'time_zone');
+					array_push($values,'America/Los_Angeles');
 				}
 				array_push($params,"announce_url"); array_push($values,serialize($vallad_ann));
 				array_push($params,"welcome_message"); array_push($values,esc_magic($sub_welcome_message));
@@ -341,8 +341,8 @@ if($op == 'settings_bbcode')
 				$configquery = $db->sql_query($sql);
 				if (!$row = $db->sql_fetchrow($configquery)) die("phpMyBitTorrent not correctly installed! Ensure you have run setup.php or config_default.sql!!");
 				$pmbt_cache->set_sql("config", $row);
-		
-		
+
+
 				//Finally, I redirect the user to configuration page
 										$template->assign_vars(array(
 												'S_SUCCESS'            => true,
@@ -364,7 +364,7 @@ if($op == 'settings_bbcode')
 				WHERE display_on_posting = 1
 				ORDER BY bbcode_tag';
 			$result = $db->sql_query($sql);
-			
+
 			$i = 0;
 			$num_predefined_bbcodes = 22;
 			while ($rows = $db->sql_fetchrow($result))
@@ -374,7 +374,7 @@ if($op == 'settings_bbcode')
 				{
 					$rows['bbcode_helpline'] = $user->lang[strtoupper($rows['bbcode_helpline'])];
 				}
-		
+
 				$template->assign_block_vars('custom_tags', array(
 					'BBCODE_NAME'		=> "'[{$rows['bbcode_tag']}]', '[/" . str_replace('=', '', $rows['bbcode_tag']) . "]'",
 					'BBCODE_ID'			=> $num_predefined_bbcodes + ($i * 2),
@@ -382,12 +382,12 @@ if($op == 'settings_bbcode')
 					'BBCODE_HELPLINE'	=> $rows['bbcode_helpline'],
 					'A_BBCODE_HELPLINE'	=> str_replace(array('&amp;', '&quot;', "'", '&lt;', '&gt;'), array('&', '"', "\'", '<', '>'), $rows['bbcode_helpline']),
 				));
-		
+
 				$i++;
 			}
 			$db->sql_freeresult($result);
 			$template->assign_vars(array(
-							'S_SMILIES_ALLOWED'			=>  true,
+							'S_SMILIES_ALLOWED'			=> true,
 							'S_SHOW_SMILEY_LINK'		=> true,
 							'S_BBCODE_ALLOWED'			=> true,
 							'T_TEMPLATE_PATH' 			=> 'themes/' . $theme . '/templates',
@@ -398,6 +398,8 @@ if($op == 'settings_bbcode')
 			));
 
 			drawRow("sitename","text", false ,'Site Settings');
+            drawRow("on_line","checkbox");
+            drawRow("off_line_mess","text");
 			drawRow("sitename","text");
 			drawRow("siteurl","text");
 			drawRow("cookiedomain","text");
@@ -437,9 +439,6 @@ if($op == 'settings_bbcode')
 			drawRow("rewrite_engine","checkbox");
 			drawRow("torrent_per_page","text");
 			drawRow("pivate_mode","checkbox");
-			drawRow("disclaimer_check","checkbox");
-			drawRow("on_line","checkbox");
-			drawRow("off_line_mess","text");
 			drawRow("gfx_check","checkbox");
 			drawRow("Public_Key","text");
 			drawRow("Private_Key","text");
@@ -448,7 +447,8 @@ if($op == 'settings_bbcode')
 			drawRow("invite_only","checkbox");
 			drawRow("max_members","text");
 			drawRow("auto_clean","text");
-			drawRow("announce_text","text", false ,'Tracking Settings');
+            drawRow("disclaimer_check","checkbox");
+			drawRow("announce_text","text", false ,'Tracker Settings');
 			drawRow("announce_text","text");
 			drawRow("announce_url","text3");
 			drawRow("allow_html","checkbox");
