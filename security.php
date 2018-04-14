@@ -12,13 +12,13 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts/Black_Heart)
 ** Project Leaders: Black_Heart, Thor.
-** File security.php 2018-02-18 14:32:00 joeroberts
+** File security.php 2018-04-13 08:40:00 Thor
 **
 ** CHANGES
 **
-** EXAMPLE 26-04-13 - Added Auto Ban
+** 2018-04-13 - Changed Wording
 **/
-header("HTTP/1.0 404 Access Denied");
+header("HTTP/1.0 Error 404 - Page Not Found");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -26,7 +26,7 @@ header("HTTP/1.0 404 Access Denied");
         <head>
             <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-            <title>Error 404 Access Denied</title>
+            <title>Error 404 - Page Not Found</title>
 
             <link rel='stylesheet' type='text/css' href='/errors/error-style.css' />
         </head>
