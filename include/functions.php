@@ -2139,8 +2139,8 @@ function bterror($error, $title = 'GEN_ERROR', $fatal = true, $redirect = false,
         if (is_array($error)) {
                 $msg .= "<p>".$user->lang['ALERT_ERROR']."</p>\n";
                 $msg .= "<ul>\n";
-                foreach ($error as $msg) {
-                        $msg .= "<li><p>". ((isset($user->lang[$msg]))? $user->lang[$msg] : $msg) ."</p></li>\n";
+                foreach ($error as $msga) {
+                        $msg .= "<li><p>". ((isset($user->lang[$msga]))? $user->lang[$msga] : $msga) ."</p></li>\n";
                 }
                 $msg .= "</ul>\n";
         }else {
@@ -2160,7 +2160,7 @@ function bterror($error, $title = 'GEN_ERROR', $fatal = true, $redirect = false,
 										'MESSAGE'				=> $msg,
                                 ));
 		echo $template->fetch(((preg_match("/admin.php/",$_SERVER["PHP_SELF"]))?'admin/':'').'message_body.html');
-        if (!preg_match("/admin.php/",$_SERVER["PHP_SELF"])) logerror($error,'user');
+        if (!preg_match("/admin.php/",$_SERVER["PHP_SELF"])) add_log('admin',$error);
 		if($fatal)close_out();
 }
 

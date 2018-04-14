@@ -135,7 +135,7 @@ if ($comment =='')
 						//die($text);
                         $db->sql_freeresult($res);
                         if ($owner != $user->id AND !checkaccess("m_delete_comments")) {
-                                bterror($user->lang['ERROR_NOT_AUTH_EDCOM'],$user->lang['COMMENTS']);
+                                trigger_error($user->lang['ERROR_NOT_AUTH_EDCOM']);
                         } else {
                                 $sql = "DELETE FROM ".$db_prefix."_comments WHERE id = '".$cid."';";
                                 $db->sql_query($sql) or btsqlerror($sql);

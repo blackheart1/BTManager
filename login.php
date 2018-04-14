@@ -163,10 +163,8 @@ switch($op)
 						else 
 						{
                                 //bad data
-								$password = stripslashes($password);
-								$password = $db->sql_escape($password);
 								$username = $db->sql_escape($username);
-								$error = serialize('User login failed for '.$username . ' using '. $password);
+								$error = serialize(array($username));
 								logerror($error, 'FAILED_LOGIN');
                                 $template->assign_vars(array(
                                         'S_ERROR'            => true,

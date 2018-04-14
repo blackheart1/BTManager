@@ -56,7 +56,7 @@ if ($cancel || ($current_time - $lastclick < 2 && $submit))
 
 if (in_array($mode, array('post', 'reply', 'quote', 'edit', 'delete')) && !$forum_id)
 {
-	bterror('NO_FORUM');
+	trigger_error('NO_FORUM');
 }
 
 // We need to know some basic information in all cases before we do anything.
@@ -72,7 +72,7 @@ switch ($mode)
 	case 'reply':
 		if (!$topic_id)
 		{
-			bterror('NO_TOPIC');
+			trigger_error('NO_TOPIC');
 		}
 
 		// Force forum id
@@ -98,7 +98,7 @@ switch ($mode)
 		if (!$post_id)
 		{
 			//$user->setup('posting');
-			bterror('NO_POST');
+			trigger_error('NO_POST');
 		}
 
 		// Force forum id
@@ -167,7 +167,7 @@ switch ($mode)
 if (!$sql)
 {
 	//$user->setup('posting');
-	bterror('NO_POST_MODE');
+	trigger_error('NO_POST_MODE');
 }
 
 $result = $db->sql_query($sql);
@@ -180,7 +180,7 @@ if (!$post_data)
 	{
 		//$user->setup('posting');
 	}
-	bterror(($mode == 'post' || $mode == 'bump' || $mode == 'reply') ? 'NO_TOPIC' : 'NO_POST');
+	trigger_error(($mode == 'post' || $mode == 'bump' || $mode == 'reply') ? 'NO_TOPIC' : 'NO_POST');
 }
 
 if ($mode == 'popup')
@@ -331,13 +331,13 @@ close_out();
 // Is the user able to post within this forum?
 if ($post_data['forum_type'] != 1 && in_array($mode, array('post', 'bump', 'quote', 'reply')))
 {
-	bterror('USER_CANNOT_FORUM_POST');
+	trigger_error('USER_CANNOT_FORUM_POST');
 }
 
 // Forum/Topic locked?
 if (($post_data['forum_status'] == 1 || (isset($post_data['topic_status']) && $post_data['topic_status'] == 1)) && !$auth->acl_get('m_edit', $forum_id))
 {
-	bterror(($post_data['forum_status'] == 1) ? 'FORUM_LOCKED' : 'TOPIC_LOCKED');
+	trigger_error(($post_data['forum_status'] == 1) ? 'FORUM_LOCKED' : 'TOPIC_LOCKED');
 }
 
 // Can we edit this post ... if we're a moderator with rights then always yes
@@ -346,17 +346,17 @@ if ($mode == 'edit' && !$auth->acl_get('m_edit', $forum_id))
 {
 	if ($user->id != $post_data['poster_id'])
 	{
-		bterror('USER_CANNOT_EDIT');
+		trigger_error('USER_CANNOT_EDIT');
 	}
 
 	if (!($post_data['post_time'] > time() - ($config['edit_time'] * 60) || !$config['edit_time']))
 	{
-		bterror('CANNOT_EDIT_TIME');
+		trigger_error('CANNOT_EDIT_TIME');
 	}
 
 	if ($post_data['post_edit_locked'])
 	{
-		bterror('CANNOT_EDIT_POST_LOCKED');
+		trigger_error('CANNOT_EDIT_POST_LOCKED');
 	}
 }
 
@@ -407,10 +407,10 @@ if ($mode == 'bump')
 		$message = $user->lang['TOPIC_BUMPED'] . '<br /><br />' . sprintf($user->lang['VIEW_MESSAGE'], '<a href="' . $meta_url . '">', '</a>');
 		$message .= '<br /><br />' . sprintf($user->lang['RETURN_FORUM'], '<a href="' . append_sid("{$phpbb_root_path}forum.$phpEx", 'action=viewforum&amp;f=' . $forum_id) . '">', '</a>');
 
-		bterror($message);
+		trigger_error($message);
 	}
 
-	bterror('BUMP_ERROR');
+	trigger_error('BUMP_ERROR');
 }
 
 // Subject length limiting to 60 characters if first post...
@@ -593,7 +593,7 @@ if ($save && $user->user && $auth->acl_get('u_savedrafts') && ($mode == 'reply' 
 			$message .= ($mode != 'post') ? sprintf($user->lang['RETURN_TOPIC'], '<a href="' . $meta_info . '">', '</a>') . '<br /><br />' : '';
 			$message .= sprintf($user->lang['RETURN_FORUM'], '<a href="' . append_sid("{$phpbb_root_path}forum.$phpEx", 'action=viewforum&amp;f=' . $forum_id) . '">', '</a>');
 
-			bterror($message);
+			trigger_error($message);
 		}
 		else
 		{
@@ -1002,7 +1002,7 @@ if ($submit || $preview || $refresh)
 					if (!$auth->acl_get('f_post', $to_forum_id))
 					{
 						// This will only be triggered if the user tried to trick the forum.
-						bterror('NOT_AUTHORISED');
+						trigger_error('NOT_AUTHORISED');
 					}
 
 					$forum_id = $to_forum_id;
@@ -1109,7 +1109,7 @@ if ($submit || $preview || $refresh)
 			}
 
 			$message .= '<br /><br />' . sprintf($user->lang['RETURN_FORUM'], '<a href="' . append_sid("{$phpbb_root_path}forum.$phpEx", 'action=viewforum&amp;f=' . $data['forum_id']) . '">', '</a>');
-			bterror($message,$user->lang['SUCCESS']);
+			trigger_error($message);
 		}
 	}
 }

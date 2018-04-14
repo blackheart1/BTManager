@@ -72,7 +72,7 @@ function replace_content( &$node, $new_content )
             $node->remove_child ($kid);
     $node->set_content($new_content);
 }
-if (!isset($id) OR !is_numeric($id)) bterror($user->lang['INVALID_ID']);
+if (!isset($id) OR !is_numeric($id)) trigger_error($user->lang['INVALID_ID']);
 
 $sql = "SELECT id, filename, name, owner, banned, password, ownertype, private, min_ratio, backup_tracker, tracker FROM ".$db_prefix."_torrents WHERE id = '".$id."' LIMIT 1;";
 $res = $db->sql_query($sql);
