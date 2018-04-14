@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File acp_levels/english.php 2018-04-05 08:38:00 Thor
+** File acp_levels/english.php 2018-04-14 10:52:00 Thor
 **
 ** CHANGES
 **
@@ -25,12 +25,14 @@
 ** 2018-03-28 - Amended !defined('IN_PMBT') Corrected Path
 ** 2018-04-01 - Added Permission Descriptions
 ** 2018-04-05 - Amended the Wording of some Sentences
+** 2018-04-14 - Added Missing Languages
+** 2018-04-14 - Amended !defined('IN_PMBT') New Version
 **/
 
 if (!defined('IN_PMBT'))
 {
-    include_once './../../../security.php';
-    die ("Error 404 - Page Not Found");
+    require_once($_SERVER['DOCUMENT_ROOT'].'/security.php');
+    die ('Error 404 - Page Not Found');
 }
 
 if (empty($lang) || !is_array($lang))
@@ -316,6 +318,18 @@ $lang = array_merge($lang, array(
     'GROUP_MODS_DEMOTED'   => 'Group Leaders Demoted Successfully.',
     'GROUP_MODS_PROMOTED'  => 'Group Members Promoted Successfully.',
     'USERS_APPROVED'       => 'Users Approved Successfully.',
+
+    'ADMIN_ROLES'          => 'Administrator Roles',
+    'USER_ROLES'           => 'User Roles',
+    'MOD_ROLES'            => 'Moderator Roles',
+    'FORUM_ROLES'          => 'Forum Roles',
+    'ASSIGN_ROLES'         => 'Assign Roles',
+    'PERM_ROLES'           => 'Permission Roles',
+    'GROUP_FORUM_PERM'     => 'Group Forum Permissions',
+    'GLOBAL_GROUP_PERM'    => 'Global Group Permissions',
+    'EDIT_GROUP_PERM'      => 'Edit Group Permissions',
+    'MANAGE_GROUP_PERM'    => 'Manage Group Permissions',
+    'MANAGE_GROUPS'        => 'Manage Groups',
 ));
 
 ?>

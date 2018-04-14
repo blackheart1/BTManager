@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File acp_permissions/english.php 2018-03-28 09:48:00 Thor
+** File acp_permissions/english.php 2018-04-14 10:52:00 Thor
 **
 ** CHANGES
 **
@@ -22,12 +22,14 @@
 ** 2018-02-23 - Fixed Spelling
 ** 2018-03-28 - Amended the Wording of some Sentences
 ** 2018-03-28 - Amended !defined('IN_PMBT') Corrected Path
+** 2018-04-14 - Added Missing Languages
+** 2018-04-14 - Amended !defined('IN_PMBT') New Version
 **/
 
 if (!defined('IN_PMBT'))
 {
-    include_once './../../../security.php';
-    die ("Error 404 - Page Not Found");
+    require_once($_SERVER['DOCUMENT_ROOT'].'/security.php');
+    die ('Error 404 - Page Not Found');
 }
 
 if (empty($lang) || !is_array($lang))
@@ -123,6 +125,9 @@ $lang = array_merge($lang, array(
     'ACP_FORUM_MODERATORS'           => 'Forum Moderators',
     'ACP_FORUM_PERMISSIONS'          => 'Forum Permissions',
     'ACP_FORUM_ROLES'                => 'Forum Roles',
+    'ACP_ADMIN_ROLES'                => 'Administrator Roles',
+    'ACP_MOD_ROLES'                  => 'Moderator Roles',
+    'ACP_USER_ROLES'                 => 'User Roles',
 
     'ACP_VIEW_FORUM_PERMISSIONS_EXPLAIN'     => 'Here you can View the Forum Permissions Assigned to the Selected Users/Groups and Forums.',
 
