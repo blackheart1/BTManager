@@ -428,6 +428,9 @@ $lang = array_merge($lang, array(
     'ACP_EXTENSION_GROUPS'     => 'Manage Extension Groups',
     'ACP_MANAGE_EXTENSIONS'    => 'Manage Extensions',
     'ACP_ORPHAN_ATTACHMENTS'   => 'Orphaned Attachments',
+	#ADD ON 3.0.1
+    '_admpannounce_ments'        => 'Announcement\'s',
+    '_admpannounce_mentsexplain' => 'This is for making Announcements to the site.<br />These announcements well be seen by users in the edit profile section.',
 ));
 
 ?>
