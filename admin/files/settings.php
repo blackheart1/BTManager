@@ -16,7 +16,8 @@
 **
 ** CHANGES
 **
-** EXAMPLE 26-04-13 - Added Auto Ban
+** 04-11-2018 added announcement 
+** 04-14-2018 changed how setting sql is built 
 **/
 if (!defined('IN_PMBT'))
 {
@@ -155,7 +156,7 @@ if($op == 'settings_bbcode')
 		case 'setting':
 			if ($op == "savesettings")
 			{
-				//First I create the two SQL arrays
+				//Process Request
 				$params = Array();
 				$values = Array();
 				$sub_sitename					= request_var('sub_sitename', '');
@@ -167,8 +168,9 @@ if($op == 'settings_bbcode')
 				$sub_admin_email				= request_var('sub_admin_email', '');
 				$sub_language					= request_var('sub_language', '');
 				$sub_theme						= request_var('sub_theme', '');
-				$sub_welcome_message			= request_var('sub_welcome_message', '',true);
-				$sub_off_line_mess				= request_var('sub_off_line_mess','');
+				$sub_welcome_message			= utf8_normalize_nfc(request_var('sub_welcome_message', '',true));
+				$announce_ments					= utf8_normalize_nfc(request_var('sub_announce_ments', '',true));
+				$sub_off_line_mess				= utf8_normalize_nfc(request_var('sub_off_line_mess','',true));
 				$sub_announce_text				= request_var('sub_announce_text', '');
 				$sub_allow_html					= request_var('sub_allow_html', '');
 				$sub_rewrite_engine				= request_var('sub_rewrite_engine', '');
@@ -206,7 +208,7 @@ if($op == 'settings_bbcode')
 				$sub_conferm_email				= request_var('sub_conferm_email', '');
 				$sub_min_num_seed_e				= request_var('sub_min_num_seed_e', '');
 				$sub_min_size_seed_e			= request_var('sub_min_size_seed_e', '');
-				$sub_minupload_file_size		= request_var('sub_minupload_file_size', '');
+				$sub_minupload_size_file		= request_var('sub_minupload_size_file', '');
 				$sub_allow_multy_tracker		= request_var('sub_allow_multy_tracker', '');
 				$sub_allow_backup_tracker		= request_var('sub_allow_backup_tracker', '');
 				$sub_allow_external				= request_var('sub_allow_external', '');
@@ -238,101 +240,96 @@ if($op == 'settings_bbcode')
 				{
 					if(is_url(strtolower($a)))array_push($vallad_ann,$a);
 				}
-				//die(serialize($vallad_ann));
-
-				//Process Request
-
+		
+		
+				//First I create the SQL arrays
 				//Then I accurately check each parameter before inserting it in SQL statement
 				//Some parameters that must be numeric have to be checked with an if clause because intval() function truncates to max integer
-				array_push($params,"sitename"); array_push($values,esc_magic($sub_sitename));
-				if ($sub_siteurl) { array_push($params,"siteurl"); array_push($values,esc_magic($sub_siteurl)); }
-				array_push($params,"cookiedomain"); array_push($values,$sub_cookiedomain);
-				if (preg_match('/^\/.*/', $sub_cookiepath)) { array_push($params,"cookiepath"); array_push($values,esc_magic($sub_cookiepath)); }
-				array_push($params,"sourcedir"); array_push($values,$sub_sourcedir);
-				if (is_email($sub_admin_email)) { array_push($params,"admin_email"); array_push($values,esc_magic($sub_admin_email)); }
-				if (file_exists("language/common/".$sub_language.".php")) { array_push($params,"language"); array_push($values,$sub_language); }
-				if (is_dir("themes/".$sub_theme)) { array_push($params,"theme"); array_push($values,$sub_theme); }
-				if($sub_time_zone != '')
-				{
-					array_push($params,'time_zone');
-					array_push($values,$sub_time_zone);
-				}else{
-					array_push($params,'time_zone');
-					array_push($values,'America/Los_Angeles');
-				}
-				array_push($params,"announce_url"); array_push($values,serialize($vallad_ann));
-				array_push($params,"welcome_message"); array_push($values,esc_magic($sub_welcome_message));
-				array_push($params,"announce_text"); array_push($values,esc_magic($sub_announce_text));
-				if ($sub_allow_html != "true") $sub_allow_html = "false"; array_push($params,"allow_html"); array_push($values,$sub_allow_html);
-				if ($sub_on_line != "true") $sub_on_line = "false"; array_push($params,"on_line"); array_push($values,$sub_on_line);
-				 array_push($params,"off_line_mess"); array_push($values,esc_magic($sub_off_line_mess));
-			   if ($sub_rewrite_engine != "true") $sub_rewrite_engine = "false"; array_push($params,"rewrite_engine"); array_push($values,$sub_rewrite_engine);
-				array_push($params,"torrent_prefix"); array_push($values,$sub_torrent_prefix);
-				array_push($params,"torrent_per_page"); array_push($values,intval($sub_torrent_per_page));
-				if (!isset($sub_onlysearch) OR $sub_onlysearch != "true") $sub_onlysearch = "false"; array_push($params,"onlysearch"); array_push($values,$sub_onlysearch);
-				array_push($params,"max_torrent_size"); array_push($values,intval($sub_max_torrent_size));
-				array_push($params,"announce_interval"); array_push($values,intval($sub_announce_interval));
-				array_push($params,"announce_interval_min"); if($sub_announce_interval_min > $sub_announce_interval) array_push($values,intval($sub_announce_interval)); else array_push($values,intval($sub_announce_interval_min));
-				array_push($params,"dead_torrent_interval"); array_push($values,intval($sub_dead_torrent_interval));
-				array_push($params,"minvotes"); array_push($values,intval($sub_minvotes));
-				array_push($params,"time_tracker_update"); array_push($values,intval($sub_time_tracker_update));
-				if (is_numeric($sub_give_sign_up_credit)) {array_push($params,"give_sign_up_credit"); array_push($values,$sub_give_sign_up_credit); }
-				array_push($params,"best_limit"); array_push($values,intval($sub_best_limit));
-				array_push($params,"down_limit"); array_push($values,intval($sub_down_limit));
-				if (!isset($sub_allow_change_email) OR $sub_allow_change_email != "true") $sub_allow_change_email = "false"; array_push($params,"allow_change_email"); array_push($values,$sub_allow_change_email);
-				if (!isset($sub_torrent_complaints) OR $sub_torrent_complaints != "true") $sub_torrent_complaints = "false"; array_push($params,"torrent_complaints"); array_push($values,$sub_torrent_complaints);
-				if (!isset($sub_torrent_global_privacy) OR $sub_torrent_global_privacy != "true") $sub_torrent_global_privacy = "false"; array_push($params,"torrent_global_privacy"); array_push($values,$sub_torrent_global_privacy);
-				if (!isset($sub_disclaimer_check) OR $sub_disclaimer_check != "true") $sub_disclaimer_check = "false"; array_push($params,"disclaimer_check"); array_push($values,$sub_disclaimer_check);
-				if (!isset($sub_gfx_check) OR $sub_gfx_check != "true") $sub_gfx_check = "false"; array_push($params,"gfx_check"); array_push($values,$sub_gfx_check);
-				if (in_array($sub_upload_level,Array("all","user","premium"))) { array_push($params,"upload_level"); array_push($values,$sub_upload_level); }
-				if (in_array($sub_download_level,Array("all","user","premium"))) { array_push($params,"download_level"); array_push($values,$sub_download_level); }
-				if (!isset($sub_pivate_mode) OR $sub_pivate_mode != "true") $sub_pivate_mode = "false"; array_push($params,"pivate_mode"); array_push($values,$sub_pivate_mode);
-				if ($sub_recap_https != "true") $sub_recap_https = "false"; array_push($params,"recap_https"); array_push($values,$sub_recap_https);
-				if (!isset($sub_force_passkey) OR $sub_force_passkey != "true") $sub_force_passkey = "false"; array_push($params,"force_passkey"); array_push($values,$sub_force_passkey);
-				if ($sub_announce_level != "all") $sub_announce_level = "user"; array_push($params,"announce_level"); array_push($values,$sub_announce_level);
-				array_push($params,"max_num_file"); array_push($values,intval($sub_max_num_file));
-				array_push($params,"Public_Key"); array_push($values,$sub_Public_Key);
-				array_push($params,"Private_Key"); array_push($values,$sub_Private_Key);
-				if (is_numeric($sub_max_share_size)) { array_push($params,"max_share_size"); array_push($values,$sub_max_share_size); }
-				if (is_numeric($sub_min_size_seed)) { array_push($params,"min_size_seed"); array_push($values,$sub_min_size_seed); }
-				if (is_numeric($sub_min_share_seed)) { array_push($params,"min_share_seed"); array_push($values,$sub_min_share_seed); }
-				array_push($params,"global_min_ratio"); array_push($values,number_format($sub_global_min_ratio,2));
-				if (!isset($sub_autoscrape) OR $sub_autoscrape != "true") $sub_autoscrape = "false"; array_push($params,"autoscrape"); array_push($values,$sub_autoscrape);
-				if (!isset($sub_conferm_email) OR $sub_conferm_email != "true") $sub_conferm_email = "false"; array_push($params,"conferm_email"); array_push($values,$sub_conferm_email);
-				if (is_numeric($sub_min_num_seed_e)) { array_push($params,"min_num_seed_e"); array_push($values,$sub_min_num_seed_e); }
-				if (is_numeric($sub_min_size_seed_e)) { array_push($params,"min_size_seed_e"); array_push($values,$sub_min_size_seed_e); }
-				if (is_numeric($sub_minupload_file_size)) {array_push($params,"minupload_file_size"); array_push($values,$sub_minupload_file_size); }
-				if (!isset($sub_allow_multy_tracker) OR $sub_allow_multy_tracker != "true") $sub_allow_multy_tracker = "false"; array_push($params,"allow_multy_tracker"); array_push($values,$sub_allow_multy_tracker);
-				if (!isset($sub_allow_backup_tracker) OR $sub_allow_backup_tracker != "true") $sub_allow_backup_tracker = "false"; array_push($params,"allow_backup_tracker"); array_push($values,$sub_allow_backup_tracker);
-				if (!isset($sub_allow_external) OR $sub_allow_external != "true") $sub_allow_external = "false"; array_push($params,"allow_external"); array_push($values,$sub_allow_external);
-				if ($sub_allow_magnet != "1") $sub_allow_magnet = "0"; array_push($params,"allow_magnet"); array_push($values,$sub_allow_magnet);
-				if (!isset($sub_stealthmode) OR $sub_stealthmode != "true") $sub_stealthmode = "false"; array_push($params,"stealthmode"); array_push($values,$sub_stealthmode);
-				if (!isset($sub_upload_dead) OR $sub_upload_dead != "true") $sub_upload_dead = "false"; array_push($params,"upload_dead"); array_push($values,$sub_upload_dead);
-				if (!isset($sub_invites_open) OR $sub_invites_open != "true") $sub_invites_open = "false"; array_push($params,"invites_open"); array_push($values,$sub_invites_open);
-				if (!isset($sub_invite_only) OR $sub_invite_only != "true") $sub_invite_only = "false"; array_push($params,"invite_only"); array_push($values,$sub_invite_only);
-				if (is_numeric($sub_max_members)) {array_push($params,"max_members"); array_push($values,$sub_max_members); }
-				if (is_numeric($sub_auto_clean)) {array_push($params,"auto_clean"); array_push($values,$sub_auto_clean); }
-				if (!isset($sub_free_dl) OR $sub_free_dl != "true") $sub_free_dl = "false"; array_push($params,"free_dl"); array_push($values,$sub_free_dl);
-				if (!isset($sub_addprivate) OR $sub_addprivate != "true") $sub_addprivate = "false"; array_push($params,"addprivate"); array_push($values,$sub_addprivate);
-				if (is_numeric($sub_GIGSA)) {array_push($params,"GIGSA"); array_push($values,$sub_GIGSA); }
-				if (is_numeric($sub_RATIOA)) {array_push($params,"RATIOA"); array_push($values,$sub_RATIOA); }
-				if (is_numeric($sub_WAITA)) {array_push($params,"WAITA"); array_push($values,$sub_WAITA); }
-				if (is_numeric($sub_GIGSB)) {array_push($params,"GIGSB"); array_push($values,$sub_GIGSB); }
-				if (is_numeric($sub_RATIOB)) {array_push($params,"RATIOB"); array_push($values,$sub_RATIOB); }
-				if (is_numeric($sub_WAITB)) {array_push($params,"WAITB"); array_push($values,$sub_WAITB); }
-				if (is_numeric($sub_GIGSC)) {array_push($params,"GIGSC"); array_push($values,$sub_GIGSC); }
-				if (is_numeric($sub_RATIOC)) {array_push($params,"RATIOC"); array_push($values,$sub_RATIOC); }
-				if (is_numeric($sub_WAITC)) {array_push($params,"WAITC"); array_push($values,$sub_WAITC); }
-				if (is_numeric($sub_GIGSD)) {array_push($params,"GIGSD"); array_push($values,$sub_GIGSD); }
-				if (is_numeric($sub_RATIOD)) {array_push($params,"RATIOD"); array_push($values,$sub_RATIOD); }
-				if (is_numeric($sub_WAITD)) {array_push($params,"WAITD"); array_push($values,$sub_WAITD); }
-				array_push($params,"version"); array_push($values,$version);
-				array_push($params,"most_on_line"); array_push($values,$most_users_online);
-				array_push($params,"when_most"); array_push($values,$most_users_online_when);
-				array_push($params,"start_date"); array_push($values,$start_date);
+				$sql_ary = array(
+					'sitename'				=> $sub_sitename,
+					'siteurl'				=> $sub_siteurl,
+					'cookiedomain'			=> $sub_cookiedomain,
+					'cookiepath'			=> $sub_cookiepath,
+					'sourcedir'				=> $sub_sourcedir,
+					'admin_email'			=> $sub_admin_email,
+					'language'				=> (file_exists("language/common/".$sub_language.".php"))? $sub_language : 'english',
+					'theme'					=> (is_dir("themes/".$sub_theme))? $sub_theme : 'Bitfarm',
+					'time_zone'				=> ($sub_time_zone != '')? $sub_time_zone : 'America/Los_Angeles',
+					'announce_url'			=> serialize($vallad_ann),
+					'welcome_message'		=> ($sub_welcome_message == '')? NULL : $sub_welcome_message,
+					'announce_ments'		=> ($announce_ments == '')? NULL : $announce_ments,
+					'announce_text'			=> ($sub_announce_text == '')? NULL : $sub_announce_text,
+					'allow_html'			=> ($sub_allow_html != "true")? 'false' : 'true',
+					'on_line'				=> ($sub_on_line != "true")? 'false' : 'true',
+					'off_line_mess'			=> ($sub_off_line_mess == '')? NULL : $sub_off_line_mess,
+					'rewrite_engine'		=>	($sub_rewrite_engine != "true")? 'false' : 'true',
+					'torrent_prefix'		=>	($sub_torrent_prefix != '')? $sub_torrent_prefix : NULL,
+					'torrent_per_page'		=>	(int) $sub_torrent_per_page,
+					'onlysearch'			=> (!isset($sub_onlysearch) OR $sub_onlysearch != "true")? 'false' : 'true',
+					'max_torrent_size'		=> (int) $sub_max_torrent_size,
+					'announce_interval'		=> (int) $sub_announce_interval,
+					'announce_interval_min'	=> ($sub_announce_interval_min > $sub_announce_interval)? (int)$sub_announce_interval : (int)$sub_announce_interval_min,
+					'dead_torrent_interval'	=> (int) $sub_dead_torrent_interval,
+					'minvotes'				=> (int) $sub_minvotes,
+					'time_tracker_update'	=> (int) $sub_time_tracker_update,
+					'give_sign_up_credit'	=> (is_numeric($sub_give_sign_up_credit))? (int) $sub_give_sign_up_credit : (int) '0',
+					'best_limit'			=> (int) $sub_best_limit,
+					'down_limit'			=> (int) $sub_down_limit,
+					'allow_change_email'	=> (!isset($sub_allow_change_email) OR $sub_allow_change_email != "true")? 'false' : 'true',
+					'torrent_complaints'	=> (!isset($sub_torrent_complaints) OR $sub_torrent_complaints != "true")? 'false' : 'true',
+					'torrent_global_privacy'=> (!isset($sub_torrent_global_privacy) OR $sub_torrent_global_privacy != "true")? 'false' : 'true',
+					'disclaimer_check'		=> (!isset($sub_disclaimer_check) OR $sub_disclaimer_check != "true")? 'false' : 'true',
+					'gfx_check'				=> (!isset($sub_gfx_check) OR $sub_gfx_check != "true")? 'false' : 'true',
+					'upload_level'			=> (in_array($sub_upload_level,Array("all","user","premium")))? $sub_upload_level : 'all',
+					'download_level'		=> (in_array($sub_download_level,Array("all","user","premium")))? $sub_download_level : 'all',
+					'pivate_mode'			=> (!isset($sub_pivate_mode) OR $sub_pivate_mode != "true")? 'false' : 'true',
+					'recap_https'			=> ($sub_recap_https != "true")? 'false' : 'true',
+					'force_passkey'			=> (!isset($sub_force_passkey) OR $sub_force_passkey != "true")? 'false' : 'true',
+					'announce_level'		=> ($sub_announce_level != "all")? 'user' : 'all',
+					'max_num_file'			=> (int) $sub_max_num_file,
+					'Public_Key'			=> ($sub_Public_Key == '')? NULL : $sub_Public_Key,
+					'Private_Key'			=> ($sub_Private_Key == '')? NULL : $sub_Private_Key,
+					'max_share_size'		=> (is_numeric($sub_max_share_size))? (int) $sub_max_share_size : (int) $max_share_size,
+					'min_size_seed'			=> (is_numeric($sub_min_size_seed))? (int) $sub_min_size_seed : (int) $min_size_seed,
+					'min_share_seed'		=> (is_numeric($sub_min_share_seed))? (int) $sub_min_share_seed : (int) $min_share_seed,
+					'global_min_ratio'		=> number_format($sub_global_min_ratio,2),
+					'autoscrape'			=> (!isset($sub_autoscrape) OR $sub_autoscrape != "true")? 'false' : 'true',
+					'conferm_email'			=> (!isset($sub_conferm_email) OR $sub_conferm_email != "true")? 'false' : 'true',
+					'min_num_seed_e'		=> (is_numeric($sub_min_num_seed_e))? (int) $sub_min_num_seed_e : (int) '0',
+					'min_size_seed_e'		=> (is_numeric($sub_min_size_seed_e))? (int) $sub_min_size_seed_e : (int) '0',
+					'minupload_size_file'	=> (is_numeric($sub_minupload_size_file))? (int) $sub_minupload_size_file : (int) '0',
+					'allow_multy_tracker'	=> (!isset($sub_allow_external) OR $sub_allow_external != "true")? 'false' : 'true',
+					'allow_backup_tracker'	=> (!isset($sub_allow_backup_tracker) OR $sub_allow_backup_tracker != "true")? 'false' : 'true',
+					'allow_external'		=> (!isset($sub_allow_external) OR $sub_allow_external != "true")? 'false' : 'true',
+					'allow_magnet'			=> ($sub_allow_magnet != "1")? '0' : '1',
+					'stealthmode'			=> (!isset($sub_stealthmode) OR $sub_stealthmode != "true")? 'false' : 'true',
+					'upload_dead'			=> (!isset($sub_upload_dead) OR $sub_upload_dead != "true")? 'false' : 'true',
+					'invites_open'			=> (!isset($sub_invites_open) OR $sub_invites_open != "true")? 'false' : 'true',
+					'invite_only'			=> (!isset($sub_invite_only) OR $sub_invite_only != "true")? 'false' : 'true',
+					'max_members'			=> (is_numeric($sub_max_members))? (int) $sub_max_members : (int) '0',
+					'auto_clean'			=> (is_numeric($sub_auto_clean))? (int) $sub_auto_clean : (int) '0',
+					'free_dl'				=> (!isset($sub_free_dl) OR $sub_free_dl != "true")? 'false' : 'true',
+					'addprivate'			=> (!isset($sub_addprivate) OR $sub_addprivate != "true")? 'false' : 'true',
+					'GIGSA'					=> (is_numeric($sub_GIGSA))? (int) $sub_GIGSA : (int) '0',
+					'RATIOA'				=> (is_numeric($sub_RATIOA))? number_format($sub_RATIOA,2) : '0',
+					'WAITA'					=> (is_numeric($sub_WAITA))? (int) $sub_WAITA : (int) '0',
+					'GIGSB'					=> (is_numeric($sub_GIGSB))? (int) $sub_GIGSB : (int) '0',
+					'RATIOB'				=> (is_numeric($sub_RATIOB))? number_format($sub_RATIOB,2) : '0',
+					'WAITB'					=> (is_numeric($sub_WAITB))? (int) $sub_WAITB : (int) '0',
+					'GIGSC'					=> (is_numeric($sub_GIGSC))? (int) $sub_GIGSC : (int) '0',
+					'RATIOC'				=> (is_numeric($sub_RATIOC))? number_format($sub_RATIOC,2) : '0',
+					'WAITC'					=> (is_numeric($sub_WAITC))? (int) $sub_WAITC : (int) '0',
+					'GIGSD'					=> (is_numeric($sub_GIGSD))? (int) $sub_GIGSD : (int) '0',
+					'RATIOD'				=> (is_numeric($sub_RATIOD))? number_format($sub_RATIOD,2) : '0',
+					'WAITD'					=> (is_numeric($sub_WAITD))? (int) $sub_WAITD : (int) '0',
+					'version'				=> $version,
+					'most_on_line'			=> $most_users_online,
+					'when_most'				=> $most_users_online_when,
+					'start_date'			=> $start_date,
+				);
 				//Now I save the settings
 				//but first I test the insertion against SQL errors, or I lose everything in case of error
-				$sql = "INSERT INTO ".$db_prefix."_config (".implode(", ",$params).") VALUES ('".implode("', '",$values)."');";
+				$sql = "INSERT INTO ".$db_prefix."_config " . $db->sql_build_array('INSERT', $sql_ary) . ";";
 				if (!$db->sql_query($sql)) btsqlerror($sql);
 				$db->sql_query("TRUNCATE TABLE ".$db_prefix."_config;");
 				$db->sql_query($sql);
@@ -341,8 +338,8 @@ if($op == 'settings_bbcode')
 				$configquery = $db->sql_query($sql);
 				if (!$row = $db->sql_fetchrow($configquery)) die("phpMyBitTorrent not correctly installed! Ensure you have run setup.php or config_default.sql!!");
 				$pmbt_cache->set_sql("config", $row);
-
-
+		
+		
 				//Finally, I redirect the user to configuration page
 										$template->assign_vars(array(
 												'S_SUCCESS'            => true,
@@ -364,7 +361,7 @@ if($op == 'settings_bbcode')
 				WHERE display_on_posting = 1
 				ORDER BY bbcode_tag';
 			$result = $db->sql_query($sql);
-
+			
 			$i = 0;
 			$num_predefined_bbcodes = 22;
 			while ($rows = $db->sql_fetchrow($result))
@@ -374,7 +371,7 @@ if($op == 'settings_bbcode')
 				{
 					$rows['bbcode_helpline'] = $user->lang[strtoupper($rows['bbcode_helpline'])];
 				}
-
+		
 				$template->assign_block_vars('custom_tags', array(
 					'BBCODE_NAME'		=> "'[{$rows['bbcode_tag']}]', '[/" . str_replace('=', '', $rows['bbcode_tag']) . "]'",
 					'BBCODE_ID'			=> $num_predefined_bbcodes + ($i * 2),
@@ -382,12 +379,12 @@ if($op == 'settings_bbcode')
 					'BBCODE_HELPLINE'	=> $rows['bbcode_helpline'],
 					'A_BBCODE_HELPLINE'	=> str_replace(array('&amp;', '&quot;', "'", '&lt;', '&gt;'), array('&', '"', "\'", '<', '>'), $rows['bbcode_helpline']),
 				));
-
+		
 				$i++;
 			}
 			$db->sql_freeresult($result);
 			$template->assign_vars(array(
-							'S_SMILIES_ALLOWED'			=> true,
+							'S_SMILIES_ALLOWED'			=>  true,
 							'S_SHOW_SMILEY_LINK'		=> true,
 							'S_BBCODE_ALLOWED'			=> true,
 							'T_TEMPLATE_PATH' 			=> 'themes/' . $theme . '/templates',
@@ -397,9 +394,9 @@ if($op == 'settings_bbcode')
 							'S_BBCODE_FLASH'			=> true,
 			));
 
-			drawRow("sitename","text", false ,'Site Settings');
-            drawRow("on_line","checkbox");
-            drawRow("off_line_mess","text");
+			drawRow("sitename","text", false ,$user->lang['SITE_SETTINGS']);
+			drawRow("on_line","checkbox");
+			drawRow("off_line_mess","text");
 			drawRow("sitename","text");
 			drawRow("siteurl","text");
 			drawRow("cookiedomain","text");
@@ -436,6 +433,7 @@ if($op == 'settings_bbcode')
 			drawRow("theme","select",$themes);
 			unset($themes);
 			drawRow("welcome_message","textarea");
+			drawRow("announce_ments","text");
 			drawRow("rewrite_engine","checkbox");
 			drawRow("torrent_per_page","text");
 			drawRow("pivate_mode","checkbox");
@@ -447,8 +445,8 @@ if($op == 'settings_bbcode')
 			drawRow("invite_only","checkbox");
 			drawRow("max_members","text");
 			drawRow("auto_clean","text");
-            drawRow("disclaimer_check","checkbox");
-			drawRow("announce_text","text", false ,'Tracker Settings');
+			drawRow("announce_text","text", false ,$user->lang['TRACKER_SETTINGS']);
+			drawRow("disclaimer_check","checkbox");
 			drawRow("announce_text","text");
 			drawRow("announce_url","text3");
 			drawRow("allow_html","checkbox");
@@ -457,7 +455,7 @@ if($op == 'settings_bbcode')
 			drawRow("onlysearch","checkbox");
 			drawRow("time_tracker_update","text");
 			drawRow("announce_level","select",$user->lang["_admpannounce_levelopt"]);
-			drawRow("allow_change_email","checkbox", false ,'User Settings');
+			drawRow("allow_change_email","checkbox", false ,$user->lang['USER_SETTINGS']);
 			drawRow("allow_change_email","checkbox");
 			drawRow("give_sign_up_credit","text");
 			drawRow("conferm_email","checkbox");
@@ -465,7 +463,7 @@ if($op == 'settings_bbcode')
 			drawRow("global_min_ratio","text");
 			drawRow("min_num_seed_e","text");
 			drawRow("min_size_seed_e","text");
-			drawRow("minupload_file_size","text");
+			drawRow("minupload_size_file","text");
 			drawRow("free_dl","checkbox");
 			drawRow("wait_time","checkbox");
 			drawRow("GIGSA","text");
@@ -480,7 +478,7 @@ if($op == 'settings_bbcode')
 			drawRow("GIGSD","text");
 			drawRow("RATIOD","text");
 			drawRow("WAITD","text");
-			drawRow("allow_multy_tracker","checkbox", false ,'Upload Settings');
+			drawRow("allow_multy_tracker","checkbox", false ,$user->lang['UPLOAD_SETTINGS']);
 			drawRow("allow_multy_tracker","checkbox");
 			drawRow("max_torrent_size","text");
 			drawRow("announce_interval","text");
@@ -496,7 +494,7 @@ if($op == 'settings_bbcode')
 			drawRow("max_num_file","text");
 			drawRow("max_share_size","text");
 			drawRow("addprivate","checkbox");
-			drawRow("allow_external","checkbox", false ,'External Torrent Settings');
+			drawRow("allow_external","checkbox", false ,$user->lang['EXT_TORRENT_SETTINGS']);
 			drawRow("allow_external","checkbox");
 			drawRow("autoscrape","checkbox");
 			drawRow("upload_dead","checkbox");
