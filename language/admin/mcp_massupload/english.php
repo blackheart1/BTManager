@@ -16,7 +16,7 @@
 ** File mcp_massupload/english.php 2018-04-10 08:32:00 Thor
 **
 ** CHANGES
-**
+** - 0 = &infin;
 ** 2018-02-24 - Added New Masthead
 ** 2018-02-24 - Added New !defined('IN_PMBT')
 ** 2018-02-24 - Fixed Spelling

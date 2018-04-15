@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File site_settings/english.php 2018-04-12 17:17:00 Thor
+** File site_settings/english.php 2018-04-15 06:27:00 Thor
 **
 ** CHANGES
 **
@@ -22,12 +22,14 @@
 ** 2018-02-25 - Fixed Spelling
 ** 2018-04-12 - Amended the Wording of some Sentences
 ** 2018-04-12 - Amended !defined('IN_PMBT') Corrected Path
+** 2018-04-15 - Amended !defined('IN_PMBT') New Version
+** 2018-04-15 - Added Missing Languages
 **/
 
 if (!defined('IN_PMBT'))
 {
-    include_once './../../../security.php';
-    die ("Error 404 - Page Not Found");
+    require_once($_SERVER['DOCUMENT_ROOT'].'/security.php');
+    die ('Error 404 - Page Not Found');
 }
 
 if (empty($lang) || !is_array($lang))
@@ -428,9 +430,11 @@ $lang = array_merge($lang, array(
     'ACP_EXTENSION_GROUPS'     => 'Manage Extension Groups',
     'ACP_MANAGE_EXTENSIONS'    => 'Manage Extensions',
     'ACP_ORPHAN_ATTACHMENTS'   => 'Orphaned Attachments',
-	#ADD ON 3.0.1
+
+	#ADDON 3.0.1
     '_admpannounce_ments'        => 'Announcement\'s',
-    '_admpannounce_mentsexplain' => 'This is for making Announcements to the site.<br />These announcements well be seen by users in the edit profile section.',
+
+    '_admpannounce_mentsexplain' => 'Used for making Site Announcements.<br />These Announcements will be seen by Users in the Edit Profile Section.',
 ));
 
 ?>
