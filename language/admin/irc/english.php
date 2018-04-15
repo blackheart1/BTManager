@@ -40,7 +40,7 @@ $lang = array_merge($lang, array(
 
     'IRC_INTRO_EXP'       => 'You can Configure every aspect of the PJIRC Client:  Please Read PJIRC\'s Documentation before Editing Advanced Parameters.<br />
 
-    <b>NOTICE</b>: file <em>include/irc.ini</em> MUST be Writeable',
+    <strong>NOTICE</strong>: file <em>include/irc.ini</em> MUST be Writeable',
 
     'IRC_SERVER'          => 'Server',
     'IRC_CHANNEL'         => 'Channel',
