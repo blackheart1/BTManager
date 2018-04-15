@@ -16,7 +16,7 @@
 **
 ** CHANGES
 **
-** EXAMPLE 26-04-13 - Added Auto Ban
+** 2018-04-15 - Fix signature in view PM
 **/
 if (!defined('IN_PMBT'))
 {
@@ -69,6 +69,7 @@ function view_message($id, $mode, $folder_id, $msg_id, $folder, $message_row)
 	write_pm_addresses(array('to' => (($message_row['recipient'])?'u_'.$message_row['recipient']:''), 'bcc' => (($message_row['bcc_address'])?'g_'.$message_row['bcc_address']:'')), $author_id);
 
 	$user_info = get_user_information($author_id, $message_row);
+	//die(print_r($user_info));
 
 	// Parse the message and subject
 	$message = censor_text($message_row['text']);
@@ -155,8 +156,15 @@ function view_message($id, $mode, $folder_id, $msg_id, $folder, $message_row)
 	// End signature parsing, only if needed
 	if ($signature)
 	{
+			if ($user_info['sig_bbcode_bitfield'])
+			{
+				include_once($phpbb_root_path . 'include/class.bbcode.' . $phpEx);
+				include_once($phpbb_root_path . 'include/bbcode.' . $phpEx);
+				$bbcode = new bbcode();
+				$bbcode->bbcode_second_pass($signature, $user_info['sig_bbcode_uid'], $user_info['sig_bbcode_bitfield']);
+			}
 		$signature = censor_text($signature);
-		$signature = format_comment($signature);
+		//$signature = format_comment($signature);
 		parse_smiles($signature);
 	}
 
