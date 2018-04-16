@@ -16,7 +16,7 @@
 **
 ** CHANGES
 **
-** EXAMPLE 26-04-13 - Added Auto Ban
+** 04-15-2018 depricated e modifier
 **/
 if (!defined('IN_PMBT'))
 {
@@ -103,19 +103,19 @@ function make_clickable($text, $server_url = false, $class = 'postlink')
 		// Be sure to not let the matches cross over. ;)
 
 		// relative urls for this board
-		$magic_url_match[] = '#(^|[\n\t (>.])(' . preg_quote($server_url, '#') . ')/(' . get_preg_expression('relative_url_inline') . ')#ie';
+		$magic_url_match[] = '#(^|[\n\t (>.])(' . preg_quote($server_url, '#') . ')/(' . get_preg_expression('relative_url_inline') . ')#iu';
 		$magic_url_replace[] = "make_clickable_callback(3, '\$1', '\$2', '\$3', '$local_class')";
 
 		// matches a xxxx://aaaaa.bbb.cccc. ...
-		$magic_url_match[] = '#(^|[\n\t (>.])(' . get_preg_expression('url_inline') . ')#ie';
+		$magic_url_match[] = '#(^|[\n\t (>.])(' . get_preg_expression('url_inline') . ')#iu';
 		$magic_url_replace[] = "make_clickable_callback(2, '\$1', '\$2', '', '$class')";
 
 		// matches a "www.xxxx.yyyy[/zzzz]" kinda lazy URL thing
-		$magic_url_match[] = '#(^|[\n\t (>])(' . get_preg_expression('www_url_inline') . ')#ie';
+		$magic_url_match[] = '#(^|[\n\t (>])(' . get_preg_expression('www_url_inline') . ')#iu';
 		$magic_url_replace[] = "make_clickable_callback(4, '\$1', '\$2', '', '$class')";
 
 		// matches an email@domain type address at the start of a line, or after a space or after what might be a BBCode.
-		$magic_url_match[] = '/(^|[\n\t (>])(' . get_preg_expression('email') . ')/ie';
+		$magic_url_match[] = '/(^|[\n\t (>])(' . get_preg_expression('email') . ')/iu';
 		$magic_url_replace[] = "make_clickable_callback(1, '\$1', '\$2', '', '')";
 	}
 
@@ -529,6 +529,7 @@ function request_var($var_name, $default, $multibyte = false, $cookie = false, $
 			}
 		}
 	}
+
 	else
 	{
 		set_var($var, $var, $type, $multibyte);

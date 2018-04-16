@@ -16,7 +16,7 @@
 **
 ** CHANGES
 **
-** EXAMPLE 26-04-13 - Added Auto Ban
+** 04-15-2018 fix depricated action
 **/
 if (!defined('IN_PMBT'))
 {
@@ -69,7 +69,7 @@ class php4DOMAttr extends php4DOMNode
 
 class php4DOMDocument extends php4DOMNode
 {
- function php4DOMDocument($filename='')
+ function __construct($filename='')
  {
   $this->myDOMNode=new DOMDocument();
   $this->myOwnerDocument=$this;
@@ -199,7 +199,7 @@ class php4DOMNode
 {
  public $myDOMNode;
  public $myOwnerDocument;
- function php4DOMNode($aDomNode,$aOwnerDocument)
+ function __construct($aDomNode,$aOwnerDocument)
  {
   $this->myDOMNode=$aDomNode;
   $this->myOwnerDocument=$aOwnerDocument;
@@ -361,7 +361,7 @@ class php4DOMNodelist
  private $myDOMNodelist;
  public $nodeset;
  public $type;
- function php4DOMNodelist($aDOMNodelist,$aOwnerDocument)
+ function __construct($aDOMNodelist,$aOwnerDocument)
  {
   $this->myDOMNodelist=$aDOMNodelist;
   $this->nodeset=array();
@@ -379,7 +379,7 @@ class php4DOMXPath
 {
  public $myDOMXPath;
  private $myOwnerDocument;
- function php4DOMXPath($dom_document)
+ function __construct($dom_document)
  {
   //TODO: If $dom_document is a DomElement, make that default $contextnode and modify XPath. Ex: '/test'
   $this->myOwnerDocument=$dom_document->myOwnerDocument;
@@ -397,7 +397,7 @@ if (extension_loaded('xsl'))
  class php4DomXsltStylesheet
  {
   private $myxsltProcessor;
-  function php4DomXsltStylesheet($dom_document)
+  function __construct($dom_document)
   {
    $this->myxsltProcessor=new xsltProcessor();
    $this->myxsltProcessor->importStyleSheet($dom_document);

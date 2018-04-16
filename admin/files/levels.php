@@ -538,8 +538,8 @@ $start = request_var('page', 0)*15;
                                 $sql = "ALTER TABLE `" . $db_prefix . "_levels`
                                     CHANGE `" . $old_perm_name . "` `" . str_replace("'","",$perm_name) . "`
                                     ENUM(\'true\',\'false\')
-                                    CHARACTER SET latin1
-                                    COLLATE latin1_swedish_ci
+									CHARACTER SET utf8_bin 
+									COLLATE utf8_bin 
                                     NOT NULL DEFAULT \'false\'";
                                     $db->sql_query($sql)or btsqlerror($sql);
                             }
