@@ -21,8 +21,8 @@
 ** 2018-03-02 - Added New !defined('IN_PMBT')
 ** 2018-03-02 - Fixed Spelling
 ** 2018-03-29 - Amended the Wording of some Sentences
-** 2018-04-29 - Amended !defined('IN_PMBT') Corrected Path
-** 2018-04-29 - Added Missing Language
+** 2018-03-29 - Amended !defined('IN_PMBT') Corrected Path
+** 2018-03-29 - Added Missing Language
 ** 2018-04-16 - Amended the Wording of some Sentences
 **/
 
