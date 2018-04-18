@@ -187,7 +187,6 @@ CREATE TABLE IF NOT EXISTS `#prefix#_bans` (
   `ban_give_reason` varchar(255) binary NOT NULL,
   `date` datetime NOT NULL default '0000-00-00 00:00:00',
   PRIMARY KEY  (`id`),
-  UNIQUE KEY `ip_unique` (`ipstart`,`ipend`)
 ) TYPE=MyISAM  AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
