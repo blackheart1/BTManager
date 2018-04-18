@@ -100,7 +100,7 @@ $lang = array_merge($lang, array(
     'DEFINE_DISALLOWED_IPS'          => 'Define Disallowed IP\'s/Hostnames',
     'DOWNLOAD_ADD_IPS_EXPLAIN'       => 'To Specify Several Different IP\'s or Hostnames Enter Each on a New Line.  To Specify a Range of IP Addresses, Separate the Start and End with a Hyphen (-).  To Specify a Wildcard use <strong>*</strong> ( Asterix).',
 
-    'DOWNLOAD_REMOVE_IPS_EXPLAIN'    => 'You can Remove Multiple IP Addresses in one go using the Appropriate Combination of Mouse and Keyboard for your Computer and Browser.  Excluded IP\'s have a Blue Background.',
+    'DOWNLOAD_REMOVE_IPS_EXPLAIN'    => 'You can Remove Multiple IP Addresses in one go, simply Click on the IP Addresses that you wish to Remove and Click Submit.  Excluded IP\'s have a Blue Background.',
 
     'DISPLAY_INLINED'                => 'Display Images Inline',
     'DISPLAY_INLINED_EXPLAIN'        => 'If Set to NO then Image Attachments will Show as a Link.',
