@@ -163,7 +163,7 @@ if ($action == "exchange") {
 
 				$template->assign_vars(array(
 					'L_TITTLE'			=>	$user->lang['BONUS_TRAN_TITTLE'],
-					'L_TITTLE_EXP'		=>	$user->lang['BONUS_TRAN_TITTLE_EXP'],
+					'L_TITTLE_EXP'		=>	sprintf($user->lang['BONUS_SYS_EXP'],$user->seedbonus),
 					'ACTION'			=>	'use_bon',
 					'U_ACTION'			=>	'./bonus_transfer.' . $phpEx,
 					'HIDDEN'			=>	build_hidden_fields(array('do'=>'take_trans')),

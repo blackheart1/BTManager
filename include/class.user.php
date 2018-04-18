@@ -37,6 +37,7 @@ class User {
 		var $pm_popup;
         var $theme;
         var $act_key;
+		var $seedbonus;
         var $email;
         var $passkey;
         var $session_id;
