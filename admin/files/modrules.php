@@ -119,7 +119,7 @@ elseif ($act == "newsect")
 					'S_SMILIES_ALLOWED'			=>	true,
 					'S_SHOW_SMILEY_LINK'		=>	true,
 					'T_TEMPLATE_PATH'			=> 'themes/' . $theme . '/templates',
-					'U_MORE_SMILIES' 			=> append_sid("{$siteurl}/posting.$phpEx", 'mode=smilies&amp;f=' . $forum_id),
+					'U_MORE_SMILIES' 			=> append_sid("{$siteurl}/forum.$phpEx", 'action=posting&amp;mode=smilies'),
 			));
 		echo $template->fetch('admin/modrules.html');
 		close_out();
@@ -193,7 +193,7 @@ if(count($level) < 1)
 				$bbcode_uid = $message_parser->bbcode_uid;
 				$message_parser->parse($enable_bbcode, ($config['allow_post_links']) ? $enable_urls : false, $enable_smilies, $img_status, $flash_status, true, $config['allow_post_links']);
 				$msg = $db->sql_escape(stripslashes($message_parser->message));
-				$sql = "INSERT INTO ".$db_prefix."_rules ( `id` , `title` , `text` , `bbcode_uid`, `bbcode_bitfield`, `public` , `level` )VALUES (NULL , '$title', '".$msg."', '" . $message_parser->bbcode_bitfield . "', '" . $message_parser->bbcode_uid . "', '$public', '[" . implode("],[",$level) ."]')";
+				$sql = "INSERT INTO ".$db_prefix."_rules ( `id` , `title` , `text` , `bbcode_uid`, `bbcode_bitfield`, `public` , `level` )VALUES (NULL , '$title', '".$message_parser->message."', '" . $message_parser->bbcode_bitfield . "', '" . $message_parser->bbcode_uid . "', '$public', '[" . implode("],[",$level) ."]')";
 				if (!$db->sql_query($sql)) btsqlerror($sql);
 				//header("Refresh: 0; url=modrules.php");
 							$template->assign_vars(array(
@@ -358,7 +358,7 @@ if(count($level) < 1)
 				$bbcode_uid = $message_parser->bbcode_uid;
 				$message_parser->parse($enable_bbcode, ($config['allow_post_links']) ? $enable_urls : false, $enable_smilies, $img_status, $flash_status, true, $config['allow_post_links']);
 				$msg = $db->sql_escape(stripslashes($message_parser->message));
-$sql = "UPDATE ".$db_prefix."_rules set title='$title', text = '".$msg."', public='$public', level='[" . implode("],[",$level) ."]', bbcode_uid='" . $message_parser->bbcode_uid . "', bbcode_bitfield='" . $message_parser->bbcode_bitfield . "' where id='$id'";
+$sql = "UPDATE ".$db_prefix."_rules set title='$title', text = '".$msg."', public='$public', level='[" . implode("],[",$level) ."]', bbcode_uid='" . $bbcode_uid . "', bbcode_bitfield='" . $message_parser->bbcode_bitfield . "' where id='$id'";
 //die($sql);
 if (!$db->sql_query($sql)) btsqlerror($sql);
 				//$sql = "INSERT INTO ".$db_prefix."_rules ( `id` , `title` , `text` , ` 	bbcode_uid`, `bbcode_bitfield`, `public` , `level` )VALUES (NULL , '$title', '".$msg."', '" . $message_parser->bbcode_bitfield . "', '" . $message_parser->bbcode_uid . "', '$public', '[" . implode("],[",$level) ."]')";

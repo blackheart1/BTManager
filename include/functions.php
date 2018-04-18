@@ -17,6 +17,7 @@
 ** CHANGES
 **
 ** 04-15-2018 depricated e modifier
+** 04-16-2018 update make_clickable
 **/
 if (!defined('IN_PMBT'))
 {
@@ -88,6 +89,10 @@ function append_sid($base, $link = false, $is_amp = true){
 }
 function make_clickable($text, $server_url = false, $class = 'postlink')
 {
+	if ($server_url === false)
+	{
+		$server_url = generate_board_url();
+	}
 
 	static $magic_url_match;
 	static $magic_url_replace;
@@ -529,7 +534,6 @@ function request_var($var_name, $default, $multibyte = false, $cookie = false, $
 			}
 		}
 	}
-
 	else
 	{
 		set_var($var, $var, $type, $multibyte);
