@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File ban/english.php 2018-04-17 07:10:00 Thor
+** File ban/english.php 2018-04-18 11:22:00 Thor
 **
 ** CHANGES
 **
@@ -22,6 +22,7 @@
 ** 2018-03-02 - Fixed Spelling
 ** 2018-04-17 - Amended the Wording of some Sentences
 ** 2018-04-17 - Moved Time Definitions to common.php
+** 2018-04-18 - Aded Missing Language
 **/
 
 if (!defined('IN_PMBT'))
@@ -36,7 +37,9 @@ if (empty($lang) || !is_array($lang))
 }
 
 $lang = array_merge($lang, array(
-    'ACP_BAN_EXPLAIN'   => 'Here you can Control how Users are Banned.  You can select Ban by Username, IP Address or even email Address.  These methods Prevent any User from Accessing any part of the Site.  You can give a Short (Maximum 3000 Characters) Reason for the Ban if you wish.  This will be Displayed in the Administrator\'s Log.  You can also Specify the Duration that a User is Banned for.  If you want the Ban to End on a Specific Date rather than After a Set amount of Time, Select <strong>Until -></strong> for the Ban Length and enter a Date in <em>YYYY-MM-DD</em> Format.',
+    'MENU_BANS'       => 'Banned Users and Settings',
+
+    'ACP_BAN_EXPLAIN' => 'Here you can Control how Users are Banned.  You can select Ban by Username, IP Address or even email Address.  These methods Prevent any User from Accessing any part of the Site.  You can give a Short (Maximum 3000 Characters) Reason for the Ban if you wish.  This will be Displayed in the Administrator\'s Log.  You can also Specify the Duration that a User is Banned for.  If you want the Ban to End on a Specific Date rather than After a Set amount of Time, Select <strong>Until -></strong> for the Ban Length and enter a Date in <em>YYYY-MM-DD</em> Format.',
 
     'ACP_BAN'               => 'Banning',
     'ACP_BAN_EMAILS'        => 'Ban by email Address',
