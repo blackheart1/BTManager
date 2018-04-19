@@ -94,37 +94,62 @@ function make_clickable($text, $server_url = false, $class = 'postlink')
 		$server_url = generate_board_url();
 	}
 
-	static $magic_url_match;
-	static $magic_url_replace;
 	static $static_class;
+	static $magic_url_match_args;
 
-	if (!is_array($magic_url_match) || $static_class != $class)
+	if (!isset($magic_url_match_args[$server_url]) || $static_class != $class)
 	{
 		$static_class = $class;
 		$class = ($static_class) ? ' class="' . $static_class . '"' : '';
 		$local_class = ($static_class) ? ' class="' . $static_class . '-local"' : '';
 
-		$magic_url_match = $magic_url_replace = array();
-		// Be sure to not let the matches cross over. ;)
+		if (!is_array($magic_url_match_args))
+		{
+			$magic_url_match_args = array();
+		}
 
 		// relative urls for this board
-		$magic_url_match[] = '#(^|[\n\t (>.])(' . preg_quote($server_url, '#') . ')/(' . get_preg_expression('relative_url_inline') . ')#iu';
-		$magic_url_replace[] = "make_clickable_callback(3, '\$1', '\$2', '\$3', '$local_class')";
+		$magic_url_match_args[$server_url][] = array(
+			'#(^|[\n\t (>.])(' . preg_quote($server_url, '#') . ')/(' . get_preg_expression('relative_url_inline') . ')#iu',
+			'3',
+			$local_class,
+		);
 
 		// matches a xxxx://aaaaa.bbb.cccc. ...
-		$magic_url_match[] = '#(^|[\n\t (>.])(' . get_preg_expression('url_inline') . ')#iu';
-		$magic_url_replace[] = "make_clickable_callback(2, '\$1', '\$2', '', '$class')";
+		$magic_url_match_args[$server_url][] = array(
+			'#(^|[\n\t (>.])(' . get_preg_expression('url_inline') . ')#iu',
+			'2',
+			$class,
+		);
 
 		// matches a "www.xxxx.yyyy[/zzzz]" kinda lazy URL thing
-		$magic_url_match[] = '#(^|[\n\t (>])(' . get_preg_expression('www_url_inline') . ')#iu';
-		$magic_url_replace[] = "make_clickable_callback(4, '\$1', '\$2', '', '$class')";
+		$magic_url_match_args[$server_url][] = array(
+			'#(^|[\n\t (>])(' . get_preg_expression('www_url_inline') . ')#iu',
+			'4',
+			$class,
+		);
 
 		// matches an email@domain type address at the start of a line, or after a space or after what might be a BBCode.
-		$magic_url_match[] = '/(^|[\n\t (>])(' . get_preg_expression('email') . ')/iu';
-		$magic_url_replace[] = "make_clickable_callback(1, '\$1', '\$2', '', '')";
+		$magic_url_match_args[$server_url][] = array(
+			'/(^|[\n\t (>])(' . get_preg_expression('email') . ')/iu',
+			'1',
+			'',
+		);
 	}
 
-	return preg_replace($magic_url_match, $magic_url_replace, $text);
+	foreach ($magic_url_match_args[$server_url] as $magic_args)
+	{
+		if (preg_match($magic_args[0], $text, $matches))
+		{
+			$text = preg_replace_callback($magic_args[0], function($matches) use ($magic_args)
+			{
+				$relative_url = isset($matches[3]) ? $matches[3] : '';
+				return make_clickable_callback($magic_args[1], $matches[1], $matches[2], $relative_url, $magic_args[2]);
+			}, $text);
+		}
+	}
+
+	return $text;
 }
 function make_clickable_callback($type, $whitespace, $url, $relative_url, $class)
 {
