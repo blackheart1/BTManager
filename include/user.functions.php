@@ -1729,7 +1729,6 @@ function user_ban($mode, $ban, $ban_len, $ban_len_other, $ban_exclude, $ban_reas
 
 			// Select the relevant user_ids.
 			$sql_usernames = array();
-
 			foreach ($ban_list as $username)
 			{
 				$username = trim($username);
@@ -1747,7 +1746,6 @@ function user_ban($mode, $ban, $ban_len, $ban_len_other, $ban_exclude, $ban_reas
 					$sql_usernames[] = $clean_name;
 				}
 			}
-
 			// Make sure we have been given someone to ban
 			if (!sizeof($sql_usernames))
 			{
@@ -1757,7 +1755,6 @@ function user_ban($mode, $ban, $ban_len, $ban_len_other, $ban_exclude, $ban_reas
 			$sql = 'SELECT id AS user_id
 				FROM ' . $db_prefix . '_users
 				WHERE ' . $db->sql_in_set('clean_username', $sql_usernames);
-
 			// Do not allow banning yourself
 			if (sizeof($founder))
 			{
@@ -1765,7 +1762,7 @@ function user_ban($mode, $ban, $ban_len, $ban_len_other, $ban_exclude, $ban_reas
 			}
 			else
 			{
-				$sql .= ' AND user_id <> ' . $user->id;
+				$sql .= ' AND id <> ' . $user->id;
 			}
 
 			$result = $db->sql_query($sql);
@@ -1989,7 +1986,6 @@ function user_ban($mode, $ban, $ban_len, $ban_len_other, $ban_exclude, $ban_reas
 			if($type == 'ban_userid')
 			{
 				$sql = 'UPDATE ' . $db_prefix . "_users  SET `ban` = '1', `banreason` = '" . $ban_give_reason . "' WHERE `id` ='" . $ban_entry . "';";
-				//die($sql);
 				$db->sql_query($sql);
 			}
 

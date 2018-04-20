@@ -75,7 +75,7 @@ switch ($do) {
 
                 if (count($errors) > 0) {
 					$err = "<ul>\n";
-					foreach ($error as $msg)
+					foreach ($errors as $msg)
 					{
 						$err .= "<li><p>".$msg."</p></li>\n";
 					}
@@ -95,6 +95,7 @@ switch ($do) {
                 $sql = "INSERT INTO ".$db_prefix."_filter (keyword, reason) VALUES ('" . $keyword . "','" . $whatfor . "');";
 
                 $db->sql_query($sql) or btsqlerror($sql);
+				add_log('admin', 'LOG_FILTER_ADD', $keyword);
                                 $template->assign_vars(array(
 											'S_MESSAGE'				=> true,
 											'S_USER_NOTICE'			=> true,
@@ -118,6 +119,7 @@ switch ($do) {
                                 $sql = "UPDATE ".$db_prefix."_filter SET keyword = '".strtolower(escape($keyword))."', reason = '".htmlspecialchars(escape(trim($whatfor)))."' WHERE id = '".$id."'";
 
                                 $db->sql_query($sql) or btsqlerror($sql);
+								add_log('admin', 'LOG_FILTER_EDIT', $keyword);
                                 $template->assign_vars(array(
 											'S_MESSAGE'				=> true,
 											'S_USER_NOTICE'			=> true,
@@ -147,9 +149,16 @@ switch ($do) {
         case "delfilter": {
                 if ($id AND is_numeric($id)) {
 
+					$sql = 'SELECT keyword
+						FROM ' . $db_prefix . "_filter
+						WHERE id = $id";
+					$result = $db->sql_query($sql);
+					$deleted_word = $db->sql_fetchfield('keyword');
+					$db->sql_freeresult($result);
                 $sql = "DELETE FROM ".$db_prefix."_filter WHERE id = '".intval($id)."'";
 
                 $db->sql_query($sql) or btsqlerror($sql);
+					add_log('admin', 'LOG_FILTER_DELETE', $deleted_word);
 				}
 
                                 $template->assign_vars(array(

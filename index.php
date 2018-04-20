@@ -29,7 +29,7 @@ else
 //die(mysqli_get_client_info());
 require_once("common.php");
 $template = new Template();
-set_site_var('Index');
+set_site_var($user->lang['INDEX']);
 $birthday_list = '';
 $now = getdate(time() - date('Z'));
 $sql = "SELECT * FROM ".$db_prefix."_users WHERE ban = '0' AND birthday LIKE '" . $now['mday']."-". $now['mon']."-" . "%'";

@@ -33,7 +33,6 @@ else
 	$id				= request_var('torrent_id', array(0));
 }
 $template = new Template();
-set_site_var($user->lang['T_TITTLE_EDIT']);
 if (!$user->user) loginrequired("user");
 if (is_array($id))
 {
@@ -77,6 +76,7 @@ else
 	list ($owner, $tname) = $db->fetch_array($res);
 	$db->sql_freeresult($res);
 }
+set_site_var(sprintf($user->lang['T_TITTLE_EDIT'],$tname));
 $op				= request_var('op', 'edit');
 $banned			= request_var('banned', 'no');
 if ($op == "edit" AND $owner == $user->id AND !checkaccess("u_edit_own_torrents"))

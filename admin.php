@@ -150,6 +150,7 @@ unset($opdir,$opfile,$op_keys);
 					'L_TITLE'		=> str_replace('info','',$i),
 					'S_SELECTED'	=> true,
 					'U_TITLE'		=> '1',));
+					//die(print_r($$acp_menu));
 		foreach($$acp_menu as $t){
 							$template->assign_block_vars('l_block1.l_block2.l_block3', $t);
 		}

@@ -40,7 +40,8 @@ $res = $db->sql_query($sql_rule);
 	
 	while ($arr = $db->sql_fetchrow($res)){
 	$bbcode = false;
-	$descript = censor_text($arr["text"]);
+	$rule_text = $arr['text'];
+	$descript = censor_text($rule_text);
 	// Instantiate BBCode if need be
 	if ($arr['bbcode_bitfield'])
 	{
