@@ -864,12 +864,12 @@ function ChangeThumb(pic) {
 <input type="hidden" name="mode" value="foes" />
 <table class="tablebg" width="100%" cellspacing="0">
 <tr>
-	<td class="row3" colspan="2"><span class="gensmall">Foes are users which will be ignored by default. Posts by these users will not be fully visible. Personal messages from foes are still permitted. Please note that you cannot ignore moderators or administrators.</span></td>
+	<td class="row3" colspan="2"><span class="gensmall">{L_FOES_EXPLAIN}</span></td>
 </tr>
 <tr>
-	<td class="row1" width="40%"><b class="genmed">Your foes:</b><br /><span class="gensmall">To remove usernames select them and click submit.</span></td>
+	<td class="row1" width="40%"><b class="genmed">{L_YOUR_FOES}</b><br /><span class="gensmall">{L_TO_REMOVE_USER}</span></td>
 
-	<td class="row2" align="center"><!-- IF CP_FOES --><select name="remove_foe[]" multiple="multiple" size="5">{CP_FOES}</select><!-- ELSE --><b class="genmed">No foes currently defined</b><!-- ENDIF --></td>
+	<td class="row2" align="center"><!-- IF CP_FOES --><select name="remove_foe[]" multiple="multiple" size="5">{CP_FOES}</select><!-- ELSE --><b class="genmed">{L_NO_FOES}</b><!-- ENDIF --></td>
 </tr>
 <tr>
 	<td class="row1"><b class="genmed">Add new foes:</b><br /><span class="gensmall">You may enter several usernames each on a different line. [ <a href="javascript:popusers('userfind_to_pm.php');">Find a member</a> ]</span></td>
@@ -1015,7 +1015,7 @@ function ChangeThumb(pic) {
 <td<!-- IF S_DRAFT_ROWS --> colspan="4"<!-- ENDIF -->>
 <div class="caption">
 <div class="cap-left">
-<div class="cap-right">&nbsp;User Control Panel&nbsp;</div>
+<div class="cap-right">&nbsp;{L_USER_CPANNEL}&nbsp;</div>
 </div>
 </div>
 </td>
@@ -1096,21 +1096,23 @@ function ChangeThumb(pic) {
 		
 		// Helpline messages
 		var help_line = {
-			b: '{L__BBCODE_B_HELP}',
-			i: '{L__BBCODE_I_HELP}',
-			u: 'Underline text: [u]text[/u]',
-			q: 'Quote text: [quote]text[/quote]',
-			c: 'Code display: [code]code[/code]',
-			l: 'List: [list]text[/list]',
-			o: 'Ordered list: [list=]text[/list]',
-			p: 'Insert image: [img]http://image_url[/img]',
-			w: 'Insert URL: [url]http://url[/url] or [url=http://url]URL text[/url]',
-			s: 'Font colour: [color=red]text[/color]  Tip: you can also use color=#FF0000',
-			f: 'Font size: [size=85]small text[/size]',
-			e: 'List: Add list element',
-			d: 'Flash: [flash=width,height]http://url[/flash]',
-			tip: 'Tip: Styles can be applied quickly to selected text.'
+			b: '{LA__BBCODE_B_HELP}',
+			i: '{LA__BBCODE_I_HELP}',
+			u: '{LA__BBCODE_U_HELP}',
+			q: '{LA__BBCODE_Q_HELP}',
+			c: '{LA__BBCODE_C_HELP}',
+			l: '{LA__BBCODE_L_HELP}',
+			o: '{LA__BBCODE_O_HELP}',
+			p: '{LA__BBCODE_P_HELP}',
+			w: '{LA__BBCODE_W_HELP}',
+			s: '{LA__BBCODE_S_HELP}',
+			f: '{LA__BBCODE_F_HELP}',
+			e: '{LA__BBCODE_E_HELP}',
+			d: '{LA__BBCODE_D_HELP}',
+			t: '{LA__BBCODE_T_HELP}',
+			tip: '{L__STYLES_TIP}'
 			<!-- BEGIN custom_tags -->
+				,cb_{custom_tags.BBCODE_ID}: '{custom_tags.A_BBCODE_HELPLINE}'
 			<!-- END custom_tags -->
 		}
 
@@ -1276,40 +1278,40 @@ function ChangeThumb(pic) {
 <div class="caption">
 <div class="cap-left">
 <div class="cap-right">
-&nbsp;User Control Panel&nbsp;</div>
+&nbsp;{L_USER_CPANNEL}&nbsp;</div>
 </div>
 </div>
 </td><tr valign="middle">
-	<td class="row1" colspan="3" align="center"><p class="genmed">Welcome to the User Control Panel. From here you can monitor, view and update your profile, preferences, subscribed forums and topics. You can also send messages to other users (if permitted). Please ensure you read any announcements before continuing.</p></td>
+	<td class="row1" colspan="3" align="center"><p class="genmed">{L_UCP_EXPLANE}</p></td>
 </tr>
 <tr>
-	<th colspan="3">Important announcements</th>
+	<th colspan="3">{L_IMPORT_ANNOUNCE}</th>
 </tr>
 
 	<tr>
-		<td class="row1" align="center" colspan="3"><!-- IF S_ANNOUCEMENTS -->{S_ANNOUCEMENTS}<!-- ELSE --><b class="gen">No important announcements present.</b><!-- ENDIF --></td>
+		<td class="row1" align="center" colspan="3"><!-- IF S_ANNOUCEMENTS -->{S_ANNOUCEMENTS}<!-- ELSE --><b class="gen">{L_NO_ANNOUNCEMENTS}</b><!-- ENDIF --></td>
 
 	</tr>
 
 <tr>
-	<th colspan="3">Your activity</th>
+	<th colspan="3">{L_YOUR_ACTIVATY}</th>
 </tr>
 <tr>
 	<td class="row1" colspan="3">
 		<table width="100%" cellspacing="1" cellpadding="4">
 		<tr> 
-			<td align="right" valign="top" nowrap="nowrap"><b class="genmed">Joined: </b></td>
+			<td align="right" valign="top" nowrap="nowrap"><b class="genmed">{L_JOINED}: </b></td>
 
 			<td width="100%"><b class="gen">{CP_UREGDATE}</b></td>
 		</tr>
 		<tr> 
-			<td align="right" valign="top" nowrap="nowrap"><b class="genmed">Lastseen: </b></td>
+			<td align="right" valign="top" nowrap="nowrap"><b class="genmed">{L_LAST_SEEN}: </b></td>
 
 			<td width="100%"><b class="gen">{CP_ULASTSEEN}</b></td>
 		</tr>
 		<tr> 
-			<td align="right" valign="top" nowrap="nowrap"><b class="genmed">Total posts: </b></td>
-			<td><b class="gen">{CP_POST_COUNT}</b><br /><span class="genmed">[{POSTS_PCT} / {POSTS_DAY}]<br /><a href="./forum.php?action=search&search_id={CP_UID}">Show your posts</a></span></td>
+			<td align="right" valign="top" nowrap="nowrap"><b class="genmed">{L_TOTAL_POSTS}: </b></td>
+			<td><b class="gen">{CP_POST_COUNT}</b><br /><span class="genmed">[{POSTS_PCT} / {POSTS_DAY}]<br /><a href="./forum.php?action=search&search_id={CP_UID}">{L_SHOW_YOUR_POSTS}</a></span></td>
 		</tr>
 					<tr>
 

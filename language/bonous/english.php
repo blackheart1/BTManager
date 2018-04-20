@@ -13,13 +13,14 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File bonous/english.php 2018-03-09 07:59:00 Thor
+** File bonous/english.php 2018-04-18 06:43:00 Thor
 **
 ** CHANGES
 **
 ** 2018-03-02 - Added New Masthead
 ** 2018-03-02 - Added New !defined('IN_PMBT')
 ** 2018-03-02 - Fixed Spelling
+** 2018-04-18 - Fixed seedpoint showing
 **/
 
 if (!defined('IN_PMBT'))
@@ -38,7 +39,7 @@ $lang = array_merge($lang, array(
     'BONUS_SYSTEM_CLOSED'     => 'Bonus System is Closed',
     'BONUS_SYSTEM_CLOSED_EXP' => 'Sorry to Announce, but at this time we are NOT using the Bonus System<br />If you feel you have reached this Error by mistake, please Contact one of the Site\'s Moderators so that they may assist you.',
 
-    'BONUS_SYS_EXP'           => 'Here you can Exchange your Seed Bonus (Currently: '.$user->seedbonus.')<br>(If the Button\'s Deactivated, then you DO NOT have enough to Trade.)<br>',
+    'BONUS_SYS_EXP'           => 'Here you can Exchange your Seed Bonus (Currently: %1$s )<br>(If the Button\'s Deactivated, then you DO NOT have enough to Trade.)<br>',
 
     'OPTIONS_ABOUT'           => 'What\'s this about?',
     'POINTS'                  => 'Points',
