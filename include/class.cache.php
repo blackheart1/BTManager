@@ -210,6 +210,7 @@ class pmbt_cache {
 	   function put($file, $output)
 	   {
 	       $OUTPUT = serialize($output);
+		   //die($this->cache_dir);
            $fp = fopen($this->cache_dir.$file.".php","w");
           fputs($fp, $OUTPUT);
           fclose($fp);

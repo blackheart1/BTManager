@@ -43,13 +43,15 @@ class auth
 		{
 			$uperm_set = array('id'=>$userdata->id,'user_type'=>$userdata->data['user_type'],'user_permissions'=>$userdata->user_permissions);
 		}
-		global $db, $db_prefix, $user, $pmbt_cache, $pmbt_cache;
+		global $db, $db_prefix, $user, $pmbt_cache;
 
 		$this->acl = $this->cache = $this->acl_options = array();
 		$this->acl_forum_ids = false;
 
 		if (($this->acl_options = $pmbt_cache->get('_acl_options')) === false)
 		{
+			
+			//die();
 			$sql = 'SELECT auth_option_id, auth_option, is_global, is_local
 				FROM ' . $db_prefix . '_acl_options
 				ORDER BY auth_option_id';
@@ -73,7 +75,7 @@ class auth
 				$this->acl_options['option'][(int) $row['auth_option_id']] = $row['auth_option'];
 			}
 			$db->sql_freeresult($result);
-
+//die(print_r($this->acl_options));
 			$pmbt_cache->put('_acl_options', $this->acl_options);
 			$this->acl_cache($userdata);
 		}

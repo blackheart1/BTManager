@@ -524,7 +524,7 @@ class User {
 								$this->data['message_limit'] = '200';
 								$this->data['session_page'] = $row['lastpage'];
 								$this->data['user_full_folder'] = $row['user_full_folder'];
-								$this->data['user_type'] = $row['group_founder_manage'];
+								$this->data['user_type'] = $row['user_type'];
 								$this->data['user_lastmark'] = $row['user_lastmark'];
 								$this->data['user_options'] = $row['user_options'];
 								$this->data['signature'] = $row['signature'];
@@ -610,7 +610,7 @@ class User {
 								$this->data['session_page'] = $row['lastpage'];
 								$this->data['user_full_folder'] = $row["user_full_folder"];
 								$this->data['user_lastmark'] = $row['user_lastmark'];
-								$this->data['user_type'] = $row['group_founder_manage'];
+								$this->data['user_type'] = $row['user_type'];
 								$this->data['user_options'] = $row['user_options'];
 								$this->data['signature'] = $row['signature'];
 								$this->data['sig_bbcode_bitfield'] = $row['sig_bbcode_bitfield'];
