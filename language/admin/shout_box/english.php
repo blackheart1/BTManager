@@ -39,7 +39,7 @@ $lang = array_merge($lang, array(
     'YES_NO_NM' => array('1'=>'Yes', '0'=>'No'),
     'YES_NO'    => array('yes'=>'Yes', 'no'=>'No'),
 
-    'SHOUT_CONF'            => 'ShoutBox Configuration',
+    'SHOUT_CONF'            => 'Shoutbox Configuration',
 
     'SHOUT_CONF_EXP'        => 'Here is where you Set ALL your Settling\'s for the Site\'s Shoutbox including, Refresh Rate, Idle Time, and Turning it On or Off.',
 
