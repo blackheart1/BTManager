@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File common/english.php 2018-04-22 05:46:00 Thor
+** File common/english.php 2018-04-22 09:42:00 Thor
 **
 ** CHANGES
 **
@@ -23,6 +23,7 @@
 ** 2018-03-26 - Added Missing Text
 ** 2018-03-26 - Removed Unused Define Vars
 ** 2018-04-22 - Amended the Wording of some Sentences
+** 2018-04-22 - Added Missing Language
 **/
 
 if (!defined('IN_PMBT'))
@@ -447,7 +448,7 @@ $lang = array_merge($lang, array(
     'SORT_REG_DATE'             => 'Registration Date',
     'USER_IS_INACTIVE'          => 'User is Inactive',
     'SIGN_UP'                   => 'Sign Up',
-    'SHOUT_BOX'                 => 'ShoutBox',
+    'SHOUT_BOX'                 => 'Shoutbox',
     'SHOUT_NEW_UPLOAD'          => 'Hi, I have just Uploaded [url=%1$s/details.php?id=%2$s][b]%3$s[/b][/url].  Enjoy it!',
     'SIZE'                      => 'Size',
     'SELECT_CATEGORY'           => 'Select a Category',
@@ -558,6 +559,7 @@ $lang = array_merge($lang, array(
     'OTHER'                 => 'Other',
     'USER_IP'               => 'User\'s IP',
     'USER_HOST'             => 'User\'s Host',
+    'USER_EMAIL'            => 'User\'s email',
     'CANCEL_SUB'            => 'Cancel Modifications',
     'REPLIES'               => 'Replies',
     'SUBJECT'               => 'Subject',
