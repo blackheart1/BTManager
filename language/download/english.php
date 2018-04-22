@@ -25,18 +25,19 @@
 if (!defined('IN_PMBT'))
 {
     include_once './../../security.php';
-    die ("You can't access this file directly");
+    die ('Error 404 - Page Not Found');
 }
 
 if (empty($lang) || !is_array($lang))
 {
-	$lang = array();
+    $lang = array();
 }
 
 $lang = array_merge($lang, array(
     'AUTH_REQ_MAIL_SUB' => 'Download Request on %1$s',
     'MAIL_NEWSEEDER'    => 'New Seed on %1$s',
-    'ACCOUNT_PARKED'    => 'This Account has been Parked! If you are the Owner of this Account please Disable Account Parked in User » Edit » Board Preferences',
+
+    'ACCOUNT_PARKED'    => 'This Account has been Parked!  If you are the Owner of this Account please Disable "Account Parked" in User > Edit > Board Preferences',
 
     'ACCOUNT_DISABLED'  => 'This Account has been Disabled for %1$s',
 ));

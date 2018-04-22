@@ -4,9 +4,10 @@ You are receiving this Message because User $author has sent you a Private Messa
 
 You can Read the Message at $siteurl/pm.php?mid=$mid after logging in.
 
-If you feel bothered by the Sender, use the Blacklist Function this way you won't receive any more Messages from the User.
+If you feel bothered by the Sender, use the Blacklist Function, this way you won't receive any more Messages from the User.
 
 Regards,
+
 
 $sitename Staff
 

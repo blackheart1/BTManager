@@ -10,7 +10,7 @@ To Activate your Account on {SITENAME}, please Click the following Activation Li
 
 {REG_URL}
 
-Once the Registration has been Confirmed, you will be able to Log On to the Site with the Credentials you provided:
+Once the Registration has been Confirmed, you'll' be able to Log In to the Site with the Credentials you provided:
 
 ------------
 Username: {U_NAME}
@@ -25,11 +25,11 @@ In case of Loss, you will be Required to change it.
 
 You should Delete this Message if you Share your Computer with Other Users.
 
-Time to Start Sharing. Thanks for Joining {SITENAME},
+Time to Start Sharing.  Thanks for Joining {SITENAME},
 
 If you get this Message without having Requested Registration to our Services, please DO NOT click the above Link.
 
-The Account will Not be Activated and your Data will soon be Removed from our Database.
+The Account will NOT be Activated and your Data will soon be Removed from our Database.
 
 
 {EMAIL_SIG}

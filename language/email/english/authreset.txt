@@ -1,18 +1,19 @@
-Subject: {SUB_JECT} 
+Subject: {SUB_JECT}
 
 Hi {GR_NAME},
 
-We inform you that User {GRANTER} has decided to Reset ALL your Torrent Download Authorizations for the Torrents he or she owns.
+We inform you that User {GRANTER} has decided to Reset ALL your Torrent Download authorisations for the Torrents they are sharing.
 
-Your Old Download Permissions have now been Restored. You will be still able to Download the Torrents you were Authorized for,
-but not those for which you weren't Authorized.
+Your Old Download Permissions have now been Restored.  You will be still able to Download the Torrents you were authorised for,
+but NOT those for which you weren't authorised.
 
-In order to Download Torrents you never asked the Authorization for, you'll have to Send a New Request.
+In order to Download Torrents you never asked for authorisation to, you'll have to Send a New Request.
 
-Remember that the Torrent Owner may at any time change your Authorizations.
+Remember that the Torrent Owner may change your Authorisations at any time.
 
-You'll be sent a Confirmation Message at the event of any Authorization change for this and for any Torrent you Requested to Download.
+You'll be sent a Confirmation Message in the Event of any Authorisation change for this and for any Torrent you Requested to Download.
 
 Regards,
+
 
 {EMAIL_SIG}

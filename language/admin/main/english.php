@@ -24,7 +24,7 @@
 ** 2018-04-01 - Amended !defined('IN_PMBT') Corrected Path
 ** 2018-04-01 - Removed define Language & Changed to Correct Format & Amended templates/admin/main.html
 ** 2018-04-09 - Amended the Wording of some Sentences
-** 2018-04-19 - added new log text
+** 2018-04-19 - Added New Log Text
 **/
 
 if (!defined('IN_PMBT'))
@@ -485,11 +485,11 @@ $lang = array_merge($lang, array(
     'MENU_HNR'              => 'Hit and Run Settings',
     'MENU_ARCADE'           => 'Arcade Settings',
     'MENU_SHOUT_CAST'       => 'Shoutcast Settings',
-	#3.0.1 addon
-    'LOG_FILTER_ADD'             => '<strong>Added Upload Filter</strong><br /> %s',
-    'LOG_FILTER_DELETE'          => '<strong>Deleted Upload Filter</strong><br /> %s',
-    'LOG_FILTER_EDIT'            => '<strong>Edited Upload Filter</strong><br /> %s',
 
+    #3.0.1 addon
+    'LOG_FILTER_ADD'        => '<strong>Added Upload Filter</strong><br /> %s',
+    'LOG_FILTER_DELETE'     => '<strong>Deleted Upload Filter</strong><br /> %s',
+    'LOG_FILTER_EDIT'       => '<strong>Edited Upload Filter</strong><br /> %s',
 ));
 
 ?>

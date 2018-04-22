@@ -1,4 +1,4 @@
-Subject: {SUB_JECT} 
+Subject: {SUB_JECT}
 
 Hi {GR_NAME},
 
@@ -8,8 +8,9 @@ You can Download it here:
 
 {GR_TID}
 
-Remember that the Torrent Owner may at any time change your Authorizations.
+Remember that the Torrent Owner may at any time change your Authorisations.
 
-You'll be sent a Confirmation Message at any Authorization change for this and for any other Torrent you Requested to Download.
+You'll be sent a Confirmation Message in the Event of any Authorisation change for this and for any Torrent you Requested to Download.
+
 
 {EMAIL_SIG}

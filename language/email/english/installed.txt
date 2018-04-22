@@ -4,7 +4,7 @@ Congratulations,
 
 You have Successfully Installed phpBB on your Server.
 
-This e-mail contains Important Information regarding your Installation and should be kept for reference. Your Password has been Securely Stored in our Database and can NOT be Retrieved. In the event that it is forgotten, you will be able to Reset it using the email Address associated with your Account.
+This email contains Important Information regarding your Installation and should be kept for reference.  Your Password has been Securely Stored in our Database and can NOT be Retrieved.  In the event that it is forgotten, you will be able to Reset it using the email Address associated with your Account.
 
 ----------------------------
 Username: {USERNAME}
@@ -14,6 +14,7 @@ Board URL: {U_BOARD}
 
 Useful Information regarding the phpBB Software can be found in the Docs Folder of your Installation and on phpBB.com's Support page - https://www.phpbb.com/support/
 
-In order to keep your Board Safe and Secure, we highly recommended keeping Current with Software Releases. For your convenience, a MAiling List is Available at the Page Referenced above.
+In order to keep your Board Safe and Secure, we highly recommended keeping Current with Software Releases.  For your convenience, a Mailing List is Available at the Page Referenced above.
+
 
 {EMAIL_SIG}

@@ -22,7 +22,7 @@
 ** 2018-03-02 - Fixed Spelling
 ** 2018-04-17 - Amended the Wording of some Sentences
 ** 2018-04-17 - Moved Time Definitions to common.php
-** 2018-04-18 - Aded Missing Language
+** 2018-04-18 - Added Missing Language
 **/
 
 if (!defined('IN_PMBT'))

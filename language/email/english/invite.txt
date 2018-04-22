@@ -1,10 +1,10 @@
 Subject: {SUB_JECT}
 
-You have been Invited to {SITENAME} by {U_NAME}. They have specified this Address ({U_EMAIL}) as your email.
+You have been Invited to {SITENAME} by {U_NAME}.  They have specified this Address ({U_EMAIL}) as your email.
 
 If you DO NOT know this person, please Ignore this email.
 
-Please Do Not Reply. Message:
+Please DO NOT Reply. Message:
 -------------------------------------------------------------------------------
 {IV_MESSAGE}
 -------------------------------------------------------------------------------
@@ -20,7 +20,7 @@ To Confirm your Invitation, follow this Link:
 
 {REG_URL}
 
-After you do this, you will be able to use your New Account. If you Fail to do this, your Account will be Deleted within a few Days. We urge you to read the RULES and FAQ before you start using {SITENAME}.
+After you do this, you will be able to use your New Account.  If you Fail to do this, your Account will be Deleted within a few Days.  We urge you to read the RULES and FAQ before you start using {SITENAME}.
 
 
 {EMAIL_SIG}

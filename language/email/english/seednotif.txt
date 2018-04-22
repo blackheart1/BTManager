@@ -6,15 +6,16 @@ $torrentname on $sitename.
 
 A User has just Finished Downloading and is Now Seeding.  If you did a New Seed or a Reseed, this maybe the time to Throttle your Upload.
 
-If you were waiting to Start Downloading a Dead or Weak Torrent, go for it. Check out the Torrent Here:
+If you were waiting to Start Downloading a Dead or Weak Torrent, go for it.  Check out the Torrent Here:
 
 $siteurl/details.php&id=$torrentid
 
-You will NOT receive any further Notifications for on the Torrent until you View that Page.
+You will NOT receive any further Notifications for this Torrent until you View that Page.
 
 You can also Turn Off Notifications for the Torrent altogether Here:  $siteurl/details.php&id=$torrentid&op=seeder&trig=off
 
 Regards,
+
 
 $sitename Staff
 

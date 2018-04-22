@@ -2,7 +2,7 @@ Subject: Topic Reply Notification - {TOPIC_TITLE}
 
 Hello {USERNAME},
 
-You are receiving this Notification because you are Watching the Topic, {TOPIC_TITLE} at {SITENAME}. This Topic has received a Reply<!-- IF AUTHOR_NAME --> by {AUTHOR_NAME}<!-- ENDIF --> since your last visit. You can use the following Link to View the Replies made.  NO more Notifications will be sent until you Visit the Topic.
+You are receiving this Notification because you are Watching the Topic, {TOPIC_TITLE} at {SITENAME}.  This Topic has received a Reply<!-- IF AUTHOR_NAME --> by {AUTHOR_NAME}<!-- ENDIF --> since your last visit.  You can use the following Link to View the Replies made.  NO more Notifications will be sent until you Visit the Topic.
 
 If you want to View the Newest Post made since your last visit, Click the following Link:
 {U_NEWEST_POST}
@@ -16,5 +16,6 @@ If you want to View the Forum, Click the following Link:
 If you NO longer wish to Watch this Topic you can either Click the Unsubscribe Topic Link found at the bottom of the Topic above, or by Clicking the following Link:
 
 {U_STOP_WATCHING_TOPIC}
+
 
 {EMAIL_SIG}

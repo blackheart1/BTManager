@@ -1,13 +1,14 @@
-Subject: {SUB_JECT} 
+Subject: {SUB_JECT}
 
 Hi {GR_NAME},
 
-We're sorry to inform you that User {GRANTER} Declined your Download Request for all the Torrents he or she is sharing.
+We're sorry to inform you that User {GRANTER} Declined your Download Request for ALL the Torrents they are sharing.
 
 You won't be able to Download any Torrent from {GRANTER} until the appropriate Permissions are given to you.
 
-Remember that the Torrent Owner may at any time change your Authorizations.
+Remember that the Torrent Owner may at any time change your Authorisations.
 
-You'll be sent a Confirmation Message at the event of any Authorization change for this and for any Torrent you Requested to Download.
+You'll be sent a Confirmation Message in the event of any Authorisation change for this and for any Torrent you Requested to Download.
+
 
 {EMAIL_SIG}

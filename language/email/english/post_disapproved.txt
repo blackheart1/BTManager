@@ -2,7 +2,7 @@ Subject: Post Disapproved - "{POST_SUBJECT}"
 
 Hello {USERNAME},
 
-You are receiving this Notification because your Post "{POST_SUBJECT}" at "{SITENAME}" was Disapproved by a Moderator or Administrator.
+You are receiving this Notification because your Post "{POST_SUBJECT}" at "{SITENAME}" was Unapproved by a Moderator or Administrator.
 
 The following Reason was given for the Disapproval:
 

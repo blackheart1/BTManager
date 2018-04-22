@@ -2,7 +2,7 @@ Subject: Forum Post Notification - "{FORUM_NAME}"
 
 Hello {USERNAME},
 
-You are receiving this Notification because you are Watching the Forum, "{FORUM_NAME}" at "{SITENAME}". This Forum has received a New Reply to the Topic "{TOPIC_TITLE}"<!-- IF AUTHOR_NAME !== '' --> by {AUTHOR_NAME}<!-- ENDIF --> since your last visit. You can use the following Link to View the Last Unread Reply.  NO more Notifications will be sent until you Visit the Topic.
+You are receiving this Notification because you are Watching the Forum, "{FORUM_NAME}" at "{SITENAME}".  This Forum has received a New Reply to the Topic "{TOPIC_TITLE}"<!-- IF AUTHOR_NAME !== '' --> by {AUTHOR_NAME}<!-- ENDIF --> since your last visit.  You can use the following Link to View the Last Unread Reply.  NO more Notifications will be sent until you Visit the Topic.
 
 {U_NEWEST_POST}
 
@@ -15,5 +15,6 @@ If you want to View the Forum, Click the following Link:
 If you NO longer wish to Watch this Forum you can either Click the "Unsubscribe Forum" Link found in the Forum above, or by Clicking the following Link:
 
 {U_STOP_WATCHING_FORUM}
+
 
 {EMAIL_SIG}

@@ -4,11 +4,12 @@ Hi, {MASTER},
 
 You are receiving this Message because the User {SLAVE} Requested to Download Torrent {TOR_NAME} on {SITENAME}.
 
-They won't be able to Download it until you give them the Authorization from your User Panel:
+They won't be able to Download it until you give them the Authorisation from your User Panel:
 {TOR_URL}
 
 Usually, you'll want to decide what to do considering the User's Upload/Download Ratio.
 
 You're also able to Allow or Deny them to Download ALL the Torrents you will Upload in one fell swoop, and you won't be bothered by these Requests any more.
+
 
 {EMAIL_SIG}

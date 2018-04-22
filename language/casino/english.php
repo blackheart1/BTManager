@@ -13,69 +13,71 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File casino/english.php 2018-03-09 08:12:00 Thor
+** File casino/english.php 2018-04-20 20:44:00 Thor
 **
 ** CHANGES
 **
 ** 2018-03-02 - Added New Masthead
 ** 2018-03-02 - Added New !defined('IN_PMBT')
 ** 2018-03-02 - Fixed Spelling
+** 2018-04-20 - Amended the Wording of some Sentences
 **/
 
 if (!defined('IN_PMBT'))
 {
     include_once './../../security.php';
-    die ("You can't access this file directly");
+    die ('Error 404 - Page Not Found');
 }
 
 if (empty($lang) || !is_array($lang))
 {
-	$lang = array();
+    $lang = array();
 }
 
 $lang = array_merge($lang, array(
     'TITLE'                => 'Casino',
     'TITLE_EXP'            => '',
-    'CASINO_CLOSED'        => 'Casino is Closed, try later...',
+    'CASINO_CLOSED'        => 'Casino is Currently Closed.',
     'AMOUNT'               => 'Amount',
-    'AMOUNT_TO_BET'        => 'Amount To Bet',
+    'AMOUNT_TO_BET'        => 'Amount to Bet',
     'CASINO_PLAYER_LIST'   => 'Casino Players List',
-    'BET_SITE_USERS'       => 'Make bets with other users',
+    'BET_SITE_USERS'       => 'Make Bets with other Users',
     'EDIT_PLAYER'          => 'Edit Player',
-    'U_CHANCES'            => 'Your chances',
+    'U_CHANCES'            => 'Your Chances',
     'HOW_MUCH_BET'         => 'How much',
     'RED'                  => 'Red',
     'BLACK'                => 'Black',
     'BET_ON_COLOR'         => 'Bet on a Colour',
     'BET_ON_NUMB'          => 'Bet on a Number',
-    'NO_AUTH'              => 'Your Group is not allowed Access to the Casino at this time.',
-    'BANNED'               => 'You have been banned from the Casino.',
-    'PLAYTIME_EXEEDED'     => 'Your playtime is over "%1$s" Times, you have to wait 5 hours.',
-    'MAX_DOWNLOAD_EXEEDED' => 'You have reached the Maximum download for a single user.',
-    'RATIO_TO_LOW'         => 'Sorry but your Ratio "%1$s" at this time Is Below "%2$s" Please come Back when this has Improved.',
-
-    'MAX_WIN_TO_HIGH'      => 'Global Maximum win is above "%1$s"',
-    'CAN_NOT_COVER'        => 'Sorry %1$s you haven\'t uploaded %2$s to cover that Bet"',
-    'WIN_COLOR'            => 'Yes %1$s is the result %2$s you got it and Win %3$s',
-    'LOOSE_COLOR'          => 'Sorry %1$s is Winner and not %2$s, %3$s you lost %4$s',
-    'CANT_BET_SELF'        => 'Sorry You can NOT Bet yourself',
-    'PM_YOU_WIN'           => 'You just won %1$s of upload credit from %2$s',
-    'PM_YOU_LOOSE'         => 'You lost a bet! %1$s just won %2$s of your upload credit!',
+    'NO_AUTH'              => 'Sorry, but your Group is NOT Allowed Access to the Casino at this time.',
+    'BANNED'               => 'Sorry, but your currently Banned from the Casino!',
+    'PLAYTIME_EXEEDED'     => 'Your Playtime is over %1$s times, you have to wait 5 hours.',
+    'MAX_DOWNLOAD_EXEEDED' => 'You have Reached the Maximum Download for a Single User.',
+    'RATIO_TO_LOW'         => 'Sorry, your Ratio %1$s at this time is below %2$s.  Please come Back when this has Improved.',
+    'MAX_WIN_TO_HIGH'      => 'Global Maximum Win is above %1$s',
+    'CAN_NOT_COVER'        => 'Sorry, %1$s you haven\'t Uploaded %2$s to Cover that Bet"',
+    'WIN_COLOR'            => 'Yes %1$s is the Result %2$s you got it and Win %3$s',
+    'LOOSE_COLOR'          => 'Sorry, %1$s is the Winner and not %2$s, %3$s you Lost %4$s',
+    'CANT_BET_SELF'        => 'Sorry, but you can NOT Bet against yourself',
+    'PM_YOU_WIN'           => 'You just Won %1$s of Upload Credit from %2$s',
+    'PM_YOU_LOOSE'         => 'You Lost a Bet! %1$s just Won %2$s of your Upload Credit!',
     'PM_SUBJECT'           => 'CASINO BET',
-    'BET_TAKEN'            => 'Sorry this bet has already been taken',
-    'CANT_COVER_BET'       => 'You are "%1$s" short of making that bet!',
-    'WIN_CHALENGE'         => '<h3>You got it</h3>, <h3>You won the bet, "%1$s" has been credited to your account!</h3>',
-    'LOOSE_CHALENGE'       => '<h3>Damn it</h3>, <h3>You lost the bet, <a href=./user.php?op=profile&id="%1$s">"%2$s"</a> has won "%3$s" of your hard earned upload credit!</h3>',
+    'BET_TAKEN'            => 'Sorry, this Bet has already been Claimed.',
+    'CANT_COVER_BET'       => 'You are %1$s Short of making that Bet!',
+    'WIN_CHALENGE'         => '<h3>You got it</h3>, <h3>You Won the Bet, %1$s has been Credited to your Account!</h3>',
 
-    'BET_TAKEN_WIN'        => 'You just won %1$s of upload credit from %2$s!',
-    'BET_TAKEN_LOOSE'      => 'You lost a bet! %1$s just won %2$s of your upload credit!',
-    'MAX_BETS_OPEN'        => 'There are already %1$s bets open, take an open bet and don´t *tsk-tsk... bad language!* with the system!',
+    'LOOSE_CHALENGE'       => '<h3>Damn it</h3>, <h3>You Lost the Bet, <a href=./user.php?op=profile&id="%1$s">"%2$s"</a> has Won %3$s of your Hard Earned Upload Credit!</h3>',
 
-    'NO_ZERO_BETS'         => 'If you win a amount of 0, zero, Nada, Niente or Nichts you are very unhappy. so please don´t add bets without a win!',
+    'BET_TAKEN_WIN'        => 'You just Won %1$s of Upload Credit from %2$s!',
+    'BET_TAKEN_LOOSE'      => 'You Lost a Bet! %1$s just Won %2$s of your Upload Credit!',
+
+    'MAX_BETS_OPEN'        => 'There are already %1$s Bets Open, take an Open Bet and don\'t *tsk-tsk... bad language!* with the System!',
+
+    'NO_ZERO_BETS'         => 'If you Win an amount of 0, zero, Nada, Niente or Nichts you are very unhappy, so please don´t Add Bets without a Win!',
 
     'DONT_CHEAT'           => 'Don\'t try to Cheat the System, or you\'ll be Banned!',
     'CAN_NOT_COVER'        => '<h2>You can NOT Cover that Bet it\'s %1$s more than you\'ve got!</h2>',
-    'BET_ADDED'            => 'Bet Added, you will Receive a PM Notifying you of the Results when someone has taken it',
+    'BET_ADDED'            => 'Bet Added.  You\'ll Receive a PM notifying you of the Results when someone has taken it',
     'BACK_TO_GAME_LIST'    => 'Back to Games Choice',
     'YOUR_STATS'           => 'Your Current Statistics',
     'YOUR_CASINO_STATS'    => 'Your Casino Statistics',
@@ -87,7 +89,7 @@ $lang = array_merge($lang, array(
     'LOTTERY_STATS'        => 'Lottery Statistics',
     'LOTTERY_STATUS'       => 'Lottery Status',
     'NEXT_LOTTERY'         => 'Next Lottery Drawing',
-    'LOTTERY_NOT_ACTIVE'   => 'Lottery NOT Activated',
+    'LOTTERY_NOT_ACTIVE'   => 'Lottery is Currently NOT Activated',
     'OPENED'               => 'Opened',
     'CLOSED'               => 'Closed',
     'WINNERS'              => 'Winners',
@@ -103,7 +105,7 @@ $lang = array_merge($lang, array(
     'CURRENT_SOLD_TICK'    => 'Current Tickets Bought',
     'SHOW_LOTTERY_PLAYERS' => 'Show ALL Players',
     'LOTTERY_WINNER'       => 'Last Lottery Winner was',
-    'LOTTERY_WINNERS'      => 'Last Lottery Winner\'s where',
+    'LOTTERY_WINNERS'      => 'Last Lottery Winner\'s were',
     'PLAYS'                => 'Play\'s',
     'LAST_PLAY'            => 'Last Time Played',
     'BANN_CASINO'          => 'Allow User to Play Casino',
@@ -116,8 +118,8 @@ $lang = array_merge($lang, array(
     'PLACE_A_BET'          => 'Place a Bet',
     'NO_OPEN_BETS'         => 'There are NO Open Bets so go ahead and make one.',
     'WINNINGS'             => 'Winnings',
-    'BACK_CASINO'          => 'Back To The Casino.',
-    'BACK_PLAYER_LIST'     => 'Back To The Players List.',
+    'BACK_CASINO'          => 'Back to the Casino.',
+    'BACK_PLAYER_LIST'     => 'Back to the Players List.',
 ));
 
 ?>

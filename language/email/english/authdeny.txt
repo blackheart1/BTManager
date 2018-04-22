@@ -1,13 +1,14 @@
-Subject: {SUB_JECT} 
+Subject: {SUB_JECT}
 
 Hi {GR_NAME},
 
 We're sorry to inform you that User {GRANTER} Declined your Download Request for the Torrent {GR_TNAME}.
 
-You won't be able to Download the Torrent until its Owner gives you the Authorization...
+You won't be able to Download the Torrent until the Owner gives you the Authorisation...
 
-Remember that the Torrent Owner may change your Authorizations at any time.
+Remember that the Torrent Owner may change your Authorisations at any time.
 
-You'll be sent a Confirmation Message at any Authorization change for this and for any Torrent you Requested to Download.
+You'll be sent a Confirmation Message in the Event of any Authorisation change for this and for any Torrent you Requested to Download.
+
 
 {EMAIL_SIG}

@@ -2,6 +2,7 @@ Subject: Report Closed - "{PM_SUBJECT}"
 
 Hello {USERNAME},
 
-You are receiving this Notification because the Report you filed regarding the Private Message "{PM_SUBJECT}" at "{SITENAME}" has been dealt with by a Moderator or Administrator. The Report is Now Closed.  If you have further questions, please contact {CLOSER_NAME} by Private Message.
+You are receiving this Notification because the Report you filed regarding the Private Message "{PM_SUBJECT}" at "{SITENAME}" has been dealt with by a Moderator or Administrator.  The Report is Now Closed.  If you have further questions, please contact {CLOSER_NAME} by Private Message.
+
 
 {EMAIL_SIG}

@@ -2,7 +2,7 @@ Subject: Report Closed - "{POST_SUBJECT}"
 
 Hello {USERNAME},
 
-You are receiving this Notification because the Report you filed on the Post "{POST_SUBJECT}" in "{TOPIC_TITLE}" at "{SITENAME}" was dealt with by a Moderator or by an Administrator. The Report was afterwards Closed. If you have further questions contact {CLOSER_NAME} with a Personal Message.
+You are receiving this Notification because the Report you filed on the Post "{POST_SUBJECT}" in "{TOPIC_TITLE}" at "{SITENAME}" was dealt with by a Moderator or by an Administrator.  The Report was afterwards Closed.  If you have further questions contact {CLOSER_NAME} with a Personal Message.
 
 
 {EMAIL_SIG}

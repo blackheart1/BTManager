@@ -7,7 +7,8 @@ You are receiving this Message because you Requested to be Notified when a New C
 
 Read the Comment Here: {TOR_URL}
 
-You will NOT be Notified of any further Comments on the Torrent until you Visit that page. You can also Turn Off Notifications
+You will NOT be Notified of any further Comments on the Torrent until you Visit that page.  You can also Turn Off Notifications
 for the Torrent altogether Here: {TOR_URL_WATCH}
+
 
 {EMAIL_SIG}

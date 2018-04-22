@@ -133,7 +133,7 @@ $lang = array_merge($lang, array(
 
     '_admpadmin_email'        => 'Administrator email',
 
-    '_admpadmin_emailexplain' => 'email Address from which ALL emails to Users will be Sent (Signup, PM Notifications, Authorizations, etc..).  Make sure that the email Address is Valid.',
+    '_admpadmin_emailexplain' => 'email Address from which ALL emails to Users will be Sent (Signup, PM Notifications, Authorisations, etc..).  Make sure that the email Address is Valid.',
 
     '_admplanguage'        => 'Default Language',
     '_admplanguageexplain' => 'Set the Default Language the Site will use.',
@@ -246,9 +246,9 @@ $lang = array_merge($lang, array(
 
     '_admptorrent_complaintsexplain' => 'Allows Users to make a Complaint about a Torrent on the Details Page.  This Helps to Block Undesired Content, such as Child Pornography.  Any Torrent that receives \'x\' Number of Complaints will Automatically be Banned.',
 
-    '_admptorrent_global_privacy'        => 'Torrent Authorizations',
+    '_admptorrent_global_privacy'        => 'Torrent Authorisations',
 
-    '_admptorrent_global_privacyexplain' => 'Switching this ON Allows Registered Uploaders to put Limitations on Who can Download their Torrents.  The Owner of a Torrent can either Authorize Downloads on a Case-by-Case Basis, or Automatically by Setting an Overall Share Ratio that the Downloader has to meet.  You have to Set the Tracker Access Level to User in Order for this to Work.',
+    '_admptorrent_global_privacyexplain' => 'Switching this ON Allows Registered Uploaders to put Limitations on Who can Download their Torrents.  The Owner of a Torrent can either Authorise Downloads on a Case-by-Case Basis, or Automatically by Setting an Overall Share Ratio that the Downloader has to meet.  You have to Set the Tracker Access Level to User in Order for this to Work.',
 
     '_admpdisclaimer_check'        => 'Disclaimer',
 
@@ -259,7 +259,7 @@ $lang = array_merge($lang, array(
 
     '_admpupload_level'        => 'Upload Access Level',
 
-    '_admpupload_levelexplain' => 'Determines the User Level Required to Upload Torrents<ul><li><strong>Everyone</strong> Allows Anyone to Upload Torrent Files to the Site.  They wont be able to Edit them or Manage Authorizations<li><strong>Registered</strong> Requires Users to be Registered.<br /><li><strong>Premium</strong> ONLY Allows Premium Users to Upload.</ul>',
+    '_admpupload_levelexplain' => 'Determines the User Level Required to Upload Torrents<ul><li><strong>Everyone</strong> Allows Anyone to Upload Torrent Files to the Site.  They wont be able to Edit them or Manage Authorisations<li><strong>Registered</strong> Requires Users to be Registered.<br /><li><strong>Premium</strong> ONLY Allows Premium Users to Upload.</ul>',
 
     '_admplevelopt'            => array('all'=>'Everyone', 'user'=>'Registered', 'premium'=>'Premium'),
 

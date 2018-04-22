@@ -1,13 +1,14 @@
-Subject: {SUB_JECT} 
+Subject: {SUB_JECT}
 
 Hi {GR_NAME},
 
-We're pleased to inform you that User {GRANTER} Approved your Download Request for all Torrents he or she is sharing.
+We're pleased to inform you that User {GRANTER} Approved your Download Request for ALL Torrents they are sharing.
 
 You'll be able to Directly Download any Torrent Uploaded by {GRANTER}.
 
-Remember that the Torrent Owner may change your Authorizations at any time.
+Remember that the Torrent Owner may change your Authorisations at any time.
 
-You'll be sent a Confirmation Message at the Event of any Authorization change for this and for any Torrent you Requested to Download.
+You'll be sent a Confirmation Message in the Event of any Authorisation change for this and for any Torrent you Requested to Download.
+
 
 {EMAIL_SIG}
