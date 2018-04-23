@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File common/english.php 2018-04-22 09:42:00 Thor
+** File common/english.php 2018-04-23 07:39:00 Thor
 **
 ** CHANGES
 **
@@ -23,7 +23,7 @@
 ** 2018-03-26 - Added Missing Text
 ** 2018-03-26 - Removed Unused Define Vars
 ** 2018-04-22 - Amended the Wording of some Sentences
-** 2018-04-22 - Added Missing Language
+** 2018-04-23 - Added Missing Language
 **/
 
 if (!defined('IN_PMBT'))
@@ -264,12 +264,12 @@ $lang = array_merge($lang, array(
     'ERROR_PRIVATE_REQ_SENT' => 'This Torrent is Private.  You won\'t be able to Download it until the Owner gives you Permission. A Request has been sent to the Torrent Owner, who needs to Authorise your Download.  You will be Notified about the Result by email.',
 
     'ENCLOSURE'            => 'Enclosure',
-    'FIND_USERNAME'        => 'Find UsersName',
+    'FIND_USERNAME'        => 'Find Username',
     'EMAIL'                => 'email',
     'REFRESH_PEERS'        => 'Refresh Peer Data',
     'PEERS_UPDATE_ALREDY'  => 'Statistics Updated less than 30 Minutes ago',
     'AUTH_PENDING'         => 'Pending Authorisations!',
-    'AUTH_PENDING_NONE'    => 'NO Pending Authorisations',
+    'AUTH_PENDING_NONE'    => 'No Pending Authorisations',
     'RATE_A'               => 'Legal Content.  Good Quality',
     'RATE_B'               => 'Fake or Corrupted',
     'RATE_C'               => 'Copyrights Violation',
@@ -293,7 +293,7 @@ $lang = array_merge($lang, array(
     'INVALID_IMAGE_EXT'    => 'Image File has to be a gif, jpg or png',
     'GROUP_ERR_USER_LONG'  => 'Group Names can NOT Exceed 60 Characters.  The Specified Group Name is Too Long.',
     'GROUP_ERR_TYPE'       => 'Inappropriate Group Type Specified.',
-    'GROUP_ERR_USERNAME'   => 'NO Group Name Specified.',
+    'GROUP_ERR_USERNAME'   => 'No Group Name Specified.',
     'GROUP_NO_ACCESS_PAGE' => 'Your Group does NOT have <strong>ACCESS</strong> to this Page.',
     'ILLIGALCAT'           => 'Illegal Category!',
     'HELP'                 => 'Help Desk',
@@ -309,7 +309,7 @@ $lang = array_merge($lang, array(
     'INFORMATION'          => 'Information',
     'IRC_CHAT'             => 'IRC Chat',
     'JUMP_PAGE'            => 'Enter the Page Number you wish to go to',
-    'JOINED'               => 'Joined',
+    'JOINED'               => 'Joined ',
     'KINO'                 => 'Kino',
     'LASTACTION'           => 'Last Action',
     'LAST_ACTIVE'          => 'Last Active',
@@ -375,7 +375,7 @@ $lang = array_merge($lang, array(
     'NO_ACTIVATION_KEY_SET'    => 'Activation Key NOT Specified!',
     'NO_TORRENTS'              => 'There are NO Torrents',
     'NO_SUCH_USER'             => 'This UserName Does NOT Exist.',
-    'NO_REASON_GIVEN'          => 'NO Reason was given',
+    'NO_REASON_GIVEN'          => 'No Reason was given',
     'NO_SUCH_TORRENT'          => 'Torrent Does NOT Exist or has been Banned!',
     'NOT_A_TORRENT_FILE'       => 'This is NOT a Torrent File (.torrent)',
     'NUB_OF_FILES'             => 'Number of Files',
@@ -462,6 +462,7 @@ $lang = array_merge($lang, array(
     'STATUS'                    => 'Status',
     'STATISTICS'                => 'Statistics',
     'SUBMIT'                    => 'Submit',
+    'PREVIEW'                   => 'Preview',
     'SUCCESS'                   => 'Success',
     'SECURITY_CODE'             => 'Security Code',
     'SUMMARY'                   => 'Summary',
@@ -538,7 +539,7 @@ $lang = array_merge($lang, array(
     '_BBCODE_U_HELP'        => 'Underline Text: [u]text[/u]',
     '_BBCODE_W_HELP'        => 'Insert URL: [url]http://url[/url] OR [url=http://url]URL text[/url]',
     '_BBCODE_D_HELP'        => 'Flash: [flash=width,height]http://url[/flash]',
-    '_STYLES_TIP'           => 'Tip:  Styles can be Applied Quickly to Selected Text.',
+    '_STYLES_TIP'           => 'Tip:  Styles can be Applied Quickly to Selected Text.22',
     '_SMILIES'              => 'Smilies',
     '_MORE_SMILIES'         => 'View more Smilies',
     '_FONT_COLOR'           => 'Font Colour',
@@ -610,8 +611,8 @@ $lang = array_merge($lang, array(
     'T_DIR_MES_KEY'            => 'Missing Torrent Dictionary Keys',
     'INV_DATA_IN_DIR'          => 'Invalid Data inside Torrent Dictionary',
     'HAPPY_BIRTHDAY'           => 'Congratulations to: ',
-    'NO_BIRTHDAY'              => 'NO Birthdays Today',
-    'NO_NEW_USERS'             => 'NO New Members',
+    'NO_BIRTHDAY'              => 'No Birthdays Today',
+    'NO_NEW_USERS'             => 'No New Members',
     'EXTENTION'                => 'Extension',
     'WELCOME_BACK'             => 'Welcome Back,',
     'CURENT_BROWS'             => 'Currently Browsing',

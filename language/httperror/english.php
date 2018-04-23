@@ -40,7 +40,7 @@ $lang = array_merge($lang, array(
 
     'B_ERROR_TTL' => 'HTTP 401 Error - Access Denied',
 
-    'B_ERROR_EXP' => 'A 401 HTTP Error Occurred while processing your Request.<br> You can\'t Access the Requested Page because you are NOT Authorized.<br> Please provide your Access Credentials, if you have any.<br> Contact %1$s if you\'re having problems.',
+    'B_ERROR_EXP' => 'A 401 HTTP Error Occurred while processing your Request.<br> You can\'t Access the Requested Page because you are NOT Authorised.<br> Please provide your Access Credentials, if you have any.<br> Contact %1$s if you\'re having problems.',
 
     'C_ERROR_TTL' => 'HTTP 403 Error - Access Denied',
 
