@@ -224,8 +224,7 @@ class acp_ban
 					FROM ' . $db_prefix . '_bans
 					WHERE (ban_end >= ' . time() . "
 							OR ban_end = 0)
-						AND ipstart <> ''
-						AND ban_userid > 0 ";
+						AND ipstart <> ''";
 			break;
 
 			case 'email':
@@ -247,7 +246,7 @@ class acp_ban
 
 		while ($row = $db->sql_fetchrow($result))
 		{
-			$banned_options .= '<option' . (($row['ban_exclude']) ? ' class="sep"' : '') . ' value="' . $row['id'] . '">' . (($mode == 'ip')? long2ip($row[$field]) : $row[$field]) . '</option>';
+			$banned_options .= '<option' . (($row['ban_exclude']) ? ' class="sep"' : '') . ' value="' . $row['id'] . '">' . $row[$field] . '</option>';
 
 			$time_length = ($row['ban_end']) ? ($row['ban_end'] - $row['ban_start']) / 60 : 0;
 			$ban_length[$row['id']] = (isset($ban_end_text[$time_length])) ? $ban_end_text[$time_length] : $user->lang['UNTIL'] . ' -> ' . $user->format_date($row['ban_end']);
@@ -256,7 +255,7 @@ class acp_ban
 			$ban_give_reasons[$row['id']] = $row['ban_give_reason'];
 		}
 		$db->sql_freeresult($result);
-		//die(print_r($ban_reasons));
+		#die(print_r($ban_reasons));
 
 		if (sizeof($ban_length))
 		{

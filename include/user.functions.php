@@ -1670,6 +1670,7 @@ function user_ban($mode, $ban, $ban_len, $ban_len_other, $ban_exclude, $ban_reas
 
 	$ban_list = (!is_array($ban)) ? array_unique(explode("\n", $ban)) : $ban;
 	$ban_list_log = implode(', ', $ban_list);
+	//die($ban_list_log);
 
 	$current_time = time();
 
@@ -1784,7 +1785,7 @@ function user_ban($mode, $ban, $ban_len, $ban_len_other, $ban_exclude, $ban_reas
 		break;
 
 		case 'ip':
-			$type = 'ban_ip';
+			$type = 'ipstart';
 			#founder and self check
 			foreach ($ban_list as $ip)
 			{
@@ -1935,7 +1936,7 @@ function user_ban($mode, $ban, $ban_len, $ban_len_other, $ban_exclude, $ban_reas
 		FROM " . $db_prefix . "_bans
 		WHERE $sql_where
 			AND ban_exclude = " . (int) $ban_exclude;
-			#die($sql);
+			//die($sql);
 	$result = $db->sql_query($sql);
 
 	// Reset $sql_where, because we use it later...
@@ -1953,7 +1954,7 @@ function user_ban($mode, $ban, $ban_len, $ban_len_other, $ban_exclude, $ban_reas
 				break;
 
 				case 'ip':
-					$banlist_ary_tmp[] = $row['ban_ip'];
+					$banlist_ary_tmp[] = $row['ipstart'];
 				break;
 
 				case 'email':
@@ -1990,7 +1991,7 @@ function user_ban($mode, $ban, $ban_len, $ban_len_other, $ban_exclude, $ban_reas
 			}
 
 		}
-
+//die(print_r($sql_ary));
 		$db->sql_multi_insert($db_prefix . '_bans', $sql_ary);
 
 		// If we are banning we want to logout anyone matching the ban

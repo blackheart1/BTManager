@@ -2457,20 +2457,49 @@ function is_banned($user, &$reason) {
         global $db, $db_prefix, $_SERVER;
         $ip = sprintf("%u",ip2long(getip()));
 
-        $sqlip = "SELECT ban_give_reason as reason FROM ".$db_prefix."_bans WHERE  ipstart <= '".$ip."' AND ipend >= '".$ip."'  LIMIT 1;";
+        $sqlip = "SELECT ipstart, ban_exclude, ban_give_reason as reason, ban_end FROM ".$db_prefix."_bans WHERE ban_email = '' AND (ban_userid = 0 OR ban_exclude = 0);";
         $resip = $db->sql_query($sqlip) or btsqlerror($sqlip);
-        $sql = "SELECT banreason as reason FROM ".$db_prefix."_users WHERE id = '".$user->id."' AND ban = 1 UNION SELECT reason FROM ".$db_prefix."_bans WHERE ipstart <= '".$ip."' AND ipend >= '".$ip."'  LIMIT 1;";
+		$sql = "SELECT ban_userid, ban_email, ban_exclude, ban_give_reason, ban_end FROM ".$db_prefix."_bans WHERE (ipstart = '' OR ban_exclude = 1) ;";
+        //$sql = "SELECT banreason as reason FROM ".$db_prefix."_users WHERE id = '".$user->id."' AND ban = 1 UNION SELECT reason FROM ".$db_prefix."_bans WHERE ipstart <= '".$ip."' AND ipend >= '".$ip."'  LIMIT 1;";
         $res = $db->sql_query($sql) or btsqlerror($sql);
-        if ($db->sql_numrows($resip) >= 1) {
-                list ($reason) = $db->fetch_array($resip);
-                return true;
+        if ($db->sql_numrows($resip) >= 1)
+		{
+			while ($row = $db->sql_fetchrow($resip))
+			{
+				$ip_banned = false;
+				if (!empty($row['ipstart']))
+				{
+						$ip_banned = preg_match('#^' . str_replace('\*', '.*?', preg_quote($row['ipstart'], '#')) . '$#i', getip());
+						if($row['ban_exclude'] == 1)$ip_banned = false;
+				}
+				$reason = $row['reason'];
+				if ($ip_banned) return true;
+			}
 		}
         if ($db->sql_numrows($res) < 1) {
                 $reason = "";
                 return false;
         } else {
-                list ($reason) = $db->fetch_array($res);
-                return true;
+			while ($row = $db->sql_fetchrow($resip))
+			{
+				if ($row['ban_end'] && $row['ban_end'] < time())
+				{
+					continue;
+				}
+				if ((!empty($row['ban_userid']) && intval($row['ban_userid']) == $user->id) ||
+					(!empty($row['ban_email']) && preg_match('#^' . str_replace('\*', '.*?', preg_quote($row['ban_email'], '#')) . '$#i', $user->email)))
+				{
+					if($row['ban_exclude'] == 1)
+					{
+						$reason = '';
+						return false;
+					}
+					$reason = $row['reason'];
+					return true;
+				}
+			}
+                $reason = "";
+                return false;
         }
 }
 
