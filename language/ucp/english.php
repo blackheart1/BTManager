@@ -13,19 +13,21 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File ucp/english.php 2018-03-22 08:54:00 Thor
+** File ucp/english.php 2018-04-23 07:39:00 Thor
 **
 ** CHANGES
 **
 ** 2018-03-02 - Added New Masthead
 ** 2018-03-02 - Added New !defined('IN_PMBT')
 ** 2018-03-02 - Fixed Spelling
+** 2018-04-22 - Amended the Wording of some Sentences
+** 2018-04-23 - Added Missing Languages
 **/
 
 if (!defined('IN_PMBT'))
 {
     include_once './../../security.php';
-    die ("You can't access this file directly");
+    die ('Error 404 - Page Not Found');
 }
 
 if (empty($lang) || !is_array($lang))
@@ -44,36 +46,36 @@ $lang = array_merge($lang, array(
     'WARNNING'               => 'Warning',
     'TOR_IMG_SEED'           => 'Torrents I\'m Seeding',
     'TOR_IMG_LEECH'          => 'Torrents I\'m Leeching',
-    'EMAILS_NOT_MATCH'       => 'The email Address\'s you Entered DO NOT Match.',
+    'EMAILS_NOT_MATCH'       => 'The email Address\'s you entered DO NOT Match.',
     'UCP_DISABLE_ACC'        => 'Disable Account',
     'UCP_BAN_FORUM'          => 'Forum Ban',
     'UCP_SHOUT_BAN'          => 'Ban Shouts',
-    'UCP_UNSHOUT_BAN'        => 'UnBan Shouts',
+    'UCP_UNSHOUT_BAN'        => 'Un-Ban Shouts',
     'UCP_HELPER_FOR'         => 'What the User is helpful for',
     'ACTIVE_IN_FORUM'        => 'Most Active Forum',
     'ACTIVE_IN_TOPIC'        => 'Most Active Topic',
-    'USER_SEEDBOX'           => 'User\'s Seedbox IP',
+    'USER_SEEDBOX'           => 'User\'s Seedbox IP Address',
     'UCP_BAN_USER'           => 'Ban User',
-    'UCP_UNBAN_USER'         => 'Unban User',
+    'UCP_UNBAN_USER'         => 'Un-Ban User',
     'BACK_TO_DRAFTS'         => 'Back to Drafts',
     'YOU_CANT_BAN_YOURSELF'  => 'You can NOT Ban Yourself',
     'UCP_SHOUT_BAN_EXPL'     => 'User will NOT be able to View or Post Shouts',
 
-    'UCP_DISABLE_ACC_EXPL'   => 'Disabled Accounts can NOT View Torrents Upload or Download Torrents.<br />Disabled Accounts will NO longer be able to Access ALL the Site.<br />This is a Mild form of Ban so that the User will be able to Access the Site to find out WHY they have been Disabled.',
+    'UCP_DISABLE_ACC_EXPL'   => 'Disabled Accounts can NOT View or Download Torrents.<br />Disabled Accounts will NO longer be able to Access ALL the Site.<br />This is a Mild form of Ban so that the User will be able to Access the Site to find out WHY they have been Disabled.',
 
     'INV_LEVEL_TO_EDIT'      => 'You DO NOT have Access to Edit this Person',
     'UCP_WARN_WEEK'          => '%s Week%s',
     'CONFERM_EMAIL_SUB'      => 'Confirm email on %1$s',
     'WARN_MOD_MES'           => '%1$s - Warned for %2$s  by %3$s - Reason: %4$s',
-    'LOG_GROUP_CHANGE'       => 'Group Changed for %1$s To %2$s',
-    'LOG_LEVEL_CHANGE'       => 'Level Changed for %1$s To %2$s',
+    'LOG_GROUP_CHANGE'       => 'Group Changed for %1$s to %2$s',
+    'LOG_LEVEL_CHANGE'       => 'Level Changed for %1$s to %2$s',
     'UCP_WARN_REMOVED_MES'   => 'Your WARNNING was Deleted by %1$s!',
     'UCP_WARN_REASON_EXPL'   => 'Note Added to Users Private Message as to WHY they have been Warned',
     'WARN_REMOVE_MOD_MESS'   => '%1$s - WARN Deleted by %2$s',
     'PROFILE_UPDATED'        => 'Your Profile has been Updated',
     'NO_AUTHBAN_SHOUTS'      => 'You DO NOT have Access to Ban Shouts',
-    'SHOUTS_BANNED'          => 'User has been Banned from ShoutBox',
-    'SHOUTS_UN_BANNED'       => 'User has been Unbanned from ShoutBox',
+    'SHOUTS_BANNED'          => 'User has been Banned from the Shoutbox',
+    'SHOUTS_UN_BANNED'       => 'User has been Unbanned from the Shoutbox',
     'DRAFTS_EXPLAIN'         => 'Here you can View, Edit and Delete your Saved Drafts.',
     'LOGIN_ERROR_NP'         => 'Username or Password NOT Specified.',
     'LOGIN_ERROR_NP_WRONG'   => 'Incorrect Username or Password!!',
@@ -82,29 +84,29 @@ $lang = array_merge($lang, array(
     'EMAIL_CHANGED'          => 'Your email was Successfully Changed',
     'EMAIL_CHANGE_INV'       => 'Invalid Confirmation Code or User ID',
     'EMAIL_CHANGE'           => 'email Change',
-    'USER_BAN_NO_DEL'        => 'User is Banned DO NOT Delete',
+    'USER_BAN_NO_DEL'        => 'User is Banned.  DO NOT Delete',
 
-    'CONFERM_DELETE_USER'    => '<b>WARNING</b>: You are about to Completely and Permanently Delete %1$s\'s Account. %1$s Editing Permissions for ALL Torrents that they\'ve Uploaded.  Re-registering with the same Username will be possible after that.',
+    'CONFERM_DELETE_USER'    => '<b>WARNING</b>: You are about to Completely and Permanently Delete %1$s\'s Account. %1$s Editing Permissions for ALL Torrents that they\'ve Uploaded.  Re-Registering with the same Username will be possible after that.',
 
     'PASS_RECOVER_NOT_SET'   => 'NO Recovery Password is Set',
     'PASS_RECOVER_INV'       => 'Invalid Confirmation Code or User ID',
     'PASS_RECOVER'           => 'Password Recovery',
     'PASS_RECOVER_COMPLETE'  => 'Password Changed.  Now you can Login with your NEW Password.',
 
-    'ACC_NOW_ACTIVATED'      => 'Activation Complete.  Your Account is now Activated. You can Access the Site using the Username and Password that you provided.  Have a nice Download.',
+    'ACC_NOW_ACTIVATED'      => 'Activation Complete.  Your Account is now Activated.  You can Access the Site using the Username and Password that you provided.  Have a nice Download.',
 
     'VIEW_AVATARS'           => 'Display Avatars',
     'VIEW_EDIT'              => 'View/Edit',
     'VIEW_FLASH'             => 'Display Flash Animations',
     'VIEW_IMAGES'            => 'Display Images within Posts',
-    'VIEW_NEXT_HISTORY'      => 'Next PM in History',
-    'VIEW_NEXT_PM'           => 'Next PM',
-    'VIEW_PM'                => 'View Message',
-    'VIEW_PM_INFO'           => 'Message Details',
-    'VIEW_PM_MESSAGE'        => '1 Message',
-    'VIEW_PM_MESSAGES'       => '%d Messages',
-    'VIEW_PREVIOUS_HISTORY'  => 'Previous PM in History',
-    'VIEW_PREVIOUS_PM'       => 'Previous PM',
+    'VIEW_NEXT_HISTORY'      => 'Next Private Message in History',
+    'VIEW_NEXT_PM'           => 'Next Private Message',
+    'VIEW_PM'                => 'View Private Message',
+    'VIEW_PM_INFO'           => 'Private Message Details',
+    'VIEW_PM_MESSAGE'        => '1 Private Message',
+    'VIEW_PM_MESSAGES'       => '%d Private Messages',
+    'VIEW_PREVIOUS_HISTORY'  => 'Previous Private Message in History',
+    'VIEW_PREVIOUS_PM'       => 'Previous Private Message',
     'VIEW_SIGS'              => 'Display Signatures',
     'VIEW_SMILIES'           => 'Display Smilies as Images',
     'VIEW_TOPICS_DAYS'       => 'Display Topics from Previous Days',
@@ -124,9 +126,9 @@ $lang = array_merge($lang, array(
     'BIRTHDAY_EXPLAIN'       => 'Setting a Year will List your Age when it is your Birthday.',
     'BOARD_DATE_FORMAT'      => 'My Date Format',
 
-    'BOARD_DATE_FORMAT_EXPLAIN' => 'The Syntax Used is Identical to the PHP <a href="http://www.php.net/date">date()</a> Function.',
+    'BOARD_DATE_FORMAT_EXPLAIN' => 'The Syntax Used is Identical to the PHP <a href=\'http://www.php.net/date\'>date()</a> Function.',
 
-    'BOARD_DST'               => 'Summer Time/<abbr title="Daylight Saving Time">DST</abbr> is in effect',
+    'BOARD_DST'               => 'Summer Time/<abbr title=\'Daylight Saving Time\'>DST</abbr> is in effect',
     'BOARD_LANGUAGE'          => 'My Language',
     'BOARD_STYLE'             => 'My Board Style',
     'BOARD_TIMEZONE'          => 'My Time Zone',
@@ -153,13 +155,13 @@ $lang = array_merge($lang, array(
     'ALLOW_PM_EXPLAIN'        => 'Note that Administrators and Moderators will Always be able to Send you Messages.',
     'SHOW_EMAIL'              => 'Users can Contact me by email',
     'ADMIN_EMAIL'             => 'Administrators can email me Information',
-    'NO_FRIENDS_ONLINE'       => 'NO Friends Online',
-    'EDIT_DRAFT_EXPLAIN'      => 'Here you are able to Edit your Draft. Drafts DO NOT contain Attachment and Poll Information.',
+    'NO_FRIENDS_ONLINE'       => 'No Friends Online',
+    'EDIT_DRAFT_EXPLAIN'      => 'Here you are able to Edit your Draft.  Drafts DO NOT contain Attachment and Poll Information.',
     'NEW_PM'                  => 'New Message',
     'CHOOSE_AVATAR'           => 'Choose Avatar',
     'ACCOUT_STATUS'           => 'Account Status',
 
-    'ACCOUT_EXP_STATUS'       => 'Set User Active/Inactive.  BEWARE! Setting a User that has been Registered for less than 48h to INACTIVE will also Delete the Account.',
+    'ACCOUT_EXP_STATUS'       => 'Set User Active/Inactive.  BEWARE! Setting a User that has been Registered for Less than 48h to INACTIVE will also Delete the Account.',
 
     'NO_WATCHED_FORUMS'       => 'You are NOT Subscribed to any Forums.',
     'NO_WATCHED_TORRENTS'     => 'You are NOT Subscribed to any Torrents.',
@@ -172,7 +174,7 @@ $lang = array_merge($lang, array(
     '_WATCHED_TOPICS'         => 'Watched Topics',
     'SIGNATURE_PREVIEW'       => 'Your Signature will appear like this in Posts',
 
-    'WATCHED_EXPLAIN'         => 'Below is a List of Forums and Topics that you are Subscribed to, and you\'ll be Notified of any New Posts.  To Unsubscribe, Mark the Forum or Topic and then, Press the <em>Unwatch Marked</em> Button.',
+    'WATCHED_EXPLAIN'         => 'Below is a List of Forums and Topics that you are Subscribed to.  You\'ll be Notified of any New Posts.  To Unsubscribe, Mark the Forum or Topic and then Press the <em>Unwatch Marked</em> Button.',
 
     'UCP_BAN_USER_FORUM'      => 'Ban User from the Forum',
     'USE_PASSKEY'             => 'Use Passkey',
@@ -184,25 +186,63 @@ $lang = array_merge($lang, array(
     'ACCEPT_EMAIL_ACP_EXP'    => 'Allow Mass email from this Site',
     'INACTIVE'                => 'Inactive',
     'ACC_LEVEL'               => 'Access Level',
-    'ERROR_SUBJECT_NUBER'     => 'The Subscription is NOT a Number.  Please go back and try again',
-    'NO_DRAFTS_SET'           => 'NO Draft is Set.  Please Check your Link',
+    'ERROR_SUBJECT_NUBER'     => 'The Subscription is NOT a Number.  Please go back and try again!',
+    'NO_DRAFTS_SET'           => 'NO Draft is Set.  Please Check your Link!',
     'DELETE_DRAFTS'           => 'Delete Drafts',
+    'DELETE_DRAFT'            => 'Remove Selected Drafts',
+    'DELETE_DRAFT_CONFIRM'    => 'Are you Sure you want to Delete ALL Selected Drafts?',
     'VIEW_FORUM_TOPICS'       => '%d Topics',
     'VIEW_FORUM_TOPIC'        => '1 Topic',
     'M_SITE_HELPER'           => 'Site Helper',
-    'ACP_PM_NOTICE_EMAIL'       => 'Accespt pm notifacation',
-    'ACP_PM_NOTICE_EMAIL_EXP'   => 'Allow system to send you a email Notice of new PM\'s',
-    'TOR_PERPAGE'               => 'Torrents Perpage',
-    'PARK_ACC'                  => 'Park account',
-    'PARK_ACC_EXP'              => 'You can park your account for up to 90 days while on vacation or without internet, etc. Your account cannot be deleted during this time but on day 91 it can. HnR\'s will not accrue while parked but they will resume when unparked. You can not download any torrents while your account is parked!',
-	'DELETE_DRAFT'				=>	'Remove selected drafts',
-	'DELETE_DRAFT_CONFIRM'		=>	'Are you sure you want to delete all selected drafts?',
-    'ACP_PM_NOTICE_EMAIL'     => 'Accept PM Notification',
-    'ACP_PM_NOTICE_EMAIL_EXP' => 'Allow System to Send you an email Notice of NEW PM\'s',
+    'ACP_PM_NOTICE_EMAIL'     => 'Accept Private Message Notifications',
+    'ACP_PM_NOTICE_EMAIL_EXP' => 'Allow System to Send you an email Notice of New Private Message\'s',
     'TOR_PERPAGE'             => 'Torrents Per Page',
     'PARK_ACC'                => 'Park Account',
 
-    'PARK_ACC_EXP'            => 'You can Park your Account for up to 90 days while on vacation or without internet, etc.  Your Account can NOT be Deleted during this time But, on day 91 it can.  HnR\'s will NOT occur while Parked but, they will Resume when Un-Parked.  You can NOT Download any Torrents while your Account is Parked!',
+    'PARK_ACC_EXP'            => 'You can Park your Account for up to 90 days while on Vacation or without Internet, etc.  Your Account can NOT be Deleted during this time but, on day 91 it CAN.  HnR\'s will NOT occur while Parked but, they will Resume when Un-Parked.  You can NOT Download any Torrents while your Account is Parked!',
+
+    'TO_REMOVE_USER'       => 'To Remove Usernames, Select them and Click Submit.',
+
+    'FOES_EXPLAIN'         => 'Foes are Users which will be Ignored by Default.  Posts by these Users will NOT be Fully Visible.  Personal Messages from Foes are still Permitted.  Please Note: you can NOT Ignore Moderators or Administrators.',
+
+    'NO_FOES'              => 'No Foes Currently Defined:',
+    'YOUR_FOES'            => 'Your Foes:',
+    'ADD_FOES'             => 'Add New Foes:',
+    'ENTER_USERS'          => 'You may Enter Several Usernames each on a Different Line. ',
+    'FIND_MEMBER'          => 'Find a Member',
+
+    'FRIENDS_EXPLAIN'      => 'Friends Enable you to Quickly Access Users you Communicate with Frequently.  If the Template has relevant Support any Posts made by a Friend may be Highlighted.',
+
+    'YOUR_FRIENDS'         => 'Your Friends:',
+    'ADD_FRIENDS'          => 'Add New Friends:',
+    'NO_FRIENDS'           => 'No Friends Currently Defined:',
+
+    'UCP_EXPLANE'          => 'Welcome to the User Control Panel.  From here you can Monitor, View and Update your Profile, Preferences, Subscribed Forums and Topics.  You can also Send Messages to Other Users (if Permitted).  Please ensure you Read any Announcements before continuing.',
+
+    'IMPORT_ANNOUNCE'      => 'Important Announcements',
+    'NO_ANNOUNCEMENTS'     => 'No Important Announcements Present.',
+    'YOUR_ACTIVATY'        => 'Your Activity',
+    'LAST_SEEN'            => 'Last Seen ',
+    'TOTAL_POSTS'          => 'Total Posts ',
+    'SHOW_YOUR_POSTS'      => 'Show your Posts',
+    'OVERVIEW'             => 'Overview',
+    'FRONT_PAGE'           => 'Front Page',
+    'MANAGE_SUBS'          => 'Manage Subscriptions',
+    'MANAGE_DRAFTS'        => 'Manage Drafts',
+    'MANAGE_ATTACHMENTS'   => 'Manage Attachments',
+    'PROFILE'              => 'Profile',
+    'EDIT_PROFILE'         => 'Edit Profile',
+    'EDIT_SIGNATURE'       => 'Edit Signature',
+    'EDIT_AVATAR'          => 'Edit Avatar',
+    'EDIT_SETTINGS'        => 'Edit Account Settings',
+    'EDIT_ADMIN_SETTINGS'  => 'Administrator Account Settings',
+    'BOARD_PREFS'          => 'Board Preferences',
+    'EDIT_GLOBAL_SETTINGS' => 'Edit Global Settings',
+    'FRIEND_FOE'           => 'Friends and Foes',
+    'MANAGE_FRIENDS'       => 'Manage Friends',
+    'MANAGE_FOES'          => 'Manage Foes',
+    'FRIEND_ONLINE'        => 'Friends',
+    'SIGNATURE_EXPLAIN'    => 'This is a Block of Text that can be Added to your Posts.  There is a 255 Character Limit.',
 ));
 
 ?>

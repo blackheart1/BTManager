@@ -34,7 +34,7 @@ if (empty($lang) || !is_array($lang))
 }
 
 $lang = array_merge($lang, array(
-    'AUTHORIZE'        => 'Authorize',
+    'AUTHORIZE'        => 'Authorise',
     'UCP_TORRENTS'     => 'Torrent Control Panel',
 
     'UCP_TORRENTS_EXP' => 'In this area, you can Manage the Torrents that you have Uploaded (with the exception of those with <strong>Stealth Mode Selected</strong>).<br><br>
@@ -46,26 +46,26 @@ $lang = array_merge($lang, array(
         Refusing their Download Request can be an Appropriate way to Encourage them to Share more.',
 
     'MY_TORRENTS'             => 'User Torrent Panel',
-    'MY_GLONAL_AUTH'          => 'My Global Authorizations',
-    'NO_GLOBAL_AUYH'          => 'There are NO Global Authorizations yet',
-    'ALL_USERS_AUTHORIZED'    => 'ALL Users have been Authorized',
-    'SELECT_USERS_AUTHOEIZED' => 'The Selected User has been Authorized',
-    'OWNER_AUTH_YOU'          => 'The Owner has Authorized you to Download their Torrents',
+    'MY_GLONAL_AUTH'          => 'My Global Authorisations',
+    'NO_GLOBAL_AUYH'          => 'There are NO Global Authorisations yet',
+    'ALL_USERS_AUTHORIZED'    => 'ALL Users have been Authorised',
+    'SELECT_USERS_AUTHOEIZED' => 'The Selected User has been Authorised',
+    'OWNER_AUTH_YOU'          => 'The Owner has Authorised you to Download their Torrents',
     'FREELY_DOWN_USER_TOR'    => 'You Can Now Freely Download ALL of this User\'s Torrents.\nWe Protect your Privacy.',
-    'PENDING_AUTH'            => 'Pending Authorizations',
-    'USERS_REQUEST_AUTH'      => 'The following Users have Requested Download Authorization',
+    'PENDING_AUTH'            => 'Pending Authorisations',
+    'USERS_REQUEST_AUTH'      => 'The following Users have Requested Download Authorisation',
     'NO_TORRENTS'             => 'There are NO Torrents',
     'NO_UPLOADED_TORRENTS'    => 'You have NOT Uploaded any Torrents yet',
-    'ALWAYS_AUTH'             => 'Always Authorize',
-    'NEVER_AUTH'              => 'Never Authorize',
-    'DONT_AUTH'               => 'DO NOT Authorize',
+    'ALWAYS_AUTH'             => 'Always Authorise',
+    'NEVER_AUTH'              => 'Never Authorise',
+    'DONT_AUTH'               => 'DO NOT Authorise',
     'CANT_VIEW_OTHER_AUTH'    => 'You can\'t view Other Users Torrents Permissions!',
-    'DOWNL_AUTH_PANEL'        => 'Download Authorizations Control Panel',
-    'NO_AUTH_TO_MANAGE'       => 'There are NO Authorizations to Manage',
+    'DOWNL_AUTH_PANEL'        => 'Download Authorisations Control Panel',
+    'NO_AUTH_TO_MANAGE'       => 'There are NO Authorisations to Manage',
 
-    'USER_AUTH_SETT_EXP'      => 'Select this Option to Require Users to Ask for a Download Authorization to Access this Torrent. You will be Notified of each New Pending Authorization via email.You will be able to choose whether to Allow or Deny the Authorization for this Single Torrent or for ALL your Torrents',
+    'USER_AUTH_SETT_EXP'      => 'Select this Option to Require Users to Ask for a Download Authorisation to Access this Torrent. You will be Notified of each New Pending Authorisation via email.You will be able to choose whether to Allow or Deny the Authorisation for this Single Torrent or for ALL your Torrents',
 
-    'USER_AUTH_RATO_SET_EXP'  => 'You can Set a Minimum Ratio Value to Auto-Authorize Users. Users with a Ratio Above or Equal to this will be able to Download without Requesting Authorization.  The Value of the Minimum Ratio will NOT be Displayed, except to Administrators',
+    'USER_AUTH_RATO_SET_EXP'  => 'You can Set a Minimum Ratio Value to Auto-Authorise Users. Users with a Ratio Above or Equal to this will be able to Download without Requesting Authorisation.  The Value of the Minimum Ratio will NOT be Displayed, except to Administrators',
 
     'AUTH_MINEATIO'       => 'Minimum Ratio',
     'DISABLE'             => 'Disabled',
@@ -75,7 +75,7 @@ $lang = array_merge($lang, array(
     'PRIVAZY_UPDATED'     => 'Your Privacy Settings have been Updated',
     'ERROR_ENTERING_DATA' => 'Error while Entering Data',
     'MY_TORRENTS'         => 'My Torrents',
-    'AUTH_EMAIL_SUB'      => 'Download Authorization at %1$s"',
+    'AUTH_EMAIL_SUB'      => 'Download Authorisation at %1$s"',
 ));
 
 ?>
