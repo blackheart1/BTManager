@@ -21,6 +21,7 @@
 ** 2018-03-02 - Added New !defined('IN_PMBT')
 ** 2018-03-02 - Fixed Spelling
 ** 2018-04-21 - Amended the Wording of some Sentences
+** 2018-04-23 - Fixed Syntax Error
 **/
 
 if (!defined('IN_PMBT'))
@@ -119,11 +120,11 @@ $lang = array_merge($lang, array(
     'USER_TABLE_INFO'        => 'We need a little Information to get started',
     'STRUCTURE_ONLY'         => 'Structure Only',
 
-    'SUCCESS_USERS_IMPORTED' => 'Your Users have been Successfully Imported.  You will want to go through your Administrator and Moderator Accounts and Adjust their Levels and Groups <form action=\'converter.php\' ><input type=\'hidden\' name=\'op\' value='5'><input class=\'btnmain\' accesskey=\'s\' tabindex='11' name=\'post\' value=\'Next\' type=\'submit\'></form>',
+    'SUCCESS_USERS_IMPORTED' => 'Your Users have been Successfully Imported.  You will want to go through your Administrator and Moderator Accounts and Adjust their Levels and Groups <form action=\'converter.php\' ><input type=\'hidden\' name=\'op\' value=\'5\'><input class=\'btnmain\' accesskey=\'s\' tabindex=\'11\' name=\'post\' value=\'Next\' type=\'submit\'></form>',
 
     'EMAIL_NOTCE_SUB' => '%1$s has changed your Password',
 
-    'EMAIL_BODY'      => 'Dear %1$s,' . '\n\n We have changed our Source Code and in doing so have had to change your Password.\nWe have taken this time to inform you of this action and provide you with your New Password.\n' . '%2$s ' . '\n' . 'You can Login and change it back if you like Here %3$s' . '\n' . '%4$s',
+    'EMAIL_BODY'      => 'Dear %1$s,\n\n We have changed our Source Code and in doing so have had to change your Password.\nWe have taken this time to inform you of this action and provide you with your New Password.\n' . '%2$s ' . '\n' . 'You can Login and change it back if you like Here %3$s' . '\n' . '%4$s',
 
     'BACK_UP_EXP'     => 'Here you can Backup ALL your Site Data.  You may Store the Resulting Archive in your <samp>Backups/</samp> Folder or Download it Directly.  Depending on your Server Configuration you may be able to Compress the File in a Number of Formats, or you could try to email it to yourself',
 

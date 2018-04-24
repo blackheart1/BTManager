@@ -6,7 +6,7 @@
 <div class="caption">
 <div class="cap-left">
 <div class="cap-right">
-<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnPersonal_stats');">Personal stats</a>
+<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnPersonal_stats');">{L_PERSONAL_STATS}</a>
 </div>
 </div>
 </div>
@@ -14,7 +14,7 @@
 
 <td  class="row3" ><div id="nnPersonal_stats">
 
-<p align="center"><b>Welcome Back</b></p>
+<p align="center"><b>{L_WELCOME_BACK}</b></p>
 
 <p align="center"><b>{U_USER_USERNAME}</b></p>
 
@@ -26,15 +26,15 @@
 
 <img src="themes/Bitfarm/pics/upload.gif" border="0" alt="" title=""   /></span>{U_TSEEDING_CNT}<br>
 
-<!-- IF U_TLEECHING --><span class="overlib" onmouseover="return overlib('{U_TLEECHING}',CAPTION, 'Torrents you are Seeding',TEXTFONT,'Verdana',TEXTCOLOR,'#FFFFFF',CAPTIONFONT,'Lucida Console, Verdana',CENTER,FGCOLOR,'#000000',BGCOLOR,'#6F7578',CAPICON,'themes/Bitfarm/pics/help.png',BORDER,2,SHADOW,SHADOWOPACITY,40,SHADOWCOLOR,'#030303',SHADOWX,2,SHADOWY,2);" onmouseout="return nd();" style="cursor:help"><!-- ENDIF -->
+<!-- IF U_TLEECHING --><span class="overlib" onmouseover="return overlib('{U_TLEECHING}',CAPTION, '{L_T_U_SEED}',TEXTFONT,'Verdana',TEXTCOLOR,'#FFFFFF',CAPTIONFONT,'Lucida Console, Verdana',CENTER,FGCOLOR,'#000000',BGCOLOR,'#6F7578',CAPICON,'themes/Bitfarm/pics/help.png',BORDER,2,SHADOW,SHADOWOPACITY,40,SHADOWCOLOR,'#030303',SHADOWX,2,SHADOWY,2);" onmouseout="return nd();" style="cursor:help"><!-- ENDIF -->
 
-<img src="themes/Bitfarm/pics/download.gif" border="0" alt="Torrents you are Downloading" title="Torrents you are Downloading"   />{U_TLEECHINGCNT}</p><br>
+<img src="themes/Bitfarm/pics/download.gif" border="0" alt="Torrents you are Downloading" title="{L_T_U_LEECH}"   />{U_TLEECHINGCNT}</p><br>
 
 <br>
 
-<p>Seeding Bonus: <a href='mybonus.php'>{U_SEED_BONUS}</a></p>
+<p>{L_SEED_BOMUS}: <a href='mybonus.php'>{U_SEED_BONUS}</a></p>
 
-<p>Transfer Bonus: <a href="bonus_transfer.php">here</a></p>
+<p>{L_TANSF_BONUS}: <a href="bonus_transfer.php">{L_CLICK_HERE}</a></p>
 
 </div>
 
@@ -90,7 +90,7 @@
 
 <!-- IF U_USER --><tr><td class="row1" width="100%"><a href="user.php?op=profile&amp;id={S_USER_ID}">{L_USER_CPANNEL}</a></td></tr><!-- ENDIF -->
 
-<!-- IF U_USER --><tr><td class="row1" width="100%"><a onclick="if(!confirm('Are you sure do you want to logout?')){return false;};" href="user.php?op=logout" alt="logout"  title="Logout">{L_LOG_OUT}</a></td></tr><!-- ENDIF -->
+<!-- IF U_USER --><tr><td class="row1" width="100%"><a onclick="if(!confirm('{L_JAVA_CONF_LOGOUT}')){return false;};" href="user.php?op=logout" alt="{L_LOG_OUT}"  title="{L_LOG_OUT}">{L_LOG_OUT}</a></td></tr><!-- ENDIF -->
 
 <!-- IF U_ADMIN --><tr><td class="row1" width="100%"><a href="admin.php">{L_ADMIN_CP}</a></td></tr><!-- ENDIF -->
 
@@ -116,7 +116,7 @@
 
 <div class="cap-right">
 
-<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnTheme_change');">Theme change</a>
+<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnTheme_change');">{L_THEME_CHANGER}</a>
 
 </div>
 
@@ -148,7 +148,7 @@
 
 <!-- END lang_var -->
 
-</select></p> <input class="button2" type="submit" value="SELECT" ></form></div>
+</select></p> <input class="button2" type="submit" value="{L_SELECT}" ></form></div>
 
 </td></tr>
 
@@ -238,7 +238,7 @@
 
 <div class="cap-right">
 
-<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnInvites');">Invites</a>
+<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnInvites');">{L_INVITES}</a>
 
 </div>
 
@@ -252,9 +252,9 @@
 
 <table border="0" width="100%" cellspacing="0" cellpadding="0">
 
-<tr><td align="center"><p>You have {U_INVITES} Invites</p><br></td></tr>
+<tr><td align="center"><p>{L_INVITE_COUNT} {U_INVITES}</p><br></td></tr>
 
-<tr><td align="center"><a href=invite.php>Send An Invite</a><br></td></tr>
+<tr><td align="center"><a href=invite.php>{L_SEND_INVITE}</a><br></td></tr>
 
 </table>
 

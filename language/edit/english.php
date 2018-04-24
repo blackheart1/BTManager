@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File edit/english.php 2018-04-21 09:47:00 Thor
+** File edit/english.php 2018-04-23 09:47:00 Thor
 **
 ** CHANGES
 **
@@ -21,6 +21,7 @@
 ** 2018-03-02 - Added New !defined('IN_PMBT')
 ** 2018-03-02 - Fixed Spelling
 ** 2018-04-21 - Amended the Wording of some Sentences
+** 2018-04-23 - Removed Reduntent text
 **/
 
 if (!defined('IN_PMBT'))
@@ -69,7 +70,6 @@ $lang = array_merge($lang, array(
                             <strong>PRIVACY MODE</strong> Hides it, retaining Edit/Delete Permissions,<br />
                             <strong>STEALTH MODE</strong> (if available) Completely Hides the Owner to the System, and Doesn\'t Allow any Edit/Deletions by the User.',
 
-    'ERROR_EDIT_NOT_SAVED' => 'An Error has Occurred and your Edit was NOT Saved',
     'SHOW_USER'            => 'SHOW USER',
     'PRIVACY_MODE'         => 'PRIVACY MODE',
     'STEALTH_MODE'         => 'STEALTH MODE',

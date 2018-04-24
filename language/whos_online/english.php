@@ -20,12 +20,13 @@
 ** 2018-03-02 - Added New Masthead
 ** 2018-03-02 - Added New !defined('IN_PMBT')
 ** 2018-03-02 - Fixed Spelling
+** 2018-04-22 - Amended the Wording of some Sentences
 **/
 
 if (!defined('IN_PMBT'))
 {
     include_once './../../security.php';
-    die ("You can't access this file directly");
+    die ('Error 404 - Page Not Found');
 }
 
 if (empty($lang) || !is_array($lang))

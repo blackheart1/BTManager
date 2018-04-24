@@ -21,6 +21,7 @@
 ** 2018-03-02 - Added New !defined('IN_PMBT')
 ** 2018-03-02 - Fixed Spelling
 ** 2018-04-21 - Amended the Wording of some Sentences
+** 2018-04-23 - Added Missing Text
 **/
 
 if (!defined('IN_PMBT'))
@@ -124,6 +125,9 @@ $lang = array_merge($lang, array(
     'EXPORT'                    => 'Export',
 
     'EXPORT_EXP'                => 'Download this Torrent without your Passkey.  Used for Distribution on Sites that provide BitTorrent Index Services',
+	// 3.0.1 Addons
+	'RATE'						=>	'Rating!',
+	'LOGIN'						=> 'Log In',
 ));
 
 ?>

@@ -705,7 +705,17 @@ $lang = array_merge($lang, array(
     'SELECT'                => 'Select',
     'SEND_INVITE'           => 'Send an Invite',
     'INVITE_COUNT'          => 'Your Total Invite Count is',
-    'SELECT_FORUM'          =>  'Select Forum',
+    'SELECT_FORUM'          => 'Select Forum',
+	'RSS_FEED'				=> 'RSS Feed',
+	'TO_THE_TOP'			=> 'Back To Top',
+	'QUERIES'				=> 'Queries',
+	'THEME_BY'				=> 'Theme By',
+	'BOARD_SETTINGS'		=> 'Board Settings',
+	'SUBSCRIPTIONS'			=> 'Subscriptions',
+	'JAVA_CONF_LOGOUT'		=> 'Are you sure do you want to logout?',
+	'1_HOUR'  				=> '1 hour',
+	'30_MINS' 				=> '30 minutes',
+	'6_HOURS' 				=> '6 hours',
 ));
 
 $u_datetime = array(
