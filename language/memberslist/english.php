@@ -13,26 +13,25 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File memberlist/english.php 2018-03-17 11:27:00 Thor
+** File memberlist/english.php 2018-04-25 08:18:00 Thor
 **
 ** CHANGES
 **
 ** 2018-03-02 - Added New Masthead
 ** 2018-03-02 - Added New !defined('IN_PMBT')
 ** 2018-03-02 - Fixed Spelling
+** 2018-04-25 - Amended the Wording of some Sentences
 **/
 
 if (!defined('IN_PMBT'))
 {
     include_once './../../security.php';
-    die ("You can't access this file directly");
+    die ('Error 404 - Page Not Found');
 }
-
-define('BBCODE_UID_LEN', 8);
 
 if (empty($lang) || !is_array($lang))
 {
-	$lang = array();
+    $lang = array();
 }
 
 $lang = array_merge($lang, array(
@@ -47,7 +46,6 @@ $lang = array_merge($lang, array(
     'ADD_FOE'                   => 'Add Foe',
     'ADD_FRIEND'                => 'Add Friend',
     'AFTER'                     => 'After',
-
     'ALL'                       => 'All',
 
     'BEFORE'                    => 'Before',
@@ -58,23 +56,23 @@ $lang = array_merge($lang, array(
     'DEST_LANG'                 => 'Language',
     'DEST_LANG_EXPLAIN'         => 'Select an Appropriate Language (if available) for the Recipient of this Message.',
 
-    'EMAIL_BODY_EXPLAIN'        => 'This Message will be Sent as Plain Text, DO NOT include any HTML or BBCode. The Return Address for this Message will be Set to your email Address.',
+    'EMAIL_BODY_EXPLAIN'        => 'This Message will be Sent as Plain Text.  DO NOT include any HTML or BBCode.  The Return Address for this Message will be Set to your email Address.',
 
-    'EMAIL_DISABLED'            => 'Sorry but ALL email Related Functions have been Disabled.',
+    'EMAIL_DISABLED'            => 'Sorry but ALL email Related Functions are currently Disabled.',
     'EMAIL_SENT'                => 'The email has been Sent.',
 
-    'EMAIL_TOPIC_EXPLAIN'       => 'This Message will be Sent as Plain Text, DO NOT include any HTML or BBCode. Please Note that the Topic Information is already included in the Message. The Return Address for this Message will be Set to your email Address.',
+    'EMAIL_TOPIC_EXPLAIN'       => 'This Message will be Sent as Plain Text.  DO NOT include any HTML or BBCode.  Please Note that the Topic Information is already included in the Message.  The Return Address for this Message will be Set to your email Address.',
 
-    'EMPTY_ADDRESS_EMAIL'       => 'You Must Provide a Valid email Address for the Recipient.',
-    'EMPTY_MESSAGE_EMAIL'       => 'You Must Enter a Message to be emailed.',
-    'EMPTY_MESSAGE_IM'          => 'You Must Enter a Message to be Sent.',
-    'EMPTY_NAME_EMAIL'          => 'You Must Enter the Real Name of the Recipient.',
-    'EMPTY_SUBJECT_EMAIL'       => 'You Must Specify a Subject for the email.',
+    'EMPTY_ADDRESS_EMAIL'       => 'You must Provide a Valid email Address for the Recipient.',
+    'EMPTY_MESSAGE_EMAIL'       => 'You must Enter a Message to be emailed.',
+    'EMPTY_MESSAGE_IM'          => 'You must Enter a Message to be Sent.',
+    'EMPTY_NAME_EMAIL'          => 'You must Enter the Real Name of the Recipient.',
+    'EMPTY_SUBJECT_EMAIL'       => 'You must Specify a Subject for the email.',
     'EQUAL_TO'                  => 'Equal to',
 
-    'FIND_USERNAME_EXPLAIN'     => 'Use this Form to Search for Specific Members. You DO NOT need to fill out all the fields. To Match Partial Data use * as a Wildcard. When Entering Dates use the Format <kbd>YYYY-MM-DD</kbd>, e.g. <samp>2004-02-29</samp>. Use the Check Boxes to Select One or More Usernames (Several Usernames may be Accepted depending on the Form itself) and Click the Select Marked Button to Return to the Previous Form.',
+    'FIND_USERNAME_EXPLAIN'     => 'Use this Form to Search for Specific Members.  You DO NOT need to fill out all the fields.  To Match Partial Data use * as a Wildcard.  When Entering Dates use the Format <kbd>YYYY-MM-DD</kbd>, e.g. <em>2004-02-29</em>.  Use the Check Boxes to Select One or More Usernames (Several Usernames may be Accepted depending on the Form itself) and Click the "Select Marked Button" to Return to the Previous Form.',
 
-    'FLOOD_EMAIL_LIMIT'         => 'You can NOT Send another email at this time.  Please try again later.',
+    'FLOOD_EMAIL_LIMIT'         => 'You can NOT Send another email at this time.  Please try again later!',
 
     'GROUP_LEADER'              => 'Group Leader',
     'SORT_BY'                   => 'Sort by',
@@ -119,12 +117,13 @@ $lang = array_merge($lang, array(
     'IM_MSNM_CONNECT'           => 'MSNM is NOT Connected.\nYou have to Connect to MSNM to Continue.',
     'IM_NAME'                   => 'Your Name',
     'IM_NO_DATA'                => 'There are NO Suitable Contact Details Available for this User.',
+
     'IM_NO_JABBER'              => 'Sorry.  Direct Messaging of Jabber Users is NOT Supported on this Board.  You will need a Jabber Client Installed on your System to Contact the Recipient above.',
 
     'IM_RECIPIENT'              => 'Recipient',
     'IM_SEND'                   => 'Send Message',
     'IM_SEND_MESSAGE'           => 'Send Message',
-    'IM_SENT_JABBER'            => 'Your Message to %1$s has been Sent Successfully.',
+    'IM_SENT_JABBER'            => 'Your Message to %1$s was Successfully Sent.',
     'IM_USER'                   => 'Send an Instant Message',
 
     'LAST_ACTIVE'               => 'Last Active',
@@ -138,7 +137,7 @@ $lang = array_merge($lang, array(
 
     'MORE_THAN'                 => 'More than',
 
-    'NO_EMAIL'                  => 'You are NOT Permitted to Send emails to this User.',
+    'NO_EMAIL'                  => 'You are NOT Authorised to Send emails to this User.',
     'NO_VIEW_USERS'             => 'You are NOT Authorised to View the Member List or Profiles.',
 
     'ORDER'                     => 'Order',
@@ -168,9 +167,6 @@ $lang = array_merge($lang, array(
     'USER_ADMIN'                => 'Administer User',
     'USER_BAN'                  => 'Banning',
     'USER_FORUM'                => 'User Statistics',
-
-
-
     'USER_ONLINE'               => 'Online',
     'USER_PRESENCE'             => 'Board Presence',
 
@@ -179,7 +175,7 @@ $lang = array_merge($lang, array(
 
     'WWW'                       => 'Website',
 
-    'USER_LAST_REMINDED'    => array(
+    'USER_LAST_REMINDED' => array(
         0 => 'NO Reminder was Sent at this time',
         1 => '%1$d Reminder Sent<br />» %2$s',
     ),

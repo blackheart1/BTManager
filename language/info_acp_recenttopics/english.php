@@ -13,24 +13,25 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File info_acp_recenttopics/english.php 2018-03-11 10:01:00 Thor
+** File info_acp_recenttopics/english.php 2018-04-24 07:08:00 Thor
 **
 ** CHANGES
 **
 ** 2018-03-02 - Added New Masthead
 ** 2018-03-02 - Added New !defined('IN_PMBT')
 ** 2018-03-02 - Fixed Spelling
+** 2018-04-24 - Amended the Wording of some Sentences
 **/
 
 if (!defined('IN_PMBT'))
 {
     include_once './../../security.php';
-    die ("You can't access this file directly");
+    die ('Error 404 - Page Not Found');
 }
 
 if (empty($lang) || !is_array($lang))
 {
-	$lang = array();
+    $lang = array();
 }
 
 $lang = array_merge($lang, array(
@@ -44,13 +45,13 @@ $lang = array_merge($lang, array(
     'RT_CONFIG'                  => 'Configuration',
     'RT_ANTI_TOPICS'             => 'Excluded Topics',
 
-    'RT_ANTI_TOPICS_EXP'         => 'Separated by a <strong>,</strong> (Example: 7, 9)<br />If you Don\'t want to Exclude a Topic, just enter 0.',
+    'RT_ANTI_TOPICS_EXP'         => 'Separated by a <strong>,</strong> (Example: 7, 9)<br />If you Don\'t want to Exclude a Topic, just Enter 0.',
 
     'RT_NUMBER'                  => 'Recent Topics',
     'RT_NUMBER_EXP'              => 'Number of Topics Displayed on the Index.',
     'RT_PAGE_NUMBER'             => 'Recent Topics Pages',
 
-    'RT_PAGE_NUMBER_EXP'         => 'You can Display more Recent Topics on a Little Pagination. If you Enter 0 you\'ll end up with Multiple Pages which is  Required to Display ALL the Topics.  Enter 1 to Disable this Feature. ',
+    'RT_PAGE_NUMBER_EXP'         => 'You can Display more Recent Topics.  If you Enter 0 you\'ll end up with Multiple Pages which is Required to Display ALL the Topics.  Enter 1 to Disable this Feature. ',
 
     'RT_PARENTS'                 => 'Display Parent Forums',
     'RT_SAVED'                   => 'Saved Adjustments.',

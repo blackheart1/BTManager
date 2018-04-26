@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File edit/english.php 2018-04-23 09:47:00 Thor
+** File edit/english.php 2018-04-23 09:47:00 Black_heart
 **
 ** CHANGES
 **

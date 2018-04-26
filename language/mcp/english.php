@@ -13,48 +13,37 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File mcp/english.php 2018-03-17 09:26:00 Thor
+** File mcp/english.php 2018-04-25 08:10:00 Thor
 **
 ** CHANGES
 **
 ** 2018-03-02 - Added New Masthead
 ** 2018-03-02 - Added New !defined('IN_PMBT')
 ** 2018-03-02 - Fixed Spelling
+** 2018-04-25 - Amended the Wording of some Sentences
 **/
 
 if (!defined('IN_PMBT'))
 {
     include_once './../../security.php';
-    die ("You can't access this file directly");
+    die ('Error 404 - Page Not Found');
 }
 
 if (empty($lang) || !is_array($lang))
 {
-	$lang = array();
+    $lang = array();
 }
-
-// DEVELOPERS PLEASE NOTE
-//
-// All language files must use UTF-8 as their encoding and the files must Not contain a BOM.
-//
-// Placeholders can now contain order information, e.g. instead of
-// 'Page %s of %s' you can (and should) write 'Page %1$s of %2$s', this allows
-// translators to re-order the output of data while ensuring it remains correct
-//
-// You Do Not need this where single placeholders are used, e.g. 'Message %d' is fine
-// equally where a String contains only two placeholders which are used to wrap text
-// in a URL you again Do Not need to specify an order e.g., 'Click %sHERE%s' is fine
 
 $lang = array_merge($lang, array(
     'ACTION'               => 'Action',
     'ACTION_NOTE'          => 'Action/Note',
     'ADD_FEEDBACK'         => 'Add Feedback',
 
-    'ADD_FEEDBACK_EXPLAIN' => 'If you would like to Add a Report on this please complete the following Form. Only use Plain Text; HTML, BBCode, etc. are NOT Permitted.',
+    'ADD_FEEDBACK_EXPLAIN' => 'If you would like to Add a Report on this please complete the following Form.  Only use Plain Text; HTML, BBCode, etc. are NOT Permitted.',
 
     'ADD_WARNING'          => 'Add Warning',
 
-    'ADD_WARNING_EXPLAIN'  => 'To Send a Warning to this User please complete the following Form. Only use Plain Text; HTML, BBCode, etc. are NOT Permitted.',
+    'ADD_WARNING_EXPLAIN'  => 'To Send a Warning to this User please complete the following Form.  Only use Plain Text; HTML, BBCode, etc. are NOT Permitted.',
 
     'ALL_ENTRIES'                  => 'ALL Entries',
     'ALL_NOTES_DELETED'            => 'Successfully Removed ALL User Notes.',
@@ -79,13 +68,13 @@ $lang = array_merge($lang, array(
 
     'DELETE_POSTS'                 => 'Delete Posts',
     'SEARCH_KEYWORDS'              => 'Search Keywords',
-    'TOPIC_REVIEW'                 =>	'Topic Review',
-    'TOPIC_ICON'                   =>	'Topic Icon',
+    'TOPIC_REVIEW'                 => 'Topic Review',
+    'TOPIC_ICON'                   => 'Topic Icon',
     'DELETE_POSTS_CONFIRM'         => 'Are you sure you want to Delete these Posts?',
     'DELETE_POST_CONFIRM'          => 'Are you sure you want to Delete this Post?',
     'DELETE_REPORT'                => 'Delete Report',
     'DELETE_REPORT_CONFIRM'        => 'Are you sure you want to Delete the Selected Report?',
-    'DELETE_REPORTS'               => 'Delete reports',
+    'DELETE_REPORTS'               => 'Delete Reports',
     'DELETE_REPORTS_CONFIRM'       => 'Are you sure you want to Delete the Selected Reports?',
     'DELETE_SHADOW_TOPIC'          => 'Delete Shadow Topic',
     'DELETE_TOPICS'                => 'Delete Selected Topics',
@@ -106,7 +95,7 @@ $lang = array_merge($lang, array(
 
     'FEEDBACK'                     => 'Feedback',
     'VIEW_FORUM_LOGS'              => 'View Logs',
-    'POST'                         =>	'Post',
+    'POST'                         => 'Post',
     'FORK'                         => 'Copy',
     'FORK_TOPIC'                   => 'Copy Topic',
     'FORK_TOPIC_CONFIRM'           => 'Are you sure you want to Copy this Topic?',
@@ -150,17 +139,17 @@ $lang = array_merge($lang, array(
 
     'MARKED_NOTES_DELETED'         => 'Successfully Removed ALL Marked User Notes.',
 
-    'MCP_ADD'                      => 'Add a Warning',
+    'MCP_ADD'             => 'Add a Warning',
 
-    'MCP_BAN'                      => 'Banning',
-    'MCP_BAN_EMAILS'               => 'Ban emails',
-    'MCP_BAN_IPS'                  => 'Ban IPs',
-    'MCP_BAN_USERNAMES'            => 'Ban Usernames',
+    'MCP_BAN'             => 'Banning',
+    'MCP_BAN_EMAILS'      => 'Ban emails',
+    'MCP_BAN_IPS'         => 'Ban IP\'s',
+    'MCP_BAN_USERNAMES'   => 'Ban Usernames',
 
-    'MCP_LOGS'                     => 'Moderator Logs',
-    'MCP_LOGS_FRONT'               => 'Front Page',
-    'MCP_LOGS_FORUM_VIEW'          => 'Forum Logs',
-    'MCP_LOGS_TOPIC_VIEW'          => 'Topic Logs',
+    'MCP_LOGS'            => 'Moderator Logs',
+    'MCP_LOGS_FRONT'      => 'Front Page',
+    'MCP_LOGS_FORUM_VIEW' => 'Forum Logs',
+    'MCP_LOGS_TOPIC_VIEW' => 'Topic Logs',
 
     'MCP_MAIN'                       => 'Main',
     'MCP_MAIN_FORUM_VIEW'            => 'View Forum',
@@ -176,9 +165,9 @@ $lang = array_merge($lang, array(
     'MCP_MAKE_GLOBALS'               => 'Change Topics to Global Announcements?',
     'MCP_MAKE_GLOBALS_CONFIRM'       => 'Are you sure you want to Change the Selected Topics to Global Announcements?',
     'MCP_MAKE_STICKY'                => 'Change Topic to a Sticky Topic?',
-    'MCP_MAKE_STICKY_CONFIRM'        => 'Are you sure you want to Change this Topic to a Sticky?',
+    'MCP_MAKE_STICKY_CONFIRM'        => 'Are you sure you want to Change this Topic to a Sticky Topic?',
     'MCP_MAKE_STICKIES'              => 'Change Topics to Sticky Topics?',
-    'MCP_MAKE_STICKIES_CONFIRM'      => 'Are you sure you want to Change the Selected Topics to Stickies?',
+    'MCP_MAKE_STICKIES_CONFIRM'      => 'Are you sure you want to Change the Selected Topics to Sticky Topics?',
     'MCP_MAKE_NORMAL'                => 'Change to a Standard Topic?',
     'MCP_MAKE_NORMAL_CONFIRM'        => 'Are you sure you want to Change this Topic to a Standard Topic?',
     'MCP_MAKE_NORMALS'               => 'Change Topics to Standard Topics?',
@@ -197,9 +186,9 @@ $lang = array_merge($lang, array(
     'MCP_REPORTS_OPEN'           => 'Open Reports',
     'MCP_REPORTS_OPEN_EXPLAIN'   => 'This is a List of ALL Reported Posts which Still need to be Dealt with.',
 
-    'MCP_QUEUE'                           => 'Moderation Queue',
-    'MCP_QUEUE_APPROVE_DETAILS'           => 'Approve Details',
-    'MCP_QUEUE_UNAPPROVED_POSTS'          => 'Posts waiting to be Approved',
+    'MCP_QUEUE'                  => 'Moderation Queue',
+    'MCP_QUEUE_APPROVE_DETAILS'  => 'Approve Details',
+    'MCP_QUEUE_UNAPPROVED_POSTS' => 'Posts waiting to be Approved',
 
     'MCP_QUEUE_UNAPPROVED_POSTS_EXPLAIN'  => 'This is a List of ALL Posts which Require Approving before they will be Visible to Users.',
 
@@ -218,7 +207,7 @@ $lang = array_merge($lang, array(
     'MERGE_POSTS'                => 'Merge Posts',
     'MERGE_POSTS_CONFIRM'        => 'Are you sure you want to Merge the Selected Posts?',
 
-    'MERGE_TOPIC_EXPLAIN'        => 'Using the form below you can Merge Selected Posts into another Topic. These Posts Will NOT be Reordered and Will Appear as if the User\'s Posted them to the New Topic.<br />Please Enter the Destination Topic ID or Click on &uml;Select Topic&Tilde; to Search for one.',
+    'MERGE_TOPIC_EXPLAIN'        => 'Using the form below you can Merge Selected Posts into another Topic.  These Posts will NOT be Reordered and will Appear as if the User\'s Posted them to the New Topic.<br />Please Enter the Destination Topic ID or Click on "Select Topic" to Search for one.',
 
     'MERGE_TOPIC_ID'             => 'Destination Topic Identification Number',
     'MERGE_TOPICS'               => 'Merge Topics',
@@ -238,8 +227,8 @@ $lang = array_merge($lang, array(
     'NOTIFY_USER_WARN'           => 'Notify User about Warning?',
     'NOT_MODERATOR'              => 'You are NOT a Moderator of this Forum.',
     'NO_DESTINATION_FORUM'       => 'Please Select a Destination Forum.',
-    'NO_DESTINATION_FORUM_FOUND' => 'There is NO Destination Forums Available.',
-    'NO_ENTRIES'                 => 'NO Log Entries for this period.',
+    'NO_DESTINATION_FORUM_FOUND' => 'There is NO Destination Forum\'s Available.',
+    'NO_ENTRIES'                 => 'NO Log Entries for this Period.',
     'NO_FEEDBACK'                => 'NO Feedback Exists for this User.',
     'NO_FINAL_TOPIC_SELECTED'    => 'You have to Select a Destination Topic for Merging Posts.',
     'NO_MATCHES_FOUND'           => 'NO Matches Found.',
@@ -258,21 +247,21 @@ $lang = array_merge($lang, array(
     'OTHER_USERS'                => 'Other Users Posting from this IP',
 
     'POSTER'                     => 'Poster',
-    'POSTS_APPROVED_SUCCESS'     => 'The Selected Posts have been Approved.',
-    'POSTS_DELETED_SUCCESS'      => 'The Selected Posts have been Successfully Removed from the Database.',
-    'POSTS_DISAPPROVED_SUCCESS'  => 'The Selected Posts have been Disapproved.',
-    'POSTS_LOCKED_SUCCESS'       => 'The Selected Posts have been Locked Successfully.',
-    'POSTS_MERGED_SUCCESS'       => 'The Selected Posts have been Merged.',
-    'POSTS_UNLOCKED_SUCCESS'     => 'The Selected Posts have been Unlocked Successfully.',
+    'POSTS_APPROVED_SUCCESS'     => 'The Selected Posts were Approved.',
+    'POSTS_DELETED_SUCCESS'      => 'The Selected Posts were Successfully Removed from the Database.',
+    'POSTS_DISAPPROVED_SUCCESS'  => 'The Selected Posts were Disapproved.',
+    'POSTS_LOCKED_SUCCESS'       => 'The Selected Posts were Successfully Locked.',
+    'POSTS_MERGED_SUCCESS'       => 'The Selected Posts were Merged.',
+    'POSTS_UNLOCKED_SUCCESS'     => 'The Selected Posts were Successfully Unlocked.',
     'POSTS_PER_PAGE'             => 'Posts Per Page',
     'POSTS_PER_PAGE_EXPLAIN'     => '(Set to 0 to View ALL Posts.)',
     'POST_APPROVED_SUCCESS'      => 'The Selected Post has been Approved.',
     'POST_DELETED_SUCCESS'       => 'The Selected Post has been Successfully Removed from the Database.',
     'POST_DISAPPROVED_SUCCESS'   => 'The Selected Post has been Disapproved.',
-    'POST_LOCKED_SUCCESS'        => 'Post Locked Successfully.',
+    'POST_LOCKED_SUCCESS'        => 'Post Successfully Locked.',
     'POST_NOT_EXIST'             => 'The Post you Requested DOES NOT Exist.',
     'POST_REPORTED_SUCCESS'      => 'This Post has been Successfully Reported.',
-    'POST_UNLOCKED_SUCCESS'      => 'Post Unlocked Successfully.',
+    'POST_UNLOCKED_SUCCESS'      => 'Post Successfully Unlocked.',
 
     'READ_USERNOTES'             => 'User Notes',
     'READ_WARNINGS'              => 'User Warnings',
@@ -290,7 +279,7 @@ $lang = array_merge($lang, array(
     'REPORT_DETAILS'             => 'Report Details',
     'REPORT_MESSAGE'             => 'Report this Message',
 
-    'REPORT_MESSAGE_EXPLAIN'     => 'Use this Form to Report the Selected Message. Reporting should generally be used Only if the Message Breaks Forum Rules.',
+    'REPORT_MESSAGE_EXPLAIN'     => 'Use this Form to Report the Selected Message.  Reporting should generally be used Only if the Message Breaks the Forum Rules.',
 
     'REPORT_NOTIFY'              => 'Notify me',
     'REPORT_NOTIFY_EXPLAIN'      => 'Informs you when your Report was Dealt with.',
@@ -313,7 +302,7 @@ $lang = array_merge($lang, array(
     'SELECT_ACTION'                     => 'Select Desired Action',
     'SELECT_FORUM_GLOBAL_ANNOUNCEMENT'  => 'Please Select the Forum you wish this Global Announcement to be Displayed in.',
 
-    'SELECT_FORUM_GLOBAL_ANNOUNCEMENTS' => 'One or more of the Selected Topics are Global Announcements. Please Select the Forum you wish these to be Displayed in.',
+    'SELECT_FORUM_GLOBAL_ANNOUNCEMENTS' => 'One or more of the Selected Topics are Global Announcements.  Please Select the Forum you wish these to be Displayed in.',
 
     'SELECT_MERGE'                => 'Select for Merge',
     'SELECT_TOPICS_FROM'          => 'Select Topics from',
@@ -335,54 +324,54 @@ $lang = array_merge($lang, array(
     'SPLIT_TOPIC_EXPLAIN'         => 'Using the Form below you can Split a Topic in two, either by Selecting the Posts Individually or by Splitting at a Selected Post.',
 
     'THIS_POST_IP'                => 'IP for this Post',
-    'TOPICS_APPROVED_SUCCESS'     => 'The Selected Topics have been Approved.',
-    'TOPICS_DELETED_SUCCESS'      => 'The Selected Topics have been Successfully Removed from the Database.',
-    'TOPICS_DISAPPROVED_SUCCESS'  => 'The Selected Topics have been Disapproved.',
-    'TOPICS_FORKED_SUCCESS'       => 'The Selected Topics have been Copied Successfully.',
-    'TOPICS_LOCKED_SUCCESS'       => 'The Selected Topics have been Locked.',
-    'TOPICS_MOVED_SUCCESS'        => 'The Selected Topics have been Moved Successfully.',
-    'TOPICS_RESYNC_SUCCESS'       => 'The Selected Topics have been Resynchronised.',
+    'TOPICS_APPROVED_SUCCESS'     => 'The Selected Topics were Approved.',
+    'TOPICS_DELETED_SUCCESS'      => 'The Selected Topics were Successfully Removed from the Database.',
+    'TOPICS_DISAPPROVED_SUCCESS'  => 'The Selected Topics were Disapproved.',
+    'TOPICS_FORKED_SUCCESS'       => 'The Selected Topics were Successfully Copied.',
+    'TOPICS_LOCKED_SUCCESS'       => 'The Selected Topics were Locked.',
+    'TOPICS_MOVED_SUCCESS'        => 'The Selected Topics were Successfully Moved.',
+    'TOPICS_RESYNC_SUCCESS'       => 'The Selected Topics were Resynchronised.',
     'TOPICS_TYPE_CHANGED'         => 'Topic Types Changed Successfully.',
-    'TOPICS_UNLOCKED_SUCCESS'     => 'The Selected Topics have been Unlocked.',
-    'TOPIC_APPROVED_SUCCESS'      => 'The Selected Topic has been Approved.',
-    'TOPIC_DELETED_SUCCESS'       => 'The Selected Topic has been Successfully Removed from the Database.',
-    'TOPIC_DISAPPROVED_SUCCESS'   => 'The Selected Topic has been Disapproved.',
-    'TOPIC_FORKED_SUCCESS'        => 'The Selected Topic has been Copied Successfully.',
-    'TOPIC_LOCKED_SUCCESS'        => 'The Selected Topic has been Locked.',
-    'TOPIC_MOVED_SUCCESS'         => 'The Selected Topic has been Moved Successfully.',
+    'TOPICS_UNLOCKED_SUCCESS'     => 'The Selected Topics were Unlocked.',
+    'TOPIC_APPROVED_SUCCESS'      => 'The Selected Topic were Approved.',
+    'TOPIC_DELETED_SUCCESS'       => 'The Selected Topic were Successfully Removed from the Database.',
+    'TOPIC_DISAPPROVED_SUCCESS'   => 'The Selected Topic were Disapproved.',
+    'TOPIC_FORKED_SUCCESS'        => 'The Selected Topic were Successfully Copied.',
+    'TOPIC_LOCKED_SUCCESS'        => 'The Selected Topic were Locked.',
+    'TOPIC_MOVED_SUCCESS'         => 'The Selected Topic were Successfully Moved.',
     'TOPIC_NOT_EXIST'             => 'The Topic you Selected DOES NOT Exist.',
     'TOPIC_RESYNC_SUCCESS'        => 'The Selected Topic has been Resynchronised.',
     'TOPIC_SPLIT_SUCCESS'         => 'The Selected Topic has been Split Successfully.',
-    'TOPIC_TIME'                  => 'Topic time',
-    'TOPIC_TYPE_CHANGED'          => 'Topic Type Changed Successfully.',
+    'TOPIC_TIME'                  => 'Topic Time',
+    'TOPIC_TYPE_CHANGED'          => 'Topic Type Successfully Changed.',
     'TOPIC_UNLOCKED_SUCCESS'      => 'The Selected Topic has been Unlocked.',
     'TOTAL_WARNINGS'              => 'Total Warnings',
 
     'UNAPPROVED_POSTS_TOTAL'      => 'In Total there are <strong>%d</strong> Posts Waiting for Approval.',
-    'UNAPPROVED_POSTS_ZERO_TOTAL' => 'There are No Posts Waiting for Approval.',
+    'UNAPPROVED_POSTS_ZERO_TOTAL' => 'There are NO Posts Waiting for Approval.',
     'UNAPPROVED_POST_TOTAL'       => 'In Total there is <strong>1</strong> Post Waiting for Approval.',
     'UNLOCK'                      => 'Unlock',
     'UNLOCK_POST'                 => 'Unlock Post',
     'UNLOCK_POST_EXPLAIN'         => 'Allow Editing',
     'UNLOCK_POST_POST'            => 'Unlock Post',
-    'UNLOCK_POST_POST_CONFIRM'    => 'Are you sure you want to Allow Editing this Post?',
+    'UNLOCK_POST_POST_CONFIRM'    => 'Are you sure you want to Allow Editing of this Post?',
     'UNLOCK_POST_POSTS'           => 'Unlock Selected Posts',
-    'UNLOCK_POST_POSTS_CONFIRM'   => 'Are you sure you want to Allow Editing the Selected Posts?',
+    'UNLOCK_POST_POSTS_CONFIRM'   => 'Are you sure you want to Allow Editing of the Selected Posts?',
     'UNLOCK_TOPIC'                => 'Unlock Topic',
     'UNLOCK_TOPIC_CONFIRM'        => 'Are you sure you want to Unlock this Topic?',
     'UNLOCK_TOPICS'               => 'Unlock Selected Topics',
     'UNLOCK_TOPICS_CONFIRM'       => 'Are you sure you want to Unlock ALL Selected Topics?',
     'USER_CANNOT_POST'            => 'You can NOT Post in this Forum.',
     'USER_CANNOT_REPORT'          => 'You can NOT Report Posts in this Forum.',
-    'USER_FEEDBACK_ADDED'         => 'User Feedback Added Successfully.',
-    'USER_WARNING_ADDED'          => 'User Warned Successfully.',
+    'USER_FEEDBACK_ADDED'         => 'User Feedback Successfully Added.',
+    'USER_WARNING_ADDED'          => 'User Successfully Warned.',
 
     'VIEW_DETAILS'         => 'View Details',
     'VIEW_POST'            => 'View Post',
     'ALL_FORUMS'           => 'ALL Forums',
     'SELECT_FORUM'         => 'Select a Forum',
     'JUMP_TO'              => 'Jump to',
-    'REASON'               =>	'Reason',
+    'REASON'               => 'Reason',
 
     'WARNED_USERS'         => 'Warned Users',
     'WARNED_USERS_EXPLAIN' => 'This is a List of Users with Active Warnings.',
@@ -395,21 +384,21 @@ $lang = array_merge($lang, array(
 
     'YOU_SELECTED_TOPIC'   => 'You Selected Topic Number %d: %s.',
 
-	'report_reasons' => array(
-		'TITLE'	=> array(
+    'report_reasons' => array(
+        'TITLE' => array(
             'WAREZ'     => 'Warez',
             'SPAM'      => 'Spam',
             'OFF_TOPIC' => 'Off Topic',
             'OTHER'     => 'Other',
-		),
+        ),
 
-		'DESCRIPTION' => array(
+        'DESCRIPTION' => array(
             'WAREZ'     => 'The Post contains Links to Illegal or Pirated Software.',
             'SPAM'      => 'The Reported Post\'s ONLY purpose was to Advertise for a Website or another Product.',
             'OFF_TOPIC' => 'The Reported Post is Off Topic.',
             'OTHER'     => 'The Reported Post DOES NOT fit into any other Category.  Please use the further Information Field.',
-		)
-	),
+        )
+    ),
 ));
 
 ?>

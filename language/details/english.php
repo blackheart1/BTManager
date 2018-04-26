@@ -46,7 +46,7 @@ $lang = array_merge($lang, array(
     'PASS_PROT'                 => 'Password Protection',
     'AUTH_REQ_MAIL_SUB'         => 'Download Request on %1$s'
     ,
-    'PASSWORD_REQ'              => 'This Torrent is Password Protected.  The Owner of the Torrent decided to make it Visible ONLY to Authorised Users.<br />Please enter the Password to Access this Torrent .',
+    'PASSWORD_REQ'              => 'This Torrent is Password Protected.  The Owner of the Torrent decided to make it Visible ONLY to Authorised Users.<br />Please Enter the Password to Access this Torrent .',
 
     'WRONG_PASS'                => 'Warning:  Wrong Password.<br />Remember that Passwords are Case Sensitive.',
     'UPLOAD_SUCCESS_ANN'        => 'Torrent Uploaded Successfully',
@@ -125,9 +125,10 @@ $lang = array_merge($lang, array(
     'EXPORT'                    => 'Export',
 
     'EXPORT_EXP'                => 'Download this Torrent without your Passkey.  Used for Distribution on Sites that provide BitTorrent Index Services',
-	// 3.0.1 Addons
-	'RATE'						=>	'Rating!',
-	'LOGIN'						=> 'Log In',
+
+    // 3.0.1 Addons
+    'RATE'                      => 'Rating!',
+    'LOGIN'                     => 'Log In',
 ));
 
 ?>

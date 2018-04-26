@@ -208,7 +208,7 @@ $lang = array_merge($lang, array(
     'NO_FOES'              => 'No Foes Currently Defined:',
     'YOUR_FOES'            => 'Your Foes:',
     'ADD_FOES'             => 'Add New Foes:',
-    'ENTER_USERS'          => 'You may Enter Several Usernames each on a Different Line. ',
+    'ENTER_USERS'          => 'You may Enter Several Usernames, each on a Separate Line. ',
     'FIND_MEMBER'          => 'Find a Member',
 
     'FRIENDS_EXPLAIN'      => 'Friends Enable you to Quickly Access Users you Communicate with Frequently.  If the Template has relevant Support any Posts made by a Friend may be Highlighted.',

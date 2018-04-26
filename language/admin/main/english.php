@@ -76,13 +76,13 @@ $lang = array_merge($lang, array(
     '_RESET_ONLINE'              => 'Reset the Most Users Ever Online',
     '_RESET_DATE'                => 'Reset the Site\'s Start Date',
 
-    'SETTING_TOO_LOW'            => 'The Provided Value for the Setting \'%1$s\' is too Low.  The Minimum Acceptable Value is %2$d.',
+    'SETTING_TOO_LOW'            => 'The Provided Value for the Setting \'%1$s\' is Too Low.  The Minimum Acceptable Value is %2$d.',
 
-    'SETTING_TOO_BIG'            => 'The Provided Value for the Setting \'%1$s\' is too High.  The Maximum Acceptable Value is %2$d.',
+    'SETTING_TOO_BIG'            => 'The Provided Value for the Setting \'%1$s\' is Too High.  The Maximum Acceptable Value is %2$d.',
 
-    'SETTING_TOO_LONG'           => 'The Provided Value for the Setting \'%1$s\' is too Long.  The Maximum Acceptable Length is %2$d.',
+    'SETTING_TOO_LONG'           => 'The Provided Value for the Setting \'%1$s\' is Too Long.  The Maximum Acceptable Length is %2$d.',
 
-    'SETTING_TOO_SHORT'          => 'The Provided Value for the Setting \'%1$s\' is too Short.  The Minimum Acceptable Length is %2$d.',
+    'SETTING_TOO_SHORT'          => 'The Provided Value for the Setting \'%1$s\' is Too Short.  The Minimum Acceptable Length is %2$d.',
 
     '_RESYNC_STATS'              => 'Resynchronise Statistics',
     '_RESYNC_STATS_EXPLAIN'      => 'Resynchronise the Site\'s Statistics',

@@ -298,7 +298,7 @@ $lang = array_merge($lang, array(
 
     'ADD_USERS'             => 'Add Users',
 
-    'ADD_USERS_EXPLAIN'     => 'Here you can Add New Users to the Group.  You can Select whether this Group becomes the New Default for the Selected Users.  Additionally you can Define them as Group Leaders.  Please Enter Each Username on a Separate Line.',
+    'ADD_USERS_EXPLAIN'     => 'Here you can Add New Users to the Group.  You can Select whether this Group becomes the New Default for the Selected Users.  Additionally you can Define them as Group Leaders.  Please Enter each Username on a Separate Line.',
 
     'GROUP_LEAD'           => 'Group Leaders',
     'GROUP_APPROVE'        => 'Approve Member',

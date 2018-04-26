@@ -34,7 +34,7 @@ if (empty($lang) || !is_array($lang))
 }
 
 $lang = array_merge($lang, array(
-    'FIND_USER_PM'            => 'Find a User to PM',
+    'FIND_USER_PM'            => 'Find a User to Private Message',
     'FIND_USER_PM_EXP'        => 'Enter the Username that you wish to Find',
     'ERROR_FIND_USER_PM'      => 'NO User was Found to PM',
     'ERROR_FIND_USER_PM_EXP'  => 'NO User was Found!<br />If you tried using the Full Name, try using a Partial Name instead',
