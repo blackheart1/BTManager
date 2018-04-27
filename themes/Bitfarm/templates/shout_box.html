@@ -48,14 +48,6 @@ NcodeImageResizer.Msg4 = 'Click here to view the small image.';
 </script>
 <script type="text/javascript">
 pmbtsite_url = "{SITE_URL}";
-tag_prompt = "Enter a Text:";
-img_prompt = "Insert Link from Image";
-font_formatter_prompt = "Enter a Text - ";
-link_text_prompt = "Enter a Link Name (Optional):";
-link_url_prompt = "Enter the Full Address on the left of:";
-link_email_prompt = "Enter your Full Link:";
-list_type_prompt = "Which type of List would you like? Give ' 1 ' for a Numerical List, 'a' for an Alphabetical List, or nothing at all for a Simple Point List.";
-list_item_prompt = "Enter one point of list. Press OK to enter another point of list or press 'Cancel' to Finish.";
 _btshoutnowprivate = "{L_PRIVATE_SHOUT}";
 shoutrefresht = "{S_SHOUT_REF}";
 shoutidle = "{S_SHOUT_IDL}";
@@ -200,10 +192,10 @@ function dE(n, s, type)
 				<div class="cap-left">
 					<div class="cap-right">
 						<a class="c4" style="cursor: pointer;float:left;" onClick="toggle2('nnShoutbox_(Detach)_&bull;_(Archives)');">
-						Shoutbox </a>
-						<a href="javascript:popshout('shoutdetach.php');">(Detach)</a>
+						{L_SHOUT_BOX} </a>
+						<a href="javascript:popshout('shoutdetach.php');">({L_DETACH})</a>
 						 &bull; 
-						<a href="shoutboxarchive.php">(Archives)</a>
+						<a href="shoutboxarchive.php">({L_ARCHIVES})</a>
 					</div>
 				</div>
 			</div>
@@ -232,7 +224,7 @@ function dE(n, s, type)
 								  <span class="alt1" style="border: 0px none  ! important; margin: 0px; padding: 0px; overflow: hidden; width: 1px; height: 1px; display: block;"></span>
 								</div>
 								<div class="smallfont" style="border: 0px none  ! important; margin: 0px; padding: 0px 5px 4px; background: transparent none repeat scroll 0% 0%; text-align: center; white-space: nowrap; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
-								  <span id="shoutthisch" onClick="sndReq('op=view_shout', 'shout_out');" style="cursor: pointer;">Shout Box</span>
+								  <span id="shoutthisch" onClick="sndReq('op=view_shout', 'shout_out');" style="cursor: pointer;">{L_SHOUT_BOX}</span>
 								</div>
 							</td>
 							<td style="border: 0px none  ! important; margin: 0px; padding: 0px;" class="alt1">&nbsp;</td>
@@ -256,7 +248,7 @@ function dE(n, s, type)
 									</span>
 								</div>
 								<div class="smallfont" style="border: 0px none  ! important; margin: 0px; padding: 0px 5px 4px; background: transparent none repeat scroll 0% 0%; text-align: center; white-space: nowrap; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
-									<span onClick="sndReq('op=activeusers', 'shout_out');" style="cursor: pointer;" />Active Users: 
+									<span onClick="sndReq('op=activeusers', 'shout_out');" style="cursor: pointer;" />{L_ACTIVE_USERS}: 
 									<span id="shoutbox_activity">1</span>
 									</span>
 								</div>
@@ -295,7 +287,7 @@ function dE(n, s, type)
 					<p>
 
 				<form name="Shoutform" method="POST" action="#" target="Shoutbox" onSubmit="sendshout(text.value);">
-					<input type="text" readonly="readonly" name="helpbox" style="width:100%" class="helpline" value="{L__STYLES_TIP}" />
+					<input type="text" readonly name="helpbox" style="width:100%" class="helpline" value="{L__STYLES_TIP}" />
 					<br />
 					<script type="text/javascript">
 					// <![CDATA[
@@ -360,13 +352,13 @@ function dE(n, s, type)
 					</span>
 					<span class="genmed nowrap">
 						<select class="gensmall" id=fontselect onchange=fontformat(Shoutform,this.options[this.selectedIndex].value,'font',text)>
-						<option value=0>FONT</option>
-                        <option value=arial><font face="arial">Arial</font></option>
-                        <option value=comic sans ms>Comic</option>
-                        <option value=courier new>Courier New</option>
-                        <option value=tahoma>Tahoma</option>
-                        <option value=times new roman>Times New Roman</option>
-                        <option value=verdana>Verdana</option>
+						<option value=0>{L_FONT}</option>
+                        <option value=arial><font face="arial">{L_ARIAL}</font></option>
+                        <option value=comic sans ms>{L_COMIC}</option>
+                        <option value=courier new>{L_COURIER_NEW}</option>
+                        <option value=tahoma>{L_TAHOMA}</option>
+                        <option value=times new roman>{L_TIME_N_ROMAN}</option>
+                        <option value=verdana>{L_VERDANA}</option>
 						</select>
 					</span>
 					<br />
@@ -376,7 +368,7 @@ function dE(n, s, type)
 							colorPalette('h', 16, 7)
 						// ]]>
 						</script>
-						<a href=bbcode.php>BBcode help</a>
+						<a href=bbcode.php>{L_BBCODE_HELP}</a>
 					<br />
 					<!-- BEGIN smiley -->
 					<a href="#" onClick="insert_text('{smiley.A_SMILEY_CODE}', true); return false;" style="line-height: 20px;"><img src="{smiley.SMILEY_IMG}" alt="{smiley.SMILEY_CODE}" title="{smiley.SMILEY_DESC}" hspace="2" vspace="2" /></a>
@@ -385,9 +377,9 @@ function dE(n, s, type)
 					<input type="hidden" name="op" value="shout">
 					<textarea id="shout_text_area" name="text" rows="1" cols="90"  onkeyup=" if (event.keyCode == 13) {this.value=''}" onKeyPress="if (event.keyCode == 13) {sendshoutout(this.value, 'shout_out');}"></textarea>
 					</p>
-				   <input type="button" id="shout_send" onClick="sendshoutout(text.value, 'shout_out'); text.value = '';" value="Shout!" />
-				   <input type="button" onClick="sndReq('op=view_shout', 'shout_out');" value="Update" />
-				   <input type="button" onClick="sndReq('op=more_smiles', 'shoutTD')" value="More Smiles" />
+				   <input type="button" id="shout_send" onClick="sendshoutout(text.value, 'shout_out'); text.value = '';" value="{L_SHOUT}" />
+				   <input type="button" onClick="sndReq('op=view_shout', 'shout_out');" value="{L_UPDATE}" />
+				   <input type="button" onClick="sndReq('op=more_smiles', 'shoutTD')" value="{L_MORE_SMILES}" />
 				</form>		
 			</div>
 		</td>
@@ -396,7 +388,7 @@ function dE(n, s, type)
 <br clear="all" >
 <!-- ENDIF -->
 <!-- ELSE -->
-<div><span>{L_BAND_SHOUTS}</span></div>
+<!-- IF U_USER_CAN_SHOUT --><!-- ELSE --><div><span>{L_BAND_SHOUTS}</span></div><!-- ENDIF -->
 <!-- ENDIF -->
 <!-- IF DETACH -->
 </body>

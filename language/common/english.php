@@ -717,6 +717,16 @@ $lang = array_merge($lang, array(
     '1_HOUR'                => '1 hour',
     '30_MINS'               => '30 minutes',
     '6_HOURS'               => '6 hours',
+	#Template Related
+	'NUKED_TORRENT'			=> 'NUKED TORRENT',
+	'FEE_TORRENT'			=> 'FREE TORRENT',
+	'EXTER_TRACKER'			=> 'External Tracker',
+	'DHT_EXPL'				=> 'This torrent supports DHT. With a state-of-the-art client, you\'ll be able to download this torrent even if a central tracker goes down.',
+	'DHT_SUPORT'			=> 'DHT Support',
+	'BANTORRENT'			=> 'Ban Torrent',
+	'BBCODE_HELP'			=> 'BBcode Help',
+	'CLICK_TO_INSERT'		=> 'Click a smilie to insert it into your message.',
+	'SMILIE_LIST'			=> 'Smilie List',
 ));
 
 $u_datetime = array(

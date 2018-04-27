@@ -1,1346 +1,676 @@
 <!-- INCLUDE themes/Bitfarm/templates/over_all_header.html -->
-
 <!-- INCLUDE themes/Bitfarm/templates/over_all_left.html -->
-
 <!-- IF S_NOTICE -->
-
 {NOTICE}
-
 <!-- IF S_ERROR --><div id="errorbox" ><!-- ELSE --><div id="successbox" ><!-- ENDIF -->
-
 <span class="errorbox-title">{L_MESSAGE}</span>
-
 <p>{S_ERROR_MESS}</p>
-
 </div>
-
 <!-- ENDIF -->
-
 <script type="text/javascript" src="themes/Bitfarm/templates/attach.js"></script>
-
 <script type="text/javascript" src="./java/tl.js"></script>
-
 <table class="tablebg" width="100%" cellspacing="0">
-
 	<tr>
-
 		<td>
-
 			<div class="caption">
-
 				<div class="cap-left">
-
 					<div class="cap-right">
-
 						<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnSite_Upload');">{L_TITLE}</a>
-
 					</div>
-
 				</div>
-
 			</div>
-
 		</td>
-
 	</tr>
-
 	<tr valign="middle">
-
 		<td  class="row3" >
-
 			<div id="nnSite_News">
-
 <!-- IF ALLOW_LINK -->
 				<h2>{L_INTRO}</h2>
-
 				<hr />
-
 				<p>{L_INTRO_EXP}</p>
-
 				<table border="0" width="100%" height="100" align="center">
-
 					<tr>
-
 						<td>
-
 							<p align="center">
-
 								<a href="upload.php?op=torrent"><img src="themes/Bitfarm/pics/torrent.png" border="0" /><br />{L_UPLOAD_A_TORRENT}</a>
-
 							</p>
-
 						</td>
-
 						<td>
-
 							<p align="center">
-
 								<a href="upload.php?op=link"><img src="themes/Bitfarm/pics/link.png" border="0" /><br />{L_UPLOAD_A_EDTWOK}</a>
-
 							</p>
-
 						</td>
-
 					</tr>
-
 				</table>
 <!-- ENDIF -->
-
 			</div>
-
 		</td>
-
 	</tr>
-
 </table>
-
 <br clear="all" >
-
 <!-- IF S_ACTION == torrent -->
-
 <script type="text/javascript" src="bbcode.js"></script>
-
 <table class="tablebg" width="100%" cellspacing="{$CA_SPACING}">
-
 	<form enctype="multipart/form-data" action="{SITE_URL}/upload.php?op=taketorrent" method="post" id="data" name="formdata">
 	<tbody>
 	<tr>
-
 		<td  colspan="2" align="center">
-
 				<h2>{L_INTRO_TORRENT}</h2>
-
 				<hr />
-
 				<p>{L_INTRO_TORRENT_EXP}</p>
-
 		
-
 		</td>
-
 	</tr>
 	</tbody>
-
 	<tr>
-
 		<td class="row1" width="22%">
-
 		<b class="genmed">{L_UPLOAD_FILE}:</b>
-
 		</td>
-
 		<td class="row2" width="78%">
-
 		<input type="file" name="filex" size="60" /><br />
-
 		<span class="gensmall">{L_UPLOAD_FILE_EXP}</span>
-
 		</td>
-
 	</tr>
-
 <!-- IF ALOW_NFO -->
-
 	<tr>
-
 		<td class="row1" width="22%">
-
 		<b class="genmed">{L_UPLOAD_NFO}:</b>
-
 		</td>
-
 		<td class="row2" width="78%">
-
 		<input type="file" name="nfox" size="60" /><br />
-
 		<span class="gensmall">{L_UPLOAD_NFO_EXP}</span>
-
 		</td>
-
 	</tr>
-
 <!-- ENDIF -->
-
 	<tr>
-
 		<td class="row1" width="22%">
-
 		<b class="genmed">{L_UPLOAD_NAME}:</b>
-
 		</td>
-
 		<td class="row2" width="78%">
-
 		<input type="text" name="namex" size="80" /><br />
-
 		<span class="gensmall">{L_UPLOAD_NAME_EXP}</span>
-
 		</td>
-
 	</tr>
-
 	<tr>
-
 		<td class="row1" width="22%">
-
 		<b class="genmed">{L_UPLOAD_IMDB}:</b>
-
 		</td>
-
 		<td class="row2" width="78%">
-
 		<input type="text" name="imdb_info" size="80" /><br />
-
 		<span class="gensmall">{L_UPLOAD_IMDB_EXP}</span>
-
 		</td>
-
 	</tr>
-
 	<tr>
-
 		<td class="row1" valign="top"><b class="genmed">{L_MESSAGE_BODY}:</b><br /><br />
-
 		<!-- IF S_SMILIES_ALLOWED -->
-
 			<table width="100%" cellspacing="5" cellpadding="0" border="0" align="center">
-
 			<tr>
-
 				<td class="gensmall" align="center"><b>{L__SMILIES}</b></td>
-
 			</tr>
-
 			<tr>
-
 				<td align="center">
-
 					<!-- BEGIN smiley -->
-
 						<a href="#" onclick="insert_text('{smiley.A_SMILEY_CODE}', true); return false;" style="line-height: 20px;"><img src="{smiley.SMILEY_IMG}" width="{smiley.SMILEY_WIDTH}" height="{smiley.SMILEY_HEIGHT}" alt="{smiley.SMILEY_CODE}" title="{smiley.SMILEY_DESC}" hspace="2" vspace="2" /></a>
-
 					<!-- END smiley -->
-
 				</td>
-
 			</tr>
-
 	
-
 			<!-- IF S_SHOW_SMILEY_LINK -->
-
 				<tr>
-
 					<td align="center"><a class="nav" href="{U_MORE_SMILIES}" onclick="popUp(this.href+'&amp;pop\=smilies&amp;form\=formdata&amp;area\=descr', 300, 350, '_phpbbsmilies'); return false;">{L__MORE_SMILIES}</a></td>
-
 				</tr>
-
 			<!-- ENDIF -->
-
 	
-
 			</table>
-
 		<!-- ENDIF -->
-
 		</td>
-
 		<td class="row2" valign="top">
-
 			<span class="gensmall">{L_MESSAGE_BODY_EXP}&nbsp;</span>
-
 			<hr />
-
 			<script type="text/javascript">
-
 				// <![CDATA[
-
 		
-
 				var form_name = 'formdata';
-
 				var text_name = 'descr';
-
 				var user_name = '{U_USER_USERNAME}';
-
 				var siteurl = '{SITE_URL}';
-
 				// ]]>
-
 			</script>		
-
 	
-
 			<table width="100%" cellspacing="0" cellpadding="0" border="0">
-
 			<!-- INCLUDE themes/Bitfarm/templates/posting_buttons.html -->
-
 			<tr>
-
 				<td valign="top" style="width: 100%;"><textarea name="descr" id="descr" rows="15" cols="76" tabindex="3"  style="width: 98%;">{MESSAGE}</textarea></td>
-
 				<!-- IF S_BBCODE_ALLOWED -->
-
 				<td width="80" align="center" valign="top">
-
 					<script type="text/javascript">
-
 					// <![CDATA[
-
 						colorPalette('v', 7, 6)
-
 					// ]]>
-
 					</script>
-
 				</td>
-
 				<!-- ENDIF -->
-
 			</tr>
-
 			</table>
-
 <!-- IF ALOW_ATTACHMENTS -->
-
 			<fieldset class="fieldset">
-
-				<legend>Attach Files</legend>
-
+				<legend>{l_ATTACH_FILE}</legend>
 			
-
 				<div style="padding:3px">
-
 					<div style="margin-bottom:3px">
-
-						<div>Your Image Bucket</div>
-
-						<div>Valid file extensions: bmp gif jpe jpeg jpg png</div>
-
+						<div>{l_YOUR_IMAGE_BUCKET}</div>
+						<div>{l_VALID_EXTENTIONS}</div>
 					</div>
-
 					<div id="333333"></div>
-
 					<div>
-
 						<input type="button" id="manage_attachments_button" class="button" tabindex="1" style="font-weight:normal" value="Manage Attachments" title="Click here to add or edit files attached to this message" onclick="vB_Attachments.open_window('bitbucket-upload.php', 800, 600, '')" />
-
 			
-
 						<script type="text/javascript">
-
 						var newpost_attachmentbit = '<!-' + '- BEGIN TEMPLATE: newpost_attachmentbit -' + '->\n<a href="#" onclick="insert_text(\'[img]%1$s[/img]\', true); return false;" style="line-height: 20px;"><img class="inlineimg" src="%1$s" alt="" border="0" /></a><!-' + '- END TEMPLATE: newpost_attachmentbit -' + '->';
-
 			vB_Attachments = new vB_Attachment('333333', '');
-
 						</script>
-
 						<noscript>
-
 						<a rel="nofollow" href="bitbucket-upload.php" target="manageattach" title="Click here to add or edit files attached to this message" tabindex="1"><strong>Manage Attachments</strong></a>
-
 						</noscript>
-
 					</div>
-
 				</div>
-
 			</fieldset>
-
 <!-- ENDIF -->
-
 		</td>
-
 	</tr>
-
 	<tr>
-
 		<td class="row1" width="22%">
-
 		<b class="genmed">{L_CAT_SELECT}:</b>
-
 		</td>
-
 		<td class="row2" width="78%">
-
 		{S_CAT_SELECT}<br />
-
 		<span class="gensmall"></span>
-
 		</td>
-
 	</tr>
-
 <!-- IF ALOW_POSTER -->
-
 	<tr>
-
 		<td class="row1" width="22%">
-
 		<b class="genmed">{L_UPLOAD_POSTER}:</b>
-
 		</td>
-
 		<td class="row2" width="78%">
-
 		<input type="text" name="post_img" size="80" /><br />
-
 		<span class="gensmall">{L_UPLOAD_POSTER_EXP}</span>
-
 		</td>
-
 	</tr>
-
 <!-- ENDIF -->
-
 <!-- IF ALOW_SCREEN_SHOT -->
-
 	<tr>
-
 		<td class="row1" width="22%">
-
 		<b class="genmed">{L_UPLOAD_SCREEN_A}:</b>
-
 		</td>
-
 		<td class="row2" width="78%">
-
 		<input type="text" name="screen1" size="80" /><br />
-
 		<span class="gensmall">{L_UPLOAD_SCREEN_A_EXP}</span>
-
 		</td>
-
 	</tr>
-
 	<tr>
-
 		<td class="row1" width="22%">
-
 		<b class="genmed">{L_UPLOAD_SCREEN_B}:</b>
-
 		</td>
-
 		<td class="row2" width="78%">
-
 		<input type="text" name="screen2" size="80" /><br />
-
 		<span class="gensmall">{L_UPLOAD_SCREEN_B_EXP}</span>
-
 		</td>
-
 	</tr>
-
 	<tr>
-
 		<td class="row1" width="22%">
-
 		<b class="genmed">{L_UPLOAD_SCREEN_C}:</b>
-
 		</td>
-
 		<td class="row2" width="78%">
-
 		<input type="text" name="screen3" size="80" /><br />
-
 		<span class="gensmall">{L_UPLOAD_SCREEN_C_EXP}</span>
-
 		</td>
-
 	</tr>
-
 	<tr>
-
 		<td class="row1" width="22%">
-
 		<b class="genmed">{L_UPLOAD_SCREEN_D}:</b>
-
 		</td>
-
 		<td class="row2" width="78%">
-
 		<input type="text" name="screen4" size="80" /><br />
-
 		<span class="gensmall">{L_UPLOAD_SCREEN_D_EXP}</span>
-
 		</td>
-
 	</tr>
-
 <!-- ENDIF -->
-
 	<tr>
-
 		<td class="row1" width="22%">
-
 		<b class="genmed">{L_UPLOAD_CHECK_SEM}:</b>
-
 		</td>
-
 		<td class="row2" width="78%">
-
 		<input type="checkbox" checked="checked" name="jump_check" value="1"  /><br />
-
 		<span class="gensmall">{L_UPLOAD_CHECK_SEM_EXP}</span>
-
 		</td>
-
 	</tr>
-
 <!-- IF ALOW_SHOUT_NEW -->
-
 	<tr>
-
 		<td class="row1" width="22%">
-
 		<b class="genmed">{L_UPLOAD_SHOUT}:</b>
-
 		</td>
-
 		<td class="row2" width="78%">
-
 		<input type="checkbox" name="shout" value="1"  /><br />
-
 		<span class="gensmall">{L_UPLOAD_SHOUT_EXP}</span>
-
 		</td>
-
 	</tr>
-
 <!-- ENDIF -->
-
 <!-- IF ALOW_STICKY -->
-
 	<tr>
-
 		<td class="row1" width="22%">
-
 		<b class="genmed">{L_UPLOAD_STICKY}:</b>
-
 		</td>
-
 		<td class="row2" width="78%">
-
 		<input type="checkbox" name="evidence" value="1" /><br />
-
 		<span class="gensmall">{L_UPLOAD_STICKY_EXP}</span>
-
 		</td>
-
 	</tr>
-
 <!-- ENDIF -->
-
 <!-- IF ALOW_RATIO_BUILD -->
-
 	<tr>
-
 		<td class="row1" width="22%">
-
 		<b class="genmed">{L_UPLOAD_RATO_BUILDER}:</b>
-
 		</td>
-
 		<td class="row2" width="78%">
-
 		<input type="radio" name="build" value="yes">{L_YES}<br />
-
 		<input type="radio" name="build" checked value="no">{L_NO}<br />
-
 		<span class="gensmall">{L_UPLOAD_RATO_BUILDER_EXP}</span>
-
 		</td>
-
 	</tr>
-
 <!-- ENDIF -->
-
 <!-- IF ALOW_ADVANCED -->
-
 	<tr>
-
 		<td class="row1" width="22%">
-
 		<b class="genmed">{L_UPLOAD_ADVANCED_OP}:</b>
-
 		</td>
-
 		<td class="row2" width="78%">
-
 		<input type="checkbox" name="adv_opts" value="1" onClick="javascript:expand();" id="adv_check" /><br />
-
 		<span class="gensmall">{L_UPLOAD_ADVANCED_OP_EXP}</span>
-
 		</td>
-
 	</tr>
-
 	<tr id="advanced_options_1" class="hide">
-
 		<td class="row1" width="22%">
-
 		<b class="genmed">{L_UPLOAD_ADVANCE_DHT}:</b>
-
 		</td>
-
 		<td class="row2" width="78%">
-
 		<input type="radio" name="dht_support" value="0" checked />{L_UPLOAD_ADVANCE_NOEDIT}<br />
-
 		<input type="radio" name="dht_support" value="1" onClick="javascript:document.formdata.private_torrent[2].checked = true;" />{L_UPLOAD_ADVANCE_DHT_INABLE}<br />
-
 		<input type="radio" name="dht_support" value="2" />{L_UPLOAD_ADVANCE_DHT_DISABLE}<br />
-
 		<span class="gensmall">{L_UPLOAD_ADVANCED_OP_DHT_EXP}</span>
-
 		</td>
-
 	</tr>
-
 	<tr id="advanced_options_2" class="hide">
-
 		<td class="row1" width="22%">
-
 		<b class="genmed">{L_UPLOAD_ADVANCE_PVT}:</b>
-
 		</td>
-
 		<td class="row2" width="78%">
-
 		<input type="radio" name="private_torrent" value="0" checked />{L_UPLOAD_ADVANCE_NOEDIT}<br />
-
 		<input type="radio" name="private_torrent" value="1" onClick="javascript:document.formdata.dht_support[2].checked = true;" />{L_UPLOAD_ADVANCE_PVT_INABLE}<br />
-
 		<input type="radio" name="private_torrent" value="2" />{L_UPLOAD_ADVANCE_PVT_DISABLE}<br />
-
 		<span class="gensmall">{L_UPLOAD_ADVANCED_OP_PRIVATE_EXP}</span>
-
 		</td>
-
 	</tr>
-
 <!-- ENDIF -->
-
 <!-- IF ALOW_PASSWORD -->
-
 	<tr>
-
 		<td class="row1" width="22%">
-
 		<b class="genmed">{L_PASSWORD}:</b>
-
 		</td>
-
 		<td class="row2" width="78%">
-
 		<input type="text" name="password" value="" /><br />
-
 		<span class="gensmall">{L_UPLOAD_PASSWORD_EXP}</span>
-
 		</td>
-
 	</tr>
-
 <!-- ENDIF -->
-
 <!-- IF ALOW_HIDE_OWNER -->
-
 	<tr>
-
 		<td class="row1" width="22%">
-
 		<b class="genmed">{L_UPLOAD_OWNER_TYPE}:</b>
-
 		</td>
-
 		<td class="row2" width="78%">
-
 		<input type="radio" name="ownertype" value="0" checked />{L_UPLOAD_OWNER_TYPE_SHOW}<br />
-
 		<input type="radio" name="ownertype" value="1" />{L_UPLOAD_OWNER_TYPE_HIDE}<br />
-
 		<input type="radio" name="ownertype" value="2" />{L_UPLOAD_OWNER_TYPE_RELEASE}<br />
-
 		<span class="gensmall">{L_UPLOAD_OWNER_TYPE_EXP}</span>
-
 		</td>
-
 	</tr>
-
 <!-- ENDIF -->
-
 <!-- IF ALOW_NOTIFY -->
-
 	<tr>
-
 		<td class="row1" width="22%">
-
 		<b class="genmed">{L_UPLOAD_NOTIFY}:</b><br />
-
 		<span class="gensmall"></span>
-
 		</td>
-
 		<td class="row2" width="78%">
-
 		<input type="checkbox" name="commnotify" value="ok" ><br />
-
 		<span class="gensmall">{L_UPLOAD_NOTIFY_COMMENT}</span><br />
-
 		<input type="checkbox" name="seednotify" value="ok" ><br />
-
 		<span class="gensmall">{L_UPLOAD_NOTIFY_NEW_SEED}</span>
-
 		</td>
-
 	</tr>
-
 <!-- ENDIF -->
-
 	<tr>
-
 		<td class="cat" colspan="2" align="center">{S_HIDDEN_FIELDS}
-
 		<input class="btnmain" type="submit" accesskey="s" tabindex="11" name="post" value="{L_SUBMIT}" />
-
 		</td>
-
 	</tr>
-
 	</form>
-
 </table>
-
 <!-- ELSEIF S_ACTION == link -->
-
 <script type="text/javascript" src="bbcode.js"></script>
-
 <form action="upload.php?op=takelink" method="post" id="data" name="formdata">
-
 <table class="tablebg" width="100%" cellspacing="{$CA_SPACING}">
-
 		<tr>
-
 		<td  colspan="2" align="center">
-
 				<h2>{L_INTRO_TORRENT}</h2>
-
 				<hr />
-
 				<p>{L_INTRO_TORRENT_EXP}</p>
-
 		
-
 		</td>
-
 	</tr>
-
 	<tr>
-
 		<td class="row1" width="22%">
-
 		<b class="genmed">{L_UPLOAD_NAME}:</b>
-
 		</td>
-
 		<td class="row2" width="78%">
-
 		<input type="text" name="namex" size="80" value="{S_NAMEX}"/><br />
-
 		<span class="gensmall">{L_UPLOAD_NAME_EXP}</span>
-
 		</td>
-
 	</tr>
-
 	<tr>
-
 		<td class="row1" width="22%">
-
 		<b class="genmed">{L_UPLOAD_IMDB}:</b>
-
 		</td>
-
 		<td class="row2" width="78%">
-
 		<input type="text" name="imdb_info" size="80" value="{S_IMDB}" /><br />
-
 		<span class="gensmall">{L_UPLOAD_IMDB_EXP}</span>
-
 		</td>
-
 	</tr>
-
 	<tr>
-
 		<td class="row1" valign="top"><b class="genmed">{L_MESSAGE_BODY}:</b><br /><br />
-
 		<!-- IF S_SMILIES_ALLOWED -->
-
 			<table width="100%" cellspacing="5" cellpadding="0" border="0" align="center">
-
 			<tr>
-
 				<td class="gensmall" align="center"><b>{L__SMILIES}</b></td>
-
 			</tr>
-
 			<tr>
-
 				<td align="center">
-
 					<!-- BEGIN smiley -->
-
 						<a href="#" onclick="insert_text('{smiley.A_SMILEY_CODE}', true); return false;" style="line-height: 20px;"><img src="{smiley.SMILEY_IMG}" width="{smiley.SMILEY_WIDTH}" height="{smiley.SMILEY_HEIGHT}" alt="{smiley.SMILEY_CODE}" title="{smiley.SMILEY_DESC}" hspace="2" vspace="2" /></a>
-
 					<!-- END smiley -->
-
 				</td>
-
 			</tr>
-
 	
-
 			<!-- IF S_SHOW_SMILEY_LINK -->
-
 				<tr>
-
 					<td align="center"><a class="nav" href="{U_MORE_SMILIES}" onclick="popUp(this.href+'&amp;pop\=smilies&amp;form\=formdata&amp;area\=descr', 300, 350, '_phpbbsmilies'); return false;">{L__MORE_SMILIES}</a></td>
-
 				</tr>
-
 			<!-- ENDIF -->
-
 	
-
 			</table>
-
 		<!-- ENDIF -->
-
 		</td>
-
 		<td class="row2" valign="top">
-
 			<span class="gensmall">{L_MESSAGE_BODY_EXP}&nbsp;</span>
-
 			<hr />
-
 			<script type="text/javascript">
-
 				// <![CDATA[
-
 		
-
 				var form_name = 'formdata';
-
 				var text_name = 'descr';
-
 				var user_name = '{U_USER_USERNAME}';
-
 				var siteurl = '{SITE_URL}';
-
 				// ]]>
-
 			</script>		
-
 	
-
 			<table width="100%" cellspacing="0" cellpadding="0" border="0">
-
 			<!-- INCLUDE themes/Bitfarm/templates/posting_buttons.html -->
-
 			<tr>
-
 				<td valign="top" style="width: 100%;"><textarea name="descr" id="descr" rows="15" cols="76" tabindex="3"  style="width: 98%;">{S_DESCR}</textarea></td>
-
 				<!-- IF S_BBCODE_ALLOWED -->
-
 				<td width="80" align="center" valign="top">
-
 					<script type="text/javascript">
-
 					// <![CDATA[
-
 						colorPalette('v', 7, 6)
-
 					// ]]>
-
 					</script>
-
 				</td>
-
 				<!-- ENDIF -->
-
 			</tr>
-
 			</table>
-
 <!-- IF ALOW_ATTACHMENTS -->
-
 			<fieldset class="fieldset">
-
-				<legend>Attach Files</legend>
-
+				<legend>{L_ATTACH_FILE}</legend>
 			
-
 				<div style="padding:3px">
-
 					<div style="margin-bottom:3px">
-
-						<div>Your Image Bucket</div>
-
-						<div>Valid file extensions: bmp gif jpe jpeg jpg png</div>
-
+						<div>{L_YOUR_IMAGE_BUCKET}</div>
+						<div>{L_VALID_EXTENTIONS}</div>
 					</div>
-
 					<div id="333333"></div>
-
 					<div>
-
 						<input type="button" id="manage_attachments_button" class="button" tabindex="1" style="font-weight:normal" value="Manage Attachments" title="Click here to add or edit files attached to this message" onclick="vB_Attachments.open_window('bitbucket-upload.php', 800, 600, '')" />
-
 			
-
 						<script type="text/javascript">
-
 						var newpost_attachmentbit = '<!-' + '- BEGIN TEMPLATE: newpost_attachmentbit -' + '->\n<a href="#" onclick="insert_text(\'[img]%1$s[/img]\', true); return false;" style="line-height: 20px;"><img class="inlineimg" src="%1$s" alt="" border="0" /></a><!-' + '- END TEMPLATE: newpost_attachmentbit -' + '->';
-
 			vB_Attachments = new vB_Attachment('333333', '');
-
 						</script>
-
 						<noscript>
-
 						<a rel="nofollow" href="bitbucket-upload.php" target="manageattach" title="Click here to add or edit files attached to this message" tabindex="1"><strong>Manage Attachments</strong></a>
-
 						</noscript>
-
 					</div>
-
 				</div>
-
 			</fieldset>
-
 <!-- ENDIF -->
-
 		</td>
-
 	</tr>
-
 	<tr>
-
 		<td class="row1" width="22%">
-
 		<b class="genmed">{L_CAT_SELECT}:</b>
-
 		</td>
-
 		<td class="row2" width="78%">
-
 		{S_CAT_SELECT}<br />
-
 		<span class="gensmall"></span>
-
 		</td>
-
 	</tr>
-
 	<tr>
-
 		<td class="row1" width="22%">
-
 		<b class="genmed">{L_LINKS}:</b>
-
 		</td>
-
 		<td class="row2" width="78%">
-
 		<h2>{L_ADD_FILE}</h2>
-
 		<hr />
-
 		<p>{L_ADD_LINK_FILE}</p>
-
 		<br />
-
 		<br />
-
 <!-- IF HAS_LINK -->
-
 		<table>
-
 			<thead>
-
 				<tr>
-
 					<td nowrap=""></td>
-
 					<td><p>{L_FILE_NAME}</p></td>
-
 					<td><p>{L_SIZE}</p></td>
-
 					<td><p>{L_LINK}</p></td>
-
 				</tr>
-
 			</thead>
-
 			<tbody>
-
 <!-- BEGIN links_var -->
-
 				<tr>
-
 					<td nowrap="">
-
 						<p>
-
 							<input class="delete" value="{links_var.LINK_ID}" src="themes/Bitfarm/pics/drop.gif" name="postback" type="submit">
-
 							<!-- IF links_var.LINK_MATCH --><a href="details.php?id={links_var.LINK_MATCH}"><img src="themes/Bitfarm/pics/warning.gif" alt="" title="" border="0"></a><!-- ENDIF -->
-
 						</p>
-
 					</td>
-
 					<td>
-
 						<p>{links_var.LINK_NAME}</p>
-
 					</td>
-
 					<td>
-
 						<p>{links_var.LINK_SIZE}</p>
-
 					</td>
-
 					<td>
-
 						<a href="{links_var.LINK_MAGNET}"><img src="themes/Bitfarm/pics/minimagnet.gif" alt="" title="" border="0"></a>
-
 						<a href="{links_var.LINK_ED2K}"><img src="themes/Bitfarm/pics/minidonkey.gif" alt="" title="" border="0"></a>
-
 					</td>
-
 				</tr>
-
 <!-- END links_var -->
-
 			</tbody>
-
 		</table>
-
 <!-- ENDIF -->
-
 			<table border="0" width="100%">
-
 				<thead>
-
 					<tr>
-
 						<th>
-
 						</th>
-
 						<th>
-
 						</th>
-
 					</tr>
-
 				</thead>
-
 				<tbody>
-
 					<tr>
-
 						<td>
-
 							<p>{L_MAGNET_LINK}</p>
-
 						</td>
-
 						<td>
-
 							<p><input name="magnetlink" size="60" maxlength="1000" type="text"></p>
-
 						</td>
-
 					</tr>
-
 					<tr>
-
 						<td>
-
 							<p>{L_ED2K_LINK}</p>
-
 						</td>
-
 						<td>
-
 							<p><input name="ed2klink" size="60" maxlength="255" type="text"></p>
-
 						</td>
-
 					</tr>
-
 					<tr>
-
 						<td>
-
 							<p>{L_MD5_HASH}</p>
-
 						</td>
-
 						<td>
-
 							<p><input name="md5sum" size="60" maxlength="32" type="text"></p>
-
 						</td>
-
 					</tr>
-
 					<tr>
-
 						<td>
-
 							<p><input name="postback" value="{L_ADD_FILE}" type="submit"></p>
-
 						</td>
-
 						<td>
-
 						</td>
-
 					</tr>
-
 				</tbody>
-
 			</table>
-
 <!-- IF S_DUPLICATE > 0 -->
-
 			<blockquote>
-
 				<p>
-
 					<img src="themes/Bitfarm/pics/warning.gif" alt="" title="" border="0">
-
-					DUPLICATE_FILES<br />
-
-					DUPLICATE_FILES_NOT_ALL
-
+					{L_DUPLICATE_FILES}<br />
+					{L_DUPLICATE_FILES_NOT_ALL}
 				</p>
-
 			</blockquote>
-
 <!-- ENDIF -->
-
 		</td>
-
 	</tr>
-
 <!-- IF ALOW_POSTER -->
-
 	<tr>
-
 		<td class="row1" width="22%">
-
 		<b class="genmed">{L_UPLOAD_POSTER}:</b>
-
 		</td>
-
 		<td class="row2" width="78%">
-
 		<input type="text" name="post_img" size="80" value="{S_POSTER}" /><br />
-
 		<span class="gensmall">{L_UPLOAD_POSTER_EXP}</span>
-
 		</td>
-
 	</tr>
-
 <!-- ENDIF -->
-
 <!-- IF ALOW_SCREEN_SHOT -->
-
 	<tr>
-
 		<td class="row1" width="22%">
-
 		<b class="genmed">{L_UPLOAD_SCREEN_A}:</b>
-
 		</td>
-
 		<td class="row2" width="78%">
-
 		<input type="text" name="screen1" size="80" value="{S_SCREENA}"/><br />
-
 		<span class="gensmall">{L_UPLOAD_SCREEN_A_EXP}</span>
-
 		</td>
-
 	</tr>
-
 	<tr>
-
 		<td class="row1" width="22%">
-
 		<b class="genmed">{L_UPLOAD_SCREEN_B}:</b>
-
 		</td>
-
 		<td class="row2" width="78%">
-
 		<input type="text" name="screen2" size="80" value="{S_SCREENB}"/><br />
-
 		<span class="gensmall">{L_UPLOAD_SCREEN_B_EXP}</span>
-
 		</td>
-
 	</tr>
-
 	<tr>
-
 		<td class="row1" width="22%">
-
 		<b class="genmed">{L_UPLOAD_SCREEN_C}:</b>
-
 		</td>
-
 		<td class="row2" width="78%">
-
 		<input type="text" name="screen3" size="80" value="{S_SCREENC}" /><br />
-
 		<span class="gensmall">{L_UPLOAD_SCREEN_C_EXP}</span>
-
 		</td>
-
 	</tr>
-
 	<tr>
-
 		<td class="row1" width="22%">
-
 		<b class="genmed">{L_UPLOAD_SCREEN_D}:</b>
-
 		</td>
-
 		<td class="row2" width="78%">
-
 		<input type="text" name="screen4" size="80" value="{S_SCREEND}"/><br />
-
 		<span class="gensmall">{L_UPLOAD_SCREEN_D_EXP}</span>
-
 		</td>
-
 	</tr>
-
 <!-- ENDIF -->
-
 	<tr>
-
 		<td class="row1" width="22%">
-
 		<b class="genmed">{L_UPLOAD_CHECK_SEM}:</b>
-
 		</td>
-
 		<td class="row2" width="78%">
-
 		<input type="checkbox" name="jump_check" value="1"  /><br />
-
 		<span class="gensmall">{L_UPLOAD_CHECK_SEM_EXP}</span>
-
 		</td>
-
 	</tr>
-
 <!-- IF ALOW_SHOUT_NEW -->
-
 	<tr>
-
 		<td class="row1" width="22%">
-
 		<b class="genmed">{L_UPLOAD_SHOUT}:</b>
-
 		</td>
-
 		<td class="row2" width="78%">
-
 		<input type="checkbox" name="shout" value="1"  /><br />
-
 		<span class="gensmall">{L_UPLOAD_SHOUT_EXP}</span>
-
 		</td>
-
 	</tr>
-
 <!-- ENDIF -->
-
 <!-- IF ALOW_STICKY -->
-
 	<tr>
-
 		<td class="row1" width="22%">
-
 		<b class="genmed">{L_UPLOAD_STICKY}:</b>
-
 		</td>
-
 		<td class="row2" width="78%">
-
 		<input type="checkbox" name="evidence" value="1" /><br />
-
 		<span class="gensmall">{L_UPLOAD_STICKY_EXP}</span>
-
 		</td>
-
 	</tr>
-
+<!-- ENDIF -->
 <!-- IF ALOW_NOTIFY -->
-
 	<tr>
-
 		<td class="row1" width="22%">
-
 		<b class="genmed">{L_UPLOAD_NOTIFY}:</b><br />
-
 		<span class="gensmall"></span>
-
 		</td>
-
 		<td class="row2" width="78%">
-
 		<input type="checkbox" name="commnotify" value="ok" ><br />
-
 		<span class="gensmall">{L_UPLOAD_NOTIFY_COMMENT}</span><br />
-
 		</td>
-
 	</tr>
-
 <!-- ENDIF -->
-
-<!-- ENDIF -->
-
 	<tr>
-
 		<td class="cat" colspan="2" align="center">{S_HIDDEN_FIELDS}
-
 		<input class="btnmain" name="submit" type="submit" <!-- IF not S_CAN_SUBMIT -->disabled<!-- ENDIF --> value="{L_SUBMIT}" />
-
 		</td>
-
 	</tr>
-
 </table>
-
 </form>
-
 <!-- ENDIF -->
-
 <!-- INCLUDE themes/Bitfarm/templates/over_all_right.html -->
-
 <!-- INCLUDE themes/Bitfarm/templates/over_all_footer.html -->

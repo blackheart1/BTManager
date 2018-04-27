@@ -152,23 +152,26 @@
 		var bbtags = new Array('[b]','[/b]','[i]','[/i]','[u]','[/u]','[quote]','[/quote]','[code]','[/code]','[list]','[/list]','[list=]','[/list]','[img]','[/img]','[url]','[/url]','[flash=]', '[/flash]','[size=]','[/size]');
 		var imageTag = false;
 
-		// Helpline messages
-		var help_line = {
-			b: 'Bold Text: [b]Text[/b]',
-			i: 'Italic Text: [i]Text[/i]',
-			u: 'Underline Text: [u]Text[/u]',
-			q: 'Quote Text: [quote]Text[/quote]',
-			c: 'Code Display: [code]Code[/code]',
-			l: 'List: [list]Text[/list]',
-			o: 'Ordered List: [list=]Text[/list]',
-			p: 'Insert Image: [img]http://image_url[/img]',
-			w: 'Insert URL: [url]http://url[/url] OR [url=http://url]URL Text[/url]',
-			s: 'Font Colour: [color=red]Text[/color]  Tip: you can also use color=#FF0000',
-			f: 'Font Size: [size=85]Small Text[/size]',
-			e: 'List: Add List Element',
-			d: 'Flash: [flash=width,height]http://url[/flash]',
-			t: '{ BBCODE_T_HELP }',
-			tip: 'Tip: Styles can be Applied Quickly to Selected Text.'
+					// Helpline messages
+					var help_line = {
+						b: '{LA__BBCODE_B_HELP}',
+						i: '{LA__BBCODE_I_HELP}',
+						u: '{LA__BBCODE_U_HELP}',
+						q: '{LA__BBCODE_Q_HELP}',
+						c: '{LA__BBCODE_C_HELP}',
+						l: '{LA__BBCODE_L_HELP}',
+						o: '{LA__BBCODE_O_HELP}',
+						p: '{LA__BBCODE_P_HELP}',
+						w: '{LA__BBCODE_W_HELP}',
+						s: '{LA__BBCODE_S_HELP}',
+						f: '{LA__BBCODE_F_HELP}',
+						e: '{LA__BBCODE_E_HELP}',
+						d: '{LA__BBCODE_D_HELP}',
+						t: '{LA__BBCODE_T_HELP}',
+						tip: '{L__STYLES_TIP}'
+						<!-- BEGIN custom_tags -->
+							,cb_{custom_tags.BBCODE_ID}: '{custom_tags.A_BBCODE_HELPLINE}'
+						<!-- END custom_tags -->
 					}
 
 		// ]]>
@@ -187,18 +190,17 @@
 					<input type="button" class="btnbbcode" accesskey="p" name="addbbcode14" value="Img" style="width: 40px" onclick="bbstyle(14)" onmouseover="helpline('p')" onmouseout="helpline('tip')" />
 
 					<input type="button" class="btnbbcode" accesskey="w" name="addbbcode16" value="URL" style="text-decoration: underline; width: 40px" onclick="bbstyle(16)" onmouseover="helpline('w')" onmouseout="helpline('tip')" />
-				<span class="genmed nowrap">Font Size: <select class="gensmall" name="addbbcode20" onchange="bbfontstyle('[size=' + this.form.addbbcode20.options[this.form.addbbcode20.selectedIndex].value + ']', '[/size]');this.form.addbbcode20.selectedIndex = 2;" onmouseover="helpline('f')" onmouseout="helpline('tip')">
-			<option value="50">Tiny</option>
-			<option value="85">Small</option>
-			<option value="100" selected="selected">Normal</option>
-			<option value="150">Large</option>
-
-			<option value="200">Huge</option>
+				<span class="genmed nowrap">{L__FONT_SIZE}: <select class="gensmall" name="addbbcode20" onchange="bbfontstyle('[size=' + this.form.addbbcode20.options[this.form.addbbcode20.selectedIndex].value + ']', '[/size]');this.form.addbbcode20.selectedIndex = 2;" onmouseover="helpline('f')" onmouseout="helpline('tip')">
+						<option value="50">{L__FONT_TINY}</option>
+						<option value="85">{L__FONT_SMALL}</option>
+						<option value="100" selected="selected">{L__FONT_NORMAL}</option>
+						<option value="150">{L__FONT_LARGE}</option>
+						<option value="200">{L__FONT_HUGE}</option>
 		</select></span>
 	</td>
 </tr>
 <tr>
-	<td colspan="2"><input type="text" readonly name="helpbox" style="width:100%" class="helpline" value="Tip: Styles can be applied quickly to selected text." /></td>
+	<td colspan="2"><input type="text" readonly name="helpbox" style="width:100%" class="helpline" value="{L__STYLES_TIP}" /></td>
 
 	</tr>
 		<tr>
@@ -261,14 +263,14 @@
 		<td class="row2"><input class="post" type="file" name="avupload" /></td>
 	</tr>
 <!-- ENDIF -->
-<!-- IF ALLOW_AVATAR_UPLOAD  -->
+<!-- IF ALLOW_REMOTE_UPLOAD  -->
 	<tr>
 		<td class="row1" width="35%"><b class="genmed">Upload from a URL: </b><br /><span class="gensmall">Enter the URL of the location containing the image. The image will be copied to this site.</span></td>
 
 		<td class="row2"><input class="post" type="text" name="uploadurl" size="40" value="" /></td>
 	</tr>
 <!-- ENDIF -->
-<!-- IF ALLOW_AVATAR_UPLOAD  -->
+<!-- IF ALLOW_AVATAR_LINK  -->
 	<tr>
 		<td class="row1" width="35%"><b class="genmed">Link off-site: </b><br /><span class="gensmall">Enter the URL of the location containing the avatar image you wish to link to.</span></td>
 		<td class="row2"><input class="post" type="text" name="remotelink" size="40" value="" /></td>
@@ -877,6 +879,7 @@ function ChangeThumb(pic) {
 </tr>
 <tr>
 
+
 	<td ccolspan="2" align="center"><input class="btnmain" type="submit" name="submit" value="{L_SUBMIT}" />&nbsp;&nbsp;<input class="btnlite" type="reset" value="{L_RESET}" name="reset" /></td>
 </tr>
 </table>
@@ -957,6 +960,7 @@ function ChangeThumb(pic) {
 	</tr>
 
 	<!-- IF TOTAL_TOPICS -->
+
 		<tr>
 			<td class="row3" colspan="4">
 				<table width="100%" cellspacing="1">
