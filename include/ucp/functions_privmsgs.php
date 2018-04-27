@@ -1315,7 +1315,7 @@ function message_history($msg_id, $user_id, $message_row, $folder, $in_post_mode
 	$recipients = array_unique($recipients);
 
 	// Get History Messages (could be newer)
-	$sql = 'SELECT t.*, p.*, u.*
+	$sql = 'SELECT t.*, u.*, p.*
 		FROM ' . $db_prefix . '_private_messages p, ' . $db_prefix . '_privmsgs_to t, ' . $db_prefix . '_users  u
 		WHERE t.msg_id = p.id
 			AND p.sender = u.id
@@ -1368,7 +1368,8 @@ function message_history($msg_id, $user_id, $message_row, $folder, $in_post_mode
 		}
 	}
 	while ($row = $db->sql_fetchrow($result));
-	$db->sql_freeresult($result);
+	//$db->sql_freeresult($result);
+	//die(print_r($row));
 
 	if (sizeof($rowset) == 1 && !$in_post_mode)
 	{

@@ -35,6 +35,7 @@ $template->assign_vars(array(
         'CP_UAVATAR'            => gen_avatar($userrow["id"]),
 		'ALLOW_AVATAR_UPLOAD'   => $avuploadon,
 		'ALLOW_AVATAR_LINK'     => $avremoteon,
+		'ALLOW_REMOTE_UPLOAD'	=> $avremoteupon,
 		'ALLOW_AVATAR_GALORY'   => $avgalon,
 		'ALLOW_AVATAR'          => $avon,
 		'AVATAR_SETHT'          => $userrow["avatar_ht"],

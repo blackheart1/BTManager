@@ -36,6 +36,7 @@ if (!defined('IN_PMBT'))
 		$pm_max_msgs				= request_var('sub_pm_max_msgs', 0);
 		$full_folder_action				= request_var('sub_full_folder_action', '1');
 		$pm_edit_time				= request_var('sub_pm_edit_time', 0);
+		$pm_max_recipients				= request_var('sub_pm_max_recipients', 0);
 		$allow_mass_pm				= request_var('sub_allow_mass_pm', 0);
 		$auth_bbcode_pm				= request_var('sub_auth_bbcode_pm', 0);
 		$auth_smilies_pm				= request_var('sub_auth_smilies_pm', 0);
@@ -51,6 +52,7 @@ if (!defined('IN_PMBT'))
 		if($cfgrow['pm_max_msgs'] != $pm_max_msgs)$new_config['pm_max_msgs'] = $pm_max_msgs;
 		if($cfgrow['full_folder_action'] != $full_folder_action)$new_config['full_folder_action'] = $full_folder_action;
 		if($cfgrow['pm_edit_time'] != $pm_edit_time)$new_config['pm_edit_time'] = $pm_edit_time;
+		if($cfgrow['pm_max_recipients'] != $pm_max_recipients)$new_config['pm_max_recipients'] = $pm_max_recipients;
 		if($cfgrow['allow_mass_pm'] != $allow_mass_pm)$new_config['allow_mass_pm'] = $allow_mass_pm;
 		if($cfgrow['auth_bbcode_pm'] != $auth_bbcode_pm)$new_config['auth_bbcode_pm'] = $auth_bbcode_pm;
 		if($cfgrow['auth_smilies_pm'] != $auth_smilies_pm)$new_config['auth_smilies_pm'] = $auth_smilies_pm;
@@ -89,6 +91,8 @@ if (!defined('IN_PMBT'))
 	drawRow("allow_privmsg","selecty_n",NULL,false,'allow_privmsg');
 	drawRow("pm_max_boxes","text");
 	drawRow('pm_max_msgs','text');
+	drawRow('pm_max_recipients','text');
+	//drawRow('allow_mass_pm','text');
 	drawRow('full_folder_action','select',$user->lang["PMFULLOPTION"]);
 	drawRow('pm_edit_time','text',NULL,false,'Minutes');
 	drawRow("sitename","text", false ,'General options');

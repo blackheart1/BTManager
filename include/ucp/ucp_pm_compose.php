@@ -286,10 +286,11 @@ function compose_pm($id, $mode, $action)
 				}
 			}
 		}
-
-		$msg_id			= (int) $post['msg_id'];
+//die(print_r($post));
+		$msg_id			= (int) $post['id'];
 		$folder_id		= (isset($post['folder_id'])) ? $post['folder_id'] : 0;
 		$message_text	= (isset($post['text'])) ? $post['text'] : '';
+		$post['author_id']		= $post['sender'];
 
 		if ((!$post['author_id'] || ($post['author_id'] == 0 && $action != 'delete')) && $msg_id)
 		{
@@ -341,7 +342,7 @@ function compose_pm($id, $mode, $action)
 			else if ($action == 'edit' && !sizeof($address_list) && !$refresh && !$submit && !$preview)
 			{
 				// Rebuild TO and BCC Header
-				$address_list = rebuild_header(array('to' => $post['sender'], 'bcc' => $post['bcc_address']));
+				$address_list = rebuild_header(array('to' => $post['recipient'], 'bcc' => $post['bcc_address']));
 			}
 			//die(print_r($address_list));
 
@@ -444,6 +445,7 @@ function compose_pm($id, $mode, $action)
 	{
 		// We try to include every previously listed member from the TO Header
 		$list = rebuild_header(array('to' => $post['recipient']));
+		//die(print_r($list));
 
 		// Can be an empty array too ;)
 		$list = (!empty($list['u'])) ? $list['u'] : array();
@@ -461,6 +463,7 @@ function compose_pm($id, $mode, $action)
 
 	// Handle User/Group adding/removing
 	handle_message_list_actions($address_list, $error, $remove_u, $remove_g, $add_to, $add_bcc);
+	//die(print_r($address_list));
 
 	// Check mass pm to group permission
 	if ((!$config['allow_mass_pm'] || !checkaccess('u_masspm_group')) && !empty($address_list['g']))

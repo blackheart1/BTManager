@@ -73,6 +73,7 @@ function view_message($id, $mode, $folder_id, $msg_id, $folder, $message_row)
 
 	// Parse the message and subject
 	$message = censor_text($message_row['text']);
+	//die(print_r($message_row));
 
 	// Second parse bbcode here
 	if ($message_row['bbcode_bitfield'])

@@ -22,7 +22,7 @@
 if (!defined('IN_PMBT'))
 {
 	include_once './../security.php';
-	die ();
+    die ('Error 404 - Page Not Found');
 }
 // This file contains Bit Torrent main functions. MUST be included before every
 // other file at the beginning of any script
@@ -2460,7 +2460,6 @@ function is_banned($user, &$reason) {
         $sqlip = "SELECT ipstart, ban_exclude, ban_give_reason as reason, ban_end FROM ".$db_prefix."_bans WHERE ban_email = '' AND (ban_userid = 0 OR ban_exclude = 0);";
         $resip = $db->sql_query($sqlip) or btsqlerror($sqlip);
 		$sql = "SELECT ban_userid, ban_email, ban_exclude, ban_give_reason, ban_end FROM ".$db_prefix."_bans WHERE (ipstart = '' OR ban_exclude = 1) ;";
-        //$sql = "SELECT banreason as reason FROM ".$db_prefix."_users WHERE id = '".$user->id."' AND ban = 1 UNION SELECT reason FROM ".$db_prefix."_bans WHERE ipstart <= '".$ip."' AND ipend >= '".$ip."'  LIMIT 1;";
         $res = $db->sql_query($sql) or btsqlerror($sql);
         if ($db->sql_numrows($resip) >= 1)
 		{

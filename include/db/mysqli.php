@@ -337,21 +337,12 @@ if(!defined("SQL_LAYER"))
 	*/
 	function sql_server_info($raw = false, $use_cache = true)
 	{
-		global $cache;
-
-		if (!$use_cache || empty($cache) || ($this->sql_server_version = $cache->get('mysqli_version')) === false)
-		{
 			$result = @mysqli_query($this->db_connect_id, 'SELECT VERSION() AS version');
 			$row = @mysqli_fetch_assoc($result);
 			@mysqli_free_result($result);
 
 			$this->sql_server_version = $row['version'];
 
-			if (!empty($cache) && $use_cache)
-			{
-				$cache->put('mysqli_version', $this->sql_server_version);
-			}
-		}
 
 		return ($raw) ? $this->sql_server_version : 'MySQL(i) ' . $this->sql_server_version;
 	}
@@ -399,7 +390,6 @@ if(!defined("SQL_LAYER"))
 			$TheQueryCount ++;
 		if ($query != '')
 		{
-			global $cache;
 			$this->query_result =  false;
 			$this->sql_add_num_queries($this->query_result);
 
@@ -488,7 +478,6 @@ if(!defined("SQL_LAYER"))
         }
 	function sql_fetchfield($field, $rownum = false, $query_id = false)
 	{
-		global $cache;
 
 		if ($query_id === false)
 		{
@@ -502,10 +491,6 @@ if(!defined("SQL_LAYER"))
 				$this->sql_rowseek($rownum, $query_id);
 			}
 
-			if (!is_object($query_id) && isset($cache->sql_rowset[$query_id]))
-			{
-				return $cache->sql_fetchfield($query_id, $field);
-			}
 
 			$row = $this->sql_fetchrow($query_id);
 			return (isset($row[$field])) ? $row[$field] : false;
@@ -545,7 +530,6 @@ if(!defined("SQL_LAYER"))
 	*/
 	function sql_fetchrow($query_id = false)
 	{
-		global $cache;
 
 		if ($query_id === false)
 		{
@@ -567,17 +551,12 @@ if(!defined("SQL_LAYER"))
 	*/
 	function sql_rowseek($rownum, &$query_id)
 	{
-		global $cache;
 
 		if ($query_id === false)
 		{
 			$query_id = $this->query_result;
 		}
 
-		if (!is_object($query_id) && isset($cache->sql_rowset[$query_id]))
-		{
-			return $cache->sql_rowseek($rownum, $query_id);
-		}
 
 		return ($query_id !== false) ? @mysqli_data_seek($query_id, $rownum) : false;
 	}
@@ -636,17 +615,12 @@ if(!defined("SQL_LAYER"))
 	*/
 	function sql_freeresult($query_id = false)
 	{
-		global $cache;
 
 		if ($query_id === false)
 		{
 			$query_id = $this->query_result;
 		}
 
-		if (!is_object($query_id) && isset($cache->sql_rowset[$query_id]))
-		{
-			return $cache->sql_freeresult($query_id);
-		}
 
 		return @mysqli_free_result($query_id);
 	}
