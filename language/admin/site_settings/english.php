@@ -435,6 +435,10 @@ $lang = array_merge($lang, array(
     '_admpannounce_ments'        => 'Announcement\'s',
 
     '_admpannounce_mentsexplain' => 'Used for making Site Announcements.<br />These Announcements will be seen by Users in the Edit Profile Section.',
+	'_admppm_max_recipients'			=> 'Maximum number of allowed recipients',
+	'_admppm_max_recipientsexplain'	=> 'The maximum number of allowed recipients in a private message. If 0 is entered, an unlimited number is allowed. This setting can be adjusted for every group within the group settings page.',
+	'PM_SETTING_TITLE_EXPLAIN'		=> 'Here you can set all default settings for private messaging.',
+	'PM_SETTING_TITLE'		=> 'Private message settings',
 ));
 
 ?>
