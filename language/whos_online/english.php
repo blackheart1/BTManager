@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File whos_online/english.php 2018-03-20 16:13:00 Thor
+** File whos_online/english.php 2018-04-28 08:16:00 Thor
 **
 ** CHANGES
 **
@@ -21,6 +21,7 @@
 ** 2018-03-02 - Added New !defined('IN_PMBT')
 ** 2018-03-02 - Fixed Spelling
 ** 2018-04-22 - Amended the Wording of some Sentences
+** 2018-04-28 - Amended the Wording of some Sentences
 **/
 
 if (!defined('IN_PMBT'))
@@ -31,12 +32,12 @@ if (!defined('IN_PMBT'))
 
 if (empty($lang) || !is_array($lang))
 {
-	$lang = array();
+    $lang = array();
 }
 
 $lang = array_merge($lang, array(
-    'VIEWING_THREAD' => 'Viewing Thread <br /><strong>%s</strong>',
-    'VIEWING_FORUM'  => 'Viewing Forum <br /><strong>%s</strong>',
+    'VIEWING_THREAD' => 'Viewing Thread<br /><strong>%s</strong>',
+    'VIEWING_FORUM'  => 'Viewing Forum<br /><strong>%s</strong>',
     'VIEWING_ERROR'  => 'Viewing Error Message',
     'VIEWING_FORUM'  => 'Viewing Forum Index',
     'CREATING_TOPIC' => 'Creating New Topic in<br /><strong>%s</strong>',
@@ -44,7 +45,7 @@ $lang = array_merge($lang, array(
     'EDITING_POST'   => 'Modifying Post<br /><strong>%s</strong>',
     'WHOS_ON_LINE'   => 'Who\'s Online?',
     'LEGEND'         => 'Legend: ',
-    'USERNAME'       => 'Username',
+    'USERNAME'       => 'Username: ',
     'MOST_CLIENT'    => 'Most Used Client: ',
     'TOTAL_LEECHERS' => 'Total Leechers: ',
     'TOTAL_SEEDERS'  => 'Total Seeders: ',
@@ -56,9 +57,9 @@ $lang = array_merge($lang, array(
     'TOTAL_REG_24'   => 'Total Registered Users in Last 24 Hours: ',
     'TOTAL_REG_7D'   => 'Total Registered Users in Last 7 Days: ',
     'ONLINE_24HRS'   => 'Total Users Online in Last 24 Hours: ',
-    'STAT1'          => 'In Total there is',
-    'STAT2'          => 'Users Online (Based on Users Active over the past 5 minutes)',
-    'MOST_EVER_ON'   => 'Most Users Ever Online was',
+    'STAT1'          => 'In Total there are',
+    'STAT2'          => 'User\'s Online (Based on User\'s Active in the Last 5 Minutes)',
+    'MOST_EVER_ON'   => 'Most User\'s Ever Online was',
 ));
 
 ?>

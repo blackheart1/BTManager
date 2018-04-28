@@ -263,14 +263,14 @@
 		<td class="row2"><input class="post" type="file" name="avupload" /></td>
 	</tr>
 <!-- ENDIF -->
-<!-- IF ALLOW_REMOTE_UPLOAD  -->
+<!-- IF ALLOW_AVATAR_UPLOAD  -->
 	<tr>
 		<td class="row1" width="35%"><b class="genmed">Upload from a URL: </b><br /><span class="gensmall">Enter the URL of the location containing the image. The image will be copied to this site.</span></td>
 
 		<td class="row2"><input class="post" type="text" name="uploadurl" size="40" value="" /></td>
 	</tr>
 <!-- ENDIF -->
-<!-- IF ALLOW_AVATAR_LINK  -->
+<!-- IF ALLOW_AVATAR_UPLOAD  -->
 	<tr>
 		<td class="row1" width="35%"><b class="genmed">Link off-site: </b><br /><span class="gensmall">Enter the URL of the location containing the avatar image you wish to link to.</span></td>
 		<td class="row2"><input class="post" type="text" name="remotelink" size="40" value="" /></td>
@@ -879,7 +879,6 @@ function ChangeThumb(pic) {
 </tr>
 <tr>
 
-
 	<td ccolspan="2" align="center"><input class="btnmain" type="submit" name="submit" value="{L_SUBMIT}" />&nbsp;&nbsp;<input class="btnlite" type="reset" value="{L_RESET}" name="reset" /></td>
 </tr>
 </table>
@@ -960,7 +959,6 @@ function ChangeThumb(pic) {
 	</tr>
 
 	<!-- IF TOTAL_TOPICS -->
-
 		<tr>
 			<td class="row3" colspan="4">
 				<table width="100%" cellspacing="1">
@@ -1304,7 +1302,7 @@ function ChangeThumb(pic) {
 	<td class="row1" colspan="3">
 		<table width="100%" cellspacing="1" cellpadding="4">
 		<tr>
-			<td align="right" valign="top" nowrap="nowrap"><b class="genmed">{JOINED}: </b></td>
+			<td align="right" valign="top" nowrap="nowrap"><b class="genmed">{L_JOINED}: </b></td>
 
 			<td width="100%"><b class="gen">{CP_UREGDATE}</b></td>
 		</tr>

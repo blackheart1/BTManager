@@ -539,7 +539,7 @@ $lang = array_merge($lang, array(
     '_BBCODE_U_HELP'        => 'Underline Text: [u]text[/u]',
     '_BBCODE_W_HELP'        => 'Insert URL: [url]http://url[/url] OR [url=http://url]URL text[/url]',
     '_BBCODE_D_HELP'        => 'Flash: [flash=width,height]http://url[/flash]',
-    '_STYLES_TIP'           => 'Tip:  Styles can be Applied Quickly to Selected Text.22',
+    '_STYLES_TIP'           => 'Tip:  Styles can be Applied Quickly to Selected Text',
     '_SMILIES'              => 'Smilies',
     '_MORE_SMILIES'         => 'View more Smilies',
     '_FONT_COLOR'           => 'Font Colour',
@@ -717,16 +717,19 @@ $lang = array_merge($lang, array(
     '1_HOUR'                => '1 hour',
     '30_MINS'               => '30 minutes',
     '6_HOURS'               => '6 hours',
+
 	#Template Related
 	'NUKED_TORRENT'			=> 'NUKED TORRENT',
 	'FEE_TORRENT'			=> 'FREE TORRENT',
 	'EXTER_TRACKER'			=> 'External Tracker',
-	'DHT_EXPL'				=> 'This torrent supports DHT. With a state-of-the-art client, you\'ll be able to download this torrent even if a central tracker goes down.',
+
+	'DHT_EXPL'				=> 'This Torrent supports DHT.  With a State-of-the-art Client, you\'ll be able to Download this Torrent even if a Central Tracker goes down.',
+
 	'DHT_SUPORT'			=> 'DHT Support',
 	'BANTORRENT'			=> 'Ban Torrent',
 	'BBCODE_HELP'			=> 'BBcode Help',
-	'CLICK_TO_INSERT'		=> 'Click a smilie to insert it into your message.',
-	'SMILIE_LIST'			=> 'Smilie List',
+	'CLICK_TO_INSERT'		=> 'Click a Smiley to Insert it into your Message.',
+	'SMILIE_LIST'			=> 'Smiley List',
 ));
 
 $u_datetime = array(

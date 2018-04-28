@@ -25,12 +25,7 @@
 if (!defined('IN_PMBT'))
 {
     include_once './../../security.php';
-    die ("You can't access this file directly");
-}
-
-if (!defined('IN_PMBT'))
-{
-	exit;
+    die ('Error 404 - Page Not Found');
 }
 
 $synonyms = array(

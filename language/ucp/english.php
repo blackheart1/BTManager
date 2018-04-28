@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File ucp/english.php 2018-04-23 07:39:00 Thor
+** File ucp/english.php 2018-04-28 10:31:00 Thor
 **
 ** CHANGES
 **
@@ -22,6 +22,8 @@
 ** 2018-03-02 - Fixed Spelling
 ** 2018-04-22 - Amended the Wording of some Sentences
 ** 2018-04-23 - Added Missing Languages
+** 2018-04-28 - Amended the Wording of some Sentences
+** 2018-04-28 - Added Missing Languages
 **/
 
 if (!defined('IN_PMBT'))
@@ -50,28 +52,28 @@ $lang = array_merge($lang, array(
     'UCP_DISABLE_ACC'        => 'Disable Account',
     'UCP_BAN_FORUM'          => 'Forum Ban',
     'UCP_SHOUT_BAN'          => 'Ban Shouts',
-    'UCP_UNSHOUT_BAN'        => 'Un-Ban Shouts',
-    'UCP_HELPER_FOR'         => 'What the User is helpful for',
+    'UCP_UNSHOUT_BAN'        => 'Unban Shouts',
+    'UCP_HELPER_FOR'         => 'What is the User is Helpful for?',
     'ACTIVE_IN_FORUM'        => 'Most Active Forum',
     'ACTIVE_IN_TOPIC'        => 'Most Active Topic',
     'USER_SEEDBOX'           => 'User\'s Seedbox IP Address',
     'UCP_BAN_USER'           => 'Ban User',
-    'UCP_UNBAN_USER'         => 'Un-Ban User',
+    'UCP_UNBAN_USER'         => 'Unban User',
     'BACK_TO_DRAFTS'         => 'Back to Drafts',
     'YOU_CANT_BAN_YOURSELF'  => 'You can NOT Ban Yourself',
     'UCP_SHOUT_BAN_EXPL'     => 'User will NOT be able to View or Post Shouts',
 
-    'UCP_DISABLE_ACC_EXPL'   => 'Disabled Accounts can NOT View or Download Torrents.<br />Disabled Accounts will NO longer be able to Access ALL the Site.<br />This is a Mild form of Ban so that the User will be able to Access the Site to find out WHY they have been Disabled.',
+    'UCP_DISABLE_ACC_EXPL'   => 'Disabled Accounts can NOT View or Download Torrents.<br />Disabled Accounts will NO longer be able to Access ALL the Site.<br />This is a Mild form of Banning, this way the User will be able to Access the Site to find out WHY they have been Disabled.',
 
     'INV_LEVEL_TO_EDIT'      => 'You DO NOT have Access to Edit this Person',
     'UCP_WARN_WEEK'          => '%s Week%s',
     'CONFERM_EMAIL_SUB'      => 'Confirm email on %1$s',
-    'WARN_MOD_MES'           => '%1$s - Warned for %2$s  by %3$s - Reason: %4$s',
+    'WARN_MOD_MES'           => '%1$s - Warned for %2$s by %3$s - Reason: %4$s',
     'LOG_GROUP_CHANGE'       => 'Group Changed for %1$s to %2$s',
     'LOG_LEVEL_CHANGE'       => 'Level Changed for %1$s to %2$s',
-    'UCP_WARN_REMOVED_MES'   => 'Your WARNNING was Deleted by %1$s!',
+    'UCP_WARN_REMOVED_MES'   => 'Your Warning was Removed by %1$s!',
     'UCP_WARN_REASON_EXPL'   => 'Note Added to Users Private Message as to WHY they have been Warned',
-    'WARN_REMOVE_MOD_MESS'   => '%1$s - WARN Deleted by %2$s',
+    'WARN_REMOVE_MOD_MESS'   => '%1$s - Warning Removed by %2$s',
     'PROFILE_UPDATED'        => 'Your Profile has been Updated',
     'NO_AUTHBAN_SHOUTS'      => 'You DO NOT have Access to Ban Shouts',
     'SHOUTS_BANNED'          => 'User has been Banned from the Shoutbox',
@@ -80,15 +82,15 @@ $lang = array_merge($lang, array(
     'LOGIN_ERROR_NP'         => 'Username or Password NOT Specified.',
     'LOGIN_ERROR_NP_WRONG'   => 'Incorrect Username or Password!!',
     'LOGIN_ERROR_NOT_ACTIVE' => 'User Registered but NOT Active!!',
-    'EMAIL_CHANGE_NOT_SET'   => 'NO email Change is Set',
+    'EMAIL_CHANGE_NOT_SET'   => 'No email Change is Set',
     'EMAIL_CHANGED'          => 'Your email was Successfully Changed',
     'EMAIL_CHANGE_INV'       => 'Invalid Confirmation Code or User ID',
     'EMAIL_CHANGE'           => 'email Change',
     'USER_BAN_NO_DEL'        => 'User is Banned.  DO NOT Delete',
 
-    'CONFERM_DELETE_USER'    => '<b>WARNING</b>: You are about to Completely and Permanently Delete %1$s\'s Account. %1$s Editing Permissions for ALL Torrents that they\'ve Uploaded.  Re-Registering with the same Username will be possible after that.',
+    'CONFERM_DELETE_USER'    => '<strong>WARNING</strong>: You are about to Completely and Permanently Delete %1$s\'s Account. %1$s Editing Permissions for ALL Torrents that they\'ve Uploaded.  Re-Registering with the same Username will be possible after that.',
 
-    'PASS_RECOVER_NOT_SET'   => 'NO Recovery Password is Set',
+    'PASS_RECOVER_NOT_SET'   => 'No Recovery Password is Set',
     'PASS_RECOVER_INV'       => 'Invalid Confirmation Code or User ID',
     'PASS_RECOVER'           => 'Password Recovery',
     'PASS_RECOVER_COMPLETE'  => 'Password Changed.  Now you can Login with your NEW Password.',
@@ -152,7 +154,7 @@ $lang = array_merge($lang, array(
     'HOLD_NEW_MESSAGES'       => 'DO NOT Accept New Messages (New Messages will be Held Back until enough Space is Available)',
     'HOLD_NEW_MESSAGES_SHORT' => 'New Messages will be Held Back',
     'ALLOW_PM'                => 'Allow Users to Send you Private Messages',
-    'ALLOW_PM_EXPLAIN'        => 'Note that Administrators and Moderators will Always be able to Send you Messages.',
+    'ALLOW_PM_EXPLAIN'        => 'Note that Moderators and Administrators will Always be able to Send you Messages.',
     'SHOW_EMAIL'              => 'Users can Contact me by email',
     'ADMIN_EMAIL'             => 'Administrators can email me Information',
     'NO_FRIENDS_ONLINE'       => 'No Friends Online',
@@ -161,7 +163,7 @@ $lang = array_merge($lang, array(
     'CHOOSE_AVATAR'           => 'Choose Avatar',
     'ACCOUT_STATUS'           => 'Account Status',
 
-    'ACCOUT_EXP_STATUS'       => 'Set User Active/Inactive.  BEWARE! Setting a User that has been Registered for Less than 48h to INACTIVE will also Delete the Account.',
+    'ACCOUT_EXP_STATUS'       => 'Set User Active/Inactive.  BEWARE! Setting a User that has been Registered for Less than 48 hours will also Delete their Account.',
 
     'NO_WATCHED_FORUMS'       => 'You are NOT Subscribed to any Forums.',
     'NO_WATCHED_TORRENTS'     => 'You are NOT Subscribed to any Torrents.',
@@ -176,18 +178,20 @@ $lang = array_merge($lang, array(
 
     'WATCHED_EXPLAIN'         => 'Below is a List of Forums and Topics that you are Subscribed to.  You\'ll be Notified of any New Posts.  To Unsubscribe, Mark the Forum or Topic and then Press the <em>Unwatch Marked</em> Button.',
 
-    'UCP_BAN_USER_FORUM'      => 'Ban User from the Forum',
+    'UCP_BAN_USER_FORUM'      => 'Ban the User from the Forums',
     'USE_PASSKEY'             => 'Use Passkey',
     'RESSET_PASSKEY'          => 'Reset Passkey',
-    'RES_PASSKEY_WARNING'     => '<b>WARNING</b>: ALL the Torrent Files you Downloaded so far will NOT be Valid any more!',
-    'ACCEPT_EMAIL'            => 'Accept email from Other Users',
+
+    'RES_PASSKEY_WARNING'     => '<strong>WARNING</strong>: ALL the Torrent Files you Downloaded so far will NOT be Valid any more!',
+
+    'ACCEPT_EMAIL'            => 'Accept emails from Other Users',
     'ACCEPT_EMAIL_EXP'        => 'Allow Users of this Site to see your email Address',
     'ACCEPT_EMAIL_ACP'        => 'Administrators can email me Information',
     'ACCEPT_EMAIL_ACP_EXP'    => 'Allow Mass email from this Site',
     'INACTIVE'                => 'Inactive',
     'ACC_LEVEL'               => 'Access Level',
     'ERROR_SUBJECT_NUBER'     => 'The Subscription is NOT a Number.  Please go back and try again!',
-    'NO_DRAFTS_SET'           => 'NO Draft is Set.  Please Check your Link!',
+    'NO_DRAFTS_SET'           => 'No Draft is Set.  Please Check your Link!',
     'DELETE_DRAFTS'           => 'Delete Drafts',
     'DELETE_DRAFT'            => 'Remove Selected Drafts',
     'DELETE_DRAFT_CONFIRM'    => 'Are you Sure you want to Delete ALL Selected Drafts?',
@@ -195,11 +199,11 @@ $lang = array_merge($lang, array(
     'VIEW_FORUM_TOPIC'        => '1 Topic',
     'M_SITE_HELPER'           => 'Site Helper',
     'ACP_PM_NOTICE_EMAIL'     => 'Accept Private Message Notifications',
-    'ACP_PM_NOTICE_EMAIL_EXP' => 'Allow System to Send you an email Notice of New Private Message\'s',
+    'ACP_PM_NOTICE_EMAIL_EXP' => 'Allow the System to Send you an email Notice of New Private Message\'s',
     'TOR_PERPAGE'             => 'Torrents Per Page',
     'PARK_ACC'                => 'Park Account',
 
-    'PARK_ACC_EXP'            => 'You can Park your Account for up to 90 days while on Vacation or without Internet, etc.  Your Account can NOT be Deleted during this time but, on day 91 it CAN.  HnR\'s will NOT occur while Parked but, they will Resume when Un-Parked.  You can NOT Download any Torrents while your Account is Parked!',
+    'PARK_ACC_EXP'            => 'You can Park your Account for up to 90 days while your on Vacation or without Internet Access, etc.  Your Account can NOT be Deleted during this time but, on day 91 it CAN.  HnR\'s will NOT occur while Parked but, they will Resume when Un-Parked.  You can NOT Download any Torrents while your Account is Parked!',
 
     'TO_REMOVE_USER'       => 'To Remove Usernames, Select them and Click Submit.',
 
@@ -222,6 +226,7 @@ $lang = array_merge($lang, array(
     'IMPORT_ANNOUNCE'      => 'Important Announcements',
     'NO_ANNOUNCEMENTS'     => 'No Important Announcements Present.',
     'YOUR_ACTIVATY'        => 'Your Activity',
+    'JOINED'               => 'Date Joined ',
     'LAST_SEEN'            => 'Last Seen ',
     'TOTAL_POSTS'          => 'Total Posts ',
     'SHOW_YOUR_POSTS'      => 'Show your Posts',

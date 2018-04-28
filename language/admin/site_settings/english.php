@@ -432,13 +432,16 @@ $lang = array_merge($lang, array(
     'ACP_ORPHAN_ATTACHMENTS'   => 'Orphaned Attachments',
 
 	#ADDON 3.0.1
-    '_admpannounce_ments'        => 'Announcement\'s',
+    '_admpannounce_ments'           => 'Announcement\'s',
 
-    '_admpannounce_mentsexplain' => 'Used for making Site Announcements.<br />These Announcements will be seen by Users in the Edit Profile Section.',
-	'_admppm_max_recipients'			=> 'Maximum number of allowed recipients',
-	'_admppm_max_recipientsexplain'	=> 'The maximum number of allowed recipients in a private message. If 0 is entered, an unlimited number is allowed. This setting can be adjusted for every group within the group settings page.',
-	'PM_SETTING_TITLE_EXPLAIN'		=> 'Here you can set all default settings for private messaging.',
-	'PM_SETTING_TITLE'		=> 'Private message settings',
+    '_admpannounce_mentsexplain'    => 'Used for making Site Announcements.<br />These Announcements will be seen by Users in the Edit Profile Section.',
+
+    '_admppm_max_recipients'        => 'Maximum Number of Allowed Recipients',
+
+    '_admppm_max_recipientsexplain' => 'The Maximum Number of Allowed Recipients in a Private Message.  If 0 is Entered, an Unlimited Number is Allowed.  This Setting can be Adjusted for every Group within the Group Settings Page.',
+
+    'PM_SETTING_TITLE_EXPLAIN'      => 'Here you can Set ALL Default Settings for Private Messaging.',
+    'PM_SETTING_TITLE'              => 'Private Message Settings',
 ));
 
 ?>

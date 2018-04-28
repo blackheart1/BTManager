@@ -13,24 +13,25 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File torrent/english.php 2018-03-20 14:08:00 Thor
+** File torrent/english.php 2018-04-28 08:03:00 Thor
 **
 ** CHANGES
 **
 ** 2018-03-02 - Added New Masthead
 ** 2018-03-02 - Added New !defined('IN_PMBT')
 ** 2018-03-02 - Fixed Spelling
+** 2018-04-28 - Amended the Wording of some Sentences
 **/
 
 if (!defined('IN_PMBT'))
 {
     include_once './../../security.php';
-    die ("You can't access this file directly");
+    die ('Error 404 - Page Not Found');
 }
 
 if (empty($lang) || !is_array($lang))
 {
-	$lang = array();
+    $lang = array();
 }
 
 $lang = array_merge($lang, array(
@@ -41,7 +42,7 @@ $lang = array_merge($lang, array(
     'DISPLAY_BY'       => 'Display Torrents by',
     'SORT_CAT'         => 'Sort by Type',
     'SORT_NAME'        => 'Sort by Name',
-    'SORT_NUM_FILES'   => 'Sort by Number of files',
+    'SORT_NUM_FILES'   => 'Sort by Number of Files',
     'SORT_SEED'        => 'Sort by Seeds',
     'SORT_LEECH'       => 'Sort by Leechers',
     'SORT_SIZE'        => 'Sort by Size of File',
@@ -52,7 +53,7 @@ $lang = array_merge($lang, array(
     'NUKED_TORRENT'    => 'Nuked Torrent',
     'FREE_TORRENT'     => 'Free Torrent',
 
-    'DHT_SUPPORT_EXP'  => 'This Torrent supports DHT.  With a state-of-the-art Client, you\'ll be able to Download this Torrent even if a Central Tracker goes down.',
+    'DHT_SUPPORT_EXP'  => 'This Torrent supports DHT.  With a State-of-the-art Client, you\'ll be able to Download this Torrent even if a Central Tracker goes down.',
 
     'STATS_UPTO_DATE'  => 'Statistics Updated less than 30 minutes ago',
     'TORRENT_DETAILS'  => 'Torrent Details',

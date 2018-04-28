@@ -25,17 +25,17 @@
 if (!defined('IN_PMBT'))
 {
     include_once './../../security.php';
-    die ("You can't access this file directly");
+    die ('Error 404 - Page Not Found');
 }
 
 if (empty($lang) || !is_array($lang))
 {
-	$lang = array();
+    $lang = array();
 }
 
 $lang = array_merge($lang, array(
     'REQ_TO_LESTIN'        => 'You will need Windows Media Player 10+ or Real Player to Listen to the Radio Stream!',
-    'POWERED_BY'           => 'Radio Powered by Shoutcast &amp; Winamp.',
+    'POWERED_BY'           => 'Radio Powered by Shoutcast and Winamp.',
     'LAST_TRACKS'          => 'Last Tracks Played....',
     'MEMBERS_LESTINING'    => 'Members Listening',
     'CURNETLY_PLAYING'     => 'Currently Playing',

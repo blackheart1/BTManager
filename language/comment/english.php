@@ -43,9 +43,9 @@ $lang = array_merge($lang, array(
     'COMMENTNOTIFY_SUB' => 'New Comment on %1$s',
     'COMENT_ON_TOR'     => 'Comments on this Torrent.',
 
-    'COMENT_REMOVED'    => 'Comment Deleted.  You are being Redirected to the Torrent Details Page in 3 seconds.<br>Click <a href=\'details.php?id=%1$s&comm=startcomments\'>HERE</a> if your Browser doesn\'t forward you.',
+    'COMENT_REMOVED'    => 'Comment Deleted.  You will be Redirected back to the Torrent Details Page in 3 seconds.<br>Click <a href=\'details.php?id=%1$s&comm=startcomments\'>HERE</a> if your Browser doesn\'t forward you.',
 
-    'COMMENT_POSTED'    => 'Your Comment has been Posted.  You are being Redirected to the Torrent Details Page in 3 seconds.<br>Click <a href=\'details.php?id=%1$s&comm=startcomments\'>HERE</a> if your Browser doesn\'t forward you.'
+    'COMMENT_POSTED'    => 'Your Comment has been Posted.  You will be Redirected back to the Torrent Details Page in 3 seconds.<br>Click <a href=\'details.php?id=%1$s&comm=startcomments\'>HERE</a> if your Browser doesn\'t forward you.'
 ));
 
 ?>

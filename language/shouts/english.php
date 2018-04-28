@@ -25,22 +25,22 @@
 if (!defined('IN_PMBT'))
 {
     include_once './../../security.php';
-    die ("You can't access this file directly");
+    die ('Error 404 - Page Not Found');
 }
 
 if (empty($lang) || !is_array($lang))
 {
-	$lang = array();
+    $lang = array();
 }
 
 $lang = array_merge($lang, array(
-	'SHOUT_COMAND_HELP_USER' => '[quote]As a User, you have the following Commands:
+    'SHOUT_COMAND_HELP_USER' => '[quote]As a User, you have the following Commands:
         If you want to View this Message in the Shoutbox Use:- <strong>/help</strong>
         If you want to Slap a User Use:- <strong>/slapuser</strong> Username
         If you want to Send a Quick Private Message Use:- <strong>/pmuser</strong> Username or ID Plus the Message
         If you want to Speak as a 3rd Person Use:- <strong>/me</strong> Message[/quote]',
 
-	'SHOUT_COMAND_HELP_ADMIN' => '[quote]As a Staff Member, you have the following Commands:
+    'SHOUT_COMAND_HELP_ADMIN' => '[quote]As a Staff Member, you have the following Commands:
         If you want to make a Notice use:- <strong>/notice</strong>
         If you want to Empty Shouts use:- <strong>/empty</strong>
         If you want to Warn or Unwarn a User use:- <strong>/warn</strong> Username <strong>/unwarn</strong> Username
@@ -59,7 +59,7 @@ $lang = array_merge($lang, array(
     'SORT_BY'             => 'Sort Results by',
     'NEW_FIRST'           => 'Newest First',
     'OLD_FIRST'           => 'Oldest First',
-    'SEARCH_TIME'         => 'Within Past <em>X</em> Hours',
+    'SEARCH_TIME'         => 'Within Past <em>\'x\'</em> Hours',
     'USERNAME_CONTAINS'   => 'Username Contains',
     'SEARCH_CONTAINS'     => 'Shout Contains',
     'SEARCH_TERM'         => 'Search Terms',
