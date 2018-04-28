@@ -50,7 +50,7 @@ $lang = array_merge($lang, array(
 
     'COMPLAINT_REG'      => 'Your Complaint has been Received.  Your Username and IP have been Logged.  Please DO NOT Abuse the System.<br />',
 
-    'COMPLAINT_RANK'     => 'User\'s Sent Positive Feedback<strong>%1$s</strong> times and Negative Feedback <strong>%2$s</strong> times.<br />',
+    'COMPLAINT_RANK'     => 'User\'s Sent Positive Feedback <strong>%1$s</strong> times and Negative Feedback <strong>%2$s</strong> times.<br />',
 ));
 
 ?>
