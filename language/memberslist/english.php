@@ -177,7 +177,7 @@ $lang = array_merge($lang, array(
 
     'USER_LAST_REMINDED' => array(
         0 => 'NO Reminder was Sent at this time',
-        1 => '%1$d Reminder Sent<br />» %2$s',
+        1 => '%1$d Reminder Sent<br />%2$s',
     ),
 ));
 

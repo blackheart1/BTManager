@@ -132,7 +132,7 @@ $help = array(
 
         <span style="color:red;font-size:200%;"><strong>LOOK AT ME!</strong></span><br /><br />
 
-        We don’t recommend you output lots of text that looks like this though!  Remember it is up to you, the Poster, to ensure Tags are Closed correctly.<br /><br />
+        We don\'t recommend you output lots of text that looks like this though!  Remember it is up to you, the Poster, to ensure Tags are Closed correctly.<br /><br />
 
         For example the following is Incorrect:<br /><br />
 
