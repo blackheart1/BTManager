@@ -80,6 +80,7 @@ $lang = array_merge($lang, array(
     'DELETE_COMMENT'     => 'Delete Comment',
     'DELETE_PROBLEM'     => 'There was a Problem Deleting ',
     'DISABLE'            => 'Disable',
+    'ENABLE'             => 'Enable',
     'EDITED_ALREADY'     => '  was already Previously Edited.',
     'EDITED_GAME'        => 'The Database was Updated Successfully for the following Game.',
 

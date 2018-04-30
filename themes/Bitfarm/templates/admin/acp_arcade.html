@@ -47,7 +47,7 @@
 			<p>{L_ARCADE_RESYNCED}</p>
 		</div>
 	<!-- ENDIF -->
-    
+
     <!-- IF S_NO_UPDATE -->
 		<script type="text/javascript">
 		<!--
@@ -60,7 +60,7 @@
 			<p>{L_ARCADE_RESYNCED}</p>
 		</div>
 	<!-- ENDIF -->
-    
+
     <!-- IF S_UPDATE -->
 		<script type="text/javascript">
 		<!--
@@ -73,7 +73,7 @@
 			<p>{L_ARCADE_RESYNCED}</p>
 		</div>
 	<!-- ENDIF -->
-    
+
     <!-- IF S_SETTINGS -->
     <table cellspacing="1">
 		<caption>{L_ARCADE_STATS}</caption>
@@ -135,9 +135,9 @@
     	<!-- BEGIN settingrow -->
         <dl>
 			<dt style="text-align:right"><label for="{settingrow.ID}">{settingrow.NAME}:</label></dt>
-			<!-- IF settingrow.TYPE is odd --><dd><!-- IF settingrow.CONTENT --><label><input id="{settingrow.ID}" name="{settingrow.ID}" value="1" checked="checked" class="radio" type="radio"> Yes</label><label><input name="{settingrow.ID}" value="0" class="radio" type="radio"> No</label>
-            <!-- ELSE --><label><input id="{settingrow.ID}" name="{settingrow.ID}" value="1" class="radio" type="radio"> 
-            Yes</label><label><input name="{settingrow.ID}" checked="checked" value="0" class="radio" type="radio"> No</label>
+			<!-- IF settingrow.TYPE is odd --><dd><!-- IF settingrow.CONTENT --><label><input id="{settingrow.ID}" name="{settingrow.ID}" value="1" checked="checked" class="radio" type="radio"> {L_YES}</label><label><input name="{settingrow.ID}" value="0" class="radio" type="radio"> {L_NO}</label>
+            <!-- ELSE --><label><input id="{settingrow.ID}" name="{settingrow.ID}" value="1" class="radio" type="radio">
+            {L_YES}</label><label><input name="{settingrow.ID}" checked="checked" value="0" class="radio" type="radio"> {L_NO}</label>
             <!-- ENDIF --></dd><!-- ELSE --><dd><input id="{settingrow.ID}" name="{settingrow.ID}" value="{settingrow.CONTENT}" size="3" maxlength="4" type="text" /> {L_MINUTES}</dd><!-- ENDIF -->
 		</dl>
         <!-- END settingrow -->
@@ -174,7 +174,7 @@
         </dl>
     </fieldset>
     <!-- ENDIF -->
-    
+
 	<!-- IF S_MANAGE_CATEGORY -->
     	<h1>{L_MANAGE_CAT}</h1>
         <p>{L_MANAGE_CAT_DESC}</p>
@@ -219,7 +219,7 @@
 
 	</form>
 	<!-- ENDIF -->
-    
+
     <!-- IF S_MANAGE_GAME -->
     <h1>{L_MANAGE_GAMES}</h1>
         <p>{L_MANAGE_GAMES_DESC}</p>
@@ -256,7 +256,7 @@
 	<form id="game" method="post" action="{U_ACTION}">
         <fieldset class="quick">
             <input type="hidden" name="action" value="addgame" />
-    
+
             <input type="text" name="game_name" value="" maxlength="255" />
             <input class="button2" name="addgame" type="submit" value="{L_ADD_GAME}" />
         </fieldset>
@@ -280,7 +280,7 @@
         </fieldset>
 	</form>
         <!-- ENDIF -->
-    
+
     <!-- IF S_EDIT_GAME -->
     	<h1>{L_EDIT_GAME}</h1>
         <p>{L_EDIT_GAME_DESC}</p>
@@ -315,9 +315,9 @@
                     <dt style="text-align:right">{L_GAME_NUM_FAVS_C}</dt><dd>{GAME_INFO_NUMFAVS}</dd>
                 </dl>
             </fieldset>
-            
+
             <form enctype="multipart/form-data" id="game" method="post" action="{U_ACTION}">
-        
+
             <fieldset>
             	<legend>{L_EDIT}</legend>
                 <input type="hidden" name="action" value="editgameinfo" />
@@ -333,37 +333,37 @@
                 </dl>
                 <dl>
                     <dt style="text-align:right">{L_GAME_ENABLED_C}</dt>
-                    <dd><!-- IF S_ENABLED --><label><input id="game_enabled" name="game_enabled" checked="checked" value="1" class="radio" type="radio"> 
-                    Yes</label><label><input name="game_enabled" value="0" class="radio" type="radio"> No</label><!-- ELSE --><label><input id="game_enabled" name="game_enabled" value="1" class="radio" type="radio"> 
-                    Yes</label><label><input name="game_enabled" checked="checked" value="0" class="radio" type="radio"> No</label><!-- ENDIF -->
+                    <dd><!-- IF S_ENABLED --><label><input id="game_enabled" name="game_enabled" checked="checked" value="1" class="radio" type="radio">
+                    {L_YES}</label><label><input name="game_enabled" value="0" class="radio" type="radio"> {L_NO}</label><!-- ELSE --><label><input id="game_enabled" name="game_enabled" value="1" class="radio" type="radio">
+                    {L_YES}</label><label><input name="game_enabled" checked="checked" value="0" class="radio" type="radio"> {L_NO}</label><!-- ENDIF -->
                     </dd>
                 </dl>
                 <dl>
                     <dt style="text-align:right">{L_GAME_HIGHSCORE_C}</dt>
-                    <dd><!-- IF S_HIGHSCORE --><label><input id="game_highscore" name="game_highscore" checked="checked" value="1" class="radio" type="radio"> 
-                    Yes</label><label><input name="game_highscore" value="0" class="radio" type="radio"> No</label><!-- ELSE --><label><input id="game_highscore" name="game_highscore" value="1" class="radio" type="radio"> 
-                    Yes</label><label><input name="game_highscore" checked="checked" value="0" class="radio" type="radio"> No</label><!-- ENDIF -->
+                    <dd><!-- IF S_HIGHSCORE --><label><input id="game_highscore" name="game_highscore" checked="checked" value="1" class="radio" type="radio">
+                    {L_YES}</label><label><input name="game_highscore" value="0" class="radio" type="radio"> {L_NO}</label><!-- ELSE --><label><input id="game_highscore" name="game_highscore" value="1" class="radio" type="radio">
+                    {L_YES}</label><label><input name="game_highscore" checked="checked" value="0" class="radio" type="radio"> {L_NO}</label><!-- ENDIF -->
                     </dd>
                 </dl>
                 <dl>
                     <dt style="text-align:right">{L_GAME_REV_SCORE_C}</dt>
-                    <dd><!-- IF S_REV_SCORE --><label><input id="game_rev_score" name="game_rev_score" checked="checked" value="1" class="radio" type="radio"> 
-                    Yes</label><label><input name="game_rev_score" value="0" class="radio" type="radio"> No</label><!-- ELSE --><label><input id="game_rev_score" name="game_rev_score" value="1" class="radio" type="radio"> 
-                    Yes</label><label><input name="game_rev_score" checked="checked" value="0" class="radio" type="radio"> No</label><!-- ENDIF -->{L_REV_DESC}
+                    <dd><!-- IF S_REV_SCORE --><label><input id="game_rev_score" name="game_rev_score" checked="checked" value="1" class="radio" type="radio">
+                    {L_YES}</label><label><input name="game_rev_score" value="0" class="radio" type="radio"> {L_NO}</label><!-- ELSE --><label><input id="game_rev_score" name="game_rev_score" value="1" class="radio" type="radio">
+                    {L_YES}</label><label><input name="game_rev_score" checked="checked" value="0" class="radio" type="radio"> {L_NO}</label><!-- ENDIF -->{L_REV_DESC}
                     </dd>
                 </dl>
                 <dl>
                     <dt style="text-align:right">{L_GAME_KEYBOARD_C}</dt>
-                    <dd><!-- IF S_KEYBOARD --><label><input id="game_keyboard" name="game_keyboard" checked="checked" value="1" class="radio" type="radio"> 
-                    Yes</label><label><input name="game_keyboard" value="0" class="radio" type="radio"> No</label><!-- ELSE --><label><input id="game_keyboard" name="game_keyboard" value="1" class="radio" type="radio"> 
-                    Yes</label><label><input name="game_keyboard" checked="checked" value="0" class="radio" type="radio"> No</label><!-- ENDIF --><img src="../arcade/images/included/keyboard.gif" alt="*" />
+                    <dd><!-- IF S_KEYBOARD --><label><input id="game_keyboard" name="game_keyboard" checked="checked" value="1" class="radio" type="radio">
+                    {L_YES}</label><label><input name="game_keyboard" value="0" class="radio" type="radio"> {L_NO}</label><!-- ELSE --><label><input id="game_keyboard" name="game_keyboard" value="1" class="radio" type="radio">
+                    {L_YES}</label><label><input name="game_keyboard" checked="checked" value="0" class="radio" type="radio"> {L_NO}</label><!-- ENDIF --><img src="../arcade/images/included/keyboard.gif" alt="*" />
                     </dd>
                 </dl>
                 <dl>
                     <dt style="text-align:right">{L_GAME_MOUSE_C}</dt>
-                    <dd><!-- IF S_MOUSE --><label><input id="game_mouse" name="game_mouse" checked="checked" value="1" class="radio" type="radio"> 
-                    Yes</label><label><input name="game_mouse" value="0" class="radio" type="radio"> No</label><!-- ELSE --><label><input id="game_mouse" name="game_mouse" value="1" class="radio" type="radio"> 
-                    Yes</label><label><input name="game_mouse" checked="checked" value="0" class="radio" type="radio"> No</label><!-- ENDIF --><img src="../arcade/images/included/mouse.gif" alt="*" />
+                    <dd><!-- IF S_MOUSE --><label><input id="game_mouse" name="game_mouse" checked="checked" value="1" class="radio" type="radio">
+                    {L_YES}</label><label><input name="game_mouse" value="0" class="radio" type="radio"> {L_NO}</label><!-- ELSE --><label><input id="game_mouse" name="game_mouse" value="1" class="radio" type="radio">
+                    {L_YES}</label><label><input name="game_mouse" checked="checked" value="0" class="radio" type="radio"> {L_NO}</label><!-- ENDIF --><img src="../arcade/images/included/mouse.gif" alt="*" />
                     </dd>
                 </dl>
                 <dl>
@@ -371,9 +371,9 @@
                 </dl>
                 <dl>
                     <dt style="text-align:right">{L_REMOVE_IMAGE_C}</dt>
-                    <dd><!-- IF S_REMOVE_IMAGE --><label><input id="remove_image" name="remove_image" checked="checked" value="1" class="radio" type="radio"> 
-                    Yes</label><label><input name="remove_image" value="0" class="radio" type="radio"> No</label><!-- ELSE --><label><input id="remove_image" name="remove_image" value="1" class="radio" type="radio"> 
-                    Yes</label><label><input name="remove_image" checked="checked" value="0" class="radio" type="radio"> No</label><!-- ENDIF -->
+                    <dd><!-- IF S_REMOVE_IMAGE --><label><input id="remove_image" name="remove_image" checked="checked" value="1" class="radio" type="radio">
+                    {L_YES}</label><label><input name="remove_image" value="0" class="radio" type="radio"> {L_NO}</label><!-- ELSE --><label><input id="remove_image" name="remove_image" value="1" class="radio" type="radio">
+                    {L_YES}</label><label><input name="remove_image" checked="checked" value="0" class="radio" type="radio"> {L_NO}</label><!-- ENDIF -->
                     </dd>
                 </dl>
                 <dl>
@@ -434,7 +434,7 @@
        		{L_GAME_ERROR}<br />
         <!-- ENDIF -->
             <form enctype="multipart/form-data" id="game" method="post" action="{U_ACTION}">
-        
+
             <fieldset>
             	<legend>{L_ADD_GAME}</legend>
                 <input type="hidden" name="action" value="addgameinfo" />
@@ -451,37 +451,37 @@
                 </dl>
                 <dl>
                     <dt style="text-align:right">{L_GAME_ENABLED_C}</dt>
-                    <dd><!-- IF S_ENABLED --><label><input id="game_enabled" name="game_enabled" checked="checked" value="1" class="radio" type="radio"> 
-                    Yes</label><label><input name="game_enabled" value="0" class="radio" type="radio"> No</label><!-- ELSE --><label><input id="game_enabled" name="game_enabled" value="1" class="radio" type="radio"> 
-                    Yes</label><label><input name="game_enabled" checked="checked" value="0" class="radio" type="radio"> No</label><!-- ENDIF -->
+                    <dd><!-- IF S_ENABLED --><label><input id="game_enabled" name="game_enabled" checked="checked" value="1" class="radio" type="radio">
+                    {L_YES}</label><label><input name="game_enabled" value="0" class="radio" type="radio"> {L_NO}</label><!-- ELSE --><label><input id="game_enabled" name="game_enabled" value="1" class="radio" type="radio">
+                    {L_YES}</label><label><input name="game_enabled" checked="checked" value="0" class="radio" type="radio"> {L_NO}</label><!-- ENDIF -->
                     </dd>
                 </dl>
                 <dl>
                     <dt style="text-align:right">{L_GAME_HIGHSCORE_C}</dt>
-                    <dd><!-- IF S_HIGHSCORE --><label><input id="game_highscore" name="game_highscore" checked="checked"	 value="1" class="radio" type="radio"> 
-                    Yes</label><label><input name="game_highscore" value="0" class="radio" type="radio"> No</label><!-- ELSE --><label><input id="game_highscore" name="game_highscore" value="1" class="radio" type="radio"> 
-                    Yes</label><label><input name="game_highscore" checked="checked" value="0" class="radio" type="radio"> No</label><!-- ENDIF -->
+                    <dd><!-- IF S_HIGHSCORE --><label><input id="game_highscore" name="game_highscore" checked="checked"	 value="1" class="radio" type="radio">
+                    {L_YES}</label><label><input name="game_highscore" value="0" class="radio" type="radio"> {L_NO}</label><!-- ELSE --><label><input id="game_highscore" name="game_highscore" value="1" class="radio" type="radio">
+                    {L_YES}</label><label><input name="game_highscore" checked="checked" value="0" class="radio" type="radio"> {L_NO}</label><!-- ENDIF -->
                     </dd>
                 </dl>
                 <dl>
                     <dt style="text-align:right">{L_GAME_REV_SCORE_C}</dt>
-                    <dd><!-- IF S_REV_SCORE --><label><input id="game_rev_score" name="game_rev_score" checked="checked" value="1" class="radio" type="radio"> 
-                    Yes</label><label><input name="game_rev_score" value="0" class="radio" type="radio"> No</label><!-- ELSE --><label><input id="game_rev_score" name="game_rev_score" value="1" class="radio" type="radio"> 
-                    Yes</label><label><input name="game_rev_score" checked="checked" value="0" class="radio" type="radio"> No</label><!-- ENDIF -->
+                    <dd><!-- IF S_REV_SCORE --><label><input id="game_rev_score" name="game_rev_score" checked="checked" value="1" class="radio" type="radio">
+                    {L_YES}</label><label><input name="game_rev_score" value="0" class="radio" type="radio"> {L_NO}</label><!-- ELSE --><label><input id="game_rev_score" name="game_rev_score" value="1" class="radio" type="radio">
+                    {L_YES}</label><label><input name="game_rev_score" checked="checked" value="0" class="radio" type="radio"> {L_NO}</label><!-- ENDIF -->
                     </dd>
                 </dl>
                 <dl>
                     <dt style="text-align:right">{L_GAME_KEYBOARD_C}</dt>
-                    <dd><!-- IF S_KEYBOARD --><label><input id="game_keyboard" name="game_keyboard" checked="checked" value="1" class="radio" type="radio"> 
-                    Yes</label><label><input name="game_keyboard" value="0" class="radio" type="radio"> No</label><!-- ELSE --><label><input id="game_keyboard" name="game_keyboard" value="1" class="radio" type="radio"> 
-                    Yes</label><label><input name="game_keyboard" checked="checked" value="0" class="radio" type="radio"> No</label><!-- ENDIF --><img src="../arcade/images/included/keyboard.gif" alt="*" />
+                    <dd><!-- IF S_KEYBOARD --><label><input id="game_keyboard" name="game_keyboard" checked="checked" value="1" class="radio" type="radio">
+                    {L_YES}</label><label><input name="game_keyboard" value="0" class="radio" type="radio"> {L_NO}</label><!-- ELSE --><label><input id="game_keyboard" name="game_keyboard" value="1" class="radio" type="radio">
+                    {L_YES}</label><label><input name="game_keyboard" checked="checked" value="0" class="radio" type="radio"> {L_NO}</label><!-- ENDIF --><img src="../arcade/images/included/keyboard.gif" alt="*" />
                     </dd>
                 </dl>
                 <dl>
                     <dt style="text-align:right">{L_GAME_MOUSE_C}</dt>
-                    <dd><!-- IF S_MOUSE --><label><input id="game_mouse" name="game_mouse" checked="checked" value="1" class="radio" type="radio"> 
-                    Yes</label><label><input name="game_mouse" value="0" class="radio" type="radio"> No</label><!-- ELSE --><label><input id="game_mouse" name="game_mouse" value="1" class="radio" type="radio"> 
-                    Yes</label><label><input name="game_mouse" checked="checked" value="0" class="radio" type="radio"> No</label><!-- ENDIF --><img src="../arcade/images/included/mouse.gif" alt="*" />
+                    <dd><!-- IF S_MOUSE --><label><input id="game_mouse" name="game_mouse" checked="checked" value="1" class="radio" type="radio">
+                    {L_YES}</label><label><input name="game_mouse" value="0" class="radio" type="radio"> {L_NO}</label><!-- ELSE --><label><input id="game_mouse" name="game_mouse" value="1" class="radio" type="radio">
+                    {L_YES}</label><label><input name="game_mouse" checked="checked" value="0" class="radio" type="radio"> {L_NO}</label><!-- ENDIF --><img src="../arcade/images/included/mouse.gif" alt="*" />
                     </dd>
                 </dl>
                 <dl>
