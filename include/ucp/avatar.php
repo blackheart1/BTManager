@@ -45,6 +45,7 @@ $template->assign_vars(array(
 		'AVATAR_MAXSZ'          => mksize($avmaxsz),
 		'AVATAR_MAXSZ_SEL'      => $galery,
 		'AVATAR_GALORY'      	=> $avgal,
+		'_AVATAR_EXPLAIN'		=> sprintf($user->lang['_AVATAR_EXPLAIN'],$avmaxwt,$avmaxht,$avmaxsz),
 ));
 
 ?>

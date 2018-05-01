@@ -162,7 +162,7 @@ $template->assign_vars(array(
 }
 if($op == 'getactive')
 	{
-		$usql = "SELECT id FROM ".$db_prefix."_online_users WHERE page='index.php' AND UNIX_TIMESTAMP(NOW()-last_action) < 600";
+		$usql = "SELECT id FROM ".$db_prefix."_online_users WHERE page='index.php' AND UNIX_TIMESTAMP( NOW( ) ) - UNIX_TIMESTAMP( last_action )  < 1800";
 		$ures = $db->sql_query($usql);
 		$utot = $db->sql_numrows($ures);
 		print($utot);
@@ -690,7 +690,7 @@ if($op == 'private__chat')
 	}
 if($op == 'activeusers')
 	{
-				$sql = "SELECT O.id AS id, O.page AS page, UNIX_TIMESTAMP(O.logged_in) AS logged_in, IF(U.name IS NULL, U.username, U.name) as name, U.warned AS warned, U.can_do as can_do, U.level AS level, U.Show_online AS Show_online, U.uploaded as uploaded, U.downloaded AS downloaded FROM ".$db_prefix."_online_users O LEFT JOIN ".$db_prefix."_users U ON O.id = U.id WHERE  O.page='index.php' AND UNIX_TIMESTAMP(NOW()-last_action) < 600 AND U.Show_online = true;";
+				$sql = "SELECT O.id AS id, O.page AS page, UNIX_TIMESTAMP(O.logged_in) AS logged_in, IF(U.name IS NULL, U.username, U.name) as name, U.warned AS warned, U.can_do as can_do, U.level AS level, U.Show_online AS Show_online, U.uploaded as uploaded, U.downloaded AS downloaded FROM ".$db_prefix."_online_users O LEFT JOIN ".$db_prefix."_users U ON O.id = U.id WHERE  O.page='index.php' AND UNIX_TIMESTAMP( NOW( ) ) - UNIX_TIMESTAMP( U.lastlogin )  < 1800 ;";
 				$res = $db->sql_query($sql);
 				$tot = $db->sql_numrows($res);
 				$i = 1;
@@ -702,6 +702,7 @@ if($op == 'activeusers')
 					{
 						while ($row = $db->sql_fetchrow($res))
 							{
+								if($row['Show_online'] !== 'true' AND !$user->admin)continue;
 								$simple .= "<a href=\"user.php?op=profile&id=".$row["id"]."\"><font color=\"".getusercolor($row["can_do"])."\">";
 								$simple .= htmlspecialchars($row["name"])."</font></a>";
 								if ($row["level"] == "premium") $simple .= pic("icon_premium.gif",'','Premium');

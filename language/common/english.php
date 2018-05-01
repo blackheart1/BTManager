@@ -197,7 +197,10 @@ $lang = array_merge($lang, array(
     'BAN_SHOUTS'               => 'Shoutbox Ban',
     'USE_PERMISSIONS'          => 'Test out Members Permissions',
     'WARNINGS'                 => 'Warnings',
+	'NEW_EMAIL'					=> 'New E-mail address',
+	'NEW_EMAIL_EXP'				=> 'A Comfermation email well be sent if you are changing your e-mail address.',
     'CONFIRM_EMAIL'            => 'Confirm email Address',
+    'CONFIRM_EMAIL_EXP'        => 'You only need to specify this if you are changing your e-mail address.',
     '_NEW'                     => 'New',
     'NEW_PASSWORD'             => 'New Password',
     'CONFIRM_PASSWORD'         => 'Confirm Password',
@@ -252,6 +255,7 @@ $lang = array_merge($lang, array(
     'EDIT'                     => 'Edit',
     'NOTICE'                   => 'Notice',
     'EDIT_PROFILE'             => 'Edit Profile',
+    'EDIT_PROFILE_EXP'         => 'Please note that this information may be viewable to other members. Be careful when including any personal details. Any fields marked with a * must be completed.',
     'ED2K_LINK'                => 'eD2K Link',
     'ERROR_MINSEED'            => 'You MUST be Seeding at least %1$s Torrents to Download.',
     'ERROR_MINSEEDSIZE'        => 'To Download you Need to Seed at Least a Minimum of %1$s Torrent.',
@@ -739,6 +743,7 @@ $lang = array_merge($lang, array(
 	'BBCODE_HELP'			=> 'BBcode Help',
 	'CLICK_TO_INSERT'		=> 'Click a Smiley to Insert it into your Message.',
 	'SMILIE_LIST'			=> 'Smiley List',
+	'WARNNED'				=> 'Warrned',
 ));
 
 $u_datetime = array(

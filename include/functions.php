@@ -1037,15 +1037,15 @@ function getusercolor($level){
 }
 function selectaccess($al= false){
         global $db, $db_prefix, $user;
-			$sql = "SELECT level as level, name as name FROM ".$db_prefix."_levels;";
+			$sql = "SELECT level as level, name as name, group_id FROM ".$db_prefix."_levels;";
 			$res = $db->sql_query($sql) or btsqlerror($sql);
-			$level = '<select name="group">';
+			$level = '<select name="g">';
 		while ($tracker = $db->sql_fetchrow($res))
 			{
-				if($user->group =="1" AND $tracker['level'] == "1")continue;
+				if($user->group =="1" AND $tracker['group_id'] == "1")continue;
 				$level .= '<option ';
-				if(isset($al) && $al == $tracker['level'])$level .= 'selected="selected"';
-				$level .= 'value="'.$tracker['level'].'">'.$tracker['name'].'</option>';
+				if(isset($al) && $al == $tracker['group_id'])$level .= 'selected="selected"';
+				$level .= 'value="'.$tracker['group_id'].'">'.$tracker['name'].'</option>';
 			}
 			$level .= '</select>';
 			$db->sql_freeresult($res);

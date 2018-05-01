@@ -460,7 +460,8 @@ class acp_arcade
 						$error_message = $error_message . $user->lang['WRONG_IMAGE_TYPE'] . '<br />'
 					));
 				}
-				$info = getimagesize($_FILES['game_image']['tmp_name']);
+				//die(print_r($_FILES));
+				$info = @getimagesize($_FILES['game_image']['tmp_name']);
 				$thumb_create = false;
 				if ($info[0] > 50 || $info[1] > 50)
 				{
@@ -551,6 +552,7 @@ class acp_arcade
 				$db->sql_freeresult($result);
 				if (!$errors)
 				{
+					//die('hold');
 					if(move_uploaded_file($_FILES['game_file']['tmp_name'], $uploadgamespot) || copy('flash/' . $game_swf_file, $uploadgamespot))
 					{
 						if ($game_swf_file)
@@ -716,7 +718,7 @@ class acp_arcade
 						$error_message = $error_message . $user->lang['WRONG_IMAGE_TYPE'] . '<br />'
 					));
 				}
-				$info = getimagesize($_FILES['game_image']['tmp_name']);
+				$info = @getimagesize($_FILES['game_image']['tmp_name']);
 				$thumb_create = false;
 				if ($info[0] > 50 || $info[1] > 50)
 				{

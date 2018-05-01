@@ -206,7 +206,7 @@ function compose_pm($id, $mode, $action)
 				pmbt_trigger_error('NO_MESSAGE3');
 			}
 
-			$sql = 'SELECT id, pm_unread, pm_new, author_id, folder_id
+			$sql = 'SELECT msg_id AS id, pm_unread, pm_new, author_id AS sender, folder_id
 				FROM ' . $db_prefix . '_privmsgs_to
 				WHERE user_id = ' . $user->id . "
 					AND msg_id = $msg_id";
@@ -291,12 +291,12 @@ function compose_pm($id, $mode, $action)
 		$folder_id		= (isset($post['folder_id'])) ? $post['folder_id'] : 0;
 		$message_text	= (isset($post['text'])) ? $post['text'] : '';
 		$post['author_id']		= $post['sender'];
+		//die($post['author_id']);
 
 		if ((!$post['author_id'] || ($post['author_id'] == 0 && $action != 'delete')) && $msg_id)
 		{
 			pmbt_trigger_error('NO_AUTHOR');
 		}
-		//die($post['author_id']);
 
 		if ($action == 'quotepost')
 		{
@@ -427,13 +427,15 @@ function compose_pm($id, $mode, $action)
 			$s_hidden_fields = array(
 				'p'			=> $msg_id,
 				'f'			=> $folder_id,
-				'action'	=> 'delete'
+				'action'	=> 'delete',
+				'op'        => 'send',
+				'mode'      => 'compose',
 			);
 
-			confirm_box(false, 'DELETE_MESSAGE', build_hidden_fields($s_hidden_fields));
+			confirm_box(false, 'DELETE_MESSAGE', build_hidden_fields($s_hidden_fields),'confirm_body.html',append_sid("{$siteurl}/pm.$phpEx?i=pm"));
 		}
 
-		redirect(append_sid("{$siteurl}/ucp.$phpEx?op=readmsg", 'mode=view&amp;action=view_message&amp;p=' . $msg_id));
+		redirect(append_sid("{$siteurl}/pm.$phpEx?op=readmsg", 'mode=view&amp;action=view_message&amp;p=' . $msg_id));
 	}
 
 	$max_recipients = '20';//(int) $db->sql_fetchfield('max_recipients');

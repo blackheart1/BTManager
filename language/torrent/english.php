@@ -60,6 +60,9 @@ $lang = array_merge($lang, array(
     'REFRESHPEER_DATA' => 'Refresh Peer Data',
     'BANNED_TORRENT'   => 'Banned Torrent',
     'BANN_TORRENT'     => 'Ban Torrent',
+	#Added For 3.0.1
+	'UPDATED_DONE'		=>'Stats Updated less than 30min ago',
+	'UPDATE_PEERS'		=>'Refresh Peer Data',
 ));
 
 ?>

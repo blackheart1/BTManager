@@ -214,7 +214,7 @@ function view_message($id, $mode, $folder_id, $msg_id, $folder, $message_row)
 		'U_MSN'			=> ($user_info['user_msnm'] && checkaccess('u_sendim')) ? append_sid("{$siteurl}/userfind_to_pm.$phpEx", 'mode=contact&amp;action=msnm&amp;u=' . $author_id) : '',
 		'U_JABBER'		=> ($user_info['user_jabber'] && checkaccess('u_sendim')) ? append_sid("{$siteurl}/userfind_to_pm.$phpEx", 'mode=contact&amp;action=jabber&amp;u=' . $author_id) : '',
 
-		'U_DELETE'			=> (checkaccess('u_pm_delete')) ? "$url&amp;mode=compose&amp;action=delete&amp;f=$folder_id&amp;p=" . $message_row['msg_id'] : '',
+		'U_DELETE'			=> (checkaccess('u_pm_delete')) ? "$url&amp;op=send&amp;mode=compose&amp;action=delete&amp;f=$folder_id&amp;p=" . $message_row['msg_id'] : '',
 		'U_EMAIL'			=> $user_info['email'],
 		'U_REPORT'			=> ($config['allow_pm_report']) ? append_sid("{$siteurl}/report.$phpEx", "pm=" . $message_row['msg_id']) : '',
 		'U_QUOTE'			=> ($author_id != 0) ? "$url&amp;op=send&amp;mode=compose&amp;action=quote&amp;f=$folder_id&amp;p=" . $message_row['msg_id'] : '',

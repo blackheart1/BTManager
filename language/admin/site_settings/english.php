@@ -332,6 +332,10 @@ $lang = array_merge($lang, array(
     'SITE_SETTINGS'        =>   'Board Configuration',
     'MENU_PRIVATE_MESSAGE' =>   'Private Message Settings',
     'MENU_BBCODE'          =>   'BBcode Settings',
+	'TRACKER_SETTINGS'		=> 'Tracker Settings',
+	'USER_SETTINGS'			=> 'User Settings',
+	'UPLOAD_SETTINGS'		=> 'Torrent Upload Settings',
+	'EXT_TORRENT_SETTINGS'	=> 'External Torrent upload Settings',
 
     #Advanced Settings PM
     'PMFULLOPTION'                => array('1'=>'Delete Oldest Messages', '2'=>'New Messages will be Held Back'),
