@@ -347,7 +347,7 @@ class acp_arcade
 					'category_name'			=> $category_name,
 				);
 				$sql = 'INSERT INTO ' . $db_prefix . '_ar_categories ' . $db->sql_build_array('INSERT', $sql_ary);
-				echo $sql;
+				//echo $sql;
 				$db->sql_query($sql);
 				trigger_error($user->lang['CATEGORY_ADDED'] . back_link($this->u_action));
 			break;
