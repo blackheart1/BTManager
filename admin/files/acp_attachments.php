@@ -168,10 +168,10 @@ class acp_attachments
 
 					if ($submit)
 					{
-						/*$db->sql_query("UPDATE 
-							`".$db_prefix."_attachments_config` SET 
-							`config_value` = '" . $config_value . "' 
-							WHERE 
+						/*$db->sql_query("UPDATE
+							`".$db_prefix."_attachments_config` SET
+							`config_value` = '" . $config_value . "'
+							WHERE
 							`config_name` = '" . $config_name . "';");
 */
 							set_config($config_name, $config_value);

@@ -49,9 +49,9 @@ $lang = array_merge($lang, array(
 
     'ACP_ATTACHMENT_SETTINGS_EXPLAIN' => 'Here you can Configure the Main Settings for Attachments and the Associated Special Categories.',
 
-    'ACP_EXTENSION_GROUPS_EXPLAIN'    => 'Here you can Add, Delete, Modify or Disable your Extension Groups.  Further Options include Assigning a Special Category to them, changing the Download Mechanism and Defining an Upload Icon which will be Displayed in front of the Attachment which belongs to the Group.',
+    'ACP_EXTENSION_GROUPS_EXPLAIN'    => 'Here you can Add, Delete, Modify or Disable your Extension Groups.  Further Options Include Assigning a Special Category to them, changing the Download Mechanism and Defining an Upload Icon which will be Displayed in front of the Attachment which belongs to the Group.',
 
-    'ACP_MANAGE_EXTENSIONS_EXPLAIN'   => 'Here you can manage your Allowed Extensions.  To Activate your Extensions, please refer to the Extension Groups Management Panel.  We Strongly Recommend NOT Allowing Scripting Extensions (such as <em>php</em>, <em>php3</em>, <em>php4</em>, <em>phtml</em>, <em>pl</em>, <em>cgi</em>, <em>py</em>, <em>rb</em>, <em>asp</em>, <em>aspx</em>, and so forth).',
+    'ACP_MANAGE_EXTENSIONS_EXPLAIN'   => 'Here you can Manage your Allowed Extensions.  To Activate your Extensions, please refer to the Extension Groups Management Panel.  We Strongly Recommend <strong>NOT</strong> Allowing Scripting Extensions (such as <em>php</em>, <em>php3</em>, <em>php4</em>, <em>phtml</em>, <em>pl</em>, <em>cgi</em>, <em>py</em>, <em>rb</em>, <em>asp</em>, <em>aspx</em>, and so forth).',
 
     'ACP_ORPHAN_ATTACHMENTS_EXPLAIN'  => 'Here you are able to see Orphaned Files. This happens mostly when Users are Attaching Files but NOT Submitting the Post.  Here you are able to Delete or Attach the Files to Existing Posts.  Attaching to Posts Requires a Valid Post ID.  You have to determine this ID by yourself.  This will Assign the already Uploaded Attachment to the Post you Entered.',
 
@@ -60,13 +60,13 @@ $lang = array_merge($lang, array(
     'ADMIN_UPLOAD_ERROR'     => 'Errors while trying to Attach File %s.',
     'ALLOWED'                => 'Allowed',
     'ALLOWED_FORUMS'         => 'Allowed Forums',
-    'ALLOWED_FORUMS_EXPLAIN' => 'Able to Post the Assigned Extensions at the Selected (or ALL if Selected) Forums.',
+    'ALLOWED_FORUMS_EXPLAIN' => 'Able to Post the Assigned Extensions at the Selected (or ALL, if Selected) Forums.',
     'ALLOWED_IN_PM_POST'     => 'Allowed',
     'ALLOW_ATTACHMENTS'      => 'Allow Attachments',
     'ALLOW_ALL_FORUMS'       => 'Allow ALL Forums',
     'ALLOW_IN_PM'            => 'Allowed in Private Messaging',
     'ALLOW_PM_ATTACHMENTS'   => 'Allow Attachments in Private Messages',
-    'ALLOW_SELECTED_FORUMS'  => 'Only Forums Selected Below',
+    'ALLOW_SELECTED_FORUMS'  => 'Only Forums Selected below',
     'ASSIGNED_EXTENSIONS'    => 'Assigned Extensions',
     'ASSIGNED_GROUP'         => 'Assigned Extension Group',
     'ATTACH_EXTENSIONS_URL'  => 'Extensions',
@@ -78,7 +78,7 @@ $lang = array_merge($lang, array(
 
     'ATTACH_MAX_PM_FILESIZE'         => 'Maximum File Size for Private Messages',
     'ATTACH_MAX_PM_FILESIZE_EXPLAIN' => 'Maximum Size of each File Attached to a Private Message.  Set to Zero for Unlimited.',
-    'ATTACH_ORPHAN_URL'              => 'Orphan Attachments',
+    'ATTACH_ORPHAN_URL'              => 'Orphaned Attachments',
     'ATTACH_POST_ID'                 => 'Post ID',
     'ATTACH_QUOTA'                   => 'Total Attachment Quota',
 
@@ -98,7 +98,7 @@ $lang = array_merge($lang, array(
     'CREATE_THUMBNAIL_EXPLAIN'       => 'Create a Thumbnail in ALL Possible Situations.',
     'DEFINE_ALLOWED_IPS'             => 'Define Allowed IP\'s/Hostnames',
     'DEFINE_DISALLOWED_IPS'          => 'Define Disallowed IP\'s/Hostnames',
-    'DOWNLOAD_ADD_IPS_EXPLAIN'       => 'To Specify Several Different IP\'s or Hostnames Enter Each on a New Line.  To Specify a Range of IP Addresses, Separate the Start and End with a Hyphen (-).  To Specify a Wildcard use <strong>*</strong> ( Asterix).',
+    'DOWNLOAD_ADD_IPS_EXPLAIN'       => 'To Specify Several Different IP\'s or Hostnames Enter Each on a New Line.  To Specify a Range of IP Addresses, Separate the Start and End with a Hyphen (<strong>-</strong>).  To Specify a Wildcard use <strong>*</strong> (Asterix).',
 
     'DOWNLOAD_REMOVE_IPS_EXPLAIN'    => 'You can Remove Multiple IP Addresses in one go, simply Click on the IP Addresses that you wish to Remove and Click Submit.  Excluded IP\'s have a Blue Background.',
 
@@ -112,11 +112,11 @@ $lang = array_merge($lang, array(
     'EXCLUDE_FROM_DISALLOWED_IP'     => 'Exclude IP from Disallowed IP\'s/Hostnames List',
     'EXTENSION'                      => 'Extension',
     'EXTENSIONS_UPDATED'             => 'Extensions Successfully Updated.',
-    'EXTENSION_EXIST'                => 'The Extension <em>%s</em> Already Exists.',
+    'EXTENSION_EXIST'                => 'The Extension <em>%s</em> already Exists.',
     'EXTENSION_GROUP'                => 'Extension Group',
     'EXTENSION_GROUPS'               => 'Extension Groups',
     'EXTENSION_GROUP_DELETED'        => 'Extension Group Successfully Deleted.',
-    'EXTENSION_GROUP_EXIST'          => 'The Extension Group <em>%s<em> Already Exists.',
+    'EXTENSION_GROUP_EXIST'          => 'The Extension Group <em>%s<em> already Exists.',
     'EXT_GROUP_ARCHIVES'             => 'Archives',
     'EXT_GROUP_DOCUMENTS'            => 'Documents',
     'EXT_GROUP_DOWNLOADABLE_FILES'   => 'Downloadable Files',
@@ -130,6 +130,7 @@ $lang = array_merge($lang, array(
     'GROUP_NAME'                     => 'Group Name',
     'IP_HOSTNAME'                    => 'IP Addresses or Hostnames',
     'IMAGE_LINK_SIZE'                => 'Image Link Dimensions',
+
     'IMAGE_LINK_SIZE_EXPLAIN'        => 'Display Image Attachments as an Inline Text Link if the Image is Larger than this.  To Disable this Option, Set the Values to 0px by 0px.',
 
     'IMAGICK_PATH'                   => 'ImageMagick Path',

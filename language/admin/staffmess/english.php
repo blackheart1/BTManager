@@ -82,7 +82,7 @@ $lang = array_merge($lang, array(
     'LEVEL_USER'             => 'User',
     'MAIL_BYPAS'             => 'Bypass Mass email Block',
 
-    'MAIL_BYPAS_EXP'         => 'By Selecting Yes you will be able to bypass the User\'s who have chosen Not to Receive Mass email\'s from this Site.<br />This should ONLY be done in Urgent Situations!',
+    'MAIL_BYPAS_EXP'         => 'By Selecting Yes you will be able to bypass the User\'s who have chosen Not to Receive Mass email\'s from this Site.  This should ONLY be done in Urgent Situations!',
 
     'MESSAGE_BODY_EXPLAIN'   => 'Enter your Message here, it may contain NO more than <strong>%d</strong> Characters.',
     'PREVIEW'                => 'Preview',

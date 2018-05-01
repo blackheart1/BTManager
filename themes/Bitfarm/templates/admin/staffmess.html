@@ -20,7 +20,7 @@
 		<td class="row2">
 			<table width="100%" cellspacing="0" cellpadding="0" border="0">
 			<tr>
-				<td><input type="radio" class="radio" name="icon" value="0"{S_NO_ICON_CHECKED} /><span class="genmed"><!-- IF S_SHOW_TOPIC_ICONS -->{L_NO_TOPIC_ICON}<!-- ELSE -->{L_NO_PM_ICON}<!-- ENDIF --></span> <!-- BEGIN topic_icon --><span style="white-space: nowrap;"><input type="radio" class="radio" name="icon" value="{topic_icon.ICON_ID}"{topic_icon.S_ICON_CHECKED} /><img src="{topic_icon.ICON_IMG}" width="{topic_icon.ICON_WIDTH}" height="{topic_icon.ICON_HEIGHT}" alt="" title="" hspace="2" vspace="2" /></span> <!-- END topic_icon --></td>
+				<td><input type="radio" class="radio" name="icon" value="0"{S_NO_ICON_CHECKED} /><span class="genmed"><!-- IF S_SHOW_TOPIC_ICONS --> { L_NO_TOPIC_ICON} <!-- ELSE --> {L_NO_PM_ICON} <!-- ENDIF --></span> <!-- BEGIN topic_icon --><span style="white-space: nowrap;"><input type="radio" class="radio" name="icon" value="{topic_icon.ICON_ID}"{topic_icon.S_ICON_CHECKED} /><img src="{topic_icon.ICON_IMG}" width="{topic_icon.ICON_WIDTH}" height="{topic_icon.ICON_HEIGHT}" alt="" title="" hspace="2" vspace="2" /></span> <!-- END topic_icon --></td>
 			</tr>
 			</table>
 		</td>
@@ -36,7 +36,7 @@
 			{S_HIDDEN_ADDRESS_FIELD}
 <!-- BEGIN groups -->
 					<input tabindex="{groups.OPTION}" name="group[]" id="user[usergroupid]7_7" value="{groups.ID}" type="checkbox"> {groups.VAL}<br />
-				
+
 <!-- END groups -->
 		</td>
 	</tr>
@@ -86,11 +86,11 @@
 	<td class="row2" valign="top">
 		<script type="text/javascript">
 			// <![CDATA[
-	
+
 			var form_name = 'postform';
 			var text_name = 'message';
 			// ]]>
-		</script>		
+		</script>
 
 		<table width="100%" cellspacing="0" cellpadding="0" border="0">
 		<!-- INCLUDE themes/Bitfarm/templates/posting_buttons.html -->
@@ -124,7 +124,7 @@
 <!-- IF ACTION == email -->
 <!-- IF S_POST_REVIEW -->
 <table class="tablebg" width="100%" cellspacing="{$CA_SPACING}">
-	<tr> 
+	<tr>
         <td class="row1">
             <table width="100%" border="0" cellspacing="0" cellpadding="0">
                 <tr>
@@ -147,8 +147,8 @@
 					<span>({L_AC_TEST_EM_EXP})</span>
 				</dt>
 				<dd>
-					<label for="rb_1_test_1"><input name="test" id="rb_1_test_1" value="1" tabindex="1" type="radio">{L_YES}</label>
-					<label for="rb_0_test_1"><input name="test" id="rb_0_test_1" value="0" tabindex="1" checked="checked" type="radio">{L_NO}</label>
+					<label for="rb_1_test_1"><input name="test" id="rb_1_test_1" value="1" tabindex="1" type="radio"> {L_YES}</label>
+					<label for="rb_0_test_1"><input name="test" id="rb_0_test_1" value="0" tabindex="1" checked="checked" type="radio"> {L_NO}</label>
 				</dd>
 			</dl>
 			<dl>
@@ -158,8 +158,8 @@
 					<span>({L_MAIL_BYPAS_EXP})</span>
 				</dt>
 				<dd>
-					<label for="bypass"><input name="bypass" value="1" type="radio">{L_YES}</label>
-					<label for="bypass"><input name="bypass" value="0" checked="checked" type="radio">{L_NO}</label>
+					<label for="bypass"><input name="bypass" value="1" type="radio"> {L_YES}</label>
+					<label for="bypass"><input name="bypass" value="0" checked="checked" type="radio"> {L_NO}</label>
 				</dd>
 			</dl>
 			<dl>
@@ -171,7 +171,7 @@
 				<dd >
 <!-- BEGIN groups -->
 					<label for="{groups.OPTION}"><input tabindex="{groups.OPTION}" name="group[]" id="user[usergroupid]7_7" value="{groups.OPTION}" type="checkbox"> {groups.VAL} </lable>
-				
+
 					</dd>
 					<dd>
 <!-- END groups -->
@@ -193,7 +193,7 @@
 					<label for="admin"><input tabindex="premium" name="level[]"  value="premium" type="checkbox"> {L_LEVEL_PREM} </lable>
 				</dd>
 				<dd>
-					<label for="admin"><input tabindex="user" name="level[]"  value="user" type="checkbox"> {L_LEVEL_USER} </lable>
+					<label for="admin"><input tabindex="user" name="level[]"  value="user" type="checkbox"> {L_LEVEL_USER} </lable><br />
 				</dd>
 				<dt>
 					<label for="subject">{L_TX_SUBJ}:</label>
