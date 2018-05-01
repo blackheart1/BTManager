@@ -3,7 +3,7 @@
 	<head>
 		<meta name="generator" content="HTML Tidy for Linux (vers 6 November 2007), see www.w3.org">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<meta name="generator" content="PMBT {PMBT_VER}">
+		<meta name="generator" content="BTManager {PMBT_VER}">
 		<meta http-equiv="PRAGMA" content="NO-CACHE">
 		<meta http-equiv="EXPIRES" content="-1">
 		<meta http-equiv="Cache-Control" content="no-cache">
@@ -14,7 +14,7 @@
 		<!--[if lt IE 7]>
 		<script defer type="text/javascript" src="{SITE_URL}/pngfix.js"></script>
 		<![endif]-->
-		<title>{SITENAME} &bull; <!-- IF S_IN_MCP -->{L_MCP} &bull; <!-- ELSEIF S_IN_UCP -->{L_USER_CPANNEL} &bull; <!-- ENDIF -->{PAGE_TITLE}</title>
+		<title>{SITENAME} &bull; {L_BITBUCKET_MANAGER}</title>
 	</head>
 	<body>
 <!-- INCLUDE themes/Bitfarm/templates/over_all_header.html -->
@@ -74,7 +74,7 @@
 								</tr>
 								<tr>
 									<td align="center">
-									<input type="submit" class="button" name="upload" value="Upload" style="width:70px" onclick="return verify_upload(this.form);" />
+									<input type="submit" class="button" name="upload" value="{L_UPLOAD}" style="width:70px" onclick="return verify_upload(this.form);" />
 									</td>
 								</tr>
 							</table>
@@ -134,7 +134,7 @@
 					<div class="caption">
 						<div class="cap-left">
 							<div class="cap-right">
-								<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnImage_Gallery');">Image Gallery</a>
+								<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnImage_Gallery');">{L_BITBUCKET_GALERY}</a>
 							</div>
 						</div>
 					</div>
