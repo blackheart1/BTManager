@@ -329,16 +329,17 @@ $lang = array_merge($lang, array(
 
     '_admpstealthmodeexplain' => 'This will Disable and Hide the Local Tracker.  BTManager will ONLY accept Externally Tracked Torrents.',
 
-    'SITE_SETTINGS'        =>   'Board Configuration',
-    'MENU_PRIVATE_MESSAGE' =>   'Private Message Settings',
-    'MENU_BBCODE'          =>   'BBcode Settings',
-	'TRACKER_SETTINGS'		=> 'Tracker Settings',
-	'USER_SETTINGS'			=> 'User Settings',
-	'UPLOAD_SETTINGS'		=> 'Torrent Upload Settings',
-	'EXT_TORRENT_SETTINGS'	=> 'External Torrent upload Settings',
+    'SITE_SETTINGS'        => 'Board Configuration',
+    'MENU_PRIVATE_MESSAGE' => 'Private Message Settings',
+    'MENU_BBCODE'          => 'BBcode Settings',
+    'TRACKER_SETTINGS'     => 'Tracker Settings',
+    'USER_SETTINGS'        => 'User Settings',
+    'UPLOAD_SETTINGS'      => 'Torrent Upload Settings',
+    'EXT_TORRENT_SETTINGS' => 'External Torrent Upload Settings',
 
     #Advanced Settings PM
-    'PMFULLOPTION'                => array('1'=>'Delete Oldest Messages', '2'=>'New Messages will be Held Back'),
+    'PMFULLOPTION'                => array('1'=>'Delete Oldest Messages',
+                                           '2'=>'New Messages will be Held Back'),
 
     '_admpallow_privmsg'          => 'Private Messaging',
     '_admpallow_privmsgexplain'   => 'Enable or Disable Private Messaging for ALL Users.',
@@ -435,7 +436,7 @@ $lang = array_merge($lang, array(
     'ACP_MANAGE_EXTENSIONS'    => 'Manage Extensions',
     'ACP_ORPHAN_ATTACHMENTS'   => 'Orphaned Attachments',
 
-	#ADDON 3.0.1
+    #ADDON 3.0.1
     '_admpannounce_ments'           => 'Announcement\'s',
 
     '_admpannounce_mentsexplain'    => 'Used for making Site Announcements.<br />These Announcements will be seen by Users in the Edit Profile Section.',

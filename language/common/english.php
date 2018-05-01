@@ -197,10 +197,10 @@ $lang = array_merge($lang, array(
     'BAN_SHOUTS'               => 'Shoutbox Ban',
     'USE_PERMISSIONS'          => 'Test out Members Permissions',
     'WARNINGS'                 => 'Warnings',
-	'NEW_EMAIL'					=> 'New E-mail address',
-	'NEW_EMAIL_EXP'				=> 'A Comfermation email well be sent if you are changing your e-mail address.',
+    'NEW_EMAIL'                => 'New email Address',
+    'NEW_EMAIL_EXP'            => 'A Confirmation email will be sent if you are changing your email Address.',
     'CONFIRM_EMAIL'            => 'Confirm email Address',
-    'CONFIRM_EMAIL_EXP'        => 'You only need to specify this if you are changing your e-mail address.',
+    'CONFIRM_EMAIL_EXP'        => 'You only need to specify this if you are changing your email Address.',
     '_NEW'                     => 'New',
     'NEW_PASSWORD'             => 'New Password',
     'CONFIRM_PASSWORD'         => 'Confirm Password',
@@ -255,7 +255,9 @@ $lang = array_merge($lang, array(
     'EDIT'                     => 'Edit',
     'NOTICE'                   => 'Notice',
     'EDIT_PROFILE'             => 'Edit Profile',
-    'EDIT_PROFILE_EXP'         => 'Please note that this information may be viewable to other members. Be careful when including any personal details. Any fields marked with a * must be completed.',
+
+    'EDIT_PROFILE_EXP'         => 'Please note that this Information may be Viewable to Other Members.  Be Careful when Including any Personal Details.  Any fields Marked with a <strong>*</strong> must be Completed.',
+
     'ED2K_LINK'                => 'eD2K Link',
     'ERROR_MINSEED'            => 'You MUST be Seeding at least %1$s Torrents to Download.',
     'ERROR_MINSEEDSIZE'        => 'To Download you Need to Seed at Least a Minimum of %1$s Torrent.',
@@ -731,19 +733,19 @@ $lang = array_merge($lang, array(
     '30_MINS'               => '30 minutes',
     '6_HOURS'               => '6 hours',
 
-	#Template Related
-	'NUKED_TORRENT'			=> 'NUKED TORRENT',
-	'FEE_TORRENT'			=> 'FREE TORRENT',
-	'EXTER_TRACKER'			=> 'External Tracker',
+    #Template Related
+    'NUKED_TORRENT'         => 'NUKED TORRENT',
+    'FEE_TORRENT'           => 'FREE TORRENT',
+    'EXTER_TRACKER'         => 'External Tracker',
 
-	'DHT_EXPL'				=> 'This Torrent supports DHT.  With a State-of-the-art Client, you\'ll be able to Download this Torrent even if a Central Tracker goes down.',
+    'DHT_EXPL'              => 'This Torrent supports DHT.  With a State-of-the-art Client, you\'ll be able to Download this Torrent even if a Central Tracker goes down.',
 
-	'DHT_SUPORT'			=> 'DHT Support',
-	'BANTORRENT'			=> 'Ban Torrent',
-	'BBCODE_HELP'			=> 'BBcode Help',
-	'CLICK_TO_INSERT'		=> 'Click a Smiley to Insert it into your Message.',
-	'SMILIE_LIST'			=> 'Smiley List',
-	'WARNNED'				=> 'Warrned',
+    'DHT_SUPORT'            => 'DHT Support',
+    'BANTORRENT'            => 'Ban Torrent',
+    'BBCODE_HELP'           => 'BBcode Help',
+    'CLICK_TO_INSERT'       => 'Click a Smiley to Insert it into your Message.',
+    'SMILIE_LIST'           => 'Smiley List',
+    'WARNNED'               => 'Warrned',
 ));
 
 $u_datetime = array(
