@@ -9,8 +9,6 @@
              <form method="post" action="./memberslist.php?mode=group">
             <li>Groups: <span title="">{S_GROUP_OPTIONS} <input class="btnlite" name="submit" value="Go" type="submit"></span></li>
             <li>Location: <span title="location">{LOCATION}</span></li>
-            <li>Occupation: <span title="occupation"></span></li>
-            <li>Interests: <span title="interests"></span></li>
             <li>Age: <span title="age">{AGE}</span></li>
             <!-- IF U_IP -->
             <li>{L_USER_IP}: <span title="userIP">{U_IP}</span></li>
@@ -44,7 +42,7 @@
             <li>Comments Left: <span title="{T_COMMENTS}">{T_COMMENTS}</span></li>
             <li>Thanks Left: <span title="{T_THANKS}">{T_THANKS}</span></li>
             <li>Total Posts: <span title="{CP_POST_COUNT}">{CP_POST_COUNT}</li>
-			<li>[{POSTS_PCT} / {POSTS_DAY} ]<br><a href="./forums.php?action=search&search_id={CP_UID}">Search user’s posts</a></li>
+			<li>[{POSTS_PCT} / {POSTS_DAY} ]<br><a href="./forum.php?action=search&author_id={CP_UID}">Search user’s posts</a></li>
 			<li>{L_ACTIVE_IN_FORUM}: <span title="{L_ACTIVE_IN_FORUM}"><b><a href="{U_ACTIVE_FORUM}">{ACTIVE_FORUM}</a></b></span></li>
 			<li>{L_ACTIVE_IN_TOPIC}: <span title="{L_ACTIVE_IN_TOPIC}"><b><a href="{U_ACTIVE_TOPIC}">{ACTIVE_TOPIC}</a></b></span></li>
             </ul>
@@ -76,14 +74,6 @@
             </ul>
             </p>
             <br clear="all" >
-            
-            
-            <h3>Ranking</h3>
-            <p>
-            <ul class="stats nobullet">
-            <li>Coming Soon: <span title=""></span></li>
-            </ul>
-            </p>
             </div>
 
             
@@ -93,9 +83,7 @@
 	<h3>Signature</h3>
 	<tr valign="middle">
 	<td class="row3">
-    <div id="nn&nbsp;">
 	<div class="postbody" style="padding: 10px;">{SIGNATURE}</div>
-	</div>
 	</td>
 	</td>
 	</table>
@@ -122,7 +110,7 @@ im sad i dont have a signature yet :(
 
 <tr valign="middle">
 <td class="row3">
-<div id="nn&nbsp;">
+<div id="nnmyuploads">
 <br clear="all">
     <span>
       <strong>Pages {CURENT_PAGEMYU}/{TOTTAL_PAGESMYU}</strong>
@@ -198,7 +186,7 @@ im sad i dont have a signature yet :(
 <h3>{L_YOUR_TORRENTS}</h3>
 <tr valign="middle">
 <td class="row3">
-<div id="nn&nbsp;">
+<div id="nnmyuploads">
 {L_NO_TORRENTS}
 </div>
 </td></tr>
@@ -210,7 +198,7 @@ im sad i dont have a signature yet :(
 <tbody><h3>{L_TOR_IMG_SEED}</h3>
 <tr valign="middle">
 <td class="row3">
-<div id="nn&nbsp;">
+<div id="nnmyseed">
 <br clear="all">
     <span>
       <strong>Pages {CURENT_PAGEMYS}/{TOTTAL_PAGESMYS}</strong>
@@ -228,15 +216,16 @@ im sad i dont have a signature yet :(
 <br>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tbody><tr>
-<td class="colhead" align="center">Type</td>
-<td class="colhead" align="left">Name</td>
-<td class="colhead" align="right"><img src="themes/Bitfarm/pics/leechers.png" alt="Leechers" title="Leechers" border="0"></td>
-<td class="colhead" align="center"><img src="themes/Bitfarm/pics/peers.gif" alt="addedby" title="addedby" border="0"></td>
+<td class="ttable_head" align="center">Type</td>
+<td class="ttable_head" align="left">Name</td>
+<td class="ttable_head" align="center"><img src="themes/Bitfarm/pics/leechers.png" alt="Leechers" title="Leechers" border="0"></td>
+<td class="ttable_head" align="center"><img src="themes/Bitfarm/pics/leechers.png" alt="addedby" title="addedby" border="0"></td>
+<td class="ttable_head" align="center"><img src="themes/Bitfarm/pics/leechers.png" alt="addedby" title="addedby" border="0"></td>
 </tr>
 <!-- BEGIN torrent_varmys -->
-<tr>
-<td style="padding: 0px;" align="center"><a href="./torrents.php?cat=16">{torrent_varmys.CATEGORY}</a></td>
-<td align="left">
+<tr class="t-row">
+<td class="ttable_col1" align="center"><a href="./torrents.php?cat=16">{torrent_varmys.CATEGORY}</a></td>
+<td class="ttable_col2" nowrap="nowrap" align="left">
   <nobr>
     <p class="title">
 	   <nobr>
@@ -257,14 +246,10 @@ im sad i dont have a signature yet :(
 	  <!-- IF not torrent_varmys.LOCAL_T --><!-- IF torrent_varmys.REFRESH_T --><a href="scrape-external.php?id={torrent_varmys.ID}&amp;tracker=&amp;return={S_RETURN}"><img src="themes/Bitfarm/pics/refresh.png" alt="Refresh Peer Data" title="Refresh Peer Data" border="0"></a>
 	  <!-- ELSE --><img src="themes/Bitfarm/pics/refresh_gray.png" alt="Stats Updated less than 30min ago" title="Stats Updated less than 30min ago" border="0"><!-- ENDIF -->
 	  <!-- IF torrent_varmys.NEED_AUTH -->{torrent_varmys.AUTH_LINK}<!-- ENDIF --><!-- ENDIF -->
-	  <br>
-	  <span id="ID{torrent_varmys.ID}">
-	  <a onclick="sndReq('op=view_details&amp;torrent={torrent_varmys.ID}', 'ID{torrent_varmys.ID}')"><img src="themes/Bitfarm/pics/plus.gif" alt="Torrent Details" title="Torrent Details" border="0"></a>
-	  </span>
 </td>
-<td align="right"><b>{torrent_varmys.SEEDERS}</b></td>
-<td align="right"><b>{torrent_varmys.LEECHERS}</b></td>
-<td align="center"><!-- IF torrent_varmys.ANONUMUS_UPLO -->{L_ANONUMUS} <!-- ELSE --> <a href="user.php?op=profile&amp;id={torrent_varmys.UPLODER_ID}"><font color="{torrent_varmys.UPLDER_COLOR}">{torrent_varmys.UPLOADERS_NAM}</font></a><!-- ENDIF --></td>
+<td class="ttable_col1" align="center"><b>{torrent_varmys.SEEDERS}</b></td>
+<td class="ttable_col1" align="center"><b>{torrent_varmys.LEECHERS}</b></td>
+<td class="ttable_col1" align="center"><!-- IF torrent_varmys.ANONUMUS_UPLO -->{L_ANONUMUS} <!-- ELSE --> <a href="user.php?op=profile&amp;id={torrent_varmys.UPLODER_ID}"><font color="{torrent_varmys.UPLDER_COLOR}">{torrent_varmys.UPLOADERS_NAM}</font></a><!-- ENDIF --></td>
 </tr>
 <!-- END torrent_varmys -->
 </tbody></table>

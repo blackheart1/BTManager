@@ -250,29 +250,29 @@
 <input type="hidden" name="mode" value="avatar" />
 <table class="tablebg" width="100%" cellspacing="0">
 
-<td class="row1" width="35%"><b class="genmed">Current image: </b><br /><span class="gensmall">Maximum dimensions; width: {AVATAR_MAXWT} pixels, height: {AVATAR_MAXHT} pixels, file size: {AVATAR_MAXSZ}'s.</span></td>
+<td class="row1" width="35%"><b class="genmed">Current image: </b><br /><span class="gensmall">{_AVATAR_EXPLAIN}.</span></td>
 
 	<td class="row2" align="center"><br />
-		{CP_UAVATAR}<br /><br /><input type="checkbox" class="radio" name="delete" />&nbsp;<span class="gensmall">Delete image</span>
+		{CP_UAVATAR}<br /><br /><input type="checkbox" class="radio" name="delete" />&nbsp;<span class="gensmall">{L_DELETE_AVATAR}</span>
 		</td>
 </tr>
 <!-- IF ALLOW_AVATAR  -->
 <!-- IF ALLOW_AVATAR_UPLOAD  -->
 	<tr>
-		<td class="row1" width="35%"><b class="genmed">Upload from your machine: </b></td>
+		<td class="row1" width="35%"><b class="genmed">{L_UPLOAD_LOCAL_AVATAR}: </b><br />{L_UPLOAD_LOCAL_AVATAR_EXP}</td>
 		<td class="row2"><input class="post" type="file" name="avupload" /></td>
 	</tr>
 <!-- ENDIF -->
-<!-- IF ALLOW_AVATAR_UPLOAD  -->
+<!-- IF ALLOW_REMOTE_UPLOAD  -->
 	<tr>
-		<td class="row1" width="35%"><b class="genmed">Upload from a URL: </b><br /><span class="gensmall">Enter the URL of the location containing the image. The image will be copied to this site.</span></td>
+		<td class="row1" width="35%"><b class="genmed">{L_UPLOAD_EXT_AVATAR}: </b><br /><span class="gensmall">{L_UPLOAD_EXT_AVATAR_EXP}</span></td>
 
 		<td class="row2"><input class="post" type="text" name="uploadurl" size="40" value="" /></td>
 	</tr>
 <!-- ENDIF -->
-<!-- IF ALLOW_AVATAR_UPLOAD  -->
+<!-- IF ALLOW_AVATAR_LINK  -->
 	<tr>
-		<td class="row1" width="35%"><b class="genmed">Link off-site: </b><br /><span class="gensmall">Enter the URL of the location containing the avatar image you wish to link to.</span></td>
+		<td class="row1" width="35%"><b class="genmed">{L_LINK_EXT_AVATAR}: </b><br /><span class="gensmall">{L_LINK_EXT_AVATAR_EXP}</span></td>
 		<td class="row2"><input class="post" type="text" name="remotelink" size="40" value="" /></td>
 	</tr>
 <!-- ENDIF -->
@@ -282,12 +282,12 @@ function ChangeThumb(pic) {
 }
 </script>
 	<tr>
-		<td class="row1" width="35%"><b class="genmed">Avatar dimensions: </b><br /><span class="gensmall">Specify the width and height of the avatar, leave blank to attempt automatic verification.</span></td>
+		<td class="row1" width="35%"><b class="genmed">{L_LINK_REMOTE_SIZE}: </b><br /><span class="gensmall">{L_LINK_REMOTE_SIZE_EXPLAIN}</span></td>
 
-		<td class="row2"><input class="post" type="text" name="width" size="3" value="{AVATAR_SETWT}" /> <span class="gen">px X </span> <input class="post" type="text" name="height" size="3" value="{AVATAR_SETHT}" /> <span class="gen">px</span></td>
+		<td class="row2"><input class="post" type="text" name="width" size="3" value="{AVATAR_SETWT}" /> <span class="gen">{L_PIXEL} X </span> <input class="post" type="text" name="height" size="3" value="{AVATAR_SETHT}" /> <span class="gen">{L_PIXEL}</span></td>
 	</tr>
 	<tr>
-		<td class="row1" width="35%"><b class="genmed">Local gallery: </b></td>
+		<td class="row1" width="35%"><b class="genmed">{L_AVATAR_GALLERY}: </b></td>
 		<td class="row2"><img src="avatars/blank.gif" name="Thumb" class="image" /><br><select name="avgallery" onChange="if(this.options[this.selectedIndex].value != 'none') ChangeThumb(this.options[this.selectedIndex].value);" onKeyUp="if(this.options[this.selectedIndex].value != 'none') ChangeThumb(this.options[this.selectedIndex].value);">{AVATAR_MAXSZ_SEL}</select></td>
 	</tr>
 
@@ -304,7 +304,7 @@ function ChangeThumb(pic) {
 <table class="tablebg" width="100%" cellspacing="0">
 
 <tr>
-	<td class="row1" width="35%"><b class="genmed">Mod Comments: </b></td>
+	<td class="row1" width="35%"><b class="genmed">{L_MOD_COMMENTS}: </b></td>
 	<td class="row2"><textarea name="modcomment" rows="8" cols="60">{CP_MOD_COMENTS}</textarea></td>
 </tr>
 <tr>
@@ -316,20 +316,20 @@ function ChangeThumb(pic) {
 	<td class="row2">{A_LEVEL}</td>
 </tr>
 <tr>
-	<td class="row1" width="35%"><b class="genmed">WARNNED: </b></td>
+	<td class="row1" width="35%"><b class="genmed">{L_WARNNED}: </b></td>
 	<td class="row2"><!-- IF U_IS_WARNED -->
-	{L_YES}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Warned Tell {U_WARNED_TELL}<br><b>Delete Warning&nbsp;<b><input name=warned value=no type=checkbox>
+	{L_YES}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{L_WARNED_TILL} {U_WARNED_TELL}<br><b>{L_DELETE_WARNING}&nbsp;<b><input name=warned value=no type=checkbox>
 	<!-- ELSE -->
    {L_NO}
-    <br><b>WARN:</b> For <select name=warnlength>
+    <br>{L_WARN_USER_FOR} <select name=warnlength>
     <option value=0>------</option>
-    <option value=604800>1 week</option>
-    <option value=1209600>2 weeks</option>
-    <option value=2419200>4 weeks</option>
-    <option value=4838400>8 weeks</option>
-    <option value=-1>unlimited time</option>
+    <option value=604800>{L_ONE_WEEK}</option>
+    <option value=1209600>{L_TWO_WEEK}</option>
+    <option value=2419200>{L_FOUR_WEEK}</option>
+    <option value=4838400>{L_EIGHT_WEEK}</option>
+    <option value=-1>{L_NO_LIMET}</option>
     </select>
-	<br><b>Reason:<b>
+	<br><b>{L_SORT_REASON}:<b>
 	<br>
     <input type="text" rows="5" size ="40" name="warnpm"><br />
 	{L_UCP_WARN_REASON_EXPL}
@@ -417,27 +417,27 @@ function ChangeThumb(pic) {
 	<td class="row2"><b class="gen">{CP_UNAME}</b></td>
 </tr>
 <tr>
-	<td class="row1" width="35%"><b class="genmed">{L_COMPLETE_NAME}: </b><br /><span class="gensmall">Length must be between 3 and 20 characters.</span></td>
+	<td class="row1" width="35%"><b class="genmed">{L_COMPLETE_NAME}: </b><br /><span class="gensmall">{L_USER_NICK_EXP}</span></td>
 
 	<td class="row2"><input type="text" name="name" value="{CP_USNAME}" size ="30" autocomplete="off" /></td>
 </tr>
 <!-- IF ALLOW_EMAIL_CHANGE -->
 <tr>
-	<td class="row1" width="35%"><b class="genmed">E-mail address: </b><br /><span class="gensmall">A Comfermation email well be sent if you are changing your e-mail address.</span></td>
+	<td class="row1" width="35%"><b class="genmed">{L_NEW_EMAIL}: </b><br /><span class="gensmall">{L_NEW_EMAIL_EXP}</span></td>
 	<td class="row2"><input autocomplete="off" type="text" class="post" name="new_email" size="30" maxlength="100" value="" /></td>
 </tr>
 	<tr>
-		<td class="row1" width="35%"><b class="genmed">Confirm e-mail address: </b><br /><span class="gensmall">You only need to specify this if you are changing your e-mail address.</span></td>
+		<td class="row1" width="35%"><b class="genmed">{L_CONFIRM_EMAIL}: </b><br /><span class="gensmall">{L_CONFIRM_EMAIL_EXP}</span></td>
 
 		<td class="row2"><input autocomplete="off" type="text" class="post" name="email_confirm" size="30" maxlength="100" value="" /></td>
 	</tr>
 <!-- ENDIF -->
 	<tr>
-		<td class="row1" width="35%"><b class="genmed">New password: </b><br /><span class="gensmall">Must be between 6 and 30 characters.</span></td>
+		<td class="row1" width="35%"><b class="genmed">{L_NEW_PASSWORD}: </b><br /><span class="gensmall">{L_PASSWORD_EXP}</span></td>
 		<td class="row2"><input autocomplete="off" type="password" class="post" name="newpasswd" size="30" maxlength="255" value="" /></td>
 	</tr>
 	<tr>
-		<td class="row1" width="35%"><b class="genmed">Confirm password: </b><br /><span class="gensmall">You only need to confirm your password if you changed it above.</span></td>
+		<td class="row1" width="35%"><b class="genmed">{L_CONFIRM_PASSWORD}: </b><br /><span class="gensmall">{L_CONFIRM_PASSWORD_EXPLAIN}</span></td>
 
 		<td class="row2"><input autocomplete="off" type="password" class="post" name="newpasswdconf" size="30" maxlength="255" value="" /></td>
 	</tr>
@@ -621,48 +621,48 @@ function ChangeThumb(pic) {
 <td  class="row3" >
 	<div class="caption">
 <div class="cap-left">
-<div class="cap-right">&nbsp;Edit profile&nbsp;</div>
+<div class="cap-right">&nbsp;{L_EDIT_PROFILE}&nbsp;</div>
 </div>
 </div>
 <table class="tablebg" width="100%" cellspacing="0">
 <tr>
-	<td class="row1" colspan="2"><span class="gensmall">Please note that this information may be viewable to other members. Be careful when including any personal details. Any fields marked with a * must be completed.</span></td>
+	<td class="row1" colspan="2"><span class="gensmall">{L_EDIT_PROFILE_EXP}</span></td>
 </tr>
 
 <tr>
-	<td class="row1" width="35%"><img src="themes/Bitfarm/pics/button_icq.gif" alt="" title="" border="0"> <b class="genmed">ICQ number: </b></td>
+	<td class="row1" width="35%"><img src="themes/Bitfarm/pics/button_icq.gif" alt="" title="" border="0"> <b class="genmed">{L_ICQ_IM}: </b></td>
 	<td class="row2"><input class="post" type="text" name="icq" size="30" maxlength="15" value="{U_ICQ}" /></td>
 </tr>
 <tr>
-	<td class="row1" width="35%"><img src="themes/Bitfarm/pics/button_aim.gif" alt="" title="" border="0"> <b class="genmed">AOL Instant Messenger: </b></td>
+	<td class="row1" width="35%"><img src="themes/Bitfarm/pics/button_aim.gif" alt="" title="" border="0"> <b class="genmed">{L_AOL_IM}: </b></td>
 	<td class="row2"><input class="post" type="text" name="aim" size="30" maxlength="255" value="{U_AIM}" /></td>
 </tr>
 <tr>
-	<td class="row1" width="35%"><img src="themes/Bitfarm/pics/button_msn.gif" alt="" title="" border="0"> <b class="genmed">MSN Messenger: </b></td>
+	<td class="row1" width="35%"><img src="themes/Bitfarm/pics/button_msn.gif" alt="" title="" border="0"> <b class="genmed">{L_MSN_IM}: </b></td>
 	<td class="row2"><input class="post" type="text" name="msn" size="30" maxlength="255" value="{U_MSN}" /></td>
 
 </tr>
 <tr>
-	<td class="row1" width="35%"><img src="themes/Bitfarm/pics/button_yahoo.gif" alt="" title="" border="0"> <b class="genmed">Yahoo Messenger: </b></td>
+	<td class="row1" width="35%"><img src="themes/Bitfarm/pics/button_yahoo.gif" alt="" title="" border="0"> <b class="genmed">{L_YH_IM}: </b></td>
 	<td class="row2"><input class="post" type="text" name="yahoo" size="30" maxlength="255" value="{U_YIM}" /></td>
 </tr>
 <tr>
-	<td class="row1" width="35%"><img src="themes/Bitfarm/pics/button_jabber.gif" alt="" title="" border="0"> <b class="genmed">Jabber address: </b></td>
+	<td class="row1" width="35%"><img src="themes/Bitfarm/pics/button_jabber.gif" alt="" title="" border="0"> <b class="genmed">{L_JAB_IM}: </b></td>
 	<td class="row2"><input class="post" type="text" name="jabber" size="30" maxlength="255" value="{U_JABBER}" /></td>
 </tr>
 <tr>
-	<td class="row1" width="35%"><img src="themes/Bitfarm/pics/button_skype.gif" alt="" title="" border="0"> <b class="genmed">Skype Messenger: </b></td>
+	<td class="row1" width="35%"><img src="themes/Bitfarm/pics/button_skype.gif" alt="" title="" border="0"> <b class="genmed">{L_SKYPE_IM}: </b></td>
 	<td class="row2"><input class="post" type="text" name="skype" size="30" maxlength="255" value="{U_SKYPE}" /></td>
 </tr>
 <tr>
-	<td class="row1" width="35%"><b class="genmed">Location: </b></td>
+	<td class="row1" width="35%"><b class="genmed">{L_LOCATION}: </b></td>
 	<td class="row2"><select name="country">
 	{LOCATION}</select></td>
 </tr>
 	<tr>
-		<td class="row1" width="35%"><b class="genmed">Birthday: </b><br /><span class="gensmall">Setting a year will list your age when it is your birthday.</span></td>
+		<td class="row1" width="35%"><b class="genmed">{L_BIRTHDAY}: </b><br /><span class="gensmall">{L_BIRTHDAY_EXPLAIN}</span></td>
 		<td class="row2">
-		<span class="genmed">Day:</span>
+		<span class="genmed">{L_DAY}:</span>
 		     <select name="bday_day">
 			      <option <!-- IF U_BITH_D == 0 -->selected="selected" <!-- ENDIF -->value="0">--</option>
 				  <option <!-- IF U_BITH_D == 1 -->selected="selected" <!-- ENDIF -->value="1">1</option>
@@ -697,7 +697,7 @@ function ChangeThumb(pic) {
 				  <option <!-- IF U_BITH_D == 30 -->selected="selected" <!-- ENDIF -->value="30">30</option>
 				  <option <!-- IF U_BITH_D == 31 -->selected="selected" <!-- ENDIF -->value="31">31</option>
 				</select>
-		<span class="genmed">Month:</span>
+		<span class="genmed">{L_MONTH}:</span>
 		  <select name="bday_month">
 		    <option <!-- IF U_BITH_M == 0 -->selected="selected" <!-- ENDIF -->value="0">--</option>
 			<option <!-- IF U_BITH_M == 1 -->selected="selected" <!-- ENDIF -->value="1">1</option>
@@ -713,7 +713,7 @@ function ChangeThumb(pic) {
 			<option <!-- IF U_BITH_M == 11 -->selected="selected" <!-- ENDIF -->value="11">11</option>
 			<option <!-- IF U_BITH_M == 12 -->selected="selected" <!-- ENDIF -->value="12">12</option>
 	     </select>
-	   <span class="genmed">Year:</span>
+	   <span class="genmed">{L_YEAR}:</span>
 	     <select name="bday_year">
 		   <option <!-- IF U_BITH_Y == 0 -->selected="selected" <!-- ENDIF -->value="0">--</option>
 		   <option <!-- IF U_BITH_Y == 1910 -->selected="selected" <!-- ENDIF -->value="1910">1910</option>
@@ -879,6 +879,7 @@ function ChangeThumb(pic) {
 </tr>
 <tr>
 
+
 	<td ccolspan="2" align="center"><input class="btnmain" type="submit" name="submit" value="{L_SUBMIT}" />&nbsp;&nbsp;<input class="btnlite" type="reset" value="{L_RESET}" name="reset" /></td>
 </tr>
 </table>
@@ -959,6 +960,7 @@ function ChangeThumb(pic) {
 	</tr>
 
 	<!-- IF TOTAL_TOPICS -->
+
 		<tr>
 			<td class="row3" colspan="4">
 				<table width="100%" cellspacing="1">
@@ -1302,7 +1304,7 @@ function ChangeThumb(pic) {
 	<td class="row1" colspan="3">
 		<table width="100%" cellspacing="1" cellpadding="4">
 		<tr>
-			<td align="right" valign="top" nowrap="nowrap"><b class="genmed">{L_JOINED}: </b></td>
+			<td align="right" valign="top" nowrap="nowrap"><b class="genmed">{l_JOINED}: </b></td>
 
 			<td width="100%"><b class="gen">{CP_UREGDATE}</b></td>
 		</tr>

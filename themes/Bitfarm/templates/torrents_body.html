@@ -24,7 +24,7 @@
 
 <div class="cap-right">
 
-<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnTorrents');">Torrents</a>
+<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnTorrents');">{L_TORRENTS}</a>
 
 </div>
 
@@ -42,25 +42,25 @@
 
 <tbody><tr>
 
-<td class="ttable_head" align="center"><a href="/torrents.php?sort=4&amp;type=<!-- IF T_SORT == d -->{T_SHORT}<!-- ELSE -->desc<!-- ENDIF -->" title="Sort by Type desc">Type</a></td>
+<td class="ttable_head" align="center"><a href="/torrents.php?sort=4&amp;type=<!-- IF T_SORT == d -->{T_SHORT}<!-- ELSE -->desc<!-- ENDIF -->" title="{L_SORT_CAT}">{L_TYPE}</a></td>
 
-<td class="ttable_head" align="left"><a href="/torrents.php?sort=1&amp;type=<!-- IF T_SORT == a -->{T_SHORT}<!-- ELSE -->desc<!-- ENDIF -->" title="Sort by Name asc">Name</a></td>
+<td class="ttable_head" align="left"><a href="/torrents.php?sort=1&amp;type=<!-- IF T_SORT == a -->{T_SHORT}<!-- ELSE -->desc<!-- ENDIF -->" title="{L_SORT_NAME}">{L_NAME}</a></td>
 
 <td class="ttable_head" align="left">DL</td>
 
-<td class="ttable_head" align="center"><a href="/torrents.php?sort=2&amp;type=<!-- IF T_SORT == b -->{T_SHORT}<!-- ELSE -->desc<!-- ENDIF -->" title="Sort by Number of files desc"><img src="themes/Bitfarm/pics/completed.gif" alt="Number of Files" title="Number of Files" border="0"></a></td>
+<td class="ttable_head" align="center"><a href="/torrents.php?sort=2&amp;type=<!-- IF T_SORT == b -->{T_SHORT}<!-- ELSE -->desc<!-- ENDIF -->" title="{L_SORT_NUM_FILES}"><img src="themes/Bitfarm/pics/completed.gif" alt="Number of Files"  border="0"></a></td>
 
-<td class="ttable_head" align="center"><img src="themes/Bitfarm/pics/comments.png" alt="Comments" title="Comments" border="0"></td>
+<td class="ttable_head" align="center"><img src="themes/Bitfarm/pics/comments.png" alt="{L_COMMENTS}" title="{L_COMMENTS}" border="0"></td>
 
-<td class="ttable_head" align="center"><img src="themes/Bitfarm/pics/report.gif" alt="Ratings" title="Ratings" border="0"></td>
+<td class="ttable_head" align="center"><img src="themes/Bitfarm/pics/report.gif" alt="{L_RATINGS}" title="{L_RATINGS}" border="0"></td>
 
-<td class="ttable_head" align="center"><a href="/torrents.php?sort=5&amp;type=<!-- IF T_SORT == e -->{T_SHORT}<!-- ELSE -->desc<!-- ENDIF -->" title="Sort by Number of files desc"><img src="themes/Bitfarm/pics/servers.png" alt="Size" title="Size" border="0"></a></td>
+<td class="ttable_head" align="center"><a href="/torrents.php?sort=5&amp;type=<!-- IF T_SORT == e -->{T_SHORT}<!-- ELSE -->desc<!-- ENDIF -->" title="{L_SORT_SIZE}"><img src="themes/Bitfarm/pics/servers.png" alt="Size"  border="0"></a></td>
 
 <td class="ttable_head" align="center"><img src="themes/Bitfarm/pics/completed.png" alt="Downloaded" title="Downloaded" border="0"></td>
 
-<td class="ttable_head" align="center"><a href="/torrents.php?sort=7&amp;type=<!-- IF T_SORT == g -->{T_SHORT}<!-- ELSE -->desc<!-- ENDIF -->" title="Sort by Seeds desc"><img src="themes/Bitfarm/pics/seeders.png" alt="Seeds" title="Seeds" border="0"></a></td>
+<td class="ttable_head" align="center"><a href="/torrents.php?sort=7&amp;type=<!-- IF T_SORT == g -->{T_SHORT}<!-- ELSE -->desc<!-- ENDIF -->" title="{L_SORT_SEED}"><img src="themes/Bitfarm/pics/seeders.png" alt="Seeds"  border="0"></a></td>
 
-<td class="ttable_head" align="center"><a href="/torrents.php?sort=8&amp;type=<!-- IF T_SORT == h -->{T_SHORT}<!-- ELSE -->desc<!-- ENDIF -->" title="Sort by Leechers desc"><img src="themes/Bitfarm/pics/leechers.png" alt="Leechers" title="Leechers" border="0"></a></td>
+<td class="ttable_head" align="center"><a href="/torrents.php?sort=8&amp;type=<!-- IF T_SORT == h -->{T_SHORT}<!-- ELSE -->desc<!-- ENDIF -->" title="{L_SORT_LEECH}"><img src="themes/Bitfarm/pics/leechers.png" alt="Leechers"  border="0"></a></td>
 
 <td class="ttable_head" align="center"><img src="themes/Bitfarm/pics/peers.gif" alt="addedby" title="addedby" border="0"></td>
 
@@ -105,9 +105,9 @@
 
 	  <!-- IF torrent_var.CAN_BAN --><a href="edit.php?op=ban&amp;id={torrent_var.ID}"><img src="themes/Bitfarm/pics/ban.png" alt="Ban Torrent" title="Ban Torrent" border="0"></a><!-- ENDIF -->
 
-	  <!-- IF not torrent_var.LOCAL_T --><!-- IF torrent_var.REFRESH_T --><a href="scrape-external.php?id={torrent_var.ID}&amp;tracker={torrent_var.TRACKER_URL}&amp;return=torrents.php"><img src="themes/Bitfarm/pics/refresh.png" alt="Refresh Peer Data" title="Refresh Peer Data" border="0"></a>
+	  <!-- IF not torrent_var.LOCAL_T --><!-- IF torrent_var.REFRESH_T --><a href="scrape-external.php?id={torrent_var.ID}&amp;tracker={torrent_var.TRACKER_URL}&amp;return=torrents.php"><img src="themes/Bitfarm/pics/refresh.png" alt="Refresh Peer Data" title="{L_UPDATE_PEERS}" border="0"></a>
 
-	  <!-- ELSE --><img src="themes/Bitfarm/pics/refresh_gray.png" alt="Stats Updated less than 30min ago" title="Stats Updated less than 30min ago" border="0"><!-- ENDIF --><!-- ENDIF -->
+	  <!-- ELSE --><img src="themes/Bitfarm/pics/refresh_gray.png" alt="Stats Updated less than 30min ago" title="{L_UPDATED_DONE}" border="0"><!-- ENDIF --><!-- ENDIF -->
 
 	  <!-- IF torrent_var.NEED_AUTH -->{torrent_var.AUTH_LINK}<!-- ENDIF -->
 
