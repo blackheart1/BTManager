@@ -124,21 +124,21 @@
 		<tr>
 			<th class="name">
 				<span class="rank-img">
-				Rank
+				{L_RANK}
 				</span>
-				Username
+				{L_USER_NAME}
 			</th>
 			<th class="posts">
-				Posts
+				{L_POSTS}
 			</th>
 			<th class="info">
-			Location
+			{L_LOCATION}
 			</th>
 			<th class="joined">
-			Joined
+			{L_JOINED}
 			</th>
 			<th class="active">
-			Last active
+			{L_LAST_ACTIVE}
 			</th>
 		</tr>
 		</thead>
@@ -149,7 +149,7 @@
 		<td>
 			<span class="rank-img"></span>
 			<a href="./user.php?op=profile&id={users_found.ID}">{users_found.NAME}</a>
-			<br>[&nbsp;<a href="#" onclick="insert_single('{users_found.NAME}'); return false;">Select</a>&nbsp;]
+			<br>[&nbsp;<a href="#" onclick="insert_single('{users_found.NAME}'); return false;">{L_SELECT}</a>&nbsp;]
 		</td>
 		<td class="posts">
 		<a href="./search.php?author_id={users_found.ID}&amp;sr=posts" title="Search user’s posts">{users_found.POSTCOUNT}</a>

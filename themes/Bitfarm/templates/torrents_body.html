@@ -58,11 +58,11 @@
 
 <td class="ttable_head" align="center"><img src="themes/Bitfarm/pics/completed.png" alt="Downloaded" title="Downloaded" border="0"></td>
 
-<td class="ttable_head" align="center"><a href="/torrents.php?sort=7&amp;type=<!-- IF T_SORT == g -->{T_SHORT}<!-- ELSE -->desc<!-- ENDIF -->" title="{L_SORT_SEED}"><img src="themes/Bitfarm/pics/seeders.png" alt="Seeds"  border="0"></a></td>
+<td class="ttable_head" align="center"><a href="/torrents.php?sort=7&amp;type=<!-- IF T_SORT == g -->{T_SHORT}<!-- ELSE -->desc<!-- ENDIF -->" title="{L_SORT_SEED}"><img src="themes/Bitfarm/pics/seeders.png" alt="{L_SEEDERS}" title="{L_SEEDERS}" border="0"></a></td>
 
-<td class="ttable_head" align="center"><a href="/torrents.php?sort=8&amp;type=<!-- IF T_SORT == h -->{T_SHORT}<!-- ELSE -->desc<!-- ENDIF -->" title="{L_SORT_LEECH}"><img src="themes/Bitfarm/pics/leechers.png" alt="Leechers"  border="0"></a></td>
+<td class="ttable_head" align="center"><a href="/torrents.php?sort=8&amp;type=<!-- IF T_SORT == h -->{T_SHORT}<!-- ELSE -->desc<!-- ENDIF -->" title="{L_SORT_LEECH}"><img src="themes/Bitfarm/pics/leechers.png" alt="{L_LEECHERS}" title="{L_LEECHERS}" border="0"></a></td>
 
-<td class="ttable_head" align="center"><img src="themes/Bitfarm/pics/peers.gif" alt="addedby" title="addedby" border="0"></td>
+<td class="ttable_head" align="center"><img src="themes/Bitfarm/pics/peers.gif" alt="{L_ADDED_BY}" title="{L_ADDED_BY}" border="0"></td>
 
 </tr>
 
@@ -93,7 +93,7 @@
 
 	  <b><a style="text-decoration: none;" href="details.php?id={torrent_var.ID}<!-- IF HIT_COUNT -->&amp;hit=1<!-- ENDIF -->" title="{torrent_var.FULL_NAME}">{torrent_var.SHORTNAME}</a></b>
 
-	  </nobr></p><i><u>Added: {torrent_var.DATE_ADDED}</u></i>
+	  </nobr></p><i><u>{L_ADDED}: {torrent_var.DATE_ADDED}</u></i>
 
 	  </nobr><br>
 

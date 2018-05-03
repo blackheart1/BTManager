@@ -50,7 +50,7 @@
                     <dl>
                         <dd><br /><form name="quickJump">
                                     <select style="font-size:10px; width:12em" name="gameList" onchange="location.href = quickJump.gameList.options[quickJump.gameList.selectedIndex].value">
-                                        <option value="arcade.php" selected="selected">Select a Game</option>
+                                        <option value="arcade.php" selected="selected">{L_SELECT_A_GAME}</option>
                                         <!-- BEGIN quickjumprow -->
                                         	<option value="viewgame.php?g={quickjumprow.GAME_ID}&sid={SESSION_ID}">{quickjumprow.GAME_NAME}</option>
                                         <!-- END quickjumprow -->

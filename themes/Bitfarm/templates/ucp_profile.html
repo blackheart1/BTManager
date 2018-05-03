@@ -3,13 +3,13 @@
 
 <div class="content">
 	<div class="right-column">
-    		<h3>Personal</h3>
+    		<h3>{L_PERSONAL}</h3>
             <p>
              <ul class="stats nobullet">
              <form method="post" action="./memberslist.php?mode=group">
-            <li>Groups: <span title="">{S_GROUP_OPTIONS} <input class="btnlite" name="submit" value="Go" type="submit"></span></li>
-            <li>Location: <span title="location">{LOCATION}</span></li>
-            <li>Age: <span title="age">{AGE}</span></li>
+            <li>{L_GROUPS}: <span title="">{S_GROUP_OPTIONS} <input class="btnlite" name="submit" value="Go" type="submit"></span></li>
+            <li>{L_LOCATION}: <span title="location">{LOCATION}</span></li>
+            <li>{L_AGE}: <span title="age">{AGE}</span></li>
             <!-- IF U_IP -->
             <li>{L_USER_IP}: <span title="userIP">{U_IP}</span></li>
             <li>{L_USER_HOST}: <span title="userHOST">{U_IP_HOST}</span></li>
@@ -20,28 +20,28 @@
             <br clear="all" >
             
             
-            <h3>Contact</h3>
+            <h3>{L_CONTACT}</h3>
             <p>
             <ul class="stats nobullet">
-            <li>Email: <span title="EMAIL">{U_EMAIL}</span></li>
-            <li>PM: <span title="PM">{U_PM}</span></li>
-            <li>MSN/WLM: <span title="MSN">{U_MSN}</span></li>
-            <li>YIM: <span title="YIM">{U_YIM}</span></li>
-            <li>AIM: <span title="ICQ">{U_ICQ}</span></li>
-            <li>ICQ: <span title="ICQ">{U_ICQ}</span></li>
-            <li>Jabber: <span title="JABBER">{U_JABBA}</span></li>
-            <li>Skype: <span title="SKYPE">{U_SKYPE}</span></li>
+            <li>{L_EMAIL}: <span title="EMAIL">{U_EMAIL}</span></li>
+            <li>{L_PM}: <span title="PM">{U_PM}</span></li>
+            <li>{L_MSNWLM}: <span title="MSN">{U_MSN}</span></li>
+            <li>{L_YIM}: <span title="YIM">{U_YIM}</span></li>
+            <li>{L_AIM}: <span title="ICQ">{U_ICQ}</span></li>
+            <li>{L_ICQ}: <span title="ICQ">{U_ICQ}</span></li>
+            <li>{L_JABBER}: <span title="JABBER">{U_JABBA}</span></li>
+            <li>{L_SKYPE}: <span title="SKYPE">{U_SKYPE}</span></li>
             </ul>		
             </p>
             <br clear="all" >
             
             
-            <h3>Community</h3>
+            <h3>{L_COMMUNITY}</h3>
             <p>
             <ul class="stats nobullet">
-            <li>Comments Left: <span title="{T_COMMENTS}">{T_COMMENTS}</span></li>
-            <li>Thanks Left: <span title="{T_THANKS}">{T_THANKS}</span></li>
-            <li>Total Posts: <span title="{CP_POST_COUNT}">{CP_POST_COUNT}</li>
+            <li>{L_COMMENTS_LEFT}: <span title="{T_COMMENTS}">{T_COMMENTS}</span></li>
+            <li>{L_THANKS_LEFT}: <span title="{T_THANKS}">{T_THANKS}</span></li>
+            <li>{L_TOTAL_POSTS}: <span title="{CP_POST_COUNT}">{CP_POST_COUNT}</li>
 			<li>[{POSTS_PCT} / {POSTS_DAY} ]<br><a href="./forum.php?action=search&author_id={CP_UID}">Search user’s posts</a></li>
 			<li>{L_ACTIVE_IN_FORUM}: <span title="{L_ACTIVE_IN_FORUM}"><b><a href="{U_ACTIVE_FORUM}">{ACTIVE_FORUM}</a></b></span></li>
 			<li>{L_ACTIVE_IN_TOPIC}: <span title="{L_ACTIVE_IN_TOPIC}"><b><a href="{U_ACTIVE_TOPIC}">{ACTIVE_TOPIC}</a></b></span></li>
@@ -60,15 +60,15 @@
             <br clear="all" >
             
             
-            <h3>Stats</h3>
+            <h3>{L_PERSONAL_STATS}</h3>
             <p>
             <ul class="stats nobullet">
-            <li>Joined: <span title="{CP_UREGDATE}">{CP_UREGDATE}</span></li>
-            <li>Last Visit: <span title="{CP_ULASTSEEN}">{CP_ULASTSEEN}</span></li>
-            <li>Uploaded: <span title="{CP_UUPLOADED}">{CP_UUPLOADED}</span></li>
-            <li>Downloaded: <span title="{CP_UDOWNLOADED}">{CP_UDOWNLOADED}</span></li>
-            <li>Ratio: <span title="ratio">{CP_URATIO}</span></li>
-            <li>Warned: <span title="{$Rank.Hover}"><!-- IF CP_UWARNED -->{L_YES}<!-- ELSE -->{L_NO}<!-- ENDIF --></span></li>
+            <li>{L_JOINED}: <span title="{CP_UREGDATE}">{CP_UREGDATE}</span></li>
+            <li>{L_SORT_LAST_VISIT}: <span title="{CP_ULASTSEEN}">{CP_ULASTSEEN}</span></li>
+            <li>{L_UPLODED}: <span title="{CP_UUPLOADED}">{CP_UUPLOADED}</span></li>
+            <li>{L_DOWNED}: <span title="{CP_UDOWNLOADED}">{CP_UDOWNLOADED}</span></li>
+            <li>{L_RATIO}: <span title="ratio">{CP_URATIO}</span></li>
+            <li>{L_WARNED}: <span title="{$Rank.Hover}"><!-- IF CP_UWARNED -->{L_YES}<!-- ELSE -->{L_NO}<!-- ENDIF --></span></li>
             <!-- IF CP_WARN_USE --><li><span class="genmed">[ <a href="user.php?op=editprofile&id={CP_UID}&action=profile&mode=admin_reg_details">View user notes</a>  | <a href="user.php?op=editprofile&id={CP_UID}&action=profile&mode=admin_reg_details">Warn user</a> ]</span></li><!-- ENDIF -->			<!-- IF U_BAN_USER --><li>{L_BAN_ACCOUNT}:<span title="ban user">[{U_BAN_USER}]</span></li><!-- ENDIF -->
             <!-- IF U_BAN_SHOUTS --><li>{L_BAN_SHOUTS}:<span title="ban shout">[{U_BAN_SHOUTS}]</span></li><!-- ENDIF -->
             </ul>
@@ -80,7 +80,7 @@
 	<div class="center-column hideoverflow">
 	    <!-- IF SIGNATURE -->
 	<table class="tablebg" width="100%" cellspacing="0">
-	<h3>Signature</h3>
+	<h3>{L_SIGNATURE}</h3>
 	<tr valign="middle">
 	<td class="row3">
 	<div class="postbody" style="padding: 10px;">{SIGNATURE}</div>
@@ -88,18 +88,6 @@
 	</td>
 	</table>
     <br clear="all" >	
-<!-- ELSE -->
-<table class="tablebg" width="100%" cellspacing="0">
-<tbody>
-<h3>Signature</h3>
-<tr valign="middle">
-<td class="row3">
-<div id="nn&nbsp;">
-im sad i dont have a signature yet :(
-</div>
-</td></tr>
-</tbody></table>
-<br clear="all">
 <!-- ENDIF -->
 
 
@@ -128,10 +116,10 @@ im sad i dont have a signature yet :(
 <br>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tbody><tr>
-<td class="ttable_head" align="center"><a href="/torrents.php?sort=4&amp;type=desc" title="Sort by Type desc">Type</a></td>
-<td class="ttable_head" align="left"><a href="/torrents.php?sort=1&amp;type=asc" title="Sort by Name asc">Name</a></td>
-<td class="ttable_head" align="center"><a href="/torrents.php?sort=7&amp;type=desc" title="Sort by Seeds desc"><img src="themes/Bitfarm/pics/seeders.png" alt="Seeds" title="Seeds" border="0"></a></td>
-<td class="ttable_head" align="center"><a href="/torrents.php?sort=8&amp;type=desc" title="Sort by Leechers desc"><img src="themes/Bitfarm/pics/leechers.png" alt="Leechers" title="Leechers" border="0"></a></td>
+<td class="ttable_head" align="center">{L_TYPE}</td>
+<td class="ttable_head" align="left">{L_NAME}</td>
+<td class="ttable_head" align="center"><img src="themes/Bitfarm/pics/seeders.png" alt="{L_SEEDERS}" title="{L_SEEDERS}" border="0"></td>
+<td class="ttable_head" align="center"><img src="themes/Bitfarm/pics/leechers.png" alt="{L_LEECHERS}" title="{L_LEECHERS}" border="0"></td>
 </tr>
 <!-- BEGIN torrent_varmyu -->
 <tr class="t-row">
@@ -146,7 +134,8 @@ im sad i dont have a signature yet :(
 	  <img src="themes/Bitfarm/pics/dht.gif" alt="" title="" border="0"></span><!-- ENDIF -->
 	  <br />
 	  <b><a style="text-decoration: none;" href="details.php?id={torrent_varmyu.ID}<!-- IF HIT_COUNT -->&amp;hit=1<!-- ENDIF -->" title="{torrent_varmyu.FULL_NAME}">{torrent_varmyu.SHORTNAME}</a></b>
-	  </nobr></p><i><u>Added: {torrent_varmyumyu.DATE_ADDED}</u></i>
+	  </nobr></p><i><u>{L_ADDED}: {torrent_varmyu.DATE_ADDED}</u></i>
+	  </nobr></p><!-- IF torrent_varmyu.CAN_DOWN_LOAD --><a class="index" href="download.php?id={torrent_varmyu.ID}"><img style="border: medium none ;" alt="download" src="themes/Bitfarm/pics/download2.gif" align="right"></a><!-- ENDIF -->
 	  </nobr><br>
 	  <!-- IF torrent_varmyu.BANNED --><img src="themes/Bitfarm/pics/banned.png" alt="Banned torrent" title="Banned torrent" border="0"><!-- ENDIF -->
 	  <!-- IF torrent_varmyu.CAN_EDIT --><a href="edit.php?id={torrent_varmyu.ID}"><img src="themes/Bitfarm/pics/edit.gif" alt="Edit" title="Edit" border="0"></a><!-- ENDIF -->
@@ -216,11 +205,11 @@ im sad i dont have a signature yet :(
 <br>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tbody><tr>
-<td class="ttable_head" align="center">Type</td>
-<td class="ttable_head" align="left">Name</td>
-<td class="ttable_head" align="center"><img src="themes/Bitfarm/pics/leechers.png" alt="Leechers" title="Leechers" border="0"></td>
-<td class="ttable_head" align="center"><img src="themes/Bitfarm/pics/leechers.png" alt="addedby" title="addedby" border="0"></td>
-<td class="ttable_head" align="center"><img src="themes/Bitfarm/pics/leechers.png" alt="addedby" title="addedby" border="0"></td>
+<td class="ttable_head" align="center">{L_TYPE}</td>
+<td class="ttable_head" align="left">{L_NAME}</td>
+<td class="ttable_head" align="center"><img src="themes/Bitfarm/pics/seeders.png" alt="{L_SEEDERS}" title="{L_SEEDERS}" border="0"></td>
+<td class="ttable_head" align="center"><img src="themes/Bitfarm/pics/leechers.png" alt="{L_LEECHERS}" title="{L_LEECHERS}" border="0"></td>
+<td class="ttable_head" align="center"><img src="themes/Bitfarm/pics/peers.gif" alt="{L_ADDED_BY}" title="{L_ADDED_BY}" border="0"></td>
 </tr>
 <!-- BEGIN torrent_varmys -->
 <tr class="t-row">
@@ -236,6 +225,7 @@ im sad i dont have a signature yet :(
 	  <img src="themes/Bitfarm/pics/dht.gif" alt="" title="" border="0"></span><!-- ENDIF -->
 	  <br />
 	  <a style="text-decoration: none;" href="details.php?id={torrent_varmys.ID}<!-- IF HIT_COUNT -->&amp;hit=1<!-- ENDIF -->" title="{torrent_varmys.FULL_NAME}">{torrent_varmys.SHORTNAME}</a>
+	  </nobr></p><i><u>{L_ADDED}: {torrent_varmys.DATE_ADDED}</u></i>
 	  </nobr></p><!-- IF torrent_varmys.CAN_DOWN_LOAD --><a class="index" href="download.php?id={torrent_varmys.ID}"><img style="border: medium none ;" alt="download" src="themes/Bitfarm/pics/download2.gif" align="right"></a><!-- ENDIF -->
 
 	  </nobr><br>
@@ -306,10 +296,11 @@ im sad i dont have a signature yet :(
 <br>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tbody><tr>
-<td class="colhead" align="center">Type</td>
-<td class="colhead" align="left">Name</td>
-<td class="colhead" align="right"><img src="themes/Bitfarm/pics/leechers.png" alt="Leechers" title="Leechers" border="0"></td>
-<td class="colhead" align="center"><img src="themes/Bitfarm/pics/peers.gif" alt="addedby" title="addedby" border="0"></td>
+<td class="ttable_head" align="center">{L_TYPE}</td>
+<td class="ttable_head" align="left">{L_NAME}</td>
+<td class="ttable_head" align="center"><img src="themes/Bitfarm/pics/seeders.png" alt="{L_SEEDERS}" title="{L_SEEDERS}" border="0"></td>
+<td class="ttable_head" align="center"><img src="themes/Bitfarm/pics/leechers.png" alt="{L_LEECHERS}" title="{L_LEECHERS}" border="0"></td>
+<td class="ttable_head" align="center"><img src="themes/Bitfarm/pics/peers.gif" alt="{L_ADDED_BY}" title="{L_ADDED_BY}" border="0"></td>
 </tr>
 <!-- BEGIN torrent_varmyl -->
 <tr>
@@ -325,6 +316,7 @@ im sad i dont have a signature yet :(
 	  <img src="themes/Bitfarm/pics/dht.gif" alt="" title="" border="0"></span><!-- ENDIF -->
 	  <br />
 	  <a style="text-decoration: none;" href="details.php?id={torrent_varmyl.ID}<!-- IF HIT_COUNT -->&amp;hit=1<!-- ENDIF -->" title="{torrent_varmyl.FULL_NAME}">{torrent_varmyl.SHORTNAME}</a>
+	  </nobr></p><i><u>{L_ADDED}: {torrent_varmyl.DATE_ADDED}</u></i>
 	  </nobr></p><!-- IF torrent_varmyl.CAN_DOWN_LOAD --><a class="index" href="download.php?id={torrent_varmyl.ID}"><img style="border: medium none ;" alt="download" src="themes/Bitfarm/pics/download2.gif" align="right"></a><!-- ENDIF -->
 
 	  </nobr><br>
@@ -400,10 +392,11 @@ im sad i dont have a signature yet :(
 <br>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tbody><tr>
-<td class="colhead" align="center">Type</td>
-<td class="colhead" align="left">Name</td>
-<td class="colhead" align="right"><img src="themes/Bitfarm/pics/seeders.png" alt="Seeds" title="Seeds" border="0"></td>
-<td class="colhead" align="right"><img src="themes/Bitfarm/pics/leechers.png" alt="Leechers" title="Leechers" border="0"></td>
+<td class="ttable_head" align="center">{L_TYPE}</td>
+<td class="ttable_head" align="left">{L_NAME}</td>
+<td class="ttable_head" align="center"><img src="themes/Bitfarm/pics/seeders.png" alt="{L_SEEDERS}" title="{L_SEEDERS}" border="0"></td>
+<td class="ttable_head" align="center"><img src="themes/Bitfarm/pics/leechers.png" alt="{L_LEECHERS}" title="{L_LEECHERS}" border="0"></td>
+<td class="ttable_head" align="center"><img src="themes/Bitfarm/pics/peers.gif" alt="{L_ADDED_BY}" title="{L_ADDED_BY}" border="0"></td>
 </tr>
 <!-- BEGIN torrent_varmysn -->
 <tr>

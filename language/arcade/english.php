@@ -13,81 +13,87 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File arcade/english.php 2018-04-16 06:53:00 Thor
+** File arcade/english.php 2018-03-02 07:39:00 Thor
 **
 ** CHANGES
 **
 ** 2018-03-02 - Added New Masthead
 ** 2018-03-02 - Added New !defined('IN_PMBT')
 ** 2018-03-02 - Fixed Spelling
-** 2018-03-29 - Amended the Wording of some Sentences
-** 2018-03-29 - Amended !defined('IN_PMBT') Corrected Path
-** 2018-03-29 - Added Missing Language
-** 2018-04-16 - Amended the Wording of some Sentences
 **/
 
 if (!defined('IN_PMBT'))
 {
     include_once './../../security.php';
-    die ("Error 404 - Page Not Found");
+    die ("You Can't Access This File Directly");
 }
 
 if (empty($lang) || !is_array($lang))
 {
-    $lang = array();
+	$lang = array();
 }
 
+// DEVELOPERS PLEASE NOTE
+//
+// All language files must use UTF-8 as their encoding and the files must Not contain a BOM.
+//
+// Placeholders can now contain order information, e.g. instead of
+// 'Page %s of %s' you can (and should) write 'Page %1$s of %2$s', this allows
+// translators to re-order the output of data while ensuring it remains correct
+//
+// You Do Not need this where single placeholders are used, e.g. 'Message %d' is fine
+// equally where a String contains only two placeholders which are used to wrap text
+// in a URL you again Do Not need to specify an order e.g., 'Click %sHERE%s' is fine
+
 $lang = array_merge($lang, array(
-    'TITLE'              =>	'Arcade',
+	'TITLE'				=>	'Arcade',
     'ACP_ADDED'          => 'ACP Modules Added Successfully.',
-    'ACP_EXISTS'         => 'ACP Modules already Exist.  Nothing Changed!',
+    'ACP_EXISTS'         => 'ACP Modules Already Exist.  Nothing Changed!',
     'ACP_MODULES'        => 'ACP Modules:',
-    'ADDED_GAME'         => 'The following Game was Successfully Added to the Database.',
+    'ADDED_GAME'         => 'The following Game has been Added Successfully to the Database.',
     'ADD_GAME'           => 'Add Game',
     'ADD_GAME_DESC'      => 'Add a Game to the Arcade.',
     'ADD_MODULES'        => 'Add Modules',
     'ALLOW_COMMENTS'     => 'Allow Games to be Commented On',
     'ALLOW_GUEST'        => 'Allow Guest View',
     'ARCADE'             => 'Arcade Room',
-    'ARCADE_WELCOME'     => 'Welcome to the Arcade Room.  From here you can View and Remove your Favourite Games.',
+    'ARCADE_WELCOME'     => 'Welcome to the Arcade Room, in the User Control Panel.  From here you can View your Favourite Games, Remove Games that are NO Longer your Favourites.',
 
-    'AR_EXPLAIN'         => 'This Installer was written for RC7 Only and has NOT been tested on any other version of phpBB3.  If you wish to Install/Update and are using a Different Version of phpBB3, then please consult the Install.xml file in the zip that you have Downloaded.  We are going to walk you through Installing the Arcade Room today beginning with Adding MySQL Databases.',
+    'AR_EXPLAIN'         => 'This Installer was written for RC7 Only and has NOT been tested on any other version of phpBB3.  If you wish to Install/Update and are using a different phpBB3 version please consult the Install.xml file in the zip that you have Downloaded.  We are going to walk you through Installing the Arcade Room today beginning with adding MySQL Databases.',
 
     'AR_SETTINGS'        => 'Arcade Room Settings',
     'AR_TASKS'           => 'Arcade Room Tasks',
-    'AR_TO_BEGIN'        => 'To Begin the Installation Click below.',
+    'AR_TO_BEGIN'        => 'To begin the Installation please Click below.',
     'AR_VERSION'         => '0.6.9c',
     'AR_WELCOME'         => 'Welcome to the Arcade Mod Installation.',
     'A_SETTINGS'         => 'Arcade Settings',
     'A_MANAGE'           =>	'Manage Arcade',
-    'A_SETTINGS_DESC'    => 'Here you can Enable/Disable Several Arcade Room Features.',
+    'A_SETTINGS_DESC'    => 'Here you can Enable/Disable Several Arcade Room Features as well as perform several different tasks.',
 
     'BEGIN'              => 'Begin',
     'CAT'                => 'Categories',
     'CAT_MANAGE'         => 'Category Management',
     'CLICK_UPDATE'       => 'Click Here to Update your phpAR Mod',
     'COMMENT'            => ' Comment',
+    'COMMENT'            => 'Comment',
     'COMMENTS'           => 'Comments',
     'COPY_DONE'          => 'File Copying Finished',
     'COPY_FILES'         => 'Copy Files',
     'COPY_PROBLEM'       => 'There was a Problem Copying ',
     'COPY_SUCCESS'       => ' Copied Successfully to ',
     'CREATE_CAT'         => 'Create Category',
-    'DATABASE_ERROR'     => ' had an Error whilst trying to Add to the Database.',
+    'DATABASE_ERROR'     => ' had an Error being added to the Database.',
     'DATABASE_EXISTS'    => ' Already Exists in the Database.',
     'DATABSE_SUCCESS'    => ' Successfully Added to the Database.',
-    'EDIT_POST'          => 'Edit Comment',
     'DELETE_COMMENT'     => 'Delete Comment',
     'DELETE_PROBLEM'     => 'There was a Problem Deleting ',
     'DISABLE'            =>	'Disable',
-    'EDITED_ALREADY'     => '  had previously been Edited.',
-    'EDITED_GAME'        => 'The following Game was Successfully Edited in the Database.',
-
-    'EDITS_DONE'         => 'File Edits Completed.  If there were any Issues then please Read the install.xml to Edit the Files Manually.',
+    'EDITED_ALREADY'     => '  was Already Previously Edited.',
+    'EDITED_GAME'        => 'The following Game has been Edited Successfully in the Database.',
+    'EDITS_DONE'         => 'The File Edits are Done if there is a problem Please Read the install.xml to Edit the Files yourself.',
 
     'EDIT_FILES'         => 'Edit Files',
     'EDIT_GAME'          => 'Edit Game',
-    'PREVIOUS'           => 'Previous',
     'EDIT_GAME_DESC'     => 'Here you can Edit the Values of the Game.',
     'EDIT_SUCCESS'       => ' Edited Successfully.',
     'ENABLE_FAVORITES'   => 'Enable Game Favourites',
@@ -107,7 +113,7 @@ $lang = array_merge($lang, array(
     'GAME_DESC_C'        => 'Description: ',
     'GAME_DIR'           => 'Directions',
     'GAME_DIR_C'         => 'Directions: ',
-    'GAME_DUP'           => 'A Game already Exists on the Server with that Name. Please Rename the File and try Uploading Again!',
+    'GAME_DUP'           => 'A Game on the Server Already Uses that File Name, please Rename the File and try Uploading Again.',
     'GAME_FAVORITES'     => 'Game Favourites',
     'GAME_FILE_C'        => 'File: ',
     'GAME_HEIGHT_C'      => 'Height: ',
@@ -126,8 +132,8 @@ $lang = array_merge($lang, array(
     'GAME_RATINGS_C'     => 'Ratings: ',
     'GAME_RATING_C'      => 'Rating: ',
     'GAME_REMOVE'        => 'Remove',
-    'GAME_REMOVED'       => 'The Game was Removed',
-    'GAME_SAVED'         => 'The Game was Saved.',
+    'GAME_REMOVED'       => 'The Game has been Removed',
+    'GAME_SAVED'         => 'The Game has been Saved.',
     'GAME_SIZE'          => 'Size',
     'GAME_SIZE_C'        => 'Size: ',
     'GAME_TASKS'         => 'Game Tasks',
@@ -135,23 +141,20 @@ $lang = array_merge($lang, array(
     'GUEST_INCREASE'     => 'Guest Increases Game Plays',
     'HIGHEST_SCORE'      => 'Highest Score',
     'HIGHSCORES_FOR'     => 'High Scores for ',
-    'HIGHSCORES_RESET'   => 'The High Scores for ALL Games has been Reset.',
-    'HIGHSCORE_RESET'    => 'The Game you asked for High Scores to be Reset has had it\'s High Scores Reset.',
+    'HIGHSCORES_RESET'   => 'The High Scores for ALL Games have been Reset.',
+    'HIGHSCORE_RESET'    => 'The Game you asked for High Scores to be Reset has had its High Scores Reset.',
+    'IF_OK'              => 'The Installer is Done if everything is fine Click Delete to Delete the Install File and return to the Index.',
 
-    'IF_OK'              => 'The Installation is Complete.  If everything is OK Click Delete to Delete the Install File and Return to the Index.',
-
-    'IMAGE_DUP'          => 'An Image already Exists on the Server with that Filename.  Please Rename the File and try Uploading Again!',
-
+    'IMAGE_DUP'          => 'An Image on the Server Already Uses that Filename please Rename the File and try Uploading Again.',
     'LATEST'             => 'Latest Games',
     'LIMIT'              => '10MB Limit',
     'MANAGE_CAT'         => 'Manage Categories',
     'MANAGE_CAT_DESC'    => 'Here you can Add/Remove Categories.',
     'MANAGE_GAMES'       => 'Manage Games',
     'MANAGE_GAMES_DESC'  => 'Here you can Add/Edit/Remove Games.',
+    'MODULES_DONE'       => 'Finished Adding Modules to the ACP if they DID NOT Add properly or Show Up in the ACP Add them yourself.',
 
-    'MODULES_DONE'       => 'Finished Adding Modules to the ACP.  If they DID NOT Add properly or Show Up in the ACP Add them Manually.',
-
-    'MYSQL_DONE'         => 'The MySQL Edits are Complete.  If there were any Issues then please Read the install.xml to Add them to the Databases Manually.',
+    'MYSQL_DONE'         => 'The MySQL Edits are Done if there is a problem please Read the install.xml to Add the Databases yourself.',
 
     'MYSQL_EDITS'        => 'MySQL Edits:',
     'MINUTES'            =>	'Minutes',
@@ -161,51 +164,52 @@ $lang = array_merge($lang, array(
     'OUT_NOW'            => 'is Out Now.',
     'OUT_OF_DATE'        => 'of phpAR is Out of Date, the New ',
     'RATINGS_RESET'      => 'The Ratings for ALL Games have been Reset.',
-    'RATING_RESET'       => 'The Game you asked for Ratings to be Reset has had it\'s Ratings Reset.',
+    'RATING_RESET'       => 'The Game you asked for Ratings to be Reset has had its Ratings Reset.',
     'REMOVE_IMAGE_C'     => 'Remove Image: ',
     'RESET_HIGHSCORE'    => 'Reset Highscores for this Game: ',
-    'RESET_HIGHSCORES'   => 'Reset Highscores for ALL Games: ',
+    'RESET_HIGHSCORES'   => 'Reset ALL Highscores For Games: ',
     'RESET_RATING'       => 'Reset Ratings for this Game: ',
-    'RESET_RATINGS'      => 'Reset Ratings for ALL Games: ',
+    'RESET_RATINGS'      => 'Reset ALL Ratings for Games: ',
     'RESET_VIEW'         => 'Reset Views for this Game: ',
-    'RESET_VIEWS'        => 'Reset Views for ALL Games: ',
+    'RESET_VIEWS'        => 'Reset ALL Views for Games: ',
     'RUN_TASK'           => 'Run Task',
     'SAVE_GAME'          => 'Save Game',
     'STATISTIC'          =>	'Statistics',
-    'SERVER_ERROR'       => 'Error Contacting the Update Server.',
+    'SERVER_ERROR'       => 'Error Contacting Update Server.',
     'SETTINGS_UPDATED'   => 'The Settings have been Updated.',
     'SPECIFY_CAT'        => 'Please Specify a Category for the Game.',
     'SPECIFY_DESC'       => 'Please Specify a Description for the Game.',
     'SPECIFY_DIR'        => 'Please Specify some Directions for the Game.',
     'SPECIFY_HEIGHT'     => 'Please Specify a Height.',
-    'SPECIFY_WIDTH'      => 'Please Specify a Width.',
     'SPECIFY_NAME'       => 'Please Specify a Game Name.',
-    'TOP_PLAY'           => 'Top Played Games',
-    'TOP_RATE'           => 'Top Rated Games',
+    'SPECIFY_WIDTH'      => 'Please Specify a Width.',
+    'TOP_PLAY'           => 'Top Played',
+    'TOP_RATE'           => 'Top Rated',
     'UP_GAME'            => 'You Need to Upload a Game File.',
-    'UP_TO_DATE'         => 'of phpAR is up-to-date.',
+    'UP_TO_DATE'         => 'of phpAR is Up to Date.',
     'VALUE'              =>	'Value',
     'VIEW'               => 'View',
-    'VIEWS_RESET'        => 'The Views for ALL Games has been Reset.',
-    'VIEW_RESET'         => 'The Game you asked for Views to be Reset has had it\'s Views Reset.',
-    'WRONG_GAME_TYPE'    => 'Incorrect Game File Type it must be a SWF Flash File.',
-    'WRONG_IMAGE_TYPE'   => 'Incorrect Image File Type it must be a gif, jpeg, or png File.',
+    'VIEWS_RESET'        => 'The Views for ALL Games have been Reset.',
+    'VIEW_RESET'         => 'The Game you asked for Views to be Reset has had its Views Reset.',
+    'WRONG_GAME_TYPE'    => 'Incorrect Game File Type Must be a SWF Flash File.',
+    'WRONG_IMAGE_TYPE'   => 'Incorrect Image File Type Must be a gif, jpeg, or png File.',
     'YOUR'               => 'Your',
     'YOUR_FAVORITE'      => 'Your Favourite Games',
     'GAME_REV_SCORE_C'   => 'Reverse Scoring: ',
-    'REV_DESC'           => 'means the Lower the Score the Better',
+    'REV_DESC'           => 'means the lower the score the better',
     'INFO'               => 'Info',
     'GAME_FILENAME'      => 'Filename',
     'GAME_ENABLED_C'     => 'Enabled: ',
     'GAME_FILENAME_C'    => 'Filename: ',
     'GAME_IMAGENAME_C'   => 'Image Name: ',
-    'GAME_PPT_C'         => 'Points Per Ticket: ',
-    'GAME_PPT_EXPLAIN'   => 'every this many Points means they Earn One Ticket',
+    'GAME_COST_C'        => 'Cost: ',
+    'GAME_PPT_C'         => 'Points per Ticket: ',
+    'GAME_PPT_EXPLAIN'   => 'every this many points means they earn one ticket',
     'GAME_NUM_RATING_C'  => 'Ratings: ',
     'GAME_NUM_FAVS_C'    => 'Favourites: ',
     'GAME_ID_C'          => 'ID: ',
     'GAME_PLAYS_C'       => 'Plays: ',
-    'IMAGE_LIMIT'        => 'Images Larger than 50x50 will be Scaled Down',
+    'IMAGE_LIMIT'        => 'Images larger than 50x50 will be Scaled Down',
     'GAME_NUM_RATINGS'   => 'Ratings',
     'GAME_PLAYED'        => 'Plays',
     'SAVE'               => 'Save',
@@ -216,7 +220,7 @@ $lang = array_merge($lang, array(
     'YOUR_INFO'          => 'Your Info',
     'FAVORITES'          => 'Favourites',
     'ALL_GAMES'          => 'ALL Games',
-    'GAME_COST_C'        => 'Cost: ',
+    'GAME_COST_C'        => 'Cost:',
     'GAME_COST'          => 'Cost',
     'OF'                 => 'of',
     'GAMES_LOWERCASE'    => 'Games',
@@ -224,12 +228,12 @@ $lang = array_merge($lang, array(
     'RATED'              => 'Rated',
     'FAVORITE_GAMES'     => 'Favourite Games',
     'RANDOM_GAMES'       => 'Random Games',
-    'CATEGORY_ADDED'     => 'The Category was Added to the List.',
-    'CATEGORY_REMOVED'   => 'The Category was Removed from the List.',
-    'CAT_HAS_GAMES'      => 'You can\'t Delete a Category that contains any Games.',
-    'YOUR_INFO_WARNING'  => 'Register or Login to View your Info',
+    'CATEGORY_ADDED'     => 'The Category has been Added to the List.',
+    'CATEGORY_REMOVED'   => 'The Category has been Removed from the List.',
+    'CAT_HAS_GAMES'      => 'You can\'t Delete a Category containing any Games.',
+    'YOUR_INFO_WARNING'  => 'Register or Login to see your Info',
     'NO_HIGHSCORE'       => 'User has NO High Score',
-    'TROPHIES_WARNING'   => 'Trophies DO NOT Show up until 3 Users have Received a High Score on this Game.',
+    'TROPHIES_WARNING'   => 'Trophies DO NOT show up until 3 people have received a High Score on this Game.',
 
     'NO_FAVS'            => 'You have NO Favourite Games to Display.',
     'VISIT_ROOM'         => 'Visit the Arcade Room',
@@ -247,7 +251,7 @@ $lang = array_merge($lang, array(
     'FINISHED'           => 'Finish',
 
     'RESIZING'           => 'Resizing Requires JavaScript to be Enabled',
-    'CLICK_UPDATE_ALT'   => 'Click Here if you wish to Manually Update',
+    'CLICK_UPDATE_ALT'   => 'Click here if you wish to Manually Update',
     'GAME_ARCHIVE_ERROR' => 'Game Archive Missing game.xml File can NOT Auto Install this Game',
     'ARCADE_QUICK'       => 'Quick Links',
     'ARCADE_RANDOM'      => 'Random Game',
@@ -276,8 +280,8 @@ $lang = array_merge($lang, array(
     'MANAGE_HIGHSCORES'  => 'Manage High Scores',
     'HIGHSCORES'         => 'High Scores',
     'HIGHSCORE'          => 'High Score',
-    'HIGHSCORE_UPDATED'  => 'High Score Successfully Updated',
-    'HIGHSCORE_DELETED'  => 'High Score Successfully Deleted',
+    'HIGHSCORE_UPDATED'  => 'High Score Updated Successfully',
+    'HIGHSCORE_DELETED'  => 'High Score Deleted Successfully',
     'ARCADE_STARTED'     => 'Arcade Started',
     'PLAYS_PER_DAY'      => 'Plays Per Day',
     'ARCADE_PM_ONE'      => 'You Lost the ',
@@ -286,9 +290,7 @@ $lang = array_merge($lang, array(
     'ARCADE_PM_FOUR'     => ' on ',
     'DISPLAY_STATS'      => 'Display Arcade Statistics in Arcade',
     'HOTLINK_LENGTH'     => 'Hotlink Protection Length',
-    'SEARCH_MINI'        => 'Search Keyword',
-    'SEARCH_KEYWORDS'    => 'Enter Search Criteria',
-    'DISABLED'           => ' Disabled',
+	'SELECT_A_GAME'		 => 'Select a Game',
 ));
 
 ?>

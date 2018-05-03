@@ -53,13 +53,13 @@ shoutrefresht = "{S_SHOUT_REF}";
 shoutidle = "{S_SHOUT_IDL}";
 function change_bg(img, state)
 {
-if (state == "1")
+if (state == "1") 
 img.src = img.src.replace(".gif","_over.gif");
-else if (state == "0")
+else if (state == "0") 
 img.src = img.src.replace("_over.gif",".gif");
-else if (state == "2")
+else if (state == "2") 
 img.src = img.src.replace("_over.gif",".gif");
-else if (state == "3")
+else if (state == "3") 
 img.src = img.src.replace("_over.gif",".gif");
 }
 var pd = new Date();
@@ -68,8 +68,8 @@ function do_breload() {
     if (document.location.href.match(/\/torrents\.php/)) {
 	   var d = new Date();
 	   if (last_reload && last_reload > (d.getTime() - "4000")) return;
-	      last_reload = d.getTime();
-	   bparam('page=1')
+	      last_reload = d.getTime();   
+	   bparam('page=1')	   
 
 	}
 }
@@ -156,7 +156,7 @@ function dE(n, s, type)
 <script src="{SITE_URL}/themes/Bitfarm/js/jquery.cookie.js" type="text/javascript"></script>
 <script src="{SITE_URL}/themes/Bitfarm/js/jquery.thumbnailScroller.js" type="text/javascript"></script>
 <script type="text/javascript" src="{SITE_URL}/themes/Bitfarm/js/jquery.smoothmenu.js"></script>
-<script type="text/javascript" src="{SITE_URL}/themes/Bitfarm/js/core.js"></script>
+<script type="text/javascript" src="{SITE_URL}/themes/Bitfarm/js/core.js"></script>	
 <script src="{SITE_URL}/themes/Bitfarm/js/jquery.jcarousel.js" type="text/javascript"></script>
 <script type="text/javascript" src="{SITE_URL}/themes/Bitfarm/js/jquery.qtip-1.0.0-rc3.min.js"></script>
 <script src="{SITE_URL}/themes/Bitfarm/js/init.js" type="text/javascript"></script>
@@ -180,11 +180,11 @@ function dE(n, s, type)
 <script type="text/javascript" src="bbcode.js"></script>
 							<script type="text/javascript">
 								// <![CDATA[
-
+						
 								var form_name = 'Shoutform';
 								var text_name = 'text';
 								// ]]>
-							</script>
+							</script>		
 <table class="tablebg" width="100%" cellspacing="0">
 	<tr>
 		<td>
@@ -194,7 +194,7 @@ function dE(n, s, type)
 						<a class="c4" style="cursor: pointer;float:left;" onClick="toggle2('nnShoutbox_(Detach)_&bull;_(Archives)');">
 						{L_SHOUT_BOX} </a>
 						<a href="javascript:popshout('shoutdetach.php');">({L_DETACH})</a>
-						 &bull;
+						 &bull; 
 						<a href="shoutboxarchive.php">({L_ARCHIVES})</a>
 					</div>
 				</div>
@@ -248,7 +248,7 @@ function dE(n, s, type)
 									</span>
 								</div>
 								<div class="smallfont" style="border: 0px none  ! important; margin: 0px; padding: 0px 5px 4px; background: transparent none repeat scroll 0% 0%; text-align: center; white-space: nowrap; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
-									<span onClick="sndReq('op=activeusers', 'shout_out');" style="cursor: pointer;" />{L_ACTIVE_USERS}:
+									<span onClick="sndReq('op=activeusers', 'shout_out');" style="cursor: pointer;" />{L_ACTIVE_USERS}: 
 									<span id="shoutbox_activity">1</span>
 									</span>
 								</div>
@@ -291,12 +291,12 @@ function dE(n, s, type)
 					<br />
 					<script type="text/javascript">
 					// <![CDATA[
-
+					
 					// Define the bbCode tags
 					var bbcode = new Array();
-					var bbtags = new Array('[b]','[/b]','[i]','[/i]','[u]','[/u]','[quote]','[/quote]','[code]','[/code]','[list]','[/list]','[list=]','[/list]','[img]','[/img]','[url]','[/url]','[flash=]', '[/flash]','[size=]','[/size]'<!-- BEGIN custom_tags -->, {custom_tags.BBCODE_NAME}<!-- END custom_tags -->);
+					var bbtags = new Array('[b]','[/b]','[i]','[/i]','[u]','[/u]','[quote]','[/quote]','[code]','[/code]','[list]','[/list]','[list=]','[/list]','[img]','[/img]','[url]','[/url]','[flash=]', '[/flash]','[size=]','[/size]','[font]','[/font]'<!-- BEGIN custom_tags -->, {custom_tags.BBCODE_NAME}<!-- END custom_tags -->);
 					var imageTag = false;
-
+		
 					// Helpline messages
 					var help_line = {
 						b: '{LA__BBCODE_B_HELP}',
@@ -313,12 +313,13 @@ function dE(n, s, type)
 						e: '{LA__BBCODE_E_HELP}',
 						d: '{LA__BBCODE_D_HELP}',
 						t: '{LA__BBCODE_T_HELP}',
-						tip: '{L__STYLES_TIP}'
+						fo: 'Font',
+						tip: '{L__STYLES_TIP} {L_SHOUT_HELP}'
 						<!-- BEGIN custom_tags -->
 							,cb_{custom_tags.BBCODE_ID}: '{custom_tags.A_BBCODE_HELPLINE}'
 						<!-- END custom_tags -->
 					}
-
+					
 					// ]]>
 					</script>
 					<script type="text/javascript" src="{SITE_URL}/{T_TEMPLATE_PATH}/editor.js"></script>
@@ -331,7 +332,7 @@ function dE(n, s, type)
 					<input type="button" class="btnbbcode" accesskey="c" name="addbbcode8" value="Code" style="width: 40px" onClick="bbstyle(8)" onMouseOver="helpline('c')" onMouseOut="helpline('tip')" />
 					<input type="button" class="btnbbcode" accesskey="l" name="addbbcode10" value="List" style="width: 40px" onClick="bbstyle(10)" onMouseOver="helpline('l')" onMouseOut="helpline('tip')" />
 					<input type="button" class="btnbbcode" accesskey="o" name="addbbcode12" value="List=" style="width: 40px" onClick="bbstyle(12)" onMouseOver="helpline('o')" onMouseOut="helpline('tip')" />
-					<input type="button" class="btnbbcode" accesskey="t" name="addlitsitem" value="[*]" style="width: 40px" onClick="bbstyle(-1)" onMouseOver="helpline('e')" onMouseOut="helpline('tip')" />
+					<input type="button" class="btnbbcode" accesskey="t" name="addlitsitem" value="[*]" style="width: 40px" onClick="bbstyle(-1)" onMouseOver="helpline('e')" onMouseOut="helpline('tip')" />				
 					<!-- IF S_BBCODE_IMG -->
 					<input type="button" class="btnbbcode" accesskey="p" name="addbbcode14" value="Img" style="width: 40px" onClick="bbstyle(14)" onMouseOver="helpline('p')" onMouseOut="helpline('tip')" />
 					<!-- ENDIF -->
@@ -341,7 +342,7 @@ function dE(n, s, type)
 					<!-- IF S_BBCODE_FLASH -->
 					<input type="button" class="btnbbcode" accesskey="d" name="addbbcode18" value="Flash" onClick="bbstyle(18)" onMouseOver="helpline('d')" onMouseOut="helpline('tip')" />
 					<!-- ENDIF -->
-					<span class="genmed nowrap">{L__FONT_SIZE}:
+					<span class="genmed nowrap">{L__FONT_SIZE}: 
 						<select class="gensmall" name="addbbcode20" onChange="bbfontstyle('[size=' + this.form.addbbcode20.options[this.form.addbbcode20.selectedIndex].value + ']', '[/size]');this.form.addbbcode20.selectedIndex = 2;" onmouseover="helpline('f')" onmouseout="helpline('tip')">
 						<option value="50">{L__FONT_TINY}</option>
 						<option value="85">{L__FONT_SMALL}</option>
@@ -351,7 +352,7 @@ function dE(n, s, type)
 						</select>
 					</span>
 					<span class="genmed nowrap">
-						<select class="gensmall" id=fontselect onchange=fontformat(Shoutform,this.options[this.selectedIndex].value,'font',text)>
+						<select class="gensmall" name="fontselect20" onchange="bbfontstyle('[font=' + this.form.fontselect20.options[this.form.fontselect20.selectedIndex].value + ']', '[/font]');this.form.fontselect20.selectedIndex = 2;" onmouseover="helpline('fo')" onmouseout="helpline('tip')">
 						<option value=0>{L_FONT}</option>
                         <option value=arial><font face="arial">{L_ARIAL}</font></option>
                         <option value=comic sans ms>{L_COMIC}</option>
@@ -372,15 +373,15 @@ function dE(n, s, type)
 					<br />
 					<!-- BEGIN smiley -->
 					<a href="#" onClick="insert_text('{smiley.A_SMILEY_CODE}', true); return false;" style="line-height: 20px;"><img src="{smiley.SMILEY_IMG}" alt="{smiley.SMILEY_CODE}" title="{smiley.SMILEY_DESC}" hspace="2" vspace="2" /></a>
-<!-- END smiley -->
-					<br />
+<!-- END smiley -->		
+					<br />				
 					<input type="hidden" name="op" value="shout">
 					<textarea id="shout_text_area" name="text" rows="1" cols="90"  onkeyup=" if (event.keyCode == 13) {this.value=''}" onKeyPress="if (event.keyCode == 13) {sendshoutout(this.value, 'shout_out');}"></textarea>
 					</p>
 				   <input type="button" id="shout_send" onClick="sendshoutout(text.value, 'shout_out'); text.value = '';" value="{L_SHOUT}" />
 				   <input type="button" onClick="sndReq('op=view_shout', 'shout_out');" value="{L_UPDATE}" />
 				   <input type="button" onClick="sndReq('op=more_smiles', 'shoutTD')" value="{L_MORE_SMILIES}" />
-				</form>
+				</form>		
 			</div>
 		</td>
 	</tr>

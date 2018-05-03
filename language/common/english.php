@@ -746,6 +746,12 @@ $lang = array_merge($lang, array(
     'CLICK_TO_INSERT'       => 'Click a Smiley to Insert it into your Message.',
     'SMILIE_LIST'           => 'Smiley List',
     'WARNNED'               => 'Warrned',
+	'GROUPS'				=> 'Groups',
+	'AGE'					=> 'Age',
+	'CONTACT'				=> 'Contact',
+	'COMMUNITY'				=> 'Community',
+	'MSNWLM'				=> 'MSN/WLM',
+	'SHOUT_HELP'			=> 'Type /help for comand lines',
 ));
 
 $u_datetime = array(
