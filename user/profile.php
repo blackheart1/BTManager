@@ -23,7 +23,6 @@ if (!defined('IN_PMBT'))
 	include_once './../security.php';
 	die ();
 }
-require_once("common.php");
 require_once("include/torrent_functions.php");
 $template = new Template();
 $user->set_lang('profile',$user->ulanguage);
@@ -270,7 +269,7 @@ $template->assign_vars(array(
 		'ACTIVE_TOPIC_PCT'		=> sprintf($l_active_pct, $active_t_pct),
 		'U_ACTIVE_FORUM'		=> './forum.php?action=viewforum&f='.$active_t_name['forum_id'],
 		'U_ACTIVE_TOPIC'		=> './forum.php?action=viewtopic&f='.$most_in['forum_id'] . '&t=' . $most_in['id'],
-		'S_GROUP_OPTIONS'	    => selectaccess($al= false),
+		'S_GROUP_OPTIONS'	    => selectaccess($userrow["can_do"]),
 		'S_SHOW_ACTIVITY'		=> true,
 		'SIGNATURE'             => $signature,
 		'U_ADD_FRIEND'		    => ($userrow["id"] != $user->id) ? ((!$db->sql_numrows($resbook)) ? "pm.php?op=bookmark&id=".$userrow["id"] : '') : '',
@@ -292,8 +291,8 @@ $template->assign_vars(array(
 		'U_SKYPE'			    => (!empty($userrow["skype"])) ? pic("button_yahoo.gif","http://edit.yahoo.com/config/send_webmesg?.target=".$userrow["yahoo"]) : '',
 		'AGE'				    => ($age = (int) substr($userrow['birthday'], -4)) ? ($now['year'] - $age) : '',
 		'RANK_IMG'              => '<img src="themes/' . $theme . '/pics/group/' . $userrow["can_do"] . '.png" title="' . $userrow["can_do"] . '" alt="' . $userrow["can_do"] . '">',
-		'U_BAN_USER'            => ($user_owner AND $auth->acl_get('a_ban'))? (($userrow["ban"] == '0') ? '<a href="admin.php?op=addban&amp;u=' . $userrow["id"] . '">' . $user->lang['UCP_BAN_USER'] .  '</a>' : '<a href="admin.php?op=delban&amp;uid=' . $userrow["id"] . '">' . $user->lang['UCP_UNBAN_USER'] .  '</a>') :'',
-		'U_BAN_SHOUTS'          => ($user_owner AND checkaccess('m_bann_shouts'))? (($userrow["can_shout"] == 'true') ? '<a href="user.php?op=banchat&amp;id=' . $userrow["id"] . '">' . $user->lang['UCP_SHOUT_BAN'] . '</a>' : '<a href="user.php?op=unbanchat&amp;id=' . $userrow["id"] . '">' . $user->lang['UCP_UNSHOUT_BAN'] . '</a>') : '',
+		'U_BAN_USER'            => (($userrow["id"] != $user->id) AND $user_owner AND $auth->acl_get('a_ban'))? (($userrow["ban"] == '0') ? '<a href="admin.php?op=addban&amp;u=' . $userrow["id"] . '">' . $user->lang['UCP_BAN_USER'] .  '</a>' : '<a href="admin.php?op=delban&amp;uid=' . $userrow["id"] . '">' . $user->lang['UCP_UNBAN_USER'] .  '</a>') :'',
+		'U_BAN_SHOUTS'          => (($userrow["id"] != $user->id) AND $user_owner AND checkaccess('m_bann_shouts'))? (($userrow["can_shout"] == 'true') ? '<a href="user.php?op=banchat&amp;id=' . $userrow["id"] . '">' . $user->lang['UCP_SHOUT_BAN'] . '</a>' : '<a href="user.php?op=unbanchat&amp;id=' . $userrow["id"] . '">' . $user->lang['UCP_UNSHOUT_BAN'] . '</a>') : '',
 		));
 $template->assign_vars(array(
         'S_GENTIME'            => abs(round(microtime()-$startpagetime,2)),
@@ -305,7 +304,7 @@ $from = ($p1 - 1) * $torrent_per_page;
 
 $totsql = "SELECT COUNT(*) as tot FROM ".$db_prefix."_torrents WHERE banned = 'no' AND owner = '".$userrow["id"]."' ".$ownertype.";";
 $totres = $db->sql_query($totsql);
-list ($tot) = $db->sql_fetchrow($totres);
+list ($tot) = $db->fetch_array($totres);
 $db->sql_freeresult($totres);
 
 $pages = ceil($tot / $torrent_per_page);
@@ -353,7 +352,7 @@ $from = ($p2 - 1) * $torrent_per_page;
 
 $totsql = "SELECT COUNT(DISTINCT torrent) AS tot FROM ".$db_prefix."_peers WHERE uid = '".$userrow["id"]."' AND seeder = 'yes';";
 $totres = $db->sql_query($totsql) or btsqlerror($totsql);
-list ($tot) = $db->sql_fetchrow($totres);
+list ($tot) = $db->fetch_array($totres);
 $db->sql_freeresult($totres);
 
 $pages = ceil($tot / $torrent_per_page);
@@ -465,7 +464,7 @@ P.userid = '".$userrow["id"]."'
 AND T.id = P.torrent
 AND T.banned = 'no';";
 $totres = $db->sql_query($totsql) or btsqlerror($totsql);
-list ($tot) = $db->sql_fetchrow($totres);
+list ($tot) = $db->fetch_array($totres);
 if ($tot > 0)
 {
                 $template->assign_vars(array(
