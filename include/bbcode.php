@@ -502,6 +502,7 @@ class bbcode
 			'img'					=> array('{URL}'		=> '$1'),
 			'flash'					=> array('{WIDTH}'		=> '$1', '{HEIGHT}'			=> '$2', '{URL}'	=> '$3'),
 			'url'					=> array('{URL}'		=> '$1', '{DESCRIPTION}'	=> '$2'),
+			'url_ext'					=> array('{URL}'		=> '$1', '{DESCRIPTION}'	=> '$2'),
 			'email'					=> array('{EMAIL}'		=> '$1', '{DESCRIPTION}'	=> '$2')
 		);
 
