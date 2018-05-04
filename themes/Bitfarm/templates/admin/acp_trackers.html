@@ -30,7 +30,7 @@
 		<th>{L_STATUS}</th>
 		<th>{L_UPDATED}</th>
 		<th>{L_TORRENTS}</th>
-		<th>{L_ACTIONS}</th>
+		<th style="text-align: center;">{L_ACTIONS}</th>
 	</tr>
 	</thead>
 	<tbody>
@@ -42,8 +42,8 @@
 			<td><p>{trackers.TORRENTS} <a href="admin.php?i=torrentinfo&op=trackers&do=listtorrents&id={trackers.ID}">(View)</a></p></td>
 			<td>
 				<p>
-					<a href="admin.php?i=torrentinfo&op=trackers&do=scrapenow&id={trackers.ID}"><img src="admin/pics/refresh.png" border="0" alt="Update torrents now" title="Update torrents now" /></a>
-					<a href="admin.php?i=torrentinfo&op=trackers&do=bantracker&id={trackers.ID}&action={trackers.ACT}"><img src="admin/pics/{trackers.BAN}" border="0" alt="Exclude" title="Exclude" /></a>
+					<a href="admin.php?i=torrentinfo&op=trackers&do=scrapenow&id={trackers.ID}"><img src="admin/pics/refresh.png" border="0" alt="{L_UPDATE_TOR_NOW}" title="{L_UPDATE_TOR_NOW}" /></a>
+					<a href="admin.php?i=torrentinfo&op=trackers&do=bantracker&id={trackers.ID}&action={trackers.ACT}"><img src="admin/pics/{trackers.BAN}" border="0" alt="{L_EXCLUDE_TOR}" title="{L_EXCLUDE_TOR}" /></a>
 				</p>
 			</td>
 		</tr>

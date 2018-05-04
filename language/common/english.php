@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File common/english.php 2018-04-23 07:39:00 Thor
+** File common/english.php 2018-05-04 05:54:00 Thor
 **
 ** CHANGES
 **
@@ -745,13 +745,13 @@ $lang = array_merge($lang, array(
     'BBCODE_HELP'           => 'BBcode Help',
     'CLICK_TO_INSERT'       => 'Click a Smiley to Insert it into your Message.',
     'SMILIE_LIST'           => 'Smiley List',
-    'WARNNED'               => 'Warrned',
-	'GROUPS'				=> 'Groups',
-	'AGE'					=> 'Age',
-	'CONTACT'				=> 'Contact',
-	'COMMUNITY'				=> 'Community',
-	'MSNWLM'				=> 'MSN/WLM',
-	'SHOUT_HELP'			=> 'Type /help for comand lines',
+    'WARNNED'               => 'Warned',
+    'GROUPS'                => 'Groups',
+    'AGE'                   => 'Age',
+    'CONTACT'               => 'Contact',
+    'COMMUNITY'             => 'Community',
+    'MSNWLM'                => 'MSN/WLM',
+    'SHOUT_HELP'            => 'Type /help for Shoutbox Commands',
 ));
 
 $u_datetime = array(

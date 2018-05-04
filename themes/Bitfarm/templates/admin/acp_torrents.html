@@ -25,10 +25,10 @@
 		<th>{L_NAME}</th>
 		<th>{L_TRACKER}</th>
 		<th>{L_UPLOADER}</th>
-		<th>{L_VISIBLE}</th>
+		<th style="text-align: center;">{L_VISIBLE}</th>
 		<th>{L_LASTACTION}</th>
-		<th>{L_ACTION}</th>
-		<th>{L_MARK}</th>
+		<th style="text-align: center;">{L_ACTION}</th>
+		<th style="text-align: center;">{L_MARK}</th>
 	</tr>
 	</thead>
 	<tbody>
@@ -41,7 +41,7 @@
 			<td><a href="./user.php?op=profile&amp;id={torrent.OWNER_ID}"><font color="#{torrent.OWNER_COLOR}">{torrent.OWNER}</font></a></td>
 			<td style="text-align: center;">{torrent.VISIBLE}</td>
 			<td>{torrent.LASTACTION}</td>
-			<td><a href="edit.php?id={torrent.ID}"><img src="themes/Bitfarm/pics/edit.gif" border="0" alt="{L_EDIT}" title="{L_EDIT}"   /></a><a href="edit.php?op=ban&amp;id={torrent.ID}"><img src="themes/Bitfarm/pics/ban.png" border="0" alt="{L_BANNT}" title="{L_BANNT}"   /></a></td>
+			<td style="text-align: center;"><a href="edit.php?id={torrent.ID}"><img src="themes/Bitfarm/pics/edit.gif" border="0" alt="{L_EDIT}" title="{L_EDIT}" /></a>&nbsp;&nbsp;<a href="edit.php?op=ban&amp;id={torrent.ID}"><img src="themes/Bitfarm/pics/ban.png" border="0" alt="{L_BANNT}" title="{L_BANNT}" /></a></td>
 			<td style="text-align: center;"><input type="checkbox" class="radio" name="torrent_id[]" value="{torrent.ID}" /></td>
 		</tr>
 	<!-- END log -->

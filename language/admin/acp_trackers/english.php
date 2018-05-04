@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File acp_trackers/english.php 2018-03-28 10:03:00 Thor
+** File acp_trackers/english.php 2018-05-03 09:00:00 Thor
 **
 ** CHANGES
 **
@@ -22,6 +22,7 @@
 ** 2018-02-23 - Fixed Spelling
 ** 2018-03-28 - Amended the Wording of some Sentences
 ** 2018-03-28 - Amended !defined('IN_PMBT') Corrected Path
+** 2018-05-03 - Added Missing Language
 **/
 
 if (!defined('IN_PMBT'))
@@ -52,6 +53,7 @@ $lang = array_merge($lang, array(
     'VIEW_LIST'            => 'View Torrents',
     'UPDATE_TOR_NOW'       => 'Update Torrent Now',
     'BANNED_ANNOUNCE'      => 'Blacklist a Tracker',
+    'EXCLUDE_TOR'          => 'Exclude',
 
     'BANNED_ANNOUNCE_EXP'  => 'Insert the Announce URL of the Tracker you want to Blacklist.  ALL Torrents Associated to it will be Refused during Upload.',
 

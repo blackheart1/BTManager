@@ -330,16 +330,12 @@
 
 	<p>{L_ACL_SET_EXPLAIN}</p>
 
-	<br />
 	<form id="set-permissions" method="post" action="{U_ACTION}">
 
 	{S_HIDDEN_FIELDS}
 
-
-	<br /><br />
-
 <div class="clearfix"></div>
-<h3>User permissions</h3>
+<h3>{L_USER__PERMISSIONS}</h3>
 
 <div class="clearfix"></div>
 <fieldset class="permissions" id="perm00">
@@ -350,8 +346,8 @@
 	<thead>
 	<tr>
 		<th>{L_SETTINGS}</th>
-		<th>{L_YES}</th>
-		<th>{L_NO}</th>
+		<th style="text-align: center;">{L_YES}</th>
+		<th style="text-align: center;">{L_NO}</th>
 	</tr>
 	</thead>
 	<tbody>
@@ -360,8 +356,8 @@
 			<td>
 				{perms_u.PERM_TITLE}
 			</td>
-			<td style="text-align: center;"><input name="perm_set[{GROUP_ID}][0][{perms_u.PERM_VAR}]" value="1" tabindex="1" type="radio" <!-- IF perms_u.VAL_YES -->checked="checked"<!-- ENDIF -->>{L_YES}</td>
-			<td style="text-align: center;"><input name="perm_set[{GROUP_ID}][0][{perms_u.PERM_VAR}]" value="0" tabindex="1" type="radio" <!-- IF perms_u.VAL_NO -->checked="checked"<!-- ENDIF -->>{L_NO}</td>
+			<td style="text-align: center; width: 6%;"><input name="perm_set[{GROUP_ID}][0][{perms_u.PERM_VAR}]" value="1" tabindex="1" type="radio" <!-- IF perms_u.VAL_YES -->checked="checked"<!-- ENDIF -->>{L_YES}</td>
+			<td style="text-align: center; width: 6%;"><input name="perm_set[{GROUP_ID}][0][{perms_u.PERM_VAR}]" value="0" tabindex="1" type="radio" <!-- IF perms_u.VAL_NO -->checked="checked"<!-- ENDIF -->>{L_NO}</td>
 		</tr>
 	<!-- END perms_u -->
 	</tbody>
@@ -376,8 +372,8 @@
 			<td>
 				{perms_m.PERM_TITLE}
 			</td>
-			<td style="text-align: center;"><input name="perm_set[{GROUP_ID}][0][{perms_m.PERM_VAR}]" value="1" tabindex="1" type="radio" <!-- IF perms_m.VAL_YES -->checked="checked"<!-- ENDIF -->>{L_YES}</td>
-			<td style="text-align: center;"><input name="perm_set[{GROUP_ID}][0][{perms_m.PERM_VAR}]" value="0" tabindex="1" type="radio" <!-- IF perms_m.VAL_NO -->checked="checked"<!-- ENDIF -->>{L_NO}</td>
+			<td style="text-align: center; width: 6%;"><input name="perm_set[{GROUP_ID}][0][{perms_m.PERM_VAR}]" value="1" tabindex="1" type="radio" <!-- IF perms_m.VAL_YES -->checked="checked"<!-- ENDIF -->>{L_YES}</td>
+			<td style="text-align: center; width: 6%;"><input name="perm_set[{GROUP_ID}][0][{perms_m.PERM_VAR}]" value="0" tabindex="1" type="radio" <!-- IF perms_m.VAL_NO -->checked="checked"<!-- ENDIF -->>{L_NO}</td>
 		</tr>
 	<!-- END perms_m -->
 	</tbody>
@@ -392,8 +388,8 @@
 			<td>
 				{perms_a.PERM_TITLE}
 			</td>
-			<td style="text-align: center;"><input name="perm_set[{GROUP_ID}][0][{perms_a.PERM_VAR}]" value="1" tabindex="1" type="radio" <!-- IF perms_a.VAL_YES -->checked="checked"<!-- ENDIF -->>{L_YES}</td>
-			<td style="text-align: center;"><input name="perm_set[{GROUP_ID}][0][{perms_a.PERM_VAR}]" value="0" tabindex="1" type="radio" <!-- IF perms_a.VAL_NO -->checked="checked"<!-- ENDIF -->>{L_NO}</td>
+			<td style="text-align: center; width: 6%;"><input name="perm_set[{GROUP_ID}][0][{perms_a.PERM_VAR}]" value="1" tabindex="1" type="radio" <!-- IF perms_a.VAL_YES -->checked="checked"<!-- ENDIF -->>{L_YES}</td>
+			<td style="text-align: center; width: 6%;"><input name="perm_set[{GROUP_ID}][0][{perms_a.PERM_VAR}]" value="0" tabindex="1" type="radio" <!-- IF perms_a.VAL_NO -->checked="checked"<!-- ENDIF -->>{L_NO}</td>
 		</tr>
 	<!-- END perms_a -->
 	</tbody>
@@ -421,14 +417,14 @@
 	<form enctype="multipart/form-data" action="admin.php" method="post">
 		<fieldset>
 			<legend>{L_EDIT_PERM}</legend>
-	
+
 			<dl>
 				<dt>
 					<label for="">{L_EDIT_PERM_NAME}</label><br />
 					<span>{L_EDIT_PERM_NAME_EXP}</span>
 				</dt>
 				<dd>
-					<input type="text" style="width: 93%;" name="perm_name" id="perm_name" value="{PERM_NAME}">
+					<input type="text" style="width: 95%;" name="perm_name" id="perm_name" value="{PERM_NAME}">
 				</dd>
 				<dd>
 					<label><input type="radio" class="radio" name="perm_tag" value="u"<!-- IF PERM_TAG == u --> checked="checked"<!-- ENDIF --> /> {L_USER__PERMISSIONS}</label><br />
@@ -456,14 +452,14 @@
 	<form enctype="multipart/form-data" action="admin.php" method="post">
 		<fieldset>
 			<legend>{L_ADD_PERM}</legend>
-	
+
 			<dl>
 				<dt>
 					<label for="">{L_EDIT_PERM_NAME}</label><br />
 					<span>{L_EDIT_PERM_NAME_EXP}</span>
 				</dt>
 				<dd>
-					<input type="text" style="width: 93%;" name="perm_name" id="perm_name" value="{PERM_NAME}">
+					<input type="text" style="width: 95%;" name="perm_name" id="perm_name" value="{PERM_NAME}">
 				</dd>
 				<dd>
 					<label><input type="radio" class="radio" name="perm_tag" value="u" checked="checked" /> {L_USER__PERMISSIONS}</label><br />
@@ -494,7 +490,7 @@
 				<th>
 					<form id="acp_groups" method="post" action="admin.php">
 					{L_CREATE_NEW_PERM} : <input name="perm_name" value="" type="text">
-					<input class="button2" name="submit" value="Submit" type="submit">
+					<input class="button2" name="submit" value="{L_SUBMIT}" type="submit">
 					<input name="i" value="userinfo" type="hidden">
 					<input name="action" value="edit_site_prem" type="hidden">
 					<input name="op" value="levels" type="hidden">
@@ -514,8 +510,8 @@
 			<td>
 				{perms_u.PERM_EXP}
 			</td>
-			<td style="text-align: center;"><a href="admin.php?op=levels&amp;i=userinfo&amp;action=edit_site_prem&amp;do=edit_perm&amp;id={perms_u.PERM_ID}"><img src="themes/Bitfarm/pics/admin/icon_edit.gif" alt="{L_EDIT}" title="{L_EDIT}"></a></td>
-			<td style="text-align: center;"><a href="admin.php?op=levels&amp;i=userinfo&amp;action=edit_site_prem&amp;do=delete_perm&amp;id={perms_u.PERM_ID}"><img src="themes/Bitfarm/pics/admin/icon_delete.gif" alt="Delete" title="Delete"></a></td>
+			<td style="text-align: center; width: 5%;"><a href="admin.php?op=levels&amp;i=userinfo&amp;action=edit_site_prem&amp;do=edit_perm&amp;id={perms_u.PERM_ID}"><img src="themes/Bitfarm/pics/admin/icon_edit.gif" alt="{L_EDIT}" title="{L_EDIT}"></a></td>
+			<td style="text-align: center; width: 5%;"><a href="admin.php?op=levels&amp;i=userinfo&amp;action=edit_site_prem&amp;do=delete_perm&amp;id={perms_u.PERM_ID}"><img src="themes/Bitfarm/pics/admin/icon_delete.gif" alt="{L_DELETE}e" title="{L_DELETE}"></a></td>
 		</tr>
 	<!-- END perms_u -->
 	</tbody>
@@ -530,8 +526,8 @@
 			<td>
 				{perms_m.PERM_EXP}
 			</td>
-			<td style="text-align: center;"><a href="admin.php?op=levels&amp;i=userinfo&amp;action=edit_site_prem&amp;do=edit_perm&amp;id={perms_m.PERM_ID}"><img src="themes/Bitfarm/pics/admin/icon_edit.gif" alt="{L_EDIT}" title="{L_EDIT}"></a></td>
-			<td style="text-align: center;"><a href="admin.php?op=levels&amp;i=userinfo&amp;action=edit_site_prem&amp;do=delete_perm&amp;id={perms_m.PERM_ID}"><img src="themes/Bitfarm/pics/admin/icon_delete.gif" alt="Delete" title="Delete"></a></td>
+			<td style="text-align: center; width: 5%;"><a href="admin.php?op=levels&amp;i=userinfo&amp;action=edit_site_prem&amp;do=edit_perm&amp;id={perms_m.PERM_ID}"><img src="themes/Bitfarm/pics/admin/icon_edit.gif" alt="{L_EDIT}" title="{L_EDIT}"></a></td>
+			<td style="text-align: center; width: 5%;"><a href="admin.php?op=levels&amp;i=userinfo&amp;action=edit_site_prem&amp;do=delete_perm&amp;id={perms_m.PERM_ID}"><img src="themes/Bitfarm/pics/admin/icon_delete.gif" alt="{L_DELETE}" title="{L_DELETE}"></a></td>
 		</tr>
 	<!-- END perms_m -->
 	</tbody>
@@ -546,8 +542,8 @@
 			<td>
 				{perms_a.PERM_EXP}
 			</td>
-			<td style="text-align: center;"><a href="admin.php?op=levels&amp;i=userinfo&amp;action=edit_site_prem&amp;do=edit_perm&amp;id={perms_a.PERM_ID}"><img src="themes/Bitfarm/pics/admin/icon_edit.gif" alt="{L_EDIT}" title="{L_EDIT}"></a></td>
-			<td style="text-align: center;"><a href="admin.php?op=levels&amp;i=userinfo&amp;action=edit_site_prem&amp;do=delete_perm&amp;id={perms_a.PERM_ID}"><img src="themes/Bitfarm/pics/admin/icon_delete.gif" alt="Delete" title="Delete"></a></td>
+			<td style="text-align: center; width: 5%;"><a href="admin.php?op=levels&amp;i=userinfo&amp;action=edit_site_prem&amp;do=edit_perm&amp;id={perms_a.PERM_ID}"><img src="themes/Bitfarm/pics/admin/icon_edit.gif" alt="{L_EDIT}" title="{L_EDIT}"></a></td>
+			<td style="text-align: center; width: 5%;"><a href="admin.php?op=levels&amp;i=userinfo&amp;action=edit_site_prem&amp;do=delete_perm&amp;id={perms_a.PERM_ID}"><img src="themes/Bitfarm/pics/admin/icon_delete.gif" alt="{L_DELETE}" title="{L_DELETE}"></a></td>
 		</tr>
 	<!-- END perms_a -->
 	</tbody>
@@ -577,9 +573,9 @@
 	<thead>
 	<tr>
 		<th style="width: 50%">{L_GROUP}</th>
-		<th>{L_TOTAL_MEMBERS}</th>
-		<th colspan="2">{L_OPTIONS}</th>
-		<th>{L_ACTION}</th>
+		<th style="text-align: center;">{L_TOTAL_MEMBERS}</th>
+		<th style="text-align: center;"colspan="2">{L_OPTIONS}</th>
+		<th style="text-align: center;">{L_ACTION}</th>
 	</tr>
 	</thead>
 	<tbody>
@@ -611,9 +607,9 @@
 	<thead>
 	<tr>
 		<th style="width: 50%">{L_GROUP}</th>
-		<th>{L_TOTAL_MEMBERS}</th>
-		<th colspan="2">{L_OPTIONS}</th>
-		<th>{L_ACTION}</th>
+		<th style="text-align: center;">{L_TOTAL_MEMBERS}</th>
+		<th style="text-align: center;" colspan="2">{L_OPTIONS}</th>
+		<th style="text-align: center;">{L_ACTION}</th>
 	</tr>
 	</thead>
 	<tbody>
