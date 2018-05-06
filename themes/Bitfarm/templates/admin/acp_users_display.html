@@ -11,14 +11,14 @@
 			<form action="admin.php" method="GET">
 				<input type="hidden" name="op" value="user" />
 				<input type="text" name="usearch" value="" />
-				<input type="submit" value="Search user" />
+				<input type="submit" value="{L_SEARCH_USER}" />
 			</form>
 		</td>
 		<td>
 			<form action="admin.php" method="GET">
 			<input type="hidden" name="op" value="user" />
 			<input type="text" name="umailsearch" value="" />
-			<input type="submit" value="Search E-Mail" />
+			<input type="submit" value="{L_SEARCH_EMAIL}" />
 			</form>
 		</td>
 	</tr>
@@ -27,20 +27,20 @@
 			<form action="admin.php" method="GET">
 			<input type="hidden" name="op" value="user" />
 			<input type="text" name="uipsearch" value="" />
-			<input type="submit" value="Search IP" />
+			<input type="submit" value="{L_SEARCH_IP}" />
 			</form>
 		</td>
 		<td>
 			<form action="admin.php" method="GET">
 			<input type="hidden" name="op" value="user" />
 			<input type="text" name="uhostsearch" value="" />
-			<input type="submit" value="Search Host" />
+			<input type="submit" value="{L_SEARCH_HOST}" />
 			</form>
 		</td>
 	</tr>
 	<tr>
 		<td>
-			<a href="admin.php?op=user&dupeaccounts=1">Search for duplicate IP's</a>
+			<a href="admin.php?op=user&dupeaccounts=1">{L_SEARCH_DUPIP}</a>
 		</td>
 	</tr>
 </table>
@@ -59,13 +59,13 @@
 	<table cellspacing="1">
 	<thead>
 	<tr>
-		<th>Username</th>
-		<th>E-Mail</th>
-		<th>Joined</th>
-		<th>Last Activity</th>
-		<th>Posts</th>
-		<th>Torrents</th>
-		<th>Options</th>
+		<th>{L_USERNAME}</th>
+		<th>{L_EMAIL}</th>
+		<th>{L_JOINED}</th>
+		<th>{L_LAST_ACTIVITY}</th>
+		<th style="text-align: center;">{L_POSTS}</th>
+		<th style="text-align: center;">{L_TORRENTS}</th>
+		<th style="text-align: center;">{L_OPTIONS}</th>
 	</tr>
 	</thead>
 	<tbody>
@@ -75,7 +75,7 @@
 				<a href="./user.php?op=profile&id={userlist.USERID}"><font color="#{userlist.USER_COLOR}">{userlist.USERNAME}</font></a>
 				<br />
 				<span>
-				{userlist.USERIP}<a href="#" onClick="popup('whois.php?ip={userlist.USERLONG}',700,900,'Whois'); return false""> [Whois]</a>
+				{userlist.USERIP}<a href="#" onClick="popup('whois.php?ip={userlist.USERLONG}',700,900,'Whois'); return false""> [{L_WHOIS}]</a>
 				</span>
 			</td>
 			<td style="text-align: left;">{userlist.USERMAIL}</td>

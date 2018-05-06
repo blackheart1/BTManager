@@ -9,12 +9,12 @@
 	</dl>
 	<!-- IF not S_IN_AVATAR_GALLERY -->
 		<!-- IF S_CAN_UPLOAD -->
-			<dl> 
-				<dt><label for="uploadfile">{L_UPLOAD_AVATAR_FILE}:</label></dt>
+			<dl>
+				<dt><label for="uploadfile">{L_UPLOAD_LOCAL_AVATAR}:</label><br /><span>{L_UPLOAD_LOCAL_AVATAR_EXP}</span></dt>
 				<dd><input type="hidden" name="MAX_FILE_SIZE" value="{AVATAR_MAX_FILESIZE}" /><input type="file" id="uploadfile" name="uploadfile" /></dd>
 			</dl>
 			<dl>
-				<dt><label for="uploadurl">{L_UPLOAD_AVATAR_URL}:</label><br /><span>{L_UPLOAD_AVATAR_URL_EXPLAIN}</span></dt>
+				<dt><label for="uploadurl">{L_UPLOAD_EXT_AVATAR}:</label><br /><span>{L_UPLOAD_EXT_AVATAR_EXP}</span></dt>
 				<dd><input name="uploadurl" type="text" id="uploadurl" value="" /></dd>
 			</dl>
 		<!-- ENDIF -->
@@ -29,7 +29,7 @@
 			</dl>
 		<!-- ENDIF -->
 		<!-- IF S_DISPLAY_GALLERY -->
-			<dl> 
+			<dl>
 				<dt><label>{L_AVATAR_GALLERY}:</label></dt>
 				<dd><input class="button2" type="submit" name="display_gallery" value="{L_DISPLAY_GALLERY}" /></dd>
 			</dl>
@@ -46,7 +46,7 @@
 		<dl>
 			<table cellspacing="1">
 			<!-- BEGIN avatar_row -->
-			<tr> 
+			<tr>
 				<!-- BEGIN avatar_column -->
 					<td class="row1" style="text-align: center;"><img src="{avatar_row.avatar_column.AVATAR_IMAGE}" alt="{avatar_row.avatar_column.AVATAR_NAME}" title="{avatar_row.avatar_column.AVATAR_NAME}" /></td>
 				<!-- END avatar_column -->
@@ -60,11 +60,11 @@
 			</table>
 		</dl>
 		</fieldset>
-		
+
 		<fieldset class="quick" style="margin-top: -15px;">
 			<input class="button2" type="submit" name="cancel" value="{L_CANCEL}" />
 		</fieldset>
-	
+
 	<!-- ENDIF -->
 	</fieldset>
 
@@ -73,5 +73,5 @@
 		{S_AV_HIDDEN}
 		{S_FORM_TOKEN}
 	</fieldset>
-	
+
 	</form>

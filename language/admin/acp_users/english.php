@@ -94,6 +94,7 @@ $lang = array_merge($lang, array(
     'CANNOT_SET_FOUNDER_INACTIVE' => 'You Need to Activate Users before you Promote them to Founders.   Only Activated Users are able to be Promoted.',
 
     'CONFIRM_EMAIL_EXPLAIN'       => 'You Only Need to Specify this if you are Changing the Users email Address.',
+    'CONTACT_USER'                => 'Contact User',
 
     'DELETE_POSTS'                => 'Delete Posts',
     'DELETE_USER'                 => 'Delete User',
@@ -116,7 +117,7 @@ $lang = array_merge($lang, array(
 
     'MOVE_POSTS_EXPLAIN'          => 'Please Select the Forum to which you wish to Move ALL the Posts this User has made.',
 
-    'NO_SPECIAL_RANK'             => 'NO Special Rank Assigned',
+    'NO_SPECIAL_RANK'             => 'No Special Rank Assigned',
 
     'NOT_MANAGE_FOUNDER'          => 'You tried to Manage a User with Founder Status.  Only Founders are Allowed to Manage other Founders.',
 
@@ -239,6 +240,29 @@ $lang = array_merge($lang, array(
     'POST_TIME'                   => 'Post Time',
     'DOWNLOADS'                   => 'Downloads',
     'POST'                        => 'Post',
+    'NO_ENTRIES'                  => 'NO Log Entries for this Period.',
+    'ADD_FEEDBACK'                => 'Add Feedback',
+    'ADD_FEEDBACK_EXPLAIN'        => 'Add Notes to User\'s Account.',
+
+    #Added in v3.0.1
+    'USER_FORUM'      => 'User Forum',
+    'VISITED'         => 'Visited',
+    'JUMP_TO'         => 'Jump to Page',
+    'SEARCH_USER'     => 'Search User',
+    'SEARCH_EMAIL'    => 'Search E-Mail',
+    'SEARCH_IP'       => 'Search IP',
+    'SEARCH_HOST'     => 'Search Host',
+    'SEARCH_DUPIP'    => 'Search for duplicate IP\'s',
+    'USERNAME'        => 'Username',
+    'EMAIL'           => 'email',
+    'JOINED'          => 'Joined',
+    'LAST_ACTIVITY'   => 'Last Activity',
+    'POSTS'           => 'Posts',
+    'TORRENTS'        => 'Torrents',
+    'OPTIONS'         => 'Options',
+    'WHOIS'           => 'Whois',
+    'BAN_REASON'      => 'Ban Reason',
+    'BAN_GIVE_REASON' => 'Enter a Reason for the Ban',
  ));
 
 ?>

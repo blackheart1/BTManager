@@ -39,8 +39,8 @@
 			<td>{trackers.TRACKER}</td>
 			<td>{trackers.STATUS}</td>
 			<td>{trackers.UPDATED}</td>
-			<td><p>{trackers.TORRENTS} <a href="admin.php?i=torrentinfo&op=trackers&do=listtorrents&id={trackers.ID}">(View)</a></p></td>
-			<td>
+			<td><p>{trackers.TORRENTS} <a href="admin.php?i=torrentinfo&op=trackers&do=listtorrents&id={trackers.ID}">({L_VIEW})</a></p></td>
+			<td style="text-align: center;">
 				<p>
 					<a href="admin.php?i=torrentinfo&op=trackers&do=scrapenow&id={trackers.ID}"><img src="admin/pics/refresh.png" border="0" alt="{L_UPDATE_TOR_NOW}" title="{L_UPDATE_TOR_NOW}" /></a>
 					<a href="admin.php?i=torrentinfo&op=trackers&do=bantracker&id={trackers.ID}&action={trackers.ACT}"><img src="admin/pics/{trackers.BAN}" border="0" alt="{L_EXCLUDE_TOR}" title="{L_EXCLUDE_TOR}" /></a>
@@ -84,7 +84,7 @@
 	<thead>
 	<tr>
 		<th>{L_NAME}</th>
-		<th>{L_SEEDER}</th>
+		<th>{L_SEEDERS}</th>
 		<th>{L_LEECHERS}</th>
 		<th>{L_COMPLETED}</th>
 		<th>{L_INFO_HASH}</th>

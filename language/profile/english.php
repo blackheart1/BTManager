@@ -56,7 +56,7 @@ $lang = array_merge($lang, array(
     'LOST_PASSWORD_SENT' => 'A Message has been Sent to your email Address containing a Confirmation Link.  Please Click on the Link for the Password Change to take effect.',
 
     'REMEMBER_ME'      => 'Remember Me',
-    'USER_SNATCH_LIST' => 'My Snatch List',
+    'USER_SNATCH_LIST' => 'Torrents Snatched',
 
     'LOGIN_EXP'        => 'The Area you are trying to Access is Restricted to <b>Registered Users</b>.<br />Please provide your Access Credentials and try again. If you\'ve NOT Registered on this Site yet, you can <a href=\'user.php?op=register\'> <u>DO SO HERE</u> </a> for FREE.',
 

@@ -54,6 +54,7 @@ $lang = array_merge($lang, array(
     'UPDATE_TOR_NOW'       => 'Update Torrent Now',
     'BANNED_ANNOUNCE'      => 'Blacklist a Tracker',
     'EXCLUDE_TOR'          => 'Exclude',
+    'VIEW'                 => 'View',
 
     'BANNED_ANNOUNCE_EXP'  => 'Insert the Announce URL of the Tracker you want to Blacklist.  ALL Torrents Associated to it will be Refused during Upload.',
 

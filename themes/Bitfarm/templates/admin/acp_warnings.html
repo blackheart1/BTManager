@@ -6,17 +6,17 @@
 <!-- IF MODE == index -->
 
 		<h2>{L_SECTION_TITLE_CONFIG}</h2>
-		
+
 		<p>{L_SECTION_EXPLAIN_CONFIG}</p>
 
 
 		<h2>{L_SECTION_TITLE_WARNED}</h2>
-		
+
 		<p>{L_SECTION_EXPLAIN_WARNED}</p>
 
 
 		<h2>{L_SECTION_TITLE_WATCHED}</h2>
-		
+
 		<p>{L_SECTION_EXPLAIN_WATCHED}</p>
 <!-- ELSEIF MODE == config -->
 <form action="{U_ACTION}" method="post">
@@ -59,9 +59,9 @@
 	<thead>
 	<tr>
 		<th>{L_USER}</th>
-		<th>{L_WARNED}</th>
-		<th>{L_TIME_TO_WARN}</th>
-		<th>{L_ACTION}</th>
+		<th style="text-align: center;">{L_WARNED}</th>
+		<th style="text-align: center;">{L_TIME_TO_WARN}</th>
+		<th style="text-align: center;">{L_ACTION}</th>
 	</tr>
 	</thead>
 	<tbody>
@@ -75,9 +75,9 @@
 			<td style="text-align: center;">{user.WARNED}</td>
 			<td style="text-align: center;">{user.TIME_LEFT}</td>
 			<td>
-				<form name="edit-player" method="post" action="admin.php?op=ratiowarn&i=userinfo&do=watched&action=edit&id={user.USER_ID}">
+				<form name="edit-player" method="post" style="text-align: center;" action="admin.php?op=ratiowarn&i=userinfo&do=watched&action=edit&id={user.USER_ID}">
 				<input type="hidden" name="warned" value="{user.USER_ID}">
-				<input class="button1" type="submit" id="submit" name="submit" value="edit" >
+				<input class="button1" type="submit" id="submit" name="submit" value="{L_EDIT_BAN}" >
 				</form>
 			</td>
 		</tr>
@@ -109,9 +109,9 @@
 	<thead>
 	<tr>
 		<th>{L_USER}</th>
-		<th>{L_WARNED}</th>
-		<th>{L_TIME_TO_WARN}</th>
-		<th>{L_ACTION}</th>
+		<th style="text-align: center;">{L_WARNED}</th>
+		<th style="text-align: center;">{L_TIME_TO_WARN}</th>
+		<th style="text-align: center;">{L_ACTION}</th>
 	</tr>
 	</thead>
 	<tbody>
@@ -125,9 +125,9 @@
 			<td style="text-align: center;">{user.WARNED}</td>
 			<td style="text-align: center;">{user.TIME_LEFT}</td>
 			<td>
-				<form name="edit-player" method="post" action="admin.php?op=ratiowarn&i=userinfo&do=watched&action=edit&id={user.USER_ID}">
+				<form name="edit-player" method="post" style="text-align: center;" action="admin.php?op=ratiowarn&i=userinfo&do=watched&action=edit&id={user.USER_ID}">
 				<input type="hidden" name="warned" value="{user.USER_ID}">
-				<input class="button1" type="submit" id="submit" name="submit" value="edit" >
+				<input class="button1" type="submit" id="submit" name="submit" value="{L_EDIT_BAN}" >
 				</form>
 			</td>
 		</tr>
