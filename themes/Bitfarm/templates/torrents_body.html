@@ -46,7 +46,7 @@
 
 <td class="ttable_head" align="left"><a href="/torrents.php?sort=1&amp;type=<!-- IF T_SORT == a -->{T_SHORT}<!-- ELSE -->desc<!-- ENDIF -->" title="{L_SORT_NAME}">{L_NAME}</a></td>
 
-<td class="ttable_head" align="left">DL</td>
+<td class="ttable_head" align="center"><img src="themes/Bitfarm/pics/download2.gif" alt="{L_DOWNLOAD}" title="{L_DOWNLOAD}" border="0"></td>
 
 <td class="ttable_head" align="center"><a href="/torrents.php?sort=2&amp;type=<!-- IF T_SORT == b -->{T_SHORT}<!-- ELSE -->desc<!-- ENDIF -->" title="{L_SORT_NUM_FILES}"><img src="themes/Bitfarm/pics/completed.gif" alt="Number of Files"  border="0"></a></td>
 
@@ -54,9 +54,9 @@
 
 <td class="ttable_head" align="center"><img src="themes/Bitfarm/pics/report.gif" alt="{L_RATINGS}" title="{L_RATINGS}" border="0"></td>
 
-<td class="ttable_head" align="center"><a href="/torrents.php?sort=5&amp;type=<!-- IF T_SORT == e -->{T_SHORT}<!-- ELSE -->desc<!-- ENDIF -->" title="{L_SORT_SIZE}"><img src="themes/Bitfarm/pics/servers.png" alt="Size"  border="0"></a></td>
+<td class="ttable_head" align="center"><a href="/torrents.php?sort=5&amp;type=<!-- IF T_SORT == e -->{T_SHORT}<!-- ELSE -->desc<!-- ENDIF -->" title="{L_SORT_SIZE}"><img src="themes/Bitfarm/pics/servers.png" alt="{L_SORT_SIZE}"  border="0"></a></td>
 
-<td class="ttable_head" align="center"><img src="themes/Bitfarm/pics/completed.png" alt="Downloaded" title="Downloaded" border="0"></td>
+<td class="ttable_head" align="center"><img src="themes/Bitfarm/pics/completed.png" alt="{L_DOWNED}" title="{L_DOWNED}" border="0"></td>
 
 <td class="ttable_head" align="center"><a href="/torrents.php?sort=7&amp;type=<!-- IF T_SORT == g -->{T_SHORT}<!-- ELSE -->desc<!-- ENDIF -->" title="{L_SORT_SEED}"><img src="themes/Bitfarm/pics/seeders.png" alt="{L_SEEDERS}" title="{L_SEEDERS}" border="0"></a></td>
 
@@ -111,13 +111,13 @@
 
 	  <!-- IF torrent_var.NEED_AUTH -->{torrent_var.AUTH_LINK}<!-- ENDIF -->
 
-	 
+
 
 </td>
 
 <td class="ttable_col1" align="center"><br><!-- IF torrent_var.CAN_DOWN_LOAD --><a class="index" href="download.php?id={torrent_var.ID}"><img style="border: medium none ;" alt="download" src="themes/Bitfarm/pics/download2.gif" align="center"></a><!-- ENDIF --></td>
 
-<td class="ttable_col2" align="center"><br><a href="/torrents.php?sort=2&amp;type=desc" title="Sort by Number of files desc">{torrent_var.NUM_FILE}</a></td>
+<td class="ttable_col2" align="center"><br><a href="/torrents.php?sort=2&amp;type=desc" title="{L_NUMB_FILES}">{torrent_var.NUM_FILE}</a></td>
 
 <td class="ttable_col1" align="center"><br><b><a href="details.php?id={torrent_var.ID}&amp;hit={torrent_var.ID}&amp;comm=startcomments">{torrent_var.NUM_COMENTS}</a></b></td>
 
@@ -157,7 +157,7 @@
 
       <strong>Pages {CURENT_PAGE}/{TOTTAL_PAGES}</strong>
 
-    </span> • 
+    </span> •
 
 	<span>
 

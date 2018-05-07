@@ -410,6 +410,7 @@ $lang = array_merge($lang, array(
     'ACCESS_DENIED'            => 'Access Denied!',
     'PRIVATE_PM'               => '[PM]',
     'PREVEASE'                 => 'Previous',
+    'PURGE'                    => 'PURGE',
     'QUESTION'                 => 'Question',
     'RESET'                    => 'RESET',
     'REFRESH'                  => 'Refresh',
@@ -420,6 +421,7 @@ $lang = array_merge($lang, array(
     'RATIO'                    => 'Ratio',
     'REDIRECT'                 => 'Redirect',
     'REPORT_BY'                => 'Report By',
+    'RESYNC'                   => 'RESYNC',
     'DONATE'                   => 'DONATE',
     'GOAL'                     => 'Goal',
     'COLECTED'                 => 'Collected',
@@ -756,6 +758,7 @@ $lang = array_merge($lang, array(
     'COMMUNITY'             => 'Community',
     'MSNWLM'                => 'MSN/WLM',
     'SHOUT_HELP'            => 'Type /help for Shoutbox Commands',
+    'EXPAND_ITEM'           => 'Expand Item',
 ));
 
 $u_datetime = array(

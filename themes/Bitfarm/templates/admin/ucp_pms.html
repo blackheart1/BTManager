@@ -5,7 +5,7 @@
 <!-- BEGIN listrow -->
 		<dl>
 			<dt style="text-align:left"><label for="{settingrow.ID}">{listrow.USERNAME}:</label></dt>
-			<dd>[<a href="{SITEURL}/admin.php?op=ucp_pms&amp;i=userinfo&amp;do=list&amp;userid={listrow.USER_ID}">Show All PMs</a>] [<a href="{SITEURL}/pm.php?op=send&amp;to={listrow.USER_ID}">Send PM to User</a>] [<a href="{SITEURL}/user.php?op=editprofile&amp;id={listrow.USER_ID}">Edit User</a>]</dd>
+			<dd>[<a href="{SITEURL}/admin.php?op=ucp_pms&amp;i=userinfo&amp;do=list&amp;userid={listrow.USER_ID}">{L_SHOW_ALL_PMS}</a>] [<a href="{SITEURL}/pm.php?op=send&amp;to={listrow.USER_ID}">{L_SEND_PM_USER}</a>] [<a href="{SITEURL}/user.php?op=editprofile&amp;id={listrow.USER_ID}">{L_EDIT_USER}</a>]</dd>
 		</dl>
 <!-- END listrow -->
 		<p><input class="button" value="{L_GO_BACK}" title="" tabindex="1" onclick="window.location='javascript:history.back(1)';" type="button"></p>
@@ -107,7 +107,7 @@
  </table>
 <!-- ELSEIF ACTION == search -->
 	<table align="center" border="1" width="95%" cellpadding="5" cellspacing="0">
-		<legend>Search Results for {SEARCH_MATCH}: {SEARCH_WORD}</legend>
+		<legend>{L_SEARCH_RESULT} {SEARCH_MATCH}: {SEARCH_WORD}</legend>
 		<tbody>
 			<tr>
 				<th>{L_ID}</th>
@@ -175,13 +175,13 @@
 	<input type="hidden" name="i" value="userinfo" />
 	<input type="hidden" name="op" value="ucp_pms" />
     <fieldset>
-		<legend>Read User PMs</legend>
+		<legend>{L_READ_USER_PMS}</legend>
         <dl>
 			<dt style="text-align:left"><label for="it_userid_1">{L_USER_ID_SEARCH}:</label><br />{L_USER_ID_SEARCH_EXP}</dt>
 			<dd><input type="text" class="bginput" name="userid" id="it_userid_1" value="" size="35" dir="ltr" tabindex="1" /></dd>
 		</dl>
                 <p class="submit-buttons">
-                    <input type="submit" id="submit0" class="button" tabindex="1" value="Read PMs" accesskey="s" />
+                    <input type="submit" id="submit0" class="button" tabindex="1" value="{L_READ_PMS}" accesskey="s" />
                 </p>
 	</fieldset>
 	</form>

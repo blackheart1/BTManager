@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File faq_manager/english.php 2018-03-29 10:45:00 Thor
+** File faq_manager/english.php 2018-05-06 08:17:00 Thor
 **
 ** CHANGES
 **
@@ -22,6 +22,7 @@
 ** 2018-02-24 - Fixed Spelling
 ** 2018-03-29 - Amended the Wording of some Sentences
 ** 2018-03-29 - Amended !defined('IN_PMBT') Corrected Path
+** 2018-05-06 - Added Missing Languages
 **/
 
 if (!defined('IN_PMBT'))
@@ -71,6 +72,16 @@ $lang = array_merge($lang, array(
     'ADD_ITEM_SAVED'           => 'Frequently Asked Questions has been Added to the Database.',
     'EDIT_REORDER_SAVED'       => 'Frequently Asked Questions have been Reordered and Updated in the Database.',
     'CONFIRM_OPERATION_DEL_FA' => 'Are you sure you wish to Remove this Frequently Asked Question?',
+
+    #Added in v3.0.1
+    'POSITION' => 'Position',
+    'SECTION_TITLE' => 'Section/Item Title',
+    'STATUS' => 'Status',
+    'ACTIONS' => 'Actions',
+    'EDIT' => 'Edit',
+    'DELETE' => 'Delete',
+    'ADD_ITEM' => 'Add New Item',
+    'ADD_SECTION' => 'Add New Section',
 ));
 
 ?>

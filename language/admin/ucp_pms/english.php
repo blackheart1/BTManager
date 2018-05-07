@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File ucp_pms/english.php 2018-04-11 08:41:00 Thor
+** File ucp_pms/english.php 2018-05-07 19:57:00 Thor
 **
 ** CHANGES
 **
@@ -22,6 +22,7 @@
 ** 2018-02-25 - Fixed Spelling
 ** 2018-04-11 - Amended the Wording of some Sentences
 ** 2018-04-11 - Amended !defined('IN_PMBT') Corrected Path
+** 2018-05-07 - Added Missing Languages
 **/
 
 if (!defined('IN_PMBT'))
@@ -78,6 +79,11 @@ $lang = array_merge($lang, array(
     'ERROR_EMPTY_FEALD'       => 'You Need to Enter a User ID or Username.',
     'ERROR_NO_SUCH_USER_NAME' => 'User <strong>%1$s</strong> DOES NOT Exist.',
     'ERROR_NO_SUCH_USER_ID'   => 'User ID: <strong>%1$s</strong> DOES NOT Exist.',
+    'SHOW_ALL_PMS'            => 'Show All PM\'s',
+    'SEND_PM_USER'            => 'Send PM to User',
+    'EDIT_USER'               => 'Edit User',
+    'SEARCH_RESULT'           => 'Search Results for',
+    'READ_PMS'                => 'Read PM\'s',
 ));
 
 ?>

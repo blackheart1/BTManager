@@ -16,7 +16,7 @@
   <div class="pagination">
     <span>
       <strong>Pages {CURENT_PAGE}/{TOTTAL_PAGES}</strong>
-    </span> • 
+    </span> •
 	<span>
 	  <!-- IF not PREV_PAGE --><strong>&lt;&lt;&lt;&lt;</strong><!-- ELSE --><a href="torrents.php?page={PREV_PAGE}">&lt;&lt;&lt;&lt;</a><!-- ENDIF -->
 {GENERATED_PAGES}
@@ -33,16 +33,16 @@
 <tbody><tr>
 <td class="colhead" align="center">{L_TYPE}</td>
 <td class="colhead" align="left">{L_NAME}</td>
-<td class="colhead" align="right"><img src="themes/Bitfarm/pics/completed.gif" alt="Number of Files" title="Number of Files" border="0"></td>
-<td class="colhead" align="right"><img src="themes/Bitfarm/pics/comments.png" alt="Comments" title="Comments" border="0"></td>
-<td class="colhead" align="center"><img src="themes/Bitfarm/pics/report.gif" alt="Ratings" title="Ratings" border="0"></td>
+<td class="colhead" align="right"><img src="themes/Bitfarm/pics/completed.gif" alt="{L_NUB_OF_FILES}" title="{L_NUB_OF_FILES}" border="0"></td>
+<td class="colhead" align="right"><img src="themes/Bitfarm/pics/comments.png" alt="{L_COMMENTS}" title="{L_COMMENTS}" border="0"></td>
+<td class="colhead" align="center"><img src="themes/Bitfarm/pics/report.gif" alt="{L_RATINGS}" title="{L_RATINGS}" border="0"></td>
 <td class="colhead" align="center">{L_UPLODED}</td>
-<td class="colhead" align="center"><img src="themes/Bitfarm/pics/completion.gif" alt="AVG Speed" title="AVG Speed" border="0"></td>
-<td class="colhead" align="center"><img src="themes/Bitfarm/pics/servers.png" alt="Size" title="Size" border="0"></td>
-<td class="colhead" align="center"><img src="themes/Bitfarm/pics/completed.png" alt="Downloaded" title="Downloaded" border="0"></td>
-<td class="colhead" align="right"><img src="themes/Bitfarm/pics/seeders.png" alt="Seeds" title="Seeds" border="0"></td>
-<td class="colhead" align="right"><img src="themes/Bitfarm/pics/leechers.png" alt="Leechers" title="Leechers" border="0"></td>
-<td class="colhead" align="center"><img src="themes/Bitfarm/pics/peers.gif" alt="addedby" title="addedby" border="0"></td>
+<td class="colhead" align="center"><img src="themes/Bitfarm/pics/completion.gif" alt="{L_AVG_SPEED}" title="{L_AVG_SPEED}" border="0"></td>
+<td class="colhead" align="center"><img src="themes/Bitfarm/pics/servers.png" alt="{L_SIZE}" title="{L_SIZE}" border="0"></td>
+<td class="colhead" align="center"><img src="themes/Bitfarm/pics/completed.png" alt="{L_DOWNED}" title="{L_DOWNED}" border="0"></td>
+<td class="colhead" align="right"><img src="themes/Bitfarm/pics/seeders.png" alt="{L_SEEDERS}" title="{L_SEEDERS}" border="0"></td>
+<td class="colhead" align="right"><img src="themes/Bitfarm/pics/leechers.png" alt="{L_LEECHERS}" title="{L_LEECHERS}" border="0"></td>
+<td class="colhead" align="center"><img src="themes/Bitfarm/pics/peers.gif" alt="{L_ADDED_BY}" title="{L_ADDED_BY}" border="0"></td>
 </tr>
 <!-- BEGIN torrent_var -->
 <tr>
@@ -61,7 +61,7 @@
 	  </nobr></p><!-- IF torrent_var.CAN_DOWN_LOAD --><a class="index" href="download.php?id={torrent_var.ID}"><img style="border: medium none ;" alt="download" src="themes/Bitfarm/pics/download2.gif" align="right"></a><!-- ENDIF -->
 
 	  </nobr><br>
-	  <!-- IF torrent_var.BANNED --><img src="themes/Bitfarm/pics/banned.png" alt="Banned torrent" title="Banned torrent" border="0"><!-- ENDIF -->
+	  <!-- IF torrent_var.BANNED --><img src="themes/Bitfarm/pics/banned.png" alt="{L_BANNED_TORRENT}" title="{L_BANNED_TORRENT}" border="0"><!-- ENDIF -->
 	  <!-- IF torrent_var.CAN_EDIT --><a href="edit.php?id={torrent_var.ID}"><img src="themes/Bitfarm/pics/edit.gif" alt="{L_EDIT}" title="{L_EDIT}" border="0"></a><!-- ENDIF -->
 	  <!-- IF torrent_var.CAN_DEL --><a href="edit.php?op=delete&amp;id={torrent_var.ID}"><img src="themes/Bitfarm/pics/drop.gif" alt="{L_DELETE}" title="{L_DELETE}" border="0"></a><!-- ENDIF -->
 	  <!-- IF torrent_var.CAN_BAN --><a href="edit.php?op=ban&amp;id={torrent_var.ID}"><img src="themes/Bitfarm/pics/ban.png" alt="{L_BANTORRENT}" title="{L_BANTORRENT}" border="0"></a><!-- ENDIF -->
@@ -91,7 +91,7 @@
   <div class="pagination">
     <span>
       <strong>Pages {CURENT_PAGE}/{TOTTAL_PAGES}</strong>
-    </span> • 
+    </span> •
 	<span>
 	  <!-- IF not PREV_PAGE --><strong>&lt;&lt;&lt;&lt;</strong><!-- ELSE --><a href="torrents.php?page={PREV_PAGE}">&lt;&lt;&lt;&lt;</a><!-- ENDIF -->
 {GENERATED_PAGES}
@@ -111,7 +111,7 @@
 <div class="cap-left">
 <div class="cap-right">
 
-<a class="c4" style="cursor: pointer; float: left;" onclick="toggle2('nn ');"><img title="Expand item" id="nn&nbsp;img" src="themes/Bitfarm/pics/minus.gif" alt="+"></a>&nbsp;
+<a class="c4" style="cursor: pointer; float: left;" onclick="toggle2('nn ');"><img title="{L_EXPAND_ITEM}" id="nn&nbsp;img" src="themes/Bitfarm/pics/minus.gif" alt="+"></a>&nbsp;
 </div>
 </div>
 </div>

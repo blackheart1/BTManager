@@ -11,11 +11,11 @@
 							<!-- IF f_block1.S_SELECTED -->
 <table border="1" cellspacing="0" cellpadding="5" align="center" width="95%">
 	<tr>
-		<th>Position</th>
-		<th>Position</th>
-		<th>Section/Item Title</th>
-		<th>Status</th>
-		<th>Actions</th>
+		<th style="text-align: center;">{L_POSITION}</th>
+		<th style="text-align: center;">{L_POSITION}</th>
+		<th>{L_SECTION_TITLE}</th>
+		<th style="text-align: center;">{L_STATUS}</th>
+		<th style="text-align: center;">{L_ACTIONS}</th>
 	</tr>
 
 						<!-- BEGIN f_block2 -->
@@ -25,7 +25,7 @@
 			<td align="center" width="40px">&nbsp;</td>
 			<td>{f_block1.f_block2.F_TITLE}</td>
 			<td align="center" width="60px">{f_block1.f_block2.F_FLAG}</td>
-			<td align="center" width="60px"><a href="admin.php?i=staff&amp;op=faqmanage&amp;action=edit&amp;id={f_block1.f_block2.F_ID}">edit</a> <a href="admin.php?i=staff&amp;op=faqmanage&amp;action=delete&amp;id={f_block1.f_block2.F_ID}">delete</a></td>
+			<td align="center" width="60px"><a href="admin.php?i=staff&amp;op=faqmanage&amp;action=edit&amp;id={f_block1.f_block2.F_ID}">{L_EDIT}</a> <a href="admin.php?i=staff&amp;op=faqmanage&amp;action=delete&amp;id={f_block1.f_block2.F_ID}">{L_DELETE}</a></td>
 		</tr>
 							<!-- DEFINE $LI_USED = 1 -->
 							<!-- ENDIF -->
@@ -36,7 +36,7 @@
 			<td>{f_block1.f_block2.f_block3.F_ORDER}</td>
 			<td>{f_block1.f_block2.f_block3.F_TITLE}</td>
 			<td align="center" width="60px">{f_block1.f_block2.f_block3.F_FLAG}</td>
-			<td align="center" width="60px"><a href="admin.php?i=staff&amp;op=faqmanage&amp;action=edit&amp;id={f_block1.f_block2.f_block3.F_ID}">edit</a> <a href="admin.php?i=staff&amp;op=faqmanage&amp;action=delete&amp;id={f_block1.f_block2.f_block3.F_ID}">delete</a></td>
+			<td align="center" width="60px"><a href="admin.php?i=staff&amp;op=faqmanage&amp;action=edit&amp;id={f_block1.f_block2.f_block3.F_ID}">{L_EDIT}</a> <a href="admin.php?i=staff&amp;op=faqmanage&amp;action=delete&amp;id={f_block1.f_block2.f_block3.F_ID}">{L_DELETE}</a></td>
 		</tr>
 								<!-- DEFINE $LI_USED = 1 -->
 							<!-- END f_block3 -->
@@ -44,7 +44,7 @@
 
 							<!-- ENDIF -->
 		<tr>
-			<td colspan="5" align="center"><a href="admin.php?i=staff&amp;op=faqmanage&amp;action=additem&amp;inid={f_block1.f_block2.F_ID}">Add new item</a></td>
+			<td colspan="5" align="center"><a href="admin.php?i=staff&amp;op=faqmanage&amp;action=additem&amp;inid={f_block1.f_block2.F_ID}">{L_ADD_ITEM}</a></td>
 		</tr>
 	</table>
 	<br />
@@ -55,6 +55,6 @@
 							<li></li>
 						<!-- ENDIF -->
 <table align="center" border="1" cellpadding="5" cellspacing="0" width="95%">
-<tbody><tr><td align="center"><a href="admin.php?i=staff&amp;op=faqmanage&amp;action=addsection">Add new section</a></td></tr>
+<tbody><tr><td align="center"><a href="admin.php?i=staff&amp;op=faqmanage&amp;action=addsection">{L_ADD_SECTION}</a></td></tr>
 </tbody></table>
 <!-- INCLUDE themes/Bitfarm/templates/admin/over_all_footer.html -->

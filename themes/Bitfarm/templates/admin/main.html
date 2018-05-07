@@ -123,7 +123,7 @@
 	<tr>
 		<td>{L__SITE_VERSION}: </td>
 		<td>
-			<strong><a href="{U_VERSIONCHECK}" <!-- IF S_VERSION_UP_TO_DATE -->style="color: #228822;"<!-- ELSE -->style="color: #BC2A4D;"<!-- ENDIF --> title="{L__MORE_INFORMATION}">{BOARD_VERSION}</a></strong> [&nbsp;<a href="{U_VERSIONCHECK_FORCE}">{L__VERSIONCHECK_FORCE_UPDATE}</a>&nbsp;]
+			<strong><a href="{U_VERSIONCHECK}" <!-- IF S_VERSION_UP_TO_DATE -->style="color: #529F00;"<!-- ELSE -->style="color: #C70002;"<!-- ENDIF --> title="{L__MORE_INFORMATION}">{BOARD_VERSION}</a></strong> [&nbsp;<a href="{U_VERSIONCHECK_FORCE}">{L__VERSIONCHECK_FORCE_UPDATE}</a>&nbsp;]
 		</td>
 	<!-- IF S_TOTAL_ORPHAN -->
 		<td>{L__NUMBER_ORPHAN}: </td>
@@ -143,21 +143,21 @@
 			<form id="action_online_form" method="post" action="{U_ACTION_REST_ONLINE}">
 				<dl>
 					<dt><label for="action_online">{L__RESET_ONLINE}</label><br /><span>&nbsp;</span></dt>
-					<dd><input type="hidden" name="action" value="online" /><input class="button2" type="submit" id="action_online" name="action_online" value="{L_GO}" /></dd>
+					<dd><input type="hidden" name="action" value="online" /><input class="button2" type="submit" id="action_online" name="action_online" value="{L_RESET}" /></dd>
 				</dl>
 			</form>
 
 			<form id="action_date_form" method="post" action="{U_ACTION_REST_DATE}">
 				<dl>
 					<dt><label for="action_date">{L__RESET_DATE}</label><br /><span>&nbsp;</span></dt>
-					<dd><input type="hidden" name="action" value="date" /><input class="button2" type="submit" id="action_date" name="action_date" value="{L_GO}" /></dd>
+					<dd><input type="hidden" name="action" value="date" /><input class="button2" type="submit" id="action_date" name="action_date" value="{L_RESET}" /></dd>
 				</dl>
 			</form>
 
 			<form id="action_stats_form" method="post" action="{U_ACTION_SINK}">
 				<dl>
 					<dt><label for="action_stats">{L__RESYNC_STATS}</label><br /><span>{L__RESYNC_STATS_EXPLAIN}</span></dt>
-					<dd><input type="hidden" name="action" value="sync_forum" /><input class="button2" type="submit" id="action_stats" name="action_stats" value="{L_GO}" /></dd>
+					<dd><input type="hidden" name="action" value="sync_forum" /><input class="button2" type="submit" id="action_stats" name="action_stats" value="{L_RESYNC}" /></dd>
 				</dl>
 			</form>
 
@@ -166,7 +166,7 @@
 			<form id="action_purge_cache_form" method="post" action="{U_ACTION_PURGE}">
 				<dl>
 					<dt><label for="action_purge_cache">{L__PURGE_CACHE}</label><br /><span>{L__PURGE_CACHE_EXPLAIN}</span></dt>
-					<dd><input type="hidden" name="action" value="purge_cache" /><input class="button2" type="submit" id="action_purge_cache" name="action_purge_cache" value="{L_GO}" /></dd>
+					<dd><input type="hidden" name="action" value="purge_cache" /><input class="button2" type="submit" id="action_purge_cache" name="action_purge_cache" value="{L_PURGE}" /></dd>
 				</dl>
 			</form>
 			<!-- ENDIF -->
@@ -184,8 +184,8 @@
 		<thead>
 		<tr>
 			<th>{L_USER_NAME}</th>
-			<th>{L__IP}</th>
-			<th>{L__TIME}</th>
+			<th style="text-align: center;">{L__IP}</th>
+			<th style="text-align: center;">{L__TIME}</th>
 			<th>{L_ACTIONS}</th>
 		</tr>
 		</thead>
