@@ -57,7 +57,7 @@ if (!defined('IN_PMBT'))
 					$template->assign_block_vars('custom_tags', array(
 						'BBCODE_NAME'		=> "'[{$row['bbcode_tag']}]', '[/" . str_replace('=', '', $row['bbcode_tag']) . "]'",
 						'BBCODE_ID'			=> $num_predefined_bbcodes + ($i * 2),
-						'BBCODE_TAG'		=> $row['bbcode_tag'],
+						'BBCODE_TAG'		=> str_replace('=', '', $row['bbcode_tag']),
 						'BBCODE_HELPLINE'	=> $row['bbcode_helpline'],
 						'A_BBCODE_HELPLINE'	=> str_replace(array('&amp;', '&quot;', "'", '&lt;', '&gt;'), array('&', '"', "\'", '<', '>'), $row['bbcode_helpline']),
 					));
