@@ -31,7 +31,7 @@ $help_set = array();
 while ($arr = $db->sql_fetchrow($res)) {
 	if($arr['type'] == 'categ')
 	{
-		$help_set[$arr['id']] = array(0=>'--', 1=>$arr['question'],2=>array());
+		$help_set[$arr['id']] = array(0=>'--', 1=>$arr['question'],2=>array(),3=>$arr['id']);
 	}
 	else
 	{
@@ -43,20 +43,21 @@ $help = array();
 $i = 0;
 foreach($help_set as $var)
 {
-array_push($help,array('--',stripslashes($var[1])));
-if($var[2])
-{
-foreach($var[2] as $val)
-{
-array_push($help,array(stripslashes($val[0]),stripslashes($val[1])));
+	array_push($help,array('--',stripslashes($var[1]),$var[3]));
+	if($var[2])
+	{
+		foreach($var[2] as $val)
+		{
+			array_push($help,array(stripslashes($val[0]),stripslashes($val[1])));
+		}
+	}
+	$i++;
+	if($i == '5')
+	{
+		array_push($help,array('--','--'));
+	}
 }
-}
-$i++;
-if($i == '5')
-{
-array_push($help,array('--','--'));
-}
-}
+//die(print_r($help));
 $switch_column = $found_switch = false;
 $help_blocks = array();
 foreach ($help as $help_ary)
@@ -71,6 +72,7 @@ foreach ($help as $help_ary)
 		}
 
 		$template->assign_block_vars('faq_block', array(
+			'FAQ_ID'			=> $help_ary[2],
 			'BLOCK_TITLE'		=> $help_ary[1],
 			'SWITCH_COLUMN'		=> $switch_column,
 		));
