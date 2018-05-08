@@ -308,14 +308,13 @@ class acp_users
 
 							if ($config['email_enable'])
 							{
-								include_once($phpbb_root_path . 'include/functions_messenger.' . $phpEx);
+								require_once("include/class.email.php");
+								include_once('include/function_messenger.php');
+								include_once("include/utf/utf_tools.php");
+								global $language;
 
 								$server_url = generate_board_url();
-
-								$user_actkey = gen_rand_string(10);
-								$key_len = 54 - (strlen($server_url));
-								$key_len = ($key_len > 6) ? $key_len : 6;
-								$user_actkey = substr($user_actkey, 0, $key_len);
+								$user_actkey = RandomAlpha(32);
 								$email_template = ($user_row['user_type'] == 0) ? 'user_reactivate_account' : 'user_resend_inactive';
 
 								if ($user_row['user_type'] == 0)
@@ -334,29 +333,20 @@ class acp_users
 										FROM ' . $db_prefix . '_users
 										WHERE id = ' . $user_id;
 									$result = $db->sql_query($sql);
-									$user_actkey = (string) $db->sql_fetchfield('user_actkey');
+									$user_actkey = $db->sql_fetchfield('user_actkey');
 									$db->sql_freeresult($result);
 								}
 
 								$messenger = new messenger(false);
-
-								$messenger->template($email_template, $user_row['user_lang']);
-
+								$messenger->template($email_template, $language);
 								$messenger->to($user_row['user_email'], $user_row['username']);
-
-								$messenger->headers('X-AntiAbuse: Board servername - ' . $config['server_name']);
-								$messenger->headers('X-AntiAbuse: User_id - ' . $user->id);
-								$messenger->headers('X-AntiAbuse: Username - ' . $user->name);
-								$messenger->headers('X-AntiAbuse: User IP - ' . $user->ip);
-
 								$messenger->assign_vars(array(
-									'WELCOME_MSG'	=> htmlspecialchars_decode(sprintf($user->lang['WELCOME_SUBJECT'], $config['sitename'])),
 									'USERNAME'		=> htmlspecialchars_decode($user_row['username']),
-									'U_ACTIVATE'	=> "$server_url/ucp.$phpEx?mode=activate&u={$user_row['user_id']}&k=$user_actkey")
+									'U_ACTIVATE'	=> "$server_url/user.$phpEx?op=confirm&username={$user_row['username']}&act_key=" . md5($user_actkey))
 								);
 
 								$messenger->send(0);
-
+								$messenger->save_queue();
 								add_log('admin', 'LOG_USER_REACTIVATE', $user_row['username']);
 								add_log('user', $user_id, 'LOG_USER_REACTIVATE_USER');
 
@@ -1619,7 +1609,7 @@ class acp_users
 					'S_SMILIES_CHECKED'		=> (!$enable_smilies) ? ' checked="checked"' : '',
 					'S_MAGIC_URL_CHECKED'	=> (!$enable_urls) ? ' checked="checked"' : '',
 
-					'BBCODE_STATUS'			=> ($config['allow_sig_bbcode']) ? sprintf($user->lang['BBCODE_IS_ON'], '<a href="' . append_sid("{$phpbb_root_path}faq.$phpEx", 'mode=bbcode') . '">', '</a>') : sprintf($user->lang['BBCODE_IS_OFF'], '<a href="' . append_sid("{$phpbb_root_path}faq.$phpEx", 'mode=bbcode') . '">', '</a>'),
+					'BBCODE_STATUS'			=> ($config['allow_sig_bbcode']) ? sprintf($user->lang['BBCODE_IS_ON'], '<a href="' . append_sid("{$phpbb_root_path}bbcode.$phpEx") . '">', '</a>') : sprintf($user->lang['BBCODE_IS_OFF'], '<a href="' . append_sid("{$phpbb_root_path}faq.$phpEx", 'mode=bbcode') . '">', '</a>'),
 					'SMILIES_STATUS'		=> ($config['allow_sig_smilies']) ? $user->lang['SMILIES_ARE_ON'] : $user->lang['SMILIES_ARE_OFF'],
 					'IMG_STATUS'			=> ($config['allow_sig_img']) ? $user->lang['IMAGES_ARE_ON'] : $user->lang['IMAGES_ARE_OFF'],
 					'FLASH_STATUS'			=> ($config['allow_sig_flash']) ? $user->lang['FLASH_IS_ON'] : $user->lang['FLASH_IS_OFF'],
@@ -1635,7 +1625,7 @@ class acp_users
 				);
 
 				// Assigning custom bbcodes
-				display_custom_bbcodes();
+				//display_custom_bbcodes();
 
 			break;
 

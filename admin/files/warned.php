@@ -72,7 +72,7 @@ for ($i = 1; $i <= $num; $i++)
 				'MOD_COMENT_SHORT'	=> $info_user['mdcoment_short'],
 				'JOINED'			=> $added,
 				'LAST_SEEN'			=> $last_access,
-				'U_GROUP'			=> $info_user['can_do'],
+				'U_GROUP'			=> ($user->lang[$info_user['group']])?$user->lang[$info_user['group']] : $info_user['group'],
 				'U_LEVEL'			=> $info_user['level'],
 				'U_WARNED_TEL'		=> gmdate("Y-m-d H:i:s",($userrow["warn_kapta"]+$userrow["warn_hossz"]))
 				)

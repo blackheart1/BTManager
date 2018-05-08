@@ -96,6 +96,7 @@ include_once 'include/user.functions.php';
 				$result = $db->sql_query($sql);
 			
 				$i = 0;
+	$num_predefined_bbcodes = 22;
 				while ($rows = $db->sql_fetchrow($result))
 				{
 					// If the helpline is defined within the language file, we will use the localised version, else just use the database entry...
@@ -105,9 +106,9 @@ include_once 'include/user.functions.php';
 					}
 			
 					$template->assign_block_vars('custom_tags', array(
-						'BBCODE_NAME'		=> "'[{$row['bbcode_tag']}]', '[/" . str_replace('=', '', $row['bbcode_tag']) . "]'",
+						'BBCODE_NAME'		=> "'[{$rows['bbcode_tag']}]', '[/" . str_replace('=', '', $rows['bbcode_tag']) . "]'",
 						'BBCODE_ID'			=> $num_predefined_bbcodes + ($i * 2),
-						'BBCODE_TAG'		=> $rows['bbcode_tag'],
+						'BBCODE_TAG'		=> str_replace('=', '', $rows['bbcode_tag']),
 						'BBCODE_HELPLINE'	=> $rows['bbcode_helpline'],
 						'A_BBCODE_HELPLINE'	=> str_replace(array('&amp;', '&quot;', "'", '&lt;', '&gt;'), array('&', '"', "\'", '<', '>'), $rows['bbcode_helpline']),
 					));

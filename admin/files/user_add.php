@@ -174,7 +174,7 @@ $default_group = $db->sql_fetchrow($res);
 								        'S_USER_NOTICE'				=> true,
 										'S_FORWARD'					=>false,
 								        'MESSAGE_TITLE'				=> $user->lang['SUCCESS'],
-                                        'MESSAGE_TEXT'				=> sprintf($user->lang['USER_VREATED'],$username, $activate, $db->sql_nextid()) . back_link($u_action),
+                                        'MESSAGE_TEXT'				=> sprintf($user->lang['USER_VREATED'],$username, $activate, $new_id) . back_link($u_action),
                                 ));
 		echo $template->fetch('admin/message_body.html');
 		close_out();

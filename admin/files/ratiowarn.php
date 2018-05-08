@@ -158,10 +158,10 @@ if(!checkaccess('a_warn_sys'))
 								        'S_USER_NOTICE'			=> true,
 										'S_FORWARD'				=> false,
 								        'MESSAGE_TITLE'			=> $user->lang['SUCCESS'],
-                                        'MESSAGE_TEXT'			=> sprintf($user->lang['USER_STST_UPDATE'],username_is($id)).back_link(append_sid($u_action,'do=watched')),
+                                        'MESSAGE_TEXT'			=> sprintf($user->lang['USER_STST_UPDATE'],username_is($id)).back_link(append_sid($u_action,'do=warned')),
                                 ));
 				$do="DELETE FROM ".$db_prefix."_ratiowarn WHERE userid =" . $id . " LIMIT 1" ;
-				//$db->sql_query($do)or btsqlerror($do);
+				$db->sql_query($do)or btsqlerror($do);
 				echo $template->fetch('admin/message_body.html');
 				close_out();
 				}

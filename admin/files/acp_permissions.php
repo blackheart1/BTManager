@@ -751,7 +751,7 @@ class acp_permissions
 			}
 		}
 
-		$auth_admin->acl_clear_prefetch();
+		$auth_admin->acl_clear_prefetch($user_id);
 
 		// Do we need to recache the moderator lists?
 		if ($permission_type == 'm_')
@@ -773,7 +773,7 @@ class acp_permissions
 		}
 		else
 		{
-			trigger_error($user->lang['AUTH_UPDATED'] . back_link($this->u_action));
+			trigger_error($user->lang['AUTH_UPDATED'] . back_link($this->u_action . (($user_id > 0)? '&amp;user_id[]=' . implode('&amp;user_id[]=', $user_id) : '')));
 		}
 	}
 
@@ -884,7 +884,7 @@ class acp_permissions
 
 		if ($forum_id[0] == 0)
 		{
-			//add_log('admin', 'LOG_ACL_' . strtoupper($action) . '_' . strtoupper($mode) . '_' . strtoupper($permission_type), $l_ug_list);
+			add_log('admin', 'LOG_ACL_' . strtoupper($action) . '_' . strtoupper($mode) . '_' . strtoupper($permission_type), $l_ug_list);
 		}
 		else
 		{
