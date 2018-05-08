@@ -1,17 +1,19 @@
-Subject: Reactivate your account on "{SITENAME}"
+Subject: Reactivate your Account on "{SITENAME}"
 
-A board administrator requested that your account be reactivated. Your account is currently inactive.
-Please follow the steps listed here to reactivate your account.
+A Board Administrator has requested that your Account be Reactivated at it's Currently Inactive.
 
-Please keep this e-mail for your records. Your account information is as follows:
+Please follow the steps listed below to Reactivate your Account.
+
+Your Account Information is as follows:-
 
 ----------------------------
 Username: {USERNAME}
 ----------------------------
 
-Your password has been securely stored in our database and cannot be retrieved. In the event that it is forgotten, you will be able to reset it using the email address associated with your account.
+Your Password has been Securely Stored in our Database and can NOT be retrieved.  In the event that it is forgotten, you will be able to Reset it using the email Address associated with your Account.
 
-Please visit the following link to reactivate your account:
+Please visit the following link to Reactivate your Account:-
+
 
 {U_ACTIVATE}
 

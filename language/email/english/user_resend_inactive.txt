@@ -4,19 +4,20 @@ Hi {USERNAME},
 
 You have Registered an Account on {SITENAME}.
 
-Please keep this e-mail for your records. Your account information is as follows:
+Your Account Information is as follows:-
 
 ----------------------------
 Username: {USERNAME}
 ----------------------------
 
-Your password has been securely stored in our database and cannot be retrieved. In the event that it is forgotten, you will be able to reset it using the email address associated with your account.
+Your Password has been Securely Stored in our Database and can NOT be retrieved.  In the event that it is forgotten, you will be able to Reset it using the email Address associated with your Account.
 
-Please visit the following link in order to activate your account:
+Please visit the following link in order to Activate your Account:
+
 
 {U_ACTIVATE}
 
 
-Thank you for registering.
+Thank you for Registering.
 
 {EMAIL_SIG}

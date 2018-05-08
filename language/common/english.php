@@ -410,7 +410,7 @@ $lang = array_merge($lang, array(
     'ACCESS_DENIED'            => 'Access Denied!',
     'PRIVATE_PM'               => '[PM]',
     'PREVEASE'                 => 'Previous',
-	'PURGE'                    => 'PURGE',
+    'PURGE'                    => 'PURGE',
     'QUESTION'                 => 'Question',
     'RESET'                    => 'RESET',
     'REFRESH'                  => 'Refresh',
@@ -701,7 +701,6 @@ $lang = array_merge($lang, array(
         'Sep'       => 'Sep',
         'Oct'       => 'Oct',
         'Nov'       => 'Nov',
-
         'Dec'       => 'Dec',
 
         'AGO' => array(
@@ -740,28 +739,27 @@ $lang = array_merge($lang, array(
     '30_MINS'               => '30 minutes',
     '6_HOURS'               => '6 hours',
 
-	#Template Related
-	'NUKED_TORRENT'			=> 'NUKED TORRENT',
-	'FEE_TORRENT'			=> 'FREE TORRENT',
-	'EXTER_TRACKER'			=> 'External Tracker',
+    #Template Related
+    'NUKED_TORRENT'         => 'NUKED TORRENT',
+    'FEE_TORRENT'           => 'FREE TORRENT',
+    'EXTER_TRACKER'         => 'External Tracker',
 
-	'DHT_EXPL'				=> 'This Torrent supports DHT.  With a State-of-the-art Client, you\'ll be able to Download this Torrent even if a Central Tracker goes down.',
+    'DHT_EXPL'              => 'This Torrent supports DHT.  With a State-of-the-art Client, you\'ll be able to Download this Torrent even if a Central Tracker goes down.',
 
-	'DHT_SUPORT'			=> 'DHT Support',
-	'BANTORRENT'			=> 'Ban Torrent',
-	'BBCODE_HELP'			=> 'BBcode Help',
-	'CLICK_TO_INSERT'		=> 'Click a Smiley to Insert it into your Message.',
-	'SMILIE_LIST'			=> 'Smiley List',
-	'WARNNED'				=> 'Warrned',
-	'GROUPS'				=> 'Groups',
-	'AGE'					=> 'Age',
-	'CONTACT'				=> 'Contact',
-	'COMMUNITY'				=> 'Community',
-	'MSNWLM'				=> 'MSN/WLM',
+    'DHT_SUPORT'            => 'DHT Support',
+    'BANTORRENT'            => 'Ban Torrent',
+    'BBCODE_HELP'           => 'BBcode Help',
+    'CLICK_TO_INSERT'       => 'Click a Smiley to Insert it into your Message.',
+    'SMILIE_LIST'           => 'Smiley List',
+    'WARNNED'               => 'Warned',
+    'GROUPS'                => 'Groups',
+    'AGE'                   => 'Age',
+    'CONTACT'               => 'Contact',
+    'COMMUNITY'             => 'Community',
+    'MSNWLM'                => 'MSN/WLM',
     'SHOUT_HELP'            => 'Type /help for Shoutbox Commands',
     'EXPAND_ITEM'           => 'Expand Item',
 	'QUOTE'					=> 'Quote',
-
 ));
 
 $u_datetime = array(
