@@ -152,10 +152,8 @@ $upload->set_allowed_extensions($extensions);
 }
 function display_custom_bbcodes()
 {
-	global $db, $template, $user;
+	global $db, $template, $user, $db_prefix;
 
-	// Start counting from 22 for the bbcode ids (every bbcode takes two ids - opening/closing)
-	$num_predefined_bbcodes = 22;
 
 	$sql = 'SELECT bbcode_id, bbcode_tag, bbcode_helpline
 		FROM ' . $db_prefix . '_bbcodes
@@ -164,6 +162,8 @@ function display_custom_bbcodes()
 	$result = $db->sql_query($sql);
 
 	$i = 0;
+	// Start counting from 22 for the bbcode ids (every bbcode takes two ids - opening/closing)
+	$num_predefined_bbcodes = 22;
 	while ($row = $db->sql_fetchrow($result))
 	{
 		// If the helpline is defined within the language file, we will use the localised version, else just use the database entry...
@@ -175,14 +175,16 @@ function display_custom_bbcodes()
 		$template->assign_block_vars('custom_tags', array(
 			'BBCODE_NAME'		=> "'[{$row['bbcode_tag']}]', '[/" . str_replace('=', '', $row['bbcode_tag']) . "]'",
 			'BBCODE_ID'			=> $num_predefined_bbcodes + ($i * 2),
-			'BBCODE_TAG'		=> $row['bbcode_tag'],
+			'BBCODE_TAG'		=> str_replace('=', '', $row['bbcode_tag']),
 			'BBCODE_HELPLINE'	=> $row['bbcode_helpline'],
 			'A_BBCODE_HELPLINE'	=> str_replace(array('&amp;', '&quot;', "'", '&lt;', '&gt;'), array('&', '"', "\'", '<', '>'), $row['bbcode_helpline']),
 		));
+	//echo ($num_predefined_bbcodes + ($i * 2)) . ' | ';
 
 		$i++;
 	}
 	$db->sql_freeresult($result);
+		//die('test');
 }
 function posting_gen_topic_types($forum_id, $cur_topic_type = 0)
 {

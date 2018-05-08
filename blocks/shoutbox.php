@@ -16,16 +16,17 @@
 **
 ** CHANGES
 **
-** EXAMPLE 26-04-13 - Added Auto Ban
+** 04-16-2018 Added Language
 **/
 if (!defined('IN_PMBT'))
 {
 	include_once './../security.php';
-	die ();
+    die ('Error 404 - Page Not Found');
 }
 global $db_prefix, $user, $db, $shout_config,$template,$btback1,$btback2, $phpEx, $config,$pmbt_cache;
 if($shout_config['turn_on']=='yes')
 {
+		$user->set_lang('shouts',$user->ulanguage);
 		include_once('include/function_posting.php');
 		include_once('include/message_parser.php');
 		include_once('include/class.bbcode.php');
@@ -39,7 +40,7 @@ if($shout_config['turn_on']=='yes')
 		$result = $db->sql_query($sql);
 			
 		$i = 0;
-		$num_predefined_bbcodes = 22;
+		$num_predefined_bbcodes = 24;
 		while ($rows = $db->sql_fetchrow($result))
 		{
 			// If the helpline is defined within the language file, we will use the localised version, else just use the database entry...
@@ -51,7 +52,7 @@ if($shout_config['turn_on']=='yes')
 			$template->assign_block_vars('custom_tags', array(
 				'BBCODE_NAME'		=> "'[{$rows['bbcode_tag']}]', '[/" . str_replace('=', '', $rows['bbcode_tag']) . "]'",
 				'BBCODE_ID'			=> $num_predefined_bbcodes + ($i * 2),
-				'BBCODE_TAG'		=> $rows['bbcode_tag'],
+				'BBCODE_TAG'		=> str_replace('=', '', $rows['bbcode_tag']),
 				'BBCODE_HELPLINE'	=> $rows['bbcode_helpline'],
 				'A_BBCODE_HELPLINE'	=> str_replace(
 					array('&amp;', '&quot;', "'", '&lt;', '&gt;'), 

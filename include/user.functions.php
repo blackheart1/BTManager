@@ -3153,4 +3153,69 @@ function btm_optionset(&$userrow, $key, $value, $data = false)
 		}
 	}
 
+/**
+* Flips user_type from active to inactive and vice versa, handles group membership updates
+*
+* @param string $mode can be flip for flipping from active/inactive, activate or deactivate
+*/
+function user_active_flip($mode, $user_id_ary, $reason = 1)
+{
+	global $config, $db, $db_prefix, $user, $auth;
+
+	$deactivated = $activated = 0;
+	$sql_statements = array();
+
+	if (!is_array($user_id_ary))
+	{
+		$user_id_ary = array($user_id_ary);
+	}
+
+	if (!sizeof($user_id_ary))
+	{
+		return;
+	}
+
+	$sql = 'SELECT id, can_do, user_type, user_inactive_reason
+		FROM ' . $db_prefix . '_users
+		WHERE ' . $db->sql_in_set('id', $user_id_ary);
+	$result = $db->sql_query($sql);
+
+	while ($row = $db->sql_fetchrow($result))
+	{
+		$sql_ary = array();
+
+		if ($row['user_type'] == '2' || $row['user_type'] == '3' ||
+			($mode == 'activate' && $row['user_type'] != '1') ||
+			($mode == 'deactivate' && $row['user_type'] == '1'))
+		{
+			continue;
+		}
+
+
+		$sql_ary += array(
+			'user_type'				=> ($row['user_type'] == '0') ? '1' : '0',
+			'user_inactive_time'	=> ($row['user_type'] == '0') ? time() : '0',
+			'user_inactive_reason'	=> ($row['user_type'] == '0') ? $reason : '0',
+		);
+
+		$sql_statements[$row['id']] = $sql_ary;
+	}
+	$db->sql_freeresult($result);
+
+	if (sizeof($sql_statements))
+	{
+		foreach ($sql_statements as $user_id => $sql_ary)
+		{
+			$sql = 'UPDATE ' . $db_prefix . '_users
+				SET ' . $db->sql_build_array('UPDATE', $sql_ary) . '
+				WHERE id = ' . $user_id;
+		//die($sql);
+			$db->sql_query($sql);
+		}
+
+		$auth->acl_clear_prefetch(array_keys($sql_statements));
+	}
+
+
+}
 ?>
