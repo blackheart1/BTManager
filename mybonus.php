@@ -153,11 +153,27 @@ if ($action == "exchange") {
 				));
     }
         else {
-        echo _btbonus_no_type;
+	$template->assign_vars(array(
+		'S_ERROR'			=> true,
+		'S_FORWARD'			=> false,
+		'TITTLE_M'			=> $user->lang['BT_ERROR'],
+		'MESSAGE'			=> $user->lang['NO_VALID_ACTION'],
+	));
+	echo $template->fetch('message_body.html');
+	close_out();
+        //echo $user->lang['NO_VALID_ACTION'];
     }
 
 } else {
-      echo _btbonus_notenouph;
+	$template->assign_vars(array(
+		'S_ERROR'			=> true,
+		'S_FORWARD'			=> false,
+		'TITTLE_M'			=> $user->lang['BT_ERROR'],
+		'MESSAGE'			=> $user->lang['NOT_ENOUPH_POINTS'],
+	));
+	echo $template->fetch('message_body.html');
+	close_out();
+     // echo $user->lang['NOT_ENOUPH_POINTS'];
       }
 }
 

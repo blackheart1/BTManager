@@ -51,7 +51,7 @@ switch($op) {
                 $db->sql_query($sql) or btsqlerror($sql);
                 $sql = "DELETE FROM ".$db_prefix."_private_messages_bookmarks WHERE master = '".$user->id."' AND slave = '".$id."';";
                 $db->sql_query($sql) or btsqlerror($sql);
-                header("Location: pm.php?op=inbox");
+                header("Location: user.php?op=profile&id=" . $id);
                 die();
         }
                 case "removeblacklist": {
@@ -63,7 +63,7 @@ switch($op) {
                 if (!$n) bterror($user->lang['NO_SUCH_USER'],_btpm);
                 $sql = "DELETE FROM ".$db_prefix."_private_messages_blacklist WHERE master = '".$user->id."' AND slave = '".$id."';";
                 $db->sql_query($sql) or btsqlerror($sql);
-                header("Location: pm.php?op=inbox");
+                header("Location: user.php?op=profile&id=" . $id);
                 die();
         }
 
@@ -78,7 +78,7 @@ switch($op) {
                 $db->sql_query($sql) or btsqlerror($sql);
                 $sql = "DELETE FROM ".$db_prefix."_private_messages_blacklist WHERE master = '".$user->id."' AND slave = '".$id."';";
                 $db->sql_query($sql) or btsqlerror($sql);
-                header("Location: pm.php?op=inbox");
+                header("Location: user.php?op=profile&id=" . $id);
                 die();
         }
                 case "removebookmark": {
@@ -90,7 +90,7 @@ switch($op) {
                 if (!$n) bterror($user->lang['NO_SUCH_USER'],_btpm);
                 $sql = "DELETE FROM ".$db_prefix."_private_messages_bookmarks WHERE master='".$user->id."' AND slave = '".$id."';";
                 $db->sql_query($sql) or btsqlerror($sql);
-                header("Location: pm.php?op=inbox");
+                header("Location: user.php?op=profile&id=" . $id);
                 die();
         }
         case "send": {

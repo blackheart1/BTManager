@@ -90,10 +90,6 @@ function set_user_options()
 
 	return $option_field;
 }
-$user->optionset('attachsig', 1);
-//if($user->optionget('attachsig'))echo set_user_options();
-//print_r($user->session_id);
-//die();
 if (!$auth->acl_get('a_'))
 {
 	trigger_error('NO_ADMIN');
@@ -105,7 +101,8 @@ if (!checkaccess("m_see_admin_cp")){
 require_once("admin/language/".$user->ulanguage.".php");
 $user->set_lang('admin/main',$user->ulanguage);
 $template->assign_vars(array(
-	'S_OWNER'				=> true,
+	'S_OWNER'				=> ($user->data['user_type'] == 3),
+	'S_COPYRIGHT_HTML'		=> true,
 ));
 set_site_var($user->lang['ADMINISTRATOR']);
 		$acp			= request_var('i', '');
