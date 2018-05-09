@@ -641,6 +641,7 @@ $lang = array_merge($lang, array(
     'CURENT_BROWS'             => 'Currently Browsing',
     'LOGEDIN_FOR'              => 'Logged in for',
     'EDIT_BAN'                 => 'Edit',
+    'DELETE_BAN'               => 'Delete',
 
     'HNR_REMOVED'              => 'Your Hit and Run Warning has been Removed because you have Restarted your Torrent.  Please keep Seeding for 72 hours or your Warning will be Reinstated',
 
