@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File forum/english.php 2018-04-22 06:28:00 Thor
+** File forum/english.php 2018-05-09 10:09:00 Thor
 **
 ** CHANGES
 **
@@ -22,6 +22,7 @@
 ** 2018-03-02 - Fixed Spelling
 ** 2018-03-26 - Added Missing Text
 ** 2018-04-22 - Amended the Wording of some Sentences
+** 2018-05-09 - Added Missing Languages
 **/
 
 if (!defined('IN_PMBT'))
@@ -78,6 +79,8 @@ $lang = array_merge($lang, array(
     'POST_TIME'                  => 'Post Time',
     'ALL_TOPICS'                 => 'ALL Topics',
     'FLOOD_ERROR'                => 'You can NOT make another Post so soon after your Last.',
+    'FORUM_RULES_LINK'           => 'Link to Forum Rules',
+    'FORUM_RULES'                => 'Forum Rules',
 
     'LOG_APPROVE_TOPIC'          => '<strong>Approved Topic</strong><br />%s',
     'LOG_BUMP_TOPIC'             => '<strong>User Bumped Topic</strong><br />%s',
@@ -240,6 +243,7 @@ $lang = array_merge($lang, array(
     'MAX_OPTION_SELECT'          => 'You may Select <strong>1</strong> Option',
     'MISSING_INLINE_ATTACHMENT'  => 'The Attachment <strong>%s</strong> is NO Longer Available',
     'MOVE_TOPIC'                 => 'Move Topic',
+    'NEW_POSTS'                  => 'New Posts',
     'NO_ATTACHMENT_SELECTED'     => 'You haven\'t Selected an Attachment to Download or View.',
     'NO_NEWER_TOPICS'            => 'There are NO Newer Topics in this Forum.',
     'NO_OLDER_TOPICS'            => 'There are NO Older Topics in this Forum.',
@@ -254,12 +258,17 @@ $lang = array_merge($lang, array(
     'QUICK_MOD'                  => 'Quick Mod Tools',
     'QUOTE'                      => 'Quote',
     'POST_SUBJECT'               => 'Post Subject',
+    'POST_REPORTED'              => 'Post Reported',
+    'READ_PROFILE'               => 'Profile',
     'REPLY_TO_TOPIC'             => 'Reply to Topic',
+    'REPLY_WITH_QUOTE'           => 'Reply with Quote',
+    'REPORT_POST'                => 'Report Post',
     'RETURN_POST'                => '%sReturn to the Post%s',
     'SUBMIT_VOTE'                => 'Submit Vote',
     'TOTAL_VOTES'                => 'Total Votes',
     'UNLOCK_TOPIC'               => 'Unlock Topic',
     'LOCK_TOPIC'                 => 'Lock Topic',
+    'SEND_PRIVATE_MESSAGE'       => 'Send Private Message',
     'SPLIT_TOPIC'                => 'Split Topic',
     'MERGE_POSTS'                => 'Merge Posts',
     'MERGE_TOPIC'                => 'Merge Topic',
@@ -268,6 +277,8 @@ $lang = array_merge($lang, array(
     'LOCK_POST'                  => 'Lock Post',
     'LOCK_POST_EXPLAIN'          => 'Prevent Editing',
     'VIEW_INFO'                  => 'Post Details',
+    'VIEW_NEWEST_POST'           => 'View Newest Post',
+    'VIEW_LATEST_POST'           => 'View Latest Post',
     'VIEW_NEXT_TOPIC'            => 'Next Topic',
     'VIEW_PREVIOUS_TOPIC'        => 'Previous Topic',
     'VIEW_RESULTS'               => 'View Results',

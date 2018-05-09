@@ -34,10 +34,10 @@
 			<td>
 				{clientbans.CLIENT_BAN_NAME}
 			</td>
-			<td style="text-align: center;">{clientbans.CLIENT_BAN_REASON}</td>
+			<td>{clientbans.CLIENT_BAN_REASON}</td>
 			<td>
-			<a href="admin.php?i=torrentinfo&amp;op=client_ban&amp;do=editclientban&amp;id={clientbans.ID}"><img src="themes/Bitfarm/pics/edit.gif" border="0" alt="" title=""   /></a>
-			<a href="admin.php?i=torrentinfo&amp;op=client_ban&amp;do=delclientban&amp;id={clientbans.ID}"><img src="themes/Bitfarm/pics/drop.gif" border="0" alt="" title=""   /></a>
+			<a href="admin.php?i=torrentinfo&amp;op=client_ban&amp;do=editclientban&amp;id={clientbans.ID}"><img src="themes/Bitfarm/pics/edit.gif" border="0" alt="{L_EDIT}" title="{L_EDIT}"   /></a>
+			<a href="admin.php?i=torrentinfo&amp;op=client_ban&amp;do=delclientban&amp;id={clientbans.ID}"><img src="themes/Bitfarm/pics/drop.gif" border="0" alt="{L_DELETE}" title="{L_DELETE}"   /></a>
 			</td>
 		</tr>
 	<!-- END clientbans -->

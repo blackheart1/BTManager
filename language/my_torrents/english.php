@@ -63,6 +63,7 @@ $lang = array_merge($lang, array(
     'CANT_VIEW_OTHER_AUTH'    => 'You can\'t View Other Users Torrents Permissions!',
     'DOWNL_AUTH_PANEL'        => 'Download Authorisations Control Panel',
     'NO_AUTH_TO_MANAGE'       => 'There are NO Authorisations to Manage',
+    'GENERAL_OPTIONS'         => 'General Options',
 
     'USER_AUTH_SETT_EXP'      => 'Select this Option to Require Users to Ask for Download Authorisation to Access this Torrent.  You will be Notified of each New Pending Authorisation via email.  You will be able to choose whether to Allow or Deny the Authorisation for this Single Torrent or for ALL your Torrents',
 

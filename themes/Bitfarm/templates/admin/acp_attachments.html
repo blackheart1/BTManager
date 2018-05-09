@@ -230,7 +230,7 @@
 		<tr>
 			<th>{L_EXTENSION_GROUP}</th>
 			<th>{L_SPECIAL_CATEGORY}</th>
-			<th>{L_OPTIONS}</th>
+			<th style="text-align: center;">{L_OPTIONS}</th>
 		</tr>
 		</thead>
 		<tbody>
@@ -248,7 +248,7 @@
 					<!-- ELSE --><br /><span>&raquo; {L_ALLOWED_IN_PM_POST}</span><!-- ENDIF -->
 				</td>
 				<td>{groups.CATEGORY}</td>
-				<td align="center" valign="middle" style="white-space: nowrap;">&nbsp;<a href="{groups.U_EDIT}">{ICON_EDIT}</a>&nbsp;&nbsp;<a href="{groups.U_DELETE}">{ICON_DELETE}</a>&nbsp;</td>
+				<td align="center" valign="middle" style="white-space: nowrap; text-align: center;">&nbsp;<a href="{groups.U_EDIT}">{ICON_EDIT}</a>&nbsp;&nbsp;<a href="{groups.U_DELETE}">{ICON_DELETE}</a>&nbsp;</td>
 			</tr>
 		<!-- END groups -->
 		</tbody>
@@ -297,7 +297,7 @@
 	<tr>
 		<th>{L_EXTENSION}</th>
 		<th>{L_EXTENSION_GROUP}</th>
-		<th>{L_DELETE}</th>
+		<th style="text-align: center;">{L_DELETE}</th>
 	</tr>
 	</thead>
 	<tbody>
@@ -310,7 +310,7 @@
 		<tr>
 			<td><strong>{extensions.EXTENSION}</strong></td>
 			<td>{extensions.GROUP_OPTIONS}</td>
-			<td><input type="checkbox" class="radio" name="extension_id_list[]" value="{extensions.EXTENSION_ID}" /><input type="hidden" name="extension_change_list[]" value="{extensions.EXTENSION_ID}" /></td>
+			<td style="text-align: center;"><input type="checkbox" class="radio" name="extension_id_list[]" value="{extensions.EXTENSION_ID}" /><input type="hidden" name="extension_change_list[]" value="{extensions.EXTENSION_ID}" /></td>
 		</tr>
 	<!-- END extensions -->
 	</tbody>
