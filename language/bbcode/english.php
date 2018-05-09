@@ -78,7 +78,7 @@ $help = array(
 
         This is <strong>[i]</strong>Great!<strong>[/i]</strong><br /><br />
 
-        Will become: <i>Great!</i>
+        Will become: <em>Great!</em>
         </ul><br />'
     ),
 

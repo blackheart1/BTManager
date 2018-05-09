@@ -58,7 +58,7 @@ $lang = array_merge($lang, array(
     'REMEMBER_ME'      => 'Remember Me',
     'USER_SNATCH_LIST' => 'Torrents Snatched',
 
-    'LOGIN_EXP'        => 'The Area you are trying to Access is Restricted to <b>Registered Users</b>.<br />Please provide your Access Credentials and try again. If you\'ve NOT Registered on this Site yet, you can <a href=\'user.php?op=register\'> <u>DO SO HERE</u> </a> for FREE.',
+    'LOGIN_EXP'        => 'The Area you are trying to Access is Restricted to <strong>Registered Users</strong>.<br />Please provide your Access Credentials and try again. If you\'ve NOT Registered on this Site yet, you can <a href=\'user.php?op=register\'> <u>DO SO HERE</u> </a> for FREE.',
 
     'BONUS_TRAN_TITTLE'     => 'Bonus Transfer',
     'BONUS_TRAN_TITTLE_EXP' => 'You can Transfer your Seed Bonus Points to another Member Here',

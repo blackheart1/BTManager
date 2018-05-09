@@ -40,7 +40,7 @@ define("_btnofilesintorrent","Missing Torrent Files");
 define("_btmissinglength","Missing Files and Size");
 define("_btinvpieces","Invalid Torrent Parts");
 define("_btinvannounce","Invalid Announce URL. Must be ");
-define("_bttrackerblacklisted","The Tracker used by this Torrent (<b>**trk**</b>) has been Blacklisted. Please use a different Tracker.");
+define("_bttrackerblacklisted","The Tracker used by this Torrent (<strong>**trk**</strong>) has been Blacklisted. Please use a different Tracker.");
 
 define("_bttrackerdisabled","Our Tracker has been Disabled: Only External Torrents can be Uploaded.");
 
