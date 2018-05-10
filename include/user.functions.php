@@ -2631,6 +2631,7 @@ function group_user_attributes($action, $group_id, $user_id_ary = false, $userna
 			$log = 'LOG_GROUP_DEFAULTS';
 		break;
 	}
+	//die();
 
 	// Clear permissions cache of relevant users
 	$auth->acl_clear_prefetch($user_id_ary);

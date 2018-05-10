@@ -308,6 +308,8 @@ function phpbb_is_writable($file)
 	}
 }
 
+if (!function_exists("get_supported_image_types"))
+{
 function get_supported_image_types($type = false)
 {
 	if (@extension_loaded('gd'))
@@ -368,6 +370,7 @@ function get_supported_image_types($type = false)
 	}
 
 	return array('gd' => false);
+}
 }
 /**
 * Update/Sync posted information for topics
@@ -854,6 +857,7 @@ function view_log($mode, &$log, &$log_count, $limit = 0, $offset = 0, $forum_id 
 		if (!empty($row['results']))
 		{
 			$log_data_ary = unserialize($row['results']);
+			if(!is_array($log_data_ary))$log_data_ary = array($log_data_ary);
 			//die(print_r($log_data_ary));
 
 			if (isset($user->lang[$row['action']]))
@@ -1606,8 +1610,9 @@ function drawRow($param, $type, $options = NULL, $legend = false, $extra = false
 		elseif ($type == "textarea")
 		{
 				$template->assign_vars(array(
-				'S_TEXT'	=> $cfgrow[$param],
-				'T_AREA'	=> "sub_".$param,
+				'S_TEXT'			=> $cfgrow[$param],
+				'T_AREA'			=> "sub_".$param,
+				'U_MORE_SMILIES'	=> 'forum.php?action=posting&mode=smilies&amp;f=0'
 				));
 				$content = $template->fetch('text_area.html');
         }
@@ -2286,7 +2291,7 @@ function delete_topic_shadows($forum_id, $sql_more = '', $auto_sync = true)
 	*/
 	function delete_forum_content($forum_id)
 	{
-		global $db, $config, $phpEx, $attach_config, $db_prefix;
+		global $db, $config, $phpEx, $db_prefix;
 
 		include_once('include/function_posting.' . $phpEx);
 
@@ -3393,7 +3398,7 @@ function add_permission_language()
 	global $user, $phpEx;
 
 	// First of all, our own file. We need to include it as the first file because it presets all relevant variables.
-	$user->set_lang('admin/permissions_phpbb',$user->ulanguage);
+	$user->set_lang('admin/acp_permissions',$user->ulanguage);
 
 	$files_to_add = array();
 

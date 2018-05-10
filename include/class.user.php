@@ -202,7 +202,7 @@ class User {
 			default:
 				$use_width = ($width === false) ? $img_data['width'] : $width;
 
-				return '<img src="' . $img_data['src'] . '"' . (($use_width) ? ' width="' . $use_width . '"' : '') . (($img_data['height']) ? ' height="' . $img_data['height'] . '"' : '') . ' alt="' . $alt . '" title="' . $alt . '" />';
+				return '<img src="' . $img_data['src'] . '"' . (($use_width) ? ' width="' . $use_width . '"' : '') . (($img_data['height']) ? ' height="' . $img_data['height'] . '"' : '') . ' alt="' . $alt . '" title="' . (($this->lang[$alt])? $this->lang[$alt] : $alt) . '" />';
 			break;
 		}
 	}

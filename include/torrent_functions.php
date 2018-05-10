@@ -132,15 +132,20 @@ function get_tor_vars($res, $variant = "index", $user = "", $block = "", $extra 
                 $dispname = str_replace("_", " ", $dispname);
                 $dispname = str_replace(".", " ", $dispname);
                 //Permission Administration
-				$auth_link = $pic = '';
+				$alt = $auth_link = $pic = '';
                 if ($torrent_global_privacy AND $user->user AND $row["type"] != "link") {
                         if ($row["owner"] == $user->id) {
                                 $pic = "auth_none.gif";
+								$alt = 'AUTH_PENDING_NONE';
                                 $authsql = "SELECT status FROM ".$db_prefix."_privacy_file WHERE torrent = '".$row["id"]."' AND status = 'pending';";
                                 $authres = $db->sql_query($authsql) or btsqlerror($authsql);
-                                if ($db->sql_numrows($authres) > 0) $pic = "auth_pending.gif";
+                                if ($db->sql_numrows($authres) > 0)
+								{
+									$pic = "auth_pending.gif";
+									$alt = 'AUTH_PENDING';
+								}
 								//echo $pic;
-                                $auth_link = pic($pic,"mytorrents.php?op=displaytorrent&id=".$row["id"],$pic);
+                                $auth_link = pic($pic,"mytorrents.php?op=displaytorrent&id=".$row["id"],$user->lang[$alt]);
                         } elseif (!can_download($user,$row)) {
                                 $authres = $db->sql_query("SELECT status FROM ".$db_prefix."_privacy_file WHERE torrent = '".$row["id"]."' AND slave = '".$user->id."' LIMIT 1;");
                                 if ($db->sql_numrows($authres) == 0) $auth_link = pic("lock_request.gif","details.php?op=authorization&id=".$row["id"],$user->lang['ALT_LOCKED_T_REQ']);

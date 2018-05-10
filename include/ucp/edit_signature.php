@@ -47,6 +47,8 @@ if (!defined('IN_PMBT'))
 						include_once('include/bbcode.' . $phpEx);
 						$bbcode = new bbcode($message_parser->bbcode_bitfield);
 						$bbcode->bbcode_second_pass($signature, $message_parser->bbcode_uid, $message_parser->bbcode_bitfield);
+						$signature = bbcode_nl2br($signature);
+						$signature = smiley_text($signature);
                                 $template->assign_vars(array(
 								'SIGNATURE_PREVIEW'			=>	$signature,
 								

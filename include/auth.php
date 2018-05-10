@@ -407,7 +407,7 @@ class auth
 				SET user_permissions = '" . $db->sql_escape($sql_in) . "',
 					user_perm_from = 0
 				WHERE id = " . $sql_is;
-			$db->sql_query($sql) or btsqlerror($sql);
+			$db->sql_query($sql);// or btsqlerror($sql);
 		}
 
 		return;
@@ -501,7 +501,10 @@ class auth
 		if ($user_id !== false)
 		{
 			$user_id = (!is_array($user_id)) ? $user_id = array((int) $user_id) : array_map('intval', $user_id);
-			$where_sql = ' WHERE ' . $db->sql_in_set('id', $user_id);
+			if(!empty($user_id))
+			{
+				$where_sql = ' WHERE ' . $db->sql_in_set('id', $user_id);
+			}
 		}
 
 		$sql = 'UPDATE ' .$db_prefix . "_users

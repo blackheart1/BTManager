@@ -315,6 +315,7 @@ class acp_permission_roles
 
 					'U_ACTION'			=> $this->u_action . "&amp;action_a={$action_a}&amp;role_id={$role_id}",
 					'U_BACK'			=> $this->u_action,
+					'S_SPECIAL_GROUP'	=> (($user->lang[$role_row['role_name']])?true : false),
 
 					'ROLE_NAME'			=> $role_row['role_name'],
 					'ROLE_DESCRIPTION'	=> $role_row['role_description'],

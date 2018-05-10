@@ -267,9 +267,9 @@ if($hnr_system == 'true')
    $db->sql_query("UPDATE ".$db_prefix."_users SET warned = '0', warn_kapta= 0, warn_hossz = 0 WHERE (`warn_hossz` + `warn_kapta`) < '" . strtotime(gmdate("Y-m-d H:i:s", time())) . "'");
 
 
-        //$db->sql_query("UPDATE ".$db_prefix."_torrents SET evidence = 0 WHERE evidence = 1 AND UNIX_TIMESTAMP(added) < UNIX_TIMESTAMP(NOW()) - 14*84600;");
-        //$db->sql_query("UPDATE ".$db_prefix."_torrents SET visible = 'no' WHERE type != 'link' AND tot_peer <= '".$down_limit."' AND UNIX_TIMESTAMP(last_action) < UNIX_TIMESTAMP(NOW()) - ".intval($dead_torrent_interval)." AND evidence != 1 AND (TRACKER IS NULL OR ".intval($autoscrape).");");
-        //$db->sql_query("UPDATE ".$db_prefix."_torrents SET visible = 'yes' WHERE tot_peer > '".$down_limit."';");
+        $db->sql_query("UPDATE ".$db_prefix."_torrents SET evidence = 0 WHERE evidence = 1 AND UNIX_TIMESTAMP(added) < UNIX_TIMESTAMP(NOW()) - 14*84600;");
+        $db->sql_query("UPDATE ".$db_prefix."_torrents SET visible = 'no' WHERE type != 'link' AND tot_peer <= '".$down_limit."' AND UNIX_TIMESTAMP(last_action) < UNIX_TIMESTAMP(NOW()) - ".intval($dead_torrent_interval)." AND evidence != 1 AND (TRACKER IS NULL OR ".intval($autoscrape).");");
+        $db->sql_query("UPDATE ".$db_prefix."_torrents SET visible = 'yes' WHERE tot_peer > '".$down_limit."';");
         $db->sql_query("DELETE FROM ".$db_prefix."_online_users WHERE UNIX_TIMESTAMP(last_action) < UNIX_TIMESTAMP(NOW()) - 300;");
 
 #prune users
