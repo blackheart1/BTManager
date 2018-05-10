@@ -495,17 +495,17 @@ CREATE TABLE IF NOT EXISTS `#prefix#_download_completed` (
 
 CREATE TABLE IF NOT EXISTS `#prefix#_drafts` (
   `draft_id` mediumint(8) NOT NULL auto_increment,
-  `user_id` mediumint(8) NOT NULL,
+  `user_id` int(20) NOT NULL,
   `topic_id` mediumint(8) NOT NULL,
   `forum_id` mediumint(8) NOT NULL,
   `save_time` int(11) NOT NULL,
-  `draft_subject` varchar(255) binary NOT NULL,
-  `draft_message` mediumtext NOT NULL,
-  `draft_type` enum('forum','pm','topic','coment') NOT NULL default 'forum',
-  `torrent` mediumint(8) NOT NULL,
-  `user_to` mediumint(8) NOT NULL,
-  PRIMARY KEY  (`draft_id`)
-) TYPE=MyISAM  AUTO_INCREMENT=1 ;
+  `draft_subject` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `draft_message` mediumtext CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `draft_type` enum('forum','pm','topic','coment') NOT NULL DEFAULT 'forum',
+  `torrent` mediumint(8) DEFAULT NULL,
+  `user_to` mediumint(8) DEFAULT NULL,
+  PRIMARY KEY (`draft_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 

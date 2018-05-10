@@ -650,7 +650,7 @@ CREATE TABLE IF NOT EXISTS `#prefix#_drafts` (
   `draft_message` mediumtext CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `draft_type` enum('forum','pm','topic','coment') NOT NULL DEFAULT 'forum',
   `torrent` mediumint(8) DEFAULT NULL,
-  `user_to` mediumint(8) NOT NULL,
+  `user_to` mediumint(8) DEFAULT NULL,
   PRIMARY KEY (`draft_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
