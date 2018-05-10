@@ -155,7 +155,7 @@ $start = request_var('page', 0)*$config['topics_per_page'];
 			}
 
 			// Check if the user is allowed to manage this group if set to founder only.
-			if ($user->type != 3 && $group_row['group_founder_manage'])
+			if ($user->data['user_type'] != 3 && $group_row['group_founder_manage'])
 			{
 				bterror($user->lang['NOT_ALLOWED_MANAGE_GROUP'] . back_link($u_action),$user->lang['GEN_ERROR']);
 			}
