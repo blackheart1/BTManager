@@ -108,7 +108,7 @@ switch($op)
                                         //ob_end_clean();
 										while (list($var,$val) = each($_POST))
 										{
-										if($var != 'username' AND $var != 'page' AND $var != 'op' AND $var != 'password' AND $var != 'gfxcode' AND $var != 'recaptcha_challenge_field' AND $var != 'recaptcha_response_field')$hidden[$var] = $var . '=' .$val;
+										if($var != 'username' AND $var != 'page' AND $var != 'op' AND $var != 'password' AND $var != 'gfxcode' AND $var != 'g-recaptcha-response' AND $var != 'recaptcha_challenge_field')$hidden[$var] = $var . '=' .$val;
 										if($var == 'page') $page = $val;
 										}
 
@@ -175,7 +175,7 @@ switch($op)
 		}
 }
 			$gfximage = '';
-                if ($gfx_check) {
+                if ($gfx_check AND !$login_complete) {
 					if($recap_puplic_key)
 					{
 							   $template->assign_vars(array(

@@ -72,6 +72,7 @@ else
 			case "posting":
 			case "newtopic":
 				{
+					$user->set_lang('pm',$user->ulanguage);
 					require_once("forum/posting.php");
 					ob_end_flush();
 					$db->sql_close();
