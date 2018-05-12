@@ -2559,9 +2559,9 @@ function can_download($user, &$torrent) {
 function userlogin($username, &$cookiedata) {
 global $db, $db_prefix, $cookiedomain, $cookiepath, $logintime;
 $res = $db->sql_query("SELECT * FROM ".$db_prefix."_users WHERE clean_username ='".$db->sql_escape(strtolower($username))."';");
-if (!$res) return;
+if (!$res) return false;
 $row = $db->sql_fetchrow($res);
-if (!$row) return;
+if (!$row) return false;
 $remember = 'yes';
 $session_time = time() + (($logintime) ? 3200 * (int) $logintime : 31536000);
 $cookiedata = Array($row["id"],addslashes($row["username"]),$row["password"],$row["act_key"]);
@@ -2572,14 +2572,14 @@ if ($row["theme"] != "" AND is_dir("themes/".$row["theme"]) AND $row["theme"] !=
 else setcookie("bttheme","",$session_time,$cookiepath,$cookiedomain,0);
 if ($row["language"] != "" AND is_readable("language/".$row["language"].".php")) setcookie("btlanguage",$row["language"],$session_time,$cookiepath,$cookiedomain,0);
 else setcookie("btlanguage","",$session_time,$cookiepath,$cookiedomain,0);
-return;
+return true;
 }else{
         setcookie("btuser",$cookiedata,time()+8640000,$cookiepath,$cookiedomain,0);
         if ($row["theme"] != "" AND is_dir("themes/".$row["theme"]) AND $row["theme"] != "CVS") setcookie("bttheme",$row["theme"],time()+8640000,$cookiepath,$cookiedomain,0);
         else setcookie("bttheme","",time()+8640000,$cookiepath,$cookiedomain,0);
         if ($row["language"] != "" AND is_readable("language/".$row["language"].".php")) setcookie("btlanguage",$row["language"],time()+8640000,$cookiepath,$cookiedomain,0);
         else setcookie("btlanguage","",time()+8640000,$cookiepath,$cookiedomain,0);
-        return;
+        return true;
 }
 } 
 function getuserid($user) { //Deprecated

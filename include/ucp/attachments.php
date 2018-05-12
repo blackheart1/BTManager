@@ -86,7 +86,7 @@ $user->set_lang('pm',$user->ulanguage);
 			}
 			else
 			{
-				confirm_box(false, '', build_hidden_fields($s_hidden_fields));
+				confirm_box(false, ((sizeof($delete_ids) == 1) ? '_DELETE_ATTACHMENT' : '_DELETE_ATTACHMENTS'), build_hidden_fields($s_hidden_fields));
 			}
 		}
 
