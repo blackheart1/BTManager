@@ -187,7 +187,7 @@ $lang = array_merge($lang, array(
     'UCP_MAIN_SUBSCRIBED'         => 'Manage Subscriptions',
 
     'UCP_MSNM'                    => 'MSN Messenger',
-    'UCP_NO_ATTACHMENTS'          => 'You have Posted NO Files.',
+    'UCP_NO_ATTACHMENTS'          => 'You haven\'t Posted any Files.',
 
     'UCP_PREFS'                   => 'Board Preferences',
     'UCP_PREFS_PERSONAL'          => 'Edit Global Settings',

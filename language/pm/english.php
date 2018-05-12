@@ -534,7 +534,7 @@ $lang = array_merge($lang, array(
     '_UCP_MAIN_SUBSCRIBED'      => 'Manage Subscriptions',
 
     '_UCP_MSNM'                 => 'WL/MSN Messenger',
-    '_UCP_NO_ATTACHMENTS'       => 'You haven\'t Posted any Files.',
+    'UCP_NO_ATTACHMENTS'        => 'You haven\'t Posted any Files.',
 
     '_UCP_PREFS'                => 'Board Preferences',
     '_UCP_PREFS_PERSONAL'       => 'Edit Global Settings',
@@ -864,7 +864,6 @@ $lang = array_merge($lang, array(
     '_NO_TOPIC_FORUM'         => 'The Topic or Forum NO Longer Exists',
     '_btpm'                   => 'Private Messages',
     '_btrulesadd'             => 'Add New Rules Section',
-
-
+    '_CONFIRM'                => 'Confirm Deletion of Attachment',
 ));
 ?>
