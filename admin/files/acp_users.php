@@ -47,6 +47,7 @@ class acp_users
 		$username = request_var('username', '', true);
 		$username	= utf8_normalize_nfc($username);
 		$user_id	= request_var('u', 0);
+		if(!$user_id)$user_id	= request_var('id', 0);
 		$action		= request_var('action', '');
 
 		$submit		= (isset($_POST['update']) && !isset($_POST['cancel'])) ? true : false;
@@ -319,7 +320,7 @@ class acp_users
 
 								if ($user_row['user_type'] == 0)
 								{
-									user_active_flip('deactivate', $user_id, 4);
+									user_active_flip('deactivate', $user_id, '4');
 
 									$sql = 'UPDATE ' . $db_prefix . "_users
 										SET act_key = '" . $db->sql_escape($user_actkey) . "'
@@ -336,10 +337,9 @@ class acp_users
 									$user_actkey = $db->sql_fetchfield('user_actkey');
 									$db->sql_freeresult($result);
 								}
-
 								$messenger = new messenger(false);
 								$messenger->template($email_template, $language);
-								$messenger->to($user_row['user_email'], $user_row['username']);
+								$messenger->to($user_row['email'], $user_row['username']);
 								$messenger->assign_vars(array(
 									'USERNAME'		=> htmlspecialchars_decode($user_row['username']),
 									'U_ACTIVATE'	=> "$server_url/user.$phpEx?op=confirm&username={$user_row['username']}&act_key=" . md5($user_actkey))
@@ -377,8 +377,24 @@ class acp_users
 							{
 								trigger_error($user->lang['CANNOT_DEACTIVATE_BOT'] . back_link($this->u_action . '&amp;u=' . $user_id), E_USER_WARNING);
 							}
-
 							user_active_flip('flip', $user_id);
+							if ($user_row['user_type'] == 1)
+							{
+								if ($conferm_email)
+								{
+									include_once($phpbb_root_path . 'include/function_messenger.' . $phpEx);
+									if ((!$user_row['language']) OR !file_exists("language/email/".$user_row['language']."/admin_welcome_activated.txt")) $lang_email = $language;
+									else $lang_email = $user_row['language'];
+									$messenger = new messenger(false);
+									$messenger->template('admin_welcome_activated', $lang_email);
+									$messenger->to($user_row['email'], $user_row['username']);
+									$messenger->assign_vars(array(
+										'USERNAME'	=> htmlspecialchars_decode($user_row['username']))
+									);
+
+									$messenger->send(0);
+								}
+							}
 
 							$message = ($user_row['user_type'] == 1) ? 'USER_ADMIN_ACTIVATED' : 'USER_ADMIN_DEACTIVED';
 							$log = ($user_row['user_type'] == 1) ? 'LOG_USER_ACTIVE' : 'LOG_USER_INACTIVE';
@@ -742,8 +758,8 @@ class acp_users
 									$sql = 'SELECT id
 										FROM ' . $db_prefix . '_users
 										WHERE user_type = ' . 3 . '
-											AND id <> ' . $user_id;
-									$result = $db->sql_query_limit($sql, 1);
+											AND id <> ' . $user_id . ' LIMIT 1';
+									$result = $db->sql_query($sql);
 									$row = $db->sql_fetchrow($result);
 									$db->sql_freeresult($result);
 
@@ -1742,7 +1758,7 @@ class acp_users
 				{
 					if ($row['in_message'])
 					{
-						$view_topic = append_sid("{$phpbb_root_path}ucp.$phpEx", "i=pm&amp;p={$row['post_msg_id']}");
+						$view_topic = append_sid("{$phpbb_root_path}pm.$phpEx", "i=0&amp;op=readmsg&amp;f=0&amp;p={$row['post_msg_id']}");
 					}
 					else
 					{

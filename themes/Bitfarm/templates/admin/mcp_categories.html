@@ -18,41 +18,42 @@
 
 <hr />
 <!-- IF .category -->
+<div style="width:100%;" valign="middle" nowrap="nowrap" align="center">
 	<!-- BEGIN category -->
-		<fieldset>
+		<fieldset style="width:500px; float:center; align-content:center;" valign="middle">
 			<legend>{category.NAME}</legend>
-	<table cellspacing="1">
+	<table cellspacing="1" style="width:500px;">
 	<thead>
 	<tr>
-		<th style="text-align: center;">{L_ACTIONS}</th>
+		<th>{L_ACTIONS}</th>
 		<th>{L_NAMES}</th>
 		<th>{L_IMAGE}</th>
 	</tr>
 	</thead>
 	<tbody>
 	<tr class="row2">
-		<td style="text-align: center;">
+		<td style="width:100px; align-content:center;">
 			<a href="admin.php?i=torrentinfo&amp;op=categories&amp;do=editcategory&amp;id={category.ID}#edit"><img src="themes/Bitfarm/pics/edit.gif" border="0" alt="{L_EDIT}" title="{L_EDIT}"   /></a>
 			<a href="admin.php?i=torrentinfo&amp;op=categories&amp;do=delcategory&amp;id={category.ID}"><img src="themes/Bitfarm/pics/drop.gif" border="0" alt="{L_DELETE}" title="{L_DELETE}"   /></a>
 		</td>
-		<td>
+		<td style="width:300px">
 			{category.NAME}
 		</td>
-		<td>
+		<td style="width:100px">
 			<img src="cat_pics/{category.IMAGE}" alt="{category.NAME}" />
 		</td>
 	</tr>
 			<!-- IF .category.child -->
 				<!-- BEGIN child -->
 	<tr class="row1">
-		<td style="text-align: center;">
+		<td style="width:100px; align-content:center;">
 			<a href="admin.php?i=torrentinfo&amp;op=categories&amp;do=editcategory&amp;id={category.child.ID}#edit"><img src="themes/Bitfarm/pics/edit.gif" border="0" alt="{L_EDIT}" title="{L_EDIT}"   /></a>
 			<a href="admin.php?i=torrentinfo&amp;op=categories&amp;do=delcategory&amp;id={category.child.ID}"><img src="themes/Bitfarm/pics/drop.gif" border="0" alt="{L_DELETE}" title="{L_DELETE}"   /></a>
 		</td>
-		<td>
+		<td style="width:300px">
 			{category.child.NAME}
 		</td>
-		<td>
+		<td style="width:100px">
 			<img src="cat_pics/{category.child.IMAGE}" alt="{category.child.NAME}" />
 		</td>
 	</tr>
@@ -62,6 +63,7 @@
 	</table>
 		</fieldset>
 	<!-- END tor_block1 -->
+  </div>
 <!-- ELSE -->
 {L_NO_CATEGORIES}
 <!-- ENDIF -->

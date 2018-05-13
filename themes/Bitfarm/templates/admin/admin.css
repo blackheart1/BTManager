@@ -754,10 +754,13 @@ option.disabled-option {
 }
 
 .sep {
-	background-color:#7274f3;
 	font-weight: bold;
 }
 
+.sepop {
+	background-color:#7274f3;
+	font-weight: bold;
+}
 .username-coloured {
 	font-weight: bold;
 }
@@ -1368,6 +1371,7 @@ fieldset.permissions .padding {
 	min-width: 570px;
 	font-size: 0.85em;
 }
+
 
 .rtl .permissions-category {
 	margin: 0 7px -1px 0;

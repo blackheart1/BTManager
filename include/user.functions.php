@@ -2582,7 +2582,7 @@ function group_user_attributes($action, $group_id, $user_id_ary = false, $userna
 			$db->sql_query($sql) or btsqlerror($sql);
 
 			// Send approved email to users...
-			include_once($phpbb_root_path . 'includes/functions_messenger.' . $phpEx);
+			include_once($phpbb_root_path . 'include/function_messenger.' . $phpEx);
 			$messenger = new messenger();
 
 			foreach ($email_users as $row)
@@ -3210,7 +3210,6 @@ function user_active_flip($mode, $user_id_ary, $reason = 1)
 			$sql = 'UPDATE ' . $db_prefix . '_users
 				SET ' . $db->sql_build_array('UPDATE', $sql_ary) . '
 				WHERE id = ' . $user_id;
-		//die($sql);
 			$db->sql_query($sql);
 		}
 

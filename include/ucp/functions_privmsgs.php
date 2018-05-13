@@ -1285,8 +1285,8 @@ function pm_notification($mode, $author, $recipients, $subject, $message, $mid)
 			'SUBJECT'		=> htmlspecialchars_decode($subject),
 			'AUTHOR_NAME'	=> htmlspecialchars_decode($author),
 			'USERNAME'		=> htmlspecialchars_decode($addr['name']),
-			'U_INBOX'			=> $siteurl . "/ucp.$phpEx?i=pm&folder=inbox",
-			'U_VIEW_MESSAGE'	=> $siteurl . "/ucp.$phpEx?i=pm&mode=view&p=$msg_id",
+			'U_INBOX'			=> $siteurl . "/pm.$phpEx",
+			'U_VIEW_MESSAGE'	=> $siteurl . "/pm.$phpEx??i=0&op=readmsg&f=0&p=$mid",
 		));
 		$messenger->send($addr['method']);
 	}

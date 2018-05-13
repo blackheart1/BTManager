@@ -268,9 +268,9 @@ function dE(n, s, type)
 <!-- BEGIN shout_var -->
 							<div class="{shout_var.CLASS}" onMouseOver="this.className='{shout_var.CLASS_CH}';" onMouseOut="this.className='{shout_var.CLASS}';">
 							<p class="shout" bgcolor="#{shout_var.BACKG}">
-							<!-- IF shout_var.SHOW_USER --><!-- IF shout_var.CAN_DEL --><a onDblClick="if(confirm('Delete Shout?')==true)sndReq('op=take_delete_shout&amp;shout={shout_var.SHOUTID}', 'shoutTD')"><img src="themes/Bitfarm/pics/drop.gif" alt="Edit" title="Edit" border="0"></a><!-- ENDIF -->
-							<!-- IF shout_var.CAN_ED --><a onDblClick="sndReq('op=edit_shout&amp;shout={shout_var.SHOUTID}', 'shoutTD')"><img src="themes/Bitfarm/pics/edit.gif" alt="Edit" title="Edit" border="0"></a><!-- ENDIF -->
-							<!-- IF shout_var.CAN_QU --><a onClick="comment_smile('{shout_var.QUOTE}',Shoutform.text);"><img src="images/bbcode/bbcode_quote.gif" alt="quote" border="0"></a><!-- ENDIF -->
+							<!-- IF shout_var.SHOW_USER --><!-- IF shout_var.CAN_DEL --><a onDblClick="if(confirm('Delete Shout?')==true)sndReq('op=take_delete_shout&amp;shout={shout_var.SHOUTID}', 'shoutTD')"><img src="themes/Bitfarm/pics/drop.gif" alt="{L_DELETE}" title="{L_DELETE}" border="0"></a><!-- ENDIF -->
+							<!-- IF shout_var.CAN_ED --><a onDblClick="sndReq('op=edit_shout&amp;shout={shout_var.SHOUTID}', 'shoutTD')"><img src="themes/Bitfarm/pics/edit.gif" alt="{L_EDIT}" title="{L_EDIT}" border="0"></a><!-- ENDIF -->
+							<!-- IF shout_var.CAN_QU --><a onClick="comment_smile('{shout_var.QUOTE}',Shoutform.text);"><img src="images/bbcode/bbcode_quote.gif" alt="{L_QUOTE}"  title="{L_QUOTE}" border="0"></a><!-- ENDIF -->
 							[<span class="shout_time">{shout_var.TIME}</span>]{shout_var.U_PRVATE_S}
 							<b><span class="admin" onDblClick="sndReq('op=private__chat&amp;to={shout_var.UID}', 'shout_out'); toggleprivate('shout_send','{shout_var.UID}');"><font color="#000" style='background-color: {shout_var.U_COLOR};'>{shout_var.U_NAME}</font>{shout_var.U_WARNED}<!-- IF shout_var.U_DONER --><img src="images/donator.gif" height="16" width="16" title="donator" alt="donator" /><!-- ENDIF --></span></b>
 							:  <!-- ENDIF -->{shout_var.SHOUT}
@@ -287,7 +287,7 @@ function dE(n, s, type)
 					<p>
 
 				<form name="Shoutform" method="POST" action="#" target="Shoutbox" onSubmit="sendshout(text.value);">
-					<input type="text" readonly name="helpbox" style="width:100%" class="helpline" value="{L__STYLES_TIP}" />
+					<input type="text" readonly name="helpbox" style="width:100%" class="helpline" value="{L__STYLES_TIP} {L_SHOUT_HELP}" />
 					<br />
 					<script type="text/javascript">
 					// <![CDATA[
@@ -314,7 +314,7 @@ function dE(n, s, type)
 						d: '{LA__BBCODE_D_HELP}',
 						t: '{LA__BBCODE_T_HELP}',
 						fo: 'Font',
-						tip: '{L__STYLES_TIP} {L_SHOUT_HELP}'
+						tip: '{LA__STYLES_TIP} {LA_SHOUT_HELP}'
 						<!-- BEGIN custom_tags -->
 							,cb_{custom_tags.BBCODE_ID}: '{custom_tags.A_BBCODE_HELPLINE}'
 						<!-- END custom_tags -->
@@ -342,6 +342,12 @@ function dE(n, s, type)
 					<!-- IF S_BBCODE_FLASH -->
 					<input type="button" class="btnbbcode" accesskey="d" name="addbbcode18" value="Flash" onClick="bbstyle(18)" onMouseOver="helpline('d')" onMouseOut="helpline('tip')" />
 					<!-- ENDIF -->
+<!-- IF S_BBCODE_ALLOWED and .custom_tags -->
+<br />
+		<!-- BEGIN custom_tags -->
+			<input type="button" class="btnbbcode" name="addbbcode{custom_tags.BBCODE_ID}" value="{custom_tags.BBCODE_TAG}" onclick="bbstyle({custom_tags.BBCODE_ID})"<!-- IF custom_tags.BBCODE_HELPLINE !== "" --> onmouseover="helpline('cb_{custom_tags.BBCODE_ID}')" onmouseout="helpline('tip')"<!-- ENDIF --> />
+		<!-- END custom_tags -->
+<!-- ENDIF -->
 					<span class="genmed nowrap">{L__FONT_SIZE}: 
 						<select class="gensmall" name="addbbcode20" onChange="bbfontstyle('[size=' + this.form.addbbcode20.options[this.form.addbbcode20.selectedIndex].value + ']', '[/size]');this.form.addbbcode20.selectedIndex = 2;" onmouseover="helpline('f')" onmouseout="helpline('tip')">
 						<option value="50">{L__FONT_TINY}</option>

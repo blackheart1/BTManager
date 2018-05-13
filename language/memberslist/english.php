@@ -174,6 +174,8 @@ $lang = array_merge($lang, array(
     'VISITED'                   => 'Last Visited',
 
     'WWW'                       => 'Website',
+	'ACTIVATE'					=> 'Activate',
+	'REMIND'					=> 'Remind',
 
     'USER_LAST_REMINDED' => array(
         0 => 'NO Reminder was Sent at this time',

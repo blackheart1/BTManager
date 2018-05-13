@@ -127,6 +127,7 @@ if ($op != "editsmile") {
 		'SELIMG'	=>	$optimg,
 		'ALTSUB'	=> $altsub,
 		'SUBPOS'	=> $posit,
+		'SUBSMI'	=> (($op == "editsmile")? "./smiles/".$row["file"] : "./images/blank.gif"),
 		));
 echo $template->fetch('admin/smilies.html');
 		close_out();

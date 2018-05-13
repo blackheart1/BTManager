@@ -130,7 +130,7 @@ include_once 'include/user.functions.php';
 			require_once("include/utf/utf_tools.php");
 			$auth = new auth();
 			$auth->acl($user);
-			$admin_role = new acp_users();
+			$admin_role = new acp_inactive();
 			$admin_role->u_action = '/admin.php?op=' . $op.'&amp;i=userinfo' . (($mode)? '&amp;mode=' . $mode : '') . '&amp;vas=' . $vas;
 			$admin_role->main('',$mode);
 			$temp = $admin_role->tpl_name;

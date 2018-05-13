@@ -742,7 +742,7 @@ function compose_pm($id, $mode, $action)
 			//die(print_r($pm_data));
 			$msg_id = submit_pm($action, $subject, $pm_data);
 
-			$return_message_url = append_sid("{$siteurl}/pm.$phpEx", 'op=send&amp;i=pm&amp;mode=view&amp;p=' . $msg_id);
+			$return_message_url = append_sid("{$siteurl}/pm.$phpEx", 'op=readmsg&amp;i=0&amp;p=' . $msg_id);
 			$return_folder_url = append_sid("{$siteurl}/pm.$phpEx", 'op=folder&amp;folder=' . -2);
 			meta_refresh(3, $return_message_url);
 

@@ -256,6 +256,83 @@ function validate_config_vars($config_vars, &$cfg_array, &$error)
 
 	return;
 }
+/**
+* Lists inactive users
+*/
+function view_inactive_users(&$users, &$user_count, $limit = 0, $offset = 0, $limit_days = 0, $sort_by = 'user_inactive_time DESC')
+{
+	global $db, $user, $db_prefix;
+
+	$sql = 'SELECT COUNT(id) AS user_count
+		FROM ' . $db_prefix . '_users
+		WHERE user_type = ' . 1 .
+		(($limit_days) ? " AND user_inactive_time >= $limit_days" : '');
+	$result = $db->sql_query($sql);
+	$user_count = (int) $db->sql_fetchfield('user_count');
+	$db->sql_freeresult($result);
+
+	if ($user_count == 0)
+	{
+		// Save the queries, because there are no users to display
+		return 0;
+	}
+
+	if ($offset >= $user_count)
+	{
+		$offset = ($offset - $limit < 0) ? 0 : $offset - $limit;
+	}
+
+	$sql = 'SELECT *
+		FROM ' . $db_prefix . '_users
+		WHERE user_type = ' . 1 .
+		(($limit_days) ? " AND user_inactive_time >= $limit_days" : '') . "
+		ORDER BY $sort_by";
+		//die($sql . 'LIMIT ' . $offset . ' , ' . $limit);
+	$result = $db->sql_query($sql . ' LIMIT ' . $offset . ' , ' . $limit);
+
+	while ($row = $db->sql_fetchrow($result))
+	{
+		$row['inactive_reason'] = $user->lang['INACTIVE_REASON_UNKNOWN'];
+		switch ($row['user_inactive_reason'])
+		{
+			case 1:
+				$row['inactive_reason'] = $user->lang['INACTIVE_REASON_REGISTER'];
+			break;
+
+			case 2:
+				$row['inactive_reason'] = $user->lang['INACTIVE_REASON_PROFILE'];
+			break;
+
+			case 3:
+				$row['inactive_reason'] = $user->lang['INACTIVE_REASON_MANUAL'];
+			break;
+
+			case 4:
+				$row['inactive_reason'] = $user->lang['INACTIVE_REASON_REMIND'];
+			break;
+		}
+
+		$users[] = $row;
+	}
+//die(print_r($users));
+	return $offset;
+}
+/**
+* Build select field options in acp pages
+*/
+function build_select($option_ary, $option_default = false)
+{
+	global $user;
+
+	$html = '';
+	foreach ($option_ary as $value => $title)
+	{
+		$selected = ($option_default !== false && $value == $option_default) ? ' selected="selected"' : '';
+		$html .= '<option value="' . $value . '"' . $selected . '>' . $user->lang[$title] . '</option>';
+	}
+
+	return $html;
+}
 function phpbb_is_writable($file)
 {
 	if (strtolower(substr(PHP_OS, 0, 3)) === 'win' || !function_exists('is_writable'))

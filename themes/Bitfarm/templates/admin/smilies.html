@@ -15,16 +15,16 @@ function ChangeThumb(pic) {
 	<table cellspacing="1">
 	<thead>
 	<tr>
-		<th style="text-align: center;">{L_ACTION}</th>
-		<th style="text-align: center;">{L_SMILE_CODE}</th>
-		<th style="text-align: center;">{L_SM_IMAGECODE}</th>
+		<th>{L_ACTION}</th>
+		<th>{L_SMILE_CODE}</th>
+		<th>{L_SM_IMAGECODE}</th>
 		<th>{L_SMILE_ALT}</th>
 	</tr>
 	</thead>
 	<tbody>
 <!-- BEGIN smilies -->
 		<!-- IF smilies.S_ROW_COUNT is even --><tr class="row1"><!-- ELSE --><tr class="row2"><!-- ENDIF -->
-			<td style="text-align: center;">
+			<td>
 				<a href="admin.php?i=staff&amp;op=editsmile&amp;id={smilies.ID}#smiliesedit"><img src="themes/Bitfarm/pics/edit.gif" border="0" alt="" title=""   /></a>
 				<a href="admin.php?i=staff&amp;op=delsmile&amp;id={smilies.ID}#smilies"><img src="themes/Bitfarm/pics/drop.gif" border="0" alt="" title=""   /></a>
 			</td>
@@ -50,7 +50,7 @@ function ChangeThumb(pic) {
 			<dd>{SUB_NAME}</dd>
 		</dl>
 		<dl>
-			<dt><label for="{L_SMILE_IMAGE}">{L_SMILE_IMAGE}:</label><br /><img src="avatars/blank.gif" name="Thumb" /></dt>
+			<dt><label for="{L_SMILE_IMAGE}">{L_SMILE_IMAGE}:</label><br /><img src="{SUBSMI}" name="Thumb" alt="" /></dt>
 			<dd><select name="sub_image" onChange="ChangeThumb(this.options[this.selectedIndex].value);" onKeyUp="ChangeThumb(this.options[this.selectedIndex].value);">{SELIMG}</select></dd>
 		</dl>
 		<dl>
