@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File acp_users/english.php 2018-03-28 10:18:00 Thor
+** File acp_users/english.php 2018-05-14 08:42:00 Thor
 **
 ** CHANGES
 **
@@ -22,6 +22,7 @@
 ** 2018-02-23 - Fixed Spelling
 ** 2018-03-28 - Amended the Wording of some Sentences
 ** 2018-03-28 - Amended !defined('IN_PMBT') Corrected Path
+** 2018-05-14 - Added Missing Language
 **/
 
 if (!defined('IN_PMBT'))
@@ -245,24 +246,25 @@ $lang = array_merge($lang, array(
     'ADD_FEEDBACK_EXPLAIN'        => 'Add Notes to User\'s Account.',
 
     #Added in v3.0.1
-    'USER_FORUM'      => 'User Forum',
-    'VISITED'         => 'Visited',
-    'JUMP_TO'         => 'Jump to Page',
-    'SEARCH_USER'     => 'Search User',
-    'SEARCH_EMAIL'    => 'Search E-Mail',
-    'SEARCH_IP'       => 'Search IP',
-    'SEARCH_HOST'     => 'Search Host',
-    'SEARCH_DUPIP'    => 'Search for duplicate IP\'s',
-    'USERNAME'        => 'Username',
-    'EMAIL'           => 'email',
-    'JOINED'          => 'Joined',
-    'LAST_ACTIVITY'   => 'Last Activity',
-    'POSTS'           => 'Posts',
-    'TORRENTS'        => 'Torrents',
-    'OPTIONS'         => 'Options',
-    'WHOIS'           => 'Whois',
-    'BAN_REASON'      => 'Ban Reason',
-    'BAN_GIVE_REASON' => 'Enter a Reason for the Ban',
+    'USER_FORUM'        => 'User Forum',
+    'VISITED'           => 'Visited',
+    'JUMP_TO'           => 'Jump to Page',
+    'SEARCH_USER'       => 'Search User',
+    'SEARCH_EMAIL'      => 'Search E-Mail',
+    'SEARCH_IP'         => 'Search IP',
+    'SEARCH_HOST'       => 'Search Host',
+    'SEARCH_DUPIP'      => 'Search for duplicate IP\'s',
+    'USERNAME'          => 'Username',
+    'EMAIL'             => 'email',
+    'JOINED'            => 'Joined',
+    'LAST_ACTIVITY'     => 'Last Activity',
+    'POSTS'             => 'Posts',
+    'TORRENTS'          => 'Torrents',
+    'OPTIONS'           => 'Options',
+    'WHOIS'             => 'Whois',
+    'BAN_REASON'        => 'Ban Reason',
+    'BAN_GIVE_REASON'   => 'Enter a Reason for the Ban',
+    'SEARCH_USER_POSTS' => 'Search User\'s Forum Posts',
  ));
 
 ?>
