@@ -377,7 +377,7 @@ class acp_users
 							{
 								trigger_error($user->lang['CANNOT_DEACTIVATE_BOT'] . back_link($this->u_action . '&amp;u=' . $user_id), E_USER_WARNING);
 							}
-							user_active_flip('flip', $user_id);
+							user_active_flip('flip', $user_id,(($user_row['user_type'] == 1) ?'':3));
 							if ($user_row['user_type'] == 1)
 							{
 								if ($conferm_email)
