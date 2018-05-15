@@ -1,30 +1,30 @@
 <!-- INCLUDE themes/Bitfarm/templates/over_all_header.html -->
 <!-- INCLUDE themes/Bitfarm/templates/over_all_left.html -->
 <table class="tablebg" width="100%" cellspacing="0">
-	<tr>
-		<td>
-			<div class="caption">
-				<div class="cap-left">
-					<div class="cap-right">
-						<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nndonate');"><img title="Expand item" id="nndonateimg" src="themes/Bitfarm/pics/minus.gif"  alt="+"></a>{L_DONATIONS}
-					</div>
-				</div>
-			</div>
-		</td>
-	</tr>
-	<tr valign="middle">
-		<td  class="row3" >
-			<div id="nndonate">
-			<br clear="all" />
-			<b>{L_GOAL}: </b><font color="red">{CURENTSY}{ASKING} </font>
-			<br clear="all" />
-			<b> {L_COLECTED}: </b><font color="green">{CURENTSY}{RECEAVED} </font>
-			<br clear="all" />
-			{CONTENT}
-			</div>
-		</td>
-	</tr>
+    <tr>
+        <td>
+            <div class="caption">
+                <div class="cap-left">
+                    <div class="cap-right">
+                        <a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nndonate');"><img title="{L_EXPAND_ITEM}" id="nndonateimg" src="themes/Bitfarm/pics/minus.gif"  alt="{L_EXPAND_ITEM}"></a>{L_DONATIONS}
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr valign="middle">
+        <td  class="row3" >
+            <div id="nndonate">
+            <br clear="all" />
+            <strong>{L_GOAL}: </strong><font color="red">{CURENTSY}{ASKING} </font>
+            <br clear="all" />
+            <strong> {L_COLECTED}: </strong><font color="green">{CURENTSY}{RECEAVED} </font>
+            <br clear="all" />
+            {CONTENT}
+            </div>
+        </td>
+    </tr>
 </table>
-<br clear="all" >
+<br clear="all" />
 <!-- INCLUDE themes/Bitfarm/templates/over_all_right.html -->
 <!-- INCLUDE themes/Bitfarm/templates/over_all_footer.html -->

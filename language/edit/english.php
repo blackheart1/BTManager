@@ -58,7 +58,7 @@ $lang = array_merge($lang, array(
     'UPLOAD_NFO'              => 'Upload NFO File',
     'EDIT_NAME'               => 'Torrent Name',
 
-    'EDIT_NAME_EXP'           => 'Will be Generated from the Filename if left Blank.  <strong>Try to give it a Descriptive Name</strong>',
+    'EDIT_NAME_EXP'           => 'Will be Generated from the Filename if left Blank.  Try to give it a Descriptive Name',
 
     'EDIT_IMDB'        => 'IMDB Link',
     'EDIT_IMDB_EXP'    => 'Add IMDB to Details Page by providing an IMDB Link or IMDB NUMBER',

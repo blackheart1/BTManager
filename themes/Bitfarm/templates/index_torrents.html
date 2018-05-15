@@ -52,9 +52,9 @@
 									  <img src="themes/Bitfarm/pics/dht.gif" alt="" title="" border="0"></span><!-- ENDIF -->
 									  <br />
 									  <a style="text-decoration: none;" href="details.php?id={torrent_var_ind.ID}<!-- IF HIT_COUNT -->&amp;hit=1<!-- ENDIF -->" title="{torrent_var_ind.FULL_NAME}">{torrent_var_ind.SHORTNAME}</a>
-									  </nobr></p><!-- IF torrent_var_ind.CAN_DOWN_LOAD --><a class="index" href="download.php?id={torrent_var_ind.ID}"><img style="border: medium none ;" alt="download" src="themes/Bitfarm/pics/download2.gif" align="right"></a><!-- ENDIF -->
+									  </nobr></p><!-- IF torrent_var_ind.CAN_DOWN_LOAD --><a class="index" href="download.php?id={torrent_var_ind.ID}"><img style="border: medium none ;" alt="{L_DOWNED}" title="{L_DOWNED}" src="themes/Bitfarm/pics/download2.gif" align="right"></a><!-- ENDIF -->
 
-									  </nobr><br>
+									  </nobr><br />
 									  <!-- IF torrent_var_ind.BANNED --><img src="themes/Bitfarm/pics/banned.png" alt="{L_BANNED_TORRENT}" title="{L_BANNED_TORRENT}" border="0"><!-- ENDIF -->
 									  <!-- IF torrent_var_ind.CAN_EDIT --><a href="edit.php?id={torrent_var_ind.ID}"><img src="themes/Bitfarm/pics/edit.gif" alt="{L_EDIT}" title="{L_EDIT}" border="0"></a><!-- ENDIF -->
 									  <!-- IF torrent_var_ind.CAN_DEL --><a href="edit.php?op=delete&amp;id={torrent_var_ind.ID}"><img src="themes/Bitfarm/pics/drop.gif" alt="{L_DELETE} title="{L_DELETE}" border="0"></a><!-- ENDIF -->
@@ -62,20 +62,20 @@
 									  <!-- IF not torrent_var_ind.LOCAL_T --><!-- IF torrent_var_ind.REFRESH_T --><a href="scrape-external.php?id={torrent_var_ind.ID}&amp;tracker=&amp;return={S_RETURN}"><img src="themes/Bitfarm/pics/refresh.png" alt="{L_REFRESH_PEERS}" title="{L_REFRESH_PEERS}" border="0"></a>
 									  <!-- ELSE --><img src="themes/Bitfarm/pics/refresh_gray.png" alt="{L_PEERS_UPDATE_ALREDY}" title="{L_PEERS_UPDATE_ALREDY}" border="0"><!-- ENDIF -->
 									  <!-- IF torrent_var_ind.NEED_AUTH -->{torrent_var_ind.AUTH_LINK}<!-- ENDIF --><!-- ENDIF -->
-									  <br>
+									  <br />
 									  <span id="ID{torrent_var_ind.ID}">
 									  <a onclick="sndReq('op=view_details&amp;torrent={torrent_var_ind.ID}', 'ID{torrent_var_ind.ID}')"><img src="themes/Bitfarm/pics/plus.gif" alt="{L_DETAILS}" title="{L_DETAILS}" border="0"></a>
 									  </span>
 								</td>
 								<td align="right"><a href="/torrents.php?sort=2&amp;type=desc" title="{L_NUMB_FILES}">{torrent_var_ind.NUM_FILE}</a></td>
-								<td align="right"><b><a href="details.php?id=199&amp;hit={torrent_var_ind.ID}&amp;comm=startcomments">{torrent_var_ind.NUM_COMENTS}</a></b></td>
+								<td align="right"><strong><a href="details.php?id=199&amp;hit={torrent_var_ind.ID}&amp;comm=startcomments">{torrent_var_ind.NUM_COMENTS}</a></strong></td>
 								<td align="center">---</td>
 								<td align="center">{torrent_var_ind.DATE_ADDED}</td>
 								<td align="center">{torrent_var_ind.DOWNLOAD_SP}/s</td>
 								<td align="center">{torrent_var_ind.DOWNLOAD_SIZE}</td>
-								<td align="center">{torrent_var_ind.TIMES_SNATHED}<br>{L_TIMES}</td>
-								<td align="right"><b>{torrent_var_ind.SEEDERS}</b></td>
-								<td align="right"><b>{torrent_var_ind.LEECHERS}</b></td>
+								<td align="center">{torrent_var_ind.TIMES_SNATHED}<br />{L_TIMES}</td>
+								<td align="right"><strong>{torrent_var_ind.SEEDERS}</strong></td>
+								<td align="right"><strong>{torrent_var_ind.LEECHERS}</strong></td>
 								<td align="center"><!-- IF torrent_var_ind.ANONUMUS_UPLO -->{torrent_var_ind.UPLOADERS_NAM} <!-- ELSE --> <a href="user.php?op=profile&amp;id={torrent_var_ind.UPLODER_ID}"><font color="{torrent_var_ind.UPLDER_COLOR}">{torrent_var_ind.UPLOADERS_NAM}</font></a><!-- ENDIF --></td>
 							</tr>
 	<!-- END torrent_var -->
@@ -86,7 +86,7 @@
 		</tr>
 	</tbody>
 </table>
-<br clear="all">
+<br clear="all" />
 <!-- ELSE -->
 <table class="tablebg" width="100%" cellspacing="0">
 <tbody><tr><td>
@@ -94,7 +94,7 @@
 <div class="cap-left">
 <div class="cap-right">
 
-<a class="c4" style="cursor: pointer; float: left;" onclick="toggle2('nn ');"><img title="{L_EXPAND_ITEM}" id="nn&nbsp;img" src="themes/Bitfarm/pics/minus.gif" alt="+"></a>&nbsp;
+<a class="c4" style="cursor: pointer; float: left;" onclick="toggle2('nn ');"><img title="{L_EXPAND_ITEM}" id="nn&nbsp;img" src="themes/Bitfarm/pics/minus.gif" alt="{L_EXPAND_ITEM}"></a>&nbsp;
 </div>
 </div>
 </div>
@@ -109,6 +109,6 @@
 <td colspan="7" valign="middle" align="center"></td>
 </tr>
 </tbody></table>
-<br clear="all">
+<br clear="all" />
 <!-- ENDIF -->
 <!-- ENDIF -->

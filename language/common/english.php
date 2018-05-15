@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File common/english.php 2018-05-04 05:54:00 Thor
+** File common/english.php 2018-05-15 09:31:00 Thor
 **
 ** CHANGES
 **
@@ -24,6 +24,7 @@
 ** 2018-03-26 - Removed Unused Define Vars
 ** 2018-04-22 - Amended the Wording of some Sentences
 ** 2018-04-23 - Added Missing Language
+** 2018-05-15 - Added Missing Language
 **/
 
 if (!defined('IN_PMBT'))
@@ -292,6 +293,7 @@ $lang = array_merge($lang, array(
     'FEEDBACK'             => 'Feedback',
     'FILE_UNAVAILABLE'     => 'Torrent File Unavailable due to a Server Configuration Error.  Sorry for the Inconvenience.',
     'FILE'                 => 'File',
+    'FILE_ICON'            => 'Icon',
     'FILE_NAME'            => 'Filename',
     'FILES'                => 'Files',
     'FILE_EMPTY'           => 'File Empty',
@@ -724,6 +726,9 @@ $lang = array_merge($lang, array(
     '_dot'                  => ' dot ',
     'BIRTHDAYS'             => 'Birthday\'s',
     'COMPLIANT'             => 'Compliant',
+    'COMPLIANT_XHTML'       => 'Valid XHTML 1.0 Transitional',
+    'COMPLIANT_PHP'         => 'PHP Hypertext Preprocessor',
+    'COMPLIANT_MYSQL'       => 'MySQL',
     'TANSF_BONUS'           => 'Transfer Bonus',
     'PERSONAL_STATS'        => 'Personal Statistics',
     'THEME_CHANGER'         => 'Theme Change',
@@ -743,8 +748,8 @@ $lang = array_merge($lang, array(
     '6_HOURS'               => '6 hours',
 
     #Template Related
-    'NUKED_TORRENT'         => 'NUKED TORRENT',
-    'FEE_TORRENT'           => 'FREE TORRENT',
+    'NUKED_TORRENT'         => 'Nuked Torrent',
+    'FEE_TORRENT'           => 'Free Torrent',
     'EXTER_TRACKER'         => 'External Tracker',
 
     'DHT_EXPL'              => 'This Torrent supports DHT.  With a State-of-the-art Client, you\'ll be able to Download this Torrent even if a Central Tracker goes down.',
@@ -763,6 +768,7 @@ $lang = array_merge($lang, array(
     'SHOUT_HELP'            => 'Type /help for Shoutbox Commands',
     'EXPAND_ITEM'           => 'Expand Item',
 	'QUOTE'					=> 'Quote',
+    'FACEBOOK'              => 'Facebook',
 ));
 
 $u_datetime = array(

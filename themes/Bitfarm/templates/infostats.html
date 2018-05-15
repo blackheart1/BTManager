@@ -14,36 +14,36 @@
 <div id="nnPersonal_stats">
 <table class="torrenttable" width="100%" border="0" cellpadding="3"><tr>
 <td width="25%" align="center">
-<b>Avatar</b><br><br>
-{U_AVATAR}<br>
+<strong>{U_AVATAR}</strong><br /><br />
+{U_AVATAR}<br />
 </td>
 <td  class="row3" ><div id="nnTheme_change">
-<p align="center"><b>{L_THEMES}</b></p>
+<p align="center"><strong>{L_THEMES}</strong></p>
 <form id="acp_styles" type="hidden" method="post" action="#"><p><select id="template_file" name="theme_change" onchange="if (this.options[this.selectedIndex].value != '') this.form.submit();">
 <!-- BEGIN theme_var -->
 <option  value="{theme_var.KEY}">{theme_var.VAL}</option>
 <!-- END theme_var -->
-</select></p><p align="center"><b>{L_LANGUAGE}</b></p>
+</select></p><p align="center"><strong>{L_LANGUAGE}</strong></p>
 <p><select id="language_file" name="language_change" onchange="if (this.options[this.selectedIndex].value != '') this.form.submit();">
 <!-- BEGIN lang_var -->
 <option  value="{lang_var.KEY}">{lang_var.VAL}</option>
 <!-- END lang_var -->
-</select></p> <input class="button2" type="submit" value="SELECT" ></form></div>
+</select></p> <input class="button2" type="submit" value="{L_SELECT}" ></form></div>
 </td>
 
 <td width="25%" align="center">
-<b>Navigation</b><br><br>
-Offers: <a href="offer.php">Here</a><br>
-Videos: <a href="youtube.php">Here</a>&nbsp;<br>
-Requests: <a href="viewrequests.php">Here</a><br>
-My Torrents: <a href="mytorrents.php">Here</a><br>
-Transfer Bonus: <a href="bonus_transfer.php">Here</a><br>
+<strong>Navigation</strong><br /><br />
+Offers: <a href="offer.php">Here</a><br />
+Videos: <a href="youtube.php">Here</a>&nbsp;<br />
+Requests: <a href="viewrequests.php">Here</a><br />
+My Torrents: <a href="mytorrents.php">Here</a><br />
+Transfer Bonus: <a href="bonus_transfer.php">Here</a><br />
 <!-- IF U_ADMIN -->MemberList: <a href="memberdlist.php">Admin View</a><!-- ENDIF -->
 
 </td>
 
 <td width="25%" align="center">
-<b>Newest Members</b><br><br>
+<strong>Newest Members</strong><br /><br />
 <div id="nnNewest_Members" class="row3">
 <!-- BEGIN new_user_block -->
 <a href="user.php?op=profile&amp;id={new_user_block.UID}"><font color="{new_user_block.COLOR}">{new_user_block.NAME}</font></a><br />
@@ -56,4 +56,4 @@ Transfer Bonus: <a href="bonus_transfer.php">Here</a><br>
 </div>
 </td></tr>
 </table>
-<br clear="all">
+<br clear="all" />

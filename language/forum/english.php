@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File forum/english.php 2018-05-09 10:09:00 Thor
+** File forum/english.php 2018-05-15 09:31:00 Thor
 **
 ** CHANGES
 **
@@ -23,6 +23,7 @@
 ** 2018-03-26 - Added Missing Text
 ** 2018-04-22 - Amended the Wording of some Sentences
 ** 2018-05-09 - Added Missing Languages
+** 2018-05-15 - Added Missing Languages
 **/
 
 if (!defined('IN_PMBT'))
@@ -40,6 +41,7 @@ $lang = array_merge($lang, array(
     'COM_NEW'                    => 'Compose New Thread',
     'LAST_POST'                  => 'Last Post',
     'NO_POSTS'                   => 'No Posts',
+    'RELOAD_PAGE'                => 'Reload this Page',
 
     'FORUM_BANNED'               => 'Unfortunately you have been Banned from Accessing the Forums.<br />Please contact a member of Staff if you DO NOT know the Reason.',
 
@@ -107,6 +109,7 @@ $lang = array_merge($lang, array(
     'LOG_UNLOCK_POST'            => '<strong>Unlocked Post</strong><br />%s',
     'LOG_DISALLOW_ADD'           => '<strong>Added Disallowed Username</strong><br />%s',
     'LOG_DISALLOW_DELETE'        => '<strong>Deleted Disallowed Username</strong>',
+    'LOG_USER_LOCK'              => '<strong>Locked by User</strong><br />%s',
 
     'SELECT'                     => 'Select',
     'TOPIC'                      => 'Topic',

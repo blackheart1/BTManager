@@ -39,7 +39,7 @@
 <body>
 <br clear="all">
 
-	<div id="page-body">
+    <div id="page-body">
 <div id="letter-container" class="letter-container">
 <h4>
 <a href="#">
@@ -57,81 +57,79 @@
 </div>
 <!-- IF S_ERROR -->
 
-		<div id="errorbox" style="background-color:#FFFFFF;" >
-		
-			<span class="errorbox-title">{L_LOGIN}</span>
-		
-			<p>{S_ERROR_MESS}</p>
-		
-		</div>
+        <div id="errorbox" style="background-color:#FFFFFF;" >
+
+            <span class="errorbox-title">{L_LOGIN}</span>
+
+            <p>{S_ERROR_MESS}</p>
+
+        </div>
 
 <!-- ENDIF -->
 <!-- IF LOGIN_SUCCESS -->
-			<div id="successbox" style="background-color:#FFFFFF;" >
-			<span class="successbox-title">{TITTLE_M}</span>
-			<p>{MESSAGE}</p>
-			</div>
+            <div id="successbox" style="background-color:#FFFFFF;" >
+            <span class="successbox-title">{TITTLE_M}</span>
+            <p>{MESSAGE}</p>
+            </div>
 <!-- ELSE -->
-	
-			<div id='maincontain'>
-	
-				<div id='logintab' class='shade'>
-	
-					<table cellpadding='0' border='0' align='center' class='sign' style='width:300px;'>
-	
-						<tr>
-							<td>
-	
-								<p class="login" align="center">{L_LOGIN_EXP}</p>
-	
-								<form method="POST" action="{U_ACTION}">
-	
-								{HIDDEN}
-	
-								<p align="center">
-	
-								{L_USERNAME}<br>
-	
-								<input type="text" name="username" size="20" /><br>
-	
-								{L_PASSWORD}<br>
-	
-								<input type="password" name="password" size="20" />
-	
+
+            <div id='maincontain'>
+
+                <div id='logintab' class='shade'>
+
+                    <table cellpadding='0' border='0' align='center' class='sign' style='width:300px;'>
+
+                        <tr>
+                            <td>
+
+                                <p class="login" align="center">{L_LOGIN_EXP}</p>
+
+                                <form method="POST" action="{U_ACTION}">
+
+                                {HIDDEN}
+
+                                <p align="center">
+
+                                {L_USERNAME}<br />
+
+                                <input type="text" name="username" size="20" /><br />
+
+                                {L_PASSWORD}<br />
+
+                                <input type="password" name="password" size="20" />
+
 <!-- IF S_GFX_CHECK -->
 <!-- IF RECAPTCHA -->
-								<br />{L_SECURITY_CODE}<br /><div class="g-recaptcha" data-sitekey="{RECAPTCHA}"></div><br />
+                                <br />{L_SECURITY_CODE}<br /><div class="g-recaptcha" data-sitekey="{RECAPTCHA}"></div><br />
 <!-- ELSE -->
-								<br />{L_SECURITY_CODE}<br />{S_GFX_CHECK}<br />
-								<input type="text" name="gfxcode" size="10" maxlength="6">
+                                <br />{L_SECURITY_CODE}<br />{S_GFX_CHECK}<br />
+                                <input type="text" name="gfxcode" size="10" maxlength="6">
 <!-- ENDIF -->
 <!-- ENDIF -->
-	
-								<br>{L_REMEMBER_ME}<br>
-	
-								<input type="checkbox" name="remember" value="yes" /></p>
-					
-								<p align="center"><label class='Button'><input type="submit" /></label></form>
-					
-								<p align="center"><a href="user.php?op=lostpassword">{L_LOST_PASSWORD}</a></p>
-	
-							</td>
-	
-						</tr>
-				</table>
-	
-			</div>
-		</div>
-<!-- ENDIF -->
-	</div>
-<br clear="all">
-<br clear="all">
-<br clear="all">
-<br clear="all">
-<br clear="all">
-<br clear="all">
 
+                                <br />{L_REMEMBER_ME}<br />
 
+                                <input type="checkbox" name="remember" value="yes" /></p>
+
+                                <p align="center"><label class='Button'><input type="submit" /></label></form>
+
+                                <p align="center"><a href="user.php?op=lostpassword">{L_LOST_PASSWORD}</a></p>
+
+                            </td>
+
+                        </tr>
+                </table>
+
+            </div>
+        </div>
+<!-- ENDIF -->
+    </div>
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
+<br clear="all" />
 
 </body>
 

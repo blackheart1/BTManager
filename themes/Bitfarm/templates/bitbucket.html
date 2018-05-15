@@ -1,198 +1,198 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-	<head>
-		<meta name="generator" content="HTML Tidy for Linux (vers 6 November 2007), see www.w3.org">
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<meta name="generator" content="BTManager {PMBT_VER}">
-		<meta http-equiv="PRAGMA" content="NO-CACHE">
-		<meta http-equiv="EXPIRES" content="-1">
-		<meta http-equiv="Cache-Control" content="no-cache">
-		<link rel="shortcut icon" href="{SITE_URL}/themes/Bitfarm/favicon.ico" type="image/x-icon" >
-		<link rel="StyleSheet" href="{SITE_URL}/themes/Bitfarm/style.css" type="text/css">
-		<script type="text/javascript" src="{SITE_URL}/global.js"></script>
-		{META}
-		<!--[if lt IE 7]>
-		<script defer type="text/javascript" src="{SITE_URL}/pngfix.js"></script>
-		<![endif]-->
-		<title>{SITENAME} &bull; {L_BITBUCKET_MANAGER}</title>
-	</head>
-	<body>
+    <head>
+        <meta name="generator" content="HTML Tidy for Linux (vers 6 November 2007), see www.w3.org">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="generator" content="BTManager {PMBT_VER}">
+        <meta http-equiv="PRAGMA" content="NO-CACHE">
+        <meta http-equiv="EXPIRES" content="-1">
+        <meta http-equiv="Cache-Control" content="no-cache">
+        <link rel="shortcut icon" href="{SITE_URL}/themes/Bitfarm/favicon.ico" type="image/x-icon" >
+        <link rel="StyleSheet" href="{SITE_URL}/themes/Bitfarm/style.css" type="text/css">
+        <script type="text/javascript" src="{SITE_URL}/global.js"></script>
+        {META}
+        <!--[if lt IE 7]>
+        <script defer type="text/javascript" src="{SITE_URL}/pngfix.js"></script>
+        <![endif]-->
+        <title>{SITENAME} &bull; {L_BITBUCKET_MANAGER}</title>
+    </head>
+    <body>
 <!-- INCLUDE themes/Bitfarm/templates/over_all_header.html -->
-<br clear="all" >	
-		<table class="tablebg" width="100%" cellspacing="0">
-			<tr>
-				<td>
-					<div class="caption">
-						<div class="cap-left">
-							<div class="cap-right">
-								<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnImage_Manager');">{L_BITBUCKET_MANAGER}</a>
-							</div>
-						</div>
-					</div>
-				</td>
-			</tr>
-			<tr valign="middle">
-				<td  class="row3" >
-					<div id="nnImage_Manager">
-						<script type="text/javascript">
-						<!--
-						function fetch_object(idname)
-						{
-							if (document.getElementById)
-							{
-								return document.getElementById(idname);
-							}
-							else if (document.all)
-							{
-								return document.all[idname];
-							}
-							else if (document.layers)
-							{
-								return document.layers[idname];
-							}
-							else
-							{
-								return null;
-							}
-						}
-						//-->
-						</script>
-						<form enctype="multipart/form-data" action="bitbucket-upload.php" method="POST">
-						<div align="center">
-							<table border="0" cellspacing="0" cellpadding="0" width="100%">
-								<tr>
-									<td>
-									<p align="center">
-									{L_BTMNGR_EXP}
-									</p>
-									</td>
-								</tr>
-								<tr>
-									<td align="center">
-									<input name="attachment" type="file" id="attachment">
-									</td>
-								</tr>
-								<tr>
-									<td align="center">
-									<input type="submit" class="button" name="upload" value="{L_UPLOAD}" style="width:70px" onclick="return verify_upload(this.form);" />
-									</td>
-								</tr>
-							</table>
-						</div>
-						</form>
-						<div align="center" id="uploading" style="display:none; margin-top:6px">
-						<strong>{L_UPLOADING_WAIT}</strong>
-						</div>
-						<script type="text/javascript">
-						<!--
-						
-							function verify_upload(formobj)
-							{
-								var haveupload = false;
-								for (var i=0; i < formobj.elements.length; i++)
-								{
-									var elm = formobj.elements[i];
-									if (elm.type == 'file' || elm.type == 'text')
-									{
-										if (elm.value != "")
-										{
-											haveupload = true;
-										}
-									}
-								}
-						
-								if (haveupload)
-								{
-									obj = fetch_object("uploading");
-									obj.style.display = "";
-									return true;
-								}
-								else
-								{
-									alert("{L_SELECT_ATTACH_ERROR}");
-									return false;
-								}
-							}
-						
-						
-							if (typeof window.opener.vB_Attachments != 'undefined')
-							{
-								window.opener.vB_Attachments.reset();
-								
-						
-							}
-						//-->
-						</script>
-					</div>
-				</td>
-			</tr>
-		</table>
-		<br clear="all" >
-		<table class="tablebg" width="100%" cellspacing="0">
-			<tr>
-				<td>
-					<div class="caption">
-						<div class="cap-left">
-							<div class="cap-right">
-								<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnImage_Gallery');">{L_BITBUCKET_GALERY}</a>
-							</div>
-						</div>
-					</div>
-				</td>
-			</tr>
-			<tr valign="middle">
-				<td  class="row3" >
-					<div id="nnImage_Gallery">
-						<table width="100%" cellpadding="0" cellspacing="0" border="0">
-							<tr>
-								<td>
-									<p align="center">
-									{L_BTGALLERY_EXP}
-									</p>
-									<fieldset class="fieldset">
-										<legend>{L_STATS_BLOCK}</legend>
-										<table border="0" cellpadding="0" cellspacing="3" width="100%">
-											<tbody>
-												<tr>
-													<td>{L_IMAGE_STATS}</td>
-												</tr>
-											</tbody>
-										</table>
-									</fieldset>
-								</td>
-							</tr>
-						</table>
-						<br />
-						<br />
-						<br />
-						<br />
-						<table width="100%" cellpadding="0" cellspacing="0" border="0">
+<br clear="all" >
+        <table class="tablebg" width="100%" cellspacing="0">
+            <tr>
+                <td>
+                    <div class="caption">
+                        <div class="cap-left">
+                            <div class="cap-right">
+                                <a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnImage_Manager');">{L_BITBUCKET_MANAGER}</a>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr valign="middle">
+                <td  class="row3" >
+                    <div id="nnImage_Manager">
+                        <script type="text/javascript">
+                        <!--
+                        function fetch_object(idname)
+                        {
+                            if (document.getElementById)
+                            {
+                                return document.getElementById(idname);
+                            }
+                            else if (document.all)
+                            {
+                                return document.all[idname];
+                            }
+                            else if (document.layers)
+                            {
+                                return document.layers[idname];
+                            }
+                            else
+                            {
+                                return null;
+                            }
+                        }
+                        //-->
+                        </script>
+                        <form enctype="multipart/form-data" action="bitbucket-upload.php" method="POST">
+                        <div align="center">
+                            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                                <tr>
+                                    <td>
+                                    <p align="center">
+                                    {L_BTMNGR_EXP}
+                                    </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center">
+                                    <input name="attachment" type="file" id="attachment">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center">
+                                    <input type="submit" class="button" name="upload" value="{L_UPLOAD}" style="width:70px" onclick="return verify_upload(this.form);" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        </form>
+                        <div align="center" id="uploading" style="display:none; margin-top:6px">
+                        <strong>{L_UPLOADING_WAIT}</strong>
+                        </div>
+                        <script type="text/javascript">
+                        <!--
+
+                            function verify_upload(formobj)
+                            {
+                                var haveupload = false;
+                                for (var i=0; i < formobj.elements.length; i++)
+                                {
+                                    var elm = formobj.elements[i];
+                                    if (elm.type == 'file' || elm.type == 'text')
+                                    {
+                                        if (elm.value != "")
+                                        {
+                                            haveupload = true;
+                                        }
+                                    }
+                                }
+
+                                if (haveupload)
+                                {
+                                    obj = fetch_object("uploading");
+                                    obj.style.display = "";
+                                    return true;
+                                }
+                                else
+                                {
+                                    alert("{L_SELECT_ATTACH_ERROR}");
+                                    return false;
+                                }
+                            }
+
+
+                            if (typeof window.opener.vB_Attachments != 'undefined')
+                            {
+                                window.opener.vB_Attachments.reset();
+
+
+                            }
+                        //-->
+                        </script>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <br clear="all" >
+        <table class="tablebg" width="100%" cellspacing="0">
+            <tr>
+                <td>
+                    <div class="caption">
+                        <div class="cap-left">
+                            <div class="cap-right">
+                                <a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnImage_Gallery');">{L_BITBUCKET_GALERY}</a>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr valign="middle">
+                <td  class="row3" >
+                    <div id="nnImage_Gallery">
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                            <tr>
+                                <td>
+                                    <p align="center">
+                                    {L_BTGALLERY_EXP}
+                                    </p>
+                                    <fieldset class="fieldset">
+                                        <legend>{L_STATS_BLOCK}</legend>
+                                        <table border="0" cellpadding="0" cellspacing="3" width="100%">
+                                            <tbody>
+                                                <tr>
+                                                    <td>{L_IMAGE_STATS}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </fieldset>
+                                </td>
+                            </tr>
+                        </table>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
 <!-- BEGIN u_images -->
 <!-- IF u_images.S_ROW_COUNT is even -->
-							<tr>
+                            <tr>
 <!-- ELSEIF u_images.S_FIRST_ROW -->
-							<tr>
+                            <tr>
 <!-- ENDIF -->
-								<td align="center" width="16%">
-									<a href="{u_images.IMAGE_SOURCE}" target="_blank">
-									<img width="{u_images.IMAGE_WIDTH}px" src="{u_images.IMAGE_SOURCE}" alt="{u_images.IMAGE_NAME}" border="0">
-									</a>
-									<br />
-									<a  href="#" onclick="window.opener.vB_Attachments.add({u_images.IMAGE_ID}, '{u_images.IMAGE_NAME}', '{u_images.IMAGE_SIZE}', '{u_images.IMAGE_SOURCE}');">{u_images.IMAGE_NAME}</a>({u_images.IMAGE_SIZE})
-								</td>
+                                <td align="center" width="16%">
+                                    <a href="{u_images.IMAGE_SOURCE}" target="_blank">
+                                    <img width="{u_images.IMAGE_WIDTH}px" src="{u_images.IMAGE_SOURCE}" alt="{u_images.IMAGE_NAME}" border="0">
+                                    </a>
+                                    <br />
+                                    <a  href="#" onclick="window.opener.vB_Attachments.add({u_images.IMAGE_ID}, '{u_images.IMAGE_NAME}', '{u_images.IMAGE_SIZE}', '{u_images.IMAGE_SOURCE}');">{u_images.IMAGE_NAME}</a>({u_images.IMAGE_SIZE})
+                                </td>
 <!-- IF u_images.S_ROW_COUNT is odd -->
-							</tr>
+                            </tr>
 <!-- ELSEIF u_images.S_LAST_ROW -->
-							</tr>
+                            </tr>
 <!-- ENDIF -->
 <!-- END u_images -->
-						</table>
-					</div>
-				</td>
-			</tr>
-		</table>
-		<br clear="all" >
+                        </table>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <br clear="all" >
 
-<!-- INCLUDE themes/Bitfarm/templates/over_all_footer.html -->		
-	</body>
+<!-- INCLUDE themes/Bitfarm/templates/over_all_footer.html -->
+    </body>
 </html>

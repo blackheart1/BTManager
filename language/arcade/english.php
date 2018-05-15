@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File arcade/english.php 2018-04-16 06:53:00 Thor
+** File arcade/english.php 2018-05-15 05:41:00 Thor
 **
 ** CHANGES
 **
@@ -24,6 +24,7 @@
 ** 2018-03-29 - Amended !defined('IN_PMBT') Corrected Path
 ** 2018-03-29 - Added Missing Language
 ** 2018-04-16 - Amended the Wording of some Sentences
+** 2018-05-15 - Added Missing Language
 **/
 
 if (!defined('IN_PMBT'))
@@ -171,6 +172,7 @@ $lang = array_merge($lang, array(
     'RESET_VIEWS'        => 'Reset Views for ALL Games: ',
     'RUN_TASK'           => 'Run Task',
     'SAVE_GAME'          => 'Save Game',
+    'SELECT_GAME'        => 'Select a Game',
     'STATISTIC'          => 'Statistics',
     'SERVER_ERROR'       => 'Error Contacting the Update Server.',
     'SETTINGS_UPDATED'   => 'The Settings have been Updated.',

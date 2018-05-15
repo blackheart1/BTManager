@@ -5,7 +5,7 @@
 <div class="caption">
 <div class="cap-left">
 <div class="cap-right">
-<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnARCADE');"><img title="Expand item" id="nnARCADEimg" src="themes/Bitfarm/pics/minus.gif"  alt="+"></a>ARCADE
+<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnARCADE');"><img title="{L_EXPAND_ITEM}" id="nnARCADEimg" src="themes/Bitfarm/pics/minus.gif"  alt="{L_EXPAND_ITEM}"></a>{L_ARCADE}
 
 </div>
 </div>
@@ -17,7 +17,7 @@
         <dl><dt><strong>{L_TOP_PLAYERS}</strong></dt>
         <dd><hr /></dd></dl>
         <table width="100%">
-        	<tr>
+            <tr>
         <!-- BEGIN toprow -->
                 <td style="width:33%">{toprow.TROPHY}{toprow.USER_NAME} - <strong>{GOLD}:{toprow.USER_GOLD} - {SILVER}:{toprow.USER_SILVER} - {BRONZE}:{toprow.USER_BRONZE}</strong></td>
         <!-- END toprow -->
@@ -28,7 +28,7 @@
 <table width="100%" cellpadding="0" cellspacing="0">
   <tr>
     <td style="width:16%; vertical-align:top">
-    	<table width="100%">
+        <table width="100%">
           <tr>
             <td>
                 <div class="panel bg3">
@@ -66,11 +66,11 @@
                         <dl>
                             <dd><br /><form name="quickJump">
                                     <select style="font-size:10px; width:12em" name="gameList" onchange="location.href = quickJump.gameList.options[quickJump.gameList.selectedIndex].value">
-                                        <option value="arcade.php" selected="selected">Select a Game</option>
+                                        <option value="arcade.php" selected="selected">{L_SELECT_GAME}</option>
                                         <!-- BEGIN quickjumprow -->
-                                        	<option value="viewgame.php?g={quickjumprow.GAME_ID}&sid={SESSION_ID}">{quickjumprow.GAME_NAME}</option>
+                                            <option value="viewgame.php?g={quickjumprow.GAME_ID}&sid={SESSION_ID}">{quickjumprow.GAME_NAME}</option>
                                         <!-- END quickjumprow -->
-                                    </select> 
+                                    </select>
                                 </form></dd>
                         </dl>
                         <dl>
@@ -119,7 +119,7 @@
         </table>
     </td>
     <td style="vertical-align:top">
-    	<table width="100%">
+        <table width="100%">
           <tr>
             <td colspan="2">
                 <div class="panel bg2">
@@ -138,13 +138,13 @@
                                             <dd>{L_GAME_RATINGS_C}{favoriterow.GAME_NUM_RATINGS}</dd>
                                             <dd>{L_GAME_PLAY_C}{favoriterow.GAME_PLAYS}</dd>
                                             <dd>{L_GAME_SIZE_C}{favoriterow.GAME_SIZE}</dd>
-                                    	</dl>
+                                        </dl>
                                     </td>
                                 <!-- IF favoriterow.ROW_COUNT is even -->
                                 </tr>
                             </table></dd></dl><!-- ENDIF -->
                         <!-- END latestrow -->
-                        
+
                         <!-- IF S_LAST_PART --><td style="width:80px"></td>
                                     <td style="width:50%"></td></tr>
                             </table></dd></dl><!-- ENDIF -->
@@ -222,7 +222,7 @@
                                             <dd>{L_GAME_SIZE_C}{playedrow.GAME_SIZE}</dd>
                                         </dl>
                                     </td>
-    
+
                                 </tr>
                             </table></dd></dl>
                         <!-- END playedrow -->
@@ -262,7 +262,7 @@
 
 <!-- IF S_STATISTICS -->
 <fieldset>
-	<h2>{L_STATISTICS}</h2>
+    <h2>{L_STATISTICS}</h2>
     <dl>
         <dt><label for="{L_TOTAL_GAMES}">{L_TOTAL_GAMES}</label><span>&nbsp;&bull;</span>&nbsp; &nbsp;<strong>{TOTAL_GAMES}</strong></dt>
     </dl>

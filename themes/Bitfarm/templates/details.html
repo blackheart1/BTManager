@@ -30,72 +30,64 @@
 
 <!-- ENDIF -->
 
-		<fieldset>
+        <fieldset>
 
-			<legend><p>{L_PASS_PROT}</p></legend>
+            <legend><p>{L_PASS_PROT}</p></legend>
 
-			<p align="center">{L_PASSWORD_REQ}</p>
+            <p align="center">{L_PASSWORD_REQ}</p>
 
-			<form method="POST" action="{U_ACTION}">
+            <form method="POST" action="{U_ACTION}">
 
-			{HIDDEN}
+            {HIDDEN}
 
-			<br>{L_PASSWORD}<br><input type="password" name="password" size="20" />
+            <br />{L_PASSWORD}<br /><input type="password" name="password" size="20" />
 
-			<p align="center"><input type="submit" value="{L_LOGIN}" /></p></form>
+            <p align="center"><input type="submit" value="{L_LOGIN}" /></p></form>
 
-		</fieldset>
+        </fieldset>
 
 </div>
 
 <!-- ELSE -->
 
-
-
-
-
-
-
-
-
-<br clear="all" >
+<br clear="all" />
 
 <table class="tablebg" width="100%" cellspacing="0">
 <tr><td>
 <h3>
 
-	<p align="center">
+    <p align="center">
 
-		<input title="{L_VIEW_DETAILS}" class="button" name="{L_VIEW_DETAILS}" type="submit" value="{L_VIEW_DETAILS}"  onclick="sndReq('{U_DETAIL_LINK}', 'DT')">
+        <input title="{L_VIEW_DETAILS}" class="button" name="{L_VIEW_DETAILS}" type="submit" value="{L_VIEW_DETAILS}"  onclick="sndReq('{U_DETAIL_LINK}', 'DT')">
 
-		<!-- IF U_NFO_LINK --><input title="{L_VIEW_NFO}" class="button" name="{L_VIEW_NFO}" type="submit" value="{L_VIEW_NFO}"  onclick="sndReq('{U_NFO_LINK}', 'DT')"><!-- ENDIF -->
+        <!-- IF U_NFO_LINK --><input title="{L_VIEW_NFO}" class="button" name="{L_VIEW_NFO}" type="submit" value="{L_VIEW_NFO}"  onclick="sndReq('{U_NFO_LINK}', 'DT')"><!-- ENDIF -->
 
-		<!-- IF U_IMDB_LINK --><input title="{L_VIEW_IMDB}" class="button" name="{L_VIEW_IMDB}" type="submit" value="{L_VIEW_IMDB}"  onclick="sndReq('{U_IMDB_LINK}', 'DT')"><!-- ENDIF -->
+        <!-- IF U_IMDB_LINK --><input title="{L_VIEW_IMDB}" class="button" name="{L_VIEW_IMDB}" type="submit" value="{L_VIEW_IMDB}"  onclick="sndReq('{U_IMDB_LINK}', 'DT')"><!-- ENDIF -->
 
-		<!-- IF U_PEERS_LINK --><input title="{L_VIEW_PEERS}" class="button" name="{L_VIEW_PEERS}" type="submit" value="{L_VIEW_PEERS}"  onclick="sndReq('{U_PEERS_LINK}', 'DT')"><!-- ENDIF -->
+        <!-- IF U_PEERS_LINK --><input title="{L_VIEW_PEERS}" class="button" name="{L_VIEW_PEERS}" type="submit" value="{L_VIEW_PEERS}"  onclick="sndReq('{U_PEERS_LINK}', 'DT')"><!-- ENDIF -->
 
-		<input type="submit" onclick="sndReq('op=view_files_page&torrent={U_ID}&files=&pass=', 'DT')" value="Files " title="View File List" class="button"/>
+        <input type="submit" onclick="sndReq('op=view_files_page&torrent={U_ID}&files=&pass=', 'DT')" value="Files " title="View File List" class="button"/>
 
-		<input title="{L_VIEW_RATING}" class="button" name="{L_VIEW_RATING}" type="submit" value="{L_VIEW_RATING}"  onclick="sndReq('{U_RATING_LINK}', 'DT')">
+        <input title="{L_VIEW_RATING}" class="button" name="{L_VIEW_RATING}" type="submit" value="{L_VIEW_RATING}"  onclick="sndReq('{U_RATING_LINK}', 'DT')">
 
-		<input title="{L_VIEW_COMMENTS}" class="button" name="{L_VIEW_COMMENTS}" type="submit" value="{L_VIEW_COMMENTS}"  onclick="sndReq('{U_COMM_LINK}', 'DT')">
+        <input title="{L_VIEW_COMMENTS}" class="button" name="{L_VIEW_COMMENTS}" type="submit" value="{L_VIEW_COMMENTS}"  onclick="sndReq('{U_COMM_LINK}', 'DT')">
 
-	</p>
+    </p>
 
 </h3>
 </td></tr><tr valign="middle">
 <td  class="row3" ><div id="nn&nbsp;">
 
 <table width="100%"><tr><td>
-<br clear="all" >
+<br clear="all" />
 
 <span id='DT' class='tbody'>
 
-	<noscript>
+    <noscript>
 
-		<iframe src="{SITE_URL}/ajax.php?op=view_details_page&amp;torrent={U_ID}{U_PASSWORD}" marginwidth="0" marginheight="0"  width="100%" align="middle" height="100%"></iframe>
+        <iframe src="{SITE_URL}/ajax.php?op=view_details_page&amp;torrent={U_ID}{U_PASSWORD}" marginwidth="0" marginheight="0"  width="100%" align="middle" height="100%"></iframe>
 
-	</noscript>
+    </noscript>
 
 </span>
 </td></tr></table>
@@ -103,7 +95,7 @@
 </td></tr>
 </table>
 
-<br clear="all" >
+<br clear="all" />
 
 <a name="notify"></a>
 
@@ -111,9 +103,9 @@
 
 <!--
 
-	// Main PMBT Javascript Initialization
+    // Main PMBT Javascript Initialization
 
-	sndReq('op={U_J_LOAD}&torrent={U_ID}{U_PASSWORD}', 'DT');
+    sndReq('op={U_J_LOAD}&torrent={U_ID}{U_PASSWORD}', 'DT');
 
 //-->
 
@@ -123,53 +115,43 @@
 
 <table class="tablebg" width="100%" cellspacing="0">
 
-	<tr>
+    <tr>
+        <td>
+            <div class="caption">
+                <div class="cap-left">
+                    <div class="cap-right">
+                        <a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnnotify');"><img title="{L_EXPAND_ITEM}" id="nnnotifyimg" src="themes/Bitfarm/pics/minus.gif"  alt="{L_EXPAND_ITEM}"></a>{L_NOTIFY_EMAIL}
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
 
-		<td>
+    <tr valign="middle">
 
-			<div class="caption">
+        <td  class="row3" >
 
-				<div class="cap-left">
+            <div id="nnnotify">
 
-					<div class="cap-right">
+            <p>{U_NOTIFY_SEEDER}</p>
 
-						<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnnotify');"><img title="Expand item" id="nnnotifyimg" src="themes/Bitfarm/pics/minus.gif"  alt="+"></a>{L_NOTIFY_EMAIL}
+            <p>{U_NOTIFY_COMMENT}</p>
 
-					</div>
+            </div>
 
-				</div>
+        </td>
 
-			</div>
+    </tr>
 
-		</td>
+    <tr>
 
-	</tr>
+        <td class="cat" colspan="7" valign="middle" align="center"></td>
 
-	<tr valign="middle">
-
-		<td  class="row3" >
-
-			<div id="nnnotify">
-
-			<p>{U_NOTIFY_SEEDER}</p>
-
-			<p>{U_NOTIFY_COMMENT}</p>
-
-			</div>
-
-		</td>
-
-	</tr>
-
-	<tr>
-
-		<td class="cat" colspan="7" valign="middle" align="center"></td>
-
-	</tr>
+    </tr>
 
 </table>
 
-<br clear="all" >
+<br clear="all" />
 
 <!-- ENDIF -->
 

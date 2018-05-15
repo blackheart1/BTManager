@@ -7,71 +7,71 @@
 
     {$CA_BLOCK_START}
 <table class="tablebg" width="100%" cellspacing="0">
-	<tr>
-		<td>
-			<div class="caption">
-				<div class="cap-left">
-					<div class="cap-right">
-						<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnfaq');"><img title="Expand item" id="nnfaqimg" src="themes/Bitfarm/pics/minus.gif"  alt="+"></a>{L_FAQ_TITLE}
-					</div>
-				</div>
-			</div>
-		</td>
-	</tr>
-	<tr valign="middle">
-		<td  class="row3" >
-			<div id="nnfaq">
-	<table class="tablebg" width="100%" cellspacing="{$CA_SPACING}">
-	<tr>
-		<td class="row1">
-		<!-- BEGIN faq_block -->
-			<span class="gen"><strong>{faq_block.BLOCK_TITLE}</strong></span><br />
-			<!-- BEGIN faq_row -->
-				<span class="gen"><a class="postlink" href="#f{faq_block.S_ROW_COUNT}{faq_block.faq_row.S_ROW_COUNT}">{faq_block.faq_row.FAQ_QUESTION}</a></span><br />
-			<!-- END faq_row -->
-			<br />
-		<!-- END faq_block -->
-		</td>
-	</tr>
-	<tr>
-		<td class="cat">&nbsp;</td>
-	</tr>
-	</table>
-			</div>
-		</td>
-	</tr>
-	<tr>
-		<td colspan="7" valign="middle" align="center"></td>
-	</tr>
+    <tr>
+        <td>
+            <div class="caption">
+                <div class="cap-left">
+                    <div class="cap-right">
+                        <a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnfaq');"><img title="{L_EXPAND_ITEM}" id="nnfaqimg" src="themes/Bitfarm/pics/minus.gif" {L_EXPAND_ITEM}></a>{L_FAQ_TITLE}
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr valign="middle">
+        <td  class="row3" >
+            <div id="nnfaq">
+    <table class="tablebg" width="100%" cellspacing="{$CA_SPACING}">
+    <tr>
+        <td class="row1">
+        <!-- BEGIN faq_block -->
+            <span class="gen"><strong>{faq_block.BLOCK_TITLE}</strong></span><br />
+            <!-- BEGIN faq_row -->
+                <span class="gen"><a class="postlink" href="#f{faq_block.S_ROW_COUNT}{faq_block.faq_row.S_ROW_COUNT}">{faq_block.faq_row.FAQ_QUESTION}</a></span><br />
+            <!-- END faq_row -->
+            <br />
+        <!-- END faq_block -->
+        </td>
+    </tr>
+    <tr>
+        <td class="cat">&nbsp;</td>
+    </tr>
+    </table>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="7" valign="middle" align="center"></td>
+    </tr>
 </table>
 
-	<br clear="all" />
+    <br clear="all" />
 
-	<!-- BEGIN faq_block -->
+    <!-- BEGIN faq_block -->
 <table class="tablebg" width="100%" cellspacing="0">
-	<tr>
-		<td>
-			<div class="caption">
-				<div class="cap-left">
-					<div class="cap-right">
-						<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnfaq_{faq_block.FAQ_ID}');"><img title="Expand item" id="nnfaq_{faq_block.FAQ_ID}img" src="themes/Bitfarm/pics/plus.gif"  alt="+"></a>{faq_block.BLOCK_TITLE}
-					</div>
-				</div>
-			</div>
-		</td>
-	</tr>
-	<tr valign="middle">
-		<td  class="row3" >
-			<div id="nnfaq_{faq_block.FAQ_ID}" style="display: none;">
+    <tr>
+        <td>
+            <div class="caption">
+                <div class="cap-left">
+                    <div class="cap-right">
+                        <a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnfaq_{faq_block.FAQ_ID}');"><img title="{L_EXPAND_ITEM}" id="nnfaq_{faq_block.FAQ_ID}img" src="themes/Bitfarm/pics/plus.gif" {L_EXPAND_ITEM}></a>{faq_block.BLOCK_TITLE}
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr valign="middle">
+        <td  class="row3" >
+            <div id="nnfaq_{faq_block.FAQ_ID}" style="display: none;">
                 <table class="tablebg" width="100%" cellspacing="{$CA_SPACING}">
-                <!-- BEGIN faq_row --> 
+                <!-- BEGIN faq_row -->
                     <tr>
                     <!-- IF faq_block.faq_row.S_ROW_COUNT is even -->
                         <td class="row1" valign="top">
                     <!-- ELSE -->
                         <td class="row2" valign="top">
                     <!-- ENDIF -->
-                            <div class="postbody"><a name="f{faq_block.S_ROW_COUNT}{faq_block.faq_row.S_ROW_COUNT}"></a><b>&#187; {faq_block.faq_row.FAQ_QUESTION}</b></div>
+                            <div class="postbody"><a name="f{faq_block.S_ROW_COUNT}{faq_block.faq_row.S_ROW_COUNT}"></a><strong>&#187; {faq_block.faq_row.FAQ_QUESTION}</strong></div>
                             <div class="postbody">{faq_block.faq_row.FAQ_ANSWER}</div>
                             <p class="gensmall"><a href="#faqtop">{L_BACK_TO_TOP}</a></p>
                         </td>
@@ -81,16 +81,16 @@
                     </tr>
                 <!-- END faq_row -->
                 </table>
-			</div>
-		</td>
-	</tr>
-	<tr>
-		<td colspan="7" valign="middle" align="center"></td>
-	</tr>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="7" valign="middle" align="center"></td>
+    </tr>
 </table>
 
-		<br clear="all" />
-	<!-- END faq_block -->
+        <br clear="all" />
+    <!-- END faq_block -->
 
 </div>
 
