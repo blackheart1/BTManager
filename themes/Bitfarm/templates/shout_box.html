@@ -286,7 +286,7 @@ function dE(n, s, type)
 				</span>
 					<p>
 
-				<form name="Shoutform" method="POST" action="#" target="Shoutbox" onSubmit="sendshout(text.value);">
+				<form name="Shoutform" method="POST" id="data" action="upload.php?op=taketorrent" target="Shoutbox" onSubmit="sendshout(text.value);">
 					<input type="text" readonly name="helpbox" style="width:100%" class="helpline" value="{L__STYLES_TIP} {L_SHOUT_HELP}" />
 					<br />
 					<script type="text/javascript">
@@ -386,7 +386,7 @@ function dE(n, s, type)
 					</p>
 				   <input type="button" id="shout_send" onClick="sendshoutout(text.value, 'shout_out'); text.value = '';" value="{L_SHOUT}" />
 				   <input type="button" onClick="sndReq('op=view_shout', 'shout_out');" value="{L_UPDATE}" />
-				   <input type="button" onClick="sndReq('op=more_smiles', 'shoutTD')" value="{L_MORE_SMILIES}" />
+				   <input type="button" href="upload.php?op=up" onclick="popUp('upload.php\?op\=up&amp;pop\=smilies&amp;form\=Shoutform&amp;area\=text', 300, 350, '_phpbbsmilies'); return false;" value="{L_MORE_SMILIES}" />
 				</form>		
 			</div>
 		</td>
