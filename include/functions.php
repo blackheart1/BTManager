@@ -3577,6 +3577,7 @@ function set_site_var($page_title = '')
 		'U_ADMIN'          => $user->admin,
 		'U_VIEW_ADMIN_PAN'	=> checkaccess("m_see_admin_cp"),
 		'S_USER_ID'        => $user->id,
+		'U_PM_POPUP'		=> $user->pm_popup,
 		'S_IN_MCP'        => false,
 		'S_IN_UCP'        => false,
 		'U_USER_USERNAME'  => $user->name,
