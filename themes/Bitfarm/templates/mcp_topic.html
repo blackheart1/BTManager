@@ -48,7 +48,7 @@
 	</tr>
 	<!-- IF TO_TOPIC_INFO -->
 		<tr>
-			<td class="row3" colspan="3" align="center"><b class="gen">{TO_TOPIC_INFO}</b></td>
+			<td class="row3" colspan="3" align="center"><strong class="gen">{TO_TOPIC_INFO}</strong></td>
 		</tr>
 	<!-- ENDIF -->
 <!-- ENDIF -->
@@ -72,11 +72,11 @@
 
 	<!-- IF postrow.S_ROW_COUNT is even --><tr class="row1"><!-- ELSE --><tr class="row2"><!-- ENDIF -->
 
-		<td class="row" align="center"><b class="postauthor">{postrow.POST_AUTHOR_FULL}</b></td>
+		<td class="row" align="center"><strong class="postauthor">{postrow.POST_AUTHOR_FULL}</strong></td>
 		<td class="row" width="100%">
 			<table width="100%" cellspacing="0" cellpadding="0" border="0">
 			<tr valign="top">
-				<td class="gensmall" nowrap="nowrap">&nbsp;<b>{L_POST_SUBJECT}:</b>&nbsp;</td>
+				<td class="gensmall" nowrap="nowrap">&nbsp;<strong>{L_POST_SUBJECT}:</strong>&nbsp;</td>
 				<td class="gensmall" width="100%">{postrow.POST_SUBJECT}</td>
 			</tr>
 			</table>
@@ -110,7 +110,7 @@
 							<!-- IF postrow.S_POST_REPORTED and postrow.U_MCP_REPORT --><span class="postreported">{REPORTED_IMG} <a href="{postrow.U_MCP_REPORT}">{L_POST_REPORTED}</a></span><!-- ENDIF -->
 						</td>
 						<td width="10" nowrap="nowrap">{postrow.MINI_POST_IMG}</td>
-						<td class="gensmall" nowrap="nowrap"><b>{L_POSTED}:</b> {postrow.POST_DATE}</td>
+						<td class="gensmall" nowrap="nowrap"><strong>{L_POSTED}:</strong> {postrow.POST_DATE}</td>
 					</tr>
 					</table>
 				</td>
@@ -140,7 +140,7 @@
 
 <table width="100%" cellspacing="2" cellpadding="2" border="0" align="center">
 <tr>
-	<td align="{S_CONTENT_FLOW_END}" valign="top" nowrap="nowrap"><b class="gensmall"><a href="#" onclick="marklist('mcp', '', true); return false;">{L_MARK_ALL}</a> :: <a href="#" onclick="marklist('mcp', '', false); return false;">{L_UNMARK_ALL}</a></b></td>
+	<td align="{S_CONTENT_FLOW_END}" valign="top" nowrap="nowrap"><strong class="gensmall"><a href="#" onclick="marklist('mcp', '', true); return false;">{L_MARK_ALL}</a> :: <a href="#" onclick="marklist('mcp', '', false); return false;">{L_UNMARK_ALL}</a></strong></td>
 </tr>
 </table>
 

@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File ban/english.php 2018-04-18 11:22:00 Thor
+** File ban/english.php 2018-05-15 20:19:00 Thor
 **
 ** CHANGES
 **
@@ -23,6 +23,7 @@
 ** 2018-04-17 - Amended the Wording of some Sentences
 ** 2018-04-17 - Moved Time Definitions to common.php
 ** 2018-04-18 - Added Missing Language
+** 2018-05-15 - Added Missing Language
 **/
 
 if (!defined('IN_PMBT'))
@@ -46,6 +47,7 @@ $lang = array_merge($lang, array(
     'ACP_BAN_IPS'           => 'Ban by IP Address',
     'ACP_BAN_USERNAMES'     => 'Ban by Username',
 
+    'BAN_CELL'              => 'email Address',
     'BAN_EXCLUDE'           => 'Exclude from Banning',
     'BAN_LENGTH'            => 'Length of the Ban',
     'BAN_REASON'            => 'Reason for the Ban',

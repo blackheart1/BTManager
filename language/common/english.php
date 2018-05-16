@@ -630,6 +630,7 @@ $lang = array_merge($lang, array(
     'JUMP_TO_PAGE'             => 'Click to Jump to Page',
     'BAND_SHOUTS'              => 'Sorry.  You are Banned From Shouts!',
     'NO_USERS_ONLINE'          => 'There are NO Registered Users Online',
+
     'ADV_ONLINE_MO'            => 'Advanced Mode',
     'SEMP_ONLINE_MOD'          => 'Simple Mode',
     'T_DIR_NOT_PRES'           => 'Torrent Dictionary NOT Present',
