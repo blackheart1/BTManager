@@ -32,7 +32,7 @@ $user->set_lang('admin/logs',$user->ulanguage);
 		$sort_key	= request_var('sk', 't');
 		$sort_dir	= request_var('sd', 'd');
 		$del	= request_var('del', '');
-if($deleteall)
+if($deleteall && $auth->acl_get('a_clearlogs'))
 {
 		if (confirm_box(true))
 		{
@@ -60,7 +60,7 @@ if($deleteall)
 		confirm_box(false, $user->lang['CONFIRM_OPERATION'], $hidden,'admin/confirm_body.html','admin.php',true);
 		}
 }
-if(isset($delmarked))
+if($delmarked && $auth->acl_get('a_clearlogs'))
 {
 		if (confirm_box(true))
 		{
@@ -139,7 +139,7 @@ if(isset($delmarked))
 			'S_LIMIT_DAYS'	=> $s_limit_days,
 			'S_SORT_KEY'	=> $s_sort_key,
 			'S_SORT_DIR'	=> $s_sort_dir,
-			'S_CLEARLOGS'	=> checkaccess('a_clearlogs'),
+			'S_CLEARLOGS'	=> $auth->acl_get('a_clearlogs'),
 			'S_KEYWORDS'	=> $keywords,
 			)
 		);

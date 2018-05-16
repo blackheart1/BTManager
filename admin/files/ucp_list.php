@@ -267,8 +267,8 @@ class acp_inactive
 				'USERNAME'			=> get_username_string('username', $row['id'], $row['username'],  '#' . $row['user_colour']),
 				'USER_COLOR'		=> get_username_string('colour', $row['id'], $row['username'],  '#' . $row['user_colour']),
 
-				'U_USER_ADMIN'	=> append_sid("./admin.$phpEx", "op=user&amp;i=userinfo&amp;mode=overview&amp;vas=overview&amp;u={$row['user_id']}"),
-				'U_SEARCH_USER'	=> ($auth->acl_get('u_search')) ? append_sid("{$phpbb_root_path}search.$phpEx", "author_id={$row['user_id']}&amp;sr=posts") : '',
+				'U_USER_ADMIN'	=> append_sid("./admin.$phpEx", "op=user&amp;i=userinfo&amp;mode=overview&amp;vas=overview&amp;u={$row['id']}"),
+				'U_SEARCH_USER'	=> ($auth->acl_get('u_search')) ? append_sid("{$phpbb_root_path}forum.$phpEx", "action=search&amp;author_id={$row['id']}&amp;sr=posts") : '',
 			));
 		}
 
