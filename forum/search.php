@@ -461,7 +461,7 @@ if ($keywords || $author || $author_id || $search_id || $submit)
 	{
 		include('include/function_posting.' . $phpEx);
 	}
-	//$user->add_lang('viewtopic');
+	$user->set_lang('viewtopic',$user->ulanguage);
 
 	// Grab icons
 	$icons = $pmbt_cache->obtain_icons();

@@ -1086,7 +1086,7 @@ while ($row = $db->sql_fetchrow($result))
 				'viewonline'	=> $row['Show_online'],
 				'allow_pm'		=> $row['user_allow_pm'],
 
-				'avatar'		=> get_user_avatar($row['avatar'], $row['avatar_type'], $row['avatar_width'], $row['avatar_height']),
+				'avatar'		=> ($user->optionget('viewavatars')) ? get_user_avatar($row['avatar'], $row['avatar_type'], $row['avatar_width'], $row['avatar_height']):'',
 				'age'			=> '',
 				'online'		=>	(time() - (5 * 60) < $row['session'] && (($row['Show_online']) || $auth->acl_get('u_viewonline'))) ? true : false,
 
@@ -1277,7 +1277,7 @@ for ($i = 0, $end = sizeof($post_list); $i < $end; ++$i)
 	}
 
 	$message = bbcode_nl2br($message);
-	//$message = parse_smiles($message);
+	$message = smiley_text($message);
 
 	if (!empty($attachments[$row['post_id']]))
 	{

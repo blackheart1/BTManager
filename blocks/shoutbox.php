@@ -117,7 +117,7 @@ if($shout_config['turn_on']=='yes')
 		}
 		// Parse the message and subject
 		$text = bbcode_nl2br($text);
-		//$text = parse_smiles($text);
+		$text = smiley_text($text);
 		$quote = preg_replace('/<!-- s(.*?) -->(.*?)<!-- s(.*?) -->/i', '\\1', $shout["text"]);
 		$quote = preg_replace('/<!-- m -->(.*?)<!-- m -->/i', '\\1', $quote);
 								$showusername = true;
