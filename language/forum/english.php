@@ -109,7 +109,8 @@ $lang = array_merge($lang, array(
     'LOG_UNLOCK_POST'            => '<strong>Unlocked Post</strong><br />%s',
     'LOG_DISALLOW_ADD'           => '<strong>Added Disallowed Username</strong><br />%s',
     'LOG_DISALLOW_DELETE'        => '<strong>Deleted Disallowed Username</strong>',
-    'LOG_USER_LOCK'              => '<strong>Locked by User</strong><br />%s',
+    'LOG_USER_LOCK'              => '<strong>User Locked Own Topic</strong><br /> %s',
+    'LOG_USER_FEEDBACK'          => '<strong>Added User Feedback</strong><br /> %s',
 
     'SELECT'                     => 'Select',
     'TOPIC'                      => 'Topic',

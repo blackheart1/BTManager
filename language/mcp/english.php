@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File mcp/english.php 2018-04-25 08:10:00 Thor
+** File mcp/english.php 2018-05-16 10:04:00 Thor
 **
 ** CHANGES
 **
@@ -21,6 +21,7 @@
 ** 2018-03-02 - Added New !defined('IN_PMBT')
 ** 2018-03-02 - Fixed Spelling
 ** 2018-04-25 - Amended the Wording of some Sentences
+** 2018-05-16 - Added Missing Language
 **/
 
 if (!defined('IN_PMBT'))
@@ -227,21 +228,22 @@ $lang = array_merge($lang, array(
     'NOTIFY_USER_WARN'           => 'Notify User about Warning?',
     'NOT_MODERATOR'              => 'You are NOT a Moderator of this Forum.',
     'NO_DESTINATION_FORUM'       => 'Please Select a Destination Forum.',
-    'NO_DESTINATION_FORUM_FOUND' => 'There is NO Destination Forum\'s Available.',
-    'NO_ENTRIES'                 => 'NO Log Entries for this Period.',
-    'NO_FEEDBACK'                => 'NO Feedback Exists for this User.',
+    'NO_DESTINATION_FORUM_FOUND' => 'There is No Destination Forum\'s Available.',
+    'NO_ENTRIES'                 => 'No Log Entries for this Period.',
+    'NO_FEEDBACK'                => 'No Feedback Exists for this User.',
     'NO_FINAL_TOPIC_SELECTED'    => 'You have to Select a Destination Topic for Merging Posts.',
-    'NO_MATCHES_FOUND'           => 'NO Matches Found.',
+    'NO_MATCHES_FOUND'           => 'No Matches Found.',
     'NO_POST'                    => 'You have to Select a Post in order to Warn the User for a Post.',
     'NO_POST_REPORT'             => 'This Post was NOT Reported.',
     'NO_POST_SELECTED'           => 'You must Select at least One Post to Perform this Action.',
     'NO_REASON_DISAPPROVAL'      => 'Please give an Appropriate Reason for Disapproval.',
-    'NO_REPORT'                  => 'NO Report Found',
-    'NO_REPORTS'                 => 'NO Reports Found',
+    'NO_REPORT'                  => 'No Report Found',
+    'NO_REPORTS'                 => 'No Reports Found',
     'NO_REPORT_SELECTED'         => 'You must Select at least One Report to Perform this Action.',
     'NO_TOPIC_ICON'              => 'None',
     'NO_TOPIC_SELECTED'          => 'You must Select at least One Topic to Perform this Action.',
-    'NO_TOPICS_QUEUE'            => 'There are NO Topics waiting to be Approved.',
+    'NO_TOPICS_QUEUE'            => 'There are No Topics waiting to be Approved.',
+    'NO_USER'                    => 'No Matches Found.',
 
     'ONLY_TOPIC'                 => 'Only Topic %s',
     'OTHER_USERS'                => 'Other Users Posting from this IP',
@@ -272,7 +274,7 @@ $lang = array_merge($lang, array(
     'REPORTS_CLOSED_SUCCESS'     => 'The Selected Reports were Closed Successfully.',
     'REPORTS_DELETED_SUCCESS'    => 'The Selected Reports were Deleted Successfully.',
     'REPORTS_TOTAL'              => 'In Total there are <strong>%d</strong> Reports to Review.',
-    'REPORTS_ZERO_TOTAL'         => 'There are NO Reports to Review.',
+    'REPORTS_ZERO_TOTAL'         => 'There are No Reports to Review.',
     'REPORT_CLOSED'              => 'This Report has already been Closed.',
     'REPORT_CLOSED_SUCCESS'      => 'The Selected Report was Closed Successfully.',
     'REPORT_DELETED_SUCCESS'     => 'The Selected Report was Deleted Successfully.',
@@ -348,7 +350,7 @@ $lang = array_merge($lang, array(
     'TOTAL_WARNINGS'              => 'Total Warnings',
 
     'UNAPPROVED_POSTS_TOTAL'      => 'In Total there are <strong>%d</strong> Posts Waiting for Approval.',
-    'UNAPPROVED_POSTS_ZERO_TOTAL' => 'There are NO Posts Waiting for Approval.',
+    'UNAPPROVED_POSTS_ZERO_TOTAL' => 'There are No Posts Waiting for Approval.',
     'UNAPPROVED_POST_TOTAL'       => 'In Total there is <strong>1</strong> Post Waiting for Approval.',
     'UNLOCK'                      => 'Unlock',
     'UNLOCK_POST'                 => 'Unlock Post',
@@ -380,7 +382,7 @@ $lang = array_merge($lang, array(
 
     'WARNING_PM_SUBJECT'   => 'Board Warning Issued',
     'WARNING_POST_DEFAULT' => 'This is a Warning regarding the following Post made by you: %s .',
-    'WARNINGS_ZERO_TOTAL'  => 'NO Warnings Exist.',
+    'WARNINGS_ZERO_TOTAL'  => 'No Warnings Exist.',
 
     'YOU_SELECTED_TOPIC'   => 'You Selected Topic Number %d: %s.',
 
