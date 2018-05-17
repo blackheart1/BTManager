@@ -341,7 +341,7 @@ CREATE TABLE IF NOT EXISTS `#prefix#_bans` (
   `reason` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
   `ban_give_reason` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
   `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
