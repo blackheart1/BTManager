@@ -50,8 +50,6 @@ $lang = array_merge($lang, array(
     'SORT_COMMENTS'    => 'Sort by Number of Comments',
     'UPLOADED_BY'      => 'Uploaded by',
     'AVERAGE_SPEED'    => 'Average Speed',
-    'NUKED_TORRENT'    => 'Nuked Torrent',
-    'FREE_TORRENT'     => 'Free Torrent',
 
     'DHT_SUPPORT_EXP'  => 'This Torrent supports DHT.  With a State-of-the-art Client, you\'ll be able to Download this Torrent even if a Central Tracker goes down.',
 
@@ -60,6 +58,8 @@ $lang = array_merge($lang, array(
     'REFRESHPEER_DATA' => 'Refresh Peer Data',
     'BANNED_TORRENT'   => 'Banned Torrent',
     'BANN_TORRENT'     => 'Ban Torrent',
+    'FREE_TORRENT'     => 'Free Torrent',
+    'EXTERNAL_TORRENT' => 'External Torrent',
 
     #Added For 3.0.1
     'UPDATED_DONE'     => 'Statistics Updated Less than 30 Minutes ago',

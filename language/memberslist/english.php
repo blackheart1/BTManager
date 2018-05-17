@@ -127,6 +127,7 @@ $lang = array_merge($lang, array(
     'IM_USER'                   => 'Send an Instant Message',
 
     'LAST_ACTIVE'               => 'Last Active',
+    'LAST_LOGIN'                => 'Last Login',
     'LESS_THAN'                 => 'Less than',
     'LIST_USER'                 => '1 User',
     'LIST_USERS'                => '%d Users',

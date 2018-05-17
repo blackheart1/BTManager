@@ -15,7 +15,7 @@
 			<div class="caption">
 				<div class="cap-left">
 					<div class="cap-right">
-						<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnMake_an_Offer');"><img title="Expand item" id="nnMake_an_Offerimg" src="themes/Bitfarm/pics/minus.gif"  alt="+"></a>{L_MAKE_OFFER}
+						<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnMake_an_Offer');"><img title="{L_EXPAND_ITEM}" id="nnMake_an_Offerimg" src="themes/Bitfarm/pics/minus.gif" alt="{L_EXPAND_ITEM}"></a>{L_MAKE_OFFER}
 					</div>
 				</div>
 			</div>
@@ -28,15 +28,15 @@
 				{HIDDEN}
 				<table class="tablebg" width="100%" cellspacing="0">
 					<tr>
-						<td class="row1" width="35%"><b class="genmed">{L_NAME}:</b></td>
+						<td class="row1" width="35%"><strong class="genmed">{L_NAME}:</strong></td>
 						<td class="row2"><input type="text" name="name" size="80" /></td>
 					</tr>
 					<tr>
-						<td class="row1" width="35%"><b class="genmed">{L_DESCRIPTION}:</b><br /><span class="gensmall">{L_DESCRIPTION_EXPLAIN}</span><br /><br />
+						<td class="row1" width="35%"><strong class="genmed">{L_DESCRIPTION}:</strong><br /><span class="gensmall">{L_DESCRIPTION_EXPLAIN}</span><br /><br />
 						<!-- IF S_SMILIES_ALLOWED -->
 							<table width="100%" cellspacing="5" cellpadding="0" border="0" align="center">
 							<tr>
-								<td class="gensmall" align="center"><b>{L__SMILIES}</b></td>
+								<td class="gensmall" align="center"><strong>{L__SMILIES}</strong></td>
 							</tr>
 							<tr>
 								<td align="center">
@@ -45,25 +45,25 @@
 <!-- END smiley -->
 								</td>
 							</tr>
-					
+
 							<!-- IF S_SHOW_SMILEY_LINK -->
 								<tr>
 									<td align="center"><a class="nav" href="{U_MORE_SMILIES}" onclick="popup(this.href, 300, 350, '_phpbbsmilies'); return false;">{L__MORE_SMILIES}</a></td>
 								</tr>
 							<!-- ENDIF -->
-					
+
 							</table>
 						<!-- ENDIF -->
 					</td>
 						<td class="row2">
 							<script type="text/javascript">
 								// <![CDATA[
-						
+
 								var form_name = 'add';
 								var text_name = 'msg';
 								// ]]>
-							</script>		
-					
+							</script>
+
 							<table width="100%" cellspacing="0" cellpadding="0" border="0">
 							<!-- INCLUDE themes/Bitfarm/templates/posting_buttons.html -->
 							<tr>
@@ -82,11 +82,11 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="row1" width="35%"><b class="genmed">{L_CAT_SELECT}:</b></td>
+						<td class="row1" width="35%"><strong class="genmed">{L_CAT_SELECT}:</strong></td>
 						<td class="row2">{S_CAT_SELECT}</td>
 					</tr>
 					<tr>
-						<td colspan="2" align="center"><input type=submit value='{L_SUBMIT}'></td>
+						<td colspan="2" align="center"><input type=submit value='{L_SUBMIT}' /></td>
 					</tr>
 				</table>
 				</form>
@@ -97,7 +97,7 @@
 		<td colspan="7" valign="middle" align="center"></td>
 	</tr>
 </table>
-<br clear="all" >
+<br clear="all" />
 <!-- ELSEIF ACTION == view_vote -->
 <table class="tablebg" width="100%" cellspacing="0">
 	<tr>
@@ -105,7 +105,7 @@
 			<div class="caption">
 				<div class="cap-left">
 					<div class="cap-right">
-						<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnview_vote');"><img title="Expand item" id="nnview_voteimg" src="themes/Bitfarm/pics/minus.gif"  alt="+"></a>{L_EDIT_OFFER}
+						<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnview_vote');"><img title="{L_EXPAND_ITEM}" id="nnview_voteimg" src="themes/Bitfarm/pics/minus.gif" alt="{L_EXPAND_ITEM}"></a>{L_EDIT_OFFER}
 					</div>
 				</div>
 			</div>
@@ -123,7 +123,7 @@
 				<table style="border-collapse: collapse;" align="center" border="1" bordercolor="#0033FF" cellpadding="1" cellspacing="0" width="100%">
 					<tbody>
 						<tr>
-							<td class="row1" colspan="2" align="center"><b>{L_AVATAR_CATEGORY}</b></td>
+							<td class="row1" colspan="2" align="center"><strong>{L_AVATAR_CATEGORY}</strong></td>
 						</tr>
 <!-- BEGIN voterlist -->
 						<tr>
@@ -141,9 +141,9 @@
 							<div class="postauthor"<!-- IF voterlist.VOTER_COLOUR --> style="color: {voterlist.VOTER_COLOUR}"<!-- ENDIF -->>{voterlist.NAME}</div>
 							<!-- IF voterlist.ONLINE_IMG && voterlist.S_ONLINE --><div class="postonline">{voterlist.ONLINE_IMG}</div><!-- ENDIF -->
 							<!-- IF voterlist.RANK_TITLE --><div class="posterrank">{voterlist.RANK_TITLE}</div><!-- ENDIF -->
-							<div><img src="themes/Bitfarm/pics/pic_uploaded.gif" alt="" title="" border="0">&nbsp;{voterlist.F_UPLOADED}</div>
-							<div><img src="themes/Bitfarm/pics/pic_downloaded.gif" alt="" title="" border="0">&nbsp;{voterlist.F_DOWNLOADED}</div>
-							<div><img src="themes/Bitfarm/pics/pic_ratio.gif" alt="" title="" border="0">&nbsp;{voterlist.RATIO}</div>
+							<div><img src="themes/Bitfarm/pics/pic_uploaded.gif" alt="{L_UPLOAD}" title="{L_UPLOAD}" border="0">&nbsp;{voterlist.F_UPLOADED}</div>
+							<div><img src="themes/Bitfarm/pics/pic_downloaded.gif" alt="{L_DOWNLOAD}" title="{L_DOWNLOAD}" border="0">&nbsp;{voterlist.F_DOWNLOADED}</div>
+							<div><img src="themes/Bitfarm/pics/pic_ratio.gif" alt="{L_RATIO}" title="{L_RATIO}" border="0">&nbsp;{voterlist.RATIO}</div>
 							<br />
 							</td>
 						</tr>
@@ -169,7 +169,7 @@
 		<td colspan="7" valign="middle" align="center"></td>
 	</tr>
 </table>
-<br clear="all" >
+<br clear="all" />
 <!-- ELSEIF ACTION == edit -->
 <script type="text/javascript" src="bbcode.js"></script>
 <table class="tablebg" width="100%" cellspacing="0">
@@ -178,7 +178,7 @@
 			<div class="caption">
 				<div class="cap-left">
 					<div class="cap-right">
-						<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnMake_an_Offer');"><img title="Expand item" id="nnMake_an_Offerimg" src="themes/Bitfarm/pics/minus.gif"  alt="+"></a>{L_EDIT_OFFER}
+						<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnMake_an_Offer');"><img title="{L_EXPAND_ITEM}" id="nnMake_an_Offerimg" src="themes/Bitfarm/pics/minus.gif" alt="{L_EXPAND_ITEM}"></a>{L_EDIT_OFFER}
 					</div>
 				</div>
 			</div>
@@ -191,15 +191,15 @@
 				{HIDDEN}
 				<table class="tablebg" width="100%" cellspacing="0">
 					<tr>
-						<td class="row1" width="35%"><b class="genmed">{L_NAME}:</b></td>
+						<td class="row1" width="35%"><strong class="genmed">{L_NAME}:</strong></td>
 						<td class="row2"><input type="text" name="name" size="80" value="{O_NAME}" /></td>
 					</tr>
 					<tr>
-						<td class="row1" width="35%"><b class="genmed">{L_DESCRIPTION}:</b><br /><span class="gensmall">{L_DESCRIPTION_EXPLAIN}</span><br /><br />
+						<td class="row1" width="35%"><strong class="genmed">{L_DESCRIPTION}:</strong><br /><span class="gensmall">{L_DESCRIPTION_EXPLAIN}</span><br /><br />
 						<!-- IF S_SMILIES_ALLOWED -->
 							<table width="100%" cellspacing="5" cellpadding="0" border="0" align="center">
 							<tr>
-								<td class="gensmall" align="center"><b>{L__SMILIES}</b></td>
+								<td class="gensmall" align="center"><strong>{L__SMILIES}</strong></td>
 							</tr>
 							<tr>
 								<td align="center">
@@ -208,25 +208,25 @@
 <!-- END smiley -->
 								</td>
 							</tr>
-					
+
 							<!-- IF S_SHOW_SMILEY_LINK -->
 								<tr>
 									<td align="center"><a class="nav" href="{U_MORE_SMILIES}" onclick="popup(this.href, 300, 350, '_phpbbsmilies'); return false;">{L__MORE_SMILIES}</a></td>
 								</tr>
 							<!-- ENDIF -->
-					
+
 							</table>
 						<!-- ENDIF -->
 					</td>
 						<td class="row2">
 							<script type="text/javascript">
 								// <![CDATA[
-						
+
 								var form_name = 'add';
 								var text_name = 'msg';
 								// ]]>
-							</script>		
-					
+							</script>
+
 							<table width="100%" cellspacing="0" cellpadding="0" border="0">
 							<!-- INCLUDE themes/Bitfarm/templates/posting_buttons.html -->
 							<tr>
@@ -245,11 +245,11 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="row1" width="35%"><b class="genmed">{L_CAT_SELECT}:</b></td>
+						<td class="row1" width="35%"><strong class="genmed">{L_CAT_SELECT}:</strong></td>
 						<td class="row2">{O_CAT_SELECT}</td>
 					</tr>
 					<tr>
-						<td colspan="2" align="center"><input type=submit value='{L_SUBMIT}'></td>
+						<td colspan="2" align="center"><input type=submit value='{L_SUBMIT}' /></td>
 					</tr>
 				</table>
 				</form>
@@ -260,7 +260,7 @@
 		<td colspan="7" valign="middle" align="center"></td>
 	</tr>
 </table>
-<br clear="all" >
+<br clear="all" />
 <!-- ELSEIF ACTION == add_coment -->
 <!-- ELSEIF ACTION == edit_coment -->
 <!-- ELSEIF ACTION == view_orig_coment -->
@@ -271,7 +271,7 @@
 			<div class="caption">
 				<div class="cap-left">
 					<div class="cap-right">
-						<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnOffer');"><img title="Expand item" id="nnOfferimg" src="themes/Bitfarm/pics/minus.gif"  alt="+"></a>{L_OFFERS}
+						<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnOffer');"><img title="{L_EXPAND_ITEM}" id="nnOfferimg" src="themes/Bitfarm/pics/minus.gif" alt="{L_EXPAND_ITEM}"></a>{L_OFFERS}
 					</div>
 				</div>
 			</div>
@@ -282,7 +282,6 @@
 			<div id="nnOffer">
 				<table class="tablebg" width="100%" cellspacing="0">
 					<tr>
-
 						<td class="row1" width="35%">
 						{L_NAME}
 						</td>
@@ -291,7 +290,6 @@
 						</td>
 					</tr>
 					<tr>
-
 						<td class="row1" width="35%">
 						{L_DESCRIPTION}
 						</td>
@@ -300,7 +298,6 @@
 						</td>
 					</tr>
 					<tr>
-
 						<td class="row1" width="35%">
 						{L_DATE_ADDED}
 						</td>
@@ -309,22 +306,20 @@
 						</td>
 					</tr>
 					<tr>
-
 						<td class="row1" width="35%">
 						{L_OFFER_BY}
 						</td>
 						<td class="row2">
-						{O_OFFER_BY}<!-- IF CAN_EDIT -->&nbsp;&nbsp;&nbsp;<a href="offer.php?id={O_ID}&amp;action=edit" class="sublink"><b>[{L_EDIT}]</b></a><!-- ENDIF -->
+						{O_OFFER_BY}<!-- IF CAN_EDIT -->&nbsp;&nbsp;&nbsp;<a href="offer.php?id={O_ID}&amp;action=edit" class="sublink"><strong>[{L_EDIT}]</strong></a><!-- ENDIF -->
 						</td>
 					</tr>
 					<tr>
-
 					<!-- IF CAN_VOTE -->
 						<td class="row1" width="35%">
 						{L_OFFER_VOTE}
 						</td>
 						<td class="row2">
-						<b><a href="offer.php?action=take_vote&amp;id={O_ID}">{L_VOTE_FOR}</a>
+						<strong><a href="offer.php?action=take_vote&amp;id={O_ID}">{L_VOTE_FOR}</a>
 						</td>
 					</tr>
 					<!-- ENDIF -->
@@ -332,11 +327,11 @@
 					<tr>
 						<td colspan="2" align="center">
 							<form method="post" action="offer.php" name="deloffer">
-								<input type="hidden" value="{O_ID}" name="offerid">
-								<input type="hidden" value="delete" name="action">
+								<input type="hidden" value="{O_ID}" name="offerid" />
+								<input type="hidden" value="delete" name="action" />
 								<p>{L_DELETE}</p>
-								<input name="delenable" type="checkbox" >
-								<input type="submit" value='{L_SUBMIT}'>
+								<input name="delenable" type="checkbox" />
+								<input type="submit" value='{L_SUBMIT}' />
 							</form>
 						</td>
 					</tr>
@@ -350,7 +345,7 @@
 		<td colspan="7" valign="middle" align="center"></td>
 	</tr>
 </table>
-<br clear="all" >
+<br clear="all" />
 <a name="startcomments"></a>
 <table class="tablebg" width="100%" cellspacing="0">
 	<tr>
@@ -358,7 +353,7 @@
 			<div class="caption">
 				<div class="cap-left">
 					<div class="cap-right">
-						<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nncomments');"><img title="Expand item" id="nncommentsimg" src="themes/Bitfarm/pics/minus.gif"  alt="+"></a>{L_COMMENTS}
+						<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nncomments');"><img title="{L_EXPAND_ITEM}" id="nncommentsimg" src="themes/Bitfarm/pics/minus.gif" alt="{L_EXPAND_ITEM}"></a>{L_COMMENTS}
 					</div>
 				</div>
 			</div>
@@ -375,7 +370,7 @@
 		<td colspan="7" valign="middle" align="center"></td>
 	</tr>
 </table>
-<br clear="all" >
+<br clear="all" />
 <!-- ELSE -->
 <table class="tablebg" width="100%" cellspacing="0">
 	<tr>
@@ -383,7 +378,7 @@
 			<div class="caption">
 				<div class="cap-left">
 					<div class="cap-right">
-						<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnOffer');"><img title="Expand item" id="nnOfferimg" src="themes/Bitfarm/pics/minus.gif"  alt="+"></a>{L_OFFERS}
+						<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnOffer');"><img title="{L_EXPAND_ITEM}" id="nnOfferimg" src="themes/Bitfarm/pics/minus.gif" alt="{L_EXPAND_ITEM}"></a>{L_OFFERS}
 					</div>
 				</div>
 			</div>
@@ -393,7 +388,7 @@
 		<td  class="row3" >
 			<div id="nnOffer">
 <fieldset class="display-options">
-<p align=center><a href=offer.php?action=add>Make an Offer</a></p>
+<p align=center><a href=offer.php?action=add>{L_MAKE_OFFER}</a></p>
 </fieldset>
 <!-- IF PAGINATION -->
 
@@ -415,9 +410,9 @@
 			<div class="posterrank">{offers.ADDEDBY_RANK}</div>
 			<div class="postavatar">{offers.ADDEDBY_AVATAR}</div>
 			<div class="postdetails">
-			<img src="themes/Bitfarm/pics/pic_uploaded.gif" alt="" title="" border="0">&nbsp;{offers.ADDEDBY_UPLOADED}<br />
-			<img src="themes/Bitfarm/pics/pic_downloaded.gif" alt="" title="" border="0">&nbsp;{offers.ADDEDBY_DOWNLOADED}<br />
-			<img src="themes/Bitfarm/pics/pic_ratio.gif" alt="" title="" border="0">&nbsp;{offers.ADDEDBY_RATIO}<br />
+			<img src="themes/Bitfarm/pics/pic_uploaded.gif" alt="{L_UPLOADED}" title="{L_UPLOADED}" border="0">&nbsp;{offers.ADDEDBY_UPLOADED}<br />
+			<img src="themes/Bitfarm/pics/pic_downloaded.gif" alt="{L_DOWNLOADED}" title="{L_DOWNLOADED}" border="0">&nbsp;{offers.ADDEDBY_DOWNLOADED}<br />
+			<img src="themes/Bitfarm/pics/pic_ratio.gif" alt="{L_RATIO}" title="{L_RATIO}" border="0">&nbsp;{offers.ADDEDBY_RATIO}<br />
 			</div>
 			<img src="./images/spacer.gif" alt="" height="1" width="120">
 			</td>
@@ -460,7 +455,7 @@
 	<a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{S_ON_PAGE}</a> &bull; <span>{PAGINATION}</span>
 </div>
 <!-- ENDIF -->
-<br clear="all" >
+<br clear="all" />
 <fieldset class="display-options">
 	<form method="get" action="offer.php">
 	<span class="gensmall">{L_DISPLAY_LOG}: &nbsp;</span>{S_LIMIT_DAYS}&nbsp;<span class="gensmall">{L_SORT_BY}:</span> {S_SORT_KEY}&nbsp;<span class="gensmall">{L_CAT_SELECT}:</span> {S_CAT} {S_SORT_DIR}
@@ -468,7 +463,7 @@
 	{S_FORM_TOKEN}
 	</form>
 </fieldset>
-<br>
+<br />
 			</div>
 		</td>
 	</tr>
@@ -476,7 +471,7 @@
 		<td colspan="7" valign="middle" align="center"></td>
 	</tr>
 </table>
-<br clear="all" >
+<br clear="all" />
 <!-- ENDIF -->
 
 <!-- INCLUDE themes/Bitfarm/templates/over_all_right.html -->

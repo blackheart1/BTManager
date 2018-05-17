@@ -18,8 +18,8 @@
             </ul>
             </p>
             <br clear="all" >
-            
-            
+
+
             <h3>{L_CONTACT}</h3>
             <p>
             <ul class="stats nobullet">
@@ -31,11 +31,11 @@
             <li>{L_ICQ}: <span title="ICQ">{U_ICQ}</span></li>
             <li>{L_JABBER}: <span title="JABBER">{U_JABBA}</span></li>
             <li>{L_SKYPE}: <span title="SKYPE">{U_SKYPE}</span></li>
-            </ul>		
+            </ul>
             </p>
             <br clear="all" >
-            
-            
+
+
             <h3>{L_COMMUNITY}</h3>
             <p>
             <ul class="stats nobullet">
@@ -48,8 +48,8 @@
             </ul>
             </p>
             </div>
-            
-            
+
+
             <div class="left-column">
             <h2><b class="gen" style="color: {CP_UCOLOR};">{CP_UNAME}</b> - {CP_UGROUP}<!-- IF CP_EDIT_USER --> - [ <a href="user.php?op=editprofile&id={CP_UID}"><img src="themes/Bitfarm/pics/edit.gif" alt="edit" title="edit"></a> ]<!-- ENDIF -->&nbsp;<img src="images/{CP_ONLINE}line.png" alt="{CP_ONLINE}line" title="{CP_ONLINE}line"></h2>
             <p><center><br clear="all" >{RANK_IMG}<BR />{CP_UAVATAR}</center>
@@ -58,8 +58,8 @@
             <!-- IF U_REMOVE_FOE -->[ <a href="{U_REMOVE_FOE}">{L_BLACK_LIST_REMOVE}</a> ]<!-- ENDIF -->
             </p>
             <br clear="all" >
-            
-            
+
+
             <h3>{L_PERSONAL_STATS}</h3>
             <p>
             <ul class="stats nobullet">
@@ -76,7 +76,7 @@
             <br clear="all" >
             </div>
 
-            
+
 	<div class="center-column hideoverflow">
 	    <!-- IF SIGNATURE -->
 	<table class="tablebg" width="100%" cellspacing="0">
@@ -87,7 +87,7 @@
 	</td>
 	</td>
 	</table>
-    <br clear="all" >	
+    <br clear="all" >
 <!-- ENDIF -->
 
 
@@ -101,8 +101,8 @@
 <div id="nnmyuploads">
 <br clear="all">
     <span>
-      <strong>Pages {CURENT_PAGEMYU}/{TOTTAL_PAGESMYU}</strong>
-    </span> • 
+      <strong>{L_Pages} {CURENT_PAGEMYU}/{TOTTAL_PAGESMYU}</strong>
+    </span> •
 	<span>
 	  <!-- IF not PREV_PAGEMYU --><strong>&lt;&lt;&lt;&lt;</strong><!-- ELSE --><a href="user.php?op=profile&id={CP_UID}&p1={PREV_PAGEMYU}">&lt;&lt;&lt;&lt;</a><!-- ENDIF -->
 {GENERATED_PAGESMYU}
@@ -128,8 +128,8 @@
   <nobr>
     <p class="title">
 	   <nobr>
-      <!-- IF torrent_varmyu.NUKED --><img src="themes/Bitfarm/pics/nuked.gif" alt="NUKED TORRENT" title="NUKED TORRENT" border="0"><!-- ENDIF -->
-	  <!-- IF torrent_varmyu.FREE_DL --><img src="themes/Bitfarm/pics/magic.gif" alt="FREE TORRENT" title="FREE TORRENT" border="0"><!-- ENDIF -->
+      <!-- IF torrent_varmyu.NUKED --><img src="themes/Bitfarm/pics/nuked.gif" alt="{L_NUKED_TORRENT}" title="{L_NUKED_TORRENT}" border="0"><!-- ENDIF -->
+	  <!-- IF torrent_varmyu.FREE_DL --><img src="themes/Bitfarm/pics/magic.gif" alt="{L_FREE_TORRENT}" title="{L_FREE_TORRENT}" border="0"><!-- ENDIF -->
 	  <!-- IF torrent_varmyu.DHT_INABLED --><span class="overlib" onmouseover="return overlib('This torrent supports DHT. With a state-of-the-art client, you\'ll be able to download this torrent even if a central tracker goes down.',CAPTION, 'DHT Support',TEXTFONT,'Verdana',TEXTCOLOR,'#FFFFFF',CAPTIONFONT,'Lucida Console, Verdana',LEFT,FGCOLOR,'#000000',BGCOLOR,'#6F7578',CAPICON,'themes/Bitfarm/pics/help.gif',BORDER,2,SHADOW,SHADOWOPACITY,40,SHADOWCOLOR,'#030303',SHADOWX,2,SHADOWY,2);" onmouseout="return nd();" style="cursor: help;">
 	  <img src="themes/Bitfarm/pics/dht.gif" alt="" title="" border="0"></span><!-- ENDIF -->
 	  <br />
@@ -144,7 +144,7 @@
 	  <!-- IF not torrent_varmyu.LOCAL_T --><!-- IF torrent_varmyu.REFRESH_T --><a href="scrape-external.php?id={torrent_varmyu.ID}&amp;tracker={torrent_varmyu.TRACKER_URL}&amp;return=torrents.php"><img src="themes/Bitfarm/pics/refresh.png" alt="Refresh Peer Data" title="Refresh Peer Data" border="0"></a>
 	  <!-- ELSE --><img src="themes/Bitfarm/pics/refresh_gray.png" alt="Stats Updated less than 30min ago" title="Stats Updated less than 30min ago" border="0"><!-- ENDIF -->
 	  <!-- IF torrent_varmyu.NEED_AUTH -->{torrent_varmyu.AUTH_LINK}<!-- ENDIF --><!-- ENDIF -->
-	 
+
 </td>
 <td class="ttable_col1" align="center"><b><br>{torrent_varmyu.SEEDERS}</b></td>
 <td class="ttable_col2" align="center"><b><br>{torrent_varmyu.LEECHERS}</b></td>
@@ -153,8 +153,8 @@
 </tbody></table>
 <br clear="all">
     <span>
-      <strong>Pages {CURENT_PAGEMYU}/{TOTTAL_PAGESMYU}</strong>
-    </span> • 
+      <strong>{L_Pages} {CURENT_PAGEMYU}/{TOTTAL_PAGESMYU}</strong>
+    </span> •
 	<span>
 	  <!-- IF not PREV_PAGEMYU --><strong>&lt;&lt;&lt;&lt;</strong><!-- ELSE --><a href="user.php?op=profile&id={CP_UID}&p1={PREV_PAGEMYU}">&lt;&lt;&lt;&lt;</a><!-- ENDIF -->
 {GENERATED_PAGESMYU}
@@ -190,8 +190,8 @@
 <div id="nnmyseed">
 <br clear="all">
     <span>
-      <strong>Pages {CURENT_PAGEMYS}/{TOTTAL_PAGESMYS}</strong>
-    </span> • 
+      <strong>{L_Pages} {CURENT_PAGEMYS}/{TOTTAL_PAGESMYS}</strong>
+    </span> •
 	<span>
 	  <!-- IF not PREV_PAGEMYS --><strong>&lt;&lt;&lt;&lt;</strong><!-- ELSE --><a href="user.php?op=profile&id={CP_UID}&p2={PREV_PAGEMYS}">&lt;&lt;&lt;&lt;</a><!-- ENDIF -->
 {GENERATED_PAGESMYS}
@@ -218,8 +218,8 @@
   <nobr>
     <p class="title">
 	   <nobr>
-      <!-- IF torrent_varmys.NUKED --><img src="themes/Bitfarm/pics/nuked.gif" alt="NUKED TORRENT" title="NUKED TORRENT" border="0"><!-- ENDIF -->
-	  <!-- IF torrent_varmys.FREE_DL --><img src="themes/Bitfarm/pics/magic.gif" alt="FREE TORRENT" title="FREE TORRENT" border="0"><!-- ENDIF -->
+      <!-- IF torrent_varmys.NUKED --><img src="themes/Bitfarm/pics/nuked.gif" alt="{L_NUKED_TORRENT}" title="{L_NUKED_TORRENT}" border="0"><!-- ENDIF -->
+	  <!-- IF torrent_varmys.FREE_DL --><img src="themes/Bitfarm/pics/magic.gif" alt="{L_FREE_TORRENT}" title="{L_FREE_TORRENT}" border="0"><!-- ENDIF -->
 	  <!-- IF not torrent_varmys.LOCAL_T --><img src="themes/Bitfarm/pics/external.gif" alt="External Tracker" title="External Tracker" border="0"><!-- ENDIF -->
 	  <!-- IF torrent_varmys.DHT_INABLED --><span class="overlib" onmouseover="return overlib('This torrent supports DHT. With a state-of-the-art client, you\'ll be able to download this torrent even if a central tracker goes down.',CAPTION, 'DHT Support',TEXTFONT,'Verdana',TEXTCOLOR,'#FFFFFF',CAPTIONFONT,'Lucida Console, Verdana',LEFT,FGCOLOR,'#000000',BGCOLOR,'#6F7578',CAPICON,'themes/Bitfarm/pics/help.gif',BORDER,2,SHADOW,SHADOWOPACITY,40,SHADOWCOLOR,'#030303',SHADOWX,2,SHADOWY,2);" onmouseout="return nd();" style="cursor: help;">
 	  <img src="themes/Bitfarm/pics/dht.gif" alt="" title="" border="0"></span><!-- ENDIF -->
@@ -245,8 +245,8 @@
 </tbody></table>
 <br clear="all">
     <span>
-      <strong>Pages {CURENT_PAGEMYS}/{TOTTAL_PAGESMYS}</strong>
-    </span> • 
+      <strong>{L_Pages} {CURENT_PAGEMYS}/{TOTTAL_PAGESMYS}</strong>
+    </span> •
 	<span>
 	  <!-- IF not PREV_PAGEMYS --><strong>&lt;&lt;&lt;&lt;</strong><!-- ELSE --><a href="user.php?op=profile&id={CP_UID}&p2={PREV_PAGEMYS}">&lt;&lt;&lt;&lt;</a><!-- ENDIF -->
 {GENERATED_PAGESMYU}
@@ -266,7 +266,7 @@
 <tr valign="middle">
 <td class="row3">
 <div id="nn&nbsp;">
-{L_NO_TORRENTS}
+{L_NO_SEED}
 </div>
 </td></tr>
 </tbody></table>
@@ -281,8 +281,8 @@
 <div id="nn&nbsp;">
 <br clear="all">
     <span>
-      <strong>Pages {CURENT_PAGEMYL}/{TOTTAL_PAGESMYL}</strong>
-    </span> • 
+      <strong>{L_Pages} {CURENT_PAGEMYL}/{TOTTAL_PAGESMYL}</strong>
+    </span> •
 	<span>
 	  <!-- IF not PREV_PAGEMYL --><strong>&lt;&lt;&lt;&lt;</strong><!-- ELSE --><a href="user.php?op=profile&id={CP_UID}&p3={PREV_PAGEMYL}">&lt;&lt;&lt;&lt;</a><!-- ENDIF -->
 {GENERATED_PAGESMYL}
@@ -309,8 +309,8 @@
   <nobr>
     <p class="title">
 	   <nobr>
-      <!-- IF torrent_varmyl.NUKED --><img src="themes/Bitfarm/pics/nuked.gif" alt="NUKED TORRENT" title="NUKED TORRENT" border="0"><!-- ENDIF -->
-	  <!-- IF torrent_varmyl.FREE_DL --><img src="themes/Bitfarm/pics/magic.gif" alt="FREE TORRENT" title="FREE TORRENT" border="0"><!-- ENDIF -->
+      <!-- IF torrent_varmyl.NUKED --><img src="themes/Bitfarm/pics/nuked.gif" alt="{L_NUKED_TORRENT}" title="{L_NUKED_TORRENT}" border="0"><!-- ENDIF -->
+	  <!-- IF torrent_varmyl.FREE_DL --><img src="themes/Bitfarm/pics/magic.gif" alt="{L_FREE_TORRENT}" title="{L_FREE_TORRENT}" border="0"><!-- ENDIF -->
 	  <!-- IF not torrent_varmyl.LOCAL_T --><img src="themes/Bitfarm/pics/external.gif" alt="External Tracker" title="External Tracker" border="0"><!-- ENDIF -->
 	  <!-- IF torrent_varmyl.DHT_INABLED --><span class="overlib" onmouseover="return overlib('This torrent supports DHT. With a state-of-the-art client, you\'ll be able to download this torrent even if a central tracker goes down.',CAPTION, 'DHT Support',TEXTFONT,'Verdana',TEXTCOLOR,'#FFFFFF',CAPTIONFONT,'Lucida Console, Verdana',LEFT,FGCOLOR,'#000000',BGCOLOR,'#6F7578',CAPICON,'themes/Bitfarm/pics/help.gif',BORDER,2,SHADOW,SHADOWOPACITY,40,SHADOWCOLOR,'#030303',SHADOWX,2,SHADOWY,2);" onmouseout="return nd();" style="cursor: help;">
 	  <img src="themes/Bitfarm/pics/dht.gif" alt="" title="" border="0"></span><!-- ENDIF -->
@@ -341,8 +341,8 @@
 </tbody></table>
 <br clear="all">
     <span>
-      <strong>Pages {CURENT_PAGEMYL}/{TOTTAL_PAGESMYL}</strong>
-    </span> • 
+      <strong>{L_Pages} {CURENT_PAGEMYL}/{TOTTAL_PAGESMYL}</strong>
+    </span> •
 	<span>
 	  <!-- IF not PREV_PAGEmyl --><strong>&lt;&lt;&lt;&lt;</strong><!-- ELSE --><a href="user.php?op=profile&id={CP_UID}&p3={PREV_PAGEMYL}">&lt;&lt;&lt;&lt;</a><!-- ENDIF -->
 {GENERATED_PAGESMYL}
@@ -362,7 +362,7 @@
 <tr valign="middle">
 <td class="row3">
 <div id="nn&nbsp;">
-{L_NO_TORRENTS}
+{L_NO_LEECH}
 </div>
 </td></tr>
 </tbody></table>
@@ -377,8 +377,8 @@
 <div id="nn&nbsp;">
 <br clear="all">
     <span>
-      <strong>Pages {CURENT_PAGEMYL}/{TOTTAL_PAGESMYL}</strong>
-    </span> • 
+      <strong>{L_Pages} {CURENT_PAGEMYL}/{TOTTAL_PAGESMYL}</strong>
+    </span> •
 	<span>
 	  <!-- IF not PREV_PAGEMYN --><strong>&lt;&lt;&lt;&lt;</strong><!-- ELSE --><a href="user.php?op=profile&id={CP_UID}&p3={PREV_PAGEMYSN}">&lt;&lt;&lt;&lt;</a><!-- ENDIF -->
 {GENERATED_PAGESMYN}
@@ -405,9 +405,9 @@
   <nobr>
     <p class="title">
 	   <nobr>
-      <!-- IF torrent_varmysn.NUKED --><img src="themes/Bitfarm/pics/nuked.gif" alt="NUKED TORRENT" title="NUKED TORRENT" border="0"><!-- ENDIF -->
-	  <!-- IF torrent_varmysn.FREE_DL --><img src="themes/Bitfarm/pics/magic.gif" alt="FREE TORRENT" title="FREE TORRENT" border="0"><!-- ENDIF -->
-	  <!-- IF not torrent_varmysn.LOCAL_T --><img src="themes/Bitfarm/pics/external.gif" alt="External Tracker" title="External Tracker" border="0"><!-- ENDIF -->
+      <!-- IF torrent_varmysn.NUKED --><img src="themes/Bitfarm/pics/nuked.gif" alt="{L_NUKED_TORRENT}" title="{L_NUKED_TORRENT}" border="0"><!-- ENDIF -->
+	  <!-- IF torrent_varmysn.FREE_DL --><img src="themes/Bitfarm/pics/magic.gif" alt="{L_FREE_TORRENT}" title="{L_FREE_TORRENT}" border="0"><!-- ENDIF -->
+	  <!-- IF not torrent_varmysn.LOCAL_T --><img src="themes/Bitfarm/pics/external.gif" alt="{L_EXTERNAL_TORRENT}" title="{L_EXTERNAL_TORRENT}" border="0"><!-- ENDIF -->
 	  <!-- IF torrent_varmysn.DHT_INABLED --><span class="overlib" onmouseover="return overlib('This torrent supports DHT. With a state-of-the-art client, you\'ll be able to download this torrent even if a central tracker goes down.',CAPTION, 'DHT Support',TEXTFONT,'Verdana',TEXTCOLOR,'#FFFFFF',CAPTIONFONT,'Lucida Console, Verdana',LEFT,FGCOLOR,'#000000',BGCOLOR,'#6F7578',CAPICON,'themes/Bitfarm/pics/help.gif',BORDER,2,SHADOW,SHADOWOPACITY,40,SHADOWCOLOR,'#030303',SHADOWX,2,SHADOWY,2);" onmouseout="return nd();" style="cursor: help;">
 	  <img src="themes/Bitfarm/pics/dht.gif" alt="" title="" border="0"></span><!-- ENDIF -->
 	  <br />
@@ -415,12 +415,12 @@
 	  </nobr></p><!-- IF torrent_varmysn.CAN_DOWN_LOAD --><a class="index" href="download.php?id={torrent_varmysn.ID}"><img style="border: medium none ;" alt="download" src="themes/Bitfarm/pics/download2.gif" align="right"></a><!-- ENDIF -->
 
 	  </nobr><br>
-	  <!-- IF torrent_varmysn.BANNED --><img src="themes/Bitfarm/pics/banned.png" alt="Banned torrent" title="Banned torrent" border="0"><!-- ENDIF -->
-	  <!-- IF torrent_varmysn.CAN_EDIT --><a href="edit.php?id={torrent_varmysn.ID}"><img src="themes/Bitfarm/pics/edit.gif" alt="Edit" title="Edit" border="0"></a><!-- ENDIF -->
-	  <!-- IF torrent_varmysn.CAN_DEL --><a href="edit.php?op=delete&amp;id={torrent_varmysn.ID}"><img src="themes/Bitfarm/pics/drop.gif" alt="Delete" title="Delete" border="0"></a><!-- ENDIF -->
-	  <!-- IF torrent_varmysn.CAN_BAN --><a href="edit.php?op=ban&amp;id={torrent_varmysn.ID}"><img src="themes/Bitfarm/pics/ban.png" alt="Ban Torrent" title="Ban Torrent" border="0"></a><!-- ENDIF -->
-	  <!-- IF not torrent_varmysn.LOCAL_T --><!-- IF torrent_varmysn.REFRESH_T --><a href="scrape-external.php?id={torrent_varmysn.ID}&amp;tracker=&amp;return={S_RETURN}"><img src="themes/Bitfarm/pics/refresh.png" alt="Refresh Peer Data" title="Refresh Peer Data" border="0"></a>
-	  <!-- ELSE --><img src="themes/Bitfarm/pics/refresh_gray.png" alt="Stats Updated less than 30min ago" title="Stats Updated less than 30min ago" border="0"><!-- ENDIF -->
+	  <!-- IF torrent_varmysn.BANNED --><img src="themes/Bitfarm/pics/banned.png" alt="{L_BANNED_TORRENT}" title="{L_BANNED_TORRENT}" border="0"><!-- ENDIF -->
+	  <!-- IF torrent_varmysn.CAN_EDIT --><a href="edit.php?id={torrent_varmysn.ID}"><img src="themes/Bitfarm/pics/edit.gif" alt="{L_BAN_EDIT}" title="{L_BAN_EDIT}" border="0"></a><!-- ENDIF -->
+	  <!-- IF torrent_varmysn.CAN_DEL --><a href="edit.php?op=delete&amp;id={torrent_varmysn.ID}"><img src="themes/Bitfarm/pics/drop.gif" alt="{L_BAN_DELETE}" title="{L_BAN_DELETE}" border="0"></a><!-- ENDIF -->
+	  <!-- IF torrent_varmysn.CAN_BAN --><a href="edit.php?op=ban&amp;id={torrent_varmysn.ID}"><img src="themes/Bitfarm/pics/ban.png" alt="{L_BAN_TORRENT}" title="{L_BAN_TORRENT}" border="0"></a><!-- ENDIF -->
+	  <!-- IF not torrent_varmysn.LOCAL_T --><!-- IF torrent_varmysn.REFRESH_T --><a href="scrape-external.php?id={torrent_varmysn.ID}&amp;tracker=&amp;return={S_RETURN}"><img src="themes/Bitfarm/pics/refresh.png" alt="{L_REFRESH_TORRENT}" title="{L_REFRESH_TORRENT}" border="0"></a>
+	  <!-- ELSE --><img src="themes/Bitfarm/pics/refresh_gray.png" alt="{L_UPDATE_STATS}" title="{L_UPDATE_STATS}" border="0"><!-- ENDIF -->
 
 	  <!-- IF torrent_varmysn.NEED_AUTH -->{torrent_varmysn.AUTH_LINK}<!-- ENDIF --><!-- ENDIF -->
 	  <br>
@@ -436,8 +436,8 @@
 </tbody></table>
 <br clear="all">
     <span>
-      <strong>Pages {CURENT_PAGEMYSN}/{TOTTAL_PAGESMYSN}</strong>
-    </span> • 
+      <strong>{L_Pages} {CURENT_PAGEMYSN}/{TOTTAL_PAGESMYSN}</strong>
+    </span> •
 	<span>
 	  <!-- IF not PREV_PAGEMYSN --><strong>&lt;&lt;&lt;&lt;</strong><!-- ELSE --><a href="user.php?op=profile&id={CP_UID}&p3={PREV_PAGEMYSN}">&lt;&lt;&lt;&lt;</a><!-- ENDIF -->
 {GENERATED_PAGESMYL}
@@ -457,7 +457,7 @@
 <tr valign="middle">
 <td class="row3">
 <div id="nn&nbsp;">
-{L_NO_TORRENTS}
+{L_NO_SNATCHED}
 </div>
 </td></tr>
 </tbody></table>

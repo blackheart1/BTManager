@@ -36,6 +36,7 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, array(
     'OFFERS'               => 'Offers',
+    'MAKE_OFFER'           => 'Make an Offer',
 
     'DESCRIPTION_EXPLAIN'  => 'Add as much Information as Possible.  This will make it easier for the Uploader to find what your looking for.',
 
@@ -63,6 +64,9 @@ $lang = array_merge($lang, array(
     'PERMISSION_DENIED'    => 'You DO NOT have Permissions to Access Offers at this time',
     'OFFER_SHOUT'          => '"%1$s" is making a Offer for "%2$s"',
     'NO_NAME_GIVEN'        => 'You should Enter a Name for your Offer',
+    'DOWNLOAD'             => 'Download',
+    'UPLOAD'               => 'Upload',
+    'RATIO'                => 'Ratio',
 ));
 
 ?>

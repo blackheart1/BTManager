@@ -293,6 +293,16 @@ $lang = array_merge($lang, array(
     'THANKS_LEFT'              => 'Thanks Left',
     'COMMENTS_LEFT'            => 'Comments Left',
     'SIGNATURE'                => 'Signature',
+    'NUKED_TORRENT'            => 'Nuked Torrent',
+    'FREE_TORRENT'             => 'Free Torrent',
+    'BANNED_TORRENT'           => 'Banned Torrent',
+    'BAN_EDIT'                 => 'Edit',
+    'BAN_DELETE'               => 'Delete',
+    'BAN_TORRENT'              => 'Ban Torrent',
+    'REFRESH_TORRENT'          => 'Refresh Peer Data',
+    'UPDATE_STATS'             => 'Stats Updated less than 30min ago',
+    'EXTERNAL_TORRENT'         => 'External Torrent',
+    'PAGES'                    => 'Pages',
 ));
 
 ?>
