@@ -141,7 +141,11 @@ switch ($op) {
                                 $errmsg[] = 'NO_ACTIVATION_KEY_SET';
                 }
                 if (count($errmsg) != 0) bterror($errmsg,'ACTIVATION_ERROR');
-                $sql = "UPDATE ".$db_prefix."_users SET active = 1 WHERE username = '".$db->sql_escape($username)."';";
+					$sql_ary += array(
+						'user_type'				=> '0',
+						'active'	=> '1'
+					);
+                $sql = "UPDATE ".$db_prefix."_users SET " . $db->sql_build_array('UPDATE', $sql_ary) . " WHERE username = '".$db->sql_escape($username)."';";
                 if (!$db->sql_query($sql)) btsqlerror($sql);
 				$sql = "INSERT INTO ".$db_prefix."_shouts (user, text, bbcode_bitfield, bbcode_uid, posted) VALUES ('1', '/notice <!-- swelcome --><img src=\"smiles/welcome.gif\" alt=\"welcome\" title=\"welcome\"><!-- swelcome --> our newest Member ".$db->sql_escape($username)."','','mbicwem5', NOW());";
                 if($shout_config['shoutnewuser'] == 'yes')$db->sql_query($sql);

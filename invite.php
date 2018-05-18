@@ -48,10 +48,10 @@ switch ($action)
 {
 		case 'new':
 		{
-			$sql=("SELECT COUNT(id) FROM ".$db_prefix."_users");
+			$sql=("SELECT COUNT(id) as count FROM ".$db_prefix."_users");
 			$res = $db->sql_query($sql) or btsqlerror($sql);
 			$arr = $db->sql_fetchrow($res);
-			if ($arr[0] >= $invites1)
+			if ($arr['count'] >= $invites1)
 			{
 				$template->assign_vars(array(
 					'S_ERROR'			=> true,
@@ -85,11 +85,11 @@ switch ($action)
 			$message = request_var('mess','',true);
 			$email = request_var('email','');
 
-			$sql=("SELECT COUNT(id) FROM ".$db_prefix."_users")or sql_error();
+			$sql=("SELECT COUNT(id) as count FROM ".$db_prefix."_users")or sql_error();
 			$res = $db->sql_query($sql) or btsqlerror($sql);
 			$arr = $db->sql_fetchrow($res);
 			$u_action = $siteurl . '/invite.php';
-			if ($arr[0] >= $invites1)
+			if ($arr['count'] >= $invites1)
 			{
 				$template->assign_vars(array(
 					'S_ERROR'			=> true,
@@ -134,8 +134,8 @@ switch ($action)
 				close_out();
 			}
 			// check if email addy is already in use
-			$a = ($db->sql_fetchrow($db->sql_query("select count(*) from ".$db_prefix."_users where email='$email'")));
-			if ($a[0] != 0)//E-mail is in use 
+			$a = ($db->sql_fetchrow($db->sql_query("select count(*) as count from ".$db_prefix."_users where email='$email'")));
+			if ($a['count'] != 0)//E-mail is in use 
 			{
 				$template->assign_vars(array(
 					'S_ERROR'			=> true,
@@ -150,27 +150,31 @@ switch ($action)
 			$sql = 'SELECT `group_id` FROM `'.$db_prefix.'_level_settings` WHERE `group_default` = 1 LIMIT 1 '; 
 			$res = $db->sql_query($sql);
 			$default_group = $db->sql_fetchrow($res);
-			$group = $default_group[0];
-			$secret = mksecret();
-			$editsecret = mksecret();
+			$group = $default_group['group_id'];
+			$secret = RandomAlpha(32);
+			$editsecret = RandomAlpha(32);
 			$username = 'invity_' . rand();
-			if($force_passkey){
-							do {
-									$passkey = ", '".RandomAlpha(32)."'";
-									//Check whether passkey already exists
-									$sql = "SELECT passkey FROM ".$db_prefix."_users WHERE passkey = '".$passkey."';";
-									$res = $db->sql_query($sql);
-									$cnt = $db->sql_numrows($sql);
-									$db->sql_freeresult($res);
-							} while ($cnt > 0);
-							$passkeyrow = ', passkey';
-							}else{
-							$passkeyrow = NULL;
-							$passkey = NULL;
-							}
+			if($force_passkey)
+			{
+				do{
+					$passkey = ", '".RandomAlpha(32)."'";
+					//Check whether passkey already exists
+					$sql = "SELECT passkey FROM ".$db_prefix."_users WHERE passkey = '".$passkey."';";
+					$res = $db->sql_query($sql);
+					$cnt = $db->sql_numrows($sql);
+					$db->sql_freeresult($res);
+				} while ($cnt > 0);
+				$passkeyrow = ', passkey';
+			}
+			else
+			{
+				$passkeyrow = '';
+				$passkey = '';
+			}
 			$act_key = RandomAlpha(32);
 							$sql = "INSERT INTO ".$db_prefix."_users 
 										(username, 
+										clean_username,
 										password, 
 										email, 
 										active, 
@@ -179,21 +183,25 @@ switch ($action)
 										invited_by, 
 										uploaded, 
 										regdate, 
+										user_type,
 										invitedate 
 										" . $passkeyrow . "
 									) VALUES (
 										'" .$username. "', 
-										'". $secret ."', 
-										'" .$email ."', 
+										'" .$username. "', 
+										'". $db->sql_escape($secret) ."', 
+										'" .$db->sql_escape($email) ."', 
 										'0', 
 										'" . $group . "',
-										'".$act_key."', 
+										'".$db->sql_escape($act_key)."', 
 										'". $user->id ."', 
 										'".$give_sign_up_credit."', 
 										NOW(), 
+										1,
 										NOW() 
 										" . $passkey .")";
-			$ret = $db->sql_query($sql)or die(mysql_error($sql));
+										//die($sql);
+			$ret = $db->sql_query($sql)or btsqlerror($sql);
 			$id = $db->sql_nextid();
 			$id2 = $user->id;
 			$invites = $user->invites -1;
@@ -209,7 +217,7 @@ switch ($action)
 			include_once('include/function_messenger.php');
 			include_once("include/utf/utf_tools.php");
 						$messenger = new messenger();
-						$messenger->template('regester', $language);
+						$messenger->template('invite', $language);
 						$messenger->to($email);
 						$messenger->assign_vars(array(
 									'SUB_JECT'				=>	sprintf($user->lang['INV_MAIL_SUB'],$sitename),
@@ -488,7 +496,7 @@ switch ($action)
 				close_out();
 			}
 			$wantpasshash = $db->sql_escape(md5($password));
-			$db->sql_query("UPDATE ".$db_prefix."_users SET username='" . $db->sql_escape($username) . "', clean_username = '".$db->sql_escape(utf8_strtolower($username))."', password='$wantpasshash', active='1'WHERE id=$id")or sql_error();
+			$db->sql_query("UPDATE ".$db_prefix."_users SET username='" . $db->sql_escape($username) . "', clean_username = '".$db->sql_escape(utf8_strtolower($username))."', password='$wantpasshash', active='1', user_type='0'WHERE id=$id")or sql_error();
 			$sql = "INSERT INTO `".$db_prefix."_user_group` (`group_id`, `user_id`, `group_leader`, `user_pending`) VALUES ('" . $row["can_do"] . "', '" . $id . "', '0', '0');";
 			$db->sql_query($sql) or btsqlerror($sql);
 				$sql = "INSERT INTO ".$db_prefix."_shouts (user, text, posted) VALUES ('1', '/notice <!-- swelcome --><img src=\"smiles/welcome.gif\" alt=\"welcome\" title=\"welcome\"><!-- swelcome --> our newest Member ".$db->sql_escape($username)."', NOW());";
