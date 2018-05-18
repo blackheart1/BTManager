@@ -79,6 +79,7 @@ $parms = array(
 			'alternatenick'				=>	$nick2,
 			'name'						=>	$user->name,
 			'host'						=>	$ircconfig["server"],
+			'port'						=>	'6667',
 			'language'					=>	"pjirc/".$language,
 			'pixx:language'				=>	"pjirc/pixx-".$language,
 			'gui'						=>	'pixx',
@@ -90,7 +91,7 @@ $parms = array(
 
 
 	
-	$sql = "SELECT code, file FROM ".$db_prefix."_smiles GROUP BY file ORDER BY code ASC;";
+	$sql = "SELECT code, file FROM ".$db_prefix."_smiles ORDER BY code ASC;";
 $res = $db->sql_query($sql);
 $i = 1;
 $num = $db->sql_numrows($res);

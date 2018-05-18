@@ -72,7 +72,7 @@ if($pop == 'smilies')
 					'FORM'			=> $form,
 					'AREA'			=> $area,
 				));
-			$sql = "SELECT * FROM ".$db_prefix."_smiles GROUP BY file ORDER BY id ASC;";
+			$sql = "SELECT * FROM ".$db_prefix."_smiles ORDER BY id ASC;";
 			$smile_res = $db->sql_query($sql);
 			$smile_count = 0;
 			while ($smile = $db->sql_fetchrow($smile_res))

@@ -35,7 +35,7 @@ if (!$user->user)header('Location: '.$siteurl.'/login.php');
 $template = new Template();
 $user->set_lang('edit',$user->ulanguage);
 $user->set_lang('comment',$user->ulanguage);
-set_site_var($user->lang['TITTLE_EDIT']);
+set_site_var($user->lang['COMMENTS']);
 $id	= (int)request_var('id', 0);
 $cid	= (int)request_var('cid', 0);
 $template->assign_vars(array(
@@ -53,17 +53,17 @@ switch ($op) {
                 case "add": {
                         global $language, $langlevel, $admin_mail;
 						$comment	= request_var('comment', '',true);
-if ($comment =='')
-{
-				$template->assign_vars(array(
-					'S_ERROR'			=> true,
-					'S_FORWARD'			=> false,
-					'TITTLE_M'			=> $user->lang['BT_ERROR'],
-					'MESSAGE'			=> $user->lang['NO_DESCR'] . '<br /><br /><a href="javascript:history.go(-1)"  onMouseOver="self.status=document.referrer;return true">' . $user->lang['GO_BACK'] . '</a>',
-				));
-				echo $template->fetch('message_body.html');
-				close_out();
-}
+						if ($comment =='')
+						{
+										$template->assign_vars(array(
+											'S_ERROR'			=> true,
+											'S_FORWARD'			=> false,
+											'TITTLE_M'			=> $user->lang['BT_ERROR'],
+											'MESSAGE'			=> $user->lang['NO_DESCR'] . '<br /><br /><a href="javascript:history.go(-1)"  onMouseOver="self.status=document.referrer;return true">' . $user->lang['GO_BACK'] . '</a>',
+										));
+										echo $template->fetch('message_body.html');
+										close_out();
+						}
 						include_once('include/function_posting.php');
 						include_once('include/message_parser.php');
 						include_once('include/class.bbcode.php');
@@ -185,18 +185,18 @@ if ($comment =='')
 					$sql = "SELECT user, text FROM `".$db_prefix."_comments` WHERE `id`='" . $cid ."';";
 					$res = $db->sql_query($sql) or btsqlerror($sql);
 					$row = $db->sql_fetchrow($res);
-					if(!$row[0])
+					if(!$row['user'])
 					{
 						$template->assign_vars(array(
 							'S_ERROR'			=> true,
 							'S_FORWARD'			=> false,
 							'TITTLE_M'			=> $user->lang['BT_ERROR'],
-							'MESSAGE'			=> $user->lang['ERROR_COMENT_ID'],
+							'MESSAGE'			=> $sql,
 						));
 						echo $template->fetch('message_body.html');
 						close_out();
 					}
-					if($row[0] == $user->id AND !checkaccess("u_edit_own_comments"))
+					if($row['user'] == $user->id AND !checkaccess("u_edit_own_comments"))
 					{
 						$template->assign_vars(array(
 							'S_ERROR'			=> true,
@@ -207,7 +207,7 @@ if ($comment =='')
 						echo $template->fetch('message_body.html');
 						close_out();
 					}
-					if(!$row[0] == $user->id AND !checkaccess("m_edit_comments"))
+					if(!$row['user'] == $user->id AND !checkaccess("m_edit_comments"))
 					{
 						$template->assign_vars(array(
 							'S_ERROR'			=> true,
@@ -218,10 +218,10 @@ if ($comment =='')
 						echo $template->fetch('message_body.html');
 						close_out();
 					}
-					$sql = "SELECT COUNT(id) FROM `".$db_prefix."_torrents` WHERE `id`='" . $id ."';";
+					$sql = "SELECT COUNT(id) as count FROM `".$db_prefix."_torrents` WHERE `id`='" . $id ."';";
 					$res2 = $db->sql_query($sql) or btsqlerror($sql);
 					$row2 = $db->sql_fetchrow($res2);
-					if($row2[0] == 0)
+					if($row2['count'] == 0)
 					{
 						$template->assign_vars(array(
 							'S_ERROR'			=> true,
@@ -271,7 +271,7 @@ if ($comment =='')
 						close_out();
 				}
                 case "edit_coment": {
-                $take											= request_var('take', '');
+					$take											= request_var('take', '');
 					
 					include_once('include/function_posting.php');
 					include_once('include/message_parser.php');
@@ -279,44 +279,44 @@ if ($comment =='')
 					generate_smilies('inline', 0);
 					$num_predefined_bbcodes = 22;
 					$s_pm_icons = false;
-				$sql = 'SELECT bbcode_id, bbcode_tag, bbcode_helpline
-					FROM '.$db_prefix.'_bbcodes
-					WHERE display_on_posting = 1
-					ORDER BY bbcode_tag';
-				$result = $db->sql_query($sql);
-			
-				$i = 0;
-				while ($rows = $db->sql_fetchrow($result))
-				{
-					// If the helpline is defined within the language file, we will use the localised version, else just use the database entry...
-					if (isset($user->lang[strtoupper($rows['bbcode_helpline'])]))
+					$sql = 'SELECT bbcode_id, bbcode_tag, bbcode_helpline
+						FROM '.$db_prefix.'_bbcodes
+						WHERE display_on_posting = 1
+						ORDER BY bbcode_tag';
+					$result = $db->sql_query($sql);
+				
+					$i = 0;
+					while ($rows = $db->sql_fetchrow($result))
 					{
-						$rows['bbcode_helpline'] = $user->lang[strtoupper($rows['bbcode_helpline'])];
+						// If the helpline is defined within the language file, we will use the localised version, else just use the database entry...
+						if (isset($user->lang[strtoupper($rows['bbcode_helpline'])]))
+						{
+							$rows['bbcode_helpline'] = $user->lang[strtoupper($rows['bbcode_helpline'])];
+						}
+				
+						$template->assign_block_vars('custom_tags', array(
+							'BBCODE_NAME'		=> "'[{$row['bbcode_tag']}]', '[/" . str_replace('=', '', $row['bbcode_tag']) . "]'",
+							'BBCODE_ID'			=> $num_predefined_bbcodes + ($i * 2),
+							'BBCODE_TAG'		=> $rows['bbcode_tag'],
+							'BBCODE_HELPLINE'	=> $rows['bbcode_helpline'],
+							'A_BBCODE_HELPLINE'	=> str_replace(array('&amp;', '&quot;', "'", '&lt;', '&gt;'), array('&', '"', "\'", '<', '>'), $rows['bbcode_helpline']),
+						));
+				
+						$i++;
 					}
-			
-					$template->assign_block_vars('custom_tags', array(
-						'BBCODE_NAME'		=> "'[{$row['bbcode_tag']}]', '[/" . str_replace('=', '', $row['bbcode_tag']) . "]'",
-						'BBCODE_ID'			=> $num_predefined_bbcodes + ($i * 2),
-						'BBCODE_TAG'		=> $rows['bbcode_tag'],
-						'BBCODE_HELPLINE'	=> $rows['bbcode_helpline'],
-						'A_BBCODE_HELPLINE'	=> str_replace(array('&amp;', '&quot;', "'", '&lt;', '&gt;'), array('&', '"', "\'", '<', '>'), $rows['bbcode_helpline']),
-					));
-			
-					$i++;
-				}
-				$db->sql_freeresult($result);
-                $sql = "SELECT * FROM `".$db_prefix."_comments` WHERE `id`='" . $cid ."';";
-                $res = $db->sql_query($sql) or btsqlerror($sql);
-				$row = $db->sql_fetchrow($res);
+					$db->sql_freeresult($result);
+					$sql = "SELECT * FROM `".$db_prefix."_comments` WHERE `id`='" . $cid ."';";
+					$res = $db->sql_query($sql) or btsqlerror($sql);
+					$row = $db->sql_fetchrow($res);
 					$message_parser = new parse_message();
 					//die($row["text"]);
 					$row["text"] = smiley_text($row["text"],true);
 					$message_parser->message = $row["text"];
 					$message_parser->decode_message($row['bbcode_uid']);
 					//die($message_parser->message);
-                $sql = "SELECT name FROM `".$db_prefix."_torrents` WHERE `id`='" . $id ."';";
-                $res2 = $db->sql_query($sql) or btsqlerror($sql);
-				$row2 = $db->sql_fetchrow($res2);
+					$sql = "SELECT name FROM `".$db_prefix."_torrents` WHERE `id`='" . $id ."';";
+					$res2 = $db->sql_query($sql) or btsqlerror($sql);
+					$row2 = $db->sql_fetchrow($res2);
                     $template->assign_vars(array(
 			        'L_EDIT_TITLE'				=> sprintf($user->lang['BLOCK_TITLE'],$row2[0]),
 			        'C_ID'						=> $cid,
@@ -342,8 +342,8 @@ if ($comment =='')
 			        'TITTLE_M'					=> $user->lang['COMENT_ON_TOR'],
 			        'MESSAGE'					=> "<p>".str_replace("**id**", $id,_btcommentdeleted)."</p>",
 					));
-				if(!$take ==1)$edit = true;
-                        break;
+					if(!$take ==1)$edit = true;
+							break;
 				}
 }
 if(!$edit)

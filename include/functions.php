@@ -3179,7 +3179,7 @@ function format_quotes($s)
 function username_is($id)
 {
         global $db, $db_prefix;
-			$sql = "SELECT COUNT(id) AS count, `name`, `username` FROM ".$db_prefix."_users WHERE `id` = '".$id."' GROUP BY id;";
+			$sql = "SELECT COUNT(id) AS count, `name`, `username` FROM ".$db_prefix."_users WHERE `id` = '".$id."';";
 			$res = $db->sql_query($sql) or btsqlerror($sql);
 			$row = $db->sql_fetchrow($res);
             if ($row['count'] == 0) return "guest";

@@ -48,7 +48,7 @@ if (!is_numeric($id) || $id == 0)
 				include_once('include/function_posting.' . $phpEx);
 				include_once('include/class.bbcode.php');
 				
-				$sql = "SELECT * FROM ".$db_prefix."_smiles GROUP BY file ORDER BY id ASC LIMIT 14;";
+				$sql = "SELECT * FROM ".$db_prefix."_smiles ORDER BY id ASC LIMIT 14;";
 				$smile_res = $db->sql_query($sql);
 				if ($db->sql_numrows($smile_res) > 0) {
 						$smile_rows = $db->sql_fetchrowset($smile_res);

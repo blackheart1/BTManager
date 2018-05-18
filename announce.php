@@ -68,7 +68,7 @@ function unesc_magic($x) {
 function err($msg, $sqlerror = false)
 {
 	if($sqlerror) $msg = $msg . '  ' . $sqlerror['message'];
-	add_log('user','LOG_ANNOUNCE',$msg);
+	add_log('admin','LOG_ANNOUNCE',$msg);
    benc_resp(array("failure reason" => array('type' => "string", 'value' => $msg)));
    exit();
 }

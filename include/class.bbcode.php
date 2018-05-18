@@ -46,7 +46,7 @@ function posting_gen_inline_attachments(&$attachment_data)
 function generate_smilies($mode, $forum_id, $display_link = false)
 {
  global $db, $db_prefix, $template, $siteurl;
-        $sql = "SELECT * FROM ".$db_prefix."_smiles WHERE id > '1' GROUP BY file ORDER BY sort_index ASC LIMIT 14;";
+        $sql = "SELECT * FROM ".$db_prefix."_smiles WHERE id > '1' ORDER BY sort_index ASC LIMIT 14;";
         $smile_res = $db->sql_query($sql) or btsqlerror($sql);
                 //$result = $db->sql_fetchrowset($smile_res) or btsqlerror($sql);
 	$smilies = array();

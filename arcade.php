@@ -117,7 +117,6 @@ if ($user->user)
 	$row_count = (int) $db->sql_fetchfield('row_count');
 	if ($row_count > 0)
 	{
-		$fav_url = append_sid("ucp.$phpEx", 'i=arcade&mode=favorites', true, $user->session_id);
 		$template->assign_vars(array(
 			'L_FAV_GAMES'	=> '(' . $row_count . ')',
 			'S_FAVORITES'	=> true

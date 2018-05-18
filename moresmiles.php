@@ -72,7 +72,7 @@ window.opener.document.forms[form].elements[text].focus();
 <?
 if(isset($_GET['amp;text']))$text = $_GET['amp;text'];
 		if (!$user->user) loginrequired("user",true);
-		        $sql = "SELECT * FROM ".$db_prefix."_smiles GROUP BY file ORDER BY id ASC;";
+		        $sql = "SELECT * FROM ".$db_prefix."_smiles ORDER BY id ASC;";
         $smile_res = $db->sql_query($sql);
 		echo"<table align='center' width='80%' bgcolor='#cecece' cellspacing='0' cellpadding='6' style='border: 1px solid black'>\n";
 		echo"<tr>\n";

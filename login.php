@@ -88,11 +88,11 @@ switch($op)
                 } 
 				else 
 				{
-                        $result = $db->sql_query("SELECT active FROM ".$db_prefix."_users WHERE clean_username = '".$db->sql_escape(utf8_strtolower($username))."' AND password = '".md5($password)."'");
+                        $result = $db->sql_query("SELECT active, user_type FROM ".$db_prefix."_users WHERE clean_username = '".$db->sql_escape(utf8_strtolower($username))."' AND password = '".md5($password)."'");
                         if ($db->sql_numrows($result) == 1) 
 						{
                                 $active = $db->sql_fetchrow($result);
-                                if ($active['active'] == 1) {
+                                if ($active['active'] == 1 AND $active['user_type'] != 1) {
 								$ip = getip();
 						        $sql = "UPDATE ".$db_prefix."_users SET 
 										lastip = '".sprintf("%u",ip2long($ip))."', 

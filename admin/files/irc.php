@@ -35,15 +35,15 @@ if ($postback) {
 		$advanced	= request_var('advanced', '');
 		$delete		= request_var('delete', '');
         if ($edit) {
-                $errmsg = Array();
-                if (!preg_match("/^[a-z][a-z0-9._-]*$/",$server) AND !preg_match("/^(\d{1,3}\.){3}\d{1,3}$/",$server)) $errmsg[] = $user->lang['IRC_INVALID_HOST'];
-                if (!preg_match("/#[a-z0-9_]*$/",$channel)) $errmsg[] = $user->lang['IRC_INVALID_CHANNEL'];
+                $errmsg = array();
+                if (!preg_match("/^[a-z][a-z0-9:._-]*$/",$server) AND !preg_match("/^(\d{1,3}\.){3}\d{1,3}$/",$server)) $errmsg[] = $user->lang['IRC_INVALID_HOST'];
+                if (!preg_match("/#[a-zA-Z0-9_-]*$/",$channel)) $errmsg[] = $user->lang['IRC_INVALID_CHANNEL'];
                 if (!empty($advanced) AND !preg_match("/^[a-z0-9:_]* = [^\"\\t\\r\\n]*$/im", $advanced)) $errmsg[] = $user->lang['IRC_INVALID_SYNTAX'];
 
                 if (count($errmsg) > 0)
 				{
 		$report = '<ul>';
-                foreach ($errors as $msg) {
+                foreach ($errmsg as $msg) {
                         $report .= sprintf($user->lang['ERR_ARRAY_MESS'], $msg);
                 }
 		$report .= '</ul>';

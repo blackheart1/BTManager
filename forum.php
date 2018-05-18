@@ -39,7 +39,7 @@ if ($user->forumbanned){
 }
 else
 {
-	if ($FORUMS || $user->admin)
+	if ($FORUMS || $auth->acl_gets('a_', 'm_'))
 	{
 		//define the clickable smilies
 		$submit		= (isset($_POST['post'])) ? true : false;
@@ -187,5 +187,10 @@ else
 		echo $template->fetch('forum_index.html');
 		close_out();
 	}
+	else
+			{
+				$message = (!empty($config['board_disable_msg'])) ? $config['board_disable_msg'] : 'BOARD_DISABLE';
+			}
+			trigger_error($message);
 }
 ?>

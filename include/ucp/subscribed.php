@@ -55,7 +55,7 @@ if (!defined('IN_PMBT'))
 						A.type, A.private, A.min_ratio, A.numfiles, A.owner, A.ownertype, A.complaints, A.evidence, 
 						A.tracker, A.tracker_list, A.dht as dht, A.md5sum as md5sum, A.uploader_host as user_host, 
 						B.name AS cat_name, B.image AS cat_pic, IF(C.name IS NULL, C.username, C.name) as ownername, 
-						A.tracker_update, COUNT(S.status) as auths FROM ".$db_prefix."_torrents A LEFT JOIN ".$db_prefix."_categories B ON A.category = B.id LEFT JOIN ".$db_prefix."_users C ON A.owner = C.id LEFT JOIN ".$db_prefix."_privacy_file S ON S.torrent = A.id AND S.status = 'pending' WHERE A.id = '".$dcont['torrent']."' GROUP BY A.id LIMIT 1;";
+						A.tracker_update, COUNT(S.status) as auths FROM ".$db_prefix."_torrents A LEFT JOIN ".$db_prefix."_categories B ON A.category = B.id LEFT JOIN ".$db_prefix."_users C ON A.owner = C.id LEFT JOIN ".$db_prefix."_privacy_file S ON S.torrent = A.id AND S.status = 'pending' WHERE A.id = '".$dcont['torrent']."' LIMIT 1;";
 						$res_t = $db->sql_query($sql_t) or btsqlerror($sql_t);
 						$torrent = $db->sql_fetchrow($res_t);
 						$db->sql_freeresult($res_t);

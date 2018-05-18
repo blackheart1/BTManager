@@ -616,7 +616,7 @@ if($op == 'archivedeleteshout')
 if($op == 'more_smiles')
 	{
 		if (!$user->user) loginrequired("user",true);
-		        $sql = "SELECT * FROM ".$db_prefix."_smiles GROUP BY file ORDER BY id ASC;";
+		        $sql = "SELECT * FROM ".$db_prefix."_smiles ORDER BY id ASC;";
         $smile_res = $db->sql_query($sql);
         if ($db->sql_numrows($smile_res) > 0) {
                 $smile_rows = $db->sql_fetchrowset($smile_res);
