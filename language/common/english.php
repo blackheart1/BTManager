@@ -544,13 +544,13 @@ $lang = array_merge($lang, array(
 
     'LAST_TORRENT' => 'Last Torrents',
     'BEST_TORRENT' => 'Best Torrents',
-    'FULL_IMG'     => 'Click here to view the full image.',
-    'RESIZE_IMG'   => 'This image has been resized. Click image to view the full image.',
-    'SMALL_IMG'    => 'Click here to view the small image.',
+    'FULL_IMG'     => 'Click Here to View the Full Image.',
+    'RESIZE_IMG'   => 'This Image has been Resized. Click Image to View the Full Image.',
+    'SMALL_IMG'    => 'Click Here to View the Small Image.',
     'LOGGED_IN_AS' => 'You are Logged in as',
-    'YOUR_ACCOUNT' => 'Your account',
+    'YOUR_ACCOUNT' => 'Your Account',
     'DEVICES'      => 'DEVICE\'s',
-    '_SAVE_DRAFT'               => 'Save Draft',
+    '_SAVE_DRAFT'  => 'Save Draft',
 
     '_BBCODE_A_HELP'        => 'Inline Uploaded Attachment: [attachment=]filename.ext[/attachment]',
     '_BBCODE_B_HELP'        => 'Bold Text: [b]text[/b]',

@@ -1,9 +1,9 @@
 <!-- IF EDIT_SHOUT -->
-		<form mane="shoutedit" id="shoutedit">
-					<textarea name="textedit" id="textedit" rows="1" cols="80" style="border:1px" >{EDIT_TEXT}</textarea>
-					<input type="button" onClick="sndReq('op=take_edit_shout&shout={EDIT_ID}&shout_text='+textedit.value, 'shoutTD')" value="{L_SHOUT}" />
-					<input type="button" onClick="sndReq('op=take_edit_shout_cancel', 'shoutTD')" value="Cancel" />
-				</form>
+        <form mane="shoutedit" id="shoutedit">
+                    <textarea name="textedit" id="textedit" rows="1" cols="80" style="border:1px" >{EDIT_TEXT}</textarea>
+                    <input type="button" onClick="sndReq('op=take_edit_shout&shout={EDIT_ID}&shout_text='+textedit.value, 'shoutTD')" value="{L_SHOUT}" />
+                    <input type="button" onClick="sndReq('op=take_edit_shout_cancel', 'shoutTD')" value="{L_CANCEL}" />
+                </form>
 <!-- ELSEIF U_USER_CAN_SHOUT -->
 
 <!-- IF DETACH -->
@@ -18,8 +18,8 @@
 <meta http-equiv="Cache-Control" content="no-cache">
 <link rel="shortcut icon" href="{SITE_URL}/themes/Bitfarm/favicon.ico" type="image/x-icon" >
 <link rel="search" type="application/opensearchdescription+xml" title="{SITENAME}" href="{SITE_URL}/opensearch.php">
-<link rel="alternate" type="application/rss+xml" title="Last Torrents" href="{SITE_URL}/backend.php?op=last">
-<link rel="alternate" type="application/rss+xml" title="Best Torrents" href="{SITE_URL}/backend.php?op=best">
+<link rel="alternate" type="application/rss+xml" title="{L_LAST_TORRENT}" href="{SITE_URL}/backend.php?op=last">
+<link rel="alternate" type="application/rss+xml" title="{L_BEST_TORRENT}" href="{SITE_URL}/backend.php?op=best">
 <link rel="StyleSheet" href="{SITE_URL}/themes/Bitfarm/style.css" type="text/css">
 <link rel="stylesheet" href="{SITE_URL}/css/lightbox.css" type="text/css">
 {META}
@@ -40,10 +40,10 @@ NcodeImageResizer.MODE = 'newwindow';
 NcodeImageResizer.MAXWIDTH = 500;
 NcodeImageResizer.MAXHEIGHT =400;
 
-NcodeImageResizer.Msg1 = 'Click here to view the full image.';
-NcodeImageResizer.Msg2 = 'This image has been resized. Click image to view the full image.';
-NcodeImageResizer.Msg3 = 'This image has been resized. Click image to view the full image.';
-NcodeImageResizer.Msg4 = 'Click here to view the small image.';
+NcodeImageResizer.Msg1 = '{L_FULL_IMG}';
+NcodeImageResizer.Msg2 = '{L_RESIZE_IMG}';
+NcodeImageResizer.Msg3 = '{L_RESIZE_IMG}';
+NcodeImageResizer.Msg4 = '{L_SMALL_IMG}';
 //-->
 </script>
 <script type="text/javascript">
@@ -53,25 +53,25 @@ shoutrefresht = "{S_SHOUT_REF}";
 shoutidle = "{S_SHOUT_IDL}";
 function change_bg(img, state)
 {
-if (state == "1") 
+if (state == "1")
 img.src = img.src.replace(".gif","_over.gif");
-else if (state == "0") 
+else if (state == "0")
 img.src = img.src.replace("_over.gif",".gif");
-else if (state == "2") 
+else if (state == "2")
 img.src = img.src.replace("_over.gif",".gif");
-else if (state == "3") 
+else if (state == "3")
 img.src = img.src.replace("_over.gif",".gif");
 }
 var pd = new Date();
 var last_reload = pd.getTime();
 function do_breload() {
     if (document.location.href.match(/\/torrents\.php/)) {
-	   var d = new Date();
-	   if (last_reload && last_reload > (d.getTime() - "4000")) return;
-	      last_reload = d.getTime();   
-	   bparam('page=1')	   
+       var d = new Date();
+       if (last_reload && last_reload > (d.getTime() - "4000")) return;
+          last_reload = d.getTime();
+       bparam('page=1')
 
-	}
+    }
 }
 
 function toggle2(nome) {
@@ -112,19 +112,19 @@ var menu_state = 'shown';
 */
 function jumpto()
 {
-	var page = prompt(jump_page, on_page);
+    var page = prompt(jump_page, on_page);
 
-	if (page !== null && !isNaN(page) && page == Math.floor(page) && page > 0)
-	{
-		if (base_url.indexOf('?') == -1)
-		{
-			document.location.href = base_url + '?page=' + ((page - 1) * per_page/per_page+1);
-		}
-		else
-		{
-			document.location.href = base_url.replace(/&amp;/g, '&') + '&page=' + ((page - 1) * per_page/per_page+1);
-		}
-	}
+    if (page !== null && !isNaN(page) && page == Math.floor(page) && page > 0)
+    {
+        if (base_url.indexOf('?') == -1)
+        {
+            document.location.href = base_url + '?page=' + ((page - 1) * per_page/per_page+1);
+        }
+        else
+        {
+            document.location.href = base_url.replace(/&amp;/g, '&') + '&page=' + ((page - 1) * per_page/per_page+1);
+        }
+    }
 }
 
 /**
@@ -133,17 +133,17 @@ function jumpto()
 */
 function dE(n, s, type)
 {
-	if (!type)
-	{
-		type = 'block';
-	}
+    if (!type)
+    {
+        type = 'block';
+    }
 
-	var e = document.getElementById(n);
-	if (!s)
-	{
-		s = (e.style.display == '') ? -1 : 1;
-	}
-	e.style.display = (s == 1) ? type : 'none';
+    var e = document.getElementById(n);
+    if (!s)
+    {
+        s = (e.style.display == '') ? -1 : 1;
+    }
+    e.style.display = (s == 1) ? type : 'none';
 }
 // ]]>
 </script>
@@ -156,16 +156,16 @@ function dE(n, s, type)
 <script src="{SITE_URL}/themes/Bitfarm/js/jquery.cookie.js" type="text/javascript"></script>
 <script src="{SITE_URL}/themes/Bitfarm/js/jquery.thumbnailScroller.js" type="text/javascript"></script>
 <script type="text/javascript" src="{SITE_URL}/themes/Bitfarm/js/jquery.smoothmenu.js"></script>
-<script type="text/javascript" src="{SITE_URL}/themes/Bitfarm/js/core.js"></script>	
+<script type="text/javascript" src="{SITE_URL}/themes/Bitfarm/js/core.js"></script>
 <script src="{SITE_URL}/themes/Bitfarm/js/jquery.jcarousel.js" type="text/javascript"></script>
 <script type="text/javascript" src="{SITE_URL}/themes/Bitfarm/js/jquery.qtip-1.0.0-rc3.min.js"></script>
 <script src="{SITE_URL}/themes/Bitfarm/js/init.js" type="text/javascript"></script>
 <script type="text/javascript" src="{SITE_URL}/themes/Bitfarm/js/jquery.jqDock.min.js"></script>
 <script type="text/javascript">
-	$(function(){
-		var jqDockOpts = {align: 'left', duration: 200, labels: 'tc', size: 48, distance: 85};
-		$('#jqDock').jqDock(jqDockOpts);
-	});
+    $(function(){
+        var jqDockOpts = {align: 'left', duration: 200, labels: 'tc', size: 48, distance: 85};
+        $('#jqDock').jqDock(jqDockOpts);
+    });
 </script>
 </head>
 <!--[if lt IE 7]><link rel="stylesheet" type="text/css" media="screen" href="{SITE_URL}/themes/Bitfarm/iestyle.css">
@@ -178,221 +178,232 @@ function dE(n, s, type)
 <!-- IF not S_SHOUTBOX_AJAX -->
 <a name="shout"></a>
 <script type="text/javascript" src="bbcode.js"></script>
-							<script type="text/javascript">
-								// <![CDATA[
-						
-								var form_name = 'Shoutform';
-								var text_name = 'text';
-								// ]]>
-							</script>		
+                            <script type="text/javascript">
+                                // <![CDATA[
+
+                                var form_name = 'Shoutform';
+                                var text_name = 'text';
+                                // ]]>
+                            </script>
 <table class="tablebg" width="100%" cellspacing="0">
-	<tr>
-		<td>
-			<div class="caption">
-				<div class="cap-left">
-					<div class="cap-right">
-						<a class="c4" style="cursor: pointer;float:left;" onClick="toggle2('nnShoutbox_(Detach)_&bull;_(Archives)');">
-						{L_SHOUT_BOX} </a>
-						<a href="javascript:popshout('shoutdetach.php');">({L_DETACH})</a>
-						 &bull; 
-						<a href="shoutboxarchive.php">({L_ARCHIVES})</a>
-					</div>
-				</div>
-			</div>
-		</td>
-	</tr>
-	<tr valign="middle">
-		<td  class="row3" >
-			<div id="nnShoutbox_(Detach)_&bull;_(Archives)">
-				<span id='shoutTD'></span>
-				<div id="shoutidle"></div>
+    <tr>
+        <td>
+            <div class="caption">
+                <div class="cap-left">
+                    <div class="cap-right">
+                        <a class="c4" style="cursor: pointer;float:left;" onClick="toggle2('nnShoutbox_(Detach)_&bull;_(Archives)');">
+                        {L_SHOUT_BOX} </a>
+                        <a href="javascript:popshout('shoutdetach.php');">({L_DETACH})</a>
+                         &bull;
+                        <a href="shoutboxarchive.php">({L_ARCHIVES})</a>
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr valign="middle">
+        <td  class="row3" >
+            <div id="nnShoutbox_(Detach)_&bull;_(Archives)">
+                <span id='shoutTD'></span>
+                <div id="shoutidle"></div>
 
-				<div class="alt2" style="border: 0px none  ! important; margin: 0px; padding: 0px;">
-					<table width="100%" cellpadding="0" cellspacing="0">
-						<tr>
-							<td style="border: 0px none  ! important; margin: 0px; padding: 0px;" class="alt2">
-								<div class="alt2" style="border: 0px none  ! important; margin: 0px; padding: 0px;">
-								  <span style="border: 0px none  ! important; margin: 0px; padding: 0px; float: right;">
-									 <span class="alt1" style="border: 0px none  ! important; margin: 0px; padding: 0px; display: block;">
-										<span class="alt2" style="border: 0px none  ! important; margin: 0px; padding: 0px; overflow: hidden; width: 1px; height: 1px; display: block;"></span>
-										<span class="alt2" style="border: 0px none  ! important; margin: 0px; padding: 0px; overflow: hidden; width: 2px; height: 1px; display: block;"></span>
-										<span class="alt2" style="border: 0px none  ! important; margin: 0px; padding: 0px; overflow: hidden; width: 3px; height: 1px; display: block;"></span>
-									 </span>
-								  </span>
-								  <span class="alt1" style="border: 0px none  ! important; margin: 0px; padding: 0px; overflow: hidden; width: 3px; height: 1px; display: block;"></span>
-								  <span class="alt1" style="border: 0px none  ! important; margin: 0px; padding: 0px; overflow: hidden; width: 2px; height: 1px; display: block;"></span>
-								  <span class="alt1" style="border: 0px none  ! important; margin: 0px; padding: 0px; overflow: hidden; width: 1px; height: 1px; display: block;"></span>
-								</div>
-								<div class="smallfont" style="border: 0px none  ! important; margin: 0px; padding: 0px 5px 4px; background: transparent none repeat scroll 0% 0%; text-align: center; white-space: nowrap; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
-								  <span id="shoutthisch" onClick="sndReq('op=view_shout', 'shout_out');" style="cursor: pointer;">{L_SHOUT_BOX}</span>
-								</div>
-							</td>
-							<td style="border: 0px none  ! important; margin: 0px; padding: 0px;" class="alt1">&nbsp;</td>
-							<td style="border: 0px none  ! important; margin: 0px; padding: 0px;" class="alt2">
-								<div class="alt2" style="border: 0px none  ! important; margin: 0px; padding: 0px;">
-									<span style="border: 0px none  ! important; margin: 0px; padding: 0px; float: right;">
-										<span class="alt1" style="border: 0px none  ! important; margin: 0px; padding: 0px; display: block;">
-											<span class="alt2" style="border: 0px none  ! important; margin: 0px; padding: 0px; overflow: hidden; width: 1px; height: 1px; display: block;">
-											</span>
-											<span class="alt2" style="border: 0px none  ! important; margin: 0px; padding: 0px; overflow: hidden; width: 2px; height: 1px; display: block;">
-											</span>
-											<span class="alt2" style="border: 0px none  ! important; margin: 0px; padding: 0px; overflow: hidden; width: 3px; height: 1px; display: block;">
-											</span>
-										</span>
-									</span>
-									<span class="alt1" style="border: 0px none  ! important; margin: 0px; padding: 0px; overflow: hidden; width: 3px; height: 1px; display: block;">
-									</span>
-									<span class="alt1" style="border: 0px none  ! important; margin: 0px; padding: 0px; overflow: hidden; width: 2px; height: 1px; display: block;">
-									</span>
-									<span class="alt1" style="border: 0px none  ! important; margin: 0px; padding: 0px; overflow: hidden; width: 1px; height: 1px; display: block;">
-									</span>
-								</div>
-								<div class="smallfont" style="border: 0px none  ! important; margin: 0px; padding: 0px 5px 4px; background: transparent none repeat scroll 0% 0%; text-align: center; white-space: nowrap; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
-									<span onClick="sndReq('op=activeusers', 'shout_out');" style="cursor: pointer;" />{L_ACTIVE_USERS}: 
-									<span id="shoutbox_activity">1</span>
-									</span>
-								</div>
-							</td>
-							<td style="border: 0px none  ! important; margin: 0px; padding: 0px;" class="alt1">&nbsp;</td>
-							<td class="alt1" style="border: 0px none  ! important; margin: 0px; padding: 0px;" width="100%">&nbsp;</td>
-						</tr>
-					</table>
-				</div>
-				<span id="active_user" class='shoutbox'>
-					<span id="shout_out" class='shoutbox'>
-						<span id="Private_shout" class='shoutbox'>
-	<!-- ENDIF -->
-							<div class="" onMouseOver="this.className='over';" onMouseOut="this.className='';">
-								<p class="shout" bgcolor="#53B54F">{SHOUT_WELCOME}</p>
-							</div>
+                <div class="alt2" style="border: 0px none  ! important; margin: 0px; padding: 0px;">
+                    <table width="100%" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td style="border: 0px none  ! important; margin: 0px; padding: 0px;" class="alt2">
+                                <div class="alt2" style="border: 0px none  ! important; margin: 0px; padding: 0px;">
+                                  <span style="border: 0px none  ! important; margin: 0px; padding: 0px; float: right;">
+                                     <span class="alt1" style="border: 0px none  ! important; margin: 0px; padding: 0px; display: block;">
+                                        <span class="alt2" style="border: 0px none  ! important; margin: 0px; padding: 0px; overflow: hidden; width: 1px; height: 1px; display: block;"></span>
+                                        <span class="alt2" style="border: 0px none  ! important; margin: 0px; padding: 0px; overflow: hidden; width: 2px; height: 1px; display: block;"></span>
+                                        <span class="alt2" style="border: 0px none  ! important; margin: 0px; padding: 0px; overflow: hidden; width: 3px; height: 1px; display: block;"></span>
+                                     </span>
+                                  </span>
+                                  <span class="alt1" style="border: 0px none  ! important; margin: 0px; padding: 0px; overflow: hidden; width: 3px; height: 1px; display: block;"></span>
+                                  <span class="alt1" style="border: 0px none  ! important; margin: 0px; padding: 0px; overflow: hidden; width: 2px; height: 1px; display: block;"></span>
+                                  <span class="alt1" style="border: 0px none  ! important; margin: 0px; padding: 0px; overflow: hidden; width: 1px; height: 1px; display: block;"></span>
+                                </div>
+                                <div class="smallfont" style="border: 0px none  ! important; margin: 0px; padding: 0px 5px 4px; background: transparent none repeat scroll 0% 0%; text-align: center; white-space: nowrap; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
+                                  <span id="shoutthisch" onClick="sndReq('op=view_shout', 'shout_out');" style="cursor: pointer;">{L_SHOUT_BOX}</span>
+                                </div>
+                            </td>
+                            <td style="border: 0px none  ! important; margin: 0px; padding: 0px;" class="alt1">&nbsp;</td>
+                            <td style="border: 0px none  ! important; margin: 0px; padding: 0px;" class="alt2">
+                                <div class="alt2" style="border: 0px none  ! important; margin: 0px; padding: 0px;">
+                                    <span style="border: 0px none  ! important; margin: 0px; padding: 0px; float: right;">
+                                        <span class="alt1" style="border: 0px none  ! important; margin: 0px; padding: 0px; display: block;">
+                                            <span class="alt2" style="border: 0px none  ! important; margin: 0px; padding: 0px; overflow: hidden; width: 1px; height: 1px; display: block;">
+                                            </span>
+                                            <span class="alt2" style="border: 0px none  ! important; margin: 0px; padding: 0px; overflow: hidden; width: 2px; height: 1px; display: block;">
+                                            </span>
+                                            <span class="alt2" style="border: 0px none  ! important; margin: 0px; padding: 0px; overflow: hidden; width: 3px; height: 1px; display: block;">
+                                            </span>
+                                        </span>
+                                    </span>
+                                    <span class="alt1" style="border: 0px none  ! important; margin: 0px; padding: 0px; overflow: hidden; width: 3px; height: 1px; display: block;">
+                                    </span>
+                                    <span class="alt1" style="border: 0px none  ! important; margin: 0px; padding: 0px; overflow: hidden; width: 2px; height: 1px; display: block;">
+                                    </span>
+                                    <span class="alt1" style="border: 0px none  ! important; margin: 0px; padding: 0px; overflow: hidden; width: 1px; height: 1px; display: block;">
+                                    </span>
+                                </div>
+                                <div class="smallfont" style="border: 0px none  ! important; margin: 0px; padding: 0px 5px 4px; background: transparent none repeat scroll 0% 0%; text-align: center; white-space: nowrap; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
+                                    <span onClick="sndReq('op=activeusers', 'shout_out');" style="cursor: pointer;" />{L_ACTIVE_USERS}:
+                                    <span id="shoutbox_activity">1</span>
+                                    </span>
+                                </div>
+                            </td>
+                            <td style="border: 0px none  ! important; margin: 0px; padding: 0px;" class="alt1">&nbsp;</td>
+                            <td class="alt1" style="border: 0px none  ! important; margin: 0px; padding: 0px;" width="100%">&nbsp;</td>
+                        </tr>
+                    </table>
+                </div>
+                <span id="active_user" class='shoutbox'>
+                    <span id="shout_out" class='shoutbox'>
+                        <span id="Private_shout" class='shoutbox'>
+    <!-- ENDIF -->
+                            <div class="">
+                                <p class="shout" style="text-align:center;"><strong>{SHOUT_WELCOME}</strong></p>
+                            </div>
 <!-- BEGIN shout_var -->
-							<div class="{shout_var.CLASS}" onMouseOver="this.className='{shout_var.CLASS_CH}';" onMouseOut="this.className='{shout_var.CLASS}';">
-							<p class="shout" bgcolor="#{shout_var.BACKG}">
-							<!-- IF shout_var.SHOW_USER --><!-- IF shout_var.CAN_DEL --><a onDblClick="if(confirm('Delete Shout?')==true)sndReq('op=take_delete_shout&amp;shout={shout_var.SHOUTID}', 'shoutTD')"><img src="themes/Bitfarm/pics/drop.gif" alt="{L_DELETE}" title="{L_DELETE}" border="0"></a><!-- ENDIF -->
-							<!-- IF shout_var.CAN_ED --><a onDblClick="sndReq('op=edit_shout&amp;shout={shout_var.SHOUTID}', 'shoutTD')"><img src="themes/Bitfarm/pics/edit.gif" alt="{L_EDIT}" title="{L_EDIT}" border="0"></a><!-- ENDIF -->
-							<!-- IF shout_var.CAN_QU --><a onClick="comment_smile('{shout_var.QUOTE}',Shoutform.text);"><img src="images/bbcode/bbcode_quote.gif" alt="{L_QUOTE}"  title="{L_QUOTE}" border="0"></a><!-- ENDIF -->
-							[<span class="shout_time">{shout_var.TIME}</span>]{shout_var.U_PRVATE_S}
-							<b><span class="admin" onDblClick="sndReq('op=private__chat&amp;to={shout_var.UID}', 'shout_out'); toggleprivate('shout_send','{shout_var.UID}');"><font color="#000" style='background-color: {shout_var.U_COLOR};'>{shout_var.U_NAME}</font>{shout_var.U_WARNED}<!-- IF shout_var.U_DONER --><img src="images/donator.gif" height="16" width="16" title="donator" alt="donator" /><!-- ENDIF --></span></b>
-							:  <!-- ENDIF -->{shout_var.SHOUT}
-							</p>
-							<hr>
-							</div>
-							<!-- END shout_var -->
-							<!-- IF not S_SHOUTBOX_AJAX -->
-							</div>
-							</p>
-						</span>
-					</span>
-				</span>
-					<p>
+                            <div class="{shout_var.CLASS}" onMouseOver="this.className='{shout_var.CLASS_CH}';" onMouseOut="this.className='{shout_var.CLASS}';">
+                            <p class="shout" bgcolor="#{shout_var.BACKG}">
+                            <!-- IF shout_var.SHOW_USER --><!-- IF shout_var.CAN_DEL --><a onDblClick="if(confirm('Delete Shout?')==true)sndReq('op=take_delete_shout&amp;shout={shout_var.SHOUTID}', 'shoutTD')"><img src="themes/Bitfarm/pics/drop.gif" alt="{L_DELETE}" title="{L_DELETE}" border="0"></a><!-- ENDIF -->
+                            <!-- IF shout_var.CAN_ED --><a onDblClick="sndReq('op=edit_shout&amp;shout={shout_var.SHOUTID}', 'shoutTD')"><img src="themes/Bitfarm/pics/edit.gif" alt="{L_EDIT}" title="{L_EDIT}" border="0"></a><!-- ENDIF -->
+                            <!-- IF shout_var.CAN_QU --><a onClick="comment_smile('{shout_var.QUOTE}',Shoutform.text);"><img src="images/bbcode/bbcode_quote.gif" alt="{L_QUOTE}"  title="{L_QUOTE}" border="0"></a><!-- ENDIF -->
+                            [<span class="shout_time">{shout_var.TIME}</span>]{shout_var.U_PRVATE_S}
+                            <strong><span class="admin" onDblClick="sndReq('op=private__chat&amp;to={shout_var.UID}', 'shout_out'); toggleprivate('shout_send','{shout_var.UID}');"><font color="#000" style='background-color: {shout_var.U_COLOR};'>{shout_var.U_NAME}</font>{shout_var.U_WARNED}<!-- IF shout_var.U_DONER --><img src="images/donator.gif" height="16" width="16" title="{L_DONOR}" alt="{L_DONOR}" /><!-- ENDIF --></span></strong>
+                            :  <!-- ENDIF -->{shout_var.SHOUT}
+                            </p>
+                            <hr>
+                            </div>
+                            <!-- END shout_var -->
+                            <!-- IF not S_SHOUTBOX_AJAX -->
+                            </div>
+                            </p>
+                        </span>
+                    </span>
+                </span>
+                    <p>
 
-				<form name="Shoutform" method="POST" id="data" action="upload.php?op=taketorrent" target="Shoutbox" onSubmit="sendshout(text.value);">
-					<input type="text" readonly name="helpbox" style="width:100%" class="helpline" value="{L__STYLES_TIP} {L_SHOUT_HELP}" />
-					<br />
-					<script type="text/javascript">
-					// <![CDATA[
-					
-					// Define the bbCode tags
-					var bbcode = new Array();
-					var bbtags = new Array('[b]','[/b]','[i]','[/i]','[u]','[/u]','[quote]','[/quote]','[code]','[/code]','[list]','[/list]','[list=]','[/list]','[img]','[/img]','[url]','[/url]','[flash=]', '[/flash]','[size=]','[/size]','[font]','[/font]'<!-- BEGIN custom_tags -->, {custom_tags.BBCODE_NAME}<!-- END custom_tags -->);
-					var imageTag = false;
-		
-					// Helpline messages
-					var help_line = {
-						b: '{LA__BBCODE_B_HELP}',
-						i: '{LA__BBCODE_I_HELP}',
-						u: '{LA__BBCODE_U_HELP}',
-						q: '{LA__BBCODE_Q_HELP}',
-						c: '{LA__BBCODE_C_HELP}',
-						l: '{LA__BBCODE_L_HELP}',
-						o: '{LA__BBCODE_O_HELP}',
-						p: '{LA__BBCODE_P_HELP}',
-						w: '{LA__BBCODE_W_HELP}',
-						s: '{LA__BBCODE_S_HELP}',
-						f: '{LA__BBCODE_F_HELP}',
-						e: '{LA__BBCODE_E_HELP}',
-						d: '{LA__BBCODE_D_HELP}',
-						t: '{LA__BBCODE_T_HELP}',
-						fo: 'Font',
-						tip: '{LA__STYLES_TIP} {LA_SHOUT_HELP}'
-						<!-- BEGIN custom_tags -->
-							,cb_{custom_tags.BBCODE_ID}: '{custom_tags.A_BBCODE_HELPLINE}'
-						<!-- END custom_tags -->
-					}
-					
-					// ]]>
-					</script>
-					<script type="text/javascript" src="{SITE_URL}/{T_TEMPLATE_PATH}/editor.js"></script>
-					<input type="button" class="btnbbcode" accesskey="b" name="addbbcode0" value=" B " style="font-weight:bold; width: 30px;" onClick="bbstyle(0)" onMouseOver="helpline('b')" onMouseOut="helpline('tip')" />
-					<input type="button" class="btnbbcode" accesskey="i" name="addbbcode2" value=" i " style="font-style:italic; width: 30px;" onClick="bbstyle(2)" onMouseOver="helpline('i')" onMouseOut="helpline('tip')" />
-					<input type="button" class="btnbbcode" accesskey="u" name="addbbcode4" value=" u " style="text-decoration: underline; width: 30px;" onClick="bbstyle(4)" onMouseOver="helpline('u')" onMouseOut="helpline('tip')" />
-					<!-- IF S_BBCODE_QUOTE -->
-					<input type="button" class="btnbbcode" accesskey="q" name="addbbcode6" value="Quote" style="width: 50px" onClick="bbstyle(6)" onMouseOver="helpline('q')" onMouseOut="helpline('tip')" />
-					<!-- ENDIF -->
-					<input type="button" class="btnbbcode" accesskey="c" name="addbbcode8" value="Code" style="width: 40px" onClick="bbstyle(8)" onMouseOver="helpline('c')" onMouseOut="helpline('tip')" />
-					<input type="button" class="btnbbcode" accesskey="l" name="addbbcode10" value="List" style="width: 40px" onClick="bbstyle(10)" onMouseOver="helpline('l')" onMouseOut="helpline('tip')" />
-					<input type="button" class="btnbbcode" accesskey="o" name="addbbcode12" value="List=" style="width: 40px" onClick="bbstyle(12)" onMouseOver="helpline('o')" onMouseOut="helpline('tip')" />
-					<input type="button" class="btnbbcode" accesskey="t" name="addlitsitem" value="[*]" style="width: 40px" onClick="bbstyle(-1)" onMouseOver="helpline('e')" onMouseOut="helpline('tip')" />				
-					<!-- IF S_BBCODE_IMG -->
-					<input type="button" class="btnbbcode" accesskey="p" name="addbbcode14" value="Img" style="width: 40px" onClick="bbstyle(14)" onMouseOver="helpline('p')" onMouseOut="helpline('tip')" />
-					<!-- ENDIF -->
-					<!-- IF S_LINKS_ALLOWED -->
-					<input type="button" class="btnbbcode" accesskey="w" name="addbbcode16" value="URL" style="text-decoration: underline; width: 40px" onClick="bbstyle(16)" onMouseOver="helpline('w')" onMouseOut="helpline('tip')" />
-					<!-- ENDIF -->
-					<!-- IF S_BBCODE_FLASH -->
-					<input type="button" class="btnbbcode" accesskey="d" name="addbbcode18" value="Flash" onClick="bbstyle(18)" onMouseOver="helpline('d')" onMouseOut="helpline('tip')" />
-					<!-- ENDIF -->
+                <form name="Shoutform" method="POST" id="data" action="upload.php?op=taketorrent" target="Shoutbox" onSubmit="sendshout(text.value);">
+                    <input type="text" readonly name="helpbox" style="width:100%" class="helpline" value="{L__STYLES_TIP} {L_SHOUT_HELP}" />
+                    <br />
+                    <script type="text/javascript">
+                    // <![CDATA[
+
+                    // Define the bbCode tags
+                    var bbcode = new Array();
+                    var bbtags = new Array('[b]','[/b]','[i]','[/i]','[u]','[/u]','[quote]','[/quote]','[code]','[/code]','[list]','[/list]','[list=]','[/list]','[img]','[/img]','[url]','[/url]','[flash=]', '[/flash]','[size=]','[/size]','[font]','[/font]'<!-- BEGIN custom_tags -->, {custom_tags.BBCODE_NAME}<!-- END custom_tags -->);
+                    var imageTag = false;
+
+                    // Helpline messages
+                    var help_line = {
+                        b: '{LA__BBCODE_B_HELP}',
+                        i: '{LA__BBCODE_I_HELP}',
+                        u: '{LA__BBCODE_U_HELP}',
+                        q: '{LA__BBCODE_Q_HELP}',
+                        c: '{LA__BBCODE_C_HELP}',
+                        l: '{LA__BBCODE_L_HELP}',
+                        o: '{LA__BBCODE_O_HELP}',
+                        p: '{LA__BBCODE_P_HELP}',
+                        w: '{LA__BBCODE_W_HELP}',
+                        s: '{LA__BBCODE_S_HELP}',
+                        f: '{LA__BBCODE_F_HELP}',
+                        e: '{LA__BBCODE_E_HELP}',
+                        d: '{LA__BBCODE_D_HELP}',
+                        t: '{LA__BBCODE_T_HELP}',
+                        fo: 'Font',
+                        tip: '{LA__STYLES_TIP} {LA_SHOUT_HELP}'
+                        <!-- BEGIN custom_tags -->
+                            ,cb_{custom_tags.BBCODE_ID}: '{custom_tags.A_BBCODE_HELPLINE}'
+                        <!-- END custom_tags -->
+                    }
+
+                    // ]]>
+                    </script>
+                    <script type="text/javascript" src="{SITE_URL}/{T_TEMPLATE_PATH}/editor.js"></script>
+
+                    <input type="button" class="btnbbcode" accesskey="b" name="addbbcode0" value=" B " style="font-weight:bold; width: 30px;" onClick="bbstyle(0)" onMouseOver="helpline('b')" onMouseOut="helpline('tip')" />
+
+                    <input type="button" class="btnbbcode" accesskey="i" name="addbbcode2" value=" i " style="font-style:italic; width: 30px;" onClick="bbstyle(2)" onMouseOver="helpline('i')" onMouseOut="helpline('tip')" />
+
+                    <input type="button" class="btnbbcode" accesskey="u" name="addbbcode4" value=" u " style="text-decoration: underline; width: 30px;" onClick="bbstyle(4)" onMouseOver="helpline('u')" onMouseOut="helpline('tip')" />
+
+                    <!-- IF S_BBCODE_QUOTE -->
+                    <input type="button" class="btnbbcode" accesskey="q" name="addbbcode6" value="Quote" style="width: 50px" onClick="bbstyle(6)" onMouseOver="helpline('q')" onMouseOut="helpline('tip')" />
+                    <!-- ENDIF -->
+
+                    <input type="button" class="btnbbcode" accesskey="c" name="addbbcode8" value="Code" style="width: 40px" onClick="bbstyle(8)" onMouseOver="helpline('c')" onMouseOut="helpline('tip')" />
+
+                    <input type="button" class="btnbbcode" accesskey="l" name="addbbcode10" value="List" style="width: 40px" onClick="bbstyle(10)" onMouseOver="helpline('l')" onMouseOut="helpline('tip')" />
+
+                    <input type="button" class="btnbbcode" accesskey="o" name="addbbcode12" value="List=" style="width: 40px" onClick="bbstyle(12)" onMouseOver="helpline('o')" onMouseOut="helpline('tip')" />
+
+                    <input type="button" class="btnbbcode" accesskey="t" name="addlitsitem" value="[*]" style="width: 40px" onClick="bbstyle(-1)" onMouseOver="helpline('e')" onMouseOut="helpline('tip')" />
+
+                    <!-- IF S_BBCODE_IMG -->
+                    <input type="button" class="btnbbcode" accesskey="p" name="addbbcode14" value="Img" style="width: 40px" onClick="bbstyle(14)" onMouseOver="helpline('p')" onMouseOut="helpline('tip')" />
+                    <!-- ENDIF -->
+
+                    <!-- IF S_LINKS_ALLOWED -->
+                    <input type="button" class="btnbbcode" accesskey="w" name="addbbcode16" value="URL" style="text-decoration: underline; width: 40px" onClick="bbstyle(16)" onMouseOver="helpline('w')" onMouseOut="helpline('tip')" />
+                    <!-- ENDIF -->
+
+                    <!-- IF S_BBCODE_FLASH -->
+                    <input type="button" class="btnbbcode" accesskey="d" name="addbbcode18" value="Flash" onClick="bbstyle(18)" onMouseOver="helpline('d')" onMouseOut="helpline('tip')" />
+                    <!-- ENDIF -->
 <!-- IF S_BBCODE_ALLOWED and .custom_tags -->
 <br />
-		<!-- BEGIN custom_tags -->
-			<input type="button" class="btnbbcode" name="addbbcode{custom_tags.BBCODE_ID}" value="{custom_tags.BBCODE_TAG}" onclick="bbstyle({custom_tags.BBCODE_ID})"<!-- IF custom_tags.BBCODE_HELPLINE !== "" --> onmouseover="helpline('cb_{custom_tags.BBCODE_ID}')" onmouseout="helpline('tip')"<!-- ENDIF --> />
-		<!-- END custom_tags -->
+        <!-- BEGIN custom_tags -->
+            <input type="button" class="btnbbcode" name="addbbcode{custom_tags.BBCODE_ID}" value="{custom_tags.BBCODE_TAG}" onclick="bbstyle({custom_tags.BBCODE_ID})"<!-- IF custom_tags.BBCODE_HELPLINE !== "" --> onmouseover="helpline('cb_{custom_tags.BBCODE_ID}')" onmouseout="helpline('tip')"<!-- ENDIF --> />
+        <!-- END custom_tags -->
 <!-- ENDIF -->
-					<span class="genmed nowrap">{L__FONT_SIZE}: 
-						<select class="gensmall" name="addbbcode20" onChange="bbfontstyle('[size=' + this.form.addbbcode20.options[this.form.addbbcode20.selectedIndex].value + ']', '[/size]');this.form.addbbcode20.selectedIndex = 2;" onmouseover="helpline('f')" onmouseout="helpline('tip')">
-						<option value="50">{L__FONT_TINY}</option>
-						<option value="85">{L__FONT_SMALL}</option>
-						<option value="100" selected="selected">{L__FONT_NORMAL}</option>
-						<option value="150">{L__FONT_LARGE}</option>
-						<option value="200">{L__FONT_HUGE}</option>
-						</select>
-					</span>
-					<span class="genmed nowrap">
-						<select class="gensmall" name="fontselect20" onchange="bbfontstyle('[font=' + this.form.fontselect20.options[this.form.fontselect20.selectedIndex].value + ']', '[/font]');this.form.fontselect20.selectedIndex = 2;" onmouseover="helpline('fo')" onmouseout="helpline('tip')">
-						<option value=0>{L_FONT}</option>
+                    <span class="genmed nowrap">{L__FONT_SIZE}:
+                        <select class="gensmall" name="addbbcode20" onChange="bbfontstyle('[size=' + this.form.addbbcode20.options[this.form.addbbcode20.selectedIndex].value + ']', '[/size]');this.form.addbbcode20.selectedIndex = 2;" onmouseover="helpline('f')" onmouseout="helpline('tip')">
+                        <option value="50">{L__FONT_TINY}</option>
+                        <option value="85">{L__FONT_SMALL}</option>
+                        <option value="100" selected="selected">{L__FONT_NORMAL}</option>
+                        <option value="150">{L__FONT_LARGE}</option>
+                        <option value="200">{L__FONT_HUGE}</option>
+                        </select>
+                    </span>
+                    <span class="genmed nowrap">
+                        <select class="gensmall" name="fontselect20" onchange="bbfontstyle('[font=' + this.form.fontselect20.options[this.form.fontselect20.selectedIndex].value + ']', '[/font]');this.form.fontselect20.selectedIndex = 2;" onmouseover="helpline('fo')" onmouseout="helpline('tip')">
+                        <option value=0>{L_FONT}</option>
                         <option value=arial><font face="arial">{L_ARIAL}</font></option>
                         <option value=comic sans ms>{L_COMIC}</option>
                         <option value=courier new>{L_COURIER_NEW}</option>
                         <option value=tahoma>{L_TAHOMA}</option>
                         <option value=times new roman>{L_TIME_N_ROMAN}</option>
                         <option value=verdana>{L_VERDANA}</option>
-						</select>
-					</span>
-					<br />
-					  {L__FONT_COLOR}:
-						<script type="text/javascript">
-						// <![CDATA[
-							colorPalette('h', 16, 7)
-						// ]]>
-						</script>
-						<a href=bbcode.php>{L_BBCODE_HELP}</a>
-					<br />
-					<!-- BEGIN smiley -->
-					<a href="#" onClick="insert_text('{smiley.A_SMILEY_CODE}', true); return false;" style="line-height: 20px;"><img src="{smiley.SMILEY_IMG}" alt="{smiley.SMILEY_CODE}" title="{smiley.SMILEY_DESC}" hspace="2" vspace="2" /></a>
-<!-- END smiley -->		
-					<br />				
-					<input type="hidden" name="op" value="shout">
-					<textarea id="shout_text_area" name="text" rows="1" cols="90"  onkeyup=" if (event.keyCode == 13) {this.value=''}" onKeyPress="if (event.keyCode == 13) {sendshoutout(this.value, 'shout_out');}"></textarea>
-					</p>
-				   <input type="button" id="shout_send" onClick="sendshoutout(text.value, 'shout_out'); text.value = '';" value="{L_SHOUT}" />
-				   <input type="button" onClick="sndReq('op=view_shout', 'shout_out');" value="{L_UPDATE}" />
-				   <input type="button" href="upload.php?op=up" onclick="popUp('upload.php\?op\=up&amp;pop\=smilies&amp;form\=Shoutform&amp;area\=text', 300, 350, '_phpbbsmilies'); return false;" value="{L_MORE_SMILIES}" />
-				</form>		
-			</div>
-		</td>
-	</tr>
+                        </select>
+                    </span>
+                    <br />
+                      {L__FONT_COLOR}:
+                        <script type="text/javascript">
+                        // <![CDATA[
+                            colorPalette('h', 16, 7)
+                        // ]]>
+                        </script>
+                        <a href=bbcode.php>{L_BBCODE_HELP}</a>
+                    <br />
+                    <!-- BEGIN smiley -->
+                    <a href="#" onClick="insert_text('{smiley.A_SMILEY_CODE}', true); return false;" style="line-height: 20px;"><img src="{smiley.SMILEY_IMG}" alt="{smiley.SMILEY_CODE}" title="{smiley.SMILEY_DESC}" hspace="2" vspace="2" /></a>
+<!-- END smiley -->
+                    <br />
+                    <input type="hidden" name="op" value="shout">
+                    <textarea id="shout_text_area" name="text" rows="1" cols="90"  onkeyup=" if (event.keyCode == 13) {this.value=''}" onKeyPress="if (event.keyCode == 13) {sendshoutout(this.value, 'shout_out');}"></textarea>
+                    </p>
+                   <input type="button" id="shout_send" onClick="sendshoutout(text.value, 'shout_out'); text.value = '';" value="{L_SHOUT}" />
+                   <input type="button" onClick="sndReq('op=view_shout', 'shout_out');" value="{L_UPDATE}" />
+                   <input type="button" href="upload.php?op=up" onclick="popUp('upload.php\?op\=up&amp;pop\=smilies&amp;form\=Shoutform&amp;area\=text', 300, 350, '_phpbbsmilies'); return false;" value="{L_MORE_SMILIES}" />
+                </form>
+            </div>
+        </td>
+    </tr>
 </table>
-<br clear="all" >
+<br clear="all" />
 <!-- ENDIF -->
 <!-- ELSE -->
 <!-- IF U_USER_CAN_SHOUT --><!-- ELSE --><div><span>{L_BAND_SHOUTS}</span></div><!-- ENDIF -->

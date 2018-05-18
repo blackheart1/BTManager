@@ -303,6 +303,7 @@ $lang = array_merge($lang, array(
     'UPDATE_STATS'             => 'Stats Updated less than 30min ago',
     'EXTERNAL_TORRENT'         => 'External Torrent',
     'PAGES'                    => 'Pages',
+    '_PRIVATE_MESSAGE'         => 'Private Message',
 ));
 
 ?>
