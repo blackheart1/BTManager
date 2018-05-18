@@ -241,9 +241,6 @@ $lang = array_merge($lang, array(
 
     'PRUNE_NOT_POSTED'                 => 'Days Since Last Posted',
     'PRUNE_NOT_VIEWED'                 => 'Days Since Last Viewed',
-    'PRUNE_OLD_POLLS'                  => 'Prune Old Polls',
-    'PRUNE_OLD_POLLS_EXPLAIN'          => 'Removes Topics with Polls NOT Voted on for Post Age Days.',
-    'PRUNE_STICKY'                     => 'Prune Stickies',
     'PRUNE_SUCCESS'                    => 'Successfully Pruned Forums',
     'TOPICS_PRUNED'                    => 'Topics Pruned',
 ));

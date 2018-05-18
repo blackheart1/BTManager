@@ -53,7 +53,7 @@ $lang = array_merge($lang, array(
 
     'DHT_SUPPORT_EXP'  => 'This Torrent supports DHT.  With a State-of-the-art Client, you\'ll be able to Download this Torrent even if a Central Tracker goes down.',
 
-    'STATS_UPTO_DATE'  => 'Statistics Updated less than 30 minutes ago',
+    'STATS_UPTO_DATE'  => 'Statistics Updated less than 30 Minutes ago.',
     'TORRENT_DETAILS'  => 'Torrent Details',
     'REFRESHPEER_DATA' => 'Refresh Peer Data',
     'BANNED_TORRENT'   => 'Banned Torrent',
@@ -62,10 +62,10 @@ $lang = array_merge($lang, array(
     'EXTERNAL_TORRENT' => 'External Torrent',
 
     #Added For 3.0.1
-    'UPDATED_DONE'     => 'Statistics Updated Less than 30 Minutes ago',
-    'UPDATE_PEERS'     => 'Refresh Peer Data',
     'NUMB_FILES'       => 'Number of Files',
     'DOWNLOAD'         => 'Download',
+    'PAGES'            => 'Pages',
+    'EXPAND_ITEM'      => 'Expand Item',
 ));
 
 ?>

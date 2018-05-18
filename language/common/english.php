@@ -276,7 +276,7 @@ $lang = array_merge($lang, array(
     'FIND_USERNAME'        => 'Find Username',
     'EMAIL'                => 'email',
     'REFRESH_PEERS'        => 'Refresh Peer Data',
-    'PEERS_UPDATE_ALREDY'  => 'Statistics Updated less than 30 Minutes ago',
+    'PEERS_UPDATE_ALREDY'  => 'Statistics Updated less than 30 Minutes ago.',
     'AUTH_PENDING'         => 'Pending Authorisations!',
     'AUTH_PENDING_NONE'    => 'No Pending Authorisations',
     'RATE_A'               => 'Legal Content.  Good Quality',
@@ -768,6 +768,7 @@ $lang = array_merge($lang, array(
     'NUKED_TORRENT'         => 'Nuked Torrent',
     'FEE_TORRENT'           => 'Free Torrent',
     'EXTER_TRACKER'         => 'External Tracker',
+    'STICKY_TORRENT'        => 'Sticky Torrent',
 
     'DHT_EXPL'              => 'This Torrent supports DHT.  With a State-of-the-art Client, you\'ll be able to Download this Torrent even if a Central Tracker goes down.',
 
