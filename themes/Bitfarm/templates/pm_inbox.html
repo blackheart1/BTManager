@@ -2,7 +2,6 @@
 <!-- INCLUDE themes/Bitfarm/templates/pm_left_panel.html -->
 <div id="pagecontent">
 
-
 <div style="padding: 2px;"></div>
 
 <!-- IF S_PM_ICONS -->
@@ -26,7 +25,7 @@
 		<td class="row2"><input class="post" type="text" name="enclosure" value="&#034;" /></td>
 	</tr>
 	<tr>
-		<td colspan="2" align="center"><input type="hidden" name="export_option" value="CSV" /><input class="btnmain" type="submit" name="submit_export" value="{L__EXPORT_FOLDER}" />&nbsp;&nbsp;<input class="btnlite" type="reset" value="Reset" name="reset" /></td>
+		<td colspan="2" align="center"><input type="hidden" name="export_option" value="CSV" /><input class="btnmain" type="submit" name="submit_export" value="{L__EXPORT_FOLDER}" />&nbsp;&nbsp;<input class="btnlite" type="reset" value="{L_RESET}" name="reset" /></td>
 	</tr>
 	</table>
 	{$CA_BLOCK_END}
@@ -71,7 +70,7 @@
 			<!-- ENDIF -->
 
 			<span class="topictitle">
-				{messagerow.ATTACH_ICON_IMG} 
+				{messagerow.ATTACH_ICON_IMG}
 				<!-- IF messagerow.S_PM_DELETED -->
 					{L__MESSAGE_REMOVED_FROM_OUTBOX}<br />
 					<a href="{messagerow.U_REMOVE_PM}" style="float: {S_CONTENT_FLOW_END};">{L__DELETE_MESSAGE}</a>
@@ -92,7 +91,7 @@
 			<td class="row1" colspan="{$COLSPAN}" height="30" align="center" valign="middle"><span class="gen">{L__NO_MESSAGES}</span></td>
 		</tr>
 	<!-- END messagerow -->
-	
+
 <!-- IF .messagerow -->
 <tr>
 	<td colspan="{$COLSPAN}">

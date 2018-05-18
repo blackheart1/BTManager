@@ -42,7 +42,7 @@
 	</tr>
 	<!-- BEGINELSE -->
 		<tr>
-			<td class="row1" colspan="4" align="center"><b class="genmed">{L__NO_SAVED_DRAFTS}</b></td>
+			<td class="row1" colspan="4" align="center"><strong class="genmed">{L__NO_SAVED_DRAFTS}</strong></td>
 		</tr>
 	<!-- END draftrow -->
 
@@ -56,16 +56,16 @@
 	<form action="{S_POST_ACTION}" method="post" name="ucp"{S_FORM_ENCTYPE}>
 	{S_FORM_TOKEN}
 	<tr>
-		<td class="row1" width="22%"><b class="genmed">{L__SUBJECT}:</b></td>
+		<td class="row1" width="22%"><strong class="genmed">{L__SUBJECT}:</strong></td>
 		<td class="row2"><input class="post" style="width:450px" type="text" name="subject" size="45" maxlength="64" tabindex="2" value="{DRAFT_SUBJECT}" /></td>
 	</tr>
-	<tr> 
+	<tr>
 		<td class="row1" width="22%">
-		<b class="genmed">{L__MESSAGE}: </b><br /><span class="gensmall">{L_EDIT_DRAFT_EXPLAIN}</span>
+		<strong class="genmed">{L__MESSAGE}: </strong><br /><span class="gensmall">{L_EDIT_DRAFT_EXPLAIN}</span>
 	<!-- IF S_SMILIES_ALLOWED -->
 		<table width="100%" cellspacing="5" cellpadding="0" border="0" align="center">
 		<tr>
-			<td class="gensmall" align="center"><b>{L__SMILIES}</b></td>
+			<td class="gensmall" align="center"><strong>{L__SMILIES}</strong></td>
 		</tr>
 		<tr>
 			<td align="center">
@@ -86,11 +86,11 @@
 		</td>
 		<td class="row2">
 			<script type="text/javascript">
-				// <![CDATA[		
+				// <![CDATA[
 				var form_name = 'ucp';
 				var text_name = 'message';
 				// ]]>
-			</script>				
+			</script>
 			<table cellspacing="0" cellpadding="2" border="0">
 			<!-- INCLUDE themes/Bitfarm/templates/posting_buttons.html -->
 			<tr>
@@ -110,7 +110,7 @@
 					</tr>
 					</table>
 				</td>
-			</tr>			
+			</tr>
 			</table>
 		</td>
 	</tr>

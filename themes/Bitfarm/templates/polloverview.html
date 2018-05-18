@@ -18,14 +18,14 @@
 		<tr valign="middle">
 			<td class="row3">
 				<div id="nnPolls_Overview_{poll_out.ID}">
-					<p class="sub">{poll_out.ADDED} GMT (&lt; {poll_out.TIME_ELAPS} ago)<!-- IF poll_out.CAN_EDIT --> - [<a href="makepoll.php?action=edit&amp;pollid={poll_out.POLL_ID}"><b>{L_EDIT}</b></a>] - [<a href="?action=delete&amp;pollid={poll_out.POLL_ID}"><b>{L_DELETE}</b></a>]<!-- ENDIF -->
+					<p class="sub">{poll_out.ADDED} GMT (&lt; {poll_out.TIME_ELAPS} ago)<!-- IF poll_out.CAN_EDIT --> - [<a href="makepoll.php?action=edit&amp;pollid={poll_out.POLL_ID}"><strong>{L_EDIT}</strong></a>] - [<a href="?action=delete&amp;pollid={poll_out.POLL_ID}"><strong>{L_DELETE}</strong></a>]<!-- ENDIF -->
 					<a name="4"></a>
 					</p>
 					<table width="100%" class='poll' border="1" cellpadding="2" cellspacing="2">
 						<tbody>
 							<tr class='poll'>
 								<td  class='poll'>
-									<p align="center"><b>{poll_out.POLL_QUESTION}</b></p>
+									<p align="center"><strong>{poll_out.POLL_QUESTION}</strong></p>
 									<table width="100%" class='poll' border="1" cellpadding="2" cellspacing="2">
 										<tbody>
 											<tr class='poll'>
@@ -141,7 +141,7 @@
 		</tr>
 	</tbody>
 </table>
-<br clear="all"/>
+<br clear="all" />
 
 <!-- IF SHOW_POLL -->
 <table>
@@ -232,7 +232,7 @@
 		</tr>
 	</tbody>
 </table>
-<br clear="all"/>
+<br clear="all" />
 
 <table>
 	<tbody>
@@ -265,7 +265,7 @@
 											<td width="85%">
 											<div class="article" id="titleCast">
 											<h2 class="imdb-odd">
-											<span class="itemprop" itemprop="name"><a href="user.php?op=profile&amp;id={users_var.ID}"><font style="background-color: #{users_var.COLOR};">{users_var.NAME}</font></a></span> 
+											<span class="itemprop" itemprop="name"><a href="user.php?op=profile&amp;id={users_var.ID}"><font style="background-color: #{users_var.COLOR};">{users_var.NAME}</font></a></span>
 											</h2>
 											<h4 class="inline">Uploaded:</h4>
 											<span class="itemprop" itemprop="name">{users_var.UPLOADED}</span>
@@ -289,7 +289,7 @@
 		</tr>
 	</tbody>
 </table>
-<br clear="all"/>
+<br clear="all" />
 <!-- ENDIF -->
 <!-- ENDIF -->
 <!-- INCLUDE themes/Bitfarm/templates/over_all_right.html -->

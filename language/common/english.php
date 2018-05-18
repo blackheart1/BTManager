@@ -534,12 +534,23 @@ $lang = array_merge($lang, array(
     'YES'                       => 'Yes',
     'VIEW_RESULTS'              => 'View Results',
     'MOD_OPTIONS'               => 'Moderator Options',
+    'POLLS'                     => 'Polls',
 
     'FREE_LEACH_EXP'            => 'Any Torrents with this Symbol are Ratio Boosters.  Only your Upload is Recorded!!<br />This is a great way to Boost your Ratio. Normal Site Seeding Rules Apply.<br />Seed to 1.0 or 36 hours to avoid Hit and Runs.',
 
     'NO_SAVED_DRAFTS'           => 'No Drafts Saved.',
 
     'NUKED_EXP'                 => 'Any Torrents with this Symbol are Nuked.<br />This means that for some reason someone has determined that there is something wrong with the Release, and it may or may not be viewable.<br />Use your own discretion when Downloading these Torrents.<br />Normal Site Seeding Rules still Apply unless also made Free.  Please Read Details for Reason',
+
+    'LAST_TORRENT' => 'Last Torrents',
+    'BEST_TORRENT' => 'Best Torrents',
+    'FULL_IMG'     => 'Click here to view the full image.',
+    'RESIZE_IMG'   => 'This image has been resized. Click image to view the full image.',
+    'SMALL_IMG'    => 'Click here to view the small image.',
+    'LOGGED_IN_AS' => 'You are Logged in as',
+    'YOUR_ACCOUNT' => 'Your account',
+    'DEVICES'      => 'DEVICE\'s',
+    '_SAVE_DRAFT'               => 'Save Draft',
 
     '_BBCODE_A_HELP'        => 'Inline Uploaded Attachment: [attachment=]filename.ext[/attachment]',
     '_BBCODE_B_HELP'        => 'Bold Text: [b]text[/b]',
@@ -752,9 +763,6 @@ $lang = array_merge($lang, array(
     'BOARD_SETTINGS'        => 'Board Settings',
     'SUBSCRIPTIONS'         => 'Subscriptions',
     'JAVA_CONF_LOGOUT'      => 'Are you sure you want to Logout?',
-    '1_HOUR'                => '1 hour',
-    '30_MINS'               => '30 minutes',
-    '6_HOURS'               => '6 hours',
 
     #Template Related
     'NUKED_TORRENT'         => 'Nuked Torrent',

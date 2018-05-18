@@ -9,7 +9,7 @@
           hide(id);
         }
       }
-	  
+
 	function layerQR(id) {
 	  if ( document.getElementById(id).style.display == 'block' ) {
           hide(id);
@@ -17,8 +17,6 @@
           show(id);
         }
       }
-
-
 
 function popup(url, width, height, name)
 {
@@ -33,7 +31,7 @@ function popup(url, width, height, name)
 
 function jumpto()
 {
-	var page = prompt('Enter the page number you wish to go to:', '');
+	var page = prompt('{L_JUMP_PAGE}', '');
 	var per_page = '';
 	var base_url = '';
 
@@ -77,7 +75,7 @@ function marklist(id, name, state)
 	}
 
 	var rb = parent.getElementsByTagName('input');
-	
+
 	for (var r = 0; r < rb.length; r++)
 	{
 		if (rb[r].name.substr(0, name.length) == name)
@@ -86,8 +84,6 @@ function marklist(id, name, state)
 		}
 	}
 }
-
-
 
 function selectCode(a)
 {
@@ -150,15 +146,15 @@ function selectCode(a)
 	{$CA_CAP_START}{L__PM_TO}{$CA_CAP_END}
 	<!-- IF not S_ALLOW_MASS_PM -->
 	<tr>
-		<td class="row1"><b class="genmed">{L__USERNAME}:</b><br />[ <a href="{U_FIND_USERNAME}" onclick="find_username(this.href); return false;">{L__FIND_USERNAME}</a> ]</td>
+		<td class="row1"><strong class="genmed">{L__USERNAME}:</strong><br />[ <a href="{U_FIND_USERNAME}" onclick="find_username(this.href); return false;">{L__FIND_USERNAME}</a> ]</td>
 	</tr>
-	
+
 	<tr>
 		<td class="row2"><textarea name="username_list" rows="5" cols="22"></textarea>&nbsp;<input class="post" type="submit" name="add_to" value="{L__ADD}" /></td>
 	</tr>
 	<!-- ELSE -->
 		<tr>
-			<td class="row1"><b class="genmed">{L__USERNAMES}:</b></td>
+			<td class="row1"><strong class="genmed">{L__USERNAMES}:</strong></td>
 		</tr>
 		<tr>
 			<td class="row2"><textarea name="username_list" rows="5" cols="22"></textarea><br />
@@ -168,7 +164,7 @@ function selectCode(a)
 	<!-- ENDIF -->
 	<!-- IF S_GROUP_OPTIONS -->
 		<tr>
-			<td class="row1"><b class="genmed">{L__USERGROUPS}:</b></td>
+			<td class="row1"><strong class="genmed">{L__USERGROUPS}:</strong></td>
 		</tr>
 		<tr>
 			<td class="row2"><select name="group_user_list[]" multiple="true" size="5" style="width:150px">{S_GROUP_OPTIONS}</select></td>
@@ -197,18 +193,18 @@ function selectCode(a)
 <td  class="row3">
 			<ul class="nav" style="margin: 0; padding: 0; list-style-type: none; line-height: 175%;">
 			<!-- BEGIN folder -->
-							<li>&#187; <!-- IF MODE != folder --><a href="{PMBT_LINK_BACK}op=folder&amp;i={folder.FOLDER_ID}"><!-- IF folder.UNREAD_MESSAGES > 0 --><b>{folder.FOLDER_NAME} ({folder.UNREAD_MESSAGES})</b><!-- ELSE -->{folder.FOLDER_NAME}<!-- ENDIF --></a><!-- ELSE --><!-- IF folder.UNREAD_MESSAGES > 0 --><b>{folder.FOLDER_NAME} ({folder.UNREAD_MESSAGES})</b><!-- ELSE -->{folder.FOLDER_NAME}<!-- ENDIF --><!-- ENDIF --></li>
+							<li>&#187; <!-- IF MODE != folder --><a href="{PMBT_LINK_BACK}op=folder&amp;i={folder.FOLDER_ID}"><!-- IF folder.UNREAD_MESSAGES > 0 --><strong>{folder.FOLDER_NAME} ({folder.UNREAD_MESSAGES})</strong><!-- ELSE -->{folder.FOLDER_NAME}<!-- ENDIF --></a><!-- ELSE --><!-- IF folder.UNREAD_MESSAGES > 0 --><strong>{folder.FOLDER_NAME} ({folder.UNREAD_MESSAGES})</strong><!-- ELSE -->{folder.FOLDER_NAME}<!-- ENDIF --><!-- ENDIF --></li>
 			<!-- END folder -->
-							<li>&#187; <!-- IF MODE != send --><a href="{PMBT_LINK_BACK}op=send">{L_UCP_PM_COMPOSE}</a><!-- ELSE --><b>{L_UCP_PM_COMPOSE}</b><!-- ENDIF --></li>
-							<li>&#187; <!-- IF MODE != drafts --><a href="{PMBT_LINK_BACK}op=drafts">{L_UCP_PM_DRAFTS}</a><!-- ELSE --><b>{L_UCP_PM_DRAFTS}</b><!-- ENDIF --></li>
-							<li>&#187; <!-- IF MODE != options --><a href="{PMBT_LINK_BACK}op=options">{L_FOLDER_OPTIONS}</a><!-- ELSE --><b>{L_FOLDER_OPTIONS}</b><!-- ENDIF --></li>
+							<li>&#187; <!-- IF MODE != send --><a href="{PMBT_LINK_BACK}op=send">{L_UCP_PM_COMPOSE}</a><!-- ELSE --><strong>{L_UCP_PM_COMPOSE}</strong><!-- ENDIF --></li>
+							<li>&#187; <!-- IF MODE != drafts --><a href="{PMBT_LINK_BACK}op=drafts">{L_UCP_PM_DRAFTS}</a><!-- ELSE --><strong>{L_UCP_PM_DRAFTS}</strong><!-- ENDIF --></li>
+							<li>&#187; <!-- IF MODE != options --><a href="{PMBT_LINK_BACK}op=options">{L_FOLDER_OPTIONS}</a><!-- ELSE --><strong>{L_FOLDER_OPTIONS}</strong><!-- ENDIF --></li>
 
 
 						</ul>
 				</td>
 	</tr>
 </table>
-<br clear="all" >
+<br clear="all" />
 
 
 <table class="tablebg" width="100%" cellspacing="0">
@@ -223,8 +219,7 @@ Friends
 </td></tr><tr valign="middle">
 <td  class="row3" align="center">
 
-		
-			<b class="genmed" style="color:green">{L_ON_LINE}</b>
+			<strong class="genmed" style="color:green">{L_ON_LINE}</strong>
 
 			<ul class="nav" style="margin: 0; padding: 0; list-style-type: none; line-height: 175%;">
 			<!-- BEGIN friends_online -->
@@ -237,7 +232,7 @@ Friends
 
 			<hr />
 
-			<b class="genmed error">{L_OFF_LINE}</b>
+			<strong class="genmed error">{L_OFF_LINE}</strong>
 
 			<ul class="nav" style="margin: 0; padding: 0; list-style-type: none; line-height: 175%;">
 
@@ -252,7 +247,7 @@ Friends
 		</td>
 	</tr>
 	</table>
-	<br clear="all" >
+	<br clear="all" />
 
 <!-- IF S_SHOW_COLOUR_LEGEND -->
     {$CA_BLOCK_START}
@@ -271,7 +266,7 @@ Friends
 	</table>
 	{$CA_BLOCK_END}
 
-<br clear="all" >
+<br clear="all" />
 <!-- ENDIF -->
 </td>
 <td><img src="images/spacer.gif" width="4" alt="" /></td>
