@@ -105,7 +105,7 @@ if($force_passkey){
 				$passkey = NULL;
 				}
 $act_key = RandomAlpha(32);
-if($conferm_email)$sql = "INSERT INTO ".$db_prefix."_users (username, clean_username, email, password, act_key, can_do, uploaded, regdate, user_type" . $passkeyrow . ") VALUES ('".$db->sql_escape($username)."', '".$db->sql_escape($username_clean)."', '".$db->sql_escape($email)."', '".md5($password)."', '".$act_key."', " . $default_group[0] . ", '".$give_sign_up_credit."', NOW(), 0 " . $passkey .");";
+if($conferm_email)$sql = "INSERT INTO ".$db_prefix."_users (username, clean_username, email, password, act_key, can_do, uploaded, regdate, user_type" . $passkeyrow . ") VALUES ('".$db->sql_escape($username)."', '".$db->sql_escape($username_clean)."', '".$db->sql_escape($email)."', '".md5($password)."', '".$act_key."', " . $default_group[0] . ", '".$give_sign_up_credit."', NOW(), 1 " . $passkey .");";
 else
 $sql = "INSERT INTO ".$db_prefix."_users (username, clean_username, email, password, act_key, can_do, uploaded, regdate, user_type" . $passkeyrow . ", active) VALUES ('".$db->sql_escape($username)."', '".$db->sql_escape($username_clean)."', '".$db->sql_escape($email)."', '".md5($password)."', '".$act_key."', " . $default_group[0] . ", '".$give_sign_up_credit."', NOW(), 0" . $passkey .", 1);";
 $db->sql_query($sql) or btsqlerror($sql);

@@ -115,8 +115,13 @@ if(!defined("SQL_LAYER"))
 							$modes[] = 'STRICT_TRANS_TABLES';
 						}
 					}
+					$moded = array();
+					foreach($modes as $var)
+					{
+						if($var != 'ONLY_FULL_GROUP_BY')$moded[] = $var;
+					}
 	
-					$mode = implode(',', $modes);
+					$mode = implode(',', $moded);
 					@mysqli_query($this->db_connect_id, "SET SESSION sql_mode='{$mode}'");
 				}
 				return $this->db_connect_id;
