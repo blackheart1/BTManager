@@ -16,46 +16,46 @@
 </div>
 </td></tr><tr valign="middle">
 
-<!-- IF ACTION != overview --><td class="row2" onmouseover="this.className='row1'" onmouseout="this.className='row2'" onclick="location.href=this.firstChild.href;" nowrap="nowrap"><a class="nav" href="{PMBT_LINK_BACK}action=overview&amp;mode=front">{L_OVERVIEW}</a><!-- ELSE --><td class="row1"><b class="nav">{L_OVERVIEW}</b><!-- ENDIF -->
+<!-- IF ACTION != overview --><td class="row2" onmouseover="this.className='row1'" onmouseout="this.className='row2'" onclick="location.href=this.firstChild.href;" nowrap="nowrap"><a class="nav" href="{PMBT_LINK_BACK}action=overview&amp;mode=front">{L_OVERVIEW}</a><!-- ELSE --><td class="row1"><strong class="nav">{L_OVERVIEW}</strong><!-- ENDIF -->
 <!-- IF ACTION == overview -->
             <ul class="nav" style="margin: 0; padding: 0; list-style-type: none; line-height: 175%;">
-                            <li>&#187; <!-- IF MODE != front --><a href="{PMBT_LINK_BACK}action=overview&amp;mode=front">{L_FRONT_PAGE}</a><!-- ELSE --><b>{L_FRONT_PAGE}</b><!-- ENDIF --></li>
-                            <li>&#187; <!-- IF MODE != subscribed --><a href="{PMBT_LINK_BACK}action=overview&amp;mode=subscribed">{L_MANAGE_SUBS}</a><!-- ELSE --><b>{L_MANAGE_SUBS}</b><!-- ENDIF --></li>
-                            <li>&#187; <!-- IF MODE != drafts --><a href="{PMBT_LINK_BACK}action=overview&amp;mode=drafts">{L_MANAGE_DRAFTS}</a><!-- ELSE --><b>{L_MANAGE_DRAFTS}</b><!-- ENDIF --></li>
-                            <li>&#187; <!-- IF MODE != attachments --><a href="{PMBT_LINK_BACK}action=overview&amp;mode=attachments">{L_MANAGE_ATTACHMENTS}</a><!-- ELSE --><b>{L_MANAGE_ATTACHMENTS}</b><!-- ENDIF --></li>
+                            <li>&#187; <!-- IF MODE != front --><a href="{PMBT_LINK_BACK}action=overview&amp;mode=front">{L_FRONT_PAGE}</a><!-- ELSE --><strong>{L_FRONT_PAGE}</strong><!-- ENDIF --></li>
+                            <li>&#187; <!-- IF MODE != subscribed --><a href="{PMBT_LINK_BACK}action=overview&amp;mode=subscribed">{L_MANAGE_SUBS}</a><!-- ELSE --><strong>{L_MANAGE_SUBS}</strong><!-- ENDIF --></li>
+                            <li>&#187; <!-- IF MODE != drafts --><a href="{PMBT_LINK_BACK}action=overview&amp;mode=drafts">{L_MANAGE_DRAFTS}</a><!-- ELSE --><strong>{L_MANAGE_DRAFTS}</strong><!-- ENDIF --></li>
+                            <li>&#187; <!-- IF MODE != attachments --><a href="{PMBT_LINK_BACK}action=overview&amp;mode=attachments">{L_MANAGE_ATTACHMENTS}</a><!-- ELSE --><strong>{L_MANAGE_ATTACHMENTS}</strong><!-- ENDIF --></li>
                         </ul>
 <!-- ENDIF -->
                 </td>
     </tr>
     <tr>
-                    <!-- IF ACTION != profile --><td class="row2" nowrap="nowrap" onmouseover="this.className='row1'" onmouseout="this.className='row2'" onclick="location.href=this.firstChild.href;"><a class="nav" href="{PMBT_LINK_BACK}action=profile&mode=profile_info">{L_PROFILE}</a><!-- ELSE --><td class="row1"><b class="nav">{L_PROFILE}</b><!-- ENDIF -->
+                    <!-- IF ACTION != profile --><td class="row2" nowrap="nowrap" onmouseover="this.className='row1'" onmouseout="this.className='row2'" onclick="location.href=this.firstChild.href;"><a class="nav" href="{PMBT_LINK_BACK}action=profile&mode=profile_info">{L_PROFILE}</a><!-- ELSE --><td class="row1"><strong class="nav">{L_PROFILE}</strong><!-- ENDIF -->
 <!-- IF ACTION == profile -->
         <ul class="nav" style="margin: 0pt; padding: 0pt; list-style-type: none; line-height: 175%;">
-                            <!-- IF MODE != profile_info --><li>&#187; <a href="{PMBT_LINK_BACK}action=profile&mode=profile_info">{L_EDIT_PROFILE}</a></li><!-- ELSE --><li>&#187; <b>{L_EDIT_PROFILE}</b></li><!-- ENDIF -->
-                            <!-- IF MODE != signature --><li>&#187; <a href="{PMBT_LINK_BACK}action=profile&mode=signature">{L_EDIT_SIGNATURE}</a></li><!-- ELSE --><li>&#187; <b>{L_EDIT_SIGNATURE}</b></li><!-- ENDIF -->
-                            <!-- IF MODE != avatar --><li>&#187; <a href="{PMBT_LINK_BACK}action=profile&mode=avatar">{L_EDIT_AVATAR}</a></li><!-- ELSE --><li>&#187; <b>{L_EDIT_AVATAR}</b></li><!-- ENDIF -->
-                            <!-- IF MODE != reg_details --><li>&#187; <a href="{PMBT_LINK_BACK}action=profile&mode=reg_details">{L_EDIT_SETTINGS}</a></li><!-- ELSE --><li>&#187; <b>{L_EDIT_SETTINGS}</b></li><!-- ENDIF -->
-                            <!-- IF S_MOD_MODE --><!-- IF MODE != admin_reg_details --><li>&#187; <a href="{PMBT_LINK_BACK}action=profile&mode=admin_reg_details">{L_EDIT_ADMIN_SETTINGS}</a></li><!-- ELSE --><li>&#187; <b>{L_EDIT_ADMIN_SETTINGS}</b></li><!-- ENDIF --><!-- ENDIF -->
+                            <!-- IF MODE != profile_info --><li>&#187; <a href="{PMBT_LINK_BACK}action=profile&mode=profile_info">{L_EDIT_PROFILE}</a></li><!-- ELSE --><li>&#187; <strong>{L_EDIT_PROFILE}</strong></li><!-- ENDIF -->
+                            <!-- IF MODE != signature --><li>&#187; <a href="{PMBT_LINK_BACK}action=profile&mode=signature">{L_EDIT_SIGNATURE}</a></li><!-- ELSE --><li>&#187; <strong>{L_EDIT_SIGNATURE}</strong></li><!-- ENDIF -->
+                            <!-- IF MODE != avatar --><li>&#187; <a href="{PMBT_LINK_BACK}action=profile&mode=avatar">{L_EDIT_AVATAR}</a></li><!-- ELSE --><li>&#187; <strong>{L_EDIT_AVATAR}</strong></li><!-- ENDIF -->
+                            <!-- IF MODE != reg_details --><li>&#187; <a href="{PMBT_LINK_BACK}action=profile&mode=reg_details">{L_EDIT_SETTINGS}</a></li><!-- ELSE --><li>&#187; <strong>{L_EDIT_SETTINGS}</strong></li><!-- ENDIF -->
+                            <!-- IF S_MOD_MODE --><!-- IF MODE != admin_reg_details --><li>&#187; <a href="{PMBT_LINK_BACK}action=profile&mode=admin_reg_details">{L_EDIT_ADMIN_SETTINGS}</a></li><!-- ELSE --><li>&#187; <strong>{L_EDIT_ADMIN_SETTINGS}</strong></li><!-- ENDIF --><!-- ENDIF -->
                         </ul>
 <!-- ENDIF -->
                 </td>
 
     </tr>
     <tr>
-                    <!-- IF ACTION == preferences --><td class="row1"><b class="nav">{L_BOARD_PREFS}</b><!-- ELSE --><td class="row2" nowrap="nowrap" onmouseover="this.className='row1'" onmouseout="this.className='row2'" onclick="location.href=this.firstChild.href;"><a class="nav" href="{PMBT_LINK_BACK}action=preferences&mode=personal">{L_BOARD_PREFS}</a><!-- ENDIF -->
+                    <!-- IF ACTION == preferences --><td class="row1"><strong class="nav">{L_BOARD_PREFS}</strong><!-- ELSE --><td class="row2" nowrap="nowrap" onmouseover="this.className='row1'" onmouseout="this.className='row2'" onclick="location.href=this.firstChild.href;"><a class="nav" href="{PMBT_LINK_BACK}action=preferences&mode=personal">{L_BOARD_PREFS}</a><!-- ENDIF -->
 <!-- IF ACTION == preferences -->
             <ul class="nav" style="margin: 0pt; padding: 0pt; list-style-type: none; line-height: 175%;">
-                            <li>&#187; <!-- IF MODE != personal --><a href="{PMBT_LINK_BACK}action=preferences&mode=personal">{L_EDIT_GLOBAL_SETTINGS}</a><!-- ELSE --><b>{L_EDIT_GLOBAL_SETTINGS}</b><!-- ENDIF --></li>
+                            <li>&#187; <!-- IF MODE != personal --><a href="{PMBT_LINK_BACK}action=preferences&mode=personal">{L_EDIT_GLOBAL_SETTINGS}</a><!-- ELSE --><strong>{L_EDIT_GLOBAL_SETTINGS}</strong><!-- ENDIF --></li>
                         </ul>
 <!-- ENDIF -->
                 </td>
     </tr>
     <tr>
-                    <!-- IF ACTION == friends --><td class="row1"><b class="nav">{L_FRIEND_FOE}</b><!-- ELSE --><td class="row2" nowrap="nowrap" onmouseover="this.className='row1'" onmouseout="this.className='row2'" onclick="location.href=this.firstChild.href;"><a class="nav" href="{PMBT_LINK_BACK}action=friends&mode=friends">{L_FRIEND_FOE}</a><!-- ENDIF -->
+                    <!-- IF ACTION == friends --><td class="row1"><strong class="nav">{L_FRIEND_FOE}</strong><!-- ELSE --><td class="row2" nowrap="nowrap" onmouseover="this.className='row1'" onmouseout="this.className='row2'" onclick="location.href=this.firstChild.href;"><a class="nav" href="{PMBT_LINK_BACK}action=friends&mode=friends">{L_FRIEND_FOE}</a><!-- ENDIF -->
 <!-- IF ACTION == friends -->
             <ul class="nav" style="margin: 0pt; padding: 0pt; list-style-type: none; line-height: 175%;">
-                            <li>&#187; <!-- IF MODE != friends --><a href="{PMBT_LINK_BACK}action=friends&amp;mode=friends">{L_MANAGE_FRIENDS}</a><!-- ELSE --><b>{L_MANAGE_FRIENDS}</b><!-- ENDIF --></li>
-                            <li>&#187; <!-- IF MODE != foes --><a href="{PMBT_LINK_BACK}action=friends&amp;mode=foes">{L_MANAGE_FOES}</a><!-- ELSE --><b>{L_MANAGE_FOES}</b><!-- ENDIF --></li>
+                            <li>&#187; <!-- IF MODE != friends --><a href="{PMBT_LINK_BACK}action=friends&amp;mode=friends">{L_MANAGE_FRIENDS}</a><!-- ELSE --><strong>{L_MANAGE_FRIENDS}</strong><!-- ENDIF --></li>
+                            <li>&#187; <!-- IF MODE != foes --><a href="{PMBT_LINK_BACK}action=friends&amp;mode=foes">{L_MANAGE_FOES}</a><!-- ELSE --><strong>{L_MANAGE_FOES}</strong><!-- ENDIF --></li>
 
                         </ul>
 <!-- ENDIF -->
@@ -63,7 +63,7 @@
                 </td>
     </tr>
 </table>
-<br clear="all" >
+<br clear="all" />
 
 <div style="padding: 2px;"></div>
 
@@ -79,7 +79,7 @@
 </td></tr><tr valign="middle">
         <td class="row1" align="center">
 
-            <b class="genmed" style="color:green">{L_ON_LINE}</b>
+            <strong class="genmed" style="color:green">{L_ON_LINE}</strong>
 
             <ul class="nav" style="margin: 0; padding: 0; list-style-type: none; line-height: 175%;">
             <!-- BEGIN friends_online -->
@@ -92,7 +92,7 @@
 
             <hr />
 
-            <b class="genmed error">{L_OFF_LINE}</b>
+            <strong class="genmed error">{L_OFF_LINE}</strong>
 
             <ul class="nav" style="margin: 0; padding: 0; list-style-type: none; line-height: 175%;">
 
@@ -181,21 +181,29 @@
         <script type="text/javascript" src="{T_TEMPLATE_PATH}/editor.js"></script>
 
         <input type="button" class="btnbbcode" accesskey="b" name="addbbcode0" value=" B " style="font-weight:bold; width: 30px;" onclick="bbstyle(0)" onmouseover="helpline('b')" onmouseout="helpline('tip')" />
-        <input type="button" class="btnbbcode" accesskey="i" name="addbbcode2" value=" i " style="font-style:italic; width: 30px;" onclick="bbstyle(2)" onmouseover="helpline('i')" onmouseout="helpline('tip')" />
-        <input type="button" class="btnbbcode" accesskey="u" name="addbbcode4" value=" u " style="text-decoration: underline; width: 30px;" onclick="bbstyle(4)" onmouseover="helpline('u')" onmouseout="helpline('tip')" />
-                <input type="button" class="btnbbcode" accesskey="c" name="addbbcode8" value="Code" style="width: 40px" onclick="bbstyle(8)" onmouseover="helpline('c')" onmouseout="helpline('tip')" />
-        <input type="button" class="btnbbcode" accesskey="l" name="addbbcode10" value="List" style="width: 40px" onclick="bbstyle(10)" onmouseover="helpline('l')" onmouseout="helpline('tip')" />
-        <input type="button" class="btnbbcode" accesskey="o" name="addbbcode12" value="List=" style="width: 40px" onclick="bbstyle(12)" onmouseover="helpline('o')" onmouseout="helpline('tip')" />
-        <input type="button" class="btnbbcode" accesskey="t" name="addlitsitem" value="[*]" style="width: 40px" onclick="bbstyle(-1)" onmouseover="helpline('e')" onmouseout="helpline('tip')" />
-                    <input type="button" class="btnbbcode" accesskey="p" name="addbbcode14" value="Img" style="width: 40px" onclick="bbstyle(14)" onmouseover="helpline('p')" onmouseout="helpline('tip')" />
 
-                    <input type="button" class="btnbbcode" accesskey="w" name="addbbcode16" value="URL" style="text-decoration: underline; width: 40px" onclick="bbstyle(16)" onmouseover="helpline('w')" onmouseout="helpline('tip')" />
-                <span class="genmed nowrap">{L__FONT_SIZE}: <select class="gensmall" name="addbbcode20" onchange="bbfontstyle('[size=' + this.form.addbbcode20.options[this.form.addbbcode20.selectedIndex].value + ']', '[/size]');this.form.addbbcode20.selectedIndex = 2;" onmouseover="helpline('f')" onmouseout="helpline('tip')">
-                        <option value="50">{L__FONT_TINY}</option>
-                        <option value="85">{L__FONT_SMALL}</option>
-                        <option value="100" selected="selected">{L__FONT_NORMAL}</option>
-                        <option value="150">{L__FONT_LARGE}</option>
-                        <option value="200">{L__FONT_HUGE}</option>
+        <input type="button" class="btnbbcode" accesskey="i" name="addbbcode2" value=" i " style="font-style:italic; width: 30px;" onclick="bbstyle(2)" onmouseover="helpline('i')" onmouseout="helpline('tip')" />
+
+        <input type="button" class="btnbbcode" accesskey="u" name="addbbcode4" value=" u " style="text-decoration: underline; width: 30px;" onclick="bbstyle(4)" onmouseover="helpline('u')" onmouseout="helpline('tip')" />
+
+        <input type="button" class="btnbbcode" accesskey="c" name="addbbcode8" value="Code" style="width: 40px" onclick="bbstyle(8)" onmouseover="helpline('c')" onmouseout="helpline('tip')" />
+
+        <input type="button" class="btnbbcode" accesskey="l" name="addbbcode10" value="List" style="width: 40px" onclick="bbstyle(10)" onmouseover="helpline('l')" onmouseout="helpline('tip')" />
+
+        <input type="button" class="btnbbcode" accesskey="o" name="addbbcode12" value="List=" style="width: 40px" onclick="bbstyle(12)" onmouseover="helpline('o')" onmouseout="helpline('tip')" />
+
+        <input type="button" class="btnbbcode" accesskey="t" name="addlitsitem" value="[*]" style="width: 40px" onclick="bbstyle(-1)" onmouseover="helpline('e')" onmouseout="helpline('tip')" />
+
+        <input type="button" class="btnbbcode" accesskey="p" name="addbbcode14" value="Img" style="width: 40px" onclick="bbstyle(14)" onmouseover="helpline('p')" onmouseout="helpline('tip')" />
+
+        <input type="button" class="btnbbcode" accesskey="w" name="addbbcode16" value="URL" style="text-decoration: underline; width: 40px" onclick="bbstyle(16)" onmouseover="helpline('w')" onmouseout="helpline('tip')" />
+
+        <span class="genmed nowrap">{L__FONT_SIZE}: <select class="gensmall" name="addbbcode20" onchange="bbfontstyle('[size=' + this.form.addbbcode20.options[this.form.addbbcode20.selectedIndex].value + ']', '[/size]');this.form.addbbcode20.selectedIndex = 2;" onmouseover="helpline('f')" onmouseout="helpline('tip')">
+            <option value="50">{L__FONT_TINY}</option>
+            <option value="85">{L__FONT_SMALL}</option>
+            <option value="100" selected="selected">{L__FONT_NORMAL}</option>
+            <option value="150">{L__FONT_LARGE}</option>
+            <option value="200">{L__FONT_HUGE}</option>
         </select></span>
     </td>
 </tr>
@@ -232,12 +240,17 @@
         <th colspan="2" valign="middle">{L_SIGNATURE_PREVIEW}</th>
     </tr>
     <tr>
-        <td class="row1" colspan="2"><div class="postbody" style="padding: 6px;">{SIGNATURE_PREVIEW}</div></td>
+        <td class="row1" colspan="2">
+            <div class="postbody" style="padding: 6px;">{SIGNATURE_PREVIEW}</div>
+        </td>
     </tr>
 <!-- ENDIF -->
 
 <tr>
-    <td colspan="2" align="center"><input class="btnlite" type="submit" name="preview" value="{L_PREVIEW}" />&nbsp;&nbsp;<input class="btnmain" type="submit" name="submit" value="{L_SUBMIT}" />&nbsp;&nbsp;<input class="btnlite" type="reset" value="{L_RESET}" name="reset" /></td>
+    <td colspan="2" align="center">
+        <input class="btnlite" type="submit" name="preview" value="{L_PREVIEW}" />&nbsp;&nbsp;
+        <input class="btnmain" type="submit" name="submit" value="{L_SUBMIT}" />&nbsp;&nbsp;<input class="btnlite" type="reset" value="{L_RESET}" name="reset" />
+    </td>
 
 </tr>
 </table>
@@ -250,30 +263,49 @@
 <input type="hidden" name="mode" value="avatar" />
 <table class="tablebg" width="100%" cellspacing="0">
 
-<td class="row1" width="35%"><b class="genmed">Current image: </b><br /><span class="gensmall">{_AVATAR_EXPLAIN}.</span></td>
+<td class="row1" width="35%">
+    <strong class="genmed">{L_CURRENT_IMAGE}: </strong><br />
+    <span class="gensmall">{_AVATAR_EXPLAIN}.</span>
+</td>
 
     <td class="row2" align="center"><br />
-        {CP_UAVATAR}<br /><br /><input type="checkbox" class="radio" name="delete" />&nbsp;<span class="gensmall">{L_DELETE_AVATAR}</span>
-        </td>
+        {CP_UAVATAR}<br /><br />
+        <input type="checkbox" class="radio" name="delete" />&nbsp;
+        <span class="gensmall">{L_DELETE_AVATAR}</span>
+    </td>
 </tr>
 <!-- IF ALLOW_AVATAR  -->
 <!-- IF ALLOW_AVATAR_UPLOAD  -->
     <tr>
-        <td class="row1" width="35%"><b class="genmed">{L_UPLOAD_LOCAL_AVATAR}: </b><br />{L_UPLOAD_LOCAL_AVATAR_EXP}</td>
-        <td class="row2"><input class="post" type="file" name="avupload" /></td>
+        <td class="row1" width="35%">
+            <strong class="genmed">{L_UPLOAD_LOCAL_AVATAR}: </strong><br />{L_UPLOAD_LOCAL_AVATAR_EXP}
+        </td>
+        <td class="row2">
+            <input class="post" type="file" name="avupload" />
+        </td>
     </tr>
 <!-- ENDIF -->
 <!-- IF ALLOW_REMOTE_UPLOAD  -->
     <tr>
-        <td class="row1" width="35%"><b class="genmed">{L_UPLOAD_EXT_AVATAR}: </b><br /><span class="gensmall">{L_UPLOAD_EXT_AVATAR_EXP}</span></td>
+        <td class="row1" width="35%">
+            <strong class="genmed">{L_UPLOAD_EXT_AVATAR}: </strong><br />
+            <span class="gensmall">{L_UPLOAD_EXT_AVATAR_EXP}</span>
+        </td>
 
-        <td class="row2"><input class="post" type="text" name="uploadurl" size="40" value="" /></td>
+        <td class="row2">
+            <input class="post" type="text" name="uploadurl" size="40" value="" />
+        </td>
     </tr>
 <!-- ENDIF -->
 <!-- IF ALLOW_AVATAR_LINK  -->
     <tr>
-        <td class="row1" width="35%"><b class="genmed">{L_LINK_EXT_AVATAR}: </b><br /><span class="gensmall">{L_LINK_EXT_AVATAR_EXP}</span></td>
-        <td class="row2"><input class="post" type="text" name="remotelink" size="40" value="" /></td>
+        <td class="row1" width="35%">
+            <strong class="genmed">{L_LINK_EXT_AVATAR}: </strong><br />
+            <span class="gensmall">{L_LINK_EXT_AVATAR_EXP}</span>
+        </td>
+        <td class="row2">
+            <input class="post" type="text" name="remotelink" size="40" value="" />
+        </td>
     </tr>
 <!-- ENDIF -->
 <script language="JavaScript" type="text/JavaScript">
@@ -282,17 +314,35 @@ function ChangeThumb(pic) {
 }
 </script>
     <tr>
-        <td class="row1" width="35%"><b class="genmed">{L_LINK_REMOTE_SIZE}: </b><br /><span class="gensmall">{L_LINK_REMOTE_SIZE_EXPLAIN}</span></td>
+        <td class="row1" width="35%">
+            <strong class="genmed">{L_LINK_REMOTE_SIZE}: </strong><br />
+            <span class="gensmall">{L_LINK_REMOTE_SIZE_EXPLAIN}</span>
+        </td>
 
-        <td class="row2"><input class="post" type="text" name="width" size="3" value="{AVATAR_SETWT}" /> <span class="gen">{L_PIXEL} X </span> <input class="post" type="text" name="height" size="3" value="{AVATAR_SETHT}" /> <span class="gen">{L_PIXEL}</span></td>
+        <td class="row2">
+            <input class="post" type="text" name="width" size="3" value="{AVATAR_SETWT}" />
+            <span class="gen">{L_PIXEL} X </span>
+
+            <input class="post" type="text" name="height" size="3" value="{AVATAR_SETHT}" />
+            <span class="gen">{L_PIXEL}</span>
+        </td>
     </tr>
     <tr>
-        <td class="row1" width="35%"><b class="genmed">{L_AVATAR_GALLERY}: </b></td>
-        <td class="row2"><img src="avatars/blank.gif" name="Thumb" class="image" /><br><select name="avgallery" onChange="if(this.options[this.selectedIndex].value != 'none') ChangeThumb(this.options[this.selectedIndex].value);" onKeyUp="if(this.options[this.selectedIndex].value != 'none') ChangeThumb(this.options[this.selectedIndex].value);">{AVATAR_MAXSZ_SEL}</select></td>
+        <td class="row1" width="35%">
+            <strong class="genmed">{L_AVATAR_GALLERY}: </strong>
+        </td>
+        <td class="row2">
+            <img src="avatars/blank.gif" name="Thumb" class="image" /><br />
+
+            <select name="avgallery" onChange="if(this.options[this.selectedIndex].value != 'none') ChangeThumb(this.options[this.selectedIndex].value);" onKeyUp="if(this.options[this.selectedIndex].value != 'none') ChangeThumb(this.options[this.selectedIndex].value);">{AVATAR_MAXSZ_SEL}</select>
+        </td>
     </tr>
 
     <tr>
-        <td colspan="2" align="center"><input class="btnmain" type="submit" name="submit" value="{L_SUBMIT}" />&nbsp;&nbsp;<input class="btnlite" type="reset" value="{L_RESET}" name="reset" /></td>
+        <td colspan="2" align="center">
+            <input class="btnmain" type="submit" name="submit" value="{L_SUBMIT}" />&nbsp;&nbsp;
+            <input class="btnlite" type="reset" value="{L_RESET}" name="reset" />
+        </td>
     </tr>
 <tr>
 <!-- ENDIF -->
@@ -304,33 +354,33 @@ function ChangeThumb(pic) {
 <table class="tablebg" width="100%" cellspacing="0">
 
 <tr>
-    <td class="row1" width="35%"><b class="genmed">{L_MOD_COMMENTS}: </b></td>
+    <td class="row1" width="35%"><strong class="genmed">{L_MOD_COMMENTS}: </strong></td>
     <td class="row2"><textarea name="modcomment" rows="8" cols="60">{CP_MOD_COMENTS}</textarea></td>
 </tr>
 <tr>
-    <td class="row1" width="35%"><b class="genmed">{L_GROUP}: </b></td>
+    <td class="row1" width="35%"><strong class="genmed">{L_GROUP}: </strong></td>
     <td class="row2"><select name="group">{A_GROUP}</select></td>
 </tr>
 <tr>
-    <td class="row1" width="35%"><b class="genmed">{L_ACC_LEVEL}: </b></td>
+    <td class="row1" width="35%"><strong class="genmed">{L_ACC_LEVEL}: </strong></td>
     <td class="row2">{A_LEVEL}</td>
 </tr>
 <tr>
-    <td class="row1" width="35%"><b class="genmed">{L_WARNNED}: </b></td>
+    <td class="row1" width="35%"><strong class="genmed">{L_WARNNED}: </strong></td>
     <td class="row2"><!-- IF U_IS_WARNED -->
-    {L_YES}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{L_WARNED_TILL} {U_WARNED_TELL}<br><b>{L_DELETE_WARNING}&nbsp;<b><input name=warned value=no type=checkbox>
+    {L_YES}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{L_WARNED_TILL} {U_WARNED_TELL}<br /><strong>{L_DELETE_WARNING}&nbsp;<strong><input name="warned" value="no" type="checkbox">
     <!-- ELSE -->
    {L_NO}
-    <br>{L_WARN_USER_FOR} <select name=warnlength>
-    <option value=0>------</option>
-    <option value=604800>{L_ONE_WEEK}</option>
-    <option value=1209600>{L_TWO_WEEK}</option>
-    <option value=2419200>{L_FOUR_WEEK}</option>
-    <option value=4838400>{L_EIGHT_WEEK}</option>
-    <option value=-1>{L_NO_LIMET}</option>
+    <br />{L_WARN_USER_FOR} <select name=warnlength>
+    <option value="0">------</option>
+    <option value="604800">{L_ONE_WEEK}</option>
+    <option value="1209600">{L_TWO_WEEK}</option>
+    <option value="2419200">{L_FOUR_WEEK}</option>
+    <option value="4838400">{L_EIGHT_WEEK}</option>
+    <option value="-1">{L_NO_LIMET}</option>
     </select>
-    <br><b>{L_SORT_REASON}:<b>
-    <br>
+    <br /><strong>{L_SORT_REASON}:<strong>
+    <br />
     <input type="text" rows="5" size ="40" name="warnpm"><br />
     {L_UCP_WARN_REASON_EXPL}
 
@@ -338,39 +388,39 @@ function ChangeThumb(pic) {
     </td>
 </tr>
 <tr>
-    <td class="row1" width="35%"><b class="genmed">{L_UPLODED}: </b></td>
+    <td class="row1" width="35%"><strong class="genmed">{L_UPLODED}: </strong></td>
     <td class="row2"><input name="up" value="{CP_TRUEUPLOADED}" size="40" type="text">&nbsp;&nbsp;{CP_UUPLOADED}</td>
 </tr>
 <tr>
-    <td class="row1" width="35%"><b class="genmed">{L_DOWNED}: </b></td>
+    <td class="row1" width="35%"><strong class="genmed">{L_DOWNED}: </strong></td>
     <td class="row2"><input name="down" value="{CP_TRUEDOWNLOADED}" size="40" type="text">&nbsp;&nbsp;{CP_UDOWNLOADED}</td>
 </tr>
 <tr>
-    <td class="row1" width="35%"><b class="genmed">{L_SEED_BOMUS} </b></td>
+    <td class="row1" width="35%"><strong class="genmed">{L_SEED_BOMUS} </strong></td>
     <td class="row2"><input name="seed" value="{CP_SEED_POINTS}" size="40" type="text">&nbsp;&nbsp;{CP_SEED_POINTS}</td>
 </tr>
 <tr>
-    <td class="row1" width="35%"><b class="genmed">{L_INVITES}: </b></td>
+    <td class="row1" width="35%"><strong class="genmed">{L_INVITES}: </strong></td>
     <td class="row2"><input name="invit" value="{CP_INVITES}" size="40" type="text">&nbsp;&nbsp;{CP_INVITES}</td>
 </tr>
 <tr>
-    <td class="row1" width="35%"><b class="genmed">{L_USER_SEEDBOX}: </b></td>
+    <td class="row1" width="35%"><strong class="genmed">{L_USER_SEEDBOX}: </strong></td>
     <td class="row2"><input name="seedbox" value="{U_SEEDBOX_IP}" size="40" type="text">&nbsp;&nbsp;{U_SEEDBOX_IP}</td>
 </tr>
 <tr>
-    <td class="row1" width="35%"><b class="genmed">{L_M_SITE_HELPER}: </b></td>
+    <td class="row1" width="35%"><strong class="genmed">{L_M_SITE_HELPER}: </strong></td>
     <td class="row2">
     <input type="radio" name="helper"<!-- IF U_SITE_HELPER --> checked="checked"<!-- ENDIF --> value="true" >&nbsp;&nbsp;{L_YES} &nbsp;&nbsp;<input type="radio" name="helper" value="false"<!-- IF not U_SITE_HELPER --> checked="checked"<!-- ENDIF --> >&nbsp;&nbsp;{L_NO}
     </td>
 </tr>
 <tr>
-    <td class="row1" width="35%"><b class="genmed">{L_UCP_HELPER_FOR}: </b></td>
+    <td class="row1" width="35%"><strong class="genmed">{L_UCP_HELPER_FOR}: </strong></td>
     <td class="row2">
     <textarea cols=30 rows=1 name=help_able>{U_SITE_HELP_WITH}</textarea>
     </td>
 </tr>
 <tr>
-    <td class="row1" width="35%"><b class="genmed">{L_ACCOUT_STATUS}: </b><br><span class="gensmall">{L_ACCOUT_EXP_STATUS}</span></td>
+    <td class="row1" width="35%"><strong class="genmed">{L_ACCOUT_STATUS}: </strong><br /><span class="gensmall">{L_ACCOUT_EXP_STATUS}</span></td>
     <td class="row2">
     <select name="active">
     <option <!-- IF not U_ACTIVATED_ACC -->selected <!-- ENDIF -->value="0">{L_INACTIVE}</option>
@@ -379,19 +429,19 @@ function ChangeThumb(pic) {
     </td>
 </tr>
 <tr>
-    <td class="row1" width="35%"><b class="genmed">{L_UCP_BAN_FORUM}: </b><br><span class="gensmall">{L_UCP_BAN_USER_FORUM}</span></td>
+    <td class="row1" width="35%"><strong class="genmed">{L_UCP_BAN_FORUM}: </strong><br /><span class="gensmall">{L_UCP_BAN_USER_FORUM}</span></td>
     <td class="row2">
     <input type="radio" name="forumban"<!-- IF U_FORUM_BANNED --> checked="checked"<!-- ENDIF --> value="true" >&nbsp;&nbsp;{L_YES} &nbsp;&nbsp;<input type="radio" name="forumban" value="false"<!-- IF not U_FORUM_BANNED --> checked="checked"<!-- ENDIF --> >&nbsp;&nbsp;{L_NO}
     </td>
 </tr>
 <tr>
-    <td class="row1" width="35%"><b class="genmed">{L_UCP_SHOUT_BAN}: </b><br><span class="gensmall">{L_UCP_SHOUT_BAN_EXPL}</span></td>
+    <td class="row1" width="35%"><strong class="genmed">{L_UCP_SHOUT_BAN}: </strong><br /><span class="gensmall">{L_UCP_SHOUT_BAN_EXPL}</span></td>
     <td class="row2">
     <input type="radio" name="shoutban"<!-- IF not CP_UCANSHOUT --> checked="checked"<!-- ENDIF --> value="true" >&nbsp;&nbsp;{L_YES} &nbsp;&nbsp;<input type="radio" name="shoutban" value="false"<!-- IF CP_UCANSHOUT --> checked="checked"<!-- ENDIF --> >&nbsp;&nbsp;{L_NO}
     </td>
 </tr>
 <tr>
-    <td class="row1" width="35%"><b class="genmed">{L_UCP_DISABLE_ACC}: </b><br><span class="gensmall">{L_UCP_DISABLE_ACC_EXPL}</span></td>
+    <td class="row1" width="35%"><strong class="genmed">{L_UCP_DISABLE_ACC}: </strong><br /><span class="gensmall">{L_UCP_DISABLE_ACC_EXPL}</span></td>
     <td class="row2">
     <input type="radio" name="disable"<!-- IF CP_DISABLED --> checked="checked"<!-- ENDIF --> value="true" >&nbsp;&nbsp;{L_YES} &nbsp;&nbsp;<input type="radio" name="disable" value="false"<!-- IF not CP_DISABLED --> checked="checked"<!-- ENDIF --> >&nbsp;&nbsp;{L_NO}<br />
     <textarea cols=30 rows=1 name=disable_res>{CP_DISABLED_REASON}</textarea>
@@ -412,32 +462,32 @@ function ChangeThumb(pic) {
 <table class="tablebg" width="100%" cellspacing="0">
 
 <tr>
-    <td class="row1" width="35%"><b class="genmed">{L_USER_NAME}</td>
+    <td class="row1" width="35%"><strong class="genmed">{L_USER_NAME}</td>
 
-    <td class="row2"><b class="gen">{CP_UNAME}</b></td>
+    <td class="row2"><strong class="gen">{CP_UNAME}</strong></td>
 </tr>
 <tr>
-    <td class="row1" width="35%"><b class="genmed">{L_COMPLETE_NAME}: </b><br /><span class="gensmall">{L_USER_NICK_EXP}</span></td>
+    <td class="row1" width="35%"><strong class="genmed">{L_COMPLETE_NAME}: </strong><br /><span class="gensmall">{L_USER_NICK_EXP}</span></td>
 
     <td class="row2"><input type="text" name="name" value="{CP_USNAME}" size ="30" autocomplete="off" /></td>
 </tr>
 <!-- IF ALLOW_EMAIL_CHANGE -->
 <tr>
-    <td class="row1" width="35%"><b class="genmed">{L_NEW_EMAIL}: </b><br /><span class="gensmall">{L_NEW_EMAIL_EXP}</span></td>
+    <td class="row1" width="35%"><strong class="genmed">{L_NEW_EMAIL}: </strong><br /><span class="gensmall">{L_NEW_EMAIL_EXP}</span></td>
     <td class="row2"><input autocomplete="off" type="text" class="post" name="new_email" size="30" maxlength="100" value="" /></td>
 </tr>
     <tr>
-        <td class="row1" width="35%"><b class="genmed">{L_CONFIRM_EMAIL}: </b><br /><span class="gensmall">{L_CONFIRM_EMAIL_EXP}</span></td>
+        <td class="row1" width="35%"><strong class="genmed">{L_CONFIRM_EMAIL}: </strong><br /><span class="gensmall">{L_CONFIRM_EMAIL_EXP}</span></td>
 
         <td class="row2"><input autocomplete="off" type="text" class="post" name="email_confirm" size="30" maxlength="100" value="" /></td>
     </tr>
 <!-- ENDIF -->
     <tr>
-        <td class="row1" width="35%"><b class="genmed">{L_NEW_PASSWORD}: </b><br /><span class="gensmall">{L_PASSWORD_EXP}</span></td>
+        <td class="row1" width="35%"><strong class="genmed">{L_NEW_PASSWORD}: </strong><br /><span class="gensmall">{L_PASSWORD_EXP}</span></td>
         <td class="row2"><input autocomplete="off" type="password" class="post" name="newpasswd" size="30" maxlength="255" value="" /></td>
     </tr>
     <tr>
-        <td class="row1" width="35%"><b class="genmed">{L_CONFIRM_PASSWORD}: </b><br /><span class="gensmall">{L_CONFIRM_PASSWORD_EXPLAIN}</span></td>
+        <td class="row1" width="35%"><strong class="genmed">{L_CONFIRM_PASSWORD}: </strong><br /><span class="gensmall">{L_CONFIRM_PASSWORD_EXPLAIN}</span></td>
 
         <td class="row2"><input autocomplete="off" type="password" class="post" name="newpasswdconf" size="30" maxlength="255" value="" /></td>
     </tr>
@@ -473,86 +523,158 @@ function ChangeThumb(pic) {
 <table class="tablebg" width="100%" cellspacing="0">
 
 <tr>
-    <td class="row1" width="50%"><b class="genmed">{L_ACCEPT_EMAIL}:</b>
+    <td class="row1" width="50%"><strong class="genmed">{L_ACCEPT_EMAIL}:</strong>
     <br /><span class="gensmall">{L_ACCEPT_EMAIL_EXP}</span></td>
 
-    <td class="row2"><input type="radio" class="radio" name="accept_mail" value="1" <!-- IF U_ALLOW_EMAIL -->checked="checked"<!-- ENDIF --> /><span class="genmed">Yes</span>&nbsp;&nbsp;<input type="radio" class="radio" name="accept_mail" value="0" <!-- IF not U_ALLOW_EMAIL -->checked="checked"<!-- ENDIF --> /><span class="genmed">No</span></td>
+    <td class="row2">
+        <input type="radio" class="radio" name="accept_mail" value="1" <!-- IF U_ALLOW_EMAIL -->checked="checked"<!-- ENDIF --> /><span class="genmed">{L_YES}</span>&nbsp;&nbsp;
+        <input type="radio" class="radio" name="accept_mail" value="0" <!-- IF not U_ALLOW_EMAIL -->checked="checked"<!-- ENDIF --> />
+        <span class="genmed">{L_NO}</span>
+    </td>
 </tr>
 <tr>
-    <td class="row1" width="50%"><b class="genmed">{L_ACP_PM_NOTICE_EMAIL}</b>
-    <br /><span class="gensmall">{L_ACP_PM_NOTICE_EMAIL_EXP}</span></td>
+    <td class="row1" width="50%"><strong class="genmed">{L_ACP_PM_NOTICE_EMAIL}</strong><br />
+        <span class="gensmall">{L_ACP_PM_NOTICE_EMAIL_EXP}</span>
+    </td>
 
-    <td class="row2"><input type="radio" class="radio" name="pm_notify" value="1" <!-- IF CP_PM_NOTIVY -->checked="checked"<!-- ENDIF --> /><span class="genmed">Yes</span>&nbsp;&nbsp;<input type="radio" class="radio" name="pm_notify" value="0" <!-- IF not CP_PM_NOTIVY -->checked="checked"<!-- ENDIF --> /><span class="genmed">No</span></td>
+    <td class="row2">
+        <input type="radio" class="radio" name="pm_notify" value="1" <!-- IF CP_PM_NOTIVY -->checked="checked"<!-- ENDIF --> />
+        <span class="genmed">{L_YES}</span>&nbsp;&nbsp;
+        <input type="radio" class="radio" name="pm_notify" value="0" <!-- IF not CP_PM_NOTIVY -->checked="checked"<!-- ENDIF --> /><span class="genmed">{L_NO}</span>
+    </td>
 </tr>
 <tr>
-    <td class="row1" width="50%"><b class="genmed">{L_ACCEPT_EMAIL_ACP}</b>
-    <br /><span class="gensmall">{L_ACCEPT_EMAIL_ACP_EXP}</span></td>
-    <td class="row2"><input type="radio" class="radio" name="mass_mail" value="1" <!-- IF CP_ALLOW_MASS_MAIL -->checked="checked"<!-- ENDIF --> /><span class="genmed">Yes</span>&nbsp;&nbsp;<input type="radio" class="radio" name="mass_mail" value="0" <!-- IF not CP_ALLOW_MASS_MAIL -->checked="checked"<!-- ENDIF --> /><span class="genmed">No</span></td>
+    <td class="row1" width="50%"><strong class="genmed">{L_ACCEPT_EMAIL_ACP}</strong><br />
+        <span class="gensmall">{L_ACCEPT_EMAIL_ACP_EXP}</span>
+    </td>
+    <td class="row2">
+        <input type="radio" class="radio" name="mass_mail" value="1" <!-- IF CP_ALLOW_MASS_MAIL -->checked="checked"<!-- ENDIF --> />
+        <span class="genmed">{L_YES}</span>&nbsp;&nbsp;
+        <input type="radio" class="radio" name="mass_mail" value="0" <!-- IF not CP_ALLOW_MASS_MAIL -->checked="checked"<!-- ENDIF --> /><span class="genmed">{L_NO}</span>
+    </td>
 </tr>
 <tr>
-    <td class="row1" width="50%"><b class="genmed">{L_ALLOW_PM}</b>
-    <br /><span class="gensmall">{L_ALLOW_PM_EXPLAIN}</span></td>
+    <td class="row1" width="50%"><strong class="genmed">{L_ALLOW_PM}</strong><br />
+        <span class="gensmall">{L_ALLOW_PM_EXPLAIN}</span>
+    </td>
 
-    <td class="row2"><input type="radio" class="radio" name="user_allow_pm" value="1" <!-- IF CP_ALLOW_PM -->checked="checked"<!-- ENDIF --> /><span class="genmed">Yes</span>&nbsp;&nbsp;<input type="radio" class="radio" name="user_allow_pm" value="0" <!-- IF not CP_ALLOW_PM -->checked="checked"<!-- ENDIF -->/><span class="genmed">No</span></td>
+    <td class="row2">
+        <input type="radio" class="radio" name="user_allow_pm" value="1" <!-- IF CP_ALLOW_PM -->checked="checked"<!-- ENDIF --> />
+        <span class="genmed">{L_YES}</span>&nbsp;&nbsp;
+        <input type="radio" class="radio" name="user_allow_pm" value="0" <!-- IF not CP_ALLOW_PM -->checked="checked"<!-- ENDIF -->/><span class="genmed">{L_NO}</span>
+    </td>
 </tr>
     <tr>
-        <td class="row1" width="50%"><b class="genmed">{L_HIDE_ONLINE}</b>
-        <br /><span class="gensmall">{L_HIDE_ONLINE_EXPLAIN}</span></td>
-        <td class="row2"><input type="radio" class="radio" name="Show_online" value="1" <!-- IF CP_SHOW_ONLINE -->checked="checked"<!-- ENDIF -->/><span class="genmed">Yes</span>&nbsp;&nbsp;<input type="radio" class="radio" name="Show_online" value="0" <!-- IF not CP_SHOW_ONLINE -->checked="checked"<!-- ENDIF --> /><span class="genmed">No</span></td>
+        <td class="row1" width="50%"><strong class="genmed">{L_HIDE_ONLINE}</strong><br />
+            <span class="gensmall">{L_HIDE_ONLINE_EXPLAIN}</span>
+        </td>
+        <td class="row2">
+            <input type="radio" class="radio" name="Show_online" value="1" <!-- IF CP_SHOW_ONLINE -->checked="checked"<!-- ENDIF -->/>
+            <span class="genmed">{L_YES}</span>&nbsp;&nbsp;
+            <input type="radio" class="radio" name="Show_online" value="0" <!-- IF not CP_SHOW_ONLINE -->checked="checked"<!-- ENDIF --> /><span class="genmed">{L_NO}</span>
+        </td>
     </tr>
 <tr>
 </tr>
     <tr>
-        <td class="row1" width="50%"><b class="genmed">{L_PARK_ACC}</b>
-        <br /><span class="gensmall">{L_PARK_ACC_EXP}</span></td>
-        <td class="row2"><input type="radio" class="radio" name="parked" value="1" <!-- IF CP_PARKED -->checked="checked"<!-- ENDIF -->/><span class="genmed">Yes</span>&nbsp;&nbsp;<input type="radio" class="radio" name="parked" value="0" <!-- IF not CP_PARKED -->checked="checked"<!-- ENDIF --> /><span class="genmed">No</span></td>
+        <td class="row1" width="50%"><strong class="genmed">{L_PARK_ACC}</strong><br />
+            <span class="gensmall">{L_PARK_ACC_EXP}</span>
+        </td>
+        <td class="row2">
+            <input type="radio" class="radio" name="parked" value="1" <!-- IF CP_PARKED -->checked="checked"<!-- ENDIF -->/><span class="genmed">{L_YES}</span>&nbsp;&nbsp;
+            <input type="radio" class="radio" name="parked" value="0" <!-- IF not CP_PARKED -->checked="checked"<!-- ENDIF --> /><span class="genmed">{L_NO}</span>
+        </td>
     </tr>
 <tr>
-    <td class="row1" width="50%"><b class="genmed">{L_POPUP_ON_PM}</b></td>
-    <td class="row2"><input type="radio" class="radio" name="pm_popup" value="1" <!-- IF CP_PM_POPUP -->checked="checked"<!-- ENDIF --> /><span class="genmed">Yes</span>&nbsp;&nbsp;<input type="radio" class="radio" name="pm_popup" value="0" <!-- IF not CP_PM_POPUP -->checked="checked"<!-- ENDIF --> /><span class="genmed">No</span></td>
+    <td class="row1" width="50%"><strong class="genmed">{L_POPUP_ON_PM}</strong></td>
+    <td class="row2">
+        <input type="radio" class="radio" name="pm_popup" value="1" <!-- IF CP_PM_POPUP -->checked="checked"<!-- ENDIF --> />
+        <span class="genmed">{L_YES}</span>&nbsp;&nbsp;
+        <input type="radio" class="radio" name="pm_popup" value="0" <!-- IF not CP_PM_POPUP -->checked="checked"<!-- ENDIF --> /><span class="genmed">{L_NO}</span>
+    </td>
 </tr>
 <tr>
-    <td class="row1" width="50%"><b class="genmed">{L_VIEW_IMAGES}</b></td>
-    <td class="row2"><input type="radio" class="radio" name="view_images" value="1" <!-- IF CP_VIEW_IMAGES -->checked="checked"<!-- ENDIF --> /><span class="genmed">Yes</span>&nbsp;&nbsp;<input type="radio" class="radio" name="view_images" value="0" <!-- IF not CP_VIEW_IMAGES -->checked="checked"<!-- ENDIF --> /><span class="genmed">No</span></td>
+    <td class="row1" width="50%"><strong class="genmed">{L_VIEW_IMAGES}</strong></td>
+    <td class="row2">
+        <input type="radio" class="radio" name="view_images" value="1" <!-- IF CP_VIEW_IMAGES -->checked="checked"<!-- ENDIF --> />
+        <span class="genmed">{L_YES}</span>&nbsp;&nbsp;
+        <input type="radio" class="radio" name="view_images" value="0" <!-- IF not CP_VIEW_IMAGES -->checked="checked"<!-- ENDIF --> /><span class="genmed">{L_NO}</span>
+    </td>
 </tr>
 <tr>
-    <td class="row1" width="50%"><b class="genmed">{L_VIEW_FLASH}</b></td>
-    <td class="row2"><input type="radio" class="radio" name="view_flash" value="1" <!-- IF CP_VIEW_FLASH -->checked="checked"<!-- ENDIF --> /><span class="genmed">Yes</span>&nbsp;&nbsp;<input type="radio" class="radio" name="view_flash" value="0" <!-- IF not CP_VIEW_FLASH -->checked="checked"<!-- ENDIF --> /><span class="genmed">No</span></td>
+    <td class="row1" width="50%"><strong class="genmed">{L_VIEW_FLASH}</strong></td>
+    <td class="row2">
+        <input type="radio" class="radio" name="view_flash" value="1" <!-- IF CP_VIEW_FLASH -->checked="checked"<!-- ENDIF --> />
+        <span class="genmed">{L_YES}</span>&nbsp;&nbsp;
+        <input type="radio" class="radio" name="view_flash" value="0" <!-- IF not CP_VIEW_FLASH -->checked="checked"<!-- ENDIF --> /><span class="genmed">{L_NO}</span>
+    </td>
 </tr>
 <tr>
-    <td class="row1" width="50%"><b class="genmed">{L_DEFAULT_BBCODE}</b></td>
-    <td class="row2"><input type="radio" class="radio" name="bbcode" value="1" <!-- IF BBCODE -->checked="checked"<!-- ENDIF --> /><span class="genmed">Yes</span>&nbsp;&nbsp;<input type="radio" class="radio" name="bbcode" value="0" <!-- IF not BBCODE -->checked="checked"<!-- ENDIF --> /><span class="genmed">No</span></td>
+    <td class="row1" width="50%"><strong class="genmed">{L_DEFAULT_BBCODE}</strong></td>
+    <td class="row2">
+        <input type="radio" class="radio" name="bbcode" value="1" <!-- IF BBCODE -->checked="checked"<!-- ENDIF --> />
+        <span class="genmed">{L_YES}</span>&nbsp;&nbsp;
+        <input type="radio" class="radio" name="bbcode" value="0" <!-- IF not BBCODE -->checked="checked"<!-- ENDIF --> /><span class="genmed">{L_NO}</span>
+    </td>
 </tr>
 <tr>
-    <td class="row1" width="50%"><b class="genmed">{L_DEFAULT_SMILIES}</b></td>
-    <td class="row2"><input type="radio" class="radio" name="smilies" value="1" <!-- IF CP_SMILES -->checked="checked"<!-- ENDIF --> /><span class="genmed">Yes</span>&nbsp;&nbsp;<input type="radio" class="radio" name="smilies" value="0" <!-- IF not CP_SMILES -->checked="checked"<!-- ENDIF --> /><span class="genmed">No</span></td>
+    <td class="row1" width="50%"><strong class="genmed">{L_DEFAULT_SMILIES}</strong></td>
+    <td class="row2">
+        <input type="radio" class="radio" name="smilies" value="1" <!-- IF CP_SMILES -->checked="checked"<!-- ENDIF --> />
+        <span class="genmed">{L_YES}</span>&nbsp;&nbsp;
+        <input type="radio" class="radio" name="smilies" value="0" <!-- IF not CP_SMILES -->checked="checked"<!-- ENDIF --> /><span class="genmed">{L_NO}</span>
+    </td>
 </tr>
 <tr>
-    <td class="row1" width="50%"><b class="genmed">{L_VIEW_SMILIES}</b></td>
-    <td class="row2"><input type="radio" class="radio" name="view_smilies" value="1" <!-- IF CP_VIEW_SMILIES -->checked="checked"<!-- ENDIF --> /><span class="genmed">Yes</span>&nbsp;&nbsp;<input type="radio" class="radio" name="view_smilies" value="0" <!-- IF not CP_VIEW_SMILIES -->checked="checked"<!-- ENDIF --> /><span class="genmed">No</span></td>
+    <td class="row1" width="50%"><strong class="genmed">{L_VIEW_SMILIES}</strong></td>
+    <td class="row2">
+        <input type="radio" class="radio" name="view_smilies" value="1" <!-- IF CP_VIEW_SMILIES -->checked="checked"<!-- ENDIF --> />
+        <span class="genmed">{L_YES}</span>&nbsp;&nbsp;
+        <input type="radio" class="radio" name="view_smilies" value="0" <!-- IF not CP_VIEW_SMILIES -->checked="checked"<!-- ENDIF --> /><span class="genmed">{L_NO}</span>
+    </td>
 </tr>
 <tr>
-    <td class="row1" width="50%"><b class="genmed">{L_DEFAULT_ADD_SIG}</b></td>
-    <td class="row2"><input type="radio" class="radio" name="sig" value="1" <!-- IF CP_ATACH_SIG -->checked="checked"<!-- ENDIF --> /><span class="genmed">Yes</span>&nbsp;&nbsp;<input type="radio" class="radio" name="sig" value="0" <!-- IF not CP_ATACH_SIG -->checked="checked"<!-- ENDIF --> /><span class="genmed">No</span></td>
+    <td class="row1" width="50%"><strong class="genmed">{L_DEFAULT_ADD_SIG}</strong></td>
+    <td class="row2">
+        <input type="radio" class="radio" name="sig" value="1" <!-- IF CP_ATACH_SIG -->checked="checked"<!-- ENDIF --> />
+        <span class="genmed">{L_YES}</span>&nbsp;&nbsp;
+        <input type="radio" class="radio" name="sig" value="0" <!-- IF not CP_ATACH_SIG -->checked="checked"<!-- ENDIF --> />
+        <span class="genmed">{L_NO}</span>
+    </td>
 </tr>
 <tr>
-    <td class="row1" width="50%"><b class="genmed">{L_VIEW_SIGS}</b></td>
-    <td class="row2"><input type="radio" class="radio" name="view_sigs" value="1" <!-- IF CP_VIEW_SIGS -->checked="checked"<!-- ENDIF --> /><span class="genmed">Yes</span>&nbsp;&nbsp;<input type="radio" class="radio" name="view_sigs" value="0" <!-- IF not CP_VIEW_SIGS -->checked="checked"<!-- ENDIF --> /><span class="genmed">No</span></td>
+    <td class="row1" width="50%"><strong class="genmed">{L_VIEW_SIGS}</strong></td>
+    <td class="row2">
+        <input type="radio" class="radio" name="view_sigs" value="1" <!-- IF CP_VIEW_SIGS -->checked="checked"<!-- ENDIF --> />
+        <span class="genmed">{L_YES}</span>&nbsp;&nbsp;
+        <input type="radio" class="radio" name="view_sigs" value="0" <!-- IF not CP_VIEW_SIGS -->checked="checked"<!-- ENDIF --> /><span class="genmed">{L_NO}</span>
+    </td>
 </tr>
 <tr>
-    <td class="row1" width="50%"><b class="genmed">{L_VIEW_AVATARS}</b></td>
-    <td class="row2"><input type="radio" class="radio" name="view_avatars" value="1" <!-- IF CP_VIEW_AVATAR -->checked="checked"<!-- ENDIF --> /><span class="genmed">Yes</span>&nbsp;&nbsp;<input type="radio" class="radio" name="view_avatars" value="0" <!-- IF not CP_VIEW_AVATAR -->checked="checked"<!-- ENDIF --> /><span class="genmed">No</span></td>
+    <td class="row1" width="50%"><strong class="genmed">{L_VIEW_AVATARS}</strong></td>
+    <td class="row2">
+        <input type="radio" class="radio" name="view_avatars" value="1" <!-- IF CP_VIEW_AVATAR -->checked="checked"<!-- ENDIF --> />
+        <span class="genmed">{L_YES}</span>&nbsp;&nbsp;
+        <input type="radio" class="radio" name="view_avatars" value="0" <!-- IF not CP_VIEW_AVATAR -->checked="checked"<!-- ENDIF --> /><span class="genmed">{L_NO}</span>
+    </td>
 </tr>
 <tr>
-    <td class="row1" width="50%"><b class="genmed">{L_DISABLE_CENSORS}</b></td>
-    <td class="row2"><input type="radio" class="radio" name="view_wordcensor" value="1" <!-- IF CP_VIEW_CENSOR -->checked="checked"<!-- ENDIF --> /><span class="genmed">Yes</span>&nbsp;&nbsp;<input type="radio" class="radio" name="view_wordcensor" value="0" <!-- IF not CP_VIEW_CENSOR -->checked="checked"<!-- ENDIF --> /><span class="genmed">No</span></td>
+    <td class="row1" width="50%"><strong class="genmed">{L_DISABLE_CENSORS}</strong></td>
+    <td class="row2">
+        <input type="radio" class="radio" name="view_wordcensor" value="1" <!-- IF CP_VIEW_CENSOR -->checked="checked"<!-- ENDIF --> />
+        <span class="genmed">{L_YES}</span>&nbsp;&nbsp;
+        <input type="radio" class="radio" name="view_wordcensor" value="0" <!-- IF not CP_VIEW_CENSOR -->checked="checked"<!-- ENDIF --> /><span class="genmed">{L_NO}</span>
+    </td>
 </tr>
 <tr>
-    <td class="row1" width="50%"><b class="genmed">{L_TOR_PERPAGE}</b></td>
-    <td class="row2"><input type="text" name="user_torrent_per_page" value="{CP_TORPERPAGE}" size ="40" /><br /><span class="gensmall">Note that 0 Reverts to Site Default.</span></td>
+    <td class="row1" width="50%"><strong class="genmed">{L_TOR_PERPAGE}</strong></td>
+    <td class="row2">
+        <input type="text" name="user_torrent_per_page" value="{CP_TORPERPAGE}" size ="40" /><br />
+        <span class="gensmall">{L_REVERT_DEFAULT}</span>
+    </td>
 </tr>
 <tr>
-    <td class="row1" width="50%"><b class="genmed">{L_BOARD_LANGUAGE}</b></td>
+    <td class="row1" width="50%"><strong class="genmed">{L_BOARD_LANGUAGE}</strong></td>
 
     <td class="row2">
       <select name="customlang">
@@ -562,7 +684,7 @@ function ChangeThumb(pic) {
     </td>
 </tr>
 <tr>
-    <td class="row1" width="50%"><b class="genmed">{L_BOARD_STYLE}</b></td>
+    <td class="row1" width="50%"><strong class="genmed">{L_BOARD_STYLE}</strong></td>
     <td class="row2">
       <select name="customtheme">
         <option value="0">{L_SDEFAULT}</option>
@@ -570,7 +692,7 @@ function ChangeThumb(pic) {
       </select></td>
 </tr>
 <tr>
-    <td class="row1" width="50%"><b class="genmed">{L_BOARD_TIMEZONE}</b></td>
+    <td class="row1" width="50%"><strong class="genmed">{L_BOARD_TIMEZONE}</strong></td>
 
     <td class="row2">
         <select id="offset" name="offset">{TX_OFF_SET}</select>
@@ -578,7 +700,7 @@ function ChangeThumb(pic) {
     </td>
 </tr>
 <tr>
-    <td class="row1" width="50%"><b class="genmed">{L_BOARD_COUNTRY}</b></td>
+    <td class="row1" width="50%"><strong class="genmed">{L_BOARD_COUNTRY}</strong></td>
 
     <td class="row2">
       <select name="u_country">
@@ -589,20 +711,25 @@ function ChangeThumb(pic) {
 </tr>
 <!-- IF not S_FORCE_PASSKEY -->
 <tr>
-    <td class="row1" width="50%"><b class="genmed">{L_USE_PASSKEY}:</b></td>
+    <td class="row1" width="50%"><strong class="genmed">{L_USE_PASSKEY}:</strong></td>
     <td class="row2">
-<input type="checkbox"  name="use_passkey" value="true" <!-- IF CP_PASSKEY != "" -->checked<!-- ENDIF --> />
+<input type="checkbox" name="use_passkey" value="true" <!-- IF CP_PASSKEY != "" -->checked<!-- ENDIF --> />
     </td>
 </tr>
 <!-- ENDIF -->
 <tr>
-    <td class="row1" width="50%"><b class="genmed">{L_RESSET_PASSKEY}:</b></td>
+    <td class="row1" width="50%"><strong class="genmed">{L_RESSET_PASSKEY}:</strong></td>
     <td class="row2">
-        <input name="passkey_reset" value="true" type="checkbox"><input rows="1" size="32" cols="32" readonly value="{CP_PASSKEY}" type="text"><br /><span class="gensmall">{L_RES_PASSKEY_WARNING}</span>
+        <input name="passkey_reset" value="true" type="checkbox">
+        <input rows="1" size="32" cols="32" readonly value="{CP_PASSKEY}" type="text"><br />
+        <span class="gensmall">{L_RES_PASSKEY_WARNING}</span>
     </td>
 </tr>
 <tr>
-    <td colspan="2" align="center"><input class="btnmain" type="submit" name="submit" value="{L_SUBMIT}" />&nbsp;&nbsp;<input class="btnlite" type="reset" value="{L_RESET}" name="reset" /></td>
+    <td colspan="2" align="center">
+        <input class="btnmain" type="submit" name="submit" value="{L_SUBMIT}" />&nbsp;&nbsp;
+        <input class="btnlite" type="reset" value="{L_RESET}" name="reset" />
+    </td>
 </tr>
 </table>
 
@@ -630,37 +757,71 @@ function ChangeThumb(pic) {
 </tr>
 
 <tr>
-    <td class="row1" width="35%"><img src="themes/Bitfarm/pics/button_icq.gif" alt="" title="" border="0"> <b class="genmed">{L_ICQ_IM}: </b></td>
-    <td class="row2"><input class="post" type="text" name="icq" size="30" maxlength="15" value="{U_ICQ}" /></td>
+    <td class="row1" width="35%">
+        <img src="themes/Bitfarm/pics/button_icq.gif" alt="{L_ICQ_IM}" title="{L_ICQ_IM}" border="0">
+        <strong class="genmed">{L_ICQ_IM}: </strong>
+    </td>
+    <td class="row2">
+        <input class="post" type="text" name="icq" size="30" maxlength="15" value="{U_ICQ}" />
+    </td>
 </tr>
 <tr>
-    <td class="row1" width="35%"><img src="themes/Bitfarm/pics/button_aim.gif" alt="" title="" border="0"> <b class="genmed">{L_AOL_IM}: </b></td>
-    <td class="row2"><input class="post" type="text" name="aim" size="30" maxlength="255" value="{U_AIM}" /></td>
+    <td class="row1" width="35%">
+        <img src="themes/Bitfarm/pics/button_aim.gif" alt="{L_AOL_IM" title="{L_AOL_IM}" border="0">
+        <strong class="genmed">{L_AOL_IM}: </strong></td>
+    <td class="row2">
+        <input class="post" type="text" name="aim" size="30" maxlength="255" value="{U_AIM}" />
+    </td>
 </tr>
 <tr>
-    <td class="row1" width="35%"><img src="themes/Bitfarm/pics/button_msn.gif" alt="" title="" border="0"> <b class="genmed">{L_MSN_IM}: </b></td>
-    <td class="row2"><input class="post" type="text" name="msn" size="30" maxlength="255" value="{U_MSN}" /></td>
+    <td class="row1" width="35%">
+        <img src="themes/Bitfarm/pics/button_msn.gif" alt="{L_MSN_IM}" title="{L_MSN_IM}" border="0">
+        <strong class="genmed">{L_MSN_IM}: </strong>
+    </td>
+    <td class="row2">
+        <input class="post" type="text" name="msn" size="30" maxlength="255" value="{U_MSN}" />
+    </td>
 
 </tr>
 <tr>
-    <td class="row1" width="35%"><img src="themes/Bitfarm/pics/button_yahoo.gif" alt="" title="" border="0"> <b class="genmed">{L_YH_IM}: </b></td>
-    <td class="row2"><input class="post" type="text" name="yahoo" size="30" maxlength="255" value="{U_YIM}" /></td>
+    <td class="row1" width="35%">
+        <img src="themes/Bitfarm/pics/button_yahoo.gif" alt="{L_YH_IM}" title="{L_YH_IM}" border="0">
+        <strong class="genmed">{L_YH_IM}: </strong>
+    </td>
+    <td class="row2">
+        <input class="post" type="text" name="yahoo" size="30" maxlength="255" value="{U_YIM}" />
+    </td>
 </tr>
 <tr>
-    <td class="row1" width="35%"><img src="themes/Bitfarm/pics/button_jabber.gif" alt="" title="" border="0"> <b class="genmed">{L_JAB_IM}: </b></td>
-    <td class="row2"><input class="post" type="text" name="jabber" size="30" maxlength="255" value="{U_JABBER}" /></td>
+    <td class="row1" width="35%">
+        <img src="themes/Bitfarm/pics/button_jabber.gif" alt="{L_JAB_IM}" title="{L_JAB_IM}" border="0">
+        <strong class="genmed">{L_JAB_IM}: </strong>
+    </td>
+    <td class="row2">
+        <input class="post" type="text" name="jabber" size="30" maxlength="255" value="{U_JABBER}" />
+    </td>
 </tr>
 <tr>
-    <td class="row1" width="35%"><img src="themes/Bitfarm/pics/button_skype.gif" alt="" title="" border="0"> <b class="genmed">{L_SKYPE_IM}: </b></td>
-    <td class="row2"><input class="post" type="text" name="skype" size="30" maxlength="255" value="{U_SKYPE}" /></td>
+    <td class="row1" width="35%">
+        <img src="themes/Bitfarm/pics/button_skype.gif" alt="{L_SKYPE_IM}" title="{L_SKYPE_IM}" border="0">
+        <strong class="genmed">{L_SKYPE_IM}: </strong>
+    </td>
+    <td class="row2">
+        <input class="post" type="text" name="skype" size="30" maxlength="255" value="{U_SKYPE}" />
+    </td>
 </tr>
 <tr>
-    <td class="row1" width="35%"><b class="genmed">{L_LOCATION}: </b></td>
-    <td class="row2"><select name="country">
+    <td class="row1" width="35%">
+        <strong class="genmed">{L_LOCATION}: </strong>
+    </td>
+    <td class="row2">
+        <select name="country">
     {LOCATION}</select></td>
 </tr>
     <tr>
-        <td class="row1" width="35%"><b class="genmed">{L_BIRTHDAY}: </b><br /><span class="gensmall">{L_BIRTHDAY_EXPLAIN}</span></td>
+        <td class="row1" width="35%"><strong class="genmed">{L_BIRTHDAY}: </strong><br />
+            <span class="gensmall">{L_BIRTHDAY_EXPLAIN}</span>
+        </td>
         <td class="row2">
         <span class="genmed">{L_DAY}:</span>
              <select name="bday_day">
@@ -821,14 +982,17 @@ function ChangeThumb(pic) {
       </td>
     </tr>
 <tr>
-    <td colspan="2" align="center"><input class="btnmain" type="submit" name="submit" value="{L_SUBMIT}" />&nbsp;&nbsp;<input class="btnlite" type="reset" value="{L_RESET}" name="reset" /></td>
+    <td colspan="2" align="center">
+        <input class="btnmain" type="submit" name="submit" value="{L_SUBMIT}" />&nbsp;&nbsp;
+        <input class="btnlite" type="reset" value="{L_RESET}" name="reset" />
+    </td>
 </tr>
 </table>
 </form>
 </td></tr>
 
 </table>
-<br clear="all" >
+<br clear="all" />
 <!-- ELSEIF MODE == friends -->
 <form name="formdata" id="ucp" method="post" action="{PMBT_LINK_BACK}">
 <input type="hidden" name="take_edit" value="1" >
@@ -838,20 +1002,33 @@ function ChangeThumb(pic) {
 <table class="tablebg" width="100%" cellspacing="0">
 
 <tr>
-    <td class="row3" colspan="2"><span class="gensmall">{L_FRIENDS_EXPLAIN}</span></td>
+    <td class="row3" colspan="2">
+        <span class="gensmall">{L_FRIENDS_EXPLAIN}</span>
+    </td>
 </tr>
 <tr>
-    <td class="row1" width="40%"><b class="genmed">{L_YOUR_FRIENDS}</b><br /><span class="gensmall">{L_TO_REMOVE_USER}</span></td>
+    <td class="row1" width="40%">
+        <strong class="genmed">{L_YOUR_FRIENDS}</strong><br />
+        <span class="gensmall">{L_TO_REMOVE_USER}</span>
+    </td>
 
-    <td class="row2" align="center"><!-- IF CP_FRIENDS --><select name="remove_friend[]" multiple="multiple" size="5">{CP_FRIENDS}</select><!-- ELSE --><b class="genmed">{L_NO_FRIENDS}</b><!-- ENDIF --></td>
+    <td class="row2" align="center"><!-- IF CP_FRIENDS --><select name="remove_friend[]" multiple="multiple" size="5">{CP_FRIENDS}</select><!-- ELSE --><strong class="genmed">{L_NO_FRIENDS}</strong><!-- ENDIF --></td>
 </tr>
 <tr>
-    <td class="row1"><b class="genmed">{L_ADD_FRIENDS}</b><br /><span class="gensmall">{L_ENTER_USERS}[ <a href="javascript:popusers('userfind_to_pm.php');">{L_FIND_MEMBER}</a> ]</span></td>
-    <td class="row2" align="center"><textarea name="new_friend" rows="5" cols="30"></textarea><br /></td>
+    <td class="row1">
+        <strong class="genmed">{L_ADD_FRIENDS}</strong><br />
+        <span class="gensmall">{L_ENTER_USERS}[ <a href="javascript:popusers('userfind_to_pm.php');">{L_FIND_MEMBER}</a> ]</span>
+    </td>
+    <td class="row2" align="center">
+        <textarea name="new_friend" rows="5" cols="30"></textarea><br />
+    </td>
 </tr>
 <tr>
 
-    <td colspan="2" align="center"><input class="btnmain" type="submit" name="submit" value="{L_SUBMIT}" />&nbsp;&nbsp;<input class="btnlite" type="reset" value="{L_RESET}" name="reset" /></td>
+    <td colspan="2" align="center">
+        <input class="btnmain" type="submit" name="submit" value="{L_SUBMIT}" />&nbsp;&nbsp;
+        <input class="btnlite" type="reset" value="{L_RESET}" name="reset" />
+    </td>
 </tr>
 </table>
 
@@ -866,21 +1043,31 @@ function ChangeThumb(pic) {
 <input type="hidden" name="mode" value="foes" />
 <table class="tablebg" width="100%" cellspacing="0">
 <tr>
-    <td class="row3" colspan="2"><span class="gensmall">{L_FOES_EXPLAIN}</span></td>
+    <td class="row3" colspan="2">
+        <span class="gensmall">{L_FOES_EXPLAIN}</span>
+    </td>
 </tr>
 <tr>
-    <td class="row1" width="40%"><b class="genmed">{L_YOUR_FOES}</b><br /><span class="gensmall">{L_TO_REMOVE_USER}</span></td>
+    <td class="row1" width="40%">
+        <strong class="genmed">{L_YOUR_FOES}</strong><br />
+        <span class="gensmall">{L_TO_REMOVE_USER}</span>
+    </td>
 
-    <td class="row2" align="center"><!-- IF CP_FOES --><select name="remove_foe[]" multiple="multiple" size="5">{CP_FOES}</select><!-- ELSE --><b class="genmed">{L_NO_FOES}</b><!-- ENDIF --></td>
+    <td class="row2" align="center"><!-- IF CP_FOES --><select name="remove_foe[]" multiple="multiple" size="5">{CP_FOES}</select><!-- ELSE --><strong class="genmed">{L_NO_FOES}</strong><!-- ENDIF --></td>
 </tr>
 <tr>
-    <td class="row1"><b class="genmed">{L_ADD_FOES}</b><br /><span class="gensmall">{L_ENTER_USERS}[ <a href="javascript:popusers('userfind_to_pm.php');">{L_FIND_MEMBER}</a> ]</span></td>
-    <td class="row2" align="center"><textarea name="new_foe" rows="5" cols="30"></textarea><br /></td>
+    <td class="row1"><strong class="genmed">{L_ADD_FOES}</strong><br />
+        <span class="gensmall">{L_ENTER_USERS}[ <a href="javascript:popusers('userfind_to_pm.php');">{L_FIND_MEMBER}</a> ]</span>
+    </td>
+    <td class="row2" align="center">
+        <textarea name="new_foe" rows="5" cols="30"></textarea><br />
+    </td>
 </tr>
 <tr>
-
-
-    <td ccolspan="2" align="center"><input class="btnmain" type="submit" name="submit" value="{L_SUBMIT}" />&nbsp;&nbsp;<input class="btnlite" type="reset" value="{L_RESET}" name="reset" /></td>
+    <td ccolspan="2" align="center">
+        <input class="btnmain" type="submit" name="submit" value="{L_SUBMIT}" />&nbsp;&nbsp;
+        <input class="btnlite" type="reset" value="{L_RESET}" name="reset" />
+    </td>
 </tr>
 </table>
 
@@ -901,7 +1088,9 @@ function ChangeThumb(pic) {
 </td>
 </tr>
 <tbody><tr>
-    <td class="row1" colspan="4" align="center"><span class="genmed">{L_WATCHED_EXPLAIN}</span></td>
+    <td class="row1" colspan="4" align="center">
+        <span class="genmed">{L_WATCHED_EXPLAIN}</span>
+    </td>
 </tr>
 <!-- IF S_TORRENT_NOTIFY -->
     <tr>
@@ -914,11 +1103,15 @@ function ChangeThumb(pic) {
             <td class="row" style="padding: 4px;" valign="middle" width="20" align="center">{torrentrow.CAT_IMG}</td>
             <td class="row" style="padding: 4px;" width="100%">
                 <p class="topictitle"><a href="{torrentrow.U_TORFORUM}">{torrentrow.TORRENT_NAME}</a></p><br />
-                <!-- IF torrentrow.CAN_EDIT --><a href="edit.php?id={torrentrow.TORRENT_ID}"><img src="themes/Bitfarm/pics/edit.gif" alt="Edit" title="Edit" border="0"></a><!-- ENDIF -->
-                <!-- IF torrentrow.CAN_DELETE --><a href="edit.php?op=delete&amp;id={torrentrow.TORRENT_ID}"><img src="themes/Bitfarm/pics/drop.gif" alt="Delete" title="Delete" border="0"></a><!-- ENDIF -->
-                <!-- IF torrentrow.CAN_BAN --><a href="edit.php?op=ban&amp;id={torrentrow.TORRENT_ID}"><img src="themes/Bitfarm/pics/ban.png" alt="Ban Torrent" title="Ban Torrent" border="0"></a><!-- ENDIF -->
-                <!-- IF torrentrow.CAN_DOWNLOAD --><a class="index" href="download.php?id={torrentrow.TORRENT_ID}"><img style="border: medium none;" alt="download" src="themes/Bitfarm/pics/download2.gif" align="left"></a><!-- ENDIF -->
-                <!-- IF torrentrow.TRACKER --><a href="scrape-external.php?id=279&amp;tracker={torrentrow.TRACKER}&amp;return={PMBT_LINK_BACK}mode={MODE}&amp;action={ACTION}"><img src="themes/Bitfarm/pics/refresh.png" alt="Refresh Peer Data" title="Refresh Peer Data" border="0"></a><!-- ENDIF -->
+                <!-- IF torrentrow.CAN_EDIT --><a href="edit.php?id={torrentrow.TORRENT_ID}"><img src="themes/Bitfarm/pics/edit.gif" alt="{L_BAN_TORRENT}" title="{L_BAN_TORRENT}" border="0"></a><!-- ENDIF -->
+
+                <!-- IF torrentrow.CAN_DELETE --><a href="edit.php?op=delete&amp;id={torrentrow.TORRENT_ID}"><img src="themes/Bitfarm/pics/drop.gif" alt="{L_BAN_DELETE}" title="{L_BAN_DELETE}" border="0"></a><!-- ENDIF -->
+
+                <!-- IF torrentrow.CAN_BAN --><a href="edit.php?op=ban&amp;id={torrentrow.TORRENT_ID}"><img src="themes/Bitfarm/pics/ban.png" alt="{L_BAN_TORRENT}" title="{L_BAN_TORRENT}" border="0"></a><!-- ENDIF -->
+
+                <!-- IF torrentrow.CAN_DOWNLOAD --><a class="index" href="download.php?id={torrentrow.TORRENT_ID}"><img style="border: medium none;" alt="{L_DOWNLOAD}" title="{L_DOWNLOAD}" src="themes/Bitfarm/pics/download2.gif" align="left"></a><!-- ENDIF -->
+
+                <!-- IF torrentrow.TRACKER --><a href="scrape-external.php?id=279&amp;tracker={torrentrow.TRACKER}&amp;return={PMBT_LINK_BACK}mode={MODE}&amp;action={ACTION}"><img src="themes/Bitfarm/pics/refresh.png" alt="{L_REFRESH_TORRENT}" title="{L_REFRESH_TORRENT}" border="0"></a><!-- ENDIF -->
             </td>
             <td class="gensmall row" style="padding: 4px;" align="left" valign="top" nowrap="nowrap">
                 <!-- IF torrentrow.LAST_SEEDER --><p class="topicdetails">{torrentrow.DATE_ADDED}<br />{torrentrow.LAST_SEEDER} <a href="{torrentrow.U_LAST_POST}">{LAST_POST_IMG}</a></p>
@@ -930,7 +1123,7 @@ function ChangeThumb(pic) {
         </tr>
     <!-- BEGINELSE -->
         <tr class="row1">
-            <td colspan="4" align="center"><b class="genmed">{L_NO_WATCHED_TORRENTS}</b></td>
+            <td colspan="4" align="center"><strong class="genmed">{L_NO_WATCHED_TORRENTS}</strong></td>
         </tr>
     <!-- END torrentrow -->
 <!-- ENDIF -->
@@ -950,7 +1143,7 @@ function ChangeThumb(pic) {
         </tr>
     <!-- BEGINELSE -->
         <tr class="row1">
-            <td colspan="4" align="center"><b class="genmed">{L_NO_WATCHED_FORUMS}</b></td>
+            <td colspan="4" align="center"><strong class="genmed">{L_NO_WATCHED_FORUMS}</strong></td>
         </tr>
     <!-- END forumrow -->
 <!-- ENDIF -->
@@ -980,7 +1173,7 @@ function ChangeThumb(pic) {
             <td style="padding: 4px;" width="20" align="center" valign="middle">{topicrow.TOPIC_FOLDER_IMG}</td>
             <td style="padding: 4px;" width="100%" valign="top">
                 <p class="topictitle"><!-- IF topicrow.S_UNREAD_TOPIC --><a href="{topicrow.U_NEWEST_POST}">{NEWEST_POST_IMG}</a> <!-- ENDIF -->{topicrow.ATTACH_ICON_IMG} <a href="{topicrow.U_VIEW_TOPIC}">{topicrow.TOPIC_TITLE}</a></p>
-                <!-- IF topicrow.S_GLOBAL_TOPIC --><span class="gensmall">{L_GLOBAL_ANNOUNCEMENT}</span><!-- ELSE --><span class="gensmall"><b>{L_FORUM}: </b><a href="{topicrow.U_VIEW_FORUM}">{topicrow.FORUM_NAME}</a></span><!-- ENDIF -->
+                <!-- IF topicrow.S_GLOBAL_TOPIC --><span class="gensmall">{L_GLOBAL_ANNOUNCEMENT}</span><!-- ELSE --><span class="gensmall"><strong>{L_FORUM}: </strong><a href="{topicrow.U_VIEW_FORUM}">{topicrow.FORUM_NAME}</a></span><!-- ENDIF -->
                 <!-- IF topicrow.PAGINATION -->
                     <p class="gensmall"> [ {GOTO_PAGE_IMG}{L_GOTO_PAGE}: {topicrow.PAGINATION} ] </p>
                 <!-- ENDIF -->
@@ -995,19 +1188,24 @@ function ChangeThumb(pic) {
         </tr>
     <!-- BEGINELSE -->
         <tr class="row1">
-            <td colspan="4" align="center"><b class="genmed">{L_NO_WATCHED_TOPICS}</b></td>
+            <td colspan="4" align="center"><strong class="genmed">{L_NO_WATCHED_TOPICS}</strong></td>
         </tr>
     <!-- END topicrow -->
 <!-- ENDIF -->
 
 <!-- IF .topicrow or .forumrow or .torrentrow -->
 <tr>
-    <td colspan="4" align="right"><input class="btnlite" type="submit" name="unwatch" value="{L_UNWATCH_MARKED}" />&nbsp;</td>
+    <td colspan="4" align="right">
+        <input class="btnlite" type="submit" name="unwatch" value="{L_UNWATCH_MARKED}" />&nbsp;
+    </td>
 </tr>
 <!-- ENDIF -->
 </table>
 <!-- IF .topicrow or .forumrow or .torrentrow -->
-<div class="gensmall" style="float: right; padding-top: 2px;"><b><a href="#" onclick="marklist('ucp', 't', true); marklist('ucp', 'f', true); return false;">{L_MARK_ALL}</a> :: <a href="#" onclick="marklist('ucp', 't', false);marklist('ucp', 'f', false); return false;">{L_UNMARK_ALL}</a></b></div>
+<div class="gensmall" style="float: right; padding-top: 2px;">
+    <strong><a href="#" onclick="marklist('ucp', 't', true); marklist('ucp', 'f', true); return false;">{L_MARK_ALL}</a> ::
+    <a href="#" onclick="marklist('ucp', 't', false);marklist('ucp', 'f', false); return false;">{L_UNMARK_ALL}</a></strong>
+</div>
 <!-- ENDIF -->
 </form></td>
 </tr>
@@ -1040,7 +1238,7 @@ function ChangeThumb(pic) {
     <!-- IF S_DRAFT_ROWS -->
     <tr>
         <th>{L_DATE}</th>
-        <th>{L_TITLE}:</th>
+        <th>{L_TITLE}</th>
         <th>{L_OPTIONS}</th>
         <th>{L_DELETE}</th>
     </tr>
@@ -1060,11 +1258,13 @@ function ChangeThumb(pic) {
             <!-- ELSE --><span class="gensmall">{L__NO_TOPIC_FORUM}</span><!-- ENDIF -->
         </td>
         <td class="row" style="padding: 4px;" align="center" nowrap="nowrap"><span class="genmed"><!-- IF draftrow.U_INSERT --><a href="{draftrow.U_INSERT}">{L_LOAD_DRAFT}</a><br /><!-- ENDIF --><a href="{draftrow.U_VIEW_EDIT}">{L_VIEW_EDIT}</a></span></td>
-        <td class="row" style="padding: 4px;" align="center"><input type="checkbox" class="radio" name="d[{draftrow.DRAFT_ID}]" /></td>
+        <td class="row" style="padding: 4px;" align="center">
+            <input type="checkbox" class="radio" name="d[{draftrow.DRAFT_ID}]" />
+        </td>
     </tr>
     <!-- BEGINELSE -->
         <tr>
-            <td class="row1" colspan="4" align="center"><b class="genmed">{L_NO_SAVED_DRAFTS}</b></td>
+            <td class="row1" colspan="4" align="center"><strong class="genmed">{L_NO_SAVED_DRAFTS}</strong></td>
         </tr>
     <!-- END draftrow -->
 
@@ -1075,11 +1275,15 @@ function ChangeThumb(pic) {
     <!-- ENDIF -->
 <!-- ELSEIF S_EDIT_DRAFT -->
     <tr>
-        <td class="row1" width="22%"><b class="genmed">{L_SUBMIT}:</b></td>
-        <td class="row2"><input class="post" style="width:450px" type="text" name="subject" size="45" maxlength="64" tabindex="2" value="{DRAFT_SUBJECT}" /></td>
+        <td class="row1" width="22%"><strong class="genmed">{L_SUBMIT}:</strong></td>
+        <td class="row2">
+            <input class="post" style="width:450px" type="text" name="subject" size="45" maxlength="64" tabindex="2" value="{DRAFT_SUBJECT}" />
+        </td>
     </tr>
     <tr>
-        <td class="row1" width="22%"><b class="genmed">{L_MESSAGE}: </b><br /><span class="gensmall">{L_EDIT_DRAFT_EXPLAIN}</span></td>
+        <td class="row1" width="22%"><strong class="genmed">{L_MESSAGE}: </strong><br />
+            <span class="gensmall">{L_EDIT_DRAFT_EXPLAIN}</span>
+        </td>
         <td class="row2">
             <script type="text/javascript">
             // <![CDATA[
@@ -1093,12 +1297,12 @@ function ChangeThumb(pic) {
         <script type="text/javascript">
         // <![CDATA[
 
-        // Define the bbCode tags
+        // Define the BBCode Tags
         var bbcode = new Array();
         var bbtags = new Array('[b]','[/b]','[i]','[/i]','[u]','[/u]','[quote]','[/quote]','[code]','[/code]','[list]','[/list]','[list=]','[/list]','[img]','[/img]','[url]','[/url]','[flash=]', '[/flash]','[size=]','[/size]'<!-- BEGIN custom_tags --> {custom_tags.BBCODE_NAME}<!-- END custom_tags -->);
         var imageTag = false;
 
-        // Helpline messages
+        // Helpline Messages
         var help_line = {
             b: '{LA__BBCODE_B_HELP}',
             i: '{LA__BBCODE_I_HELP}',
@@ -1126,24 +1330,35 @@ function ChangeThumb(pic) {
 
 <!-- IF S_BBCODE_ALLOWED -->
         <input type="button" class="btnbbcode" accesskey="b" name="addbbcode0" value=" B " style="font-weight:bold; width: 30px;" onclick="bbstyle(0)" onmouseover="helpline('b')" onmouseout="helpline('tip')" />
+
         <input type="button" class="btnbbcode" accesskey="i" name="addbbcode2" value=" i " style="font-style:italic; width: 30px;" onclick="bbstyle(2)" onmouseover="helpline('i')" onmouseout="helpline('tip')" />
+
         <input type="button" class="btnbbcode" accesskey="u" name="addbbcode4" value=" u " style="text-decoration: underline; width: 30px;" onclick="bbstyle(4)" onmouseover="helpline('u')" onmouseout="helpline('tip')" />
+
         <!-- IF S_BBCODE_QUOTE -->
             <input type="button" class="btnbbcode" accesskey="q" name="addbbcode6" value="Quote" style="width: 50px" onclick="bbstyle(6)" onmouseover="helpline('q')" onmouseout="helpline('tip')" />
         <!-- ENDIF -->
+
         <input type="button" class="btnbbcode" accesskey="c" name="addbbcode8" value="Code" style="width: 40px" onclick="bbstyle(8)" onmouseover="helpline('c')" onmouseout="helpline('tip')" />
+
         <input type="button" class="btnbbcode" accesskey="l" name="addbbcode10" value="List" style="width: 40px" onclick="bbstyle(10)" onmouseover="helpline('l')" onmouseout="helpline('tip')" />
+
         <input type="button" class="btnbbcode" accesskey="o" name="addbbcode12" value="List=" style="width: 40px" onclick="bbstyle(12)" onmouseover="helpline('o')" onmouseout="helpline('tip')" />
+
         <input type="button" class="btnbbcode" accesskey="t" name="addlitsitem" value="[*]" style="width: 40px" onclick="bbstyle(-1)" onmouseover="helpline('e')" onmouseout="helpline('tip')" />
+
         <!-- IF S_BBCODE_IMG -->
             <input type="button" class="btnbbcode" accesskey="p" name="addbbcode14" value="Img" style="width: 40px" onclick="bbstyle(14)" onmouseover="helpline('p')" onmouseout="helpline('tip')" />
         <!-- ENDIF -->
+
         <!-- IF S_LINKS_ALLOWED -->
             <input type="button" class="btnbbcode" accesskey="w" name="addbbcode16" value="URL" style="text-decoration: underline; width: 40px" onclick="bbstyle(16)" onmouseover="helpline('w')" onmouseout="helpline('tip')" />
         <!-- ENDIF -->
+
         <!-- IF S_BBCODE_FLASH -->
             <input type="button" class="btnbbcode" accesskey="d" name="addbbcode18" value="Flash" onclick="bbstyle(18)" onmouseover="helpline('d')" onmouseout="helpline('tip')" />
         <!-- ENDIF -->
+
         <span class="genmed nowrap">{L_FONT_SIZE}: <select class="gensmall" name="addbbcode20" onchange="bbfontstyle('[size=' + this.form.addbbcode20.options[this.form.addbbcode20.selectedIndex].value + ']', '[/size]');this.form.addbbcode20.selectedIndex = 2;" onmouseover="helpline('f')" onmouseout="helpline('tip')">
             <option value="50">{L_FONT_TINY}</option>
             <option value="85">{L_FONT_SMALL}</option>
@@ -1163,7 +1378,7 @@ function ChangeThumb(pic) {
         <td colspan="2">
         <!-- BEGIN custom_tags -->
         <!-- END custom_tags -->
-    <input type="text" readonly name="helpbox" style="width:100%" class="helpline" value="Tip: Styles can be applied quickly to selected text." />
+    <input type="text" readonly name="helpbox" style="width:100%" class="helpline" value="{L_STYLE_TIP}" />
         </td>
     </tr>
 <!-- ENDIF -->
@@ -1192,7 +1407,9 @@ function ChangeThumb(pic) {
         <td colspan="9" align="left"><p class="topictitle"><a href="{S_UCP_ACTION}">{L_BACK_TO_DRAFTS}</a></p></td>
     </tr>
     <tr>
-        <td colspan="2" align="center">{S_HIDDEN_FIELDS}<input class="btnmain" type="submit" name="submit" value="{L_SUBMIT}" />&nbsp;&nbsp;<input class="btnlite" type="reset" value="{L_CANCEL_SUB}" name="reset" /></td>
+        <td colspan="2" align="center">{S_HIDDEN_FIELDS}
+            <input class="btnmain" type="submit" name="submit" value="{L_SUBMIT}" />&nbsp;&nbsp;
+            <input class="btnlite" type="reset" value="{L_CANCEL_SUB}" name="reset" /></td>
     </tr>
 <!-- ENDIF -->
 
@@ -1238,20 +1455,43 @@ function ChangeThumb(pic) {
         <!-- IF attachrow.S_ROW_COUNT is even --><tr class="row2"><!-- ELSE --><tr class="row1"><!-- ENDIF -->
 
         <td class="genmed row" style="padding: 4px;" align="center" width="2%">&nbsp;{attachrow.ROW_NUMBER}&nbsp;</td>
-        <td class="row" style="padding: 4px;"><a class="gen" href="{attachrow.U_VIEW_ATTACHMENT}">{attachrow.FILENAME}</a><br /><span class="gensmall"><!-- IF attachrow.S_IN_MESSAGE --><b>{L__PRIVATE_MESSAGE}: </b><!-- ELSE --><b>{L_TOPIC}: </b><!-- ENDIF --><a href="{attachrow.U_VIEW_TOPIC}">{attachrow.TOPIC_TITLE}</a></span></td>
+
+        <td class="row" style="padding: 4px;">
+            <a class="gen" href="{attachrow.U_VIEW_ATTACHMENT}">{attachrow.FILENAME}</a><br />
+            <span class="gensmall"><!-- IF attachrow.S_IN_MESSAGE --><strong>{L__PRIVATE_MESSAGE}: </strong><!-- ELSE --><strong>{L_TOPIC}: </strong><!-- ENDIF -->
+                <a href="{attachrow.U_VIEW_TOPIC}">{attachrow.TOPIC_TITLE}</a></span>
+            </td>
+
         <td class="gensmall row" style="padding: 4px;" align="center" valign="middle" nowrap="nowrap">&nbsp;{attachrow.POST_TIME}&nbsp;</td>
         <td class="genmed row" style="padding: 4px;" align="center" valign="middle" nowrap="nowrap">{attachrow.SIZE}</td>
         <td class="genmed row" style="padding: 4px;" align="center">{attachrow.DOWNLOAD_COUNT}</td>
-        <td class="row" style="padding: 4px;" align="center" valign="middle"><input type="checkbox" class="radio" name="attachment[{attachrow.ATTACH_ID}]" value="1" /></td>
+        <td class="row" style="padding: 4px;" align="center" valign="middle">
+            <input type="checkbox" class="radio" name="attachment[{attachrow.ATTACH_ID}]" value="1" />
+        </td>
     </tr>
     <!-- END attachrow -->
     <tr>
-        <td colspan="6"><div style="float: left;"><span class="gensmall">{L_SORT_BY}: </span><select name="sk">{S_SORT_OPTIONS}</select> <select name="sd">{S_ORDER_SELECT}</select>&nbsp;<input class="btnlite" type="submit" name="sort" value="{L_SORT}" /></div><div style="float: right;"><input class="btnlite" type="submit" name="delete" value="{L_DELETE_MARKED}" />&nbsp;</div></td>
+        <td colspan="6">
+            <div style="float: left;">
+                <span class="gensmall">{L_SORT_BY}: </span>
+                <select name="sk">{S_SORT_OPTIONS}</select>
+                <select name="sd">{S_ORDER_SELECT}</select>&nbsp;
+                <input class="btnlite" type="submit" name="sort" value="{L_SORT}" />
+            </div>
+            <div style="float: right;">
+                <input class="btnlite" type="submit" name="delete" value="{L_DELETE_MARKED}" />&nbsp;
+            </div>
+        </td>
     </tr>
     </table>
     {$CA_BLOCK_END}
 
-    <div style="float: right;"><b class="gensmall"><a href="#" onclick="marklist('ucp', 'attachment', true); return false;">{L_MARK_ALL}</a> :: <a href="#" onclick="marklist('ucp', 'attachment', false); return false;">{L_UNMARK_ALL}</a></b></div>
+    <div style="float: right;">
+        <strong class="gensmall">
+            <a href="#" onclick="marklist('ucp', 'attachment', true); return false;">{L_MARK_ALL}</a> ::
+            <a href="#" onclick="marklist('ucp', 'attachment', false); return false;">{L_UNMARK_ALL}</a>
+        </strong>
+    </div>
 
 <!-- ELSE -->
 
@@ -1268,7 +1508,7 @@ function ChangeThumb(pic) {
        </tr>
 
     <tr>
-        <td class="row1" align="center"><b class="genmed">{L_UCP_NO_ATTACHMENTS}</b></td>
+        <td class="row1" align="center"><strong class="genmed">{L_UCP_NO_ATTACHMENTS}</strong></td>
     </tr>
     </table>
     {$CA_BLOCK_END}
@@ -1293,7 +1533,7 @@ function ChangeThumb(pic) {
 </tr>
 
     <tr>
-        <td class="row1" align="center" colspan="3"><!-- IF S_ANNOUCEMENTS -->{S_ANNOUCEMENTS}<!-- ELSE --><b class="gen">{L_NO_ANNOUNCEMENTS}</b><!-- ENDIF --></td>
+        <td class="row1" align="center" colspan="3"><!-- IF S_ANNOUCEMENTS -->{S_ANNOUCEMENTS}<!-- ELSE --><strong class="gen">{L_NO_ANNOUNCEMENTS}</strong><!-- ENDIF --></td>
 
     </tr>
 
@@ -1304,27 +1544,46 @@ function ChangeThumb(pic) {
     <td class="row1" colspan="3">
         <table width="100%" cellspacing="1" cellpadding="4">
         <tr>
-            <td align="right" valign="top" nowrap="nowrap"><b class="genmed">{l_JOINED}: </b></td>
+            <td align="right" valign="top" nowrap="nowrap"><strong class="genmed">{l_JOINED}: </strong></td>
 
-            <td width="100%"><b class="gen">{CP_UREGDATE}</b></td>
+            <td width="100%"><strong class="gen">{CP_UREGDATE}</strong></td>
         </tr>
         <tr>
-            <td align="right" valign="top" nowrap="nowrap"><b class="genmed">{L_LAST_SEEN}: </b></td>
+            <td align="right" valign="top" nowrap="nowrap"><strong class="genmed">{L_LAST_SEEN}: </strong></td>
 
-            <td width="100%"><b class="gen">{CP_ULASTSEEN}</b></td>
+            <td width="100%"><strong class="gen">{CP_ULASTSEEN}</strong></td>
         </tr>
         <tr>
-            <td align="right" valign="top" nowrap="nowrap"><b class="genmed">{L_TOTAL_POSTS}: </b></td>
-            <td><b class="gen">{CP_POST_COUNT}</b><br /><span class="genmed">[{POSTS_PCT} / {POSTS_DAY}]<br /><a href="./forum.php?action=search&search_id={CP_UID}">{L_SHOW_YOUR_POSTS}</a></span></td>
+            <td align="right" valign="top" nowrap="nowrap">
+                <strong class="genmed">{L_TOTAL_POSTS}: </strong>
+            </td>
+            <td>
+                <strong class="gen">{CP_POST_COUNT}</strong><br />
+                <span class="genmed">[{POSTS_PCT} / {POSTS_DAY}]<br />
+                    <a href="./forum.php?action=search&search_id={CP_UID}">{L_SHOW_YOUR_POSTS}</a>
+                </span>
+            </td>
         </tr>
                     <tr>
 
-                <td align="right" valign="top" nowrap="nowrap"><b class="genmed">{L_ACTIVE_IN_FORUM}: </b></td>
-                    <td><!-- IF ACTIVE_FORUM --><b><a class="gen" href="{U_ACTIVE_FORUM}">{ACTIVE_FORUM}</a></b><br /><span class="genmed">[ {ACTIVE_FORUM_POSTS} / {ACTIVE_FORUM_PCT} ]</span><!-- ELSE --><span class="gen">-</span><!-- ENDIF --></td>
+                <td align="right" valign="top" nowrap="nowrap">
+                    <strong class="genmed">{L_ACTIVE_IN_FORUM}: </strong>
+                </td>
+                <td><!-- IF ACTIVE_FORUM --><strong>
+                    <a class="gen" href="{U_ACTIVE_FORUM}">{ACTIVE_FORUM}</a></strong><br />
+                    <span class="genmed">[ {ACTIVE_FORUM_POSTS} / {ACTIVE_FORUM_PCT} ]</span><!-- ELSE -->
+                    <span class="gen">-</span><!-- ENDIF -->
+                </td>
             </tr>
             <tr>
-                <td align="right" valign="top" nowrap="nowrap"><b class="genmed">{L_ACTIVE_IN_TOPIC}: </b></td>
-                    <td><!-- IF ACTIVE_TOPIC --><b><a class="gen" href="{U_ACTIVE_TOPIC}">{ACTIVE_TOPIC}</a></b><br /><span class="genmed">[ {ACTIVE_TOPIC_POSTS} / {ACTIVE_TOPIC_PCT} ]</span><!-- ELSE --><span class="gen">-</span><!-- ENDIF --></td>
+                <td align="right" valign="top" nowrap="nowrap">
+                    <strong class="genmed">{L_ACTIVE_IN_TOPIC}: </strong>
+                </td>
+                <td><!-- IF ACTIVE_TOPIC -->
+                    <strong><a class="gen" href="{U_ACTIVE_TOPIC}">{ACTIVE_TOPIC}</a></strong><br />
+                    <span class="genmed">[ {ACTIVE_TOPIC_POSTS} / {ACTIVE_TOPIC_PCT} ]</span><!-- ELSE -->
+                    <span class="gen">-</span><!-- ENDIF -->
+                </td>
 
             </tr>
                 </table>

@@ -304,6 +304,11 @@ $lang = array_merge($lang, array(
     'EXTERNAL_TORRENT'         => 'External Torrent',
     'PAGES'                    => 'Pages',
     '_PRIVATE_MESSAGE'         => 'Private Message',
+    'DOWNLOAD'                 => 'Download',
+    'SEARCH_USER_POST'         => 'Search User\'s Posts',
+    'VIEW_USER_NOTES'          => 'View User Notes',
+    'WARN_USER'                => 'Warn User',
+    'RATIO'                    => 'Ratio',
 ));
 
 ?>

@@ -42,7 +42,7 @@
 <!-- IF S_MCP_QUEUE --><form method="post" name="mcp_approve" action="{U_APPROVE_ACTION}"><!-- ELSE --><form method="post" name="mcp_report_details" action="{S_CLOSE_ACTION}"><!-- ENDIF -->
 
 {$CA_BLOCK_START}
-{$CA_CAP2_START}<!-- IF S_PM -->{L_PM}<!-- ELSE -->{L_POST_DETAILS}<!-- ENDIF -->{$CA_CAP2_END}
+{$CA_CAP2_START}<!-- IF S_PM -->{L_PM}<!-- ELSE -->{L_MCP_MAIN_POST_DETAILS}<!-- ENDIF -->{$CA_CAP2_END}
 <table width="100%" cellpadding="3" cellspacing="{$CA_SPACING}" border="0" class="tablebg">
 <tr>
 	<td class="row3" colspan="2" align="center"><span class="gensmall"><!-- IF S_MCP_QUEUE -->{RETURN_QUEUE} | {RETURN_TOPIC_SIMPLE} | {RETURN_POST}<!-- ELSEIF S_MCP_REPORT -->{RETURN_REPORTS}<!-- IF not S_PM --> | <a href="{U_VIEW_POST}">{L_VIEW_POST}</a> | <a href="{U_VIEW_TOPIC}">{L_VIEW_TOPIC}</a> | <a href="{U_VIEW_FORUM}">{L_VIEW_FORUM}</a><!-- ENDIF --><!-- ELSE -->{RETURN_TOPIC}<!-- ENDIF --></span></td>
