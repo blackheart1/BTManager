@@ -835,7 +835,7 @@ $u_datetime = array(
     'Sep'       => 'Sep',
     'Oct'       => 'Oct',
     'Nov'       => 'Nov',
-    'Dec'       => 'Dec'
+    'Dec'       => 'Dec',
 );
 
 ?>

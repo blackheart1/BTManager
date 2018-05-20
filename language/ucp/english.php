@@ -309,6 +309,11 @@ $lang = array_merge($lang, array(
     'VIEW_USER_NOTES'          => 'View User Notes',
     'WARN_USER'                => 'Warn User',
     'RATIO'                    => 'Ratio',
+
+    'DHT_EXPL'                 => 'This Torrent supports DHT.  With a State-of-the-art Client, you\'ll be able to Download this Torrent even if a Central Tracker goes down.',
+
+    'DHT_SUPORT'               => 'DHT Support',
+    'TORRENT DETAILS'          => 'Torrent Details',
 ));
 
 ?>

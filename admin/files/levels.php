@@ -423,7 +423,7 @@ $start = request_var('page', 0)*$config['topics_per_page'];
 			$admin_role->u_action = '/admin.php?op=levels&i=userinfo&action=' . $action;
 				$template->assign_vars(array(
 					'U_ACTION'			=> '/admin.php?op=levels&i=userinfo&action=' . $action,
-					'ICON_MOVE_DOWN'	=> $user->img('icon_down', 'NEW_POST'),
+					'ICON_MOVE_DOWN'	=> $user->img('icon_down', '{L_MOVE_DOWN}'),
 					'ICON_MOVE_UP'	=> $user->img('icon_up', 'NEW_POST'),
 					'ICON_MOVE_UP_DISABLED'	=> $user->img('icon_up', 'NEW_POST'),
 					'ICON_MOVE_DOWN_DISABLED'	=> $user->img('icon_down', 'NEW_POST'),
