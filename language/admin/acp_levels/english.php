@@ -330,6 +330,10 @@ $lang = array_merge($lang, array(
     'EDIT_GROUP_PERM'      => 'Edit Group Permissions',
     'MANAGE_GROUP_PERM'    => 'Manage Group Permissions',
     'MANAGE_GROUPS'        => 'Manage Groups',
+	'MOVE_DOWN'				=>'Move Down',
+	'MOVE_DOWN_DISABLED'	=>'Move Down Disabled',
+	'MOVE_UP'				=>'Move Up',
+	'MOVE_UP_DISABLED'		=>'Move Up Disabled',
 ));
 
 ?>

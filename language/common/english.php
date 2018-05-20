@@ -238,6 +238,7 @@ $lang = array_merge($lang, array(
     'DETAILS'                  => 'Details',
     'DETACH'                   => 'Detach',
     'DELETE'                   => 'Delete',
+    'DELETE_DISABLED'          => 'Delete Disabled',
     'DELETE_MARKED'            => 'Delete Marked',
     'DELETE_ALL'               => 'Delete ALL',
     'DELETE_AVATAR'            => 'Delete Image',
@@ -255,6 +256,7 @@ $lang = array_merge($lang, array(
     'DOWNLOAD'                 => 'Download',
     'DOWNED'                   => 'Downloaded',
     'EDIT'                     => 'Edit',
+    'EDIT_DISABLED'            => 'Edit Disabled',
     'NOTICE'                   => 'Notice',
     'EDIT_PROFILE'             => 'Edit Profile',
 
