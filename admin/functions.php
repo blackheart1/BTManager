@@ -1846,10 +1846,26 @@ function delete_posts($where_type, $where_ids, $auto_sync = true, $posted_sync =
 		$remove_topics = array_diff($topic_ids, $remove_topics);
 	}
 
+	// Remove the message from the search index
+	$search_type = basename($config['search_type']);
+
+	if (!file_exists($phpbb_root_path . 'include/search/' . $search_type . '.' . $phpEx))
+	{
+		trigger_error('NO_SUCH_SEARCH_MODULE');
+	}
+
+	include_once("include/search/$search_type.$phpEx");
+
+	$error = false;
+	$search = new $search_type($error);
+
 	if ($error)
 	{
 		trigger_error($error);
 	}
+
+	$search->index_remove($post_ids, $poster_ids, $forum_ids);
+
 	delete_attachments('post', $post_ids, false);
 
 

@@ -1642,6 +1642,32 @@ function submit_post($mode, $subject, $username, $topic_type, &$poll, &$data, $u
 		$db->sql_query($sql);
 	}
 
+	// Index message contents
+	if ($update_search_index && $data['enable_indexing'])
+	{
+		// Select the search method and do some additional checks to ensure it can actually be utilised
+		$search_type = basename($config['search_type']);
+
+		if (!file_exists($phpbb_root_path . 'includes/search/' . $search_type . '.' . $phpEx))
+		{
+			trigger_error('NO_SUCH_SEARCH_MODULE');
+		}
+
+		if (!class_exists($search_type))
+		{
+			include("{$phpbb_root_path}includes/search/$search_type.$phpEx");
+		}
+
+		$error = false;
+		$search = new $search_type($error);
+
+		if ($error)
+		{
+			trigger_error($error);
+		}
+
+		$search->index($mode, $data['post_id'], $data['message'], $subject, $poster_id, ($topic_type == POST_GLOBAL) ? 0 : $data['forum_id']);
+	}
 	// Topic Notification, do not change if moderator is changing other users posts...
 	if ($user->id == $poster_id)
 	{

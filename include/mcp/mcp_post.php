@@ -472,11 +472,11 @@ function change_poster(&$post_info, $userdata)
 	}
 
 	// refresh search cache of this post
-	/*$search_type = basename($config['search_type']);
+	$search_type = basename($config['search_type']);
 
-	if (file_exists($phpbb_root_path . 'includes/search/' . $search_type . '.' . $phpEx))
+	if (file_exists($phpbb_root_path . 'include/search/' . $search_type . '.' . $phpEx))
 	{
-		require("{$phpbb_root_path}includes/search/$search_type.$phpEx");
+		require("{$phpbb_root_path}include/search/$search_type.$phpEx");
 
 		// We do some additional checks in the module to ensure it can actually be utilised
 		$error = false;
@@ -486,7 +486,7 @@ function change_poster(&$post_info, $userdata)
 		{
 			$search->destroy_cache(array(), array($post_info['user_id'], $userdata['user_id']));
 		}
-	}*///
+	}
 
 	$from_username = $post_info['username'];
 	$to_username = $userdata['username'];
@@ -496,13 +496,13 @@ function change_poster(&$post_info, $userdata)
 
 	if (!sizeof($post_info))
 	{
-		trigger_error('POST_NOT_EXIST2');
+		trigger_error('POST_NOT_EXIST');
 	}
 
 	$post_info = $post_info[$post_id];
 
 	// Now add log entry
-	//add_log('mod', $post_info['forum_id'], $post_info['topic_id'], 'LOG_MCP_CHANGE_POSTER', $post_info['topic_title'], $from_username, $to_username);
+	add_log('mod', $post_info['forum_id'], $post_info['topic_id'], 'LOG_MCP_CHANGE_POSTER', $post_info['topic_title'], $from_username, $to_username);
 }
 
 ?>
