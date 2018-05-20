@@ -108,6 +108,7 @@ $lang = array_merge($lang, array(
     'SORT_TIME'                      => 'Post Time',
 
     'TOO_FEW_AUTHOR_CHARS'           => 'You must Specify at least %d Characters of the Authors Name.',
+    'NO_SUCH_SEARCH_MODULE'          => 'No Search Criteria Found',
 ));
 
 ?>

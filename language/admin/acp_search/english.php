@@ -13,11 +13,13 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File ecp_search/english.php 2018-05-19 23:23:00 Black_heart
+** File ecp_search/english.php 2018-05-20 09:40:00 Thor
 **
 ** CHANGES
 **
 ** 2018-05-19 - Added New Masthead
+** 2018-05-20 - Fixed Spelling
+** 2018-05-20 - Amended the Wording of some Sentences
 **/
 
 if (!defined('IN_PMBT'))
@@ -31,94 +33,110 @@ if (empty($lang) || !is_array($lang))
 	$lang = array();
 }
 
-// DEVELOPERS PLEASE NOTE
-//
-// All language files should use UTF-8 as their encoding and the files must not contain a BOM.
-//
-// Placeholders can now contain order information, e.g. instead of
-// 'Page %s of %s' you can (and should) write 'Page %1$s of %2$s', this allows
-// translators to re-order the output of data while ensuring it remains correct
-//
-// You do not need this where single placeholders are used, e.g. 'Message %d' is fine
-// equally where a string contains only two placeholders which are used to wrap text
-// in a url you again do not need to specify an order e.g., 'Click %sHERE%s' is fine
-
 $lang = array_merge($lang, array(
-	'ACP_SEARCH'							=> 'Search configuration',
-	'ACP_SEARCH_INDEX'						=> 'Search index',
-	'ACP_SEARCH_SETTINGS'					=> 'Search settings',
-	'ACP_SEARCH_INDEX_EXPLAIN'				=> 'Here you can manage the search backend’s indexes. Since you normally use only one backend you should delete all indexes that you do not make use of. After altering some of the search settings (e.g. the number of minimum/maximum chars) it might be worth recreating the index so it reflects those changes.',
-	'ACP_SEARCH_SETTINGS_EXPLAIN'			=> 'Here you can define what search backend will be used for indexing posts and performing searches. You can set various options that can influence how much processing these actions require. Some of these settings are the same for all search engine backends.',
+	'ACP_SEARCH'							=> 'Search Configuration',
+	'ACP_SEARCH_INDEX'						=> 'Search Index',
+	'ACP_SEARCH_SETTINGS'					=> 'Search Settings',
 
-	'COMMON_WORD_THRESHOLD'					=> 'Common word threshold',
-	'COMMON_WORD_THRESHOLD_EXPLAIN'			=> 'Words which are contained in a greater percentage of all posts will be regarded as common. Common words are ignored in search queries. Set to zero to disable. Only takes effect if there are more than 100 posts. If you want words that are currently regarded as common to be reconsidered you have to recreate the index.',
-	'CONFIRM_SEARCH_BACKEND'				=> 'Are you sure you wish to switch to a different search backend? After changing the search backend you will have to create an index for the new search backend. If you don’t plan on switching back to the old search backend you can also delete the old backend’s index in order to free system resources.',
-	'CONTINUE_DELETING_INDEX'				=> 'Continue previous index removal process',
-	'CONTINUE_DELETING_INDEX_EXPLAIN'		=> 'An index removal process has been started. In order to access the search index page you will have to complete it or cancel it.',
-	'CONTINUE_INDEXING'						=> 'Continue previous indexing process',
-	'CONTINUE_INDEXING_EXPLAIN'				=> 'An indexing process has been started. In order to access the search index page you will have to complete it or cancel it.',
-	'CREATE_INDEX'							=> 'Create index',
+	'ACP_SEARCH_INDEX_EXPLAIN'				=> 'Here you can manage the Search Index System.  Since you normally use only one Index System you should Delete ALL Indexes that you Do Not make use of.  After altering some of the Search Settings (e.g. the number of Minimum/Maximum Characters) it might be worth Recreating the Index so it reflects those changes.',
 
-	'DELETE_INDEX'							=> 'Delete index',
-	'DELETING_INDEX_IN_PROGRESS'			=> 'Deleting the index in progress',
-	'DELETING_INDEX_IN_PROGRESS_EXPLAIN'	=> 'The search backend is currently cleaning its index. This can take a few minutes.',
+	'ACP_SEARCH_SETTINGS_EXPLAIN'			=> 'Here you can Define what Search Criteria will be used for Indexing Posts and Performing Searches.  You can Set Various Options that can Influence how much Processing these Actions Require.  Some of these Settings are the same for all Search Engine Systems.',
 
-	'FULLTEXT_MYSQL_INCOMPATIBLE_VERSION'	=> 'The MySQL fulltext backend can only be used with MySQL4 and above.',
-	'FULLTEXT_MYSQL_NOT_SUPPORTED'			=> 'MySQL fulltext indexes can only be used with MyISAM or InnoDB tables. MySQL 5.6.4 or later is required for fulltext indexes on InnoDB tables.',
-	'FULLTEXT_MYSQL_TOTAL_POSTS'			=> 'Total number of indexed posts',
-	'FULLTEXT_MYSQL_MBSTRING'				=> 'Support for non-latin UTF-8 characters using mbstring:',
-	'FULLTEXT_MYSQL_PCRE'					=> 'Support for non-latin UTF-8 characters using PCRE:',
-	'FULLTEXT_MYSQL_MBSTRING_EXPLAIN'		=> 'If PCRE does not have unicode character properties, the search backend will try to use mbstring’s regular expression engine.',
-	'FULLTEXT_MYSQL_PCRE_EXPLAIN'			=> 'This search backend requires PCRE unicode character properties, only available in PHP 4.4, 5.1 and above, if you want to search for non-latin characters.',
-	'FULLTEXT_MYSQL_MIN_SEARCH_CHARS_EXPLAIN'	=> 'Words with at least this many characters will be indexed for searching. You or your host can only change this setting by changing the mysql configuration.',
-	'FULLTEXT_MYSQL_MAX_SEARCH_CHARS_EXPLAIN'	=> 'Words with no more than this many characters will be indexed for searching. You or your host can only change this setting by changing the mysql configuration.',
+	'COMMON_WORD_THRESHOLD'					=> 'Common Word Threshold',
 
-	'GENERAL_SEARCH_SETTINGS'				=> 'General search settings',
-	'GO_TO_SEARCH_INDEX'					=> 'Go to search index page',
+	'COMMON_WORD_THRESHOLD_EXPLAIN'			=> 'Words which are contained in a Greater Percentage of ALL Posts will be regarded as Common.  Common Words are Ignored in Search Queries.  Set to Zero to Disable.  This Only takes effect if there are more than 100 Posts.  If you want Words that are Regarded as Common to be Reconsidered then you have to Recreate the Index.',
 
-	'INDEX_STATS'							=> 'Index statistics',
-	'INDEXING_IN_PROGRESS'					=> 'Indexing in progress',
-	'INDEXING_IN_PROGRESS_EXPLAIN'			=> 'The search backend is currently indexing all posts on the board. This can take from a few minutes to a few hours depending on your board’s size.',
+	'CONFIRM_SEARCH_BACKEND'				=> 'Are you Sure you Wish to Switch to a Different Search System?  After changing the Search System you will need to Create a New Index for the New Search System.  If you don’t plan on Switching Back then you can Delete the Old System\'s Index in Order to Free System Resources.',
 
-	'LIMIT_SEARCH_LOAD'						=> 'Search page system load limit',
-	'LIMIT_SEARCH_LOAD_EXPLAIN'				=> 'If the 1 minute system load exceeds this value the search page will go offline, 1.0 equals ~100% utilisation of one processor. This only functions on UNIX based servers.',
+	'CONTINUE_DELETING_INDEX'				=> 'Continue Previous Index Removal Process',
 
-	'MAX_SEARCH_CHARS'						=> 'Max characters indexed by search',
-	'MAX_SEARCH_CHARS_EXPLAIN'				=> 'Words with no more than this many characters will be indexed for searching.',
-	'MAX_NUM_SEARCH_KEYWORDS'				=> 'Maximum number of allowed keywords',
-	'MAX_NUM_SEARCH_KEYWORDS_EXPLAIN'		=> 'Maximum number of words the user is able to search for. A value of 0 allows an unlimited number of words.',
-	'MIN_SEARCH_CHARS'						=> 'Min characters indexed by search',
-	'MIN_SEARCH_CHARS_EXPLAIN'				=> 'Words with at least this many characters will be indexed for searching.',
-	'MIN_SEARCH_AUTHOR_CHARS'				=> 'Min author name characters',
-	'MIN_SEARCH_AUTHOR_CHARS_EXPLAIN'		=> 'Users have to enter at least this many characters of the name when performing a wildcard author search. If the author’s username is shorter than this number you can still search for the author’s posts by entering the complete username.',
+	'CONTINUE_DELETING_INDEX_EXPLAIN'		=> 'An Index Removal Process has been Started.  In Order to Access the Search Index Page you will have to Complete it or Cancel it.
+    ',
+	'CONTINUE_INDEXING'						=> 'Continue Previous Indexing Process',
 
-	'PROGRESS_BAR'							=> 'Progress bar',
+	'CONTINUE_INDEXING_EXPLAIN'				=> 'An Indexing Process has been Started.  In Order to Access the Search Index Page you will have to Complete it or Cancel it.',
 
-	'SEARCH_GUEST_INTERVAL'					=> 'Guest search flood interval',
-	'SEARCH_GUEST_INTERVAL_EXPLAIN'			=> 'Number of seconds guests must wait between searches. If one guest searches all others have to wait until the time interval passed.',
-	'SEARCH_INDEX_CREATE_REDIRECT'			=> 'All posts up to post id %1$d have now been indexed, of which %2$d posts were within this step.<br />The current rate of indexing is approximately %3$.1f posts per second.<br />Indexing in progress…',
-	'SEARCH_INDEX_DELETE_REDIRECT'			=> 'All posts up to post id %1$d have been removed from the search index.<br />Deleting in progress…',
-	'SEARCH_INDEX_CREATED'					=> 'Successfully indexed all posts in the board database.',
-	'SEARCH_INDEX_REMOVED'					=> 'Successfully deleted the search index for this backend.',
-	'SEARCH_INTERVAL'						=> 'User search flood interval',
-	'SEARCH_INTERVAL_EXPLAIN'				=> 'Number of seconds users must wait between searches. This interval is checked independently for each user.',
-	'SEARCH_STORE_RESULTS'					=> 'Search result cache length',
-	'SEARCH_STORE_RESULTS_EXPLAIN'			=> 'Cached search results will expire after this time, in seconds. Set to 0 if you want to disable search cache.',
-	'SEARCH_TYPE'							=> 'Search backend',
-	'SEARCH_TYPE_EXPLAIN'					=> 'BTManager allows you to choose the backend that is used for searching text in post contents. By default the search will use phpBB’s own fulltext search.',
-	'SWITCHED_SEARCH_BACKEND'				=> 'You switched the search backend. In order to use the new search backend you should make sure that there is an index for the backend you chose.',
+	'CREATE_INDEX'							=> 'Create Index',
 
-	'TOTAL_WORDS'							=> 'Total number of indexed words',
-	'TOTAL_MATCHES'							=> 'Total number of word to post relations indexed',
+	'DELETE_INDEX'							=> 'Delete Index',
+	'DELETING_INDEX_IN_PROGRESS'			=> 'Deleting the Index.  Please Wait...',
+	'DELETING_INDEX_IN_PROGRESS_EXPLAIN'	=> 'The Search System is Cleaning it\'s Index.  This can take a few minutes.',
 
-	'YES_SEARCH'							=> 'Enable search facilities',
-	'YES_SEARCH_EXPLAIN'					=> 'Enables user facing search functionality including member search.',
-	'YES_SEARCH_UPDATE'						=> 'Enable fulltext updating',
-	'YES_SEARCH_UPDATE_EXPLAIN'				=> 'Updating of fulltext indexes when posting, overridden if search is disabled.',
+	'FULLTEXT_MYSQL_INCOMPATIBLE_VERSION'	=> 'The MySQL fulltext System can Only be used with MySQL4 and above.',
+
+	'FULLTEXT_MYSQL_NOT_SUPPORTED'			=> 'MySQL fulltext Indexes can Only be used with MyISAM or InnoDB Tables.  MySQL 5.6.4 or later is Required for fulltext Indexes on InnoDB Tables.',
+
+	'FULLTEXT_MYSQL_TOTAL_POSTS'			=> 'Total Number of Indexed Posts',
+	'FULLTEXT_MYSQL_MBSTRING'				=> 'Support for non-latin UTF-8 Characters using mbstring:',
+	'FULLTEXT_MYSQL_PCRE'					=> 'Support for non-latin UTF-8 Characters using PCRE:',
+	'FULLTEXT_MYSQL_MBSTRING_EXPLAIN'		=> 'If PCRE Does Not have unicode Character Properties, the Search System will try to use mbstring’s Regular Expression Engine.',
+
+	'FULLTEXT_MYSQL_PCRE_EXPLAIN'			=> 'This Search System Requires PCRE unicode Character Properties.  If you want to Search for non-latin Characters you\'ll Require PHP 4.4, 5.1 and above.',
+
+	'FULLTEXT_MYSQL_MIN_SEARCH_CHARS_EXPLAIN'	=> 'Words with at least this many Characters will be Indexed for Searching.  You or your Host can Change this Setting by Changing the MySQL Configuration.',
+
+	'FULLTEXT_MYSQL_MAX_SEARCH_CHARS_EXPLAIN'	=> 'Words with no more than this many Characters will be Indexed for Searching. You or your host can Change this Setting by Changing the MySQL Configuration.',
+
+	'GENERAL_SEARCH_SETTINGS'				=> 'General Search Settings',
+	'GO_TO_SEARCH_INDEX'					=> 'Go to Search Index Page',
+
+	'INDEX_STATS'							=> 'Index Statistics',
+	'INDEXING_IN_PROGRESS'					=> 'Indexing in Progress',
+
+	'INDEXING_IN_PROGRESS_EXPLAIN'			=> 'The Search System is Currently Indexing ALL Posts on the Board. This can take from a few minutes to a few hours depending on your Board’s Size.',
+
+	'LIMIT_SEARCH_LOAD'						=> 'Search Page System Load Limit',
+
+	'LIMIT_SEARCH_LOAD_EXPLAIN'				=> 'If the 1 Minute System Load Exceeds this Value, the Search Page will go Offline.  1.0 Equals ~100% Utilisation of One Processor.  This Only Functions on UNIX Based Servers.',
+
+	'MAX_SEARCH_CHARS'						=> 'Maximum Characters Indexed by Search',
+	'MAX_SEARCH_CHARS_EXPLAIN'				=> 'Words with no more than this many Characters will be Indexed for Searching.',
+	'MAX_NUM_SEARCH_KEYWORDS'				=> 'Maximum Number of Allowed Keywords',
+
+	'MAX_NUM_SEARCH_KEYWORDS_EXPLAIN'		=> 'Maximum Number of Words the User is able to Search for.  A Value of 0 Allows an Unlimited Number of Words.',
+
+	'MIN_SEARCH_CHARS'						=> 'Minimum Characters Indexed by Search',
+	'MIN_SEARCH_CHARS_EXPLAIN'				=> 'Words with at least this many Characters will be Indexed for Searching.',
+	'MIN_SEARCH_AUTHOR_CHARS'				=> 'Minimum Author Name Characters',
+
+	'MIN_SEARCH_AUTHOR_CHARS_EXPLAIN'		=> 'Users need to enter at least this many Characters of the Name when performing a Wildcard Author Search.  If the Author\'s Username is Shorter than this Number, you can still Search for the Author\'s Posts by entering the Complete Username.',
+
+	'PROGRESS_BAR'							=> 'Progress Bar',
+
+	'SEARCH_GUEST_INTERVAL'					=> 'Guest Search Flood Interval',
+
+	'SEARCH_GUEST_INTERVAL_EXPLAIN'			=> 'Number of seconds Guests must wait between Searches.  If one Guest Searches, then ALL others have to Wait until the Time Interval has Passed.',
+
+	'SEARCH_INDEX_CREATE_REDIRECT'			=> 'ALL Posts up to Post ID %1$d have now been Indexed, of which %2$d Posts were within this Step.<br />The Current Rate of Indexing is Approximately %3$.1f Posts Per Second.<br />Indexing in Progress...',
+
+	'SEARCH_INDEX_DELETE_REDIRECT'			=> 'ALL Posts up to Post id %1$d have been Removed from the Search Index.<br />Deleting in progress...',
+
+	'SEARCH_INDEX_CREATED'					=> 'Successfully Indexed ALL Posts in the Board Database.',
+	'SEARCH_INDEX_REMOVED'					=> 'Successfully Deleted the Search Index for this System.',
+	'SEARCH_INTERVAL'						=> 'User Search Flood Interval',
+
+	'SEARCH_INTERVAL_EXPLAIN'				=> 'Number of seconds Users Must Wait between Searches.  This Interval is Checked Independently for each User.',
+
+	'SEARCH_STORE_RESULTS'					=> 'Search Result Cache Length',
+
+	'SEARCH_STORE_RESULTS_EXPLAIN'			=> 'Cached Search Results will Expire after this time (in seconds).  Set to 0 if you want to Disable the Search Cache.',
+
+	'SEARCH_TYPE'							=> 'Search System',
+
+	'SEARCH_TYPE_EXPLAIN'					=> 'BTManager Allows you to choose the System that is Used for Searching Text in Post\'s.  By Default the Search will use phpBB’s own fulltext Search.',
+
+	'SWITCHED_SEARCH_BACKEND'				=> 'You Switched the Search System.  In Order to use the New Search System you should make sure that there is an Index for the System you chose.',
+
+	'TOTAL_WORDS'							=> 'Total Number of Indexed Words',
+	'TOTAL_MATCHES'							=> 'Total Number of Word to Post Relations Indexed',
+
+	'YES_SEARCH'							=> 'Enable Search Facilities',
+	'YES_SEARCH_EXPLAIN'					=> 'Enables User Facing Search Functionality Including Member Search.',
+	'YES_SEARCH_UPDATE'						=> 'Enable fulltext Updating',
+	'YES_SEARCH_UPDATE_EXPLAIN'				=> 'Updating of fulltext Indexes when Posting, Overridden if Search is Disabled.',
 	'VALUE'									=> 'Value',
 	'STATISTIC'								=> 'Statistics',
-	'CONTINU'								=> 'continue',
-
+	'CONTINU'								=> 'Continue',
 ));
 
 ?>

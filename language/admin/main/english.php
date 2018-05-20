@@ -490,9 +490,9 @@ $lang = array_merge($lang, array(
     'LOG_FILTER_ADD'        => '<strong>Added Upload Filter</strong><br /> %s',
     'LOG_FILTER_DELETE'     => '<strong>Deleted Upload Filter</strong><br /> %s',
     'LOG_FILTER_EDIT'       => '<strong>Edited Upload Filter</strong><br /> %s',
-	'MENU_SEACH'			=> 'Forum Seach',
-	'ACP_SEARCH_INDEX'			=> 'Search index',
-	'ACP_SEARCH_SETTINGS'		=> 'Search settings',
+    'MENU_SEACH'            => 'Forum Search',
+    'ACP_SEARCH_INDEX'      => 'Search Index',
+    'ACP_SEARCH_SETTINGS'   => 'Search Settings',
 ));
 
 ?>
