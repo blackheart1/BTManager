@@ -238,7 +238,6 @@ class fulltext_native extends search_backend
 
 		$mode = '';
 		$ignore_no_id = true;
-
 		foreach ($query as $word)
 		{
 			if (empty($word))
@@ -281,7 +280,6 @@ class fulltext_native extends search_backend
 				$ignore_no_id = false;
 				$mode = 'must_contain';
 			}
-
 			if (empty($word))
 			{
 				continue;
@@ -728,8 +726,9 @@ class fulltext_native extends search_backend
 		unset($sql_where, $sql_sort, $group_by);
 
 		$sql = $db->sql_build_query('SELECT', $sql_array);
-		$result = $db->sql_query($sql . 'LIMIT ' . $start . ', ' . $config['search_block_size']);
+		$result = $db->sql_query($sql . ' LIMIT ' . $start . ', ' . $config['search_block_size']);
 
+		//die($sql . ' LIMIT ' . $start . ', ' . $config['search_block_size']);
 		while ($row = $db->sql_fetchrow($result))
 		{
 			$id_ary[] = $row[(($type == 'posts') ? 'post_id' : 'topic_id')];
@@ -1166,7 +1165,7 @@ class fulltext_native extends search_backend
 			$db->sql_freeresult($result);
 			$new_words = array_diff($unique_add_words, array_keys($word_ids));
 
-			$db->sql_transaction('begin');
+			//$db->sql_transaction('begin');
 			if (sizeof($new_words))
 			{
 				$sql_ary = array();
@@ -1175,15 +1174,15 @@ class fulltext_native extends search_backend
 				{
 					$sql_ary[] = array('word_text' => (string) $word, 'word_count' => 0);
 				}
-				$db->sql_return_on_error(true);
+				//$db->sql_return_on_error(true);
 				$db->sql_multi_insert($db_prefix . '_search_wordlist', $sql_ary);
-				$db->sql_return_on_error(false);
+				//$db->sql_return_on_error(false);
 			}
 			unset($new_words, $sql_ary);
 		}
 		else
 		{
-			$db->sql_transaction('begin');
+			//$db->sql_transaction('begin');
 		}
 
 		// now update the search match table, remove links to removed words and add links to new words
@@ -1215,7 +1214,7 @@ class fulltext_native extends search_backend
 			}
 		}
 
-		$db->sql_return_on_error(true);
+		//$db->sql_return_on_error(true);
 		foreach ($words['add'] as $word_in => $word_ary)
 		{
 			$title_match = ($word_in == 'title') ? 1 : 0;
@@ -1234,9 +1233,9 @@ class fulltext_native extends search_backend
 				$db->sql_query($sql);
 			}
 		}
-		$db->sql_return_on_error(false);
+		//$db->sql_return_on_error(false);
 
-		$db->sql_transaction('commit');
+		//$db->sql_transaction('commit');
 
 		// destroy cached search results containing any of the words removed or added
 		$this->destroy_cache(array_unique(array_merge($words['add']['post'], $words['add']['title'], $words['del']['post'], $words['del']['title'])), array($poster_id));

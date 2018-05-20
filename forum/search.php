@@ -223,7 +223,7 @@ if ($keywords || $author || $author_id || $search_id || $submit)
 	}
 
 	// Select which method we'll use to obtain the post_id or topic_id information
-	$search_type = basename('fulltext_native');
+	$search_type = basename($config['search_type']);
 
 	if (!file_exists('include/search/' . $search_type . '.' . $phpEx))
 	{
@@ -251,6 +251,7 @@ if ($keywords || $author || $author_id || $search_id || $submit)
 			trigger_error($ignored . sprintf($user->lang['NO_KEYWORDS'], $search->word_length['min'], $search->word_length['max']));
 		}
 	}
+	//die($search_id);
 
 	if (!$keywords && sizeof($author_id_ary))
 	{
@@ -399,7 +400,6 @@ if ($keywords || $author || $author_id || $search_id || $submit)
 			break;
 		}
 	}
-		//	die($sql);
 
 	// show_results should not change after this
 	$per_page = ($show_results == 'posts') ? $config['posts_per_page'] : $config['topics_per_page'];
@@ -432,6 +432,7 @@ if ($keywords || $author || $author_id || $search_id || $submit)
 	sort($m_approve_fid_ary);
 	sort($author_id_ary);
 
+			//die($search->search_query);
 	if (!empty($search->search_query))
 	{
 		$total_match_count = $search->keyword_search($show_results, $search_fields, $search_terms, $sort_by_sql, $sort_key, $sort_dir, $sort_days, $ex_fid_ary, $m_approve_fid_ary, $topic_id, $author_id_ary, $id_ary, $start, $per_page);

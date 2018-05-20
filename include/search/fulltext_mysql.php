@@ -73,14 +73,14 @@ class fulltext_mysql extends search_backend
 	*/
 	function init()
 	{
-		global $db, $user;
+		global $db, $db_prefix, $user;
 
 		if ($db->sql_layer != 'mysql4' && $db->sql_layer != 'mysqli')
 		{
 			return $user->lang['FULLTEXT_MYSQL_INCOMPATIBLE_VERSION'];
 		}
 
-		$result = $db->sql_query('SHOW TABLE STATUS LIKE \'' . POSTS_TABLE . '\'');
+		$result = $db->sql_query('SHOW TABLE STATUS LIKE \'' . $db_prefix . '_posts\'');
 		$info = $db->sql_fetchrow($result);
 		$db->sql_freeresult($result);
 
@@ -351,7 +351,7 @@ class fulltext_mysql extends search_backend
 	*/
 	function keyword_search($type, &$fields, &$terms, &$sort_by_sql, &$sort_key, &$sort_dir, &$sort_days, &$ex_fid_ary, &$m_approve_fid_ary, &$topic_id, &$author_ary, &$id_ary, $start, $per_page)
 	{
-		global $config, $db;
+		global $config, $db, $db_prefix;
 
 		// No keywords? No posts.
 		if (!$this->search_query)
@@ -391,8 +391,8 @@ class fulltext_mysql extends search_backend
 		switch ($sql_sort[0])
 		{
 			case 'u':
-				$sql_sort_table	= USERS_TABLE . ' u, ';
-				$sql_sort_join	= ($type == 'posts') ? ' AND u.user_id = p.poster_id ' : ' AND u.user_id = t.topic_poster ';
+				$sql_sort_table	= $db_prefix . '_users u, ';
+				$sql_sort_join	= ($type == 'posts') ? ' AND u.id = p.poster_id ' : ' AND u.id = t.topic_poster ';
 			break;
 
 			case 't':
@@ -400,7 +400,7 @@ class fulltext_mysql extends search_backend
 			break;
 
 			case 'f':
-				$sql_sort_table	= FORUMS_TABLE . ' f, ';
+				$sql_sort_table	= $db_prefix . '_forums f, ';
 				$sql_sort_join	= ' AND f.forum_id = p.forum_id ';
 			break;
 		}
@@ -446,7 +446,7 @@ class fulltext_mysql extends search_backend
 
 		$sql_select			= (!$result_count) ? 'SQL_CALC_FOUND_ROWS ' : '';
 		$sql_select			= ($type == 'posts') ? $sql_select . 'p.post_id' : 'DISTINCT ' . $sql_select . 't.topic_id';
-		$sql_from			= ($join_topic) ? TOPICS_TABLE . ' t, ' : '';
+		$sql_from			= ($join_topic) ? $db_prefix . '_topics t, ' : '';
 		$field				= ($type == 'posts') ? 'post_id' : 'topic_id';
 		$sql_author			= (sizeof($author_ary) == 1) ? ' = ' . $author_ary[0] : 'IN (' . implode(', ', $author_ary) . ')';
 
@@ -460,11 +460,11 @@ class fulltext_mysql extends search_backend
 		$sql_where_options .= $sql_match_where;
 
 		$sql = "SELECT $sql_select
-			FROM $sql_from$sql_sort_table" . POSTS_TABLE . " p
+			FROM $sql_from$sql_sort_table" . $db_prefix . "_posts p
 			WHERE MATCH ($sql_match) AGAINST ('" . $db->sql_escape(htmlspecialchars_decode($this->search_query)) . "' IN BOOLEAN MODE)
 				$sql_where_options
 			ORDER BY $sql_sort";
-		$result = $db->sql_query_limit($sql, $config['search_block_size'], $start);
+		$result = $db->sql_query($sql . ' LIMIT ' . $start . ', ' .$config['search_block_size']);
 
 		while ($row = $db->sql_fetchrow($result))
 		{
@@ -478,7 +478,6 @@ class fulltext_mysql extends search_backend
 		{
 			return false;
 		}
-
 		// if the total result count is not cached yet, retrieve it from the db
 		if (!$result_count)
 		{
@@ -510,7 +509,7 @@ class fulltext_mysql extends search_backend
 	*/
 	function author_search($type, $firstpost_only, &$sort_by_sql, &$sort_key, &$sort_dir, &$sort_days, &$ex_fid_ary, &$m_approve_fid_ary, &$topic_id, &$author_ary, &$id_ary, $start, $per_page)
 	{
-		global $config, $db;
+		global $config, $db, $db_prefix;
 
 		// No author? No posts.
 		if (!sizeof($author_ary))
@@ -555,17 +554,17 @@ class fulltext_mysql extends search_backend
 		switch ($sql_sort[0])
 		{
 			case 'u':
-				$sql_sort_table	= USERS_TABLE . ' u, ';
-				$sql_sort_join	= ($type == 'posts') ? ' AND u.user_id = p.poster_id ' : ' AND u.user_id = t.topic_poster ';
+				$sql_sort_table	= $db_prefix . '_users u, ';
+				$sql_sort_join	= ($type == 'posts') ? ' AND u.id = p.poster_id ' : ' AND u.id = t.topic_poster ';
 			break;
 
 			case 't':
-				$sql_sort_table	= ($type == 'posts' && !$firstpost_only) ? TOPICS_TABLE . ' t, ' : '';
+				$sql_sort_table	= ($type == 'posts' && !$firstpost_only) ? $db_prefix . '_topics t, ' : '';
 				$sql_sort_join	= ($type == 'posts' && !$firstpost_only) ? ' AND t.topic_id = p.topic_id ' : '';
 			break;
 
 			case 'f':
-				$sql_sort_table	= FORUMS_TABLE . ' f, ';
+				$sql_sort_table	= $db_prefix . '_forums f, ';
 				$sql_sort_join	= ' AND f.forum_id = p.forum_id ';
 			break;
 		}
@@ -590,7 +589,7 @@ class fulltext_mysql extends search_backend
 		if ($type == 'posts')
 		{
 			$sql = "SELECT {$calc_results}p.post_id
-				FROM " . $sql_sort_table . POSTS_TABLE . ' p' . (($firstpost_only) ? ', ' . TOPICS_TABLE . ' t ' : ' ') . "
+				FROM " . $sql_sort_table . $db_prefix . '_posts p' . (($firstpost_only) ? ', ' . $db_prefix . '_topics t ' : ' ') . "
 				WHERE $sql_author
 					$sql_topic_id
 					$sql_firstpost
@@ -604,7 +603,7 @@ class fulltext_mysql extends search_backend
 		else
 		{
 			$sql = "SELECT {$calc_results}t.topic_id
-				FROM " . $sql_sort_table . TOPICS_TABLE . ' t, ' . POSTS_TABLE . " p
+				FROM " . $sql_sort_table . $db_prefix . '_topics t, ' . $db_prefix . "_posts p
 				WHERE $sql_author
 					$sql_topic_id
 					$sql_firstpost
@@ -658,7 +657,7 @@ class fulltext_mysql extends search_backend
 	*/
 	function index($mode, $post_id, &$message, &$subject, $poster_id, $forum_id)
 	{
-		global $db;
+		global $db, $db_prefix;
 
 		// Split old and new post/subject to obtain array of words
 		$split_text = $this->split_message($message);
@@ -688,7 +687,7 @@ class fulltext_mysql extends search_backend
 	*/
 	function tidy()
 	{
-		global $db, $config;
+		global $db, $db_prefix, $config;
 
 		// destroy too old cached search results
 		$this->destroy_cache(array());
@@ -701,7 +700,7 @@ class fulltext_mysql extends search_backend
 	*/
 	function create_index($acp_module, $u_action)
 	{
-		global $db;
+		global $db, $db_prefix;
 
 		// Make sure we can actually use MySQL with fulltext indexes
 		if ($error = $this->init())
@@ -749,10 +748,10 @@ class fulltext_mysql extends search_backend
 
 		if (sizeof($alter))
 		{
-			$db->sql_query('ALTER TABLE ' . POSTS_TABLE . ' ' . implode(', ', $alter));
+			$db->sql_query('ALTER TABLE ' . $db_prefix . '_posts ' . implode(', ', $alter));
 		}
 
-		$db->sql_query('TRUNCATE TABLE ' . SEARCH_RESULTS_TABLE);
+		$db->sql_query('TRUNCATE TABLE ' . $db_prefix . '_search_results');
 
 		return false;
 	}
@@ -762,7 +761,7 @@ class fulltext_mysql extends search_backend
 	*/
 	function delete_index($acp_module, $u_action)
 	{
-		global $db;
+		global $db, $db_prefix;
 
 		// Make sure we can actually use MySQL with fulltext indexes
 		if ($error = $this->init())
@@ -794,10 +793,10 @@ class fulltext_mysql extends search_backend
 
 		if (sizeof($alter))
 		{
-			$db->sql_query('ALTER TABLE ' . POSTS_TABLE . ' ' . implode(', ', $alter));
+			$db->sql_query('ALTER TABLE ' . $db_prefix . '_posts ' . implode(', ', $alter));
 		}
 
-		$db->sql_query('TRUNCATE TABLE ' . SEARCH_RESULTS_TABLE);
+		$db->sql_query('TRUNCATE TABLE ' . $db_prefix . '_search_results');
 
 		return false;
 	}
@@ -834,7 +833,7 @@ class fulltext_mysql extends search_backend
 
 	function get_stats()
 	{
-		global $db;
+		global $db, $db_prefix;
 
 		if (strpos($db->sql_layer, 'mysql') === false)
 		{
@@ -843,7 +842,7 @@ class fulltext_mysql extends search_backend
 		}
 
 		$sql = 'SHOW INDEX
-			FROM ' . POSTS_TABLE;
+			FROM ' . $db_prefix . '_posts';
 		$result = $db->sql_query($sql);
 
 		while ($row = $db->sql_fetchrow($result))
@@ -870,7 +869,7 @@ class fulltext_mysql extends search_backend
 		$db->sql_freeresult($result);
 
 		$sql = 'SELECT COUNT(post_id) as total_posts
-			FROM ' . POSTS_TABLE;
+			FROM ' . $db_prefix . '_posts';
 		$result = $db->sql_query($sql);
 		$this->stats['total_posts'] = (int) $db->sql_fetchfield('total_posts');
 		$db->sql_freeresult($result);

@@ -75,7 +75,6 @@ $lang = array_merge($lang, array(
     '_STATISTIC_RESYNC_OPTIONS'  => 'Resynchronise or Reset Statistics',
     '_RESET_ONLINE'              => 'Reset the Most Users Ever Online',
     '_RESET_DATE'                => 'Reset the Site\'s Start Date',
-    '_CONFIRM'                   => 'Confirm',
 
     'SETTING_TOO_LOW'            => 'The Provided Value for the Setting \'%1$s\' is Too Low.  The Minimum Acceptable Value is %2$d.',
 
@@ -491,6 +490,9 @@ $lang = array_merge($lang, array(
     'LOG_FILTER_ADD'        => '<strong>Added Upload Filter</strong><br /> %s',
     'LOG_FILTER_DELETE'     => '<strong>Deleted Upload Filter</strong><br /> %s',
     'LOG_FILTER_EDIT'       => '<strong>Edited Upload Filter</strong><br /> %s',
+	'MENU_SEACH'			=> 'Forum Seach',
+	'ACP_SEARCH_INDEX'			=> 'Search index',
+	'ACP_SEARCH_SETTINGS'		=> 'Search settings',
 ));
 
 ?>

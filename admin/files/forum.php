@@ -56,6 +56,12 @@ include_once 'include/class.bbcode.php';
 							'L_TITLE' => $user->lang['ACP_WORDS'],
 							'U_TITLE' => "admin.php?i=" . $i . "&amp;op=forum_words&amp;action=words",
 							));
+							$template->assign_block_vars('l_block1.l_block2.l_block3',array(
+							'S_SELECTED'	=> ('forum_search' ==$op)? true:false,
+							'IMG' => '',
+							'L_TITLE' => $user->lang['MENU_SEACH'],
+							'U_TITLE' => "admin.php?i=" . $i . "&amp;op=forum_search&amp;action=search",
+							));
 							$template->assign_block_vars('l_block1.l_block2',array(
 							'L_TITLE'		=> $user->lang['FORUM_BASD_PERM'],
 							'S_SELECTED'	=> true,
@@ -84,6 +90,26 @@ include_once 'include/class.bbcode.php';
 							'L_TITLE' => $user->lang['FORUMS_PERMISSIONS'],
 							'U_TITLE' => "admin.php?i=" . $i . "&amp;op=setting_forum_local&amp;action=permissions&amp;mode=setting_forum_local",
 							));
+							if('forum_search' ==$op)
+							{
+							$template->assign_block_vars('l_block1.l_block2',array(
+							'L_TITLE'		=> $user->lang['MENU_SEACH'],
+							'S_SELECTED'	=> true,
+							'U_TITLE'		=> '1',));
+							$template->assign_block_vars('l_block1.l_block2.l_block3',array(
+							'S_SELECTED'	=> ('forum_search' ==$op)? true:false,
+							'IMG' => '',
+							'L_TITLE' => $user->lang['ACP_SEARCH_SETTINGS'],
+							'U_TITLE' => "admin.php?i=" . $i . "&amp;op=forum_search&amp;action=search",
+							));
+							$template->assign_block_vars('l_block1.l_block2.l_block3',array(
+							'S_SELECTED'	=> ('forum' ==$op)? true:false,
+							'IMG' => '',
+							'L_TITLE' => $user->lang['ACP_SEARCH_INDEX'],
+							'U_TITLE' => "admin.php?i=" . $i . "&amp;op=forum_search&amp;action=search&amp;mode=index",
+							));
+								
+							}
 		$action		= request_var('action', array('a'=>''));
 		if(!count($action))$action		= (isset($_POST['add'])) ? 'add' : request_var('action', '');
 		else $action		= key($action);
@@ -103,6 +129,17 @@ include_once 'include/class.bbcode.php';
 		}
 		switch ($action)
 		{
+			case 'search':
+			require_once("admin/files/acp_search.php");
+			$mode = request_var('mode', 'settings');
+			$auth = new auth();
+			$auth->acl($user);
+			$admin_role = new acp_search();
+			$admin_role->u_action = "admin.php?i=" . $i . "&amp;op=forum_search&amp;action=search&amp;mode=$mode";
+			$admin_role->main($i,$mode);
+			echo $template->fetch('admin/' . $admin_role->tpl_name . '.html');
+			close_out();
+			break;
 			case 'configs':
 				if (!$update)
 				{
@@ -123,7 +160,7 @@ include_once 'include/class.bbcode.php';
 					drawRow("allow_smilies","select",$user->lang["YES_NO_NUM"]);
 					drawRow("allow_bbcode","select",$user->lang["YES_NO_NUM"]);
 					drawRow("allow_signatures","select",$user->lang["YES_NO_NUM"]);
-					//drawRow("allow_disable_censor","select",$user->lang["YES_NO_NUM"]);
+					drawRow("allow_disable_censor","select",$user->lang["YES_NO_NUM"]);
 					drawRow("allow_attachments","select",$user->lang["YES_NO_NUM"]);
 					drawRow("flood_intervals","textplus",$user->lang["SEL_TIME_B"],false,'set_flood_intervals');
 					drawRow("bump_intervals","textplus",$user->lang["SEL_TIME_A"],false,'set_bump_intervals');
@@ -595,7 +632,7 @@ include_once 'include/class.bbcode.php';
 				$allow_smilies = request_var('sub_allow_smilies', '');
 				$allow_bbcode = request_var('sub_allow_bbcode', '');
 				$allow_signatures = request_var('sub_allow_signatures', '');
-				//$allow_disable_censor = request_var('sub_allow_disable_censor', '');
+				$allow_disable_censor = request_var('sub_allow_disable_censor', '');
 				$allow_attachments = request_var('sub_allow_attachments', '');
 				$flood_intervals = request_var('sub_flood_intervals', '0');
 				$set_flood_intervals = request_var('sel_set_flood_intervals', '');
@@ -690,13 +727,13 @@ include_once 'include/class.bbcode.php';
 					set_config("allow_bbcode",((!$allow_bbcode)? 0 : 1));
 
 					set_config("allow_signatures",((!$allow_signatures)? 0 : 1));
-				/*if($allow_disable_censor){
+				//if($allow_disable_censor){
 					set_config("allow_disable_censor",(($allow_disable_censor == 'false')? 0 : 1));
-					$sqlfields[] = (($allow_disable_censor == 'false')? "false" : "true");
-					$sqlvalues[] = "allow_disable_censor";
-				}
-				else
-					$errors[] = "1";*/
+					//$sqlfields[] = (($allow_disable_censor == 'false')? "false" : "true");
+					//$sqlvalues[] = "allow_disable_censor";
+				//}
+				//else
+					//$errors[] = "1";
 
 					set_config("allow_attachments",((!$allow_attachments)? 0 : 1));
 				if($flood_intervals >= 0){
