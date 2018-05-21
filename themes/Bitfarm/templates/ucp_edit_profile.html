@@ -1214,7 +1214,7 @@ function ChangeThumb(pic) {
 <form id="postform" method="post" name="ucp" action="{PMBT_LINK_BACK}action=overview&mode=drafts">
 <table class="tablebg" width="100%" cellspacing="0">
 <tr>
-<td<!-- IF S_DRAFT_ROWS --> colspan="4"<!-- ENDIF -->>
+<td colspan="4">
 <div class="caption">
 <div class="cap-left">
 <div class="cap-right">&nbsp;{L_USER_CPANNEL}&nbsp;</div>
@@ -1359,14 +1359,14 @@ function ChangeThumb(pic) {
             <input type="button" class="btnbbcode" accesskey="d" name="addbbcode18" value="Flash" onclick="bbstyle(18)" onmouseover="helpline('d')" onmouseout="helpline('tip')" />
         <!-- ENDIF -->
 
-        <span class="genmed nowrap">{L_FONT_SIZE}: <select class="gensmall" name="addbbcode20" onchange="bbfontstyle('[size=' + this.form.addbbcode20.options[this.form.addbbcode20.selectedIndex].value + ']', '[/size]');this.form.addbbcode20.selectedIndex = 2;" onmouseover="helpline('f')" onmouseout="helpline('tip')">
-            <option value="50">{L_FONT_TINY}</option>
-            <option value="85">{L_FONT_SMALL}</option>
-            <option value="100" selected="selected">{L_FONT_NORMAL}</option>
+        <span class="genmed nowrap">{L__FONT_SIZE}: <select class="gensmall" name="addbbcode20" onchange="bbfontstyle('[size=' + this.form.addbbcode20.options[this.form.addbbcode20.selectedIndex].value + ']', '[/size]');this.form.addbbcode20.selectedIndex = 2;" onmouseover="helpline('f')" onmouseout="helpline('tip')">
+            <option value="50">{L__FONT_TINY}</option>
+            <option value="85">{L__FONT_SMALL}</option>
+            <option value="100" selected="selected">{L__FONT_NORMAL}</option>
             <!-- IF not MAX_FONT_SIZE or MAX_FONT_SIZE >= 150 -->
-                <option value="150">{L_FONT_LARGE}</option>
+                <option value="150">{L__FONT_LARGE}</option>
                 <!-- IF not MAX_FONT_SIZE or MAX_FONT_SIZE >= 200 -->
-                    <option value="200">{L_FONT_HUGE}</option>
+                    <option value="200">{L__FONT_HUGE}</option>
                 <!-- ENDIF -->
             <!-- ENDIF -->
         </select></span>
@@ -1378,7 +1378,7 @@ function ChangeThumb(pic) {
         <td colspan="2">
         <!-- BEGIN custom_tags -->
         <!-- END custom_tags -->
-    <input type="text" readonly name="helpbox" style="width:100%" class="helpline" value="{L_STYLE_TIP}" />
+    <input type="text" readonly name="helpbox" style="width:100%" class="helpline" value="{L__STYLES_TIP}" />
         </td>
     </tr>
 <!-- ENDIF -->

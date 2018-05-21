@@ -572,7 +572,7 @@ $lang = array_merge($lang, array(
     '_BBCODE_U_HELP'        => 'Underline Text: [u]text[/u]',
     '_BBCODE_W_HELP'        => 'Insert URL: [url]http://url[/url] OR [url=http://url]URL text[/url]',
     '_BBCODE_D_HELP'        => 'Flash: [flash=width,height]http://url[/flash]',
-    '_STYLES_TIP'           => 'Tip:  Styles can be Applied Quickly to Selected Text.',
+    '_STYLES_TIP'           => 'Tip: Styles can be Applied Quickly to Selected Text.',
     '_SMILIES'              => 'Smilies',
     '_MORE_SMILIES'         => 'More Smilies',
     'MORE_SMILIES'          => 'More Smilies',
