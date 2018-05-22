@@ -44,6 +44,9 @@ $lang = array_merge($lang, array(
 
     'USER_NAME' => 'Username:',
     'RANK'      => 'Rank',
+    'SEARCH_USER_POST' => 'Search user’s posts',
+    'USER_FOUND' => 'Found',
+    'MEMBERS_FOUND' => 'Members',
 ));
 
 ?>

@@ -5,7 +5,7 @@
 	<div class="forumrules">
 		<!-- IF U_FORUM_RULES -->
 			<h3>{L_FORUM_RULES}</h3><br />
-			<a href="{U_FORUM_RULES}"><b>{L_FORUM_RULES_LINK}</b></a>
+			<a href="{U_FORUM_RULES}"><strong>{L_FORUM_RULES_LINK}</strong></a>
 		<!-- ELSE -->
 			<h3>{L_FORUM_RULES}</h3><br />
 			{FORUM_RULES}
@@ -71,7 +71,7 @@
 
 			<table cellspacing="0" cellpadding="4" border="0" align="center" class="poll">
 			<tr>
-				<td align="center"><span class="gen"><b>{POLL_QUESTION}</b></span><br /><span class="gensmall">{L_POLL_LENGTH}</span></td>
+				<td align="center"><span class="gen"><strong>{POLL_QUESTION}</strong></span><br /><span class="gensmall">{L_POLL_LENGTH}</span></td>
 			</tr>
 			<tr>
 				<td align="{S_CONTENT_FLOW_BEGIN}">
@@ -92,10 +92,10 @@
 						</span></td>
 						<!-- IF S_DISPLAY_RESULTS -->
 							<td dir="ltr">{POLL_LEFT_CAP_IMG}{poll_option.POLL_OPTION_IMG}{POLL_RIGHT_CAP_IMG}</td>
-							<td class="gen" align="{S_CONTENT_FLOW_END}"><b>&nbsp;{poll_option.POLL_OPTION_PERCENT}&nbsp;</b></td>
+							<td class="gen" align="{S_CONTENT_FLOW_END}"><strong>&nbsp;{poll_option.POLL_OPTION_PERCENT}&nbsp;</strong></td>
 							<td class="gen" align="center">[ {poll_option.POLL_OPTION_RESULT} ]</td>
 							<!-- IF poll_option.POLL_OPTION_VOTED -->
-								<td class="gensmall" valign="top"><b title="{L_POLL_VOTED_OPTION}">x</b></td>
+								<td class="gensmall" valign="top"><strong title="{L_POLL_VOTED_OPTION}">x</strong></td>
 							<!-- ENDIF -->
 						<!-- ENDIF -->
 					</tr>
@@ -110,18 +110,18 @@
 		<!-- ENDIF -->
 		<!-- IF S_DISPLAY_RESULTS -->
 			<tr>
-				<td class="gensmall" colspan="4" align="center"><b>{L_TOTAL_VOTES} : {TOTAL_VOTES}</b></td>
+				<td class="gensmall" colspan="4" align="center"><strong>{L_TOTAL_VOTES} : {TOTAL_VOTES}</strong></td>
 			</tr>
 		<!-- ELSE -->
 			<tr>
-				<td align="center"><span class="gensmall"><b><a href="{U_VIEW_RESULTS}">{L_VIEW_RESULTS}</a></b></span></td>
+				<td align="center"><span class="gensmall"><strong><a href="{U_VIEW_RESULTS}">{L_VIEW_RESULTS}</a></strong></span></td>
 			</tr>
 		<!-- ENDIF -->
 			</table>
 			{S_HIDDEN_FIELDS}
 			{S_FORM_TOKEN}
 			</form>
-			
+
 		</td>
 	</tr>
 	</table>
@@ -161,7 +161,7 @@
 <!-- ENDIF -->
 
 <!-- IF postrow.POSTER_POSTS -->
-					<br /><strong>{L_POSTS}:</b> {postrow.POSTER_POSTS}
+					<br /><strong>{L_POSTS}:</strong> {postrow.POSTER_POSTS}
 <!-- ENDIF -->
 					<br /><strong>{L_UPLODED}:</strong> {postrow.POSTER_UPLOAD}
 					<br /><strong>{L_DOWNED}:</strong> {postrow.POSTER_DOWN}
@@ -227,20 +227,20 @@
 			<td class="postbottom postbuttons" valign="middle">
 				<!-- IF not S_IS_BOT -->
 					<div style="float: {S_CONTENT_FLOW_END}">
-					<!-- IF postrow.U_REPORT --><a href="{postrow.U_REPORT}">{REPORT_IMG}</a> <!-- ENDIF --> 
-					<!-- IF postrow.U_INFO --><a href="{postrow.U_INFO}">{INFO_IMG}</a> <!-- ENDIF --> 
-					<!-- IF postrow.U_WARN --><a href="{postrow.U_WARN}">{WARN_IMG}</a> <!-- ENDIF --> 
+					<!-- IF postrow.U_REPORT --><a href="{postrow.U_REPORT}">{REPORT_IMG}</a> <!-- ENDIF -->
+					<!-- IF postrow.U_INFO --><a href="{postrow.U_INFO}">{INFO_IMG}</a> <!-- ENDIF -->
+					<!-- IF postrow.U_WARN --><a href="{postrow.U_WARN}">{WARN_IMG}</a> <!-- ENDIF -->
 					<!-- IF postrow.U_DELETE --><a href="{postrow.U_DELETE}">{DELETE_IMG}</a> <!-- ENDIF -->
 					</div>
 				<!-- ENDIF -->
 				<!-- IF postrow.U_POST_AUTHOR --><a href="{postrow.U_POST_AUTHOR}">{PROFILE_IMG}</a> <!-- ENDIF -->
-				<!-- IF postrow.U_PM --><a href="{postrow.U_PM}">{PM_IMG}</a> <!-- ENDIF --> 
-				<!-- IF postrow.U_EMAIL --><a href="{postrow.U_EMAIL}">{EMAIL_IMG}</a> <!-- ENDIF --> 
-                <!-- IF postrow.U_MSN --><a href="{postrow.U_MSN}">{MSN_IMG}</a> <!-- ENDIF --> 
-                <!-- IF postrow.U_ICQ --><a href="{postrow.U_ICQ}">{ICQ_IMG}</a> <!-- ENDIF --> 
-                <!-- IF postrow.U_YIM --><a href="{postrow.U_YIM}">{YIM_IMG}</a> <!-- ENDIF --> 
-                <!-- IF postrow.U_AIM --><a href="{postrow.U_AIM}">{AIM_IMG}</a> <!-- ENDIF --> 
-                <!-- IF postrow.U_JABBER --><a href="{postrow.U_JABBER}">{JABBER_IMG}</a> <!-- ENDIF --> 
+				<!-- IF postrow.U_PM --><a href="{postrow.U_PM}">{PM_IMG}</a> <!-- ENDIF -->
+				<!-- IF postrow.U_EMAIL --><a href="{postrow.U_EMAIL}">{EMAIL_IMG}</a> <!-- ENDIF -->
+                <!-- IF postrow.U_MSN --><a href="{postrow.U_MSN}">{MSN_IMG}</a> <!-- ENDIF -->
+                <!-- IF postrow.U_ICQ --><a href="{postrow.U_ICQ}">{ICQ_IMG}</a> <!-- ENDIF -->
+                <!-- IF postrow.U_YIM --><a href="{postrow.U_YIM}">{YIM_IMG}</a> <!-- ENDIF -->
+                <!-- IF postrow.U_AIM --><a href="{postrow.U_AIM}">{AIM_IMG}</a> <!-- ENDIF -->
+                <!-- IF postrow.U_JABBER --><a href="{postrow.U_JABBER}">{JABBER_IMG}</a> <!-- ENDIF -->
 				<!-- IF postrow.U_WWW --><a href="{postrow.U_WWW}">{WWW_IMG}</a> <!-- ENDIF -->
 			</td>
     	<!-- ENDIF -->
@@ -272,7 +272,7 @@
 		<!-- IF not S_IS_BOT -->
 			<td align="{S_CONTENT_FLOW_BEGIN}" valign="middle" nowrap="nowrap">
 				<!-- IF S_DISPLAY_REPLY_INFO --><a href="{U_POST_REPLY_TOPIC}">{REPLY_IMG}</a>&nbsp;<!-- ENDIF -->
-				<!-- IF S_QUICK_REPLY --><a href="javascript:void(0);" onclick="var qr = document.getElementById('ca-qr'); qr.style.display = (qr.style.display == 'none') ? '' : 'none'; return false;"><img src="{T_IMAGESET_LANG_PATH}/quick_reply.gif" alt="{L_QUICKREPLY}" /></a><!-- ENDIF -->
+				<!-- IF S_QUICK_REPLY --><a href="javascript:void(0);" onclick="var qr = document.getElementById('ca-qr'); qr.style.display = (qr.style.display == 'none') ? '' : 'none'; return false;"><img src="{T_IMAGESET_LANG_PATH}/quick_reply.gif" alt="{L_QUICKREPLY}" title="{L_QUICKREPLY}" /></a><!-- ENDIF -->
 			</td>
 		<!-- ENDIF -->
 		<!-- IF TOTAL_POSTS -->

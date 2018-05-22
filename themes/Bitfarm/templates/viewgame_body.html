@@ -41,7 +41,7 @@
                     </td>
                 </tr>
             </table>
-		<span class="corners-bottom"><span></span></span></div>
+        <span class="corners-bottom"><span></span></span></div>
     </div>
 <!-- ELSE -->
 <SCRIPT>
@@ -54,13 +54,13 @@ eval;("wiz"+id+".window.moveTo((screen.width/2)-(PWidth/2),(screen.height/2)-(PH
                 <dd><!-- IF PREVIOUS_PAGE --><a href="{PREVIOUS_PAGE}" class="left-box {S_CONTENT_FLOW_BEGIN}">{L_PREVIOUS}</a><!-- ENDIF --></dd>
                 <dd><!-- IF NEXT_PAGE --><a href="{NEXT_PAGE}" class="right-box {S_CONTENT_FLOW_END}">{L_NEXT}</a><!-- ENDIF --></dd>
         <div class="inner"><span class="corners-top"><span></span></span>
-			<!-- BEGIN gamerow -->
+            <!-- BEGIN gamerow -->
             <dl class="faq">
                 <dt style="text-align:center"><strong>{gamerow.GAME_NAME}</strong></dt>
             </dl>
             <div align="center">
-            	<strong><a href="javascript:setFlashSize('game', {gamerow.GAME_WIDTH}*0.50, {gamerow.GAME_HEIGHT}*0.50);">50%</a>-<a href="javascript:setFlashSize('game', {gamerow.GAME_WIDTH}*0.75, {gamerow.GAME_HEIGHT}*0.75);">75%</a>-<a href="javascript:setFlashSize('game', {gamerow.GAME_WIDTH}, {gamerow.GAME_HEIGHT});">100%</a>-<a href="javascript:setFlashSize('game', {gamerow.GAME_WIDTH}*1.25, {gamerow.GAME_HEIGHT}*1.25);">125%</a>-<a href="javascript:setFlashSize('game', {gamerow.GAME_WIDTH}*1.5, {gamerow.GAME_HEIGHT}*1.5);">150%</a></strong><br />
-				({L_RESIZING})
+                <strong><a href="javascript:setFlashSize('game', {gamerow.GAME_WIDTH}*0.50, {gamerow.GAME_HEIGHT}*0.50);">50%</a>-<a href="javascript:setFlashSize('game', {gamerow.GAME_WIDTH}*0.75, {gamerow.GAME_HEIGHT}*0.75);">75%</a>-<a href="javascript:setFlashSize('game', {gamerow.GAME_WIDTH}, {gamerow.GAME_HEIGHT});">100%</a>-<a href="javascript:setFlashSize('game', {gamerow.GAME_WIDTH}*1.25, {gamerow.GAME_HEIGHT}*1.25);">125%</a>-<a href="javascript:setFlashSize('game', {gamerow.GAME_WIDTH}*1.5, {gamerow.GAME_HEIGHT}*1.5);">150%</a></strong><br />
+                ({L_RESIZING})
                 <div id="game" style="width:{gamerow.GAME_WIDTH}px; height:{gamerow.GAME_HEIGHT}px;">
                     <script type="text/javascript" language="JavaScript">
                         function setFlashSize(divid, newW, newH){
@@ -73,7 +73,7 @@ eval;("wiz"+id+".window.moveTo((screen.width/2)-(PWidth/2),(screen.height/2)-(PH
                     </script>
                     <noscript>
                         <object type="application/x-shockwave-flash" data="{gamerow.GAME_FILENAME}?g={gamerow.GAME_ID}" width="{gamerow.GAME_WIDTH}" height="{gamerow.GAME_HEIGHT}">
-                        	<param name="movie" value="{gamerow.GAME_FILENAME}?g={gamerow.GAME_ID}" />
+                            <param name="movie" value="{gamerow.GAME_FILENAME}?g={gamerow.GAME_ID}" />
                         </object>
                     </noscript>
                 </div>
@@ -81,15 +81,15 @@ eval;("wiz"+id+".window.moveTo((screen.width/2)-(PWidth/2),(screen.height/2)-(PH
                 <table width="100%" >
                     <tr>
                         <td style="width:50%; padding-top:10px; padding-left:10px; padding-right:10px; padding-bottom:10px; vertical-align:top">
-        					<h3>{L_GAME_DIR}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{gamerow.GAME_USES}</h3>
+                            <h3>{L_GAME_DIR}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{gamerow.GAME_USES}</h3>
                             <dl>
-                            	<dd>{gamerow.GAME_DIR}</dd>
+                                <dd>{gamerow.GAME_DIR}</dd>
                             </dl>
                         </td>
                         <td style="width:50%; padding-top:10px; padding-left:10px; padding-right:10px; padding-bottom:10px; vertical-align:top">
-                        	<h3>{L_GAME_DESC}</h3>
+                            <h3>{L_GAME_DESC}</h3>
                             <dl>
-                            	<dd>{gamerow.GAME_DESC}</dd>
+                                <dd>{gamerow.GAME_DESC}</dd>
                             </dl>
                         </td>
                     </tr>
@@ -97,39 +97,39 @@ eval;("wiz"+id+".window.moveTo((screen.width/2)-(PWidth/2),(screen.height/2)-(PH
                 <table width="100%" >
                     <tr>
                         <td style="padding-top:10px; padding-left:10px; padding-right:10px; padding-bottom:10px; vertical-align:top">
-        					<h3>{L_GAME_PLAYED}</h3>
+                            <h3>{L_GAME_PLAYED}</h3>
                             <dl>
-                            	<dd>{gamerow.GAME_PLAY}</dd>
+                                <dd>{gamerow.GAME_PLAY}</dd>
                             </dl>
                         </td>
                         <td style="padding-top:10px; padding-left:10px; padding-right:10px; padding-bottom:10px; vertical-align:top">
-                        	<h3>{L_GAME_SIZE}</h3>
+                            <h3>{L_GAME_SIZE}</h3>
                             <dl>
-                            	<dd>{gamerow.GAME_SIZE}</dd>
+                                <dd>{gamerow.GAME_SIZE}</dd>
                             </dl>
                         </td>
                         <td style="padding-top:10px; padding-left:10px; padding-right:10px; padding-bottom:10px; vertical-align:top">
-                        	<h3>{L_GAME_RATING}</h3>
+                            <h3>{L_GAME_RATING}</h3>
                             <dl>
-                            	<dd>{gamerow.GAME_RATING}</dd>
+                                <dd>{gamerow.GAME_RATING}</dd>
                             </dl>
                         </td>
                         <td style="padding-top:10px; padding-left:10px; padding-right:10px; padding-bottom:10px; vertical-align:top">
-                        	<h3>{L_GAME_NUM_RATINGS}</h3>
+                            <h3>{L_GAME_NUM_RATINGS}</h3>
                             <dl>
-                            	<dd>{gamerow.GAME_NUMRATINGS}</dd>
+                                <dd>{gamerow.GAME_NUMRATINGS}</dd>
                             </dl>
                         </td>
                         <!-- IF S_ALLOW_FAV --><td style="padding-top:10px; padding-left:10px; padding-right:10px; padding-bottom:10px; vertical-align:top">
-                        	<h3>{L_GAME_ADD_REMOVE}</h3>
+                            <h3>{L_GAME_ADD_REMOVE}</h3>
                             <dl>
-                            	<dd><a href="{gamerow.U_ADD_REMOVE}">{gamerow.GAME_ADD_REMOVE}</a></dd>
+                                <dd><a href="{gamerow.U_ADD_REMOVE}">{gamerow.GAME_ADD_REMOVE}</a></dd>
                             </dl>
                         </td><!-- ENDIF -->
                         <td style="padding-top:10px; padding-left:10px; padding-right:10px; padding-bottom:10px; vertical-align:top">
-                        	<h3>{L_NUM_FAVORITES}</h3>
+                            <h3>{L_NUM_FAVORITES}</h3>
                             <dl>
-                            	<dd><a href="{gamerow.U_ADD_REMOVE}">{gamerow.GAME_NUMFAVORITES}</a></dd>
+                                <dd><a href="{gamerow.U_ADD_REMOVE}">{gamerow.GAME_NUMFAVORITES}</a></dd>
                             </dl>
                         </td>
                     </tr>
@@ -137,9 +137,9 @@ eval;("wiz"+id+".window.moveTo((screen.width/2)-(PWidth/2),(screen.height/2)-(PH
             <!-- END gamerow -->
             <!-- IF S_HIGHSCORE -->
                 <table width="100%" >
-                	<tr>
-                    	<td style="padding-top:10px; padding-left:10px; padding-right:10px; padding-bottom:0px; text-align:center">
-                        	<h3>{L_GAME_HIGHSCORES}</h3>
+                    <tr>
+                        <td style="padding-top:10px; padding-left:10px; padding-right:10px; padding-bottom:0px; text-align:center">
+                            <h3>{L_GAME_HIGHSCORES}</h3>
                             <table width="100%" cellpadding="0" cellspacing="0">
                             <!-- IF S_NOT_ENOUGH --><strong>{L_TROPHIES_WARNING}</strong><!-- ENDIF -->
                             <!-- BEGIN scorerow -->
@@ -155,9 +155,9 @@ eval;("wiz"+id+".window.moveTo((screen.width/2)-(PWidth/2),(screen.height/2)-(PH
                 </table>
                 <!-- IF S_EXTRA_SCORES -->
                 <table width="100%" >
-                	<tr>
-                    	<td style="padding-top:0px; padding-left:10px; padding-right:10px; padding-bottom:10px; text-align:center">
-                            <dt><a href="javascript: void(0);" onClick="var spoiler = this.parentNode.parentNode.getElementsByTagName('dd')[0]; if ( spoiler.style.display == 'none' ) { spoiler.style.display = 'block'; this.innerHTML = 'less high scores'; } else { spoiler.style.display = 'none'; this.innerHTML = 'more high scores'; };">more high scores</a></dt><dd style="display: none;">
+                    <tr>
+                        <td style="padding-top:0px; padding-left:10px; padding-right:10px; padding-bottom:10px; text-align:center">
+                            <dt><a href="javascript: void(0);" onClick="var spoiler = this.parentNode.parentNode.getElementsByTagName('dd')[0]; if ( spoiler.style.display == 'none' ) { spoiler.style.display = 'block'; this.innerHTML = 'less high scores'; } else { spoiler.style.display = 'none'; this.innerHTML = 'more high scores'; };">{L_MORE_HIGH_SCORES}</a></dt><dd style="display: none;">
                             <table width="100%" >
                             <!-- BEGIN extrascorerow -->
                                 <tr>
@@ -176,8 +176,8 @@ eval;("wiz"+id+".window.moveTo((screen.width/2)-(PWidth/2),(screen.height/2)-(PH
             <span class="corners-bottom"><span></span></span></div>
     </div>
 <!-- IF S_HAS_COMMENTS -->
-			<div class="pagination">
-            	{L_NUM_COMMENTS} &bull; <!-- IF PAGINATION --><a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{PAGE_NUMBER}</a> &bull; <span>{PAGINATION}</span><!-- ELSE -->{PAGE_NUMBER}<!-- ENDIF -->
+            <div class="pagination">
+                {L_NUM_COMMENTS} &bull; <!-- IF PAGINATION --><a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{PAGE_NUMBER}</a> &bull; <span>{PAGINATION}</span><!-- ELSE -->{PAGE_NUMBER}<!-- ENDIF -->
             </div><br /><br clear="all" /><!-- ENDIF -->
 <!-- BEGIN commentrow -->
     <div class="post <!-- IF commentrow.S_ROW_COUNT is odd -->bg1<!-- ELSE -->bg2<!-- ENDIF --><!-- IF commentrow.S_ONLINE --> online<!-- ENDIF -->">
@@ -207,25 +207,25 @@ eval;("wiz"+id+".window.moveTo((screen.width/2)-(PWidth/2),(screen.height/2)-(PH
     </div>
             <!-- END commentrow -->
             <!-- IF S_HAS_COMMENTS --><div class="pagination">
-            	{L_NUM_COMMENTS} &bull; <!-- IF PAGINATION --><a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{PAGE_NUMBER}</a> &bull; <span>{PAGINATION}</span><!-- ELSE -->{PAGE_NUMBER}<!-- ENDIF -->
+                {L_NUM_COMMENTS} &bull; <!-- IF PAGINATION --><a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{PAGE_NUMBER}</a> &bull; <span>{PAGINATION}</span><!-- ELSE -->{PAGE_NUMBER}<!-- ENDIF -->
             </div><br /><br clear="all" /><!-- ENDIF -->
             <!-- IF S_CAN_COMMENT -->
             <div class="panel bg1" id="faqlinks">
                 <div class="inner"><span class="corners-top"><span></span></span>
-            	<table width="100%" >
-                	<tr>
-                    	<td style="padding-top:10px; padding-left:10px; padding-right:10px; padding-bottom:10px; text-align:center">
-                            <dt><h3>{L_COMMENT}</h3><a href="javascript: void(0);" onClick="var spoiler = this.parentNode.parentNode.getElementsByTagName('dd')[0]; if ( spoiler.style.display == 'none' ) { spoiler.style.display = 'block'; this.innerHTML = 'hide'; } else { spoiler.style.display = 'none'; this.innerHTML = 'show'; };">show</a></dt><dd style="display: none;">
+                <table width="100%" >
+                    <tr>
+                        <td style="padding-top:10px; padding-left:10px; padding-right:10px; padding-bottom:10px; text-align:center">
+                            <dt><h3>{L_COMMENT}</h3><a href="javascript: void(0);" onClick="var spoiler = this.parentNode.parentNode.getElementsByTagName('dd')[0]; if ( spoiler.style.display == 'none' ) { spoiler.style.display = 'block'; this.innerHTML = 'hide'; } else { spoiler.style.display = 'none'; this.innerHTML = 'show'; };">{L_SHOW}</a></dt><dd style="display: none;">
                             <form id="postform" method="post" action="{U_ACTION}">
                             <div align="center"><!-- INCLUDE themes/Bitfarm/templates/posting_buttons.html --></div>
-							<fieldset class="submit-buttons">
+                            <fieldset class="submit-buttons">
                                 <textarea name="message" id="message" rows="10" cols="30" tabindex="3" onselect="storeCaret(this);" onclick="storeCaret(this);" onkeyup="storeCaret(this);" class="inputbox"></textarea>
                                 <br /><br />
                                 <input class="button2" name="editgame" type="submit" value="{L_SUBMIT}" />
                                 <input class="button2" type="reset" id="reset" name="reset" value="{L_RESET}" />
                             </fieldset>
                             </form></dd>
-                            
+
                         </td>
                     </tr>
                 </table>

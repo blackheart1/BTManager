@@ -15,22 +15,22 @@
   </tr>
   <tr valign="middle">
     <td  class="row3" >
-	  <div id="nn{CATEGORY_NAME}">
+      <div id="nn{CATEGORY_NAME}">
 <table width="100%" >
     <tr>
-		<td style="width:15%; vertical-align:top">
+        <td style="width:15%; vertical-align:top">
             <div class="panel bg3">
                 <div class="inner"><span class="corners-top"><span></span></span>
                     <dl><dt style="text-align:center"><strong>{L_CAT}</strong></dt>
                     <dd><hr /></dd></dl>
                     <!-- IF S_ALL_GAMES -->
                     <dl>
-						<dd><a href="viewcategory.php?c={categoryrow.CATEGORY_ID}&sid={SESSION_ID}"><!-- IF S_IN_ALL_GAMES --><strong>{L_ALL_GAMES}</strong><!-- ELSE -->{L_ALL_GAMES}<!-- ENDIF --></a> {L_NUM_GAMES}</dd>
+                        <dd><a href="viewcategory.php?c={categoryrow.CATEGORY_ID}&sid={SESSION_ID}"><!-- IF S_IN_ALL_GAMES --><strong>{L_ALL_GAMES}</strong><!-- ELSE -->{L_ALL_GAMES}<!-- ENDIF --></a> {L_NUM_GAMES}</dd>
                     </dl>
                     <!-- ENDIF -->
                     <!-- IF S_FAVORITES -->
                     <dl>
-						<dd><a href="viewcategory.php?c=105121&sid={SESSION_ID}"><!-- IF S_IN_FAVORITES --><strong>{L_FAVORITES}</strong><!-- ELSE -->{L_FAVORITES}<!-- ENDIF --></a> {L_FAV_GAMES}</dd>
+                        <dd><a href="viewcategory.php?c=105121&sid={SESSION_ID}"><!-- IF S_IN_FAVORITES --><strong>{L_FAVORITES}</strong><!-- ELSE -->{L_FAVORITES}<!-- ENDIF --></a> {L_FAV_GAMES}</dd>
                     </dl>
                     <!-- ENDIF -->
                     <!-- BEGIN categoryrow -->
@@ -52,9 +52,9 @@
                                     <select style="font-size:10px; width:12em" name="gameList" onchange="location.href = quickJump.gameList.options[quickJump.gameList.selectedIndex].value">
                                         <option value="arcade.php" selected="selected">{L_SELECT_A_GAME}</option>
                                         <!-- BEGIN quickjumprow -->
-                                        	<option value="viewgame.php?g={quickjumprow.GAME_ID}&sid={SESSION_ID}">{quickjumprow.GAME_NAME}</option>
+                                            <option value="viewgame.php?g={quickjumprow.GAME_ID}&sid={SESSION_ID}">{quickjumprow.GAME_NAME}</option>
                                         <!-- END quickjumprow -->
-                                    </select> 
+                                    </select>
                                 </form></dd>
                     </dl>
                     <dl>
@@ -65,7 +65,7 @@
                     </dl>
                 <span class="corners-bottom"><span></span></span></div>
             </div>
-        	<div class="panel bg2">
+            <div class="panel bg2">
                 <div class="inner"><span class="corners-top"><span></span></span>
                     <dl><dt style="text-align:center"><strong>{L_LATEST}</strong></dt></dl>
                     <!-- BEGIN latestrow -->
@@ -87,7 +87,7 @@
                     <!-- END latestrow -->
                 <span class="corners-bottom"><span></span></span></div>
             </div>
-		</td>
+        </td>
         <td style="width:80%; vertical-align:top">
 <div class="panel bg1">
 <div class="pagination">
@@ -97,7 +97,7 @@
         <dl><dt style="text-align:center"><strong>{CATEGORY_NAME}</strong></dt></dl>
             <dl><dd><hr />
             <table cellpadding="0" cellspacing="0">
-            	<tr style="">
+                <tr style="">
                     <td style="width:50px; padding:1px 1px 1px 0px"></td>
                     <td style="width:80px; padding-right:5px">{L_GAME_NAME}</td>
                     <td style="width:40%; padding-left:5px">{L_GAME_DESC}</td>
@@ -123,7 +123,7 @@
                     <td class="<!-- IF gamerow.COUNT is even -->bg2<!-- ENDIF -->" style="width:15%">{gamerow.GAME_HIGH_SCORE}</td>
                 </tr>
         <!-- END gamerow -->
-    		</table></dd></dl>
+            </table></dd></dl>
 <div class="pagination">
     <!-- IF CAT_NUM_GAMES -->({CAT_NUM_GAMES} {L_GAMES}) &bull; <!-- ENDIF --><!-- IF PAGINATION --><a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{PAGE_NUMBER}</a> &bull; <span>{PAGINATION}</span><!-- ELSE -->{PAGE_NUMBER}<!-- ENDIF -->
 </div>
@@ -203,21 +203,20 @@
               <span class="corners-bottom"><span></span></span></div>
             </div>
         </td>
-	</tr>
+    </tr>
 </table>
-		</td>
-	</tr>
+        </td>
+    </tr>
 </table>
-
-		  </div>
+          </div>
         </td>
       </tr>
       <tr>
         <td colspan="7" valign="middle" align="center">
-	    </td>
+        </td>
       </tr>
     </table>
-<br clear="all" >
+<br clear="all" />
 
 <!-- INCLUDE themes/Bitfarm/templates/over_all_right.html -->
 <!-- INCLUDE themes/Bitfarm/templates/over_all_footer.html -->

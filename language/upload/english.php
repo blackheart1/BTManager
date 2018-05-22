@@ -195,6 +195,8 @@ $lang = array_merge($lang, array(
     'ATTACH_FILE'             => 'Attach Files',
     'YOUR_IMAGE_BUCKET'       => 'Your Image Bucket',
     'VALID_EXTENTIONS'        => 'Valid File Extensions: bmp, gif, jpe, jpeg, jpg, png',
+    'MANAGE_ATTACHMENTS'      => 'Manage Attachments',
+    'ADD_EDIT_ATTACHMENTS'    => 'Click here to Add or Edit Files Attached to this Message',
 ));
 
 ?>

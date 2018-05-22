@@ -428,6 +428,7 @@ $lang = array_merge($lang, array(
     'VIEW_TOPIC'                 => 'View Topic',
     'FULL_EDITOR'                => 'Full Editor',
     'QUICKREPLY'                 => 'Quick Reply',
+    'TOPIC_LOCKED'               => 'Topic Locked',
     'WRONG_FILESIZE'             => 'The File is Too Large.  Maximum Allowed Size is %1$d %2$s.',
 
     'WRONG_SIZE'                 => 'The Image must be at least %1$s Wide, %2$s High and at most %3$s Wide and %4$s High.  The Submitted Image is %5$s Wide and %6$s High.',

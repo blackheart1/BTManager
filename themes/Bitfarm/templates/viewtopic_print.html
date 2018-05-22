@@ -10,60 +10,60 @@
 <!--
 
 body {
-	font-family: Verdana,serif;
-	font-size: 10pt;
+    font-family: Verdana,serif;
+    font-size: 10pt;
 }
 
 img {
-	border: 0;
+    border: 0;
 }
 
 td {
-	font-family: Verdana,serif;
-	font-size: 10pt;
-	line-height: 150%;
+    font-family: Verdana,serif;
+    font-size: 10pt;
+    line-height: 150%;
 }
 
-.code, .codecontent, 
+.code, .codecontent,
 .quote, .quotecontent {
-	margin: 0 5px 0 5px;
-	padding: 5px;
-	font-size: smaller;
-	border: black solid 1px;
+    margin: 0 5px 0 5px;
+    padding: 5px;
+    font-size: smaller;
+    border: black solid 1px;
 }
 
 .quotetitle {
-	color: black;
-	display : block;
-	font-weight: bold;
+    color: black;
+    display : block;
+    font-weight: bold;
 }
 
 .forum {
-	font-family: Arial,Helvetica,sans-serif;
-	font-weight: bold;
-	font-size: 18pt;
+    font-family: Arial,Helvetica,sans-serif;
+    font-weight: bold;
+    font-size: 18pt;
 }
 
 .topic {
-	font-family: Arial,Helvetica,sans-serif;
-	font-size: 14pt;
-	font-weight: bold;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 14pt;
+    font-weight: bold;
 }
 
 .gensmall {
-	font-size: 8pt;
+    font-size: 8pt;
 }
 
 hr {
-	color: #888;
-	height: 3px;
-	border-style: solid;
+    color: #888;
+    height: 3px;
+    border-style: solid;
 }
 
 hr.sep {
-	color: #aaa;
-	height: 1px;
-	border-style: dashed;
+    color: #aaa;
+    height: 1px;
+    border-style: dashed;
 }
 //-->
 </style>
@@ -73,62 +73,62 @@ hr.sep {
 
 <table width="85%" cellspacing="3" cellpadding="0" border="0" align="center">
 <tr>
-	<td colspan="2" align="center"><span class="Forum">{SITENAME}</span><br /><span class="gensmall"><a href="{U_FORUM}">{U_FORUM}</a></span></td>
+    <td colspan="2" align="center"><span class="Forum">{SITENAME}</span><br /><span class="gensmall"><a href="{U_FORUM}">{U_FORUM}</a></span></td>
 </tr>
 <tr>
-	<td colspan="2"><br /></td>
+    <td colspan="2"><br /></td>
 </tr>
 <tr>
-	<td><span class="topic">{TOPIC_TITLE}</span><br /><span class="gensmall"><a href="{U_TOPIC}">{U_TOPIC}</a></span></td>
-	<td align="{S_CONTENT_FLOW_END}" valign="bottom"><span class="gensmall">{PAGE_NUMBER}</span></td>
+    <td><span class="topic">{TOPIC_TITLE}</span><br /><span class="gensmall"><a href="{U_TOPIC}">{U_TOPIC}</a></span></td>
+    <td align="{S_CONTENT_FLOW_END}" valign="bottom"><span class="gensmall">{PAGE_NUMBER}</span></td>
 </tr>
 </table>
 
 <!-- BEGIN postrow -->
 
-	<hr width="85%" />
+    <hr width="85%" />
 
-	<table width="85%" cellspacing="3" cellpadding="0" border="0" align="center">
-	<tr>
-		<td width="10%" nowrap="nowrap">{L_AUTHOR}:&nbsp;</td>
-		<td><b>{postrow.POST_AUTHOR}</b> [ {postrow.POST_DATE} ]</td>
-	</tr>
-	<tr>
-		<td width="10%" nowrap="nowrap">{L_POST_SUBJECT}:&nbsp;</td>
-		<td><b>{postrow.POST_SUBJECT}</b></td>
-	</tr>
-	<tr>
-		<td colspan="2"><hr class="sep" />{postrow.MESSAGE}
+    <table width="85%" cellspacing="3" cellpadding="0" border="0" align="center">
+    <tr>
+        <td width="10%" nowrap="nowrap">{L_AUTHOR}:&nbsp;</td>
+        <td><strong>{postrow.POST_AUTHOR}</strong> [ {postrow.POST_DATE} ]</td>
+    </tr>
+    <tr>
+        <td width="10%" nowrap="nowrap">{L_POST_SUBJECT}:&nbsp;</td>
+        <td><strong>{postrow.POST_SUBJECT}</strong></td>
+    </tr>
+    <tr>
+        <td colspan="2"><hr class="sep" />{postrow.MESSAGE}
 
-		<!-- IF postrow.S_HAS_ATTACHMENTS -->
-			<br clear="all" /><br />
+        <!-- IF postrow.S_HAS_ATTACHMENTS -->
+            <br clear="all" /><br />
 
-			<table class="tablebg" width="100%" cellspacing="1">
-			<tr>
-				<td><b class="genmed">{L_ATTACHMENTS}: </b></td>
-			</tr>
-			<!-- BEGIN attachment -->
-				<tr>
-					<td>{postrow.attachment.DISPLAY_ATTACHMENT}</td>
-				</tr>
-			<!-- END attachment -->
-			</table>
-		<!-- ENDIF -->
+            <table class="tablebg" width="100%" cellspacing="1">
+            <tr>
+                <td><b class="genmed">{L_ATTACHMENTS}: </strong></td>
+            </tr>
+            <!-- BEGIN attachment -->
+                <tr>
+                    <td>{postrow.attachment.DISPLAY_ATTACHMENT}</td>
+                </tr>
+            <!-- END attachment -->
+            </table>
+        <!-- ENDIF -->
 
-		</td>
-	</tr>
-	</table>
+        </td>
+    </tr>
+    </table>
 <!-- END postrow -->
 
 <hr width="85%" />
 
 <table width="85%" cellspacing="3" cellpadding="0" border="0" align="center">
 <tr>
-	<td><span class="gensmall">{PAGE_NUMBER}</span></td>
-	<td align="{S_CONTENT_FLOW_END}"><span class="gensmall">{S_TIMEZONE}</span></td>
+    <td><span class="gensmall">{PAGE_NUMBER}</span></td>
+    <td align="{S_CONTENT_FLOW_END}"><span class="gensmall">{S_TIMEZONE}</span></td>
 </tr>
 <tr>
-	<td colspan="2" align="center"><span class="gensmall">Powered by BT.Manager&reg; Software &copy; BT.Manager Group<br />http://www.btmanager.com/</span></td>
+    <td colspan="2" align="center"><span class="gensmall">{L_POWERED} {L_BTMGR}&reg; &copy; {L_BTMGR}<br />http://www.btmanager.org/</span></td>
 </tr>
 </table>
 
