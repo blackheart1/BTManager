@@ -31,7 +31,7 @@ include_once 'include/functions_forum.php';
 include_once 'include/function_posting.php';
 include_once 'include/user.functions.php';
 $user->set_lang('admin/acp_levels',$user->ulanguage);
-//$config['topics_per_page'] = 15;
+
 $start = request_var('page', 0)*$config['topics_per_page'];
 		$page_title = $user->lang['ACP_GROUPS_MANAGE'];
 				$template->assign_vars(array(
@@ -43,7 +43,7 @@ $start = request_var('page', 0)*$config['topics_per_page'];
 		if(!count($action))$action		= (isset($_POST['add'])) ? 'add' : ((isset($_POST['addusers'])) ? 'addusers' : request_var('action', ''));
 		else 		$action		= key($action);
 		
-//die($action);
+
 		if(!checkaccess("a_edit_level"))
 		{
                                 $template->assign_vars(array(
@@ -162,7 +162,7 @@ $start = request_var('page', 0)*$config['topics_per_page'];
 				bterror($user->lang['NOT_ALLOWED_MANAGE_GROUP'] . back_link($u_action),$user->lang['GEN_ERROR']);
 			}
 		}
-		//die($action);
+
 		switch ($action)
 		{
 			case 'approve':
@@ -301,7 +301,6 @@ $start = request_var('page', 0)*$config['topics_per_page'];
 					switch ($action)
 					{
 						case 'delete':
-						//die('delg');
 							$error = '';
 									if (!checkaccess('a_groupdel'))
 									{
