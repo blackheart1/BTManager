@@ -1,164 +1,192 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-	<head>
-		<meta name="generator" content="HTML Tidy for Linux (vers 6 November 2007), see www.w3.org">
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<meta name="generator" content="PMBT {PMBT_VER}">
-		<meta http-equiv="PRAGMA" content="NO-CACHE">
-		<meta http-equiv="EXPIRES" content="-1">
-		<meta http-equiv="Cache-Control" content="no-cache">
-		<link REL="shortcut icon" HREF="{SITE_URL}/themes/Bitfarm/favicon.ico" TYPE="image/x-icon">
-		<link rel="StyleSheet" href="{SITE_URL}/themes/Bitfarm/style.css" type="text/css">
-		{META}
-		<!--[if lt IE 7]>
-		<script defer type="text/javascript" src="{SITE_URL}/pngfix.js"></script>
-		<![endif]-->
-		<title>{SITENAME} &bull; <!-- IF S_IN_MCP -->{L_MCP} &bull; <!-- ELSEIF S_IN_UCP -->{L_USER_CPANNEL} &bull; <!-- ENDIF -->{PAGE_TITLE}</title>
-	</head>
-	<body>
-<!-- IF not S_LOSTPASS -->
-		<table class="tablebg" width="40%" cellspacing="0">
-			<tr>
-				<td>
-					<div class="caption">
-						<div class="cap-left">
-							<div class="cap-right">
-							{L_REGISTOR}
-							</div>
-						</div>
-					</div>
-				</td>
-			</tr>
-			<tr valign="middle">
-				<td  class="row3">
-					<div id="nnRegister">
-						<span><P align="center">{L_WELCOME}</P></span>
-						<form method="POST" action="{U_ACTION}">
-						<table class="tablebg" width="100%" cellspacing="0">
-						{HIDDEN}
-							<tr>
-								<td class="row1" width="35%">{L_USER_NAME}</td>
-								<td class="row2"><p><input type="text" name="username" size="60"></p></td>
-							</tr>
-							<tr>
-								<td class="row1" width="35%"><p>{L_USER_EMAIL_ADD}<p></td>
-								<td class="row2"><p><input type="text" name="email" size="60"></p></td>
-							</tr>
-							<tr>
-								<td class="row1" width="35%"><p>{L_PASSWORD}</p><br /><span class="gensmall">{L_PASSWORD_EXP}</span></td>
-								<td class="row2"><p><input type="password" name="password" size="60"></p></td>
-							</tr>
-							<tr>
-								<td class="row1" width="35%"><p>{L_PASSWORD_CONFIRM}</p></td>
-								<td class="row2"><p><input type="password" name="cpassword" size="60"></p></td>
-							</tr>
-<!-- IF S_DISCLAIMER -->
-							<tr>
-								<td class="row1" colspan="2">
-									<p align="center">{L_TERMS_CONDITION}:<br>
-									<table border="1" bgcolor="#3b3b3b" width="100%">
-										<tr>
-											<td class="shoutbox">
-											{U_DISCLAIMER}
-											</td>
-										</tr>
-									</table>
-								</td>
-							</tr>
-							<tr>
-								<td class="row1" colspan="2" align="center">
-									{L_DISCLAIMER_ACCEPT}
-									<input type="radio" value="yes" name="disclaimer">
-									{L_DISCLAIMER_DECLINE}
-									<input type="radio" name="disclaimer" value="no" checked>
-								</td>
-							</tr>
-						
-<!-- ENDIF -->
-<!-- IF S_CAPTCHA -->
-							<tr>
-								<td class="row1" colspan="2" align="center">
-<!-- IF RECAPTCHA -->
-								<br />{L_SECURITY_CODE}<br /><div class="g-recaptcha" data-sitekey="{RECAPTCHA}"></div><br />
-<!-- ELSE -->
-								<br />{L_SECURITY_CODE}<br />{GFX_CODE}<br />
-								<input type="text" name="gfxcode" size="10" maxlength="6">
-<!-- ENDIF -->
-								</td>
-							</tr>
-<!-- ENDIF -->
-							<tr>
-								<td class="row1" colspan="2" align="center">
-									<input type="submit" value="{L_SIGN_UP}"><input type="reset" value="{L_CANCEL}">
-								</td>
-							</tr>
-						</table>
-							</form>
-					</div>
-				</td>
-			</tr>
-
-		</table>
-<!-- ELSE -->
-		<table class="tablebg" width="40%" cellspacing="0">
-			<tr>
-				<td>
-					<div class="caption">
-						<div class="cap-left">
-							<div class="cap-right">
-							{L_LOST_PASSWORD}
-							</div>
-						</div>
-					</div>
-				</td>
-			</tr>
-			<tr valign="middle">
-				<td  class="row3">
-					<div id="nnlostpass">
-						<form method="POST" action="{U_ACTION}">
-						{HIDDEN}
-						<table class="tablebg" width="100%" cellspacing="0">
-							<tr>
-								<td class="row1" colspan="2" align="center">
-									{L_LOST_PASS_INTRO}
-								</td>
-							</tr>
-							<tr>
-								<td class="row1" width="35%">{L_USER_NAME}</td>
-								<td class="row2"><p><input type="text" name="username" size="60"></p></td>
-							</tr>
-							<tr>
-								<td class="row1" width="35%"><p>{L_PASSWORD}</p><br /><span class="gensmall">{L_PASSWORD_EXP}</span></td>
-								<td class="row2"><p><input type="password" name="npasswd" size="60"></p></td>
-							</tr>
-							<tr>
-								<td class="row1" width="35%"><p>{L_PASSWORD_CONFIRM}</p></td>
-								<td class="row2"><p><input type="password" name="cpasswd" size="60"></p></td>
-							</tr>
-<!-- IF S_GFX_CHECK -->
-							<tr>
-								<td class="row1" colspan="2" align="center">
-<!-- IF RECAPTCHA -->
-								<br />{L_SECURITY_CODE}<br /><div class="g-recaptcha" data-sitekey="{RECAPTCHA}"></div><br />
-<!-- ELSE -->
-								<br />{L_SECURITY_CODE}<br />{S_GFX_CHECK}<br />
-								<input type="text" name="gfxcode" size="10" maxlength="6">
-<!-- ENDIF -->
-								</td>
-							</tr>
-<!-- ENDIF -->
-							<tr>
-								<td class="row1" colspan="2" align="center">
-									<input name="postback" type="submit" value="{L_SIGN_UP}"><input type="reset" value="{L_CANCEL}">
-								</td>
-							</tr>
-						</table>
-							</form>
-					</div>
-				</td>
-			</tr>
-
-		</table>
-<!-- ENDIF -->
-	</body>
+    <head>
+        <meta name="generator" content="HTML Tidy for Linux (vers 6 November 2007), see www.w3.org">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="generator" content="PMBT {PMBT_VER}">
+        <meta http-equiv="PRAGMA" content="NO-CACHE">
+        <meta http-equiv="EXPIRES" content="-1">
+        <meta http-equiv="Cache-Control" content="no-cache">
+        <link REL="shortcut icon" HREF="{SITE_URL}/themes/Bitfarm/favicon.ico" TYPE="image/x-icon">
+        <link rel="StyleSheet" href="{SITE_URL}/themes/Bitfarm/style.css" type="text/css">
+        {META}
+        <!--[if lt IE 7]>
+        <script defer type="text/javascript" src="{SITE_URL}/pngfix.js"></script>
+        <![endif]-->
+        <title>{SITENAME} &bull; <!-- IF S_IN_MCP -->{L_MCP} &bull; <!-- ELSEIF S_IN_UCP -->{L_USER_CPANNEL} &bull; <!-- ENDIF -->{PAGE_TITLE}</title>
+    </head>
+    <body>
+        <!-- IF not S_LOSTPASS -->
+        <table class="tablebg" width="40%" cellspacing="0">
+            <tr>
+                <td>
+                    <div class="caption">
+                        <div class="cap-left">
+                            <div class="cap-right">
+                            {L_REGISTOR}
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr valign="middle">
+                <td class="row3">
+                    <div id="nnRegister">
+                        <span>
+                            <p align="center">{L_WELCOME}</p>
+                        </span>
+                        <form method="post" action="{U_ACTION}">
+                            <table class="tablebg" width="100%" cellspacing="0">
+                                {HIDDEN}
+                                <tr>
+                                    <td class="row1" width="35%">{L_USER_NAME}</td>
+                                    <td class="row2">
+                                        <p><input type="text" name="username" size="60" /></p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="row1" width="35%">
+                                        <p>{L_USER_EMAIL_ADD}<p>
+                                    </td>
+                                    <td class="row2">
+                                        <p><input type="text" name="email" size="60" /></p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="row1" width="35%">
+                                        <p>{L_PASSWORD}</p><br />
+                                        <span class="gensmall">{L_PASSWORD_EXP}</span>
+                                    </td>
+                                    <td class="row2">
+                                        <p><input type="password" name="password" size="60" /></p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="row1" width="35%">
+                                        <p>{L_PASSWORD_CONFIRM}</p>
+                                    </td>
+                                    <td class="row2">
+                                        <p><input type="password" name="cpassword" size="60" /></p>
+                                    </td>
+                                </tr>
+            <!-- IF S_DISCLAIMER -->
+                                <tr>
+                                    <td class="row1" colspan="2">
+                                        <p align="center">{L_TERMS_CONDITION}:<br>
+                                        <table border="1" bgcolor="#3b3b3b" width="100%">
+                                            <tr>
+                                                <td class="shoutbox">
+                                                    {U_DISCLAIMER}
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="row1" colspan="2" align="center">
+                                        {L_DISCLAIMER_ACCEPT}
+                                        <input type="radio" value="yes" name="disclaimer" />
+                                        {L_DISCLAIMER_DECLINE}
+                                        <input type="radio" name="disclaimer" value="no" checked />
+                                    </td>
+                                </tr>
+            <!-- ENDIF -->
+            <!-- IF S_CAPTCHA -->
+                                <tr>
+                                    <td class="row1" colspan="2" align="center">
+                <!-- IF RECAPTCHA -->
+                                    <br />{L_SECURITY_CODE}<br />
+                                    <div class="g-recaptcha" data-sitekey="{RECAPTCHA}"></div><br />
+                    <!-- ELSE -->
+                                    <br />{L_SECURITY_CODE}<br />{GFX_CODE}<br />
+                                    <input type="text" name="gfxcode" size="10" maxlength="6" />
+                <!-- ENDIF -->
+                                    </td>
+                                </tr>
+            <!-- ENDIF -->
+                                <tr>
+                                    <td class="row1" colspan="2" align="center">
+                                        <input type="submit" value="{L_SIGN_UP}" />
+                                        <input type="reset" value="{L_CANCEL}" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+        </table>
+            <!-- ELSE -->
+        <table class="tablebg" width="40%" cellspacing="0">
+            <tr>
+                <td>
+                    <div class="caption">
+                        <div class="cap-left">
+                            <div class="cap-right">
+                                {L_LOST_PASSWORD}
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr valign="middle">
+                <td  class="row3">
+                    <div id="nnlostpass">
+                        <form method="post" action="{U_ACTION}">
+                            {HIDDEN}
+                            <table class="tablebg" width="100%" cellspacing="0">
+                                <tr>
+                                    <td class="row1" colspan="2" align="center">
+                                        {L_LOST_PASS_INTRO}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="row1" width="35%">{L_USER_NAME}</td>
+                                    <td class="row2"><p>
+                                        <input type="text" name="username" size="60" /></p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="row1" width="35%">
+                                        <p>{L_PASSWORD}</p><br /><span class="gensmall">{L_PASSWORD_EXP}</span>
+                                    </td>
+                                <td class="row2">
+                                    <p><input type="password" name="npasswd" size="60" /></p>
+                                </td>
+                                </tr>
+                                <tr>
+                                    <td class="row1" width="35%">
+                                        <p>{L_PASSWORD_CONFIRM}</p>
+                                    </td>
+                                    <td class="row2">
+                                        <p><input type="password" name="cpasswd" size="60" /></p>
+                                    </td>
+                                </tr>
+            <!-- IF S_GFX_CHECK -->
+                                <tr>
+                                    <td class="row1" colspan="2" align="center">
+                <!-- IF RECAPTCHA -->
+                                        <br />{L_SECURITY_CODE}<br />
+                                        <div class="g-recaptcha" data-sitekey="{RECAPTCHA}"></div><br />
+                                        <!-- ELSE -->
+                                        <br />{L_SECURITY_CODE}<br />{S_GFX_CHECK}<br />
+                                        <input type="text" name="gfxcode" size="10" maxlength="6" />
+                <!-- ENDIF -->
+                                    </td>
+                                </tr>
+            <!-- ENDIF -->
+                                <tr>
+                                    <td class="row1" colspan="2" align="center">
+                                        <input name="postback" type="submit" value="{L_SIGN_UP}" />
+                                        <input type="reset" value="{L_CANCEL}" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    <!-- ENDIF -->
+    </body>
 </html>

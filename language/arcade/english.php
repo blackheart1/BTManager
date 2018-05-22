@@ -292,7 +292,8 @@ $lang = array_merge($lang, array(
     'SEARCH_KEYWORDS'    => 'Enter Search Criteria',
     'DISABLED'           => ' Disabled',
     'SELECT_A_GAME'      => 'Select a Game',
-
+    'MORE_HIGH_SCORES'   => 'More High Scores',
+    'SHOW'               => 'Show',
 ));
 
 ?>

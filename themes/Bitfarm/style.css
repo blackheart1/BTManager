@@ -1643,9 +1643,7 @@ background-color : #242424;
 tr.mouseover {
 background-color : #e1e1e1;
 }
-textarea {
-color:#0000FF;
-}
+
 input, select, textarea, file, browse {
     background: linear-gradient(to bottom, #E0E0E0 0%, #C1C1C1 100%) repeat scroll 0 0 transparent;
     border: 1px solid #FFFFFF;
@@ -1674,6 +1672,7 @@ textarea {
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.6) inset;
     margin: 4px;
     padding: 6px;
+    color:#0000FF;
 }
 .button {
 border-style : solid;

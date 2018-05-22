@@ -20,52 +20,52 @@
 **/
 if (defined('IN_PMBT'))
 {
-	die ("You can't include this file");
+    die ("You can't include this file");
 }
 else
 {
-	define("IN_PMBT",true);
+    define("IN_PMBT",true);
 }
 require_once("common.php");
 
-$errid												= request_var('errid', '');
+$errid = request_var('errid', '');
 
 $template = new Template();
 $user->set_lang('httperror',$user->ulanguage);
 
 switch ($errid) {
         case 400: {
-                header("HTTP/1.0 400 Bad request");
-				$e = 'A';
+                header("HTTP/1.0 400 Bad Request");
+                $e = 'A';
                 break;
         }
         case 401: {
                 header("HTTP/1.0 401 Access Denied");
-				$e = 'B';
+                $e = 'B';
                 break;
         }
         case 403: {
                 header("HTTP/1.0 403 Forbidden");
-				$e = 'C';
+                $e = 'C';
                 break;
         }
         case 404: {
-                header("HTTP/1.0 404 Access Denied");
-				$e = 'D';
+                header("HTTP/1.0 404 Page Not Found");
+                $e = 'D';
                 break;
         }
         case 500: {
                 header("HTTP/1.0 500 Internal Server Error");
-				$e = 'E';
+                $e = 'E';
                 break;
         }
 }
-								set_site_var($user->lang['BT_ERROR']);
+                                set_site_var($user->lang['BT_ERROR']);
                                 $template->assign_vars(array(
-										'S_ERROR'			=> true,
-								        'TITTLE_M'          => $user->lang[$e . '_ERROR_TTL'],
+                                        'S_ERROR'           => true,
+                                        'TITTLE_M'          => $user->lang[$e . '_ERROR_TTL'],
                                         'MESSAGE'           => sprintf($user->lang[$e . '_ERROR_EXP'],$admin_email) . $_SERVER["REQUEST_URI"],
                                 ));
-		echo $template->fetch('message_body.html');
+        echo $template->fetch('message_body.html');
 
 ?>

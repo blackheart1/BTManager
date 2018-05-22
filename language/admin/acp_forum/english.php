@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File acp_forum/english.php 2018-03-28 00:55:00 Thor
+** File acp_forum/english.php 2018-05-22 09:09:00 Thor
 **
 ** CHANGES
 **
@@ -23,6 +23,7 @@
 ** 2018-03-26 - Amended !defined('IN_PMBT')
 ** 2018-03-26 - Amended the Wording of some Sentences
 ** 2018-03-28 - Amended !defined('IN_PMBT') Corrected Path
+** 2018-05-22 - Added Missing Language
 **/
 
 if (!defined('IN_PMBT'))
@@ -248,26 +249,32 @@ $lang = array_merge($lang, array(
     #3.0.1 add on
     // Word censors
 $lang = array_merge($lang, array(
-    'ACP_WORDS'         => 'Word Censoring',
+    'ACP_WORDS'          => 'Word Censoring',
 
-    'ACP_WORDS_EXPLAIN' => 'From this Control Panel you can Add, Edit, and Remove Words that will be Automatically Censored on your Forums.  People are still Allowed to Register with Usernames Containing these Words.  Wildcards (*) are Accepted in the Word Field, e.g. *test* will Match Detestable, test* would Match Testing, *test would Match Detest.',
+    'ACP_WORDS_EXPLAIN'  => 'From this Control Panel you can Add, Edit, and Remove Words that will be Automatically Censored on your Forums.  People are still Allowed to Register with Usernames Containing these Words.  Wildcards (*) are Accepted in the Word Field, e.g. *test* will Match Detestable, test* would Match Testing, *test would Match Detest.',
 
-    'ACP_NO_ITEMS'      => 'There are NO Items Yet.',
-    'ADD_WORD'          => 'Add New Word',
+    'ACP_NO_ITEMS'       => 'There are NO Items Yet.',
+    'ADD_WORD'           => 'Add New Word',
 
-    'EDIT_WORD'         => 'Edit Word Censor',
-    'ENTER_WORD'        => 'You Must Enter a Word and its Replacement.',
+    'EDIT_WORD'          => 'Edit Word Censor',
+    'ENTER_WORD'         => 'You Must Enter a Word and its Replacement.',
 
-    'NO_WORD'           => 'NO Word Selected for Editing.',
+    'NO_WORD'            => 'NO Word Selected for Editing.',
 
-    'REPLACEMENT'       => 'Replacement',
+    'REPLACEMENT'        => 'Replacement',
 
-    'UPDATE_WORD'       => 'Update Word Censor',
+    'UPDATE_WORD'        => 'Update Word Censor',
 
-    'WORD'              => 'Word',
-    'WORD_ADDED'        => 'The Word Censor has been Successfully Added.',
-    'WORD_REMOVED'      => 'The Selected Word Censor has been Successfully Removed.',
-    'WORD_UPDATED'      => 'The Selected Word Censor has been Successfully Updated.',
+    'WORD'               => 'Word',
+    'WORD_ADDED'         => 'The Word Censor has been Successfully Added.',
+    'WORD_REMOVED'       => 'The Selected Word Censor has been Successfully Removed.',
+    'WORD_UPDATED'       => 'The Selected Word Censor has been Successfully Updated.',
+    'MOVE_DOWN'          => 'Move Down',
+    'MOVE_DOWN_DISABLED' => 'Move Down Disabled',
+    'MOVE_UP'            => 'Move Up',
+    'MOVE_UP_DISABLED'   => 'Move Up Disabled',
+    'RESYNC'             => 'Resynchronise',
+    'RESYNC_DISABLED'    => 'Resynchronise',
 ));
 
 ?>

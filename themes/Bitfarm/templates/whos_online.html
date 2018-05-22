@@ -19,18 +19,18 @@
 <!-- IF user_online.SHOW -->
             <!-- IF user_online.SHOW_ICON -->*<!-- ENDIF --><a href="user.php?op=profile&amp;id={user_online.ID}"><font style='background-color: {user_online.COLOR};'>{user_online.USERNAME}</font></a>
 			{user_online.LEVEL_ICON}
-			<!-- IF user_online.WARNED --><img src="images/warning.gif" title="warned" alt="warned" /><!-- ENDIF -->
-			<!-- IF user_online.DONER --><img src="images/donator.gif" height="16" width="16" title="donator" alt="donator" /><!-- ENDIF -->
+			<!-- IF user_online.WARNED --><img src="images/warning.gif" title="{L_WARNNED}" alt="{L_WARNNED}" /><!-- ENDIF -->
+			<!-- IF user_online.DONER --><img src="images/donator.gif" height="16" width="16" title="{L_DONOR}" alt="{L_DONOR}" /><!-- ENDIF -->
 <!-- ENDIF -->
 <!-- END user_online -->
-            <br>
-            <br>
-              <p>{L_LEGEND} 
-                <b>
+            <br />
+            <br />
+              <p>{L_LEGEND}
+                <strong>
 <!-- BEGIN legend -->
-                  <a href="memberslist.php?mode=group&amp;g={legend.ID}" style="color: {legend.COLOR}; font-weight: bold;">{legend.NAME}</a> 
+                  <a href="memberslist.php?mode=group&amp;g={legend.ID}" style="color: {legend.COLOR}; font-weight: bold;">{legend.NAME}</a>
 <!-- END legend -->
-               </b>
+               </strong>
               </p>
               <div style='font-size: 8pt;' align="center">
 			    <a href="javascript:advanced();">{L_ADV_ONLINE_MO}</a>
@@ -41,16 +41,16 @@
                 <thead>
                   <tr>
                     <td>
-                      <p align="center"><b>{L_USERNAME}</b></p>
+                      <p align="center"><strong>{L_USERNAME}</strong></p>
                     </td>
                     <td>
-                      <p align="center"><b>{L_RATIO}</b></p>
+                      <p align="center"><strong>{L_RATIO}</strong></p>
                     </td>
                     <td>
-                      <p align="center"><b>{L_CURENT_BROWS}</b></p>
+                      <p align="center"><strong>{L_CURENT_BROWS}</strong></p>
                     </td>
                     <td>
-                      <p align="center"><b>{L_LOGEDIN_FOR}</b></p>
+                      <p align="center"><strong>{L_LOGEDIN_FOR}</strong></p>
                     </td>
                   </tr>
                 </thead>
@@ -62,8 +62,8 @@
                       <p>
             <!-- IF user_online.SHOW_ICON -->*<!-- ENDIF --><a href="user.php?op=profile&amp;id={user_online.ID}"><font color="{user_online.COLOR}" style='background-color: #222;'>{user_online.USERNAME}</font></a>
 			{user_online.LEVEL_ICON}
-			<!-- IF user_online.WARNED --><img src="images/warning.gif" title="warned" alt="warned" /><!-- ENDIF -->
-			<!-- IF user_online.DONER --><img src="images/donator.gif" height="16" width="16" title="donator" alt="donator" /><!-- ENDIF -->
+			<!-- IF user_online.WARNED --><img src="images/warning.gif" title="{L_WARNNED}" alt="{L_WARNNED}" /><!-- ENDIF -->
+			<!-- IF user_online.DONER --><img src="images/donator.gif" height="16" width="16" title="{L_DONOR}" alt="{L_DONOR}" /><!-- ENDIF -->
 					  </p>
                     </td>
                     <td>
@@ -80,41 +80,41 @@
 <!-- END user_online -->
                 </tbody>
               </table>
-              <br>
-              <p>{L_LEGEND} 
-                <b>
+              <br />
+              <p>{L_LEGEND}
+                <strong>
 <!-- BEGIN legend -->
-                  <a href="memberslist.php?mode=group&amp;g={legend.NAME}" style="color: {legend.COLOR}; font-weight: bold;">{legend.NAME}</a> 
+                  <a href="memberslist.php?mode=group&amp;g={legend.NAME}" style="color: {legend.COLOR}; font-weight: bold;">{legend.NAME}</a>
 <!-- END legend -->
-               </b>
+               </strong>
               </p>
 			  <div style='font-size: 8pt;' align="center">
 			    <a href="javascript:simple();">{L_SEMP_ONLINE_MOD}</a>
 			  </div>
 			</div>
-			<br>
+			<br />
 			<div>
 			  <span class="genmed">{L_STAT1} <strong>{S_USER_ON}</strong> {L_STAT2}
-			    <br>{L_MOST_EVER_ON} <strong>{S_MOST_USERS_ON}</strong> &bull; {S_MOST_USERS_WN}
+			    <br />{L_MOST_EVER_ON} <strong>{S_MOST_USERS_ON}</strong> &bull; {S_MOST_USERS_WN}
 			  </span>
 			</div>
 			  <p>
-			    <b>{L_ONLINE_24HRS}</b>{ON_NOW}
-				<br >
-				<b>{L_TOTAL_REG_7D}</b>{ON_REG_WEEK}<br >
-				<b>{L_TOTAL_REG_24}</b>{ON_REG_DAY}<br >
-				<b>{L_TOTAL_USERS}</b>{TOTAL_USERS}<br >
-				<b>{L_TOTAL_TORRENTS}</b>{TOTTAL_TORRENTS}<br >
-				<b>{L_TOTAL_SHARED}</b>{TOTAL_DATA}<br >
-				<b>{L_TOTAL_PEERS}</b>{TOTAL_PEERS}<br >
-				<b>{L_TOTAL_SPEED}</b>{TRANSFER_SPEED}<br >
-				<b>{L_TOTAL_SEEDERS}</b>{TOTTAL_SEEDERS}<br >
-				<b>{L_TOTAL_LEECHERS}</b>{TOTAL_LEACHERS}<br >
-				<b>{L_MOST_CLIENT}</b>{MOST_CLIENTS} ({M_CLIENT_CO})<br >
+			    <strong>{L_ONLINE_24HRS}</strong>{ON_NOW}
+				<br />
+				<strong>{L_TOTAL_REG_7D}</strong>{ON_REG_WEEK}<br />
+				<strong>{L_TOTAL_REG_24}</strong>{ON_REG_DAY}<br />
+				<strong>{L_TOTAL_USERS}</strong>{TOTAL_USERS}<br />
+				<strong>{L_TOTAL_TORRENTS}</strong>{TOTTAL_TORRENTS}<br />
+				<strong>{L_TOTAL_SHARED}</strong>{TOTAL_DATA}<br />
+				<strong>{L_TOTAL_PEERS}</strong>{TOTAL_PEERS}<br />
+				<strong>{L_TOTAL_SPEED}</strong>{TRANSFER_SPEED}<br />
+				<strong>{L_TOTAL_SEEDERS}</strong>{TOTTAL_SEEDERS}<br />
+				<strong>{L_TOTAL_LEECHERS}</strong>{TOTAL_LEACHERS}<br />
+				<strong>{L_MOST_CLIENT}</strong>{MOST_CLIENTS} ({M_CLIENT_CO})<br />
 			  </p>
 		  </div>
         </td>
       </tr>
       </tr>
     </table>
-<br clear="all" >
+<br clear="all" />
