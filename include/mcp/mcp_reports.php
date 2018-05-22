@@ -145,7 +145,7 @@ class mcp_reports
 
 				if ($post_info['bbcode_bitfield'])
 				{
-					include_once($phpbb_root_path . 'includes/bbcode.' . $phpEx);
+					include_once($phpbb_root_path . 'include/bbcode.' . $phpEx);
 					$bbcode = new bbcode($post_info['bbcode_bitfield']);
 					$bbcode->bbcode_second_pass($message, $post_info['bbcode_uid'], $post_info['bbcode_bitfield']);
 				}

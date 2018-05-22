@@ -443,7 +443,7 @@ function get_post_data($post_ids, $acl_list = false, $read_tracking = false)
 	}
 
 	$sql_array = array(
-		'SELECT'	=> 'p.*, u.*, t.*, f.*',
+		'SELECT'	=> ' u.*,p.*, t.*, f.*',
 
 		'FROM'		=> array(
 			$db_prefix . '_users'		=> 'u',

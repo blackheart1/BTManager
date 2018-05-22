@@ -49,7 +49,9 @@ class User {
 		var $host;
 		var $pm_rule;
 		var $load = 0;
+		var $date_format = 'd M Y H:i';
 		var $img;
+		var $dst = false;
 		var $lastpage;
 		var $parked;
 		var $disabled_reason;
@@ -517,10 +519,11 @@ class User {
 								$this->topic_show_days = $row['user_topic_show_days'];
 								$this->topic_sortby_type = $row['user_topic_sortby_type'];
 								$this->topic_sortby_dir = $row['user_topic_sortby_dir'];
-								$this->posts_show_days = $row['user_posts_show_days'];
-								$this->posts_sortby_type = $row['user_posts_sortby_type'];
-								$this->posts_sortby_dir = $row['user_posts_sortby_dir'];
+								$this->posts_show_days = $row['user_post_show_days'];
+								$this->posts_sortby_type = $row['user_post_sortby_type'];
+								$this->posts_sortby_dir = $row['user_post_sortby_dir'];
 								$this->user_type = $row["user_type"];
+								$this->dst = $row["user_dst"];
 								$this->data['message_limit'] = '200';
 								$this->data['session_page'] = $row['lastpage'];
 								$this->data['user_full_folder'] = $row['user_full_folder'];
@@ -531,6 +534,7 @@ class User {
 								$this->data['sig_bbcode_bitfield'] = $row['sig_bbcode_bitfield'];
 								$this->data['sig_bbcode_uid'] = $row['sig_bbcode_uid'];
 								$this->data['clean_username'] = $row['clean_username'];
+								$this->date_format = $row['user_dateformat'];
 								$this->lastpost = $row['user_lastpost_time'];
 								$this->posts = $row['user_posts'];
 								$this->optionset('viewimg', 1);
@@ -595,9 +599,9 @@ class User {
 								$this->topic_show_days = $row['user_topic_show_days'];
 								$this->topic_sortby_type = $row['user_topic_sortby_type'];
 								$this->topic_sortby_dir = $row['user_topic_sortby_dir'];
-								$this->posts_show_days = $row['user_posts_show_days'];
-								$this->posts_sortby_type = $row['user_posts_sortby_type'];
-								$this->posts_sortby_dir = $row['user_posts_sortby_dir'];
+								$this->posts_show_days = $row['user_post_show_days'];
+								$this->posts_sortby_type = $row['user_post_sortby_type'];
+								$this->posts_sortby_dir = $row['user_post_sortby_dir'];
 								$this->sig_bbcode_uid = $row["sig_bbcode_uid"];
 								$this->bbcode_bitfield = $row["bbcode_bitfield"];
 								$this->bbcode_uid = $row["bbcode_uid"];
@@ -606,6 +610,7 @@ class User {
                                 $this->unread_pm = $row["user_unread_privmsg"];
 								$this->pm_rule = $row["user_message_rules"];
                                 $this->pm_popup = (($row["pm_popup"] == 'true')? true : false);
+								$this->dst = $row["user_dst"];
 								$this->data['message_limit'] = $row['group_message_limit'];
 								$this->data['session_page'] = $row['lastpage'];
 								$this->data['user_full_folder'] = $row["user_full_folder"];
@@ -620,7 +625,7 @@ class User {
 								$this->lastpost = $row['user_lastpost_time'];
 								$this->posts = $row['user_posts'];
 								$this->optionset('viewimg', 1);
-								$this->date_format = $this->data['user_dateformat'];
+								$this->date_format = $row['user_dateformat'];
 								$this->parked = (($row['parked'] == 'true')? true : false);
 								$this->disabled = (($row['disabled'] == 'true')? true : false);
 								$this->disabled_reason = $row['disabled_reason'];

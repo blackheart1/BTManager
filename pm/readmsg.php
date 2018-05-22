@@ -176,7 +176,7 @@ $id 	= request_var('i', '');
 						}
 					}
 
-					$sql = 'SELECT t.*, p.*, u.*
+					$sql = 'SELECT t.*, u.*, p.*
 						FROM ' . $db_prefix . '_privmsgs_to t, ' . $db_prefix . '_private_messages p, ' . $db_prefix . '_users  u
 						WHERE t.user_id = ' . $user->id . "
 							AND p.sender = u.id

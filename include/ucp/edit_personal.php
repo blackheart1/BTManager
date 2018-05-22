@@ -26,7 +26,7 @@ if (!defined('IN_PMBT'))
 
 		//Build new info array
 		$sqlval = array();
-		
+		$dateformat		= utf8_normalize_nfc(request_var('dateformat', $userrow['user_dateformat'], true));
 		$accept_mail						=  request_var('accept_mail', '0');
 		$mass_mail							=  request_var('mass_mail', '0');
 		$pm_notify							=  request_var('pm_notify', '0');
@@ -42,17 +42,30 @@ if (!defined('IN_PMBT'))
 		$u_country							=  request_var('u_country', '0');
 		$u_parked							=  request_var('parked', '0');
 		$hide_profile						=  request_var('hide_profile', '0');
-		$view_images						= request_var('view_images', btm_optionget($user_row, 'viewimg'));
-		$view_flash							= request_var('view_flash', btm_optionget($user_row, 'viewflash'));
-		$view_smilies						= request_var('view_smilies', btm_optionget($user_row, 'viewsmilies'));
-		$view_sigs							= request_var('view_sigs', btm_optionget($user_row, 'viewsigs'));
-		$view_avatars						= request_var('view_avatars', btm_optionget($user_row, 'viewavatars'));
-		$view_wordcensor					= request_var('view_wordcensor', btm_optionget($user_row, 'viewcensors'));
-		$bbcode								= request_var('bbcode', btm_optionget($user_row, 'bbcode'));
-		$smilies							= request_var('smilies', btm_optionget($user_row, 'smilies'));
-		$sig								= request_var('sig', btm_optionget($user_row, 'attachsig'));
+		$view_images						= request_var('view_images', btm_optionget($userrow, 'viewimg'));
+		$view_flash							= request_var('view_flash', btm_optionget($userrow, 'viewflash'));
+		$view_smilies						= request_var('view_smilies', btm_optionget($userrow, 'viewsmilies'));
+		$view_sigs							= request_var('view_sigs', btm_optionget($userrow, 'viewsigs'));
+		$view_avatars						= request_var('view_avatars', btm_optionget($userrow, 'viewavatars'));
+		$view_wordcensor					= request_var('view_wordcensor', btm_optionget($userrow, 'viewcensors'));
+		$bbcode								= request_var('bbcode', btm_optionget($userrow, 'bbcode'));
+		$smilies							= request_var('smilies', btm_optionget($userrow, 'smilies'));
+		$sig								= request_var('sig', btm_optionget($userrow, 'attachsig'));
+		$topic_sk							= request_var('topic_sk', ($userrow['user_topic_sortby_type']) ? $userrow['user_topic_sortby_type'] : 't');
+		$topic_sd							= request_var('topic_sd', ($userrow['user_topic_sortby_dir']) ? $userrow['user_topic_sortby_dir'] : 'd');
+		$topic_st							= request_var('topic_st', ($userrow['user_topic_show_days']) ? $userrow['user_topic_show_days'] : 0);
+
+		$post_sk							= request_var('post_sk', ($userrow['user_post_sortby_type']) ? $userrow['user_post_sortby_type'] : 't');
+		$post_sd							= request_var('post_sd', ($userrow['user_post_sortby_dir']) ? $userrow['user_post_sortby_dir'] : 'a');
+		$post_st							= request_var('post_st', ($userrow['user_post_show_days']) ? $userrow['user_post_show_days'] : 0);
 
 
+		$sqlval['user_topic_sortby_type']	= $topic_sk;
+		$sqlval['user_post_sortby_type']	= $post_sk;
+		$sqlval['user_topic_sortby_dir']	= $topic_sd;
+		$sqlval['user_post_sortby_dir']		= $post_sd;
+		$sqlval['user_topic_show_days']		= $topic_st;
+		$sqlval['user_post_show_days']		= $post_st;
                 $sqlval['country'] = $u_country;
         if ($accept_mail == "1") {
                 $sqlval['accept_mail'] = "yes";
@@ -110,11 +123,11 @@ if (!defined('IN_PMBT'))
         if ($customlang == "0" OR !is_readable("language/".$customlang.".php")) $customlang = NULL;
 		$sqlval['language'] = $customlang;
 
-        if ($customtheme == "0" OR $customtheme == "CVS" OR !is_dir("themes/".$customtheme)) $customtheme = 'NULL';
+        if ($customtheme == "0" OR $customtheme == "CVS" OR !is_dir("themes/".$customtheme)) $customtheme = NULL;
 		$sqlval['theme'] = $customtheme;
 		if (!isset($offset) OR $offset =="") $offset = '0';
 		$sqlval['tzoffset'] = $offset;
-        if ($user_torrent_per_page == "0" OR $user_torrent_per_page == "") $user_torrent_per_page = NULL;
+        if ($user_torrent_per_page == "0" OR $user_torrent_per_page == "") $user_torrent_per_page = 0;
 		$sqlval['torrent_per_page'] = $user_torrent_per_page;
 		btm_optionset($userrow, 'viewimg', $view_images);
 		btm_optionset($userrow, 'viewflash', $view_flash);
@@ -126,16 +139,37 @@ if (!defined('IN_PMBT'))
 		btm_optionset($userrow, 'smilies', $smilies);
 		btm_optionset($userrow, 'attachsig', $sig);
 		$sqlval['user_options'] = $userrow['user_options'];
+		$sqlval['user_dateformat'] = $dateformat;
+						//die(print_r($userrow));
+					$error = validate_data($sqlval, array(
+						'user_dateformat'	=> array('string', false, 1, 30),
+						'user_topic_sortby_type'		=> array('string', false, 1, 1),
+						'user_topic_sortby_dir'			=> array('string', false, 1, 1),
+						'user_post_sortby_type'		=> array('string', false, 1, 1),
+						'user_post_sortby_dir'		=> array('string', false, 1, 1),
+					));
+			if (!sizeof($error))
+			{
 				$sql = 'UPDATE ' . $db_prefix . '_users SET ' . $db->sql_build_array('UPDATE', $sqlval) . '
-					WHERE id = ' . $userrow["id"];
+						WHERE id = ' . $userrow["id"];
                 if (!$db->sql_query($sql)) btsqlerror($sql);
 				if($user->id == $uid)userlogin($uname, $btuser);
-                                $template->assign_vars(array(
-										'S_REFRESH'				=> true,
-										'META' 				  	=> '<meta http-equiv="refresh" content="5;url=' . $siteurl . '/user.php?op=editprofile' . ((!$admin_mode) ? '' : "&amp;id=" .$uid  ) . '&amp;action=preferences&amp;mode=personal" />',
-										'S_ERROR_HEADER'		=>$user->lang['UPDATED'],
-                                        'S_ERROR_MESS'			=> $user->lang['PROFILE_UPDATED'].back_link($siteurl . '/user.php?op=editprofile' . ((!$admin_mode) ? '' : "&amp;id=" .$uid  ) . '&amp;action=preferences&amp;mode=personal'),
-                                ));
-                echo $template->fetch('error.html');
+				$template->assign_vars(array(
+						'S_SUCCESS'			=> true,
+						'S_FORWARD' 	  	=> $siteurl . '/user.php?op=editprofile' . ((!$admin_mode) ? '' : "&amp;id=" .$uid  ) . '&amp;action=preferences&amp;mode=personal',
+						'TITTLE_M'			=>$user->lang['UPDATED'],
+						'MESSAGE'			=> $user->lang['PROFILE_UPDATED'].back_link($siteurl . '/user.php?op=editprofile' . ((!$admin_mode) ? '' : "&amp;id=" .$uid  ) . '&amp;action=preferences&amp;mode=personal'),
+				));
+			}
+			else
+			{
+				$error = array_map(array($user, 'lang'), $error);
+				$template->assign_vars(array(
+						'S_ERROR'			=> true,
+						'TITTLE_M'			=>$user->lang['ALERT_ERROR'],
+						'MESSAGE'			=> implode('<br />', $error).back_link($siteurl . '/user.php?op=editprofile' . ((!$admin_mode) ? '' : "&amp;id=" .$uid  ) . '&amp;action=preferences&amp;mode=personal'),
+				));
+			}
+                echo $template->fetch('message_body.html');
 				die();
 ?>

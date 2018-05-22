@@ -35,9 +35,9 @@ $voted_id	= request_var('vote_id', array('' => 0));
 $start		= request_var('start', 0);
 $view		= request_var('view', '');
 
-$default_sort_days	= (!empty($user->post_show_days)) ? $user->post_show_days : 0;
-$default_sort_key	= (!empty($user->post_sortby_type)) ? $user->post_sortby_type : 't';
-$default_sort_dir	= (!empty($user->post_sortby_dir)) ? $user->post_sortby_dir : 'a';
+$default_sort_days	= (!empty($user->posts_show_days)) ? $user->posts_show_days : 0;
+$default_sort_key	= (!empty($user->posts_sortby_type)) ? $user->posts_sortby_type : 't';
+$default_sort_dir	= (!empty($user->posts_sortby_dir)) ? $user->posts_sortby_dir : 'a';
 
 $sort_days	= request_var('st', $default_sort_days);
 $sort_key	= request_var('sk', $default_sort_key);

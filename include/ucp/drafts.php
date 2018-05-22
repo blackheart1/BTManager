@@ -36,6 +36,7 @@ if (!defined('IN_PMBT'))
 		$template->assign_vars(array(
 		//'ERROR'=> '',
 		'S_EDIT_DRAFT'=> $edit,
+		'S_DRAFT_ROWS'=>true,
 		'S_BBCODE_ALLOWED'=> true,
 		'S_BBCODE_QUOTE'=> true,
 		'S_BBCODE_IMG'=> true,

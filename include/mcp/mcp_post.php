@@ -130,13 +130,13 @@ function mcp_post_details($id, $mode, $action)
 	}
 
 	$post_unread = (isset($topic_tracking_info[$post_info['topic_id']]) && $post_info['post_time'] > $topic_tracking_info[$post_info['topic_id']]) ? true : false;
-
+//die(print_r($post_info));
 	// Process message, leave it uncensored
 	$message = $post_info['post_text'];
 
 	if ($post_info['bbcode_bitfield'])
 	{
-		include_once($phpbb_root_path . 'includes/bbcode.' . $phpEx);
+		include_once($phpbb_root_path . 'include/bbcode.' . $phpEx);
 		$bbcode = new bbcode($post_info['bbcode_bitfield']);
 		$bbcode->bbcode_second_pass($message, $post_info['bbcode_uid'], $post_info['bbcode_bitfield']);
 	}
