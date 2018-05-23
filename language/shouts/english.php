@@ -34,13 +34,14 @@ if (empty($lang) || !is_array($lang))
 }
 
 $lang = array_merge($lang, array(
-    'SHOUT_COMAND_HELP_USER' => '[quote]As a User, you have the following Commands:
+    'SHOUT_COMAND_HELP_USER' => '[quote]<strong>As a User, you have the following Commands:</strong>
         If you want to View this Message in the Shoutbox Use:- <strong>/help</strong>
         If you want to Slap a User Use:- <strong>/slapuser</strong> Username
         If you want to Send a Quick Private Message Use:- <strong>/pmuser</strong> Username or ID Plus the Message
         If you want to Speak as a 3rd Person Use:- <strong>/me</strong> Message[/quote]',
 
-    'SHOUT_COMAND_HELP_ADMIN' => '[quote]As a Staff Member, you have the following Commands:
+    'SHOUT_COMAND_HELP_ADMIN' => '[quote]<strong>As a Staff Member, you have the following Commands:</strong>
+        If you want to Delete or Edit a Shout, you need to <strong>Double Click</strong> on the relevant Icon
         If you want to make a Notice use:- <strong>/notice</strong>
         If you want to Empty Shouts use:- <strong>/empty</strong>
         If you want to Warn or Unwarn a User use:- <strong>/warn</strong> Username <strong>/unwarn</strong> Username
