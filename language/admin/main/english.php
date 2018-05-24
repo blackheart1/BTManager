@@ -392,6 +392,7 @@ $lang = array_merge($lang, array(
     'LOG_UPDATE_PHPBB'         => '<strong>Updated phpBB from Version %1$s to Version %2$s</strong>',
 
     'ACP_SUBMIT_CHANGES'       => 'Submit Changes',
+	'LOG_USER_CREATED'		   => 'New user Created %1$s By \'<em>%2$s</em>\'',
     'GENERAL_SETTINGS'         => 'General Settings',
     'LOG_USER_ACTIVE'          => '<strong>User Activated</strong><br /> %s',
     'LOG_USER_BAN_USER'        => '<strong>Banned User via User Management</strong> for Reason \'<em>%1$s</em>\'<br /> %2$s',
@@ -493,6 +494,7 @@ $lang = array_merge($lang, array(
     'MENU_SEACH'            => 'Forum Search',
     'ACP_SEARCH_INDEX'      => 'Search Index',
     'ACP_SEARCH_SETTINGS'   => 'Search Settings',
+	'LOG_CONFIG_SHOUTCAST'	=> 'ShoutCast Configs Updated',
 ));
 
 ?>
