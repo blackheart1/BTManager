@@ -175,7 +175,7 @@ $errors[] = sprintf($user->lang['DIR_NO_WRITE'], $AVATAR_GALLERY_PATH);
         $db->sql_query("TRUNCATE TABLE ".$db_prefix."_avatar_config;");
         $db->sql_query($sql);
 		$pmbt_cache->remove_file("sql_".md5("avatar").".php");
-				logerror($user->lang['LOG_CONFIG_AVATAR'],'admin');
+				add_log('admin','LOG_CONFIG_AVATAR');
                                 $template->assign_vars(array(
 								        'S_USER_NOTICE'					=> true,
 										'S_FORWARD'						=> $u_action,

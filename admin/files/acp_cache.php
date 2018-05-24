@@ -108,7 +108,7 @@ if ($do == "take_config") {
 		$db->sql_multi_insert($db_prefix."_cache_con", $sql_ary);
 		$pmbt_cache->remove_file("sql_".md5('cache').".php");
 		$pmbt_cache->set_sql("cache", $sql_ary);
-				logerror($user->lang['LOG_CACHE_SETTING_UPDATE'],'admin');
+				add_log('admin','LOG_CACHE_SETTING_UPDATE');
                                 $template->assign_vars(array(
 								        'S_USER_NOTICE'					=> true,
 										'S_FORWARD'					=> $u_action,

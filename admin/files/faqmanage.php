@@ -142,7 +142,7 @@ $confirm_key			= request_var('confirm_key', '');
 		if (confirm_box(true))
 		{
   $db->sql_query("DELETE FROM `".$db_prefix."_faq` WHERE `id`='".$fid."' LIMIT 1") or sqlerr();
-						logerror($user->lang['F_REMOVED'],'admin');//log group chonge
+						add_log('admin','F_REMOVED');
                                 $template->assign_vars(array(
 								        'S_SUCCESS'            => true,
 										'S_FORWARD'			=> $siteurl."/admin.php?i=staff&op=faqmanage",

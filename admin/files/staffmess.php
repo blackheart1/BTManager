@@ -156,7 +156,7 @@ require_once("include/constants.php");
 					'MESSAGE_TITLE'			=> $user->lang['SUCCESS'],
 					'MESSAGE_TEXT'			=> $user->lang['MESS_SENT'].back_link(append_sid($u_action,'page=sendpm')),
 				));
-				logerror(sprintf($user->lang['LOG_MASS_PM'], $user->name),'admin');
+				add_log('admin','LOG_MASS_PM',$user->name);
 				echo $template->fetch('admin/message_body.html');
 				close_out();
 
@@ -223,7 +223,7 @@ if (!$usermissed){
 					'MESSAGE_TITLE'			=> $user->lang['SUCCESS'],
 					'MESSAGE_TEXT'			=> $user->lang['MESS_SENT'].back_link(append_sid($u_action,'page=sendmail')),
 				));
-				logerror(sprintf($user->lang['LOG_MASS_EMAIL'], $user->name),'admin');
+				add_log('admin','LOG_MASS_EMAIL',$user->name);
 				echo $template->fetch('admin/message_body.html');
 				close_out();
 }else{

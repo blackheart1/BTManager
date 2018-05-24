@@ -77,7 +77,7 @@ if(isset($do) && $do == "save")
         $db->sql_query("TRUNCATE TABLE ".$db_prefix."_shout_cast;");
         $db->sql_query($sql);
 		$pmbt_cache->remove_file("sql_".md5("shout_cast").".php");
-				logerror($user->lang['LOG_CONFIG_AVATAR'],'admin');
+				add_log('admin','LOG_CONFIG_SHOUTCAST');
                                 $template->assign_vars(array(
 								        'S_USER_NOTICE'					=> true,
 										'S_FORWARD'						=> $u_action,

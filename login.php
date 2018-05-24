@@ -163,9 +163,7 @@ switch($op)
 						else 
 						{
                                 //bad data
-								$username = $db->sql_escape($username);
-								$error = serialize(array($username));
-								logerror($error, 'FAILED_LOGIN');
+								add_log('admin','FAILED_LOGIN',$username);
                                 $template->assign_vars(array(
                                         'S_ERROR'            => true,
                                         'S_ERROR_MESS'            => $user->lang['LOGIN_ERROR_NP_WRONG'],

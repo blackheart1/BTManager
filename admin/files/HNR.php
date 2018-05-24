@@ -89,7 +89,7 @@ if ($do == "take_config") {
         $db->sql_query("TRUNCATE TABLE ".$db_prefix."_hit_n_run;");
         $db->sql_query($sql);
 
-				logerror($user->lang['LOG_HNR_SETTING_UPDATE'],'admin');
+				add_log('admin','LOG_HNR_SETTING_UPDATE');
                                 $template->assign_vars(array(
 								        'S_USER_NOTICE'					=> true,
 										'S_FORWARD'					=> $u_action,

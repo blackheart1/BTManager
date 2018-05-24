@@ -907,7 +907,7 @@ function submit_post($mode, $subject, $username, $topic_type, &$poll, &$data, $u
 			if ($user->id != $poster_id)
 			{
 				$log_subject = ($subject) ? $subject : $data['topic_title'];
-				logerror(printf($user->lang['LOG_POST_EDITED'],$log_subject, (!empty($username)) ? $username : $user->lang['GUEST']), $user->lang['EDIT_POST']);
+				add_log('mod', $data['forum_id'], $data['topic_id'], 'LOG_POST_EDITED', $log_subject, (!empty($username)) ? $username : $user->lang['GUEST']);
 			}
 
 			if (!isset($sql_data[$db_prefix . '_posts']['sql']))
@@ -2222,7 +2222,7 @@ function handle_post_delete($forum_id, $topic_id, $post_id, &$post_data)
 
 			if ($next_post_id === false)
 			{
-				logerror(sprintf($user->lang['LOG_DELETE_TOPIC'], $post_data['topic_title']),'mod');
+				add_log('mod','LOG_DELETE_TOPIC', $post_data['topic_title']);
 
 				$meta_info = append_sid("{$phpbb_root_path}forum.$phpEx?action=viewforum", "f=$forum_id");
 				$message = $user->lang['POST_DELETED'];
@@ -2230,7 +2230,7 @@ function handle_post_delete($forum_id, $topic_id, $post_id, &$post_data)
 			else
 			{
 
-				logerror(sprintf($user->lang['LOG_DELETE_POST'], $post_data['post_subject']),'mod');
+				add_log('mod',$forum,$topic_id, 'LOG_DELETE_POST',$post_data['post_subject']);
 				$meta_info = append_sid("{$phpbb_root_path}forum.$phpEx?action=viewtopic", "f=$forum_id&amp;t=$topic_id&amp;p=$next_post_id") . "#p$next_post_id";
 				$message = $user->lang['POST_DELETED'] . '<br /><br />' . sprintf($user->lang['RETURN_TOPIC'], '<a href="' . $meta_info . '">', '</a>');
 			}

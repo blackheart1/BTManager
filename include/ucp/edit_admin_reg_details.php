@@ -70,7 +70,7 @@ $disable_res											= utf8_normalize_nfc(request_var('disable_res', '',true))
 		if(checkaccess("a_edit_level")){
 			if (!isset($group) OR $group == "") $group = "";
 							if($userrow["can_do"] != $group)
-							logerror(sprintf($user->lang['LOG_GROUP_CHANGE'],username_is($uid),$group), 'Group edit');//log group chonge
+							add_log('admin','LOG_GROUP_CHANGE',username_is($uid),$group);//log group chonge
 			processinput("can_do",$group);
 			$db->sql_query('DELETE FROM '.$db_prefix."_user_group WHERE user_id = ".$uid);
 			$sql = "INSERT INTO `".$db_prefix."_user_group` (`group_id`, `user_id`, `group_leader`, `user_pending`) VALUES ('" . $group . "', '" . $uid . "', '0', '0');";
@@ -93,7 +93,7 @@ $disable_res											= utf8_normalize_nfc(request_var('disable_res', '',true))
 		if (!isset($down) OR $down =="") $down = '0';
 		processload("downloaded",$down);
         if (checkaccess("a_edit_level") AND in_array($level,Array("user","premium","moderator","admin"))) {
-		if($userrow["level"] != $level)logerror(sprintf($user->lang['LOG_LEVEL_CHANGE'],username_is($uid),$level), 'Level edit');
+		if($userrow["level"] != $level)add_log('admin','LOG_LEVEL_CHANGE',username_is($uid),$level);
 		processinput("level",$level);
 		}
 		$modcommentset = "";

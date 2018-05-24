@@ -134,7 +134,7 @@ switch ($cron_type)
 			break;
 		}
 
-		include_once("{$phpbb_root_path}includes/search/$search_type.$phpEx");
+		include_once("{$phpbb_root_path}include/search/$search_type.$phpEx");
 
 		// We do some additional checks in the module to ensure it can actually be utilised
 		$error = false;

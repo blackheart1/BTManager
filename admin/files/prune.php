@@ -26,7 +26,7 @@ if (!defined('IN_PMBT'))
 $user->set_lang('admin/acp_prune',$user->ulanguage);
 if(!checkaccess('a_prune'))
 {
-				logerror(sprintf($user->lang['LOG_ACL_ACCESS_NOTALLOW'], $user->lang['USERPRUNE_HEADER']),'admin');
+				add_log('admin','LOG_ACL_ACCESS_NOTALLOW',$user->lang['USERPRUNE_HEADER']);
                                 $template->assign_vars(array(
 								        'S_USER_NOTICE'			=> true,
 										'S_FORWARD'				=> false,
@@ -57,7 +57,7 @@ if ($do == 'take_config'){
         $db->sql_query("TRUNCATE TABLE ".$db_prefix."_userautodel;");
         $db->sql_query($sql);
 		$pmbt_cache->remove_file("sql_".md5("userautodel").".php");
-				logerror($user->lang['LOG_PRUNE_SETTING_UPDATE'],'admin');
+				add_log('admin','LOG_PRUNE_SETTING_UPDATE');
                                 $template->assign_vars(array(
 								        'S_USER_NOTICE'					=> true,
 										'S_FORWARD'					=> $u_action,

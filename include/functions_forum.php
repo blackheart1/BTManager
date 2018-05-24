@@ -2224,7 +2224,7 @@ function copy_forum_permissions($src_forum_id, $dest_forum_ids, $clear_dest_perm
 
 	if ($add_log)
 	{
-			logerror(sprintf($user->lang['LOG_FORUM_COPIED_PERMISSIONS'], $src_forum_name, implode(', ', $dest_forum_names)),'admin');
+			add_log('admin','LOG_FORUM_COPIED_PERMISSIONS', $src_forum_name, implode(', ', $dest_forum_names)),);
 	}
 
 

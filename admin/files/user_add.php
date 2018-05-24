@@ -169,7 +169,7 @@ $default_group = $db->sql_fetchrow($res);
 		$sql = "INSERT INTO `".$db_prefix."_user_group` (`group_id`, `user_id`, `group_leader`, `user_pending`) VALUES ('" . $group . "', '" . $new_id . "', '0', '0');";
 		$db->sql_query($sql) or btsqlerror($sql);
 		group_set_user_default($group, array($new_id), false);
-				logerror(sprintf($user->lang['ACTION_LOG'], $db->sql_escape($user->mame), $db->sql_escape($username)),'admin');
+				add_log('admin','LOG_USER_CREATED', $username, $user->mame);
                                 $template->assign_vars(array(
 								        'S_USER_NOTICE'				=> true,
 										'S_FORWARD'					=>false,

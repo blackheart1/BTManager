@@ -26,7 +26,7 @@ if (!defined('IN_PMBT'))
 $user->set_lang('admin/acp_ratio',$user->ulanguage);
 if(!checkaccess('a_warn_sys'))
 {
-				logerror(sprintf($user->lang['LOG_ACL_ACCESS_NOTALLOW'], $user->lang['TITLE_INDEX']),'admin');
+				add_log('admin','LOG_ACL_ACCESS_NOTALLOW',$user->lang['TITLE_INDEX']);
                                 $template->assign_vars(array(
 								        'S_USER_NOTICE'			=> true,
 										'S_FORWARD'				=> false,

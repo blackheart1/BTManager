@@ -33,7 +33,7 @@ if ($act == "delete")
 		{
 			$sql = "DELETE FROM ".$db_prefix."_rules WHERE id = $id ";
 			if (!$db->sql_query($sql)) btsqlerror($sql);
-						logerror($user->lang['RULE_REMOVED'],'admin');
+						add_log('admin','RULE_REMOVED');
                                 $template->assign_vars(array(
 								        'S_USER_NOTICE'				=> true,
 										'S_FORWARD'					=> $u_action,

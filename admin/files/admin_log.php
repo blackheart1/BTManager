@@ -67,7 +67,6 @@ if($delmarked && $auth->acl_get('a_clearlogs'))
                         $sql = "DELETE FROM ".$db_prefix."_log WHERE event IN (".$del.");";
                         $db->sql_query($sql) or btsqlerror($sql);
 					add_log('admin', 'LOG_CLEAR_ADMIN');
-						//logerror($user->lang['A_CLEAR_LOG'],'LOG_CLEAR_CRITICAL');//log group chonge
                                 $template->assign_vars(array(
 								        'S_USER_NOTICE'            => true,
 										'S_FORWARD'			=> $u_action,

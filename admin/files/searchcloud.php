@@ -109,7 +109,7 @@ switch ($do)
 		if (confirm_box(true))
 		{
 		$db->sql_query("TRUNCATE `".$db_prefix."_search_text`;");
-						logerror($user->lang['SEARCH_CLOUD_CLEAR_ADMIN'],'admin');
+						add_log('admin','SEARCH_CLOUD_CLEAR_ADMIN');
                                 $template->assign_vars(array(
 								        'S_USER_NOTICE'				=> true,
 										'S_FORWARD'					=> $u_action,
