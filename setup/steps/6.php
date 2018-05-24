@@ -131,9 +131,10 @@ if ($can_proceed) {
         //Run Query
         //Full name has already been escaped
         //We don't care of the act_key field because it serves only as activation code
+		$act_key = base64_encode(microtime());
 		$sql = "INSERT INTO `".$db_prefix."_user_group` (`group_id`, `user_id`, `group_leader`, `user_pending`) VALUES ('5', '1', '0', '0');";
 		$db->sql_query($sql) or btsqlerror($sql);
-        $sql = "INSERT INTO ".$db_prefix."_users (id, username, clean_username, password, email, name, uploaded, active".$passkeyrow.", act_key, level, can_do, user_rank, user_type, regdate) VALUES(1, '".addslashes($username)."','".addslashes(strtolower($username))."','".md5($password)."','".addslashes($email)."', ".$fullname.", '".$give_sign_up_credit."', 1".$passkey.",'".base64_encode(microtime())."', 'admin', '5', '1', '3', NOW());";
+        $sql = "INSERT INTO ".$db_prefix."_users (id, username, clean_username, password, email, name, uploaded, active".$passkeyrow.", act_key, level, can_do, user_rank, user_type, regdate) VALUES(1, '".addslashes($username)."','".addslashes(strtolower($username))."','".md5($password)."','".addslashes($email)."', ".$fullname.", '".$give_sign_up_credit."', 1".$passkey.",'".$act_key."', 'admin', '5', '1', '3', NOW());";
         if (!$db->sql_query($sql)) {
                 //Error
                 $err = $db->sql_error();
@@ -145,7 +146,23 @@ if ($can_proceed) {
                 echo "<br />";
                 echo _btsqlerror3.$err["message"];
                 echo "</font></p>";
-        } else {
+        } else
+		{
+			//Login Admin
+			$session_time = time() + 31536000;
+			$cookiedata = Array('1',addslashes($username),md5($password),$act_key);
+	        if ($use_rsa)
+			{
+				require_once("../include/rsalib.php");
+				$rsa = New RSA($rsa_modulo, $rsa_public, $rsa_private);
+				$cookiedata = $rsa->encrypt($cookiedata);
+			}
+	        else
+			{
+				$cookiedata = base64_encode($cookiedata);
+			}
+			setcookie("btuser",$cookiedata,$session_time,$cookiepath,$cookiedomain,0);
+
                 //Go ahead
                 header("Location: index.php?step=7&language=".$language);
                 die();

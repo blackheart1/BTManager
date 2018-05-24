@@ -351,7 +351,9 @@ if (isset($postback)) {
         array_push($params,"sitename"); array_push($values,esc_magic($sub_sitename));
         if (is_url($sub_siteurl)) { array_push($params,"siteurl"); array_push($values,esc_magic($sub_siteurl)); }
         array_push($params,"cookiedomain"); array_push($values,$sub_cookiedomain);
+		$cookiedomain = $sub_cookiedomain;
         if (preg_match('/^\/.*/', $sub_cookiepath)) { array_push($params,"cookiepath"); array_push($values,esc_magic($sub_cookiepath)); }
+		$cookiepath = $sub_cookiedomain;
         array_push($params,"sourcedir"); array_push($values,$sub_sourcedir);
         if (is_email($sub_admin_email)) { array_push($params,"admin_email"); array_push($values,esc_magic($sub_admin_email)); }
         if (file_exists("../language/common/".$sub_language.".php")) { array_push($params,"language"); array_push($values,$sub_language); }
@@ -442,6 +444,8 @@ if (isset($postback)) {
                 echo "<p><input type=\"submit\" name=\"postback\" value=\""._nextstep."\" /><input type=\"reset\" value=\""._reset."\" /></p>\n";
         } else {
 			$db->sql_query('UPDATE '.$db_prefix.'_cache_con SET value = \'' . $sub_sourcedir . 'cache\' WHERE name = \'cache_dir\'');
+                echo "<input type=\"hidden\" name=\"cookiepath\" value=\"{$cookiepath}\" />\n";
+                echo "<input type=\"hidden\" name=\"cookiedomain\" value=\"{$cookiedomain}\" />\n";
                 echo "<input type=\"hidden\" name=\"step\" value=\"6\" />\n";
                 echo "<p>"._step5complete."</p>";
                 echo "<p><input type=\"submit\" value=\""._nextstep."\" /></p>\n";

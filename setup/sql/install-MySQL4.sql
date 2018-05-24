@@ -185,7 +185,7 @@ CREATE TABLE IF NOT EXISTS `#prefix#_bans` (
   `ban_exclude` int(1) NOT NULL DEFAULT '0',
   `reason` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
   `ban_give_reason` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `date` datetime NOT NULL DEFAULT 0,
   PRIMARY KEY  (`id`)
 ) TYPE=MyISAM  AUTO_INCREMENT=1 ;
 
@@ -294,7 +294,7 @@ CREATE TABLE IF NOT EXISTS `#prefix#_client_ban` (
   `id` int(10) NOT NULL auto_increment,
   `client` varchar(60) NOT NULL,
   `reason` varchar(255) NOT NULL,
-  `date` datetime NOT NULL default '0000-00-00 00:00:00',
+  `date` datetime NOT NULL DEFAULT 0,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `client` (`client`)
 ) TYPE=MyISAM  AUTO_INCREMENT=1 ;
@@ -309,14 +309,14 @@ CREATE TABLE IF NOT EXISTS `#prefix#_comments` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `user` int(10) unsigned NOT NULL default '0',
   `torrent` int(10) unsigned NOT NULL default '0',
-  `added` datetime NOT NULL default '0000-00-00 00:00:00',
+  `added` datetime NOT NULL DEFAULT 0,
   `text` text NOT NULL,
   `ori_text` text NOT NULL,
   `news` int(10) NOT NULL default '0',
   `nzb` int(10) NOT NULL default '0',
   `offer` int(11) NOT NULL default '0',
   `reqid` int(11) NOT NULL default '0',
-  `editedat` datetime NOT NULL default '0000-00-00 00:00:00',
+  `editedat` datetime NOT NULL DEFAULT 0,
   `editedby` int(10) unsigned NOT NULL default '0',
   `bbcode_bitfield` varchar(225) binary NOT NULL,
   `bbcode_uid` varchar(8) binary NOT NULL,
@@ -351,7 +351,7 @@ CREATE TABLE IF NOT EXISTS `#prefix#_complaints` (
   `torrent` int(15) unsigned NOT NULL default '0',
   `user` int(11) unsigned NOT NULL default '0',
   `host` varchar(60) NOT NULL default '',
-  `datetime` datetime NOT NULL default '0000-00-00 00:00:00',
+  `datetime` datetime NOT NULL DEFAULT 0,
   `score` smallint(1) unsigned zerofill NOT NULL default '0',
   PRIMARY KEY  (`torrent`,`user`)
 ) TYPE=MyISAM;
@@ -369,7 +369,7 @@ CREATE TABLE IF NOT EXISTS `#prefix#_config` (
   `cookiepath` varchar(60) NOT NULL default '',
   `sourcedir` varchar(255) NOT NULL default '',
   `admin_email` varchar(60) NOT NULL,
-  `start_date` datetime NOT NULL default '0000-00-00 00:00:00',
+  `start_date` datetime NOT NULL DEFAULT 0,
   `time_zone` varchar(255) NOT NULL default 'America/Los_Angeles',
   `language` varchar(15) NOT NULL default '',
   `theme` varchar(255) NOT NULL default '',
@@ -444,7 +444,7 @@ CREATE TABLE IF NOT EXISTS `#prefix#_config` (
   `inactwarning_time` int(10) NOT NULL default '0',
   `autodel_users_time` int(10) NOT NULL default '0',
   `most_on_line` varchar(32) NOT NULL default '0',
-  `when_most` datetime NOT NULL default '0000-00-00 00:00:00'
+  `when_most` datetime NOT NULL DEFAULT 0
 ) TYPE=MyISAM;
 
 -- --------------------------------------------------------
@@ -482,7 +482,7 @@ CREATE TABLE IF NOT EXISTS `#prefix#_disallow` (
 CREATE TABLE IF NOT EXISTS `#prefix#_download_completed` (
   `user` int(11) unsigned NOT NULL default '0',
   `torrent` int(15) unsigned NOT NULL default '0',
-  `completed` datetime NOT NULL default '0000-00-00 00:00:00',
+  `completed` datetime NOT NULL DEFAULT 0,
   PRIMARY KEY  (`user`,`torrent`),
   KEY `torrent` (`torrent`)
 ) TYPE=MyISAM;
@@ -1078,8 +1078,8 @@ CREATE TABLE IF NOT EXISTS `#prefix#_modules` (
 CREATE TABLE IF NOT EXISTS `#prefix#_online_users` (
   `id` int(60) unsigned NOT NULL default '0',
   `page` varchar(255) NOT NULL default '',
-  `logged_in` datetime NOT NULL default '0000-00-00 00:00:00',
-  `last_action` datetime NOT NULL default '0000-00-00 00:00:00',
+  `logged_in` datetime NOT NULL DEFAULT 0,
+  `last_action` datetime NOT NULL DEFAULT 0,
   PRIMARY KEY  (`id`)
 ) TYPE=MyISAM;
 
@@ -1120,8 +1120,8 @@ CREATE TABLE IF NOT EXISTS `#prefix#_peers` (
   `upload_speed` int(11) unsigned NOT NULL default '0',
   `to_go` bigint(20) unsigned NOT NULL default '0',
   `seeder` enum('yes','no') NOT NULL default 'no',
-  `started` datetime NOT NULL default '0000-00-00 00:00:00',
-  `last_action` datetime NOT NULL default '0000-00-00 00:00:00',
+  `started` datetime NOT NULL DEFAULT 0,
+  `last_action` datetime NOT NULL DEFAULT 0,
   `connectable` enum('yes','no') NOT NULL default 'yes',
   `client` varchar(60) default NULL,
   `version` varchar(10) NOT NULL default '',
@@ -1160,7 +1160,7 @@ CREATE TABLE IF NOT EXISTS `#prefix#_pollanswers` (
 
 CREATE TABLE IF NOT EXISTS `#prefix#_polls` (
   `id` int(10) unsigned NOT NULL auto_increment,
-  `added` datetime NOT NULL default '0000-00-00 00:00:00',
+  `added` datetime NOT NULL DEFAULT 0,
   `question` varchar(255) NOT NULL default '',
   `option0` varchar(40) NOT NULL default '',
   `option1` varchar(40) NOT NULL default '',
@@ -1305,7 +1305,7 @@ CREATE TABLE IF NOT EXISTS `#prefix#_private_messages` (
   `subject` varchar(255) NOT NULL default '',
   `text` longtext NOT NULL,
   `is_read` enum('true','false') NOT NULL default 'false',
-  `sent` datetime NOT NULL default '0000-00-00 00:00:00',
+  `sent` datetime NOT NULL DEFAULT 0,
   `sender_del` enum('true','false') NOT NULL default 'false',
   `recipient_del` enum('true','false') NOT NULL default 'false',
   `save` enum('true','false') NOT NULL default 'false',
@@ -1436,7 +1436,7 @@ CREATE TABLE IF NOT EXISTS `#prefix#_ratings` (
   `torrent` int(10) unsigned NOT NULL default '0',
   `user` int(10) unsigned NOT NULL default '0',
   `rating` tinyint(3) unsigned NOT NULL default '0',
-  `added` datetime NOT NULL default '0000-00-00 00:00:00',
+  `added` datetime NOT NULL DEFAULT 0,
   PRIMARY KEY  (`torrent`,`user`)
 ) TYPE=MyISAM;
 
@@ -1451,8 +1451,8 @@ CREATE TABLE IF NOT EXISTS `#prefix#_ratiowarn` (
   `userid` int(11) NOT NULL default '0',
   `warned` enum('yes','no') NOT NULL default 'no',
   `banned` enum('yes','no') NOT NULL default 'no',
-  `ratiodate` datetime NOT NULL default '0000-00-00 00:00:00',
-  `warntime` datetime NOT NULL default '0000-00-00 00:00:00',
+  `ratiodate` datetime NOT NULL DEFAULT 0,
+  `warntime` datetime NOT NULL DEFAULT 0,
   PRIMARY KEY  (`id`)
 ) TYPE=MyISAM AUTO_INCREMENT=1 ;
 
@@ -1597,7 +1597,7 @@ CREATE TABLE IF NOT EXISTS `#prefix#_shouts` (
   `text` longtext NOT NULL,
   `bbcode_bitfield` varchar(255) binary NOT NULL,
   `bbcode_uid` varchar(8) binary NOT NULL,
-  `posted` datetime NOT NULL default '0000-00-00 00:00:00',
+  `posted` datetime NOT NULL DEFAULT 0,
   `id_to` int(10) NOT NULL default '0',
   PRIMARY KEY  (`id`),
   KEY `posted` (`posted`)
@@ -1666,16 +1666,16 @@ CREATE TABLE IF NOT EXISTS `#prefix#_snatched` (
   `speedup` bigint(20) unsigned NOT NULL default '0',
   `speeddown` bigint(20) unsigned NOT NULL default '0',
   `seeder` enum('yes','no') NOT NULL default 'no',
-  `last_action` datetime NOT NULL default '0000-00-00 00:00:00',
-  `startdat` datetime NOT NULL default '0000-00-00 00:00:00',
-  `completedat` datetime NOT NULL default '0000-00-00 00:00:00',
+  `last_action` datetime NOT NULL DEFAULT 0,
+  `startdat` datetime NOT NULL DEFAULT 0,
+  `completedat` datetime NOT NULL DEFAULT 0,
   `connectable` enum('yes','no') NOT NULL default 'yes',
   `agent` varchar(60) binary default NULL,
   `finished` enum('yes','no') NOT NULL default 'no',
   `seeding_time` int(10) default '0',
   `warned` enum('yes','no') default 'no',
   `hnr_warning` enum('yes','no') default 'no',
-  `hitrun` datetime NOT NULL default '0000-00-00 00:00:00',
+  `hitrun` datetime NOT NULL DEFAULT 0,
   `hitrunwarn` enum('yes','pending','no') NOT NULL default 'no',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `torrentid_3` (`torrentid`,`userid`),
@@ -1695,7 +1695,7 @@ CREATE TABLE IF NOT EXISTS `#prefix#_thanks` (
   `tid` bigint(10) NOT NULL auto_increment,
   `uid` bigint(10) NOT NULL default '0',
   `torid` bigint(10) NOT NULL default '0',
-  `thank_date` datetime NOT NULL default '0000-00-00 00:00:00',
+  `thank_date` datetime NOT NULL DEFAULT 0,
   PRIMARY KEY  (`tid`)
 ) TYPE=MyISAM  AUTO_INCREMENT=1 ;
 
@@ -1831,7 +1831,7 @@ CREATE TABLE IF NOT EXISTS `#prefix#_torrents` (
   `category` int(10) unsigned NOT NULL default '0',
   `type` enum('single','multi','link') NOT NULL default 'single',
   `numfiles` int(10) unsigned NOT NULL default '0',
-  `added` datetime NOT NULL default '0000-00-00 00:00:00',
+  `added` datetime NOT NULL DEFAULT 0,
   `exeem` varchar(250) default NULL,
   `dht` enum('yes','no') NOT NULL default 'no',
   `backup_tracker` enum('true','false') NOT NULL default 'false',
@@ -1857,8 +1857,8 @@ CREATE TABLE IF NOT EXISTS `#prefix#_torrents` (
   `complaints` char(3) NOT NULL default '0,0',
   `tracker` varchar(250) default NULL,
   `tracker_list` text,
-  `tracker_update` datetime NOT NULL default '0000-00-00 00:00:00',
-  `last_action` datetime NOT NULL default '0000-00-00 00:00:00',
+  `tracker_update` datetime NOT NULL DEFAULT 0,
+  `last_action` datetime NOT NULL DEFAULT 0,
   `nuked` enum('yes','no','unnuked') NOT NULL default 'no',
   `ratiobuild` enum('yes','no') NOT NULL default 'no',
   `nukereason` varchar(225) NOT NULL,
@@ -1896,7 +1896,7 @@ CREATE TABLE IF NOT EXISTS `#prefix#_trackers` (
   `url` varchar(120) NOT NULL default '',
   `support` enum('selective','global','single') NOT NULL default 'selective',
   `status` enum('active','dead','blacklisted') NOT NULL default 'active',
-  `updated` datetime NOT NULL default '0000-00-00 00:00:00',
+  `updated` datetime NOT NULL DEFAULT 0,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `url` (`url`),
   KEY `update` (`updated`)
@@ -1926,7 +1926,7 @@ CREATE TABLE IF NOT EXISTS `#prefix#_users` (
   `clean_username` varchar(25) COLLATE utf8_bin NOT NULL DEFAULT '',
   `name` varchar(50) COLLATE utf8_bin DEFAULT NULL,
   `email` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `regdate` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `regdate` datetime NOT NULL DEFAULT 0,
   `password` varchar(40) COLLATE utf8_bin NOT NULL DEFAULT '',
   `theme` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `language` varchar(15) COLLATE utf8_bin DEFAULT NULL,
@@ -1963,7 +1963,7 @@ CREATE TABLE IF NOT EXISTS `#prefix#_users` (
   `banreason` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `lastip` int(10) unsigned NOT NULL DEFAULT '0',
   `lasthost` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `lastlogin` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `lastlogin` datetime NOT NULL DEFAULT 0,
   `rem` enum('yes','no') COLLATE utf8_bin NOT NULL DEFAULT 'no',
   `modcomment` longtext COLLATE utf8_bin,
   `warned` int(1) unsigned NOT NULL DEFAULT '0',
@@ -1977,16 +1977,16 @@ CREATE TABLE IF NOT EXISTS `#prefix#_users` (
   `can_shout` enum('true','false') COLLATE utf8_bin NOT NULL DEFAULT 'true',
   `Show_online` enum('true','false') COLLATE utf8_bin NOT NULL DEFAULT 'true',
   `invites` smallint(5) NOT NULL DEFAULT '0',
-  `invitedate` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `invitedate` datetime NOT NULL DEFAULT 0,
   `seedbonus` decimal(10,1) NOT NULL DEFAULT '0.0',
   `donator` enum('true','false') COLLATE utf8_bin NOT NULL DEFAULT 'false',
   `donated` decimal(10,1) unsigned NOT NULL DEFAULT '0.0',
-  `dondate` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `dondate` datetime NOT NULL DEFAULT 0,
   `torrent_per_page` int(10) DEFAULT NULL,
-  `donator_tell` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `donator_tell` datetime NOT NULL DEFAULT 0,
   `dongift` int(1) unsigned NOT NULL DEFAULT '0',
   `inactwarning` tinyint(1) NOT NULL DEFAULT '0',
-  `inactive_warn_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `inactive_warn_time` datetime NOT NULL DEFAULT 0,
   `user_inactive_time` int(11) unsigned NOT NULL DEFAULT '0',
   `user_inactive_reason` tinyint(2) NOT NULL DEFAULT '0',
   `hitruns` tinyint(3) unsigned NOT NULL DEFAULT '0',
