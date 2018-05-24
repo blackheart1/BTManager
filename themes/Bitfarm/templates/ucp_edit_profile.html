@@ -707,6 +707,58 @@ function ChangeThumb(pic) {
     </td>
 </tr>
 <tr>
+<tr>
+    <td class="row1" width="50%"><strong class="genmed">{L_BOARD_DATE_FORMAT}</strong><br /><span>{L_BOARD_DATE_FORMAT_EXPLAIN}</span></td>
+
+    <td class="row2">
+        <select name="dateoptions" id="dateoptions" onchange="if(this.value=='custom'){dE('custom_date',1);}else{dE('custom_date',-1);} if (this.value == 'custom') { document.getElementById('dateformat').value = default_dateformat; } else { document.getElementById('dateformat').value = this.value; }">{S_DATEFORMAT_OPTIONS}</select>
+        <div id="custom_date"<!-- IF not S_CUSTOM_DATEFORMAT --> style="display:none;"<!-- ENDIF -->><input type="text" name="dateformat" id="dateformat" value="{DATE_FORMAT}" maxlength="30" /></div>
+
+    </td>
+</tr>
+<tr>
+    <td class="row1" width="50%"><strong class="genmed">{L_VIEW_TOPICS_DAYS}</strong></td>
+
+    <td class="row2">
+
+    </td>
+</tr>
+<tr>
+    <td class="row1" width="50%"><strong class="genmed">{L_VIEW_TOPICS_KEY}</strong></td>
+
+    <td class="row2">
+		{S_TOPIC_SORT_DAYS}
+    </td>
+</tr>
+<tr>
+    <td class="row1" width="50%"><strong class="genmed">{L_VIEW_TOPICS_DIR}</strong></td>
+
+    <td class="row2">
+    {S_TOPIC_SORT_KEY}
+    </td>
+</tr>
+<tr>
+    <td class="row1" width="50%"><strong class="genmed">{L_VIEW_POSTS_DAYS}</strong></td>
+
+    <td class="row2">
+		{S_POST_SORT_DAYS}
+    </td>
+</tr>
+<tr>
+    <td class="row1" width="50%"><strong class="genmed">{L_VIEW_POSTS_KEY}</strong></td>
+
+    <td class="row2">
+	{S_POST_SORT_KEY}
+    </td>
+</tr>
+<tr>
+    <td class="row1" width="50%"><strong class="genmed">{L_VIEW_POSTS_DIR}</strong></td>
+
+    <td class="row2">
+	{S_POST_SORT_DIR}
+    </td>
+</tr>
+<tr>
     <td class="row1" width="50%"><strong class="genmed">{L_BOARD_COUNTRY}</strong></td>
 
     <td class="row2">
