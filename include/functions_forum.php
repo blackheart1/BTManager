@@ -51,7 +51,7 @@ global $db, $db_prefix;
   return $a[0];
 }
 // Mark all forums as read
-function catch_up(){ 
+function catch_up(){
 global $db, $db_prefix, $user;
 	$res = $db->sql_query("SELECT id, lastpost FROM ".$db_prefix."_forum_topics") or forumsqlerr(__FILE__, __LINE__);
 	while ($arr = $db->sql_fetchrow($res)) {
@@ -147,7 +147,7 @@ function forum_generate_pagination($base_url, $num_items, $per_page, $start_item
 	return $page_string;
 }
 // Returns the minimum read/write class levels of a forum
-function get_forum_access_levels($forumid, $var = ''){ 
+function get_forum_access_levels($forumid, $var = ''){
 global $db, $db_prefix, $user;
     $sql = "SELECT acl_read, acl_write FROM ".$db_prefix."_forums WHERE forum_id=" . $forumid . " LIMIT 1;";
 	//die($sql);
@@ -192,23 +192,23 @@ function display_reasons($reason_id = 0)
 }
 // Returns the forum ID of a topic, or false on error
 function multi_array_key_exists( $needle, $haystack ) {
- 
+
     foreach ( $haystack as $key => $value ) :
 
         if ( preg_match("/\b".$needle."\b/i",$key) )
             return true;
-       
+
         if ( is_array( $value ) ) :
              if ( multi_array_key_exists( $needle, $value ) == true )
                 return true;
              else
                  continue;
         endif;
-       
+
     endforeach;
-   
+
     return false;
-} 
+}
 function encodehtml($s, $linebreaks = true)
 {
   $s = str_replace(array("<",">","\""), array("&lt;","&gt;","&quot;"), str_replace("&", "&amp;", $s));
@@ -334,7 +334,7 @@ function parse_attachments($forum_id, &$message, &$attachments, &$update_count, 
 			else if ($extensions[$attachment['extension']]['upload_icon'])
 			{
 				$upload_icon = '<img src="' . $phpbb_root_path . $config['upload_path'] . '/' . trim($extensions[$attachment['extension']]['upload_icon']) . '" alt="" />';
-				
+
 			}
 		}
 		$filesize = get_formatted_filesize($attachment['filesize'], false);
@@ -2224,7 +2224,7 @@ function copy_forum_permissions($src_forum_id, $dest_forum_ids, $clear_dest_perm
 
 	if ($add_log)
 	{
-			add_log('admin','LOG_FORUM_COPIED_PERMISSIONS', $src_forum_name, implode(', ', $dest_forum_names)),);
+			add_log('admin','LOG_FORUM_COPIED_PERMISSIONS', $src_forum_name, implode(', ', $dest_forum_names));
 	}
 
 
