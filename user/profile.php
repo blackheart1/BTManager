@@ -408,7 +408,7 @@ $from = ($p3 - 1) * $torrent_per_page;
 
 $totsql = "SELECT COUNT(DISTINCT torrent) AS tot FROM ".$db_prefix."_peers WHERE uid = '".$userrow["id"]."' AND seeder = 'no';";
 $totres = $db->sql_query($totsql) or btsqlerror($totsql);
-list ($tot) = $db->sql_fetchrow($totres);
+list ($tot) = $db->fetch_array($totres);
 $db->sql_freeresult($totres);
 
 $pages = ceil($tot / $torrent_per_page);
