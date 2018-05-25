@@ -151,6 +151,7 @@ $template->assign_vars(array(
 		'U_THEMES'				=> $custtheme,
 		'U_LANGUAGES'			=> $custlang,
 		'DST'					=> $userrow['user_dst'],
+		'S_FORCE_PASSKEY'		=> $force_passkey,
 		'S_TOPIC_SORT_DAYS'		=> $s_limit_topic_days,
 		'S_TOPIC_SORT_KEY'		=> $s_sort_topic_key,
 		'S_TOPIC_SORT_DIR'		=> $s_sort_topic_dir,
