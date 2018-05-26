@@ -4161,7 +4161,7 @@ function generate_board_url($without_script_path = false)
 }
 function redirect($url, $return = false, $disable_cd_check = false)
 {
-	global $db, $user, $phpbb_root_path;
+	global $db, $user, $phpbb_root_path, $version;
 
 	if (empty($user->lang))
 	{
@@ -4280,11 +4280,10 @@ function redirect($url, $return = false, $disable_cd_check = false)
 		header('Refresh: 0; URL=' . $url);
 
 		echo '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">';
-        echo '<html xmlns="http://www.w3.org/1999/xhtml" dir="{S_CONTENT_DIRECTION}" lang="{S_USER_LANG}" xml:lang="{S_USER_LANG}">';
-        echo '<head>';
-        echo '<meta name="generator" content="HTML Tidy for Linux (vers 6 November 2007), see www.w3.org">';
-        echo '<meta http-equiv="Content-Type" content="text/html; charset={S_CONTENT_ENCODING}">';
-        echo '<meta name="generator" content="PMBT {PMBT_VER}">';
+		echo '<html xmlns="http://www.w3.org/1999/xhtml" dir="' . $user->lang['DIRECTION'] . '" lang="' . $user->ulanguage . '" xml:lang="' . $user->ulanguage . '">';
+		echo '<head>';
+		echo '<meta http-equiv="Content-Type" content="text/html; charset=' .$user->lang['CONTENT_ENCODING'] . '" />';
+        echo '<meta name="generator" content="PMBT ' . $version . '">';
         echo '<meta http-equiv="EXPIRES" content="-1">';
         echo '<meta http-equiv="Cache-Control" content="no-cache">';
 		echo '<meta http-equiv="refresh" content="0; url=' . str_replace('&', '&amp;', $url) . '" />';
