@@ -203,7 +203,15 @@ if(!defined("SQL_LAYER")) {
                                 return false;
                         }
                 }
-
+				function sql_escape($msg)
+				{
+					if (!$this->db_connect_id)
+					{
+						return @mysql_real_escape_string($msg);
+					}
+			
+					return @mysql_real_escape_string($msg, $this->db_connect_id);
+				}
                 function sql_fetchfield($field, $rownum = -1, $query_id = 0) {
                         if (!$query_id) {
                                 $query_id = $this->query_result;

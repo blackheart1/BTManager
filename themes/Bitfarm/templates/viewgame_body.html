@@ -215,16 +215,62 @@ eval;("wiz"+id+".window.moveTo((screen.width/2)-(PWidth/2),(screen.height/2)-(PH
                 <table width="100%" >
                     <tr>
                         <td style="padding-top:10px; padding-left:10px; padding-right:10px; padding-bottom:10px; text-align:center">
-                            <dt><h3>{L_COMMENT}</h3><a href="javascript: void(0);" onClick="var spoiler = this.parentNode.parentNode.getElementsByTagName('dd')[0]; if ( spoiler.style.display == 'none' ) { spoiler.style.display = 'block'; this.innerHTML = 'hide'; } else { spoiler.style.display = 'none'; this.innerHTML = 'show'; };">{L_SHOW}</a></dt><dd style="display: none;">
-                            <form id="postform" method="post" action="{U_ACTION}">
-                            <div align="center"><!-- INCLUDE themes/Bitfarm/templates/posting_buttons.html --></div>
-                            <fieldset class="submit-buttons">
+                            <dt>
+                            	<h3>{L_COMMENT}</h3>
+                                <a href="javascript: void(0);" onClick="var spoiler = this.parentNode.parentNode.getElementsByTagName('dd')[0]; if ( spoiler.style.display == 'none' ) { spoiler.style.display = 'block'; this.innerHTML = 'hide'; } else { spoiler.style.display = 'none'; this.innerHTML = 'show'; };">{L_SHOW}</a>
+                            </dt>
+                            <dd style="display: none;">
+                                <form name="post_form" id="post_form" method="post" action="{U_ACTION}">
+                                <div align="center">
+										<script type="text/javascript">
+                                            // <![CDATA[
+            
+                                            var form_name = 'post_form';
+                                            var text_name = 'message';
+                                            // ]]>
+                                        </script>
+                            <table width="100%" cellspacing="5" cellpadding="0" border="0" align="center">
+                                <tr>
+                                    <td class="gensmall" align="center"><strong>{L__SMILIES}</strong></td>
+                                </tr>
+                                <tr>
+                                    <td align="center">
+<!-- BEGIN smiley -->
+                                        <a href="#" onclick="insert_text('{smiley.A_SMILEY_CODE}', true); return false;" style="line-height: 20px;"><img src="{smiley.SMILEY_IMG}" width="{smiley.SMILEY_WIDTH}" height="{smiley.SMILEY_HEIGHT}" alt="{smiley.SMILEY_CODE}" title="{smiley.SMILEY_DESC}" hspace="2" vspace="2" /></a>
+
+<!-- END smiley -->
+                                    </td>
+                                </tr>
+
+<!-- IF S_SHOW_SMILEY_LINK -->
+                                <tr>
+                                    <td align="center"><a class="nav" href="{U_MORE_SMILIES}" onclick="PopMoreSmiles('post_form','message'); return false;">{L__MORE_SMILIES}</a></td>
+                                </tr>
+<!-- ENDIF -->
+
+                            </table>
+                                	<table>
+										<!-- INCLUDE themes/Bitfarm/templates/posting_buttons.html -->
+    <tr valign="middle" align="{S_CONTENT_FLOW_BEGIN}">
+        <td colspan="2">
+                        <script type="text/javascript">
+                        // <![CDATA[
+                            colorPalette('h', 16, 7)
+                        // ]]>
+                        </script>
+        </td>
+    </tr>
+									</table>
+								</div>
+                                <fieldset class="submit-buttons">
                                 <textarea name="message" id="message" rows="10" cols="30" tabindex="3" onselect="storeCaret(this);" onclick="storeCaret(this);" onkeyup="storeCaret(this);" class="inputbox"></textarea>
                                 <br /><br />
                                 <input class="button2" name="editgame" type="submit" value="{L_SUBMIT}" />
-                                <input class="button2" type="reset" id="reset" name="reset" value="{L_RESET}" />
-                            </fieldset>
-                            </form></dd>
+                                <input class="button2" type="reset" name="reset" value="{L_RESET}" />
+                                </fieldset>
+                                </form>
+                          </dd>
+                            
 
                         </td>
                     </tr>

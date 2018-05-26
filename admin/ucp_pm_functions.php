@@ -28,8 +28,6 @@ function rpm_get_pm_users($totalpms)
 {
 	global $db, $db_prefix;
 	$res = "SELECT COUNT(`pm`.`recipient`) AS total, REPLACE(`pm`.`recipient`, 'u_', '') as `recipient`, `user`.`can_do`, `user`.`uploaded`, `user`.`downloaded`, `user`.`lastlogin`, `user`.`username`, `user`.`id` AS `userid`,`group`.`group_colour` as color FROM `" . $db_prefix . "_private_messages` AS `pm` INNER JOIN `" . $db_prefix . "_users` AS `user` ON (REPLACE(`recipient`, 'u_', '') = `user`.`id`) INNER JOIN `" . $db_prefix . "_level_settings` AS `group` ON (`user`.`can_do` = `group`.`group_id`) WHERE REPLACE(`recipient`, 'u_', '') = `user`.`id` GROUP BY recipient HAVING total = " . $totalpms . " ORDER BY `pm`.`recipient` DESC ";
-	//$res ="SELECT COUNT(`pm`.`recipient`) AS total, `pm`.`sender`, REPLACE(`pm`.`recipient`, 'u_', '') AS recipient, `user`.`username`, `user`.`id` AS `userid` FROM `torrent_private_messages` AS `pm` INNER JOIN `torrent_users` AS `user` ON (`pm`.`recipient` = `user`.`id`) WHERE `pm`.`recipient` = `user`.`id` GROUP BY  `pm`.`recipient` HAVING total = " . $totalpms . " ORDER BY  `pm`.`recipient` DESC ";
-	//die($res);
 	$pms=$db->sql_query($res) or btsqlerror($res);
 	return $pms;
 }

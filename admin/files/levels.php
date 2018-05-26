@@ -302,7 +302,7 @@ $start = request_var('page', 0)*$config['topics_per_page'];
 					{
 						case 'delete':
 							$error = '';
-									if (!checkaccess('a_groupdel'))
+									if (!$auth->acl_get('a_groupdel'))
 									{
 										bterror($user->lang['GEN_ERROR'],$user->lang['NO_AUTH_OPERATION'] . back_link($u_action));
 										$template->assign_vars(array(

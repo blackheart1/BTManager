@@ -101,7 +101,7 @@ function compose_pm($id, $mode, $action)
 			$sql = 'SELECT g.group_id, g.group_name
 				FROM ' . $db_prefix . '_level_settings g';
 
-			if (!checkaccess_array('a_group', 'a_groupadd', 'a_groupdel'))
+			if (!$auth->acl_gets('a_group', 'a_groupadd', 'a_groupdel'))
 			{
 				$sql .= ' LEFT JOIN ' . $db_prefix . '_user_group ug
 					ON (
@@ -112,7 +112,7 @@ function compose_pm($id, $mode, $action)
 					WHERE (g.group_type <> ' . 2 . ' OR ug.user_id = ' . $user->id . ')';
 			}
 
-			$sql .= (checkaccess_array('a_group', 'a_groupadd', 'a_groupdel')) ? ' WHERE ' : ' AND ';
+			$sql .= ($auth->acl_gets('a_group', 'a_groupadd', 'a_groupdel')) ? ' WHERE ' : ' AND ';
 
 			$sql .= 'g.group_receive_pm = 0
 				ORDER BY g.group_name ASC';
@@ -914,7 +914,7 @@ function compose_pm($id, $mode, $action)
 			$sql = 'SELECT g.group_id AS id, g.group_name AS name, g.group_colour AS colour
 				FROM ' . $db_prefix . '_level_settings g';
 
-			if (!checkaccess_array('a_group', 'a_groupadd', 'a_groupdel'))
+			if (!$auth->acl_gets('a_group', 'a_groupadd', 'a_groupdel'))
 			{
 				$sql .= ' LEFT JOIN ' . $db_prefix . '_user_group ug
 					ON (
@@ -925,7 +925,7 @@ function compose_pm($id, $mode, $action)
 					WHERE (g.group_type <> ' . 2 . ' OR ug.user_id = ' . $user->id . ')';
 			}
 
-			$sql .= (checkaccess_array('a_group', 'a_groupadd', 'a_groupdel')) ? ' WHERE ' : ' AND ';
+			$sql .= ($auth->acl_gets('a_group', 'a_groupadd', 'a_groupdel')) ? ' WHERE ' : ' AND ';
 
 			$sql .= 'g.group_receive_pm = 0
 				AND ' . $db->sql_in_set('g.group_id', array_map('intval', array_keys($address_list['g']))) . '

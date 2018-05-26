@@ -29,12 +29,13 @@ else
 require_once("common.php");
 include('include/function_posting.' . $phpEx);
 include('include/file_functions.' . $phpEx);
+					include_once('include/class.bbcode.php');
 
 $game_id = request_var('g', 0);
 $offset = request_var('start', 0);
 if ($game_id == '')
 {
-	$url_loc = append_sid("arcade.$phpEx", '', true, $user->session_id);
+	$url_loc = append_sid("arcade.$phpEx", '');
 	header("Location: $url_loc");
 }
 
@@ -91,7 +92,7 @@ $result = $db->sql_query($sql);
 $total_games = (int) $db->sql_fetchfield('row_count');
 if ($total_games == 1 && $user->data['user_type'] != '1')
 {
-	$url_loc = append_sid("arcade.$phpEx", '', true, $user->session_id);
+	$url_loc = append_sid("arcade.$phpEx");
 	header("Location: $url_loc");
 }
 
@@ -121,7 +122,7 @@ $sql = 'SELECT COUNT(comment_id) AS row_count FROM ' . $db_prefix . '_ar_comment
 $result = $db->sql_query($sql);
 $total_games = (int) $db->sql_fetchfield('row_count');
 
-$pagination = generate_pagination(append_sid("viewgame.$phpEx", "g=$game_id&amp;action=p", true, $user->session_id), $total_games, 5, $offset);
+$pagination = generate_pagination(append_sid("viewgame.$phpEx", "g=$game_id&amp;action=p"), $total_games, 5, $offset);
 
 $template->assign_vars(array(
 		'PAGINATION' 	=> $pagination,
@@ -179,10 +180,10 @@ switch ($action)
 		{
 			$sql = 'DELETE FROM ' . $db_prefix . '_ar_favorites  WHERE favorite_id = ' . (int) $favorite_id;
 			$db->sql_query($sql);
-			$url_loc = append_sid("viewgame.$phpEx", 'g=' . $game_id . '&action=p', false, $user->session_id);
+			$url_loc = append_sid("viewgame.$phpEx", 'g=' . $game_id . '&action=p');
 			header("Location: $url_loc");
 		} else {
-			$url_loc = append_sid("viewgame.$phpEx", 'g=' . $game_id . '&action=p', false, $user->session_id);
+			$url_loc = append_sid("viewgame.$phpEx", 'g=' . $game_id . '&action=p');
 			header("Location: $url_loc");
 		}
 		$db->sql_freeresult($result);
@@ -193,7 +194,7 @@ switch ($action)
 			// Deny $HTTP_GET_VARS Mode Games
 			if(@$HTTP_GET_VARS['score'])
 			{
-				$url_loc = append_sid("viewgame.$phpEx", 'g=' . $game_id . '&action=p', false, $user->session_id);
+				$url_loc = append_sid("viewgame.$phpEx", 'g=' . $game_id . '&action=p');
 				header("Location: $url_loc");	
 			}
 			
@@ -404,7 +405,7 @@ switch ($action)
 			}
 		}
 		
-		$url_loc = append_sid("viewgame.$phpEx", 'g=' . $game_id . '&action=p', false, $user->session_id);
+		$url_loc = append_sid("viewgame.$phpEx", 'g=' . $game_id . '&action=p');
 		header("Location: $url_loc");
 	break;
 	case 'add':
@@ -421,10 +422,10 @@ switch ($action)
 			);
 			$sql = 'INSERT INTO ' . $db_prefix . '_ar_favorites  ' . $db->sql_build_array('INSERT', $sql_ary);
 			$db->sql_query($sql);
-			$url_loc = append_sid("viewgame.$phpEx", 'g=' . $game_id . '&action=p', false, $user->session_id);
+			$url_loc = append_sid("viewgame.$phpEx", 'g=' . $game_id . '&action=p');
 			header("Location: $url_loc");
 		} else {
-			$url_loc = append_sid("viewgame.$phpEx", 'g=' . $game_id . '&action=p', false, $user->session_id);
+			$url_loc = append_sid("viewgame.$phpEx", 'g=' . $game_id . '&action=p');
 			header("Location: $url_loc");
 		}
 		$db->sql_freeresult($result);
@@ -440,10 +441,10 @@ switch ($action)
 		{
 			$sql = 'DELETE FROM ' . $db_prefix . '_ar_comments WHERE comment_id = ' . (int) $comment_id;
 			$db->sql_query($sql);
-			$url_loc = append_sid("viewgame.$phpEx", 'g=' . $game_id . '&action=p', false, $user->session_id);
+			$url_loc = append_sid("viewgame.$phpEx", 'g=' . $game_id . '&action=p');
 			header("Location: $url_loc");
 		} else {
-			$url_loc = append_sid("viewgame.$phpEx", 'g=' . $game_id . '&action=p', false, $user->session_id);
+			$url_loc = append_sid("viewgame.$phpEx", 'g=' . $game_id . '&action=p');
 			header("Location: $url_loc");
 		}
 		$db->sql_freeresult($result);
@@ -459,7 +460,7 @@ switch ($action)
 		decode_message($row['comment'], $row['bbcode_uid']);
 		if (!$allow_comments)
 		{
-			$url_loc = append_sid("viewgame.$phpEx", 'g=' . $game_id . '&action=p', false, $user->session_id);
+			$url_loc = append_sid("viewgame.$phpEx", 'g=' . $game_id . '&action=p');
 			header("Location: $url_loc");
 		}
 		if ($user->user || $user->id == $row['comment_user'])
@@ -472,7 +473,7 @@ switch ($action)
 					'S_BBCODE_ALLOWED'	=> true
 			));
 		} else {
-			$url_loc = append_sid("viewgame.$phpEx", 'g=' . $game_id . '&action=p', false, $user->session_id);
+			$url_loc = append_sid("viewgame.$phpEx", 'g=' . $game_id . '&action=p');
 			header("Location: $url_loc");
 		}
 		$db->sql_freeresult($result);
@@ -504,10 +505,10 @@ switch ($action)
 				SET ' . $db->sql_build_array('UPDATE', $sql_ary) . '
 				WHERE comment_id = ' . (int) $comment_id;
 			$db->sql_query($sql);
-			$url_loc = append_sid("viewgame.$phpEx", 'g=' . $game_id . '&action=p', false, $user->session_id);
+			$url_loc = append_sid("viewgame.$phpEx", 'g=' . $game_id . '&action=p');
 			header("Location: $url_loc");
 		} else {
-			$url_loc = append_sid("viewgame.$phpEx", 'g=' . $game_id . '&action=p', false, $user->session_id);
+			$url_loc = append_sid("viewgame.$phpEx", 'g=' . $game_id . '&action=p');
 			header("Location: $url_loc");
 		}
 		$db->sql_freeresult($result);
@@ -535,7 +536,7 @@ switch ($action)
 			$sql = 'INSERT INTO ' . $db_prefix . '_ar_comments ' . $db->sql_build_array('INSERT', $sql_ary);
 			$db->sql_query($sql);
 		}
-		$url_loc = append_sid("viewgame.$phpEx", 'g=' . $game_id . '&action=p', false, $user->session_id);
+		$url_loc = append_sid("viewgame.$phpEx", 'g=' . $game_id . '&action=p');
 			header("Location: $url_loc");
 	break;
 	case 'rategame':
@@ -597,7 +598,7 @@ if ($action != 'edit')
 {
 $template->assign_block_vars('navlinks', array(
 	'FORUM_NAME'	=> $user->lang['ARCADE'],
-	'U_VIEW_FORUM'	=> append_sid("arcade.$phpEx", '', true, $user->session_id))
+	'U_VIEW_FORUM'	=> append_sid("arcade.$phpEx", ''))
 );
 
 // Check if game_id is a valid game
@@ -712,11 +713,11 @@ while ($row = $db->sql_fetchrow($result))
 	}
 	if ($user->user)
 	{
-		$rate1 = append_sid("viewgame.$phpEx", 'action=rategame&rating=1&g=' . $row['game_id'], true, $user->session_id);
-		$rate2 = append_sid("viewgame.$phpEx", 'action=rategame&rating=2&g=' . $row['game_id'], true, $user->session_id);
-		$rate3 = append_sid("viewgame.$phpEx", 'action=rategame&rating=3&g=' . $row['game_id'], true, $user->session_id);
-		$rate4 = append_sid("viewgame.$phpEx", 'action=rategame&rating=4&g=' . $row['game_id'], true, $user->session_id);
-		$rate5 = append_sid("viewgame.$phpEx", 'action=rategame&rating=5&g=' . $row['game_id'], true, $user->session_id);
+		$rate1 = append_sid("viewgame.$phpEx", 'action=rategame&rating=1&g=' . $row['game_id']);
+		$rate2 = append_sid("viewgame.$phpEx", 'action=rategame&rating=2&g=' . $row['game_id']);
+		$rate3 = append_sid("viewgame.$phpEx", 'action=rategame&rating=3&g=' . $row['game_id']);
+		$rate4 = append_sid("viewgame.$phpEx", 'action=rategame&rating=4&g=' . $row['game_id']);
+		$rate5 = append_sid("viewgame.$phpEx", 'action=rategame&rating=5&g=' . $row['game_id']);
 		$starbegin = "<a href='";
 		$staryes =  "'><img src='flash/images/included/star_yes.gif' alt='*' /></a>";
 		$star = "'><img src='flash/images/included/star.gif' alt='*' /></a>";
@@ -829,6 +830,39 @@ while ($row = $db->sql_fetchrow($result))
 	{
 		$kmextra .= "<img src='flash/images/included/mouse.gif' alt='mouse' />&nbsp;";
 	}
+					include_once('include/function_posting.php');
+					include_once('include/message_parser.php');
+					include_once('include/class.bbcode.php');
+					generate_smilies('inline', 0);
+					$num_predefined_bbcodes = 22;
+		$sql = 'SELECT bbcode_id, bbcode_tag, bbcode_helpline
+			FROM '.$db_prefix.'_bbcodes
+			WHERE display_on_posting = 1
+			ORDER BY bbcode_tag';
+		$result = $db->sql_query($sql);
+			
+		$i = 0;
+		while ($rows = $db->sql_fetchrow($result))
+		{
+			// If the helpline is defined within the language file, we will use the localised version, else just use the database entry...
+			if (isset($user->lang[strtoupper($rows['bbcode_helpline'])]))
+			{
+				$rows['bbcode_helpline'] = $user->lang[strtoupper($rows['bbcode_helpline'])];
+			}
+	
+			$template->assign_block_vars('custom_tags', array(
+				'BBCODE_NAME'		=> "'[{$rows['bbcode_tag']}]', '[/" . str_replace('=', '', $rows['bbcode_tag']) . "]'",
+				'BBCODE_ID'			=> $num_predefined_bbcodes + ($i * 2),
+				'BBCODE_TAG'		=> str_replace('=', '', $rows['bbcode_tag']),
+				'BBCODE_HELPLINE'	=> $rows['bbcode_helpline'],
+				'A_BBCODE_HELPLINE'	=> str_replace(
+					array('&amp;', '&quot;', "'", '&lt;', '&gt;'), 
+					array('&', '"', "\'", '<', '>'), $rows['bbcode_helpline']),
+			));
+	
+			$i++;
+		}
+		$db->sql_freeresult($result);
 	$template->assign_block_vars('gamerow', array(
 			'GAME_ID'			=> $row['game_id'],
 			'GAME_NAME'			=> $row['game_name'],
@@ -845,7 +879,7 @@ while ($row = $db->sql_fetchrow($result))
 			'GAME_NUMFAVORITES'	=> $fav_count,
 			'GAME_SIZE'			=> get_file_size($filename),
 			'GAME_ADD_REMOVE'	=> $game_add_remove,
-			'U_ADD_REMOVE'		=> $u_add_remove
+			'U_ADD_REMOVE'		=> $u_add_remove,
 	));
 }
 $db->sql_freeresult($result);
@@ -869,10 +903,10 @@ while ($row = $db->sql_fetchrow($result))
 	$row2 = $db->sql_fetchrow($result2);
 	$username = get_username_string('full', $row['comment_user'], $row2['username'], $row2['group_colour'], $row2['username']);
 	$db->sql_freeresult($result2);
-	$row['bbcode_options'] = (($row['enable_bbcode']) ? OPTION_FLAG_BBCODE : 0) +
-    ((@$row['enable_smilies']) ? OPTION_FLAG_SMILIES : 0) + 
-    ((@$row['enable_magic_url']) ? OPTION_FLAG_LINKS : 0);
-	$message = generate_text_for_display($row['comment'], $row['bbcode_uid'], $row['bbcode_bitfield'], $row['bbcode_options']);
+	$row['bbcode_options'] = (($row['enable_bbcode']) ? '1' : 0) +
+    ((@$row['enable_smilies']) ? '1' : 0) + 
+    ((@$row['enable_magic_url']) ? '1' : 0);
+	$message = generate_text_for_display($row['comment'], $row['bbcode_uid'], $row['bbcode_bitfield'], 1);
 	
 	// Holding maximum post time for marking topic read
 	// We need to grab it because we do reverse ordering sometimes
@@ -929,8 +963,8 @@ while ($row = $db->sql_fetchrow($result))
 	$edit = '';
 	if ($user->admin || $user->id == $row['comment_user'])
 	{
-		$delete = append_sid("viewgame.$phpEx", 'action=delete&c=' . $row['comment_id'] . '&g=' . $game_id, true, $user->session_id);
-		$edit = append_sid("viewgame.$phpEx", 'action=edit&c=' . $row['comment_id'] . '&g=' . $game_id, true, $user->session_id);
+		$delete = append_sid("viewgame.$phpEx", 'action=delete&c=' . $row['comment_id'] . '&g=' . $game_id);
+		$edit = append_sid("viewgame.$phpEx", 'action=edit&c=' . $row['comment_id'] . '&g=' . $game_id);
 		$template->assign_vars(array(
 				'S_COMMENTS'		=> true
 		));
@@ -1029,7 +1063,7 @@ if (@$highscores)
 		$prev_highscore = $highscores[$key][0];
 		if ($score_count > 1)
 		{
-			$url_loc = append_sid("viewhighscores.$phpEx", 'g=' . $game_id . '&amp;u=' . $user_ids[$key], true, $user->session_id);
+			$url_loc = append_sid("viewhighscores.$phpEx", 'g=' . $game_id . '&amp;u=' . $user_ids[$key]);
 			$extra = "(<a href=\"javascript:popUp('$url_loc',700,500,1);\">$score_count</a>)";
 		}
 		$user_count++;
@@ -1100,7 +1134,8 @@ else
 if ($user->user)
 {
      $template->assign_vars(array(
-			'S_CAN_COMMENT'		=> true
+			'S_CAN_COMMENT'		=> true,
+			'T_TEMPLATE_PATH' 			=> 'themes/' . $theme . '/templates',
 	));
 }
 
@@ -1144,7 +1179,7 @@ $row = $db->sql_fetchrow($result);
 $db->sql_freeresult($result);
 $template->assign_block_vars('navlinks', array(
 	'FORUM_NAME'	=> $row['category_name'],
-	'U_VIEW_FORUM'	=> append_sid("viewcategory.$phpEx", 'c=' . $row['category_id'], true, $user->session_id))
+	'U_VIEW_FORUM'	=> append_sid("viewcategory.$phpEx", 'c=' . $row['category_id']))
 );
 
 $arcade_list = array();
@@ -1179,11 +1214,11 @@ $previous_url = '';
 $next_url = '';
 if ($cur_game_loc != 0)
 {
-	$previous_url = append_sid("viewgame.$phpEx", 'g=' . $arcade_list[$cur_game_loc-1], false, $user->session_id);
+	$previous_url = append_sid("viewgame.$phpEx", 'g=' . $arcade_list[$cur_game_loc-1]);
 }
 if ($cur_game_loc != sizeof($arcade_list)-1)
 {
-	$next_url = append_sid("viewgame.$phpEx", 'g=' . $arcade_list[$cur_game_loc+1], false, $user->session_id);
+	$next_url = append_sid("viewgame.$phpEx", 'g=' . $arcade_list[$cur_game_loc+1]);
 }
 $template->assign_vars(array(
 		'PREVIOUS_PAGE'		=> $previous_url,

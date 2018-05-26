@@ -226,7 +226,7 @@ $online = ((time() - $userrow['lststamp']) < 600 ?  'on' : 'off');
 				}
 //$signature = format_comment($userrow["signature"]);
 //parse_smiles($signature);
-	if ($userrow['accept_mail'] == 'yes' || checkaccess('a_override_email_block'))
+	if ($userrow['accept_mail'] == 'yes' || $auth->acl_get('a_override_email_block'))
 	{
 		$email = pic("icon_mail.gif","mailto:".$userrow["email"]);
 	}
@@ -255,7 +255,7 @@ $template->assign_vars(array(
         'CP_ULEVEL'             => $ulevel,
 		'UPERMSET'              => (isset($_COOKIE["bttestperm"])) ? 'return_perm' : 'switch_perm',
         'CP_UCAN_DO'            => $userrow["can_do"],
-		'CP_WARN_USE'			=>	$auth->acl_get('m_warn'),
+		'CP_WARN_USE'			=> (($user->id != $userrow["id"]) AND $auth->acl_get('m_warn')),
         'CP_UGROUP'             => getlevel($userrow["can_do"]),
         'CP_UREGDATE'           => formatTimeStamp($userrow["regdate"]),
         'CP_ULASTSEEN'          => formatTimeStamp($userrow["lastlogin"]),

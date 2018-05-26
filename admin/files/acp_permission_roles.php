@@ -120,7 +120,9 @@ class acp_permission_roles
 							'i'			=> $id,
 							'mode'		=> $mode,
 							'role_id'	=> $role_id,
-							'action'	=> $action_a,
+							'action_a'	=> $action_a,
+							'op'		=> 'levels',
+							'action'	=> 'admin_roles',
 						)));
 					}
 
@@ -504,7 +506,7 @@ class acp_permission_roles
 	*/
 	function remove_role($role_id, $permission_type)
 	{
-		global $db, $db_prefix;
+		global $user, $db, $db_prefix;
 
 		$auth_admin = new auth_admin();
 
@@ -571,6 +573,7 @@ class acp_permission_roles
 		$db->sql_query($sql);
 
 		$auth_admin->acl_clear_prefetch();
+		$auth_admin->acl_cache($user);
 	}
 }
 

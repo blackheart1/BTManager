@@ -1239,7 +1239,7 @@ function build_permission_dropdown($options, $default_option, $permission_scope)
 
 			$forum_data['forum_id'] = $db->sql_nextid();
 
-			logerror(sprintf($user->lang['LOG_FORUM_ADD'], $forum_data['forum_name']),'admin');
+			add_log('admin','LOG_FORUM_ADD', $forum_data['forum_name']);
 		}
 		else
 		{
@@ -1424,7 +1424,7 @@ function build_permission_dropdown($options, $default_option, $permission_scope)
 			// Add it back
 			$forum_data['forum_id'] = $forum_id;
 
-			logerror(sprintf($user->lang['LOG_FORUM_EDIT'], $forum_data['forum_name']),'admin');
+			add_log('admin','LOG_FORUM_EDIT', $forum_data['forum_name']);
 		}
 
 		return $errors;
@@ -2340,39 +2340,39 @@ function delete_topic_shadows($forum_id, $sql_more = '', $auto_sync = true)
 		switch ($log_action)
 		{
 			case 'MOVE_POSTS_MOVE_FORUMS':
-				logerror(sprintf($user->lang['LOG_FORUM_DEL_MOVE_POSTS_MOVE_FORUMS'], $posts_to_name, $subforums_to_name, $forum_data['forum_name']),'admin');
+				add_log('admin','LOG_FORUM_DEL_MOVE_POSTS_MOVE_FORUMS', $posts_to_name, $subforums_to_name, $forum_data['forum_name']);
 			break;
 
 			case 'MOVE_POSTS_FORUMS':
-				logerror(sprintf($user->lang['LOG_FORUM_DEL_MOVE_POSTS_FORUMS'], $posts_to_name, $forum_data['forum_name']),'admin');
+				add_log('admin','LOG_FORUM_DEL_MOVE_POSTS_FORUMS', $posts_to_name, $forum_data['forum_name']);
 			break;
 
 			case 'POSTS_MOVE_FORUMS':
-				logerror(sprintf($user->lang['LOG_FORUM_DEL_POSTS_MOVE_FORUMS'], $subforums_to_name, $forum_data['forum_name']),'admin');
+				add_log('admin','LOG_FORUM_DEL_POSTS_MOVE_FORUMS', $subforums_to_name, $forum_data['forum_name']);
 			break;
 
 			case '_MOVE_FORUMS':
-				logerror(sprintf($user->lang['LOG_FORUM_DEL_MOVE_FORUMS'], $subforums_to_name, $forum_data['forum_name']),'admin');
+				add_log('admin','LOG_FORUM_DEL_MOVE_FORUMS', $subforums_to_name, $forum_data['forum_name']);
 			break;
 
 			case 'MOVE_POSTS_':
-				logerror(sprintf($user->lang['LOG_FORUM_DEL_MOVE_POSTS'], $posts_to_name, $forum_data['forum_name']),'admin');
+				add_log('admin','LOG_FORUM_DEL_MOVE_POSTS', $posts_to_name, $forum_data['forum_name']);
 			break;
 
 			case 'POSTS_FORUMS':
-				logerror(sprintf($user->lang['LOG_FORUM_DEL_POSTS_FORUMS'], $forum_data['forum_name']),'admin');
+				add_log('admin','LOG_FORUM_DEL_POSTS_FORUMS', $forum_data['forum_name']);
 			break;
 
 			case '_FORUMS':
-				logerror(sprintf($user->lang['LOG_FORUM_DEL_FORUMS'], $forum_data['forum_name']),'admin');
+				add_log('admin','LOG_FORUM_DEL_FORUMS', $forum_data['forum_name']);
 			break;
 
 			case 'POSTS_':
-				logerror(sprintf($user->lang['LOG_FORUM_DEL_POSTS'], $forum_data['forum_name']),'admin');
+				add_log('admin','LOG_FORUM_DEL_POSTS', $forum_data['forum_name']);
 			break;
 
 			default:
-				logerror(sprintf($user->lang['LOG_FORUM_DEL_FORUM'], $forum_data['forum_name']),'admin');
+				add_log('admin','LOG_FORUM_DEL_FORUM', $forum_data['forum_name']);
 			break;
 		}
 
