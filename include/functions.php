@@ -482,7 +482,7 @@ function codeToMessage($code)
 			break;
 	}
 	return $message;
-} 
+}
 function request_var($var_name, $default, $multibyte = false, $cookie = false, $is_file = false)
 {
 	if ($is_file)
@@ -569,7 +569,7 @@ function request_var($var_name, $default, $multibyte = false, $cookie = false, $
 function sch_get_consant($value)
 {
     $constants = get_defined_constants();
-    $name = array_search($value, $constants, TRUE);   
+    $name = array_search($value, $constants, TRUE);
     return $name;
 }
 function generate_pagination($base_url, $num_items, $per_page, $start_item, $add_prevnext_text = false, $tpl_prefix = '')
@@ -675,7 +675,7 @@ function format_date2($gmepoch, $format = false, $forcedate = false)
 
 		$lang_dates = $user->lang['u_datetime'];
 		$format = (!$format) ? 'D M d, Y g:i a' : $format;
-		
+
 
 		// Short representation of month in format
 		if ((strpos($format, '\M') === false && strpos($format, 'M') !== false) || (strpos($format, '\r') === false && strpos($format, 'r') !== false))
@@ -746,7 +746,7 @@ function confirm_box($check, $title = '', $hidden = '', $html_body = 'confirm_bo
 		{
 			$ip = $_SERVER['REMOTE_ADDR'];
 			$response=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$recap_private_key."&response=".$recaptcha_response_field."&remoteip=".$ip);
-			$responseKeys = json_decode($response,true);	     
+			$responseKeys = json_decode($response,true);
 			$recap_pass = intval($responseKeys["success"]) !== 1 ? false : true;
 		}
 		if($gfxcon == '1')
@@ -924,7 +924,7 @@ function logerror($message, $error = '',$tid = 0) {
 				case 'admin':
 					$sql_ary['log_type'] = '0';
 				break;
-		
+
 				case 'mod':
 					$sql_ary += array(
 						'log_type'	=> '1',
@@ -932,18 +932,18 @@ function logerror($message, $error = '',$tid = 0) {
 						'topic_id'	=> $topic_id
 					);
 				break;
-		
+
 				case 'user':
 					$sql_ary += array(
 						'log_type'		=> '3',
 						'reportee_id'	=> $reportee_id
 					);
 				break;
-		
+
 				case 'critical':
 					$sql_ary['log_type'] = '2';
 				break;
-		
+
 				default:
 					return false;
 			}
@@ -1165,7 +1165,7 @@ function getip() {
                  'HTTP_FORWARDED_FOR', 'HTTP_FORWARDED',
                  'HTTP_VIA', 'HTTP_X_COMING_FROM', 'HTTP_COMING_FROM');
 
-if (isset($_SERVER)) { 
+if (isset($_SERVER)) {
   foreach ($check as $c) {
     if (@ip_valid($_SERVER[$c])) {
       return ip_first($_SERVER[$c]);
@@ -1173,7 +1173,7 @@ if (isset($_SERVER)) {
   }
 
   return ((isset($_SERVER['REMOTE_ADDR']))? $_SERVER['REMOTE_ADDR'] : '0.0.0.0');
-} else { 
+} else {
   foreach ($check as $c) {
     if (ip_valid(getenv($c))) {
       return ip_first(getenv($c));
@@ -1202,38 +1202,38 @@ function datum($datum=true)
 	$sign = "+"; // Whichever direction from GMT to your timezone. + or -
 	$h = "1"; // offset for time (hours)
 	$dst = true; // true - use dst ; false - don't
-	
-	if ($dst==true) 
+
+	if ($dst==true)
 	{
 		$daylight_saving = date('I');
 		if ($daylight_saving)
 		{
 			if ($sign == "-")
-			{ 
-				$h=$h-1;  
+			{
+				$h=$h-1;
 			}
-			else 
-			{ 
-				$h=$h+1; 
+			else
+			{
+				$h=$h+1;
 			}
 		}
 	}
 	$hm = $h * 60;
 	$ms = $hm * 60;
 	if ($sign == "-")
-	{ 
-	$timestamp = time()-($ms); 
-	}
-	else 
 	{
-	 $timestamp = time()+($ms); 
+	$timestamp = time()-($ms);
+	}
+	else
+	{
+	 $timestamp = time()+($ms);
 	}
 	$gmdate = gmdate("m.d.Y. g:i A", $timestamp);
 	if($datum==true)
 	{
 		return $gmdate;
 	}
-	else 
+	else
 	{
 		return $timestamp;
 	}
@@ -1252,7 +1252,7 @@ function removedinactive($uid, $mode = 'retain', $post_username = false){
 							WHERE r.user_id = ' . $uid . '
 								AND p.post_id = r.post_id';
 						$result = $db->sql_query($sql);
-					
+
 						$report_posts = $report_topics = array();
 						while ($row = $db->sql_fetchrow($result))
 						{
@@ -1260,12 +1260,12 @@ function removedinactive($uid, $mode = 'retain', $post_username = false){
 							$report_topics[] = $row['topic_id'];
 						}
 						$db->sql_freeresult($result);
-					
+
 						if (sizeof($report_posts))
 						{
 							$report_posts = array_unique($report_posts);
 							$report_topics = array_unique($report_topics);
-					
+
 							// Get a list of topics that still contain reported posts
 							$sql = 'SELECT DISTINCT topic_id
 								FROM ' . $db_prefix . '_posts
@@ -1273,26 +1273,26 @@ function removedinactive($uid, $mode = 'retain', $post_username = false){
 									AND post_reported = 1
 									AND ' . $db->sql_in_set('post_id', $report_posts, true);
 							$result = $db->sql_query($sql);
-					
+
 							$keep_report_topics = array();
 							while ($row = $db->sql_fetchrow($result))
 							{
 								$keep_report_topics[] = $row['topic_id'];
 							}
 							$db->sql_freeresult($result);
-					
+
 							if (sizeof($keep_report_topics))
 							{
 								$report_topics = array_diff($report_topics, $keep_report_topics);
 							}
 							unset($keep_report_topics);
-					
+
 							// Now set the flags back
 							$sql = 'UPDATE ' . $db_prefix . '_posts
 								SET post_reported = 0
 								WHERE ' . $db->sql_in_set('post_id', $report_posts);
 							$db->sql_query($sql);
-					
+
 							if (sizeof($report_topics))
 							{
 								$sql = 'UPDATE ' . $db_prefix . '_topics
@@ -1301,17 +1301,17 @@ function removedinactive($uid, $mode = 'retain', $post_username = false){
 								$db->sql_query($sql);
 							}
 						}
-					
+
 						switch ($mode)
 						{
 							case 'retain':
-					
-					
+
+
 								if ($post_username === false)
 								{
 									$post_username = $user->lang['GUEST'];
 								}
-					
+
 								// If the user is inactive and newly registered we assume no posts from this user being there...
 								if ($user_type == '1' && !$active == '1' && !$user_posts)
 								{
@@ -1322,59 +1322,59 @@ function removedinactive($uid, $mode = 'retain', $post_username = false){
 										SET forum_last_poster_id = 0, forum_last_poster_name = \'' . $db->sql_escape($post_username) . "', forum_last_poster_colour = ''
 										WHERE forum_last_poster_id = $uid";
 									$db->sql_query($sql);
-					
+
 									$sql = 'UPDATE ' . $db_prefix . '_posts
 										SET poster_id = 0, post_username = \'' . $db->sql_escape($post_username) . "'
 										WHERE poster_id = $uid";
 									$db->sql_query($sql);
-					
+
 									$sql = 'UPDATE ' . $db_prefix . '_posts
 										SET post_edit_user = 0
 										WHERE post_edit_user = ' .$uid;
 									$db->sql_query($sql);
-					
+
 									$sql = 'UPDATE ' . $db_prefix . '_topics
 										SET topic_poster = 0, topic_first_poster_name = \'' . $db->sql_escape($post_username) . "', topic_first_poster_colour = ''
 										WHERE topic_poster = $uid";
 									$db->sql_query($sql);
-					
+
 									$sql = 'UPDATE ' . $db_prefix . '_topics
 										SET topic_last_poster_id = 0, topic_last_poster_name = \'' . $db->sql_escape($post_username) . "', topic_last_poster_colour = ''
 										WHERE topic_last_poster_id = $uid";
 									$db->sql_query($sql);
-					
+
 								}
-					
-					
+
+
 							break;
-					
+
 							case 'remove':
-					
+
 								if (!function_exists('delete_posts'))
 								{
 									include('admin/functions.' . $phpEx);
 								}
-					
+
 								$sql = 'SELECT topic_id, COUNT(post_id) AS total_posts
 									FROM ' . $db_prefix . "_posts
 									WHERE poster_id = $uid
 									GROUP BY topic_id";
 								$result = $db->sql_query($sql);
-					
+
 								$topic_id_ary = array();
 								while ($row = $db->sql_fetchrow($result))
 								{
 									$topic_id_ary[$row['topic_id']] = $row['total_posts'];
 								}
 								$db->sql_freeresult($result);
-					
+
 								if (sizeof($topic_id_ary))
 								{
 									$sql = 'SELECT topic_id, topic_replies, topic_replies_real
 										FROM ' . $db_prefix . '_topics
 										WHERE ' . $db->sql_in_set('topic_id', array_keys($topic_id_ary));
 									$result = $db->sql_query($sql);
-					
+
 									$del_topic_ary = array();
 									while ($row = $db->sql_fetchrow($result))
 									{
@@ -1384,7 +1384,7 @@ function removedinactive($uid, $mode = 'retain', $post_username = false){
 										}
 									}
 									$db->sql_freeresult($result);
-					
+
 									if (sizeof($del_topic_ary))
 									{
 										$sql = 'DELETE FROM ' . $db_prefix . '_topics
@@ -1392,10 +1392,10 @@ function removedinactive($uid, $mode = 'retain', $post_username = false){
 										$db->sql_query($sql);
 									}
 								}
-					
+
 								// Delete posts, attachments, etc.
 								delete_posts('poster_id', $uid);
-					
+
 							break;
 						}
 						// Remove reports
@@ -1491,7 +1491,7 @@ function removedinactive($uid, $mode = 'retain', $post_username = false){
 	}
 
 						//return;
-} 
+}
 function mkglobal($vars) {
     if (!is_array($vars))
         $vars = explode(":", $vars);
@@ -2234,7 +2234,7 @@ function loginrequired($level, $guickclose = false) {
 					{
 						$ip = $_SERVER['REMOTE_ADDR'];
 						$response=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$recap_private_key."&response=".$recaptcha_response_field."&remoteip=".$ip);
-						$responseKeys = json_decode($response,true);	     
+						$responseKeys = json_decode($response,true);
 						$recap_pass = intval($responseKeys["success"]) !== 1 ? false : true;
 					}
 					   if ($username == "" OR $password == "") {
@@ -2259,22 +2259,22 @@ function loginrequired($level, $guickclose = false) {
 											));
 											//die;
 											break;
-						} 
-						else 
+						}
+						else
 						{
 								$result = $db->sql_query("SELECT active FROM ".$db_prefix."_users WHERE clean_username = '".$db->sql_escape(strtolower($username))."' AND password = '".md5($password)."'");
-								if ($db->sql_numrows($result) == 1) 
+								if ($db->sql_numrows($result) == 1)
 								{
 										list ($active) = $db->fetch_array($result);
 										if ($active == 1) {
 										$ip = getip();
-										$sql = "UPDATE ".$db_prefix."_users SET 
-												lastip = '".sprintf("%u",ip2long($ip))."', 
-												lasthost = '".gethostbyaddr($ip)."', 
-												lastlogin = NOW() WHERE 
+										$sql = "UPDATE ".$db_prefix."_users SET
+												lastip = '".sprintf("%u",ip2long($ip))."',
+												lasthost = '".gethostbyaddr($ip)."',
+												lastlogin = NOW() WHERE
 												clean_username = '".$db->sql_escape(strtolower($username))."';";
 										$db->sql_query($sql);
-		
+
 										if (isset($remember) AND $remember == "yes")
 										{
 											$db->sql_query("UPDATE ".$db_prefix."_users SET rem = 'yes' WHERE clean_username = '".$db->sql_escape(strtolower($username))."';");
@@ -2282,7 +2282,7 @@ function loginrequired($level, $guickclose = false) {
 												userlogin($username, $btuser);
 												return;
 										}
-										else 
+										else
 										{
 												//user not active
 											$template->assign_vars(array(
@@ -2290,8 +2290,8 @@ function loginrequired($level, $guickclose = false) {
 												'S_ERROR_MESS'            => $user->lang['LOGIN_ERROR_NOT_ACTIVE'],
 										));
 										}
-								} 
-								else 
+								}
+								else
 								{
 										//bad data
 										add_log('admin','FAILED_LOGIN',$username);
@@ -2366,7 +2366,7 @@ function bonouse(){
 	#cache Bonus configs
 	if(!$pmbt_cache->get_sql("bonconfig"))
 		{
-			$bon = 'SELECT active, seeding, by_torrent 
+			$bon = 'SELECT active, seeding, by_torrent
 				FROM '.$db_prefix.'_bonus_points';
 			$bonset = $db->sql_query($bon)or btsqlerror($bon);
 			$bon_config = $db->sql_fetchrow($bonset);
@@ -2383,13 +2383,13 @@ function bonouse(){
 		{
 			if($point_per)
 				{
-					$sql = 'SELECT DISTINCT uid 
-						FROM '.$db_prefix."_peers 
+					$sql = 'SELECT DISTINCT uid
+						FROM '.$db_prefix."_peers
 						WHERE seeder = 'yes'";
 					$res = $db->sql_query($sql);
-					$sql2 = 'SELECT COUNT(uid) 
-						FROM '.$db_prefix."_peers 
-						WHERE seeder = 'yes' 
+					$sql2 = 'SELECT COUNT(uid)
+						FROM '.$db_prefix."_peers
+						WHERE seeder = 'yes'
 						GROUP BY id";
 					$res2 = $db->sql_query($sql2);
 					list ($count) = $db->fetch_array($res2);
@@ -2398,10 +2398,10 @@ function bonouse(){
 						{
 							while ($arr = $db->sql_fetchrow($res))
 								{
-									$sql_work = 'select count(uid) as count 
-											FROM '.$db_prefix."_peers 
-											WHERE seeder ='yes' 
-												AND uid = {$arr['uid']} 
+									$sql_work = 'select count(uid) as count
+											FROM '.$db_prefix."_peers
+											WHERE seeder ='yes'
+												AND uid = {$arr['uid']}
 											GROUP BY id";
 									$work = $db->sql_query($sql_work);
 									$row_count = $db->sql_fetchrow($work);
@@ -2412,13 +2412,13 @@ function bonouse(){
 				}
 				else
 				{
-					$sql = 'SELECT DISTINCT uid 
-						FROM '.$db_prefix."_peers 
+					$sql = 'SELECT DISTINCT uid
+						FROM '.$db_prefix."_peers
 						WHERE seeder = 'yes'";
 					$res = $db->sql_query($sql);
-					$sql2 = 'SELECT COUNT(uid) 
-						FROM '.$db_prefix."_peers 
-						WHERE seeder = 'yes' 
+					$sql2 = 'SELECT COUNT(uid)
+						FROM '.$db_prefix."_peers
+						WHERE seeder = 'yes'
 						GROUP BY id";
 					$res2 = $db->sql_query($sql2);
 					list ($count) =  $db->fetch_array($res2);
@@ -2584,7 +2584,7 @@ return true;
         else setcookie("btlanguage","",time()+8640000,$cookiepath,$cookiedomain,0);
         return true;
 }
-} 
+}
 function getuserid($user) { //Deprecated
         //trigger_error("Function getuserid() is deprecated",E_USER_WARNING);
         global $user;
@@ -2699,7 +2699,7 @@ function get_formatted_timediff($then, $now = false)
         $str .= intval($sec);
         $str .= ($sec > 1) ? 's\'s' : 's';
     }
-   
+
     if ( !$weeks && !$days && !$hours && !$mins && !$sec )
     {
         $str .= '0seconds ';
@@ -2708,7 +2708,7 @@ function get_formatted_timediff($then, $now = false)
     {
         $str .= '';
     }
-   
+
     return $str;
 }
 
@@ -3258,7 +3258,7 @@ function getuser($name){
 			}
 }
 function gen_avatar($id, $hight = false, $width = false){
-        global $db, $db_prefix, $user, $theme, $avon, $avstore, $siteurl, $avgal;	
+        global $db, $db_prefix, $user, $theme, $avon, $avstore, $siteurl, $avgal;
 		if(!$avon)return;
 		// Colect Info on the user
 			$sql = "SELECT COUNT(id) AS count, `name`, `username`, `avatar`, `avatar_type`, `avatar_ht`, `avatar_wt` FROM ".$db_prefix."_users WHERE `id` = '".$id."' LIMIT 1;";
@@ -3326,13 +3326,13 @@ function genrelist2() {
  $allcats[] = $mysqlcats;
 
  $allcats2 = $allcats;
- 
+
  $i = 0;
- 
+
  foreach ($allcats as $cat)
  {
 
- if ($cat['parent_id'] == -1) 
+ if ($cat['parent_id'] == -1)
  {
 
  $cats[] = $cat;
@@ -3360,7 +3360,7 @@ function genrelist2() {
  $j++;
  }
  }
- 
+
  //All link for cats
  $cats[$i]['categories'] = substr($cats[$i]['categories'],0,-5);
  $i++;
@@ -3476,8 +3476,8 @@ else
 }
 function set_site_var($page_title = '')
 {
-    global $db, $db_prefix, $announce_message, $donatein, $donateasked, $nodonate, $donations, $phpEx, 
-	$most_users_online_when, $most_users_online, $welcome_message, $version, $pivate_mode, $addprivate, 
+    global $db, $db_prefix, $announce_message, $donatein, $donateasked, $nodonate, $donations, $phpEx,
+	$most_users_online_when, $most_users_online, $welcome_message, $version, $pivate_mode, $addprivate,
 	$theme, $template, $user, $sitename, $siteurl, $torrent_per_page, $allow_change_email,$shout_config,$auth;
 				$languages = Array();
 				$langdir = "language/common";
@@ -3645,13 +3645,13 @@ function close_out()
 	if ($user->user)
 	{
         $pagename = substr($_SERVER["PHP_SELF"],strrpos($_SERVER["PHP_SELF"],"/")+1);
-        $sqlupdate = "UPDATE ".$db_prefix."_online_users 
-						SET 
-							page = '".$db->sql_escape($pagename)."', 
-							last_action = NOW() 
-						WHERE 
+        $sqlupdate = "UPDATE ".$db_prefix."_online_users
+						SET
+							page = '".$db->sql_escape($pagename)."',
+							last_action = NOW()
+						WHERE
 							id = ".$user->id." LIMIT 1;";
-        $sqlinsert = "INSERT INTO ".$db_prefix."_online_users 
+        $sqlinsert = "INSERT INTO ".$db_prefix."_online_users
 						VALUES (
 							'".$user->id."',
 							'".$db->sql_escape($pagename)."',
@@ -3660,10 +3660,10 @@ function close_out()
 						)";
         $res = $db->sql_query($sqlupdate);
         if (!$db->sql_affectedrows($res)) $db->sql_query($sqlinsert);
-        $db->sql_query("UPDATE ".$db_prefix."_users 
-						SET 
-							lastpage = '".$db->sql_escape($user->page['page'])."' 
-						WHERE 
+        $db->sql_query("UPDATE ".$db_prefix."_users
+						SET
+							lastpage = '".$db->sql_escape($user->page['page'])."'
+						WHERE
 							id = '".$user->id."'");
 	}
 	if($rewrite_engine)@include_once("include/rewrite.php");
@@ -3936,7 +3936,7 @@ global $user;
 					5=> $user->lang['RATE_F'],
 					6=> $user->lang['RATE_G']
 					);
-} 
+}
 function btmr_own_realpath($path)
 {
 	// Now to perform funky shizzle
@@ -4279,10 +4279,14 @@ function redirect($url, $return = false, $disable_cd_check = false)
 	{
 		header('Refresh: 0; URL=' . $url);
 
-		echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">';
-		echo '<html xmlns="http://www.w3.org/1999/xhtml" dir="' . $user->lang['DIRECTION'] . '" lang="' . $user->ulanguage . '" xml:lang="' . $user->ulanguage . '">';
-		echo '<head>';
-		echo '<meta http-equiv="content-type" content="text/html; charset=utf-8" />';
+		echo '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">';
+        echo '<html xmlns="http://www.w3.org/1999/xhtml" dir="{S_CONTENT_DIRECTION}" lang="{S_USER_LANG}" xml:lang="{S_USER_LANG}">';
+        echo '<head>';
+        echo '<meta name="generator" content="HTML Tidy for Linux (vers 6 November 2007), see www.w3.org">';
+        echo '<meta http-equiv="Content-Type" content="text/html; charset={S_CONTENT_ENCODING}">';
+        echo '<meta name="generator" content="PMBT {PMBT_VER}">';
+        echo '<meta http-equiv="EXPIRES" content="-1">';
+        echo '<meta http-equiv="Cache-Control" content="no-cache">';
 		echo '<meta http-equiv="refresh" content="0; url=' . str_replace('&', '&amp;', $url) . '" />';
 		echo '<title>' . $user->lang['REDIRECT'] . '</title>';
 		echo '</head>';

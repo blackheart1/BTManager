@@ -65,10 +65,14 @@ function myErrorHandler($errno, $errstr, $errfile, $errline)
 			}
 			// Try to not call the adm page data...
 
-			echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">';
-			echo '<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr">';
-			echo '<head>';
-			echo '<meta http-equiv="content-type" content="text/html; charset=utf-8" />';
+			echo '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">';
+            echo '<html xmlns="http://www.w3.org/1999/xhtml" dir="{S_CONTENT_DIRECTION}" lang="{S_USER_LANG}" xml:lang="{S_USER_LANG}">';
+            echo '<head>';
+            echo '<meta name="generator" content="HTML Tidy for Linux (vers 6 November 2007), see www.w3.org">';
+            echo '<meta http-equiv="Content-Type" content="text/html; charset={S_CONTENT_ENCODING}">';
+            echo '<meta name="generator" content="PMBT {PMBT_VER}">';
+            echo '<meta http-equiv="EXPIRES" content="-1">';
+            echo '<meta http-equiv="Cache-Control" content="no-cache">';
 			echo '<title>' . $msg_title . '</title>';
 			echo '<style type="text/css">' . "\n" . '/* <![CDATA[ */' . "\n";
 			echo '* { margin: 0; padding: 0; } html { font-size: 100%; height: 100%; margin-bottom: 1px; background-color: #E4EDF0; } body { font-family: "Lucida Grande", Verdana, Helvetica, Arial, sans-serif; color: #536482; background: #E4EDF0; font-size: 62.5%; margin: 0; } ';

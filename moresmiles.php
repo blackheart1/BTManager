@@ -18,19 +18,27 @@
 **
 ** EXAMPLE 26-04-13 - Added Auto Ban
 **/
-if (defined('IN_PMBT'))die ("You can't include this file");
+if (defined('IN_PMBT'))
+    die ("You can't include this file");
+
 define("IN_PMBT",true);
 
 require_once("include/config.php");
-echo '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<title>'.$sitename.'</title>
-</head>
-<body>';
+
+echo '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="{S_CONTENT_DIRECTION}" lang="{S_USER_LANG}" xml:lang="{S_USER_LANG}">
+    <head>
+        <meta name="generator" content="HTML Tidy for Linux (vers 6 November 2007), see www.w3.org">
+        <meta http-equiv="Content-Type" content="text/html; charset={S_CONTENT_ENCODING}">
+        <meta name="generator" content="PMBT {PMBT_VER}">
+        <meta http-equiv="PRAGMA" content="NO-CACHE">
+        <meta http-equiv="EXPIRES" content="-1">
+        <meta http-equiv="Cache-Control" content="no-cache">
+        <title>'.$sitename.'</title>
+    </head>
+    <body>';
 ?>
+
 <style type="text/css">
 .alt1, .alt1Active
 {
