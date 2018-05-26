@@ -348,18 +348,18 @@ if (isset($postback)) {
         //Then I accurately check each parameter before inserting it in SQL statement
         //Some parameters that must be numeric have to be checked with an if clause because intval() function truncates to max integer
 		array_push($params,"announce_url"); array_push($values,serialize($vallad_ann));
-        array_push($params,"sitename"); array_push($values,esc_magic($sub_sitename));
-        if (is_url($sub_siteurl)) { array_push($params,"siteurl"); array_push($values,esc_magic($sub_siteurl)); }
+        array_push($params,"sitename"); array_push($values,$db->sql_escape($sub_sitename));
+        if (is_url($sub_siteurl)) { array_push($params,"siteurl"); array_push($values,$db->sql_escape($sub_siteurl)); }
         array_push($params,"cookiedomain"); array_push($values,$sub_cookiedomain);
 		$cookiedomain = $sub_cookiedomain;
-        if (preg_match('/^\/.*/', $sub_cookiepath)) { array_push($params,"cookiepath"); array_push($values,esc_magic($sub_cookiepath)); }
+        if (preg_match('/^\/.*/', $sub_cookiepath)) { array_push($params,"cookiepath"); array_push($values,$db->sql_escape($sub_cookiepath)); }
 		$cookiepath = $sub_cookiedomain;
-        array_push($params,"sourcedir"); array_push($values,$sub_sourcedir);
-        if (is_email($sub_admin_email)) { array_push($params,"admin_email"); array_push($values,esc_magic($sub_admin_email)); }
+        array_push($params,"sourcedir"); array_push($values,$db->sql_escape($sub_sourcedir));
+        if (is_email($sub_admin_email)) { array_push($params,"admin_email"); array_push($values,$db->sql_escape($sub_admin_email)); }
         if (file_exists("../language/common/".$sub_language.".php")) { array_push($params,"language"); array_push($values,$sub_language); }
         if (is_dir("../themes/".$sub_theme)) { array_push($params,"theme"); array_push($values,$sub_theme); }
-        array_push($params,"welcome_message"); array_push($values,esc_magic($sub_welcome_message));
-        array_push($params,"announce_text"); array_push($values,esc_magic($sub_announce_text));
+        array_push($params,"welcome_message"); array_push($values,$db->sql_escape($sub_welcome_message));
+        array_push($params,"announce_text"); array_push($values,$db->sql_escape($sub_announce_text));
         if ($sub_allow_html != "true") $sub_allow_html = "false"; array_push($params,"allow_html"); array_push($values,$sub_allow_html);
 		if ($sub_allow_magnet != "true") $sub_allow_magnet = "false"; array_push($params,"allow_magnet"); array_push($values,($sub_allow_magnet == 'true')? '1' : '0');
         if (!isset($sub_rewrite_engine) OR $sub_rewrite_engine != "true") $sub_rewrite_engine = "false"; array_push($params,"rewrite_engine"); array_push($values,$sub_rewrite_engine);
