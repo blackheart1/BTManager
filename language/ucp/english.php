@@ -314,7 +314,7 @@ $lang = array_merge($lang, array(
 
     'DHT_SUPORT'               => 'DHT Support',
     'TORRENT DETAILS'          => 'Torrent Details',
-	'POST_TIME'				   => 'Post Time',
+    'POST_TIME'                => 'Post Time',
 ));
 
 ?>

@@ -43,7 +43,7 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, array(
     'permission_type' => array(
         'a_override_user_pm_block'     => 'Group Can Override the PM Block for Groups',
-        'a_override_email_block '      => 'Group Can Override the email Block for Groups',
+        'a_override_email_block'       => 'Group Can Override the email Block for Groups',
         'm_see_admin_cp'               => 'Group Can View the Administration Panel',
         'a_edit_level'                 => 'Group Can Edit Groups and Permissions',
         'u_upload'                     => 'Group Can Upload Torrents',

@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 /**
 **********************
 ** BTManager v3.0.1 **
@@ -12,86 +13,111 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts/Black_Heart)
 ** Project Leaders: Black_Heart, Thor.
-** File common.php 2018-02-19 14:32:00 Black_Heart
+** File common.php 2018-05-25 20:11:00 Thor
 **
 ** CHANGES
 **
-** EXAMPLE 26-04-13 - Added Auto Ban
+** 2018-05-25 - Updated DOCTYPE
 **/
-if (!defined('IN_PMBT')) die ("You can't access this file directly");
-if (!ini_get('display_errors')) {
-	@ini_set('error_reporting', E_ALL);
+
+if (!defined('IN_PMBT'))
+    die ("You can't Directly Access this File");
+
+if (!ini_get('display_errors'))
+{
+    @ini_set('error_reporting', E_ALL);
     @ini_set('display_errors', 1);
 }
+
 require_once("include/errors.php");
+
 $old_error_handler = set_error_handler("myErrorHandler");
 $startpagetime = microtime();
+
 if($_SERVER["PHP_SELF"] == '')$_SERVER["PHP_SELF"] = 'index.php';
-if (!function_exists("sha1")) require_once("include/sha1lib.php");
+
+if (!function_exists("sha1"))
+    require_once("include/sha1lib.php");
+
 require_once("include/config.php"); //if config file has not been loaded yet
-		set_include_path($sourcedir);
-		ini_set('include_path',$sourcedir);
-		date_default_timezone_set($pmbt_time_zone);
-include_once'include/class.template.php';
+
+set_include_path($sourcedir);
+ini_set('include_path',$sourcedir);
+date_default_timezone_set($pmbt_time_zone);
+
+include_once('include/class.template.php');
 require_once("include/actions.php");
 require_once("include/user.functions.php");
-include'include/auth.php';
+include('include/auth.php');
+
 if (is_banned($user, $reason) && !preg_match("/ban.php/",$_SERVER["PHP_SELF"]))
 {
-echo "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">
-		<html>
-			<head>
-			<meta http-equiv=\"refresh\" content=\"0;url=ban.php?reson=".urlencode($reason)."\">
-			</head>
-			<body>Banned</body>
-		</html>";
-        die();
+    echo "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">
+    <html xmlns=\"http://www.w3.org/1999/xhtml\" dir=\"{S_CONTENT_DIRECTION}\" lang=\"{S_USER_LANG}\" xml:lang=\"{S_USER_LANG}\">
+        <head>
+            <meta name=\"generator\" content=\"HTML Tidy for Linux (vers 6 November 2007), see www.w3.org\">
+            <meta http-equiv=\"Content-Type\" content=\"text/html; charset={S_CONTENT_ENCODING}\">
+            <meta name=\"generator\" content=\"PMBT {PMBT_VER}\">
+            <meta http-equiv=\"PRAGMA\" content=\"NO-CACHE\">
+            <meta http-equiv=\"EXPIRES\" content=\"-1\">
+            <meta http-equiv=\"Cache-Control\" content=\"no-cache\">
+            <meta http-equiv=\"refresh\" content=\"0;url=ban.php?reson=".urlencode($reason)."\">
+        </head>
+        <body>{L_BANNED}</body>
+    </html>";
+    die();
 }
+
 if (!preg_match("/cron.php/",$_SERVER['PHP_SELF']))
 {
-	$auth = new auth();
-	$auth->acl($user);
-	if($pivate_mode AND !$user->user AND !newuserpage($_SERVER["PHP_SELF"]))
-	{
-		//die($_SERVER["PHP_SELF"]);
-		$a = 0;
-		$returnto = '';
-		while (list($var,$val) = each($_GET))
-		{
-			$returnto .= "&$var=$val";
-			$a++;
-		}
-		$i = strpos($returnto, "&return=");
-		if ($i !== false)
-		{
-			$returnto = substr($returnto, $i + 8);
-		}
-				$pagename = substr($_SERVER["PHP_SELF"],strrpos($_SERVER["PHP_SELF"],"/")+1);
-		$returnto ='?page=' . $pagename . $returnto;
-		$template = new Template();
-										set_site_var($user->lang['BT_ERROR']);
-								meta_refresh(5, $siteurl . "/login.php$returnto");
-										$template->assign_vars(array(
-												'S_ERROR'			=> true,
-												'S_FORWARD'			=> $siteurl."/login.php$returnto",
-												'TITTLE_M'          => $user->lang['BT_ERROR'],
-												'MESSAGE'           => $user->lang['LOGIN_SITE'],
-										));
-				echo $template->fetch('message_body.html');
-				close_out();
-	}
-	if($user->user  && !preg_match("/httperror.php/",$_SERVER['PHP_SELF'])  && !preg_match("/file.php/",$_SERVER['PHP_SELF']) && !preg_match("/ajax.php/",$_SERVER['PHP_SELF']))
-	{
-		$ip = getip();
-        $sql = "UPDATE ".$db_prefix."_users 
-					SET 
-						lastip = '".sprintf("%u",ip2long($ip))."', 
-						lastpage = '".addslashes(str_replace("/", '',substr($_SERVER['REQUEST_URI'],strrpos($_SERVER["REQUEST_URI"],"/")+1)))."', 
-						lastlogin = NOW() 
-					WHERE 
-						id = '".$user->id."' 
-					LIMIT 1;";
-        $db->sql_query($sql)or btsqlerror($sql);
-	}
+    $auth = new auth();
+    $auth->acl($user);
+
+    if ($pivate_mode AND !$user->user AND !newuserpage($_SERVER["PHP_SELF"]))
+    {
+        //die($_SERVER["PHP_SELF"]);
+        $a = 0;
+        $returnto = '';
+        while (list($var,$val) = each($_GET))
+        {
+            $returnto .= "&$var=$val";
+            $a++;
+        }
+
+        $i = strpos($returnto, "&return=");
+
+        if ($i !== false)
+        {
+            $returnto = substr($returnto, $i + 8);
+        }
+
+        $pagename = substr($_SERVER["PHP_SELF"],strrpos($_SERVER["PHP_SELF"],"/")+1);
+        $returnto ='?page=' . $pagename . $returnto;
+        $template = new Template();
+        set_site_var($user->lang['BT_ERROR']);
+        meta_refresh(5, $siteurl . "/login.php$returnto");
+        $template->assign_vars(array(
+                                    'S_ERROR'   => true,
+                                    'S_FORWARD' => $siteurl."/login.php$returnto",
+                                    'TITTLE_M'  => $user->lang['BT_ERROR'],
+                                    'MESSAGE'   => $user->lang['LOGIN_SITE'],
+                                ));
+
+        echo $template->fetch('message_body.html');
+        close_out();
+    }
+
+    if($user->user  && !preg_match("/httperror.php/",$_SERVER['PHP_SELF']) && !preg_match("/file.php/",$_SERVER['PHP_SELF']) && !preg_match("/ajax.php/",$_SERVER['PHP_SELF']))
+    {
+        $ip = getip();
+        $sql = "UPDATE ".$db_prefix."_users
+                        SET lastip = '".sprintf("%u",ip2long($ip))."',
+                        lastpage = '".addslashes(str_replace("/", '',substr($_SERVER['REQUEST_URI'],strrpos($_SERVER["REQUEST_URI"],"/")+1)))."',
+                        lastlogin = NOW()
+                        WHERE id = '".$user->id."'
+                        LIMIT 1;";
+
+        $db->sql_query($sql) or btsqlerror($sql);
+    }
 }
 ?>

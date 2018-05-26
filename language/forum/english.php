@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File forum/english.php 2018-05-15 09:31:00 Thor
+** File forum/english.php 2018-05-25 20:54:00 Thor
 **
 ** CHANGES
 **
@@ -24,6 +24,7 @@
 ** 2018-04-22 - Amended the Wording of some Sentences
 ** 2018-05-09 - Added Missing Languages
 ** 2018-05-15 - Added Missing Languages
+** 2018-05-25 - Added Missing Languages
 **/
 
 if (!defined('IN_PMBT'))
@@ -440,7 +441,8 @@ $lang = array_merge($lang, array(
     'URL_NOT_FOUND'              => 'The File Specified could NOT be Found.',
     'URL_IS_OFF'                 => '[url] is <em>OFF</em>',
     'URL_IS_ON'                  => '[url] is <em>ON</em>',
-    'PHP_TEMP_FOLDER_NF'         => 'Temporary Folder could NOT be Found.  Please Check your PHP Installation.'
+    'PHP_TEMP_FOLDER_NF'         => 'Temporary Folder could NOT be Found.  Please Check your PHP Installation.',
+    'NO_FORUMS'                  => '<strong><font color="#FF0000">No Forum Categories Created</font><strong>',
 ));
 
 $ignore_words = array(

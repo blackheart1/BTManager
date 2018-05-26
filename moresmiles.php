@@ -84,7 +84,7 @@ if(isset($_GET['amp;text']))$text = $_GET['amp;text'];
 		echo"<tr>\n";
 		echo"<td class=\"thead\" align=\"center\" colspan=\"4\"><div class=\"smallfont\"><strong>Generic Smilies</strong></div></td>\n";
 		echo"</tr>\n";
-		
+
         if ($db->sql_numrows($smile_res) > 0) {
 		$i=1;
                 $smile_rows = $db->sql_fetchrowset($smile_res);
