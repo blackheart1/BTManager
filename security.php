@@ -23,11 +23,11 @@ header("HTTP/1.0 Error 404 - Page Not Found");
 ?>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-    <html xmlns="http://www.w3.org/1999/xhtml" dir="{S_CONTENT_DIRECTION}" lang="{S_USER_LANG}" xml:lang="{S_USER_LANG}">
+    <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-gb" xml:lang="en-gb">
         <head>
             <meta name="generator" content="HTML Tidy for Linux (vers 6 November 2007), see www.w3.org">
-            <meta http-equiv="Content-Type" content="text/html; charset={S_CONTENT_ENCODING}">
-            <meta name="generator" content="PMBT {PMBT_VER}">
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <meta name="generator" content="BTManager 3.0.1">
             <meta http-equiv="PRAGMA" content="NO-CACHE">
             <meta http-equiv="EXPIRES" content="-1">
             <meta http-equiv="Cache-Control" content="no-cache">
