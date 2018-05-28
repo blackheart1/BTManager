@@ -539,7 +539,6 @@ $lang = array_merge($lang, array(
     'acl_a_user'            => array('lang' => 'Can Manage Users<br /><em>This also Includes Seeing the Users Browser Agent within the View Online List.</em>', 'cat' => 'user_group'),
 
     'acl_a_userdel'         => array('lang' => 'Can Delete/Prune Users', 'cat' => 'user_group'),
-    'acl_a_group'           => array('lang' => 'Can Manage Groups', 'cat' => 'user_group'),
     'acl_a_groupadd'        => array('lang' => 'Can Add New Groups', 'cat' => 'user_group'),
     'acl_a_groupdel'        => array('lang' => 'Can Delete Groups', 'cat' => 'user_group'),
     'acl_a_ranks'           => array('lang' => 'Can Manage Ranks', 'cat' => 'user_group'),
