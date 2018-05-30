@@ -1,12 +1,11 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html xmlns="http://www.w3.org/1999/xhtml" dir="{S_CONTENT_DIRECTION}" lang="{S_USER_LANG}" xml:lang="{S_USER_LANG}">
-<head>
-<meta name="generator" content="HTML Tidy for Linux (vers 6 November 2007), see www.w3.org">
-<meta http-equiv="Content-Type" content="text/html; charset={S_CONTENT_ENCODING}">
-<meta name="generator" content="BTManager {PMBT_VER}">
-<meta http-equiv="PRAGMA" content="NO-CACHE">
-<meta http-equiv="EXPIRES" content="-1">
-<meta http-equiv="Cache-Control" content="no-cache">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset={S_CONTENT_ENCODING}" />
+        <meta name="generator" content="BTManager {PMBT_VER}" />
+        <meta http-equiv="pragma" content="no-cache" />
+        <meta http-equiv="expires" content="-1" />
+        <meta http-equiv="cache-control" content="no-cache" />
 <link rel="shortcut icon" href="{SITE_URL}/themes/Bitfarm/favicon.ico" type="image/x-icon" />
 <link rel="search" type="application/opensearchdescription+xml" title="{SITENAME}" href="{SITE_URL}/opensearch.php" />
 <link rel="alternate" type="application/rss+xml" title="{L_LAST_TORRENT}" href="{SITE_URL}/backend.php?op=last" />
@@ -37,31 +36,34 @@ NcodeImageResizer.Msg4 = '{L_SMALL_IMG}';
 //-->
 </script>
 <script type="text/javascript">
-pmbtsite_url = "{SITE_URL}";
-tag_prompt = "Enter a Text:";
-img_prompt = "Insert Link from Image";
+pmbtsite_url          = "{SITE_URL}";
+tag_prompt            = "Enter a Text:";
+img_prompt            = "Insert Link from Image";
 font_formatter_prompt = "Enter a Text - ";
-link_text_prompt = "Enter a Link Name (Optional):";
-link_url_prompt = "Enter the Full Address on the left of:";
-link_email_prompt = "Enter your Full Link:";
-list_type_prompt = "Which type of List would you like? Give ' 1 ' for a Numerical List, 'a' for an Alphabetical List, or nothing at all for a Simple Point List.";
-list_item_prompt = "Enter one point of list. Press OK to enter another point of list or press 'Cancel' to Finish.";
-_btshoutnowprivate = "{L_PRIVATE_SHOUT}";
-shoutrefresht = "{S_SHOUT_REF}";
-shoutidle = "{S_SHOUT_IDL}";
+link_text_prompt      = "Enter a Link Name (Optional):";
+link_url_prompt       = "Enter the Full Address on the left of:";
+link_email_prompt     = "Enter your Full Link:";
+list_type_prompt      = "Which type of List would you like? Give ' 1 ' for a Numerical List, 'a' for an Alphabetical List, or nothing at all for a Simple Point List.";
+list_item_prompt      = "Enter one point of list. Press OK to enter another point of list or press 'Cancel' to Finish.";
+_btshoutnowprivate    = "{L_PRIVATE_SHOUT}";
+shoutrefresht         = "{S_SHOUT_REF}";
+shoutidle             = "{S_SHOUT_IDL}";
+
 function change_bg(img, state)
 {
 if (state == "1")
-img.src = img.src.replace(".gif","_over.gif");
+    img.src = img.src.replace(".gif","_over.gif");
 else if (state == "0")
-img.src = img.src.replace("_over.gif",".gif");
+    img.src = img.src.replace("_over.gif",".gif");
 else if (state == "2")
-img.src = img.src.replace("_over.gif",".gif");
+    img.src = img.src.replace("_over.gif",".gif");
 else if (state == "3")
-img.src = img.src.replace("_over.gif",".gif");
+    img.src = img.src.replace("_over.gif",".gif");
 }
+
 var pd = new Date();
 var last_reload = pd.getTime();
+
 function do_breload() {
     if (document.location.href.match(/\/torrents\.php/)) {
 	   var d = new Date();
@@ -73,7 +75,7 @@ function do_breload() {
 }
 
 function toggle2(nome) {
-if(document.getElementById(nome).style.display=='none')
+if (document.getElementById(nome).style.display=='none')
 {
 SetCookie(nome,'');
 document.getElementById(nome).style.display = '';
@@ -103,7 +105,6 @@ var per_page = '{PER_PAGE}';
 var base_url = '{A_BASE_URL}';
 
 var menu_state = 'shown';
-
 
 /**
 * Jump to page

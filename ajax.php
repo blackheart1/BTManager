@@ -13,13 +13,13 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File ajax.php 2018-05-25 20:17:00 Thor
+** File ajax.php 2018-05-30 07:04:00 Thor
 **
 ** CHANGES
 **
 ** 2018-03-28 - Amended defined('IN_PMBT')
 ** 2018-03-28 - Removed Deprecated Code
-** 2018-05-25 - Updated DOCTYPE
+** 2018-05-30 - Updated DOCTYPE
 **/
 
 if (defined('IN_PMBT'))
@@ -61,19 +61,18 @@ if (!is_readable("themes/$theme/main.php"))
 //Stop Banned Users
 if (is_banned($user, $reason))
 {
-    echo "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">
-    <html xmlns=\"http://www.w3.org/1999/xhtml\" dir=\"" . $user->lang['DIRECTION'] . "\" lang=\"" .$user->lang['USER_LANG'] . "\" xml:lang=\"" .$user->lang['USER_LANG'] . "\">
-        <head>
-            <meta name=\"generator\" content=\"HTML Tidy for Linux (vers 6 November 2007), see www.w3.org\">
-            <meta http-equiv=\"Content-Type\" content=\"text/html; charset=" .$user->lang['CONTENT_ENCODING'] . "\">
-            <meta name=\"generator\" content=\"BTManager " . $version . "\">
-            <meta http-equiv=\"PRAGMA\" content=\"NO-CACHE\">
-            <meta http-equiv=\"EXPIRES\" content=\"-1\">
-            <meta http-equiv=\"Cache-Control\" content=\"no-cache\">
-            <meta http-equiv=\"refresh\" content=\"0;url=ban.php?reson=".urlencode($reason)."\">
-        </head>
-        <body>" . $user->lang['BANNED'] . "</body>
-    </html>";
+    echo '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+            <html xmlns="http://www.w3.org/1999/xhtml" dir="' . $user->lang['DIRECTION'] .'" lang="' .$user->lang['USER_LANG'] . '" xml:lang="' .$user->lang['USER_LANG'] . '" />
+                <head>
+                    <meta http-equiv="content-type" content="text/html; charset=' .$user->lang['CONTENT_ENCODING'] . '" />
+                    <meta name="generator" content="BTManager ' . $version . '" />
+                    <meta http-equiv="pragma" content="no-cache" />
+                    <meta http-equiv="expires" content="-1" />
+                    <meta http-equiv="cache-control" content="no-cache" />
+                    <meta http-equiv="refresh" content="0; url=ban.php?reson='.urlencode($reason).'" />
+                </head>
+                <body>' . $user->lang['BANNED'] . '</body>
+            </html>';
     die();
 }
 

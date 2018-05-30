@@ -1,4 +1,5 @@
 <?php
+
 /**
 **********************
 ** BTManager v3.0.1 **
@@ -12,27 +13,39 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts/Black_Heart)
 ** Project Leaders: Black_Heart, Thor.
-** File errors.php 2018-02-18 14:32:00 joeroberts
+** File errors.php 2018-05-30 06:28:00 Thor
 **
 ** CHANGES
 **
-** EXAMPLE 26-04-13 - Added Auto Ban
+** 2018-05-30 - Updated DOCTYPE
 **/
+
 if (!defined('IN_PMBT'))
 {
 	include_once './../security.php';
 	die ();
 }
+
 error_reporting(E_ALL);
+
 function myErrorHandler($errno, $errstr, $errfile, $errline)
 {
-	global $pmbt_cache, $db_prefix, $db, $auth, $template, $config, $user;
-	global $phpEx, $admin_email, $siteurl, $msg_title, $msg_long_text;
-	if (error_reporting() == 0 && $errno != E_WARNING && $errno != E_USER_ERROR && $errno != E_USER_WARNING && $errno != E_USER_NOTICE && $errno != E_PARSE && $errno != E_ERROR && $errno != E_FATAL && $errno != E_STRICT)
+	global $pmbt_cache, $db_prefix, $db, $auth, $template, $config, $user, $phpEx, $admin_email, $siteurl, $msg_title, $msg_long_text;
+
+	if (error_reporting() == 0 && $errno != E_WARNING
+                               && $errno != E_USER_ERROR
+                               && $errno != E_USER_WARNING
+                               && $errno != E_USER_NOTICE
+                               && $errno != E_PARSE
+                               && $errno != E_ERROR
+                               && $errno != E_FATAL
+                               && $errno != E_STRICT)
 	{
 		return;
 	}
-    if (!(error_reporting() & $errno)) {
+
+    if (!(error_reporting() & $errno))
+    {
         // This error code is not included in error_reporting
         return;
     }
@@ -55,25 +68,24 @@ function myErrorHandler($errno, $errstr, $errfile, $errline)
 			else
 			{
 				$msg_title = 'General Error';
-				$l_return_index = '<a href="' . $siteurl . '">Return to index page</a>';
+				$l_return_index = '<a href="' . $siteurl . '">Return to Index Page</a>';
 				$l_notify = '';
 
 				if (!empty($admin_email))
 				{
-					$l_notify = '<p>Please notify the board administrator or webmaster: <a href="mailto:' . $admin_email . '">' . $admin_email . '</a></p>';
+					$l_notify = '<p>Please Notify the Board Administrator or Webmaster: <a href="mailto:' . $admin_email . '">' . $admin_email . '</a></p>';
 				}
 			}
 			// Try to not call the adm page data...
 
 			echo '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">';
-			echo '<html xmlns="http://www.w3.org/1999/xhtml" dir="' . $user->lang['DIRECTION'] .'" lang="' .$user->lang['USER_LANG'] . '" xml:lang="' .$user->lang['USER_LANG'] . '">';
+			echo '<html xmlns="http://www.w3.org/1999/xhtml" dir="' . $user->lang['DIRECTION'] .'" lang="' . $user->lang['USER_LANG'] . '" xml:lang="' . $user->lang['USER_LANG'] . '" />';
 			echo '<head>';
-			echo '<meta name="generator" content="HTML Tidy for Linux (vers 6 November 2007), see www.w3.org">';
-            echo '<meta http-equiv="Content-Type" content="text/html; charset=' .$user->lang['CONTENT_ENCODING'] . '">';
-            echo '<meta name="generator" content="BTManager ' . $version . '">';
-            echo '<meta http-equiv="PRAGMA" content="NO-CACHE">';
-            echo '<meta http-equiv="EXPIRES" content="-1">';
-            echo '<meta http-equiv="Cache-Control" content="no-cache">';
+            echo '<meta http-equiv="content-type" content="text/html; charset=' . $user->lang['CONTENT_ENCODING'] . '" />';
+            echo '<meta name="generator" content="BTManager ' . $version . '" />';
+            echo '<meta http-equiv="pragma" content="no-cache" />';
+            echo '<meta http-equiv="expires" content="-1" />';
+            echo '<meta http-equiv="cache-control" content="no-cache" />';
 			echo '<title>' . $msg_title . '</title>';
 			echo '<style type="text/css">' . "\n" . '/* <![CDATA[ */' . "\n";
 			echo '* { margin: 0; padding: 0; } html { font-size: 100%; height: 100%; margin-bottom: 1px; background-color: #E4EDF0; } body { font-family: "Lucida Grande", Verdana, Helvetica, Arial, sans-serif; color: #536482; background: #E4EDF0; font-size: 62.5%; margin: 0; } ';
@@ -103,7 +115,7 @@ function myErrorHandler($errno, $errstr, $errfile, $errline)
 			echo '	</div>';
 			echo '	</div>';
 			echo '	<div id="page-footer">';
-			echo '		Powered by BT.Manager &copy; 2014 <a href="http://www.btmager.com/">BT.Manager Group</a>';
+			echo '		<a target="_blank" href="http://www.btmanager.org">BTManager&#8482;</a>';
 			echo '	</div>';
 			echo '</div>';
 			echo '</body>';
@@ -135,7 +147,7 @@ function myErrorHandler($errno, $errstr, $errfile, $errline)
 		break;
     case E_ERROR:
         echo "<b>My ERROR</b> [$errno] $errstr<br />\n";
-        echo "  Fatal error on line $errline in file $errfile<br />";
+        echo "  Fatal Error on Line $errline in file $errfile<br />";
 		array_walk( debug_backtrace(), create_function( '$a,$b', 'print "<br /><b>". basename( $a[\'file\'] ). "</b> &nbsp; <font color=\"red\">{$a[\'line\']}</font> &nbsp; <font color=\"green\">{$a[\'function\']} ()</font> &nbsp; -- ". dirname( $a[\'file\'] ). "/";' ) ); 	echo "<br />";
         echo ", PHP " . PHP_VERSION . " (" . PHP_OS . ")<br />\n";
         echo "Aborting...<br />\n";
@@ -145,7 +157,7 @@ function myErrorHandler($errno, $errstr, $errfile, $errline)
     case E_WARNING:
     case E_USER_WARNING:
         echo "<table><tr><td><b>My User WARNING</b> [$errno] $errstr<br />\n";
-		@array_walk( debug_backtrace(), create_function( '$a,$b', 'print "<br /><b>". basename( $a[\'file\'] ). "</b> &nbsp; <font color=\"red\">{$a[\'line\']}</font> &nbsp; <font color=\"green\">{$a[\'function\']} ()</font> &nbsp; -- ". dirname( $a[\'file\'] ). "/";' ) );         echo "  Warning error on line $errline in file $errfile<br />";
+		@array_walk( debug_backtrace(), create_function( '$a,$b', 'print "<br /><b>". basename( $a[\'file\'] ). "</b> &nbsp; <font color=\"red\">{$a[\'line\']}</font> &nbsp; <font color=\"green\">{$a[\'function\']} ()</font> &nbsp; -- ". dirname( $a[\'file\'] ). "/";' ) );         echo "  Warning Error on Line $errline in File $errfile<br />";
         echo "</td></tr></table><br clear=\"all\" />";
 		return true;
 		break;
@@ -153,7 +165,7 @@ function myErrorHandler($errno, $errstr, $errfile, $errline)
     //case E_NOTICE:
     case E_USER_NOTICE:
         echo "<b>My User NOTICE</b> [$errno] $errstr<br />\n";
-        echo "  Notice error on line $errline in file $errfile<br />\n";
+        echo "  Notice Error on Line $errline in File $errfile<br />\n";
         break;
     case E_NOTICE:
     case E_DEPRECATED:
@@ -163,8 +175,8 @@ function myErrorHandler($errno, $errstr, $errfile, $errline)
 
     default:
         echo "<b>My ERROR</b> [$errno] $errstr<br />\n";
-        echo "  Fatal error on line $errline in file $errfile";
-        echo "Unknown error type: [$errno] $errstr<br />\n";
+        echo "  Fatal Error on Line $errline in File $errfile";
+        echo "Unknown Error Type: [$errno] $errstr<br />\n";
         break;
     }
 
