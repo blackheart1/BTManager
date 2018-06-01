@@ -175,10 +175,10 @@ function view_message($id, $mode, $folder_id, $msg_id, $folder, $message_row)
 	$num_recipients = (int) preg_match_all('/:?(u|g)_([0-9]+):?/', $message_row['to_address'], $match);
 
 	$template->assign_vars(array(
-		'MESSAGE_AUTHOR_FULL'		=> get_username_string('full', $author_id, $user_info['username'], str_replace('#','',getusercolor($user_info['can_do'])), $user_info['username']),//$user_info['username'],
-		'MESSAGE_AUTHOR_COLOUR'		=> get_username_string('colour', $author_id, $user_info['username'], str_replace('#','',getusercolor($user_info['can_do'])), $user_info['username']),//getusercolor($user_info['can_do']),
-		'MESSAGE_AUTHOR'			=> get_username_string('username', $author_id, $user_info['username'], str_replace('#','',getusercolor($user_info['can_do'])), $user_info['username']),//$user_info['username'],
-		'U_MESSAGE_AUTHOR'			=> get_username_string('profile', $author_id, $user_info['username'], str_replace('#','',getusercolor($user_info['can_do'])), $user_info['username']),//$user_info['username'],
+		'MESSAGE_AUTHOR_FULL'		=> get_username_string('full', $author_id, $user_info['username'], getusercolor($user_info['can_do']), $user_info['username']),//$user_info['username'],
+		'MESSAGE_AUTHOR_COLOUR'		=> get_username_string('colour', $author_id, $user_info['username'], getusercolor($user_info['can_do']), $user_info['username']),//getusercolor($user_info['can_do']),
+		'MESSAGE_AUTHOR'			=> get_username_string('username', $author_id, $user_info['username'], getusercolor($user_info['can_do']), $user_info['username']),//$user_info['username'],
+		'U_MESSAGE_AUTHOR'			=> get_username_string('profile', $author_id, $user_info['username'], getusercolor($user_info['can_do']), $user_info['username']),//$user_info['username'],
 
 		'RANK_TITLE'		=> $user_info['rank_title'],
 		'RANK_IMG'			=> $user_info['rank_image'],

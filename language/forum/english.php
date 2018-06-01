@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File forum/english.php 2018-05-25 20:54:00 Thor
+** File forum/english.php 2018-05-15 09:31:00 Thor
 **
 ** CHANGES
 **
@@ -77,6 +77,23 @@ $lang = array_merge($lang, array(
     'TOPIC_MOVED'                => 'Moved Topic',
     'MARK_TOPICS_READ'           => 'Mark Topics as Read ',
     'SEARCH_FOR'                 => 'Search for',
+	'SEARCH'					=> 'Search',
+	'SEARCH_MINI'				=> 'Search…',
+	'SEARCH_ADV'				=> 'Advanced search',
+	'SEARCH_ADV_EXPLAIN'		=> 'View the advanced search options',
+	'SEARCH_KEYWORDS'			=> 'Search for keywords',
+	'SEARCHING_FORUMS'			=> 'Searching forums',
+	'SEARCH_ACTIVE_TOPICS'		=> 'View active topics',
+	'SEARCH_FOR'				=> 'Search for',
+	'SEARCH_FORUM'				=> 'Search this forum…',
+	'SEARCH_NEW'				=> 'View new posts',
+	'SEARCH_POSTS_BY'			=> 'Search posts by',
+	'SEARCH_SELF'				=> 'View your posts',
+	'SEARCH_TOPIC'				=> 'Search this topic…',
+	'SEARCH_UNANSWERED'			=> 'View unanswered posts',
+	'SEARCH_UNREAD'				=> 'View unread posts',
+	'SEARCH_USER_POSTS'			=> 'Search user’s posts',
+	'RETURN_TO'					=> 'Return to',
     'JUMP_TO'                    => 'Jump To',
     'SUBJECT'                    => 'Subject',
     'POST_TIME'                  => 'Post Time',

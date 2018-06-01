@@ -26,5 +26,6 @@ if (!defined('IN_PMBT'))
 $template->assign_vars(array(
         'CP_UNAME'              => $userrow["username"],
         'CP_USNAME'             => $userrow["name"],
+		'EMAIL'					=> $userrow["email"],
 ));
 ?>

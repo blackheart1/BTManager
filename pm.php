@@ -21,6 +21,7 @@
 if (defined('IN_PMBT'))die ("You can't include this file...");
 define("IN_PMBT",true);
 require_once("common.php");
+$user->set_lang('ucp',$user->ulanguage);
 $user->set_lang('pm',$user->ulanguage);
 $template = new Template();
 if($user->id == 0 OR !checkaccess('u_sendpm')){
@@ -38,6 +39,8 @@ if (!isset($op)) {
         if (isset($mid1) AND is_numeric($mid)) $op = "readmsg";
         else $op = "inbox";
 }
+$template->assign_var('S_PRIVMSGS', true);
+$navoption = true;
 
 switch($op) {
         case "blacklist": {

@@ -2300,7 +2300,7 @@ function write_pm_addresses($check_ary, $author_id, $plaintext = false)
 					}
 					else
 					{
-						$address['user'][$row['id']] = array('name' => $row['username'], 'colour' => str_replace('#','',getusercolor(getlevel_name($row['id']))));
+						$address['user'][$row['id']] = array('name' => $row['username'], 'colour' => getusercolor(getlevel_name($row['id'])));
 					}
 				}
 			}
@@ -2374,8 +2374,8 @@ function write_pm_addresses($check_ary, $author_id, $plaintext = false)
 					if ($type == 'user')
 					{
 						$tpl_ary = array_merge($tpl_ary, array(
-							'U_VIEW'		=> get_username_string('profile', $id, $row['name'], str_replace('#','',getusercolor(getlevel_name($id)))),
-							'NAME_FULL'		=> get_username_string('full', $id, $row['name'], str_replace('#','',getusercolor(getlevel_name($id)))),
+							'U_VIEW'		=> get_username_string('profile', $id, $row['name'], getusercolor(getlevel_name($id))),
+							'NAME_FULL'		=> get_username_string('full', $id, $row['name'], getusercolor(getlevel_name($id))),
 						));
 					}
 					else

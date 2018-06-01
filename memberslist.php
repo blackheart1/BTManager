@@ -32,7 +32,7 @@ include_once("include/utf/utf_tools.php");
 include_once("include/class.bbcode.php");
 $template = new Template();
 $user->set_lang('memberslist',$user->ulanguage);
-set_site_var($user->lang['TITLE']);
+set_site_var($user->lang['MEMBERLIST']);
 
 // Grab data
 $mode		= request_var('mode', '');

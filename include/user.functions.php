@@ -983,7 +983,7 @@ function get_folder($user_id, $folder_id = false)
 			'NUM_MESSAGES'		=> $folder_ary['num_messages'],
 			'UNREAD_MESSAGES'	=> $folder_ary['unread_messages'],
 
-			'U_FOLDER'			=> ($f_id > 0) ? './pm.php?folder=' . $f_id : './pm.php?folder=' . $folder_id_name,
+			'U_FOLDER'			=> ($f_id) ? './pm.php?op=folder&amp;i=' . $f_id : './pm.php?op=folder&amp;i=' . $folder_id_name,
 
 			'S_CUR_FOLDER'		=> ($f_id === $folder_id) ? true : false,
 			'S_UNREAD_MESSAGES'	=> ($folder_ary['unread_messages']) ? true : false,
@@ -2275,13 +2275,13 @@ function define_cond_option($hardcoded, $cond_option, $rule_option, $global_rule
 			{
 				if ($rule_group_id && ($row['group_id'] == $rule_group_id))
 				{
-					$rule_string = (($row['group_type'] == 3) ? $user->lang['_G_' . $row['group_name']] : $row['group_name']);
+					$rule_string = (($row['group_type'] == 3) ? $user->lang[$row['group_name']] : $row['group_name']);
 				}
 
 				$s_class	= ($row['group_type'] == 3) ? ' class="sep"' : '';
 				$s_selected	= ($row['group_id'] == $rule_group_id) ? ' selected="selected"' : '';
 				
-				$s_group_options .= '<option value="' . $row['group_id'] . '"' . $s_class . $s_selected . '>' . (($row['group_type'] == 3) ? $user->lang['_G_' . $row['group_name']] : $row['group_name']) . '</option>';
+				$s_group_options .= '<option value="' . $row['group_id'] . '"' . $s_class . $s_selected . '>' . (($row['group_type'] == 3) ? $user->lang[$row['group_name']] : $row['group_name']) . '</option>';
 			}
 			$db->sql_freeresult($result);
 

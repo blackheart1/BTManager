@@ -49,7 +49,7 @@ function myErrorHandler($errno, $errstr, $errfile, $errline)
         // This error code is not included in error_reporting
         return;
     }
-//die($errno);
+
     switch ($errno) {
     case E_USER_ERROR:
 			if (!empty($user) && !empty($user->lang))
@@ -79,7 +79,7 @@ function myErrorHandler($errno, $errstr, $errfile, $errline)
 			// Try to not call the adm page data...
 
 			echo '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">';
-			echo '<html xmlns="http://www.w3.org/1999/xhtml" dir="' . $user->lang['DIRECTION'] .'" lang="' . $user->lang['USER_LANG'] . '" xml:lang="' . $user->lang['USER_LANG'] . '" />';
+			echo '<html xmlns="http://www.w3.org/1999/xhtml" dir="' . $user->lang['DIRECTION'] . '" lang="' . $user->lang['USER_LANG'] . '" xml:lang="' . $user->lang['USER_LANG'] . '" />';
 			echo '<head>';
             echo '<meta http-equiv="content-type" content="text/html; charset=' . $user->lang['CONTENT_ENCODING'] . '" />';
             echo '<meta name="generator" content="BTManager ' . $version . '" />';

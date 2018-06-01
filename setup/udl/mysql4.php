@@ -256,6 +256,15 @@ if(!defined("SQL_LAYER")) {
                         }
                 }
 
+				function sql_escape($msg)
+				{
+					if (!$this->db_connect_id)
+					{
+						return @mysql_real_escape_string($msg);
+					}
+			
+					return @mysql_real_escape_string($msg, $this->db_connect_id);
+				}
                 function sql_error() {
                         $result['message'] = @mysql_error($this->db_connect_id);
                         $result['code'] = @mysql_errno($this->db_connect_id);

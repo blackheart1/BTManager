@@ -245,6 +245,7 @@ $lang = array_merge($lang, array(
     'DESCENDING'               => 'Descending',
     'DELIMITER'                => 'Delimiter',
     'DESCRIPTION'              => 'Description',
+	'DISPLAY'				   => 'Display',
     'TRACKERS'                 => 'Trackers',
     'TRACKER_OVER_VIEW'        => 'Tracker Overview',
     'SDEFAULT'                 => 'Default',
@@ -790,6 +791,9 @@ $lang = array_merge($lang, array(
     'EXPAND_ITEM'           => 'Expand Item',
 	'QUOTE'					=> 'Quote',
     'FACEBOOK'              => 'Facebook',
+	'EMAIL_ADDRESS'			=> 'E-mail address',
+	'UCP'					=> 'User Control Panel',
+	'SEARCH_SELF'			=> 'View your posts',
 ));
 
 $u_datetime = array(

@@ -12,7 +12,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts/Black_Heart)
 ** Project Leaders: Black_Heart, Thor.
-** File functions.php 2018-05-30 07:03:00 Thor
+** File functions.php 2018-05-31 07:03:00 joeroberts
 **
 ** CHANGES
 **
@@ -984,6 +984,7 @@ function logerror($message, $error = '',$tid = 0) {
                 break;
             }
         }
+			$sql_ary['datetime'] = date("Y-m-d H:i:s");
        $sql = "INSERT INTO ".$db_prefix."_log " . $db->sql_build_array('INSERT', $sql_ary);
       // die($sql);
         $db->sql_query($sql);
