@@ -44,7 +44,7 @@ $lang = array_merge($lang, array(
     'FOUND_SEARCH_MATCHES'           => 'Search Found %d Matches',
     'FOUND_MORE_SEARCH_MATCHES'      => 'Search Found more than %d Matches',
 
-    'SGLOBAL'                         => 'Global Announcement',
+    'SGLOBAL'                        => 'Global Announcement',
 
     'IGNORED_TERMS'                  => 'Ignored',
 

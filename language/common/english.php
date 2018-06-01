@@ -245,7 +245,7 @@ $lang = array_merge($lang, array(
     'DESCENDING'               => 'Descending',
     'DELIMITER'                => 'Delimiter',
     'DESCRIPTION'              => 'Description',
-	'DISPLAY'				   => 'Display',
+    'DISPLAY'                  => 'Display',
     'TRACKERS'                 => 'Trackers',
     'TRACKER_OVER_VIEW'        => 'Tracker Overview',
     'SDEFAULT'                 => 'Default',
@@ -789,11 +789,11 @@ $lang = array_merge($lang, array(
     'MSNWLM'                => 'MSN/WLM',
     'SHOUT_HELP'            => 'Type /help for Shoutbox Commands',
     'EXPAND_ITEM'           => 'Expand Item',
-	'QUOTE'					=> 'Quote',
+    'QUOTE'                 => 'Quote',
     'FACEBOOK'              => 'Facebook',
-	'EMAIL_ADDRESS'			=> 'E-mail address',
-	'UCP'					=> 'User Control Panel',
-	'SEARCH_SELF'			=> 'View your posts',
+    'EMAIL_ADDRESS'         => 'email Address',
+    'UCP'                   => 'User Control Panel',
+    'SEARCH_SELF'           => 'View your Posts',
 ));
 
 $u_datetime = array(

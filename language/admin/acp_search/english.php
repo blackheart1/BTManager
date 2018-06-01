@@ -46,7 +46,7 @@ $lang = array_merge($lang, array(
 
 	'COMMON_WORD_THRESHOLD_EXPLAIN'			=> 'Words which are contained in a Greater Percentage of ALL Posts will be regarded as Common.  Common Words are Ignored in Search Queries.  Set to Zero to Disable.  This Only takes effect if there are more than 100 Posts.  If you want Words that are Regarded as Common to be Reconsidered then you have to Recreate the Index.',
 
-	'CONFIRM_SEARCH_BACKEND'				=> 'Are you Sure you Wish to Switch to a Different Search System?  After changing the Search System you will need to Create a New Index for the New Search System.  If you don’t plan on Switching Back then you can Delete the Old System\'s Index in Order to Free System Resources.',
+	'CONFIRM_SEARCH_BACKEND'				=> 'Are you Sure you Wish to Switch to a Different Search System?  After changing the Search System you will need to Create a New Index for the New Search System.  If you don\'t plan on Switching Back then you can Delete the Old System\'s Index in Order to Free System Resources.',
 
 	'CONTINUE_DELETING_INDEX'				=> 'Continue Previous Index Removal Process',
 
@@ -69,7 +69,7 @@ $lang = array_merge($lang, array(
 	'FULLTEXT_MYSQL_TOTAL_POSTS'			=> 'Total Number of Indexed Posts',
 	'FULLTEXT_MYSQL_MBSTRING'				=> 'Support for non-latin UTF-8 Characters using mbstring:',
 	'FULLTEXT_MYSQL_PCRE'					=> 'Support for non-latin UTF-8 Characters using PCRE:',
-	'FULLTEXT_MYSQL_MBSTRING_EXPLAIN'		=> 'If PCRE Does Not have unicode Character Properties, the Search System will try to use mbstring’s Regular Expression Engine.',
+	'FULLTEXT_MYSQL_MBSTRING_EXPLAIN'		=> 'If PCRE Does Not have unicode Character Properties, the Search System will try to use mbstring\'s Regular Expression Engine.',
 
 	'FULLTEXT_MYSQL_PCRE_EXPLAIN'			=> 'This Search System Requires PCRE unicode Character Properties.  If you want to Search for non-latin Characters you\'ll Require PHP 4.4, 5.1 and above.',
 
@@ -83,7 +83,7 @@ $lang = array_merge($lang, array(
 	'INDEX_STATS'							=> 'Index Statistics',
 	'INDEXING_IN_PROGRESS'					=> 'Indexing in Progress',
 
-	'INDEXING_IN_PROGRESS_EXPLAIN'			=> 'The Search System is Currently Indexing ALL Posts on the Board. This can take from a few minutes to a few hours depending on your Board’s Size.',
+	'INDEXING_IN_PROGRESS_EXPLAIN'			=> 'The Search System is Currently Indexing ALL Posts on the Board. This can take from a few minutes to a few hours depending on your Board\'s Size.',
 
 	'LIMIT_SEARCH_LOAD'						=> 'Search Page System Load Limit',
 
@@ -123,7 +123,7 @@ $lang = array_merge($lang, array(
 
 	'SEARCH_TYPE'							=> 'Search System',
 
-	'SEARCH_TYPE_EXPLAIN'					=> 'BTManager Allows you to choose the System that is Used for Searching Text in Post\'s.  By Default the Search will use phpBB’s own fulltext Search.',
+	'SEARCH_TYPE_EXPLAIN'					=> 'BTManager Allows you to choose the System that is Used for Searching Text in Post\'s.  By Default the Search will use phpBB\'s own fulltext Search.',
 
 	'SWITCHED_SEARCH_BACKEND'				=> 'You Switched the Search System.  In Order to use the New Search System you should make sure that there is an Index for the System you chose.',
 

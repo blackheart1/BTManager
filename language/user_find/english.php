@@ -42,11 +42,11 @@ $lang = array_merge($lang, array(
 
     'ERROR_TO_MANY_FOUND_EXP' => 'Your Search Returned Too Many Users!<br />Please Narrow your Search by Adding more Characters to the Search Field.',
 
-    'USER_NAME' => 'Username:',
-    'RANK'      => 'Rank',
-    'SEARCH_USER_POST' => 'Search user’s posts',
-    'USER_FOUND' => 'Found',
-    'MEMBERS_FOUND' => 'Members',
+    'USER_NAME'               => 'Username:',
+    'RANK'                    => 'Rank',
+    'SEARCH_USER_POST'        => 'Search User\'s Posts',
+    'USER_FOUND'              => 'Found',
+    'MEMBERS_FOUND'           => 'Members',
 ));
 
 ?>
