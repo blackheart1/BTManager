@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File ecp_search/english.php 2018-05-20 09:40:00 Thor
+** File acp_search/english.php 2018-05-20 09:40:00 Thor
 **
 ** CHANGES
 **
@@ -123,7 +123,7 @@ $lang = array_merge($lang, array(
 
 	'SEARCH_TYPE'							=> 'Search System',
 
-	'SEARCH_TYPE_EXPLAIN'					=> 'BTManager Allows you to choose the System that is Used for Searching Text in Post\'s.  By Default the Search will use phpBB\'s own fulltext Search.',
+	'SEARCH_TYPE_EXPLAIN'					=> 'BTManager Allows you to choose the System that is Used for Searching Text in Post\'s.  By Default the Search will use BTManager\'s own fulltext Search.',
 
 	'SWITCHED_SEARCH_BACKEND'				=> 'You Switched the Search System.  In Order to use the New Search System you should make sure that there is an Index for the System you chose.',
 

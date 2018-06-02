@@ -51,7 +51,7 @@ global $db, $db_prefix;
   return $a[0];
 }
 // Mark all forums as read
-function catch_up(){
+function catch_up(){ 
 global $db, $db_prefix, $user;
 	$res = $db->sql_query("SELECT id, lastpost FROM ".$db_prefix."_forum_topics") or forumsqlerr(__FILE__, __LINE__);
 	while ($arr = $db->sql_fetchrow($res)) {
@@ -147,7 +147,7 @@ function forum_generate_pagination($base_url, $num_items, $per_page, $start_item
 	return $page_string;
 }
 // Returns the minimum read/write class levels of a forum
-function get_forum_access_levels($forumid, $var = ''){
+function get_forum_access_levels($forumid, $var = ''){ 
 global $db, $db_prefix, $user;
     $sql = "SELECT acl_read, acl_write FROM ".$db_prefix."_forums WHERE forum_id=" . $forumid . " LIMIT 1;";
 	//die($sql);
@@ -192,23 +192,23 @@ function display_reasons($reason_id = 0)
 }
 // Returns the forum ID of a topic, or false on error
 function multi_array_key_exists( $needle, $haystack ) {
-
+ 
     foreach ( $haystack as $key => $value ) :
 
         if ( preg_match("/\b".$needle."\b/i",$key) )
             return true;
-
+       
         if ( is_array( $value ) ) :
              if ( multi_array_key_exists( $needle, $value ) == true )
                 return true;
              else
                  continue;
         endif;
-
+       
     endforeach;
-
+   
     return false;
-}
+} 
 function encodehtml($s, $linebreaks = true)
 {
   $s = str_replace(array("<",">","\""), array("&lt;","&gt;","&quot;"), str_replace("&", "&amp;", $s));
@@ -334,7 +334,7 @@ function parse_attachments($forum_id, &$message, &$attachments, &$update_count, 
 			else if ($extensions[$attachment['extension']]['upload_icon'])
 			{
 				$upload_icon = '<img src="' . $phpbb_root_path . $config['upload_path'] . '/' . trim($extensions[$attachment['extension']]['upload_icon']) . '" alt="" />';
-
+				
 			}
 		}
 		$filesize = get_formatted_filesize($attachment['filesize'], false);
@@ -1813,7 +1813,7 @@ function watch_topic_forum($mode, &$s_watching, $user_id, $forum_id, $topic_id, 
 				$uid = request_var('uid', 0);
 				if ($uid != $user_id)
 				{
-					$redirect_url = append_sid("{$phpbb_root_path}view$mode.$phpEx", "$u_url=$match_id&amp;start=$start");
+					$redirect_url = append_sid("{$phpbb_root_path}forum.php","action=view$mode&amp;$u_url=$match_id&amp;start=$start");
 					$message = $user->lang['ERR_UNWATCHING'] . '<br /><br />' . sprintf($user->lang['RETURN_' . strtoupper($mode)], '<a href="' . $redirect_url . '">', '</a>');
 					trigger_error($message);
 				}
@@ -1827,11 +1827,17 @@ function watch_topic_forum($mode, &$s_watching, $user_id, $forum_id, $topic_id, 
 					$db->sql_query($sql);
 				}
 
-				$redirect_url = append_sid("{$phpbb_root_path}view$mode.$phpEx", "$u_url=$match_id&amp;start=$start");
+				$redirect_url = append_sid("{$phpbb_root_path}forum.php","action=view$mode&amp;$u_url=$match_id&amp;start=$start");
 
 				meta_refresh(3, $redirect_url);
 
 				$message = $user->lang['NOT_WATCHING_' . strtoupper($mode)] . '<br /><br />' . sprintf($user->lang['RETURN_' . strtoupper($mode)], '<a href="' . $redirect_url . '">', '</a>');
+				$template->assign_vars(array(
+					'MESSAGE'		=>$message,
+				));
+				echo $template->fetch('message_body.html');
+				close_out();
+
 				trigger_error($message);
 			}
 			else
@@ -1853,7 +1859,7 @@ function watch_topic_forum($mode, &$s_watching, $user_id, $forum_id, $topic_id, 
 			if (isset($_GET['watch']))
 			{
 				$token = request_var('hash', '');
-				$redirect_url = append_sid("{$phpbb_root_path}view$mode.$phpEx", "$u_url=$match_id&amp;start=$start");
+				$redirect_url = append_sid("{$phpbb_root_path}forum.php","action=view$mode&amp;$u_url=$match_id&amp;start=$start");
 
 				if ($_GET['watch'] == $mode && check_link_hash($token, "{$mode}_$match_id"))
 				{
@@ -1870,6 +1876,11 @@ function watch_topic_forum($mode, &$s_watching, $user_id, $forum_id, $topic_id, 
 				}
 
 				meta_refresh(3, $redirect_url);
+				$template->assign_vars(array(
+					'MESSAGE'		=>$message,
+				));
+				echo $template->fetch('message_body.html');
+				close_out();
 
 				trigger_error($message);
 			}
@@ -1894,7 +1905,7 @@ function watch_topic_forum($mode, &$s_watching, $user_id, $forum_id, $topic_id, 
 
 	if ($can_watch)
 	{
-		$s_watching['link'] = append_sid("{$phpbb_root_path}view$mode.$phpEx", "$u_url=$match_id&amp;" . (($is_watching) ? 'unwatch' : 'watch') . "=$mode&amp;start=$start&amp;hash=" . generate_link_hash("{$mode}_$match_id"));
+		$s_watching['link'] = append_sid("{$phpbb_root_path}forum.php","action=view$mode&amp;$u_url=$match_id&amp;" . (($is_watching) ? 'unwatch' : 'watch') . "=$mode&amp;start=$start&amp;hash=" . generate_link_hash("{$mode}_$match_id"));
 		$s_watching['title'] = $user->lang[(($is_watching) ? 'STOP' : 'START') . '_WATCHING_' . strtoupper($mode)];
 		$s_watching['is_watching'] = $is_watching;
 	}

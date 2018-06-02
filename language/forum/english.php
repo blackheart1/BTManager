@@ -460,6 +460,16 @@ $lang = array_merge($lang, array(
     'URL_IS_ON'                  => '[url] is <em>ON</em>',
     'PHP_TEMP_FOLDER_NF'         => 'Temporary Folder could NOT be Found.  Please Check your PHP Installation.',
     'NO_FORUMS'                  => '<strong><font color="#FF0000">No Forum Categories Created</font><strong>',
+	'START_WATCHING_FORUM'		 => 'Subscribe forum',
+	'START_WATCHING_TOPIC'		 => 'Subscribe topic',
+	'STOP_WATCHING_FORUM'		 => 'Unsubscribe forum',
+	'STOP_WATCHING_TOPIC'		 => 'Unsubscribe topic',
+	'ARE_WATCHING_FORUM'		 => 'You have subscribed to be notified of new posts in this forum.',
+	'ARE_WATCHING_TOPIC'		 => 'You have subscribed to be notified of new posts in this topic.',
+	'ERR_UNWATCHING'			 => 'An error occurred while trying to unsubscribe.',
+	'ERR_WATCHING'				 => 'An error occurred while trying to subscribe.',
+	'NOT_WATCHING_FORUM'		 => 'You are no longer subscribed to updates on this forum.',
+	'NOT_WATCHING_TOPIC'		 => 'You are no longer subscribed to this topic.',
 ));
 
 $ignore_words = array(
