@@ -76,7 +76,7 @@ $lang = array_merge($lang, array(
 
     '_admptime_zoneexplain'           => 'Set the Default Time Zone for your Site.<br />To find out what Time Zone to use Click on the Links below.<br /> <a target=\'_blank\' href=\'http://www.php.net/manual/en/timezones.africa.php\'>Africa</a>, '.'<a target=\'_blank\' href=\'http://www.php.net/manual/en/timezones.america.php\'>America</a>, <a target=\'_blank\' href=\'http://www.php.net/manual/en/timezones.antarctica.php\'>Antarctica</a>, <a target=\'_blank\' href=\'http://www.php.net/manual/en/timezones.arctic.php\'>Arctic</a>, <a target=\'_blank\' href=\'http://www.php.net/manual/en/timezones.asia.php\'>Asia</a>, <a target=\'_blank\' href=\'http://www.php.net/manual/en/timezones.atlantic.php\'>Atlantic</a>, <a target=\'_blank\' href=\'http://www.php.net/manual/en/timezones.australia.php\'>Australia</a>, <a target=\'_blank\' href=\'http://www.php.net/manual/en/timezones.europe.php\'>Europe</a>, <a target=\'_blank\' href=\'http://www.php.net/manual/en/timezones.indian.php\'>Indian</a>, <a target=\'_blank\' href=\'http://www.php.net/manual/en/timezones.pacific.php\'>Pacific</a>, <a target=\'_blank\' href=\'http://www.php.net/manual/en/timezones.others.php\'>Others</a>',
 
-    '_admpconferm_email'        => 'Force e-mail Confirmation',
+    '_admpconferm_email'        => 'Force email Confirmation',
     '_admpconferm_emailexplain' => 'Force a User to Confirm their email Address before they can use the Site.',
 
     #Torrents

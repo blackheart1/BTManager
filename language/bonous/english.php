@@ -49,7 +49,7 @@ $lang = array_merge($lang, array(
     'DISABLED'                => 'Disabled!',
     'EXCHANGE'                => 'Exchange!',
     'HOW_TO_GET'              => 'How do I get Points?',
-    'POINTS_EACH_TOR'         => ' (For each torrent) ',
+    'POINTS_EACH_TOR'         => ' (for each Torrent) ',
     'POINTS_TOTAL'            => ' (Total) ',
 
     'POINTS_OPTION_VAR'  => array('A' => 'You will Receive %1$s %2$s Points for every 10 minutes the System Registers you as being a Seeder.',
