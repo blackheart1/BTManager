@@ -64,6 +64,7 @@ $active_f_pct = ($userrow["forumposts"]) ? ($most_in_f['posts'] / $userrow["foru
 $now = getdate(time() - date('Z'));
 $template->assign_vars(array(
         'CP_UID'				=> $uid,
+		'U_SEARCH_USER'			=> 'forum.php?action=search&amp;author_id=' . $uid . '&amp;sr=posts',
 		'CP_UREGDATE'           => formatTimeStamp($userrow["regdate"]),
         'CP_ULASTSEEN'          => formatTimeStamp($userrow["lastlogin"]),
 		'CP_POST_COUNT'         => $userrow["forumposts"],

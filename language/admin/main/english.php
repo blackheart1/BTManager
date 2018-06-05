@@ -199,8 +199,9 @@ $lang = array_merge($lang, array(
     'LOG_CONFIG_VISUAL'        => '<strong>Altered the Anti Spam BOT Settings</strong>',
 
     'LOG_APPROVE_TOPIC'        => '<strong>Approved Topic</strong><br /> %s',
+	'LOG_SQL_ERROR'			   => '<strong>MySQL Error</strong><br /> \'%1$s\'<br />\'%2$s\'',
     'LOG_BUMP_TOPIC'           => '<strong>User Bumped Topic</strong><br /> %s',
-    'LOG_DELETE_POST'          => '<strong>Deleted Post \'%1$s\' Written by</strong><br /> %2$s',
+    'LOG_DELETE_POST'          => '<strong>Deleted Post</strong><br />%s',
     'LOG_DELETE_SHADOW_TOPIC'  => '<strong>Deleted Shadow Topic</strong><br /> %s',
     'LOG_DELETE_TOPIC'         => '<strong>Deleted Topic \'%1$s\' Written by</strong><br /> %2$s',
     'LOG_FORK'                 => '<strong>Copied Topic</strong><br /> from %s',

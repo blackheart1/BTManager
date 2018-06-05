@@ -45,7 +45,7 @@ function myErrorHandler($errno, $errstr, $errfile, $errline)
 	}
 
     if (!(error_reporting() & $errno))
-    {
+	{
         // This error code is not included in error_reporting
         return;
     }
@@ -128,10 +128,7 @@ function myErrorHandler($errno, $errstr, $errfile, $errline)
 		include_once'include/class.template.php';
 		require_once("include/actions.php");
 		require_once("include/user.functions.php");
-		if(!isset($template))
-		{
 			$template = new Template();
-		}
 			set_site_var($user->lang['NOTICE']);
 			$errstr = (!empty($user->lang[$errstr])) ? $user->lang[$errstr] : $errstr;
 			$msg_title = (!isset($errstr)) ? $user->lang['INFORMATION'] : ((!empty($user->lang[$errstr])) ? $user->lang[$errstr] : $errstr);
@@ -142,12 +139,12 @@ function myErrorHandler($errno, $errstr, $errfile, $errline)
 				'TITTLE_M'          => $msg_title,
 				'MESSAGE'           => '',
 			));
-			echo $template->fetch('message_body.html');
+			echo @$template->fetch('message_body.html');
 			close_out();
 		break;
     case E_ERROR:
         echo "<b>My ERROR</b> [$errno] $errstr<br />\n";
-        echo "  Fatal Error on Line $errline in file $errfile<br />";
+        echo "  Fatal Error on Line $errline in File $errfile<br />";
 		array_walk( debug_backtrace(), create_function( '$a,$b', 'print "<br /><b>". basename( $a[\'file\'] ). "</b> &nbsp; <font color=\"red\">{$a[\'line\']}</font> &nbsp; <font color=\"green\">{$a[\'function\']} ()</font> &nbsp; -- ". dirname( $a[\'file\'] ). "/";' ) ); 	echo "<br />";
         echo ", PHP " . PHP_VERSION . " (" . PHP_OS . ")<br />\n";
         echo "Aborting...<br />\n";

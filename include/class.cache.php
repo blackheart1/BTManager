@@ -89,6 +89,10 @@ class pmbt_cache {
 		         return false;
 		  }
 	   }
+	   function destroy($filename)
+	   {
+		   return $this->remove_file($filename . '.php');
+	   }
 	   function remove_file($filename)
     	{
           if (file_exists($this->cache_dir.$filename)) 

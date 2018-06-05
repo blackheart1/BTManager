@@ -37,8 +37,13 @@ function RebuildSortIndex() {
         $db->sql_freeresult($res);
         return;
 }
+				$op		= request_var('op', '');
 switch($op) {
         case "addsmile": {
+				$sub_name		= request_var('sub_name', '');
+				$sub_image		= request_var('sub_image', '',true);
+				$sub_alt		= request_var('sub_alt', '');
+				$sub_position	= request_var('sub_position', '');
                 if (!isset($sub_name) OR empty($sub_name) OR !isset($sub_image) OR empty($sub_image)OR !isset($sub_alt) OR empty($sub_alt)) break;
                 if ($sub_position == -1) {
                         $sql = "SELECT MAX(sort_index) FROM ".$db_prefix."_smiles;";
@@ -47,22 +52,27 @@ switch($op) {
                         $db->sql_freeresult($res);
                 } else $sort = intval($sub_position);
                 $sort++;
-                $sql = "INSERT INTO ".$db_prefix."_smiles (code, sort_index, file, alt) VALUES ('".addslashes($sub_name)."', '".$sort."', '".addslashes(html_entity_decode($sub_image))."', '".addslashes($sub_alt)."');";
+                $sql = "INSERT INTO ".$db_prefix."_smiles (code, sort_index, file, alt) VALUES ('".$db->sql_escape($sub_name)."', '".$sort."', '".$db->sql_escape(html_entity_decode($sub_image))."', '".$db->sql_escape($sub_alt)."');";
                 $db->sql_query($sql) or btsqlerror($sql);
                 $op = "";
                 RebuildSortIndex();
                 break;
         }
         case "editsmile": {
+				$id				= (int)request_var('id', '0');
+				$sub_name		= request_var('sub_name', '');
+				$sub_image		= request_var('sub_image', '',true);
+				$sub_alt		= request_var('sub_alt', '');
                 if (!isset($id) OR intval($id) < 1) break;
-                if (isset($sub_name) AND isset($sub_image)) {
-                        $sql = "UPDATE ".$db_prefix."_smiles SET code = '".addslashes($sub_name)."', file = '".addslashes(html_entity_decode($sub_image))."' WHERE id = '".$id."';";
-                        $db->sql_query($sql) or btsqlerror($sql);
+                if (!$sub_name == '' AND !$sub_image == '') {
+                        $sql = "UPDATE ".$db_prefix."_smiles SET code = '".$db->sql_escape($sub_name)."', file = '".$db->sql_escape($sub_image)."', alt='". $db->sql_escape($sub_alt) ."' WHERE id = '".$id."';";
+						$db->sql_query($sql) or btsqlerror($sql);
                         $op = "";
                 }
                 break;
         }
         case "delsmile": {
+				$id				= (int)request_var('id', '0');
                 if (!isset($id) OR intval($id) < 1) break;
                 $sql = "DELETE FROM ".$db_prefix."_smiles WHERE id = '".intval($id)."';";
                 $db->sql_query($sql) or btsqlerror($sql);

@@ -193,7 +193,7 @@ if(count($level) < 1)
 				$bbcode_uid = $message_parser->bbcode_uid;
 				$message_parser->parse($enable_bbcode, ($config['allow_post_links']) ? $enable_urls : false, $enable_smilies, $img_status, $flash_status, true, $config['allow_post_links']);
 				$msg = $db->sql_escape(stripslashes($message_parser->message));
-				$sql = "INSERT INTO ".$db_prefix."_rules ( `id` , `title` , `text` , `bbcode_uid`, `bbcode_bitfield`, `public` , `level` )VALUES (NULL , '$title', '".$message_parser->message."', '" . $message_parser->bbcode_bitfield . "', '" . $message_parser->bbcode_uid . "', '$public', '[" . implode("],[",$level) ."]')";
+				$sql = "INSERT INTO ".$db_prefix."_rules ( `id` , `title` , `text` , `bbcode_uid`, `bbcode_bitfield`, `public` , `level` )VALUES (NULL , '$title', '".$msg."', '" . $message_parser->bbcode_bitfield . "', '" . $message_parser->bbcode_uid . "', '$public', '[" . implode("],[",$level) ."]')";
 				if (!$db->sql_query($sql)) btsqlerror($sql);
 				//header("Refresh: 0; url=modrules.php");
 							$template->assign_vars(array(

@@ -565,7 +565,7 @@ function compose_pm($id, $mode, $action)
 					'draft_message'	=> $message,
 					'draft_type'	=> 'pm',
 					'user_to'		=> $to_user_id,
-					'torrent'		=> '0'
+					'torrent'		=> 0
 					)
 				);
 				//die($sql);

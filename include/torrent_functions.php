@@ -121,9 +121,15 @@ function get_tor_vars($res, $variant = "index", $user = "", $block = "", $extra 
 		{       #Category
                 if (isset($row["cat_name"])) {
                         if (isset($row["cat_pic"]) AND $row["cat_pic"] != "" AND is_readable("themes/".$theme."/pics/cat_pics/".$row["cat_pic"]))
+						{
+                                $catimg = "themes/".$theme."/pics/cat_pics/".$row["cat_pic"];
                                 $catigory = "<img border=\"0\" src=\"themes/" . $theme . "/pics/cat_pics/". $row["cat_pic"] . "\" alt=\"" . $row["cat_name"] . "\" >";
-                                elseif (isset($row["cat_pic"]) AND $row["cat_pic"] != "" AND is_readable("cat_pics/".$row["cat_pic"]))
+						}
+                        elseif (isset($row["cat_pic"]) AND $row["cat_pic"] != "" AND is_readable("cat_pics/".$row["cat_pic"]))
+						{
+                                $catimg = "cat_pics/".$row["cat_pic"];
                                 $catigory =  "<img border=\"0\" src=\"cat_pics/" . $row["cat_pic"] . "\" alt=\"" . $row["cat_name"] . "\" >";
+						}
                         else
                                 $catigory =  $row["cat_name"];
                 } else $catigory =  "-";
@@ -224,6 +230,7 @@ function get_tor_vars($res, $variant = "index", $user = "", $block = "", $extra 
 		   'CAT_ID'      => $row["category"],
 		   'CAT_PID'      => $row["parent_id"],
 		   'CATEGORY'    => $catigory,
+		   'CAT_PIC'		=> $catimg,
 		   'REFRESH_T'   => $refreshable,
 		   'FREE_DL'     => ($row["ratiobuild"] == "yes" || $free_dl) ? true : false,
 		   'NUKED'       => ($row["nuked"] == "yes") ? true : false,
