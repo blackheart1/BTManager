@@ -24,7 +24,7 @@
 
 			<tr>
 
-				<td class="gensmall" align="center"><b>{L__SMILIES}</b></td>
+				<td class="gensmall" align="center"><strong>{L__SMILIES}</strong></td>
 
 			</tr>
 
@@ -42,7 +42,6 @@
 
 			</tr>
 
-	
 
 			<!-- IF S_SHOW_SMILEY_LINK -->
 
@@ -54,7 +53,6 @@
 
 			<!-- ENDIF -->
 
-	
 
 			</table>
 
@@ -69,7 +67,7 @@
 
 				// <![CDATA[
 
-		
+
 
 				var form_name = 'formdata';
 
@@ -81,9 +79,8 @@
 
 				// ]]>
 
-			</script>		
+			</script>
 
-	
 
 			<table width="100%" cellspacing="0" cellpadding="0" border="0">
 
@@ -91,7 +88,7 @@
 
 			<tr>
 
-				<td valign="top" style="width: 100%;"><textarea name="text" id="text" rows="15" cols="76" tabindex="3"  style="width: 98%;">{R_RULES}</textarea></td>
+				<td valign="top" style="width: 100%;"><textarea name="text" id="text" rows="15" cols="76" tabindex="3" style="width: 98%;">{R_RULES}</textarea></td>
 
 				<!-- IF S_BBCODE_ALLOWED -->
 
@@ -142,7 +139,7 @@
 <!-- ELSE -->
 <fieldset>
 <dl>
-<a href=admin.php?i=staff&op=modrules&act=newsect>{L_ADD_NEW_RULE_SECTION}</a>
+<a href="admin.php?i=staff&op=modrules&act=newsect">{L_ADD_NEW_RULE_SECTION}</a>
 </dl>
 </fieldset>
 <br clear="all" >
@@ -179,14 +176,14 @@ Options
 <dl>
 			<dt><label for="group">{L_EDIT}:</label><br /><span></span></dt>
 			<dd>
-				<form method=post action=admin.php?i=staff&op=modrules&act=edit><input type=hidden value={rules_var.ID} name=id><input type=submit value='{L_EDIT}'></form>
+				<form method="post" action="admin.php?i=staff&op=modrules&act=edit"><input type="hidden" value="{rules_var.ID}" name="id"><input type="submit" value="{L_EDIT}"></form>
 			</dd>
 </dl>
 
 <dl>
 			<dt><label for="group">{L_DELETE}:</label><br /><span></span></dt>
 			<dd>
-				<form name=delete-rule method=post action=i=staff&op=modrules&act=delete><input type=hidden name=delete value={rules_var.ID}> <input class=btn type=submit value="{L_DELETE}" ></form>
+				<form name="delete-rule" method="post" action="admin.php?i=staff&op=modrules&act=delete"><input type="hidden" name="delete" value="{rules_var.ID}"> <input class="btn" type="submit" value="{L_DELETE}" ></form>
 			</dd>
 </dl>
 <br clear="all">
