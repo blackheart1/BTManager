@@ -552,7 +552,9 @@ CREATE TABLE IF NOT EXISTS `#prefix#_faq` (
   `answer` text NOT NULL,
   `flag` set('0','1','2','3') NOT NULL default '1',
   `categ` int(10) NOT NULL default '0',
-  `order` int(10) NOT NULL default '0',
+  `order` int(10) NOT NULL DEFAULT '0',
+  `bbcode_bitfield` varchar(225) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `bbcode_uid` varchar(8) COLLATE utf8_bin NOT NULL DEFAULT ''
   PRIMARY KEY  (`id`)
 ) TYPE=MyISAM  AUTO_INCREMENT=1 ;
 
@@ -881,6 +883,7 @@ CREATE TABLE IF NOT EXISTS `#prefix#_levels` (
   `u_ignoreflood` enum('true','false') NOT NULL default 'false',
   `u_sendpm` enum('true','false') NOT NULL default 'false',
   `u_pm_attach` enum('true','false') NOT NULL default 'false',
+  `a_group` enum('treu','false') NOT NULL default 'false',
   `a_groupadd` enum('true','false') NOT NULL default 'false',
   `a_groupdel` enum('true','false') NOT NULL default 'false',
   `u_pm_download` enum('true','false') NOT NULL default 'false',

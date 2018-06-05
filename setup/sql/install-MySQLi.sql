@@ -700,6 +700,8 @@ CREATE TABLE IF NOT EXISTS `#prefix#_faq` (
   `flag` set('0','1','2','3') COLLATE utf8_bin NOT NULL DEFAULT '1',
   `categ` int(10) NOT NULL DEFAULT '0',
   `order` int(10) NOT NULL DEFAULT '0',
+  `bbcode_bitfield` varchar(225) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `bbcode_uid` varchar(8) COLLATE utf8_bin NOT NULL DEFAULT ''
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -1027,6 +1029,7 @@ CREATE TABLE IF NOT EXISTS `#prefix#_levels` (
   `u_ignoreflood` enum('true','false') COLLATE utf8_bin NOT NULL DEFAULT 'false',
   `u_sendpm` enum('true','false') COLLATE utf8_bin NOT NULL DEFAULT 'false',
   `u_pm_attach` enum('true','false') COLLATE utf8_bin NOT NULL DEFAULT 'false',
+  `a_group` enum('treu','false') CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT 'false',
   `a_groupadd` enum('true','false') COLLATE utf8_bin NOT NULL DEFAULT 'false',
   `a_groupdel` enum('true','false') COLLATE utf8_bin NOT NULL DEFAULT 'false',
   `u_pm_download` enum('true','false') COLLATE utf8_bin NOT NULL DEFAULT 'false',

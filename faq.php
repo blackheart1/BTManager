@@ -12,30 +12,45 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts/Black_Heart)
 ** Project Leaders: Black_Heart, Thor.
-** File faq.php 2018-02-17 14:32:00 Black_Heart
+** File faq.php 2018-06-04 14:32:00 Black_Heart
 **
 ** CHANGES
 **
-** EXAMPLE 26-04-13 - Added Auto Ban
+** 2018-06-06 - Added BBcode system to faq's
 **/
 if (defined('IN_PMBT'))die ("You can't include this file");
 define("IN_PMBT",true);
 require_once("common.php");
 require_once("include/torrent_functions.php");
 //$user->set_lang('faq',$user->ulanguage);
+include_once('include/function_posting.php');
+include_once('include/message_parser.php');
+include_once('include/class.bbcode.php');
+include_once('include/bbcode.' . $phpEx);
 $template = new Template();
 set_site_var($user->lang['TITTLE']);
 $res1 = "SELECT * FROM `".$db_prefix."_faq` ORDER BY `id` ASC;";
 $res = $db->sql_query($res1);
 $help_set = array();
 while ($arr = $db->sql_fetchrow($res)) {
+		$bbcode = false;
+		$text = censor_text($arr['answer']);
+		// Instantiate BBCode if need be
+		if ($arr['bbcode_bitfield'])
+		{
+			$bbcode = new bbcode($arr['bbcode_bitfield']);
+			$bbcode->bbcode_second_pass($text, $arr['bbcode_uid'], $arr['bbcode_bitfield']);
+		}
+		// Parse the message and subject
+		$text = bbcode_nl2br($text);
+		$text = smiley_text($text);
 	if($arr['type'] == 'categ')
 	{
 		$help_set[$arr['id']] = array(0=>'--', 1=>$arr['question'],2=>array(),3=>$arr['id']);
 	}
 	else
 	{
-		$help_set[$arr['categ']][2][] = array(0=>$arr['question'], 1=>$arr['answer']);
+		$help_set[$arr['categ']][2][] = array(0=>$arr['question'], 1=>$text);
 	}
 }
 $db->sql_freeresult($res);
