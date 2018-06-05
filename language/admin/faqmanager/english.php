@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File faq_manager/english.php 2018-05-06 08:17:00 Thor
+** File faq_manager/english.php 2018-06-04 09:19:00 Thor
 **
 ** CHANGES
 **
@@ -23,6 +23,7 @@
 ** 2018-03-29 - Amended the Wording of some Sentences
 ** 2018-03-29 - Amended !defined('IN_PMBT') Corrected Path
 ** 2018-05-06 - Added Missing Languages
+** 2018-06-04 - Added Missing Languages
 **/
 
 if (!defined('IN_PMBT'))
@@ -64,6 +65,7 @@ $lang = array_merge($lang, array(
     'F_FA_TITLE' => 'Title',
     'F_COBF_REQ' => 'Confirmation Required',
     'F_CON_DEL'  => 'Please Click <a href="faqactions.php?action=delete&amp;id=**id**&amp;confirm=yes">HERE</a> to Confirm.',
+    'STYLES_TIP' => 'Tip: Styles can be Applied Quickly to Selected Text.',
 
     'F_ADD_SEC'                => 'Add Section',
     'EDIT_ITEM_SAVED'          => 'Frequently Asked Questions Item has been Updated in the Database.',
@@ -74,14 +76,14 @@ $lang = array_merge($lang, array(
     'CONFIRM_OPERATION_DEL_FA' => 'Are you sure you wish to Remove this Frequently Asked Question?',
 
     #Added in v3.0.1
-    'POSITION' => 'Position',
+    'POSITION'      => 'Position',
     'SECTION_TITLE' => 'Section/Item Title',
-    'STATUS' => 'Status',
-    'ACTIONS' => 'Actions',
-    'EDIT' => 'Edit',
-    'DELETE' => 'Delete',
-    'ADD_ITEM' => 'Add New Item',
-    'ADD_SECTION' => 'Add New Section',
+    'STATUS'        => 'Status',
+    'ACTIONS'       => 'Actions',
+    'EDIT'          => 'Edit',
+    'DELETE'        => 'Delete',
+    'ADD_ITEM'      => 'Add New Item',
+    'ADD_SECTION'   => 'Add New Section',
 ));
 
 ?>

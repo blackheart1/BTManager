@@ -1,10 +1,10 @@
-<h3 align="center">BitTorrent Disclaimer for *MYBT*</h3>
+<h3 align="center">BitTorrent Disclaimer for *MYBT*</h3><br />
 
-<p>This Disclaimer must be considered as part of the "<strong>Rules</strong>" and "<strong>Legal Notice</strong>" the BitTorrent Service (the "Service") offered by *MYBT*.</p>
+<p>This Disclaimer must be considered as part of the "<strong>Rules</strong>" and "<strong>Legal Notice</strong>" the BitTorrent Service (the "Service") offered by *MYBT*.</p><br />
 
-<p>*MYBT* Offers the Service to the Users that visit the Site and can be reached at *URL* by his/her own Internet Connected PC.</p>
+<p>*MYBT* Offers the Service to the Users that visit the Site and can be reached at *URL* by his/her own Internet Connected PC.</p><br />
 
-<p>The Service allows the User Access to a BitTorrent File Archive (for Information about BitTorrent, Protocol Specifications and Programs Required to use it please consult <a href="http://www.BitTorrent.com">http://www.BitTorrent.com</a>) in a Free and Anonymous Form.</p>
+<p>The Service allows the User Access to a BitTorrent File Archive (for Information about BitTorrent, Protocol Specifications and Programs Required to use it please consult <a href="http://www.BitTorrent.com">http://www.BitTorrent.com</a>) in a Free and Anonymous Form.</p><br />
 
 <p>Please remember that:</p>
 <ul>
@@ -19,7 +19,7 @@
     <li><p>*MYBT* Does Not allow Illegal Activities on the Web Site.</p></li>
 
     <li><p>*MYBT* Does Not have Human and Technological means needed to Monitor Data Traffic directly or indirectly made by using the Service.</p></li>
-</ul>
+</ul><br />
 
 <p>Service is Totally Free and Anonymous, in fact:</p>
 <ul>
@@ -28,7 +28,7 @@
     <li><p>You're Not Required to Pay Money to use the Service</p></li>
 
     <li><p>*MYBT* Does Not directly earn money when a User Submits or Downloads a Torrent</p></li>
-</ul>
+</ul><br />
 
 <p>Service is Subject to the Application of ALL Normative about Information Transmission and Publication.  Particularly, the User Agrees that:</p>
 <ul>
@@ -39,7 +39,7 @@
     <li><p>It is Strictly Prohibited to use the Service in order to Exchange Material that is Dangerous to Public Security (like, as examples, Manuals on the Constructions of Fire, Chemical, Bacteriological Weapons or Material that, in any way, may Promote Illegal Acts like Terrorism)</p></li>
 
     <li><p>It is Strictly Prohibited to use the Service for Fake Sharing Activities (Sharing Corrupt or Empty Files)</p></li>
-</ul>
+</ul><br />
 
 <p>Then:</p>
 <ul>
@@ -50,9 +50,9 @@
     <li><p>Since the Impossibility to Constantly Monitor the Torrent available on the Site and to Judge their Content</p></li>
 
     <li><p>Since that *MYBT* Does Not Host any Torrent, but they are all Shared in a Private Form by their Owners</p></li>
-</ul>
+</ul><br />
 
-<p>*MYBT* Declines any Responsibility regarding Torrent Files Contents and the use done by Final Users.  But, the Staff are available, by Written Request sent to the email Address *EMAIL*, with the Full Reasons and Details (and, in Case of Copyrighted Material, the Name of the Copyright Owner) to "Ban" a Torrent from the Tracker.  "Banning" consists in the Impossibility, by Users, to Download a Torrent.  Differently from Simple Deletion, Ban Blocks, Future Attempts to Re-upload an Illegal File .</p>
+<p>*MYBT* Declines any Responsibility regarding Torrent Files Contents and the use done by Final Users.  But, the Staff are available, by Written Request sent to the email Address *EMAIL*, with the Full Reasons and Details (and, in Case of Copyrighted Material, the Name of the Copyright Owner) to "Ban" a Torrent from the Tracker.  "Banning" consists in the Impossibility, by Users, to Download a Torrent.  Differently from Simple Deletion, Ban Blocks, Future Attempts to Re-upload an Illegal File .</p><br />
 
 <p>The User Accepts that:</p>
 <ul>
