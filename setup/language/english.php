@@ -204,7 +204,7 @@ define("_admpwait_timeexplain","Once Enabled, Users who Do Not meet the Requirem
 
 define("_admpGIGSA","Members with Uploads (in Gigabytes) Less than");
 define("_admpGIGSAexplain","Set the First Minimum Upload in GB for the First Wait Period.");
-a
+
 define("_admpGIGSB","Members with Uploads (in Gigabytes) Less than");
 define("_admpGIGSBexplain","Set the Second Minimum Upload in GB for the Second Wait Period.");
 
