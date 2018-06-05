@@ -1029,7 +1029,6 @@ CREATE TABLE IF NOT EXISTS `#prefix#_levels` (
   `u_ignoreflood` enum('true','false') COLLATE utf8_bin NOT NULL DEFAULT 'false',
   `u_sendpm` enum('true','false') COLLATE utf8_bin NOT NULL DEFAULT 'false',
   `u_pm_attach` enum('true','false') COLLATE utf8_bin NOT NULL DEFAULT 'false',
-  `a_group` enum('treu','false') CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT 'false',
   `a_groupadd` enum('true','false') COLLATE utf8_bin NOT NULL DEFAULT 'false',
   `a_groupdel` enum('true','false') COLLATE utf8_bin NOT NULL DEFAULT 'false',
   `u_pm_download` enum('true','false') COLLATE utf8_bin NOT NULL DEFAULT 'false',
