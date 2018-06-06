@@ -93,7 +93,7 @@ elseif ($act == "newsect")
 					$template->assign_block_vars('custom_tags', array(
 						'BBCODE_NAME'		=> "'[{$row['bbcode_tag']}]', '[/" . str_replace('=', '', $row['bbcode_tag']) . "]'",
 						'BBCODE_ID'			=> $num_predefined_bbcodes + ($i * 2),
-						'BBCODE_TAG'		=> $row['bbcode_tag'],
+						'BBCODE_TAG'		=> str_replace('=', '', $row['bbcode_tag']),
 						'BBCODE_HELPLINE'	=> $row['bbcode_helpline'],
 						'A_BBCODE_HELPLINE'	=> str_replace(array('&amp;', '&quot;', "'", '&lt;', '&gt;'), array('&', '"', "\'", '<', '>'), $row['bbcode_helpline']),
 					));
@@ -197,13 +197,12 @@ if(count($level) < 1)
 				if (!$db->sql_query($sql)) btsqlerror($sql);
 				//header("Refresh: 0; url=modrules.php");
 							$template->assign_vars(array(
-								'S_NOTICE'			=> true,
-								'S_ERROR'			=>	false,
+								'S_USER_NOTICE'			=> true,
 								'META'				=>	meta_refresh(3,'admin.php?i=staff&op=modrules#modrules'),
-								'L_MESSAGE'			=> $user->lang['SUCCESS'],
-								'S_ERROR_MESS'		=> $user->lang['RULE_ADDED'],
+								'MESSAGE_TITLE'			=> $user->lang['SUCCESS'],
+								'MESSAGE_TEXT'		=> $user->lang['RULE_ADDED'] . '<br />' . back_link($siteurl . '/admin.php?i=staff&op=modrules#modrules'),
 							));
-					echo $template->fetch('message_body.html');
+					echo $template->fetch('admin/message_body.html');
 					close_out();
 }
 //EDIT RULE
@@ -252,7 +251,7 @@ $group_level = group_select_options_id(str_replace(array('[',']',','),array('','
 					$template->assign_block_vars('custom_tags', array(
 						'BBCODE_NAME'		=> "'[{$row['bbcode_tag']}]', '[/" . str_replace('=', '', $row['bbcode_tag']) . "]'",
 						'BBCODE_ID'			=> $num_predefined_bbcodes + ($i * 2),
-						'BBCODE_TAG'		=> $row['bbcode_tag'],
+						'BBCODE_TAG'		=> str_replace('=', '', $row['bbcode_tag']),
 						'BBCODE_HELPLINE'	=> $row['bbcode_helpline'],
 						'A_BBCODE_HELPLINE'	=> str_replace(array('&amp;', '&quot;', "'", '&lt;', '&gt;'), array('&', '"', "\'", '<', '>'), $row['bbcode_helpline']),
 					));
@@ -362,7 +361,15 @@ $sql = "UPDATE ".$db_prefix."_rules set title='$title', text = '".$msg."', publi
 //die($sql);
 if (!$db->sql_query($sql)) btsqlerror($sql);
 				//$sql = "INSERT INTO ".$db_prefix."_rules ( `id` , `title` , `text` , ` 	bbcode_uid`, `bbcode_bitfield`, `public` , `level` )VALUES (NULL , '$title', '".$msg."', '" . $message_parser->bbcode_bitfield . "', '" . $message_parser->bbcode_uid . "', '$public', '[" . implode("],[",$level) ."]')";
-header("Refresh: 0; url=admin.php?i=staff&op=modrules");
+//header("Refresh: 0; url=admin.php?i=staff&op=modrules");
+							$template->assign_vars(array(
+								'S_USER_NOTICE'			=> true,
+								'META'				=>	meta_refresh(3,'admin.php?i=staff&op=modrules#modrules'),
+								'MESSAGE_TITLE'			=> $user->lang['SUCCESS'],
+								'MESSAGE_TEXT'		=> $user->lang['RULE_UPDATED'] . '<br />' . back_link($siteurl . '/admin.php?i=staff&op=modrules#modrules'),
+							));
+					echo $template->fetch('admin/message_body.html');
+					close_out();
 }
 else{
 // STANDARD MENU OR HOMEPAGE ETC

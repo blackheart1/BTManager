@@ -52,6 +52,7 @@ $lang = array_merge($lang, array(
     'GROUP_NOT_SET'        => 'You did NOT Specify what Group these Rules are for?',
     'GO_BACK'              => 'Go Back!',
     'RULE_ADDED'           => 'New Rules have been Added.',
+    'RULE_UPDATED'         => 'Rules have been Updated.',
     'ADD_NEW_RULE_SECTION' => 'Add a New Rules Section.',
     'ADVANCED_RULE_INFO'   => 'Advanced Rule Information',
     'IS_PUBLIC'            => 'Is this a Public Rule?',
