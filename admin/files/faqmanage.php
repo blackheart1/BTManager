@@ -108,13 +108,14 @@ elseif ($action == "edit" && isset($fid)) {
    			$catsel .="</select>";
 			$bbcode = false;
 		// Instantiate BBCode if need be
+				$text = smiley_text($arr['answer'],true);
 			if ($arr['bbcode_bitfield'])
 			{
 				include_once('include/bbcode.' . $phpEx);
 				$message_parser = new parse_message();
-				$text = smiley_text($arr['answer'],true);
 				$message_parser->message = $text;
 				$message_parser->decode_message($arr['bbcode_uid']);
+				$text = $message_parser->message;
 				//die($message_parser->message);
 			}
    			$template->assign_vars(array(
@@ -131,7 +132,7 @@ elseif ($action == "edit" && isset($fid)) {
    				'T_AREA'			=> 'answer',
    				'F_STATUS'			=> $flag,
    				'F_CATIGORY'		=> $catsel,
-   				'S_TEXT'			=> $message_parser->message,
+   				'S_TEXT'			=> $text,
 				'HIDEN'				=> $hidden,
 				'U_ACTION'			=> $u_action,
    			));
