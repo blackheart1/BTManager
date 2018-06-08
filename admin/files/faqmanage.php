@@ -93,10 +93,10 @@ elseif ($action == "edit" && isset($fid)) {
 	'i'			=> 'staff',
 	'op'		=> 'faqmanage',
 	));
-   			if ($arr['flag'] == "0") $flag = "<select name=\"flag\" style=\"width: 110px;\"><option value=\"0\" style=\"color: #FF0000;\" selected=\"selected\">".$user->lang['F_HIDDEN']."</option><option value=\"1\" style=\"color: #000000;\">".$user->lang['F_NORMAL']."</option><option value=\"2\" style=\"color: #0000FF;\">".$user->lang['F_UPDATED']."</option><option value=\"3\" style=\"color: #008000;\">".$user->lang['F_NEW']."</option></select>";
-   			elseif ($arr['flag'] == "2") $flag = "<select name=\"flag\" style=\"width: 110px;\"><option value=\"0\" style=\"color: #FF0000;\">".$user->lang['F_HIDDEN']."</option><option value=\"1\" style=\"color: #000000;\">".$user->lang['F_NORMAL']."</option><option value=\"2\" style=\"color: #0000FF;\" selected=\"selected\">".$user->lang['F_UPDATED']."</option><option value=\"3\" style=\"color: #008000;\">".$user->lang['F_NEW']."</option></select>";
-   			elseif ($arr['flag'] == "3") $flag = "<select name=\"flag\" style=\"width: 110px;\"><option value=\"0\" style=\"color: #FF0000;\">".$user->lang['F_HIDDEN']."</option><option value=\"1\" style=\"color: #000000;\">".$user->lang['F_NORMAL']."</option><option value=\"2\" style=\"color: #0000FF;\">".$user->lang['F_UPDATED']."</option><option value=\"3\" style=\"color: #008000;\" selected=\"selected\">".$user->lang['F_NEW']."</option></select>";
-   			else $flag = "<select name=\"flag\" style=\"width: 110px;\"><option value=\"0\" style=\"color: #FF0000;\">".$user->lang['F_HIDDEN']."</option><option value=\"1\" style=\"color: #000000;\" selected=\"selected\">".$user->lang['F_NORMAL']."</option><option value=\"2\" style=\"color: #0000FF;\">".$user->lang['F_UPDATED']."</option><option value=\"3\" style=\"color: #008000;\">".$user->lang['F_NEW']."</option></select>";
+   			if ($arr['flag'] == "0") $flag = 		"<select name=\"flag\" style=\"width: 110px;\"><option value=\"0\" style=\"color: #FF0000;\" selected=\"selected\">".$user->lang['F_HIDDEN']."</option><option value=\"1\" style=\"color: #000000;\">".$user->lang['F_NORMAL']."</option><option value=\"2\" style=\"color: #0000FF;\">".$user->lang['F_UPDATED']."</option><option value=\"3\" style=\"color: #008000;\">".$user->lang['F_NEW']."</option></select>";
+   			elseif ($arr['flag'] == "2") $flag = 	"<select name=\"flag\" style=\"width: 110px;\"><option value=\"0\" style=\"color: #FF0000;\">".$user->lang['F_HIDDEN']."</option><option value=\"1\" style=\"color: #000000;\">".$user->lang['F_NORMAL']."</option><option value=\"2\" style=\"color: #0000FF;\" selected=\"selected\">".$user->lang['F_UPDATED']."</option><option value=\"3\" style=\"color: #008000;\">".$user->lang['F_NEW']."</option></select>";
+   			elseif ($arr['flag'] == "3") $flag = 	"<select name=\"flag\" style=\"width: 110px;\"><option value=\"0\" style=\"color: #FF0000;\">".$user->lang['F_HIDDEN']."</option><option value=\"1\" style=\"color: #000000;\">".$user->lang['F_NORMAL']."</option><option value=\"2\" style=\"color: #0000FF;\">".$user->lang['F_UPDATED']."</option><option value=\"3\" style=\"color: #008000;\" selected=\"selected\">".$user->lang['F_NEW']."</option></select>";
+   			else $flag = 							"<select name=\"flag\" style=\"width: 110px;\"><option value=\"0\" style=\"color: #FF0000;\">".$user->lang['F_HIDDEN']."</option><option value=\"1\" style=\"color: #000000;\" selected=\"selected\">".$user->lang['F_NORMAL']."</option><option value=\"2\" style=\"color: #0000FF;\">".$user->lang['F_UPDATED']."</option><option value=\"3\" style=\"color: #008000;\">".$user->lang['F_NEW']."</option></select>";
    			$res3 = "SELECT `id`, `question` FROM `".$db_prefix."_faq` WHERE `type`='categ' ORDER BY `order` ASC;";
 			$res = $db->sql_query($res3);
 			$db->sql_freeresult($res3);
@@ -144,8 +144,8 @@ elseif ($action == "edit" && isset($fid)) {
 	'i'			=> 'staff',
 	'op'		=> 'faqmanage',
 	));
-   			if ($arr[flag] == "0") $flag = "<select name=\"flag\" style=\"width: 110px;\"><option value=\"0\" style=\"color: #FF0000;\" selected=\"selected\">".$user->lang['F_HIDDEN']."</option><option value=\"1\" style=\"color: #000000;\">".$user->lang['F_NORMAL']."</option></select>";
-   			else $flag = "<select name=\"flag\" style=\"width: 110px;\"><option value=\"0\" style=\"color: #FF0000;\">".$user->lang['F_HIDDEN']."</option><option value=\"1\" style=\"color: #000000;\" selected=\"selected\">".$user->lang['F_NORMAL']."</option></select>";
+   			//if ($arr[flag] == "0") $flag = "<select name=\"flag\" style=\"width: 110px;\"><option value=\"0\" style=\"color: #FF0000;\" selected=\"selected\">".$user->lang['F_HIDDEN']."</option><option value=\"1\" style=\"color: #000000;\">".$user->lang['F_NORMAL']."</option></select>";
+   			//else $flag = "<select name=\"flag\" style=\"width: 110px;\"><option value=\"0\" style=\"color: #FF0000;\">".$user->lang['F_HIDDEN']."</option><option value=\"1\" style=\"color: #000000;\" selected=\"selected\">".$user->lang['F_NORMAL']."</option></select>";
    			$template->assign_vars(array(
 				'L_TITLE'            => $user->lang['F_TITLE_D'],
 				'L_EXPLAIN'            => $user->lang['F_TITLE_ED_CAT_EXP'],
@@ -181,11 +181,12 @@ elseif ($action == "edititem" && $fid != NULL && $question != NULL && $answer !=
 	$sql_ary	= array(
 	'`question`'			=> $question,
 	'`answer`'				=> $message_parser->message,
-	'`flag`'				=> (int)$flag,
+	'`flag`'				=> $flag,
 	'`categ`'				=> (int)$categ,	
 	'`bbcode_bitfield`'		=> $message_parser->bbcode_bitfield,
 	'`bbcode_uid`'			=> $message_parser->bbcode_uid
 	);
+	//die($db->sql_build_array('UPDATE', $sql_ary));
 	$db->sql_query("UPDATE `".$db_prefix."_faq` SET " . $db->sql_build_array('UPDATE', $sql_ary) . " WHERE id='$fid'") or sqlerr();
 	$template->assign_vars(array(
 		'S_SUCCESS'            => true,
@@ -202,7 +203,7 @@ elseif ($action == "editsect" && $fid != NULL && $title != NULL && $flag != NULL
 	$sql_ary	= array(
 	'`question`'			=> $title,
 	'`answer`'				=> '',
-	'`flag`'				=> (int)$flag,
+	'`flag`'				=> $flag,
 	'`categ`'				=> (int)0,	
 	'`bbcode_bitfield`'		=> '',
 	'`bbcode_uid`'			=> ''
@@ -376,7 +377,7 @@ elseif ($action == "addnewitem" && $question != NULL && $answer != NULL && $flag
 	'`type`'					=> 'item',
 	'`question`'				=> $question,
 	'`answer`'					=> $message_parser->message,
-	'`flag`'					=> (int)$flag,
+	'`flag`'					=> $flag,
 	'`categ`'					=> (int)$categ,
 	'`order`'					=> (int)$order,
 	'`bbcode_bitfield`'			=> $message_parser->bbcode_bitfield,
