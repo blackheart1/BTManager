@@ -158,6 +158,21 @@ class messenger
 	}
 
 	/**
+	* Adds X-AntiAbuse headers
+	*
+	* @param array $config		Configuration array
+	* @param user $user			A user object
+	*
+	* @return null
+	*/
+	function anti_abuse_headers($config, $user)
+	{
+		$this->headers('X-AntiAbuse: Board servername - ' . mail_encode($config['server_name']));
+		$this->headers('X-AntiAbuse: User_id - ' . $user->id);
+		$this->headers('X-AntiAbuse: Username - ' . mail_encode($user->name));
+		$this->headers('X-AntiAbuse: User IP - ' . $user->ip);
+	}
+	/**
 	* set up extra mail headers
 	*/
 	function headers($headers)

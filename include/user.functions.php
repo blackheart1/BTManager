@@ -2439,6 +2439,8 @@ function get_username_string($mode, $user_id, $username, $username_colour = '', 
 if (!function_exists("newuserpage")){ 
 function newuserpage($page)
 {
+if(preg_match("/rules.php/",$page))return true;
+if(preg_match("/faq.php/",$page))return true;
 if(preg_match("/pm_ajax.php/",$page))return true;
 if(preg_match("/login.php/",$page))return true;
 if(preg_match("/gfxgen.php/",$page))return true;
