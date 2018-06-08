@@ -664,7 +664,7 @@ $lang = array_merge($lang, array(
     '_BBCODE_I_HELP'          => 'Italic Text: [i]text[/i]',
     '_BBCODE_L_HELP'          => 'List: [list]text[/list]',
     '_BBCODE_LISTITEM_HELP'   => 'List Item: [*]text[/*]',
-    '_BBCODE_O_HELP'          => 'Ordered List: [list=]text[/list]',
+    '_BBCODE_O_HELP'          => 'Ordered List: [list=(1)(a)][*]text[/list]',
     '_BBCODE_P_HELP'          => 'Insert Image: [img]http://image_url[/img]',
     '_BBCODE_Q_HELP'          => 'Quote Text: [quote]text[/quote]',
     '_BBCODE_S_HELP'          => 'Font Colour: [color=red]text[/color]  Tip: you can also use color=#FF0000',
