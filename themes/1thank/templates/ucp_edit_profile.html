@@ -1,0 +1,764 @@
+<!-- INCLUDE themes/1thank/templates/ucp_header.html -->
+<!-- IF MODE == signature -->
+<!-- INCLUDE themes/1thank/templates/ucp_profile_signature.html -->
+<!-- ELSEIF MODE == avatar -->
+<!-- INCLUDE themes/1thank/templates/ucp_profile_avatar.html -->
+<!-- ELSEIF MODE == admin_reg_details -->
+<form name="ucp" id="ucp" method="post" action="{PMBT_LINK_BACK}">
+{S_HIDDEN_FIELDS}
+<table class="tablebg" width="100%" cellspacing="0">
+
+<tr>
+    <td class="row1" width="35%"><strong class="genmed">{L_MOD_COMMENTS}: </strong></td>
+    <td class="row2"><textarea name="modcomment" rows="8" cols="60">{CP_MOD_COMENTS}</textarea></td>
+</tr>
+<tr>
+    <td class="row1" width="35%"><strong class="genmed">{L_GROUP}: </strong></td>
+    <td class="row2"><select name="group">{A_GROUP}</select></td>
+</tr>
+<tr>
+    <td class="row1" width="35%"><strong class="genmed">{L_ACC_LEVEL}: </strong></td>
+    <td class="row2">{A_LEVEL}</td>
+</tr>
+<tr>
+    <td class="row1" width="35%"><strong class="genmed">{L_WARNNED}: </strong></td>
+    <td class="row2"><!-- IF U_IS_WARNED -->
+    {L_YES}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{L_WARNED_TILL} {U_WARNED_TELL}<br /><strong>{L_DELETE_WARNING}&nbsp;<strong><input name="warned" value="no" type="checkbox">
+    <!-- ELSE -->
+   {L_NO}
+    <br />{L_WARN_USER_FOR} <select name=warnlength>
+    <option value="0">------</option>
+    <option value="604800">{L_ONE_WEEK}</option>
+    <option value="1209600">{L_TWO_WEEK}</option>
+    <option value="2419200">{L_FOUR_WEEK}</option>
+    <option value="4838400">{L_EIGHT_WEEK}</option>
+    <option value="-1">{L_NO_LIMET}</option>
+    </select>
+    <br /><strong>{L_SORT_REASON}:<strong>
+    <br />
+    <input type="text" rows="5" size ="40" name="warnpm"><br />
+    {L_UCP_WARN_REASON_EXPL}
+
+    <!-- ENDIF -->
+    </td>
+</tr>
+<tr>
+    <td class="row1" width="35%"><strong class="genmed">{L_UPLODED}: </strong></td>
+    <td class="row2"><input name="up" value="{CP_TRUEUPLOADED}" size="40" type="text">&nbsp;&nbsp;{CP_UUPLOADED}</td>
+</tr>
+<tr>
+    <td class="row1" width="35%"><strong class="genmed">{L_DOWNED}: </strong></td>
+    <td class="row2"><input name="down" value="{CP_TRUEDOWNLOADED}" size="40" type="text">&nbsp;&nbsp;{CP_UDOWNLOADED}</td>
+</tr>
+<tr>
+    <td class="row1" width="35%"><strong class="genmed">{L_SEED_BOMUS} </strong></td>
+    <td class="row2"><input name="seed" value="{CP_SEED_POINTS}" size="40" type="text">&nbsp;&nbsp;{CP_SEED_POINTS}</td>
+</tr>
+<tr>
+    <td class="row1" width="35%"><strong class="genmed">{L_INVITES}: </strong></td>
+    <td class="row2"><input name="invit" value="{CP_INVITES}" size="40" type="text">&nbsp;&nbsp;{CP_INVITES}</td>
+</tr>
+<tr>
+    <td class="row1" width="35%"><strong class="genmed">{L_USER_SEEDBOX}: </strong></td>
+    <td class="row2"><input name="seedbox" value="{U_SEEDBOX_IP}" size="40" type="text">&nbsp;&nbsp;{U_SEEDBOX_IP}</td>
+</tr>
+<tr>
+    <td class="row1" width="35%"><strong class="genmed">{L_M_SITE_HELPER}: </strong></td>
+    <td class="row2">
+    <input type="radio" name="helper"<!-- IF U_SITE_HELPER --> checked="checked"<!-- ENDIF --> value="true" >&nbsp;&nbsp;{L_YES} &nbsp;&nbsp;<input type="radio" name="helper" value="false"<!-- IF not U_SITE_HELPER --> checked="checked"<!-- ENDIF --> >&nbsp;&nbsp;{L_NO}
+    </td>
+</tr>
+<tr>
+    <td class="row1" width="35%"><strong class="genmed">{L_UCP_HELPER_FOR}: </strong></td>
+    <td class="row2">
+    <textarea cols=30 rows=1 name=help_able>{U_SITE_HELP_WITH}</textarea>
+    </td>
+</tr>
+<tr>
+    <td class="row1" width="35%"><strong class="genmed">{L_ACCOUT_STATUS}: </strong><br /><span class="gensmall">{L_ACCOUT_EXP_STATUS}</span></td>
+    <td class="row2">
+    <select name="active">
+    <option <!-- IF not U_ACTIVATED_ACC -->selected <!-- ENDIF -->value="0">{L_INACTIVE}</option>
+    <option <!-- IF U_ACTIVATED_ACC -->selected <!-- ENDIF -->value="1">{L_ACTIVE}</option>
+    </select>
+    </td>
+</tr>
+<tr>
+    <td class="row1" width="35%"><strong class="genmed">{L_UCP_BAN_FORUM}: </strong><br /><span class="gensmall">{L_UCP_BAN_USER_FORUM}</span></td>
+    <td class="row2">
+    <input type="radio" name="forumban"<!-- IF U_FORUM_BANNED --> checked="checked"<!-- ENDIF --> value="true" >&nbsp;&nbsp;{L_YES} &nbsp;&nbsp;<input type="radio" name="forumban" value="false"<!-- IF not U_FORUM_BANNED --> checked="checked"<!-- ENDIF --> >&nbsp;&nbsp;{L_NO}
+    </td>
+</tr>
+<tr>
+    <td class="row1" width="35%"><strong class="genmed">{L_UCP_SHOUT_BAN}: </strong><br /><span class="gensmall">{L_UCP_SHOUT_BAN_EXPL}</span></td>
+    <td class="row2">
+    <input type="radio" name="shoutban"<!-- IF not CP_UCANSHOUT --> checked="checked"<!-- ENDIF --> value="true" >&nbsp;&nbsp;{L_YES} &nbsp;&nbsp;<input type="radio" name="shoutban" value="false"<!-- IF CP_UCANSHOUT --> checked="checked"<!-- ENDIF --> >&nbsp;&nbsp;{L_NO}
+    </td>
+</tr>
+<tr>
+    <td class="row1" width="35%"><strong class="genmed">{L_UCP_DISABLE_ACC}: </strong><br /><span class="gensmall">{L_UCP_DISABLE_ACC_EXPL}</span></td>
+    <td class="row2">
+    <input type="radio" name="disable"<!-- IF CP_DISABLED --> checked="checked"<!-- ENDIF --> value="true" >&nbsp;&nbsp;{L_YES} &nbsp;&nbsp;<input type="radio" name="disable" value="false"<!-- IF not CP_DISABLED --> checked="checked"<!-- ENDIF --> >&nbsp;&nbsp;{L_NO}<br />
+    <textarea cols=30 rows=1 name=disable_res>{CP_DISABLED_REASON}</textarea>
+    </td>
+</tr>
+
+<tr>
+    <td colspan="2" align="center">
+        <input class="btnmain" type="submit" name="submit" value="{L_SUBMIT}" />&nbsp;&nbsp;
+        <input class="btnlite" type="reset" value="{L_RESET}" name="reset" />
+    </td>
+</tr>
+</table>
+</form>
+<!-- ELSEIF MODE == reg_details -->
+<!-- INCLUDE themes/1thank/templates/ucp_profile_reg_details.html -->
+<!-- ELSEIF MODE == personal-->
+<form name="ucp" id="ucp" method="post" action="{U_ACTION}">
+{S_HIDDEN_FIELDS}
+<script type="text/javascript">
+// <![CDATA[
+    /**
+    * Set display of page element
+    * s[-1,0,1] = hide,toggle display,show
+    */
+    function dE(n,s)
+    {
+        var e = document.getElementById(n);
+        if (!s)
+        {
+            s = (e.style.display == '') ? -1 : 1;
+        }
+        e.style.display = (s == 1) ? 'block' : 'none';
+    }
+
+    var default_dateformat = 'D M d, Y g:i a';
+// ]]>
+</script>
+
+<h2>{L_EDIT_SETTINGS}</h2>
+<div class="panel">
+	<div class="inner"><span class="corners-top"><span></span></span>
+
+		<fieldset>
+        <dl>
+            <dt><label>{L_ACCEPT_EMAIL}:</label><br /><span>{L_ACCEPT_EMAIL_EXP}</span></dt>
+            <dd>
+                <label><input type="radio" class="radio" name="accept_mail" value="1" <!-- IF U_ALLOW_EMAIL -->checked="checked"<!-- ENDIF --> />{L_YES}</label>
+                <label> <input type="radio" class="radio" name="accept_mail" value="0" <!-- IF not U_ALLOW_EMAIL -->checked="checked"<!-- ENDIF --> />{L_NO}</label>
+            </dd>
+        </dl>
+        <dl>
+            <dt><label>{L_ACP_PM_NOTICE_EMAIL}<br /><span>{L_ACP_PM_NOTICE_EMAIL_EXP}</span></dt>
+            <dd>
+               <label> <input type="radio" class="radio" name="pm_notify" value="1" <!-- IF CP_PM_NOTIVY -->checked="checked"<!-- ENDIF --> />{L_YES}</label>
+               <label> <input type="radio" class="radio" name="pm_notify" value="0" <!-- IF not CP_PM_NOTIVY -->checked="checked"<!-- ENDIF --> />{L_NO}</label>
+            </dd>
+        </dl>
+        <dl>
+            <dt><label>{L_ACCEPT_EMAIL_ACP}<br /><span>{L_ACCEPT_EMAIL_ACP_EXP}</span></dt>
+            <dd>
+               <label> <input type="radio" class="radio" name="mass_mail" value="1" <!-- IF CP_ALLOW_MASS_MAIL -->checked="checked"<!-- ENDIF --> />{L_YES}</label>
+               <label> <input type="radio" class="radio" name="mass_mail" value="0" <!-- IF not CP_ALLOW_MASS_MAIL -->checked="checked"<!-- ENDIF --> />{L_NO}</label>
+            </dd>
+        </dl>
+        <dl>
+            <dt><label>{L_ALLOW_PM}</label><br /><span>{L_ALLOW_PM_EXPLAIN}</span></dt>
+            <dd>
+                <label> <input type="radio" class="radio" name="user_allow_pm" value="1" <!-- IF CP_ALLOW_PM -->checked="checked"<!-- ENDIF --> />{L_YES}</label>
+                <label><input type="radio" class="radio" name="user_allow_pm" value="0" <!-- IF not CP_ALLOW_PM -->checked="checked"<!-- ENDIF -->/>{L_NO}</label>
+            </dd>
+        </dl>
+        <dl>
+            <dt><label>{L_HIDE_ONLINE}</label><br /><span>{L_HIDE_ONLINE_EXPLAIN}</span></dt>
+            <dd>
+                <label><input type="radio" class="radio" name="Show_online" value="1" <!-- IF CP_SHOW_ONLINE -->checked="checked"<!-- ENDIF -->/>{L_YES}</label>
+                <label><input type="radio" class="radio" name="Show_online" value="0" <!-- IF not CP_SHOW_ONLINE -->checked="checked"<!-- ENDIF --> />{L_NO}</label>
+            </dd>
+        </dl>
+        <dl>
+            <dt><label>{L_PARK_ACC}</label><br /><span>{L_PARK_ACC_EXP}</span></dt>
+            <dd>
+                <label><input type="radio" class="radio" name="parked" value="1" <!-- IF CP_PARKED -->checked="checked"<!-- ENDIF -->/>{L_YES}</label>
+                <label><input type="radio" class="radio" name="parked" value="0" <!-- IF not CP_PARKED -->checked="checked"<!-- ENDIF --> />{L_NO}</label>
+            </dd>
+        </dl>
+        <dl>
+            <dt><label>{L_POPUP_ON_PM}</label></dt>
+            <dd>
+                <label><input type="radio" class="radio" name="pm_popup" value="1" <!-- IF CP_PM_POPUP -->checked="checked"<!-- ENDIF --> />{L_YES}</label>
+            	<label><input type="radio" class="radio" name="pm_popup" value="0" <!-- IF not CP_PM_POPUP -->checked="checked"<!-- ENDIF --> />{L_NO}</label>
+            </dd>
+        </dl>
+        <dl>
+            <dt><label>{L_VIEW_IMAGES}</label></dt>
+            <dd>
+                <label><input type="radio" class="radio" name="view_images" value="1" <!-- IF CP_VIEW_IMAGES -->checked="checked"<!-- ENDIF --> />{L_YES}</label>
+        	    <label><input type="radio" class="radio" name="view_images" value="0" <!-- IF not CP_VIEW_IMAGES -->checked="checked"<!-- ENDIF --> />{L_NO}</label>
+            </dd>
+        </dl>
+        <dl>
+            <dt><label>{L_VIEW_FLASH}</label></dt>
+            <dd>
+                <label><input type="radio" class="radio" name="view_flash" value="1" <!-- IF CP_VIEW_FLASH -->checked="checked"<!-- ENDIF --> />{L_YES}</label>
+        	    <label><input type="radio" class="radio" name="view_flash" value="0" <!-- IF not CP_VIEW_FLASH -->checked="checked"<!-- ENDIF --> />{L_NO}</label>
+            </dd>
+        </dl>
+        <dl>
+            <dt><label>{L_DEFAULT_BBCODE}</label></dt>
+            <dd>
+                <label><input type="radio" class="radio" name="bbcode" value="1" <!-- IF BBCODE -->checked="checked"<!-- ENDIF --> />{L_YES}</label>
+        <input type="radio" class="radio" name="bbcode" value="0" <!-- IF not BBCODE -->checked="checked"<!-- ENDIF --> />{L_NO}</label>
+            </dd>
+        </dl>
+        <dl>
+            <dt><label>{L_DEFAULT_SMILIES}</label></dt>
+            <dd>
+                <label><input type="radio" class="radio" name="smilies" value="1" <!-- IF CP_SMILES -->checked="checked"<!-- ENDIF --> />{L_YES}</label>
+        	    <label><input type="radio" class="radio" name="smilies" value="0" <!-- IF not CP_SMILES -->checked="checked"<!-- ENDIF --> />{L_NO}</label>
+            </dd>
+        </dl>
+        <dl>
+            <dt><label>{L_VIEW_SMILIES}</label></dt>
+            <dd>
+                <label><input type="radio" class="radio" name="view_smilies" value="1" <!-- IF CP_VIEW_SMILIES -->checked="checked"<!-- ENDIF --> />{L_YES}</label>
+        	    <label><input type="radio" class="radio" name="view_smilies" value="0" <!-- IF not CP_VIEW_SMILIES -->checked="checked"<!-- ENDIF --> />{L_NO}</label>
+            </dd>
+        </dl>
+        <dl>
+            <dt><label>{L_DEFAULT_ADD_SIG}</label></dt>
+            <dd>
+                <label><input type="radio" class="radio" name="sig" value="1" <!-- IF CP_ATACH_SIG -->checked="checked"<!-- ENDIF --> />{L_YES}</label>
+        	    <label><input type="radio" class="radio" name="sig" value="0" <!-- IF not CP_ATACH_SIG -->checked="checked"<!-- ENDIF --> />{L_NO}</label>
+            </dd>
+        </dl>
+        <dl>
+            <dt><label>{L_VIEW_SIGS}</label></dt>
+            <dd>
+                <label><input type="radio" class="radio" name="view_sigs" value="1" <!-- IF CP_VIEW_SIGS -->checked="checked"<!-- ENDIF --> />{L_YES}</label>
+        	    <label><input type="radio" class="radio" name="view_sigs" value="0" <!-- IF not CP_VIEW_SIGS -->checked="checked"<!-- ENDIF --> />{L_NO}</label>
+            </dd>
+        </dl>
+        <dl>
+            <dt><label>{L_VIEW_AVATARS}</label></dt>
+            <dd>
+                <label><input type="radio" class="radio" name="view_avatars" value="1" <!-- IF CP_VIEW_AVATAR -->checked="checked"<!-- ENDIF --> />{L_YES}</label>
+        	    <label><input type="radio" class="radio" name="view_avatars" value="0" <!-- IF not CP_VIEW_AVATAR -->checked="checked"<!-- ENDIF --> />{L_NO}</label>
+            </dd>
+        </dl>
+        <dl>
+            <dt><label>{L_DISABLE_CENSORS}</label></dt>
+            <dd>
+                <label><input type="radio" class="radio" name="view_wordcensor" value="1" <!-- IF CP_VIEW_CENSOR -->checked="checked"<!-- ENDIF --> />{L_YES}</label>
+        	    <label><input type="radio" class="radio" name="view_wordcensor" value="0" <!-- IF not CP_VIEW_CENSOR -->checked="checked"<!-- ENDIF --> />{L_NO}</label>
+            </dd>
+        </dl>
+        <dl>
+            <dt><label>{L_TOR_PERPAGE}</label><br /><span>{L_REVERT_DEFAULT}</span></dt>
+            <dd>
+                <input type="text" name="user_torrent_per_page" value="{CP_TORPERPAGE}" size ="40" />
+            </dd>
+        </dl>
+        <dl>
+            <dt><label>{L_BOARD_LANGUAGE}</label></dt>
+            <dd>
+                <label><select name="customlang">
+        		<option value="0">{L_SDEFAULT}</option>
+        		{U_LANGUAGES}
+      			</select></label>
+            </dd>
+        </dl>
+        <dl>
+            <dt><label>{L_BOARD_STYLE}</label></dt>
+            <dd>
+                <label><select name="customtheme">
+                <option value="0">{L_SDEFAULT}</option>
+                {U_THEMES}
+             	</select></label>
+				</dd>
+			</dl>
+        <dl>
+            <dt><label>{L_BOARD_TIMEZONE}</label></dt>
+            <dd>
+                <label><select id="offset" name="offset">{TX_OFF_SET}</select></label>
+            </dd>
+        </dl>
+        <dl>
+            <dt><label>{L_BOARD_DATE_FORMAT}</label><br /><span>{L_BOARD_DATE_FORMAT_EXPLAIN}</span></dt>
+            <dd>
+                <label><select name="dateoptions" id="dateoptions" onchange="if(this.value=='custom'){dE('custom_date',1);}else{dE('custom_date',-1);} if (this.value == 'custom') { document.getElementById('dateformat').value = default_dateformat; } else { document.getElementById('dateformat').value = this.value; }">{S_DATEFORMAT_OPTIONS}</select></label>
+        		<div id="custom_date"<!-- IF not S_CUSTOM_DATEFORMAT --> style="display:none;"<!-- ENDIF -->><input type="text" name="dateformat" id="dateformat" value="{DATE_FORMAT}" maxlength="30" /></div>
+            </dd>
+        </dl>
+		<hr />
+		<dl>
+			<dt><label>{L_VIEW_TOPICS_DAYS}:</label></dt>
+			<dd>{S_TOPIC_SORT_DAYS}</dd>
+		</dl>
+		<dl>
+			<dt><label>{L_VIEW_TOPICS_KEY}:</label></dt>
+			<dd>{S_TOPIC_SORT_KEY}</dd>
+		</dl>
+		<dl>
+			<dt><label>{L_VIEW_TOPICS_DIR}:</label></dt>
+			<dd>{S_TOPIC_SORT_DIR}</dd>
+		</dl>
+		<hr />
+		<dl>
+			<dt><label>{L_VIEW_POSTS_DAYS}:</label></dt>
+			<dd>{S_POST_SORT_DAYS}</dd>
+		</dl>
+		<dl>
+			<dt><label>{L_VIEW_POSTS_KEY}:</label></dt>
+			<dd>{S_POST_SORT_KEY}</dd>
+		</dl>
+		<dl>
+			<dt><label>{L_VIEW_POSTS_DIR}:</label></dt>
+			<dd>{S_POST_SORT_DIR}</dd>
+		</dl>
+		<dl>
+			<dt><label>{L_BOARD_COUNTRY}</label></dt>
+			<dd><label><select name="u_country">
+        		<option value="0">---</option>
+        		{U_COUNTRY}
+      			</select></label>
+				</dd>
+			</dl>
+
+<!-- IF not S_FORCE_PASSKEY -->
+		<dl>
+			<dt><label>{L_USE_PASSKEY}:</strong></dt>
+			<dd><label><input type="checkbox" name="use_passkey" value="true" <!-- IF CP_PASSKEY != "" -->checked<!-- ENDIF --> /></label>
+				</dd>
+			</dl>
+
+<!-- ENDIF -->
+		<dl>
+			<dt><label>{L_RESSET_PASSKEY}:<br /><span><input rows="1" size="32" cols="32" readonly value="{CP_PASSKEY}" type="text"></span></dt>
+			<dd><label><input name="passkey_reset" value="true" type="checkbox"></label><br />
+        	<span>{L_RES_PASSKEY_WARNING}</span></dd>
+		</dl>
+		</fieldset>
+
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+<fieldset class="submit-buttons">
+	<input type="reset" value="{L_RESET}" name="reset" class="button2" />&nbsp; 
+	<input type="submit" name="submit" value="{L_SUBMIT}" class="button1" />
+</fieldset>
+</form>
+<!-- ELSEIF MODE == profile_info -->
+<form name="ucp" id="ucp" method="post" action="{PMBT_LINK_BACK}">
+<input type="hidden" name="take_edit" value="1" >
+<input type="hidden" name="action" value="profile" >
+<input type="hidden" name="op" value="editprofile" >
+<input type="hidden" name="mode" value="profile_info" />
+<!-- INCLUDE themes/1thank/templates/ucp_profile_profile_info.html -->
+<!-- ELSEIF MODE == friends -->
+<form name="formdata" id="ucp" method="post" action="{PMBT_LINK_BACK}">
+<input type="hidden" name="take_edit" value="1" >
+<input type="hidden" name="action" value="friends" >
+<input type="hidden" name="op" value="editprofile" >
+<input type="hidden" name="mode" value="friends" />
+<h2>{L_MANAGE_FRIENDS}</h2>
+
+<div class="panel">
+	<div class="inner"><span class="corners-top"><span></span></span>
+
+	<p>{L_FRIENDS_EXPLAIN}</p>
+
+	<fieldset class="fields2">
+	<!-- IF ERROR --><p class="error">{ERROR}</p><!-- ENDIF -->
+	<dl>
+		<dt><label <!-- IF S_USERNAME_OPTIONS -->for="usernames"<!-- ENDIF -->>{L_YOUR_FRIENDS}:</label><br /><span>{L_TO_REMOVE_USER}</span></dt>
+		<dd>
+			<!-- IF CP_FRIENDS -->
+				<select name="remove_friend[]" id="usernames" multiple="multiple" size="5">{CP_FRIENDS}</select>
+			<!-- ELSE -->
+				<strong>{L_NO_FRIENDS}</strong>
+			<!-- ENDIF -->
+		</dd>
+	</dl>
+	<dl>
+		<dt><label for="add">{L_ADD_FRIENDS}:</label><br /><span>{L_ENTER_USERS}</span></dt>
+		<dd><textarea name="add" id="add" rows="3" cols="30" class="inputbox">{USERNAMES}</textarea></dd>
+		<dd><strong><a href="javascript:popusers('userfind_to_pm.php');">{L_FIND_MEMBER}</a></strong></dd>
+	</dl>
+	</fieldset>
+
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+
+<fieldset class="submit-buttons">
+	{S_HIDDEN_FIELDS}<input type="reset" value="{L_RESET}" name="reset" class="button2" />&nbsp; 
+	<input type="submit" name="submit" value="{L_SUBMIT}" class="button1" />
+	{S_FORM_TOKEN}
+</fieldset>
+</form>
+
+<!-- ELSEIF MODE == foes -->
+<form name="ucp" id="formdata" method="post" action="{PMBT_LINK_BACK}">
+<input type="hidden" name="take_edit" value="1" >
+<input type="hidden" name="action" value="friends" >
+<input type="hidden" name="op" value="editprofile" >
+<input type="hidden" name="mode" value="foes" />
+<h2>{L_MANAGE_FOES}</h2>
+
+<div class="panel">
+	<div class="inner"><span class="corners-top"><span></span></span>
+
+	<p>{L_FOES_EXPLAIN}</p>
+
+	<fieldset class="fields2">
+	<!-- IF ERROR --><p class="error">{ERROR}</p><!-- ENDIF -->
+	<dl>
+		<dt><label <!-- IF S_USERNAME_OPTIONS -->for="usernames"<!-- ENDIF -->>{L_YOUR_FOES}:</label><br /><span>{L_TO_REMOVE_USER}</span></dt>
+		<dd>
+			<!-- IF CP_FOES -->
+				<select name="remove_foe[]" id="usernames" multiple="multiple" size="5">{CP_FOES}</select>
+			<!-- ELSE -->
+				<strong>{L_NO_FOES}</strong>
+			<!-- ENDIF -->
+		</dd>
+	</dl>
+	<dl>
+		<dt><label for="add">{L_ADD_FOES}:</label><br /><span>{L_ENTER_USERS}</span></dt>
+		<dd><textarea name="add" id="add" rows="3" cols="30" class="inputbox">{USERNAMES}</textarea></dd>
+		<dd><strong><a href="javascript:popusers('userfind_to_pm.php');">{L_FIND_MEMBER}</a></strong></dd>
+	</dl>
+	</fieldset>
+
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+
+<fieldset class="submit-buttons">
+	{S_HIDDEN_FIELDS}<input type="reset" value="{L_RESET}" name="reset" class="button2" />&nbsp; 
+	<input type="submit" name="submit" value="{L_SUBMIT}" class="button1" />
+	{S_FORM_TOKEN}
+</fieldset>
+</form>
+<!-- ELSEIF MODE == subscribed -->
+<form name="ucp" id="ucp" method="post" action="{PMBT_LINK_BACK}">
+{S_HIDDEN_FIELDS}
+<h2>{L_USER_CPANNEL}</h2>
+
+<p>{L_WATCHED_EXPLAIN}</p>
+
+<!-- IF S_TORRENT_NOTIFY -->
+<div class="panel">
+	<div class="inner"><span class="corners-top"><span></span></span>
+		<h2>{L__WATCHED_TORRENTS}</h2>
+ 	<ul class="topiclist">
+		<li class="header">
+			<dl class="icon">
+				<dt>{L_BOOKMARKS}</dt>
+				<dd class="lastpost"><span>{L_LAST_POST}</span></dd>
+			</dl>
+		</li>
+	</ul>
+	<ul class="topiclist cplist">
+       <!-- BEGIN torrentrow -->
+		<li class="row<!-- IF topicrow.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+			<dl class="icon" style="background-image: url({torrentrow.CAT_PIC}); background-repeat: no-repeat;">
+				<dt style="padding:0 0 0 5.5em;<!-- IF topicrow.TOPIC_ICON_IMG -->background-image: url({T_ICONS_PATH}{topicrow.TOPIC_ICON_IMG}); background-repeat: no-repeat;<!-- ENDIF -->" title="{topicrow.TOPIC_FOLDER_IMG_ALT}"><a href="{torrentrow.U_TORFORUM}">{torrentrow.TORRENT_NAME}</a><br />
+                <!-- IF torrentrow.CAN_EDIT --><a href="edit.php?id={torrentrow.TORRENT_ID}"><img src="themes/1thank/pics/edit.gif" alt="{L_BAN_TORRENT}" title="{L_BAN_TORRENT}" border="0"></a><!-- ENDIF -->
+                <!-- IF torrentrow.CAN_DELETE --><a href="edit.php?op=delete&amp;id={torrentrow.TORRENT_ID}"><img src="themes/1thank/pics/drop.gif" alt="{L_BAN_DELETE}" title="{L_BAN_DELETE}" border="0"></a><!-- ENDIF -->
+                <!-- IF torrentrow.CAN_BAN --><a href="edit.php?op=ban&amp;id={torrentrow.TORRENT_ID}"><img src="themes/1thank/pics/ban.png" alt="{L_BAN_TORRENT}" title="{L_BAN_TORRENT}" border="0"></a><!-- ENDIF -->
+                <!-- IF torrentrow.CAN_DOWNLOAD --><a class="index" href="download.php?id={torrentrow.TORRENT_ID}"><img style="border: medium none;" alt="{L_DOWNLOAD}" title="{L_DOWNLOAD}" src="themes/1thank/pics/download2.gif" align="left"></a><!-- ENDIF -->
+                <!-- IF torrentrow.TRACKER --><a href="scrape-external.php?id=279&amp;tracker={torrentrow.TRACKER}&amp;return={PMBT_LINK_BACK}mode={MODE}&amp;action={ACTION}"><img src="themes/1thank/pics/refresh.png" alt="{L_REFRESH_TORRENT}" title="{L_REFRESH_TORRENT}" border="0"></a><!-- ENDIF -->
+        		</dt>
+       		<dd class="lastpost"><span><dfn>{L_LAST_POST} </dfn>{L_AUTHOR} {torrentrow.LAST_POST_AUTHOR}
+					<a href="{torrentrow.U_LAST_POST}">{LAST_POST_IMG}</a> <br />{torrentrow.LAST_POST_ADDED}</span></dd>
+			<dd class="mark"><input type="checkbox" class="radio" name="to[{torrentrow.TORRENT_ID}]" /></dd>
+	</dl>
+    <!-- BEGINELSE -->
+	<dl>
+		<dt><label>{L_USERNAME}:</label></dt>
+	</dl>
+    </li>
+    <!-- END torrentrow -->
+    </ul>
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+<!-- ENDIF -->
+<!-- IF S_FORUM_NOTIFY -->
+<!-- IF .forumrow -->
+<div class="panel">
+	<div class="inner"><span class="corners-top"><span></span></span>
+		<h2>{L_WATCHED_FORUMS}</h2>
+	<ul class="topiclist">
+		<li class="header">
+			<dl class="icon">
+				<dt>{L_BOOKMARKS}</dt>
+				<dd class="lastpost"><span>{L_LAST_POST}</span></dd>
+			</dl>
+		</li>
+	</ul>
+	<ul class="topiclist cplist">
+
+    <!-- BEGIN forumrow -->
+		<li class="row<!-- IF forumrow.S_TOPIC_REPORTED --> reported<!-- ELSEIF forumrow.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+			<!-- IF forumrow.S_DELETED_TOPIC -->
+				<dl><dt><strong>{L_DELETED_TOPIC}</strong></dt>
+				<dd class="mark"><input type="checkbox" name="t[{forumrow.TOPIC_ID}]" id="t{forumrow.TOPIC_ID}" /></dd>
+				</dl>
+			<!-- ELSE -->
+			<dl class="icon" style="background-image: url({forumrow.TOPIC_FOLDER_IMG_SRC}); background-repeat: no-repeat;">
+				<dt style="<!-- IF forumrow.TOPIC_ICON_IMG -->background-image: url({T_ICONS_PATH}{forumrow.TOPIC_ICON_IMG}); background-repeat: no-repeat;<!-- ENDIF -->" title="{forumrow.TOPIC_FOLDER_IMG_ALT}">
+					<!-- IF forumrow.S_UNREAD_TOPIC --><a href="{forumrow.U_NEWEST_POST}">{NEWEST_POST_IMG}</a> <!-- ENDIF --><a href="{forumrow.U_VIEW_FORUM}" class="topictitle">{forumrow.FORUM_NAME}</a>
+					<!-- IF forumrow.S_TOPIC_UNAPPROVED or forumrow.S_POSTS_UNAPPROVED --><a href="{forumrow.U_MCP_QUEUE}">{forumrow.UNAPPROVED_IMG}</a> <!-- ENDIF -->
+					<!-- IF forumrow.S_TOPIC_REPORTED --><a href="{forumrow.U_MCP_REPORT}">{REPORTED_IMG}</a><!-- ENDIF --><br />
+					<!-- IF forumrow.PAGINATION --><strong class="pagination"><span>{forumrow.PAGINATION}</span></strong><!-- ENDIF -->
+					<!-- IF forumrow.ATTACH_ICON_IMG -->{forumrow.ATTACH_ICON_IMG} <!-- ENDIF -->{L_AUTHOR} {forumrow.TOPIC_AUTHOR_FULL} <br /> {forumrow.FIRST_POST_TIME}
+				</dt>
+				<dd class="lastpost"><span><dfn>{L_LAST_POST} </dfn><a href="{forumrow.U_VIEW_TOPIC}" class="topictitle">{forumrow.TOPIC_TITLE}</a><br />{L_AUTHOR} {forumrow.LAST_POST_AUTHOR_FULL}
+					<a href="{forumrow.U_LAST_POST}">{LAST_POST_IMG}</a> <br />{forumrow.LAST_POST_TIME}</span>
+				</dd>
+				<dd class="mark"><input type="checkbox" name="f[{forumrow.TOPIC_ID}]" id="f{forumrow.TOPIC_ID}" /></dd>
+			</dl>
+			<!-- ENDIF -->
+		</li>
+    <!-- END forumrow -->
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+<!-- ENDIF -->
+<!-- IF S_FORUM_NOTIFY -->
+<div class="panel">
+	<div class="inner"><span class="corners-top"><span></span></span>
+		<h2>{L_WATCHED_FORUMS}</h2>
+<!-- IF .topicrow -->
+	<ul class="topiclist">
+		<li class="header">
+			<dl class="icon">
+				<dt>{L_BOOKMARKS}</dt>
+				<dd class="lastpost"><span>{L_LAST_POST}</span></dd>
+			</dl>
+		</li>
+	</ul>
+	<ul class="topiclist cplist">
+
+	<!-- BEGIN topicrow -->
+		<li class="row<!-- IF topicrow.S_TOPIC_REPORTED --> reported<!-- ELSEIF topicrow.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+			<!-- IF topicrow.S_DELETED_TOPIC -->
+				<dl><dt><strong>{L_DELETED_TOPIC}</strong></dt>
+				<dd class="mark"><input type="checkbox" name="t[{topicrow.TOPIC_ID}]" id="t{topicrow.TOPIC_ID}" /></dd>
+				</dl>
+			<!-- ELSE -->
+			<dl class="icon" style="background-image: url({topicrow.TOPIC_FOLDER_IMG_SRC}); background-repeat: no-repeat;">
+				<dt style="<!-- IF topicrow.TOPIC_ICON_IMG -->background-image: url({T_ICONS_PATH}{topicrow.TOPIC_ICON_IMG}); background-repeat: no-repeat;<!-- ENDIF -->" title="{topicrow.TOPIC_FOLDER_IMG_ALT}">
+					<!-- IF topicrow.S_UNREAD_TOPIC --><a href="{topicrow.U_NEWEST_POST}">{NEWEST_POST_IMG}</a> <!-- ENDIF --><a href="{topicrow.U_VIEW_TOPIC}" class="topictitle">{topicrow.TOPIC_TITLE}</a>
+					<!-- IF topicrow.S_TOPIC_UNAPPROVED or topicrow.S_POSTS_UNAPPROVED --><a href="{topicrow.U_MCP_QUEUE}">{topicrow.UNAPPROVED_IMG}</a> <!-- ENDIF -->
+					<!-- IF topicrow.S_TOPIC_REPORTED --><a href="{topicrow.U_MCP_REPORT}">{REPORTED_IMG}</a><!-- ENDIF --><br />
+					<!-- IF topicrow.PAGINATION --><strong class="pagination"><span>{topicrow.PAGINATION}</span></strong><!-- ENDIF -->
+					<!-- IF topicrow.ATTACH_ICON_IMG -->{topicrow.ATTACH_ICON_IMG} <!-- ENDIF -->{L_AUTHOR} {topicrow.TOPIC_AUTHOR_FULL} <br /> {topicrow.FIRST_POST_TIME}
+				</dt>
+				<dd class="lastpost"><span><dfn>{L_LAST_POST} </dfn>{L_AUTHOR} {topicrow.LAST_POST_AUTHOR_FULL}
+					<a href="{topicrow.U_LAST_POST}">{LAST_POST_IMG}</a> <br />{topicrow.LAST_POST_TIME}</span>
+				</dd>
+				<dd class="mark"><input type="checkbox" name="t[{topicrow.TOPIC_ID}]" id="t{topicrow.TOPIC_ID}" /></dd>
+			</dl>
+			<!-- ENDIF -->
+		</li>
+	<!-- END topicrow -->
+	</ul>
+	<ul class="linklist">
+		<li class="rightside pagination">
+			<!-- IF TOTAL_TOPICS --> {TOTAL_TOPICS} <!-- ENDIF -->
+			<!-- IF PAGE_NUMBER --><!-- IF PAGINATION --> &bull; <a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{PAGE_NUMBER}</a> &bull; <span>{PAGINATION}</span><!-- ELSE --> &bull; {PAGE_NUMBER}<!-- ENDIF --><!-- ENDIF -->
+		</li>
+	</ul>
+<!-- ELSE -->
+	<p><strong>{L_NO_BOOKMARKS}</strong></p>
+<!-- ENDIF -->
+<!-- ENDIF -->
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+<!-- ENDIF -->
+<!-- IF .topicrow or .forumrow or .torrentrow -->
+	<fieldset class="display-actions">
+		<input type="submit" name="unbookmark" value="{L_REMOVE_BOOKMARK_MARKED}" class="button2" />
+        <div class="gensmall" style="float: right; padding-top: 2px;">
+            <strong><a href="#" onclick="marklist('ucp', 't', true); marklist('ucp', 'f', true); return false;">{L_MARK_ALL}</a> ::
+            <a href="#" onclick="marklist('ucp', 't', false);marklist('ucp', 'f', false); return false;">{L_UNMARK_ALL}</a></strong>
+        </div>
+	</fieldset>
+<!-- ENDIF -->
+</form>
+<!-- ELSEIF MODE == drafts -->
+<form id="postform" method="post" name="ucp" action="{PMBT_LINK_BACK}action=overview&mode=drafts">
+<h2>{L_USER_CPANNEL}</h2>
+
+<div class="panel">
+	<div class="inner"><span class="corners-top"><span></span></span>
+
+	<p>{L_DRAFTS_EXPLAIN}</p>
+
+<!-- IF S_EDIT_DRAFT -->
+
+		<!-- INCLUDE themes/1thank/templates/posting_editor.html -->
+		<span class="corners-bottom"><span></span></span></div>
+	</div>
+
+			<fieldset class="submit-buttons">
+				{S_HIDDEN_FIELDS}<input type="reset" value="{L_RESET}" name="reset" class="button2" />&nbsp;
+				<input type="submit" name="submit" value="{L_SAVE}" class="button1" />
+				{S_FORM_TOKEN}
+			</fieldset>
+
+<!-- ELSE -->
+
+	<!-- IF .draftrow -->
+		<ul class="topiclist">
+			<li class="header">
+				<dl>
+					<dt>{L_DRAFT_TITLE}</dt>
+					<dd class="info"><span>{L_SAVE_DATE}</span></dd>
+					<dd class="mark">{L_MARK}</dd>
+				</dl>
+			</li>
+		</ul>
+		<ul class="topiclist cplist">
+
+		<!-- BEGIN draftrow -->
+			<li class="row<!-- IF draftrow.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+				<dl>
+					<dt>
+						<a class="topictitle" href="{draftrow.U_VIEW_EDIT}">{draftrow.DRAFT_SUBJECT}</a><br />
+						<!-- IF draftrow.S_LINK_TOPIC -->{L_TOPIC}: <a href="{draftrow.U_VIEW}">{draftrow.TITLE}</a>
+						<!-- ELSEIF draftrow.S_LINK_FORUM -->{L_FORUM}: <a href="{draftrow.U_VIEW}">{draftrow.TITLE}</a>
+						<!-- ELSEIF draftrow.S_LINK_PM -->{L__PRIVATE_MESSAGE}: <a href="{draftrow.U_VIEW}">{draftrow.TITLE}</a>
+						<!-- ELSE -->{L__NO_TOPIC_FORUM}<!-- ENDIF -->
+					</dt>
+					<dd class="info"><span>{draftrow.DATE}<br /><!-- IF draftrow.U_INSERT --><a href="{draftrow.U_INSERT}">{L_LOAD_DRAFT}</a> &bull; <!-- ENDIF --><a href="{draftrow.U_VIEW_EDIT}">{L_VIEW_EDIT}</a></span></dd>
+					<dd class="mark"><input type="checkbox" name="d[{draftrow.DRAFT_ID}]" id="d{draftrow.DRAFT_ID}" /></dd>
+				</dl>
+			</li>
+		<!-- END draftrow -->
+		</ul>
+	<!-- ELSE -->
+		<p><strong>{L_NO_SAVED_DRAFTS}</strong></p>
+	<!-- ENDIF -->
+
+		<span class="corners-bottom"><span></span></span></div>
+	</div>
+
+	<!-- IF .draftrow -->
+		<fieldset class="display-actions">
+			<input class="button2" type="submit" name="delete" value="{L_DELETE_MARKED}" />
+			<div><a href="#" onclick="marklist('postform', '', true); return false;">{L_MARK_ALL}</a> &bull; <a href="#" onclick="marklist('postform', '', false); return false;">{L_UNMARK_ALL}</a></div>
+			{S_FORM_TOKEN}
+		</fieldset>
+	<!-- ENDIF -->
+
+<!-- ENDIF -->
+
+</form>
+<!-- ELSEIF MODE == attachments -->
+<form name="ucp" id="ucp" method="post" action="{PMBT_LINK_BACK}action=overview&amp;mode=attachments">
+<input type="hidden" name="op" value="editprofile" >
+<h2>{L_ATTACHMENTS}</h2>
+
+<div class="panel">
+	<div class="inner"><span class="corners-top"><span></span></span>
+	
+	<p>{L__ATTACHMENTS_EXPLAIN}</p>
+
+	<!-- IF .attachrow -->
+		<ul class="linklist">
+			<li class="rightside pagination">
+				<!-- IF TOTAL_ATTACHMENTS -->{TOTAL_ATTACHMENTS} {L_TITLE}<!-- ENDIF -->
+				<!-- IF PAGE_NUMBER --><!-- IF PAGINATION --> &bull; <a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{PAGE_NUMBER}</a> &bull; <span>{PAGINATION}</span><!-- ELSE --> &bull; {PAGE_NUMBER}<!-- ENDIF --><!-- ENDIF -->
+			</li>
+		</ul>	
+		
+		<ul class="topiclist">
+			<li class="header">
+				<dl>
+					<dt style="width: 40%"><a href="{U_SORT_FILENAME}">{L_NAME}</a></dt>
+					<dd class="extra"><a href="{U_SORT_DOWNLOADS}">{L_DOWNED}</a></dd>
+					<dd class="time"><span><a href="{U_SORT_POST_TIME}">{L_POST_TIME}</a></span></dd>
+					<dd class="mark">{L_MARK}</dd>
+				</dl>
+			</li>
+		</ul>
+		<ul class="topiclist cplist">
+
+		<!-- BEGIN attachrow -->
+		<li class="row<!-- IF attachrow.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF -->">
+			<dl>
+				<dt style="width: 40%"><a href="{attachrow.U_VIEW_ATTACHMENT}" class="topictitle">{attachrow.FILENAME}</a> ({attachrow.SIZE})<br />
+					<!-- IF attachrow.S_IN_MESSAGE -->{L__PRIVATE_MESSAGE}: <!-- ELSE -->{L_TOPIC}: <!-- ENDIF --><a href="{attachrow.U_VIEW_TOPIC}">{attachrow.TOPIC_TITLE}</a></dt>
+				<dd class="extra">{attachrow.DOWNLOAD_COUNT}</dd>
+				<dd class="time"><span>{attachrow.POST_TIME}</span></dd>
+				<dd class="mark"><input type="checkbox" name="attachment[{attachrow.ATTACH_ID}]" value="1" /></dd>
+			</dl>
+		</li>
+		<!-- END attachrow -->
+		</ul>
+
+		<fieldset class="display-options">
+			<!-- IF NEXT_PAGE --><a href="{NEXT_PAGE}" class="right-box {S_CONTENT_FLOW_END}">{L_NEXT}</a><!-- ENDIF -->
+			<!-- IF PREVIOUS_PAGE --><a href="{PREVIOUS_PAGE}" class="left-box {S_CONTENT_FLOW_BEGIN}">{L_PREVIOUS}</a><!-- ENDIF -->
+			<label for="sk">{L_SORT_BY}: <select name="sk" id="sk">{S_SORT_OPTIONS}</select></label> 
+			<label><select name="sd" id="sd">{S_ORDER_SELECT}</select></label>
+			<input class="button2" type="submit" name="sort" value="{L_SORT}" />
+			{S_FORM_TOKEN}
+		</fieldset>
+
+		<hr />
+		
+		<ul class="linklist">
+			<li class="rightside pagination">
+				<!-- IF TOTAL_ATTACHMENTS -->{TOTAL_ATTACHMENTS} {L_TITLE}<!-- ENDIF -->
+				<!-- IF PAGE_NUMBER --><!-- IF PAGINATION --> &bull; <a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{PAGE_NUMBER}</a> &bull; <span>{PAGINATION}</span><!-- ELSE --> &bull; {PAGE_NUMBER}<!-- ENDIF --><!-- ENDIF -->
+			</li>
+		</ul>
+	<!-- ELSE -->
+		<p><strong>{L_UCP_NO_ATTACHMENTS}</strong></p>
+	<!-- ENDIF -->
+
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+	
+<!-- IF S_ATTACHMENT_ROWS -->
+	<fieldset class="display-actions">	
+		<input class="button2" type="submit" name="delete" value="{L_DELETE_MARKED}" />
+		<div><a href="#" onclick="marklist('ucp', 'attachment', true); return false;">{L_MARK_ALL}</a> &bull; <a href="#" onclick="marklist('ucp', 'attachment', false); return false;">{L_UNMARK_ALL}</a></div>
+		{S_FORM_TOKEN}
+	</fieldset>
+<!-- ENDIF -->
+</form>
+<!-- ELSE -->
+
+<h2>{L_USER_CPANNEL}</h2>
+
+<div class="panel">
+	<div class="inner"><span class="corners-top"><span></span></span>
+
+	<p>{L_UCP_EXPLANE}</p>
+
+	<h3>{L_IMPORT_ANNOUNCE}</h3>
+	<ul class="topiclist cplist">
+		<li class="row bg1">
+			<dl>
+				<dt>
+                {S_ANNOUCEMENTS}
+				</dt>
+				<dd class="lastpost">
+				</dd>
+			</dl>
+		</li>
+     </ul>
+	<h3>{L_YOUR_ACTIVATY}</h3>
+	<dl class="details">
+		<dt>{l_JOINED}:</dt> <dd>{CP_UREGDATE}</dd>
+		<dt>{L_LAST_SEEN}:</dt> <dd>{CP_ULASTSEEN}</dd>
+		<dt>{L_TOTAL_POSTS}:</dt> <dd><!-- IF POSTS_PCT -->{POSTS_PCT} | <strong><a href="{U_SEARCH_USER}">{L_SEARCH_USER_POST}</a></strong><br />({POSTS_DAY} / {POSTS_PCT})<!-- ELSE -->{POSTS}<!-- ENDIF --></dd>
+		<!-- IF ACTIVE_FORUM --><dt>{L_ACTIVE_IN_FORUM}:</dt> <dd><strong><a href="{U_ACTIVE_FORUM}">{ACTIVE_FORUM}</a></strong><br />({ACTIVE_FORUM_POSTS} / {ACTIVE_FORUM_PCT})</dd><!-- ENDIF -->
+		<!-- IF ACTIVE_TOPIC --><dt>{L_ACTIVE_IN_TOPIC}:</dt> <dd><strong><a href="{U_ACTIVE_TOPIC}">{ACTIVE_TOPIC}</a></strong><br />({ACTIVE_TOPIC_POSTS} / {ACTIVE_TOPIC_PCT})</dd><!-- ENDIF -->
+	</dl>
+
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+<!-- ENDIF -->
+<!-- INCLUDE themes/1thank/templates/ucp_footer.html -->

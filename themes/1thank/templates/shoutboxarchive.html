@@ -1,0 +1,160 @@
+<!-- INCLUDE themes/1thank/templates/overall_header.html -->
+
+<form method="post" action="shoutboxarchive.php">
+<input type="hidden" name="do" value="archive" />
+<input type="hidden" name="search" value="1" />
+<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td width="70%" align='left' valign='top'>
+            <table class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+                <tr>
+                    <td class="tcat" align="left">
+                        {L_SHOUTBOX_ARCHIVE}
+                    </td>
+                </tr>
+<!-- BEGIN shoutbox_archive_shout -->
+                    <tbody id="shout_row_484">
+                        <tr>
+                            <td class="thead" align="left">
+                                <span style='float:right'>{shoutbox_archive_shout.TIME}</span>
+                                <a href="user.php?op=profile&id={shoutbox_archive_shout.UID}"><font style="background-color: #{shoutbox_archive_shout.U_COLOR};" color="#000">{shoutbox_archive_shout.U_NAME}</font></a> <!-- IF shoutbox_archive_shout.CAN_ED --><span ondblclick="sndReq('op=edit_archive_shout&shout={shoutbox_archive_shout.SHOUTID}', 'shout_archive_edit_{shoutbox_archive_shout.SHOUTID}')">{L_EDIT}&nbsp;</span><!-- ENDIF --> <!-- IF shoutbox_archive_shout.CAN_DEL --><span onclick="if(confirm('Delete Shout?')==true) sndReq('op=take_delete_shout&shout={shoutbox_archive_shout.SHOUTID}', 'shout_row_{shoutbox_archive_shout.SHOUTID}')">{L_DELETE}</span><!-- ENDIF -->
+                                <!-- IF shoutbox_archive_shout.U_DONER -->
+                                <img src="images/donorstar.gif" border="0" alt="{L_DONOR}" title="{L_DONOR}"><!-- ENDIF -->
+                                <!-- IF shoutbox_archive_shout.U_WARNED -->
+                                <img src="images/warning.gif" border="0" alt="{L_WARNED}" title="{L_WARNED}"><!-- ENDIF -->
+                                <!-- IF shoutbox_archive_shout.U_BANNED -->
+                                <img src="themes/1thank/pics/banned.png" border="0" alt="{L_BANNED}" title="{L_BANNED}"><!-- ENDIF -->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="alt1" width="1%" align="left" id="shout_shell_{shoutbox_archive_shout.SHOUTID}">
+                                <div id="shout_{shoutbox_archive_shout.SHOUTID}">
+                                     {shoutbox_archive_shout.SHOUT}
+                                </div>
+                                <div id="shout_archive_edit_{shoutbox_archive_shout.SHOUTID}">
+                                </div>
+
+                            </td>
+                        </tr>
+                    </tbody>
+<!-- BEGINELSE -->
+                    <tr>
+                        <td>
+                            <p>{L_NO_SHOUTS}</p>
+                        </td>
+                    </tr>
+<!-- END shoutbox_archive_shout -->
+                </table>
+            </td>
+            <td>&nbsp;&nbsp;</td>
+            <td width='30%' align='right' valign='top'>
+                <table class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+                    <thead>
+                        <tr>
+                            <td class="tcat" align="left" colspan="2">
+                                {L_STATISTICS}
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody id="collapseobj_infernoshout_stats" style="">
+                        <tr>
+                            <td class="alt1" align="left">
+                                <strong>{L_TOTAL_SHOUTS_POSTED}:</strong>
+                            </td>
+                            <td class="alt2" width="1%" align="left">
+                                {TOTAL_SHOUTS}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="alt1" align="left">
+                                <strong>{L_SHOUTS_IN_TWFOUR}:</strong>
+                            </td>
+                            <td class="alt2" width="1%" align="left">
+                                {SHOUTS_TODAY}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="alt1" align="left">
+                                <strong>{L_YOUR_SHOUTS}:</strong>
+                            </td>
+                            <td class="alt2" width="1%" align="left">
+                                {YOUR_SHOUTS}
+                            </td>
+                        </tr>
+                    </tbody>
+                        <tr>
+                            <td class="thead" align="left" colspan="2">
+                                {L_SEARCH_SHOUTS}
+                            </td>
+                        </tr>
+                    <tbody id="collapseobj_infernoshout_stats_search" style="">
+                        <tr>
+                            <td class="alt1" align="left" colspan="2" valign="middle" style="white-space: nowrap;">
+                                <fieldset class="fieldset">
+                                <legend>{L_SEARCH_TERM}</legend>
+                                    <table cellpadding="0" cellspacing="4" border="0" width="100%">
+                                        <tr>
+                                            <td style="white-space: nowrap;"><strong>{L_SEARCH_CONTAINS}:</strong></td>
+                                            <td><input type="text" name="search[phrase]" value="{SEARCH_WORD}" size="25" class="bginput" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="white-space: nowrap;"><strong>{L_USERNAME_CONTAINS}:</strong></td>
+                                            <td><input type="text" name="search[username]" value="{SEARCH_USER}" size="25" class="bginput" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="white-space: nowrap;"><strong>{L_SEARCH_TIME}:</strong></td>
+                                            <td><input type="text" name="search[time]" value="{SEARCH_TIME}" size="2" class="bginput" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="white-space: nowrap;"><strong>{L_SORT_BY}:</strong></td>
+                                            <td>
+                                                <span style="float: right">
+                                                <input type="submit" class="button" value="{L_SEARCH}" /></span>
+                                                <select class="bginput" name="search[sort]">
+                                                <option value="new" <!-- IF SEARCH_SORT == new -->selected<!-- ENDIF -->>{L_NEW_FIRST}</option>
+                                                <option value="old" <!-- IF SEARCH_SORT == old -->selected<!-- ENDIF -->>{L_OLD_FIRST}</option>
+                                            </select>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </fieldset>
+                            </td>
+                        </tr>
+                    </tbody>
+                        <tr>
+                            <td class="thead" align="left" colspan="2">
+                                {L_TOPFIFTEEN_SHOUTERS}
+                            </td>
+                        </tr>
+                    <tbody id="collapseobj_infernoshout_stats_top10" style="">
+<!-- BEGIN shoutbox_archive_topshouter -->
+
+                        <tr>
+                            <td class="alt1" align="left">
+                                <a href="user.php?op=profile&id={shoutbox_archive_topshouter.UID}"><font style="background-color: #{shoutbox_archive_topshouter.U_COLOR};" color="#000">{shoutbox_archive_topshouter.U_NAME}</font></a>
+                                <!-- IF shoutbox_archive_topshouter.U_DONER -->
+                                <img src="images/donorstar.gif" border="0" alt="{L_DONOR}" title="{L_DONOR}"><!-- ENDIF -->
+                                <!-- IF shoutbox_archive_topshouter.U_WARNED -->
+                                <img src="images/warning.gif" border="0" alt="{L_WARNED}" title="{L_WARNED}"><!-- ENDIF -->
+                                <!-- IF shoutbox_archive_topshouter.U_BANNED -->
+                                <img src="themes/1thank/pics/banned.png" border="0" alt="{L_BANNED}" title="{L_BANNED}"><!-- ENDIF -->
+                            </td>
+                            <td class="alt2" width="1%" align="left">
+                                {shoutbox_archive_topshouter.SHOUTS}
+                            </td>
+                        </tr>
+<!-- END shoutbox_archive_topshouter -->
+                    </tbody>
+
+                </table>
+            </td>
+        </tr>
+    </table>
+</form>
+<!-- IF PAGINATION -->
+<div class="pagination" style="float: right; margin: 15px 0 15px 0">
+    <a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{S_ON_PAGE}</a> &bull; <span>{PAGINATION}</span>
+</div>
+<!-- ENDIF -->
+
+<!-- INCLUDE themes/1thank/templates/overall_footer.html -->

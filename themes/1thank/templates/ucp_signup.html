@@ -1,0 +1,141 @@
+<!-- INCLUDE themes/1thank/templates/semple_header.html -->
+<!-- IF not S_LOSTPASS -->
+<h2>{L_REGISTOR}</h2>
+
+<div class="panel">
+	<div class="inner"><span class="corners-top"><span></span></span>
+		<fieldset>
+            <span>
+                <p align="center">{L_WELCOME}</p>
+            </span>
+            <form method="post" action="{U_ACTION}">
+            {HIDDEN}
+            <dl>
+                <dt><label for="images1">{L_USER_NAME}:</label></dt>
+                <dd>
+                	<input type="text" name="username" size="60" />
+                </dd>
+            </dl>
+            <dl>
+                <dt><label for="email">{L_USER_EMAIL_ADD}:</label></dt>
+                <dd>
+                	<input type="text" name="email" size="60" />
+                </dd>
+            </dl>
+            <dl>
+                <dt><label for="password">{L_PASSWORD}:</label><br />
+                	<span class="gensmall">{L_PASSWORD_EXP}</span>
+                </dt>
+                <dd>
+                	<input type="password" name="password" size="60" />
+                </dd>
+            </dl>
+            <dl>
+                <dt><label for="password">{L_PASSWORD_CONFIRM}:</label></dt>
+                <dd>
+                	<input type="password" name="cpassword" size="60" />
+                </dd>
+            </dl>
+            <!-- IF S_DISCLAIMER -->
+            <dl>
+                <dt><label for="email">{L_TERMS_CONDITION}:</label></dt>
+                <dd>
+                    <table border="1" bgcolor="#3b3b3b" width="100%">
+                        <tr>
+                            <td class="shoutbox">
+                                {U_DISCLAIMER}
+                            </td>
+                        </tr>
+                    </table><br />
+                	<span class="gensmall">
+                    {L_DISCLAIMER_ACCEPT}
+                    <input type="radio" value="yes" name="disclaimer" />
+                    {L_DISCLAIMER_DECLINE}
+                    <input type="radio" name="disclaimer" value="no" checked />
+					</span>
+                </dd>
+            </dl>
+            <!-- ENDIF -->
+            <!-- IF S_CAPTCHA -->
+            <dl>
+                <dt><label for="email">{L_SECURITY_CODE}:</label></dt>
+                <!-- IF RECAPTCHA -->
+                <dd>
+                	<div class="g-recaptcha" data-sitekey="{RECAPTCHA}"></div>
+                </dd>
+                <!-- ELSE -->
+                <dd>
+					{GFX_CODE}<br />
+                    <input type="text" name="gfxcode" size="10" maxlength="6" />
+                </dd>
+                <!-- ENDIF -->
+            </dl>
+            <!-- ENDIF -->
+		</fieldset>
+
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+
+<fieldset class="submit-buttons">
+                                        <input type="submit" value="{L_SIGN_UP}" />
+                                        <input type="reset" value="{L_CANCEL}" />
+</fieldset>
+</form>
+<!-- ELSE -->
+<h2>{L_LOST_PASSWORD}</h2>
+
+<div class="panel">
+	<div class="inner"><span class="corners-top"><span></span></span>
+		<fieldset>
+            <span>
+                <p align="center">{L_LOST_PASS_INTRO}</p>
+            </span>
+            <form method="post" action="{U_ACTION}">
+            {HIDDEN}
+            <dl>
+                <dt><label for="images1">{L_USER_NAME}:</label></dt>
+                <dd>
+                	<input type="text" name="username" size="60" />
+                </dd>
+            </dl>
+            <dl>
+                <dt><label for="password">{L_PASSWORD}:</label><br />
+                	<span class="gensmall">{L_PASSWORD_EXP}</span>
+                </dt>
+                <dd>
+                	<input type="password" name="npasswd" size="60" />
+                </dd>
+            </dl>
+            <dl>
+                <dt><label for="password">{L_PASSWORD_CONFIRM}:</label></dt>
+                <dd>
+                	<input type="password" name="cpasswd" size="60" />
+                </dd>
+            </dl>
+            <!-- IF S_GFX_CHECK -->
+            <dl>
+                <dt><label for="email">{L_SECURITY_CODE}:</label></dt>
+                <!-- IF RECAPTCHA -->
+                <dd>
+                	<div class="g-recaptcha" data-sitekey="{RECAPTCHA}"></div>
+                </dd>
+                <!-- ELSE -->
+                <dd>
+					{GFX_CODE}<br />
+                    <input type="text" name="gfxcode" size="10" maxlength="6" />
+                </dd>
+                <!-- ENDIF -->
+            </dl>
+            <!-- ENDIF -->
+		</fieldset>
+
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+
+<fieldset class="submit-buttons">
+                                        <input type="submit" value="{L_SIGN_UP}" />
+                                        <input type="reset" value="{L_CANCEL}" />
+</fieldset>
+</form>
+    <!-- ENDIF -->
+    <!-- INCLUDE themes/1thank/templates/overall_footer.html -->

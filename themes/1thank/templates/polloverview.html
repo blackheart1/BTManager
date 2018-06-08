@@ -1,0 +1,296 @@
+<!-- INCLUDE themes/1thank/templates/overall_header.html -->
+
+<!-- IF POLLS_VIEW -->
+<!-- BEGIN poll_out -->
+<table>
+	<tbody>
+		<tr>
+			<td>
+				<div class="caption">
+					<div class="cap-left">
+						<div class="cap-right">
+							{poll_out.POLL_QUESTION}
+						</div>
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr valign="middle">
+			<td class="row3">
+				<div id="nnPolls_Overview_{poll_out.ID}">
+					<p class="sub">{poll_out.ADDED} GMT (&lt; {poll_out.TIME_ELAPS} ago)<!-- IF poll_out.CAN_EDIT --> - [<a href="makepoll.php?action=edit&amp;pollid={poll_out.POLL_ID}"><strong>{L_EDIT}</strong></a>] - [<a href="?action=delete&amp;pollid={poll_out.POLL_ID}"><strong>{L_DELETE}</strong></a>]<!-- ENDIF -->
+					<a name="4"></a>
+					</p>
+					<table width="100%" class='poll' border="1" cellpadding="2" cellspacing="2">
+						<tbody>
+							<tr class='poll'>
+								<td  class='poll'>
+									<p align="center"><strong>{poll_out.POLL_QUESTION}</strong></p>
+									<table width="100%" class='poll' border="1" cellpadding="2" cellspacing="2">
+										<tbody>
+											<tr class='poll'>
+												<td width="1%">{poll_out.OP_A}</td>
+												<td width="99%"><img src="{SITE_URL}/images/bar_left.gif"><img src="{SITE_URL}/images/bar.gif" width="{poll_out.OP_A_IMG}" height="10"><img src="{SITE_URL}/images/bar_right.gif"> {poll_out.OP_A_ANSWERS}%</td>
+											</tr>
+											<tr>
+												<td width="1%">{poll_out.OP_B}</td>
+												<td width="99%"><img src="{SITE_URL}/images/bar_left.gif"><img src="{SITE_URL}/images/bar.gif" width="{poll_out.OP_B_IMG}" height="10"><img src="{SITE_URL}/images/bar_right.gif"> {poll_out.OP_B_ANSWERS}%</td>
+											</tr>
+<!-- IF poll_out.OP_C -->
+											<tr>
+												<td width="1%">{poll_out.OP_C}</td>
+												<td width="99%"><img src="{SITE_URL}/images/bar_left.gif"><img src="{SITE_URL}/images/bar.gif" width="{poll_out.OP_C_IMG}" height="10"><img src="{SITE_URL}/images/bar_right.gif"> {poll_out.OP_C_ANSWERS}%</td>
+											</tr>
+<!-- ENDIF -->
+<!-- IF poll_out.OP_D -->
+											<tr>
+												<td width="1%">{poll_out.OP_D}</td>
+												<td width="99%"><img src="{SITE_URL}/images/bar_left.gif"><img src="{SITE_URL}/images/bar.gif" width="{poll_out.OP_D_IMG}" height="10"><img src="{SITE_URL}/images/bar_right.gif"> {poll_out.OP_D_ANSWERS}%</td>
+											</tr>
+<!-- ENDIF -->
+<!-- IF poll_out.OP_E -->
+											<tr>
+												<td width="1%">{poll_out.OP_E}</td>
+												<td width="99%"><img src="{SITE_URL}/images/bar_left.gif"><img src="{SITE_URL}/images/bar.gif" width="{poll_out.OP_E_IMG}" height="10"><img src="{SITE_URL}/images/bar_right.gif"> {poll_out.OP_E_ANSWERS}%</td>
+											</tr>
+<!-- ENDIF -->
+<!-- IF poll_out.OP_F -->
+											<tr>
+												<td width="1%">{poll_out.OP_F}</td>
+												<td width="99%"><img src="{SITE_URL}/images/bar_left.gif"><img src="{SITE_URL}/images/bar.gif" width="{poll_out.OP_F_IMG}" height="10"><img src="{SITE_URL}/images/bar_right.gif"> {poll_out.OP_F_ANSWERS}%</td>
+											</tr>
+<!-- ENDIF -->
+<!-- IF poll_out.OP_G -->
+											<tr>
+												<td width="1%">{poll_out.OP_C}</td>
+												<td width="99%"><img src="{SITE_URL}/images/bar_left.gif"><img src="{SITE_URL}/images/bar.gif" width="{poll_out.OP_G_IMG}" height="10"><img src="{SITE_URL}/images/bar_right.gif"> {poll_out.OP_G_ANSWERS}%</td>
+											</tr>
+<!-- ENDIF -->
+<!-- IF poll_out.OP_H -->
+											<tr>
+												<td width="1%">{poll_out.OP_C}</td>
+												<td width="99%"><img src="{SITE_URL}/images/bar_left.gif"><img src="{SITE_URL}/images/bar.gif" width="{poll_out.OP_H_IMG}" height="10"><img src="{SITE_URL}/images/bar_right.gif"> {poll_out.OP_H_ANSWERS}%</td>
+											</tr>
+<!-- ENDIF -->
+<!-- IF poll_out.OP_I -->
+											<tr>
+												<td width="1%">{poll_out.OP_C}</td>
+												<td width="99%"><img src="{SITE_URL}/images/bar_left.gif"><img src="{SITE_URL}/images/bar.gif" width="{poll_out.OP_I_IMG}" height="10"><img src="{SITE_URL}/images/bar_right.gif"> {poll_out.OP_I_ANSWERS}%</td>
+											</tr>
+<!-- ENDIF -->
+<!-- IF poll_out.OP_J -->
+											<tr>
+												<td width="1%">{poll_out.OP_C}</td>
+												<td width="99%"><img src="{SITE_URL}/images/bar_left.gif"><img src="{SITE_URL}/images/bar.gif" width="{poll_out.OP_J_IMG}" height="10"><img src="{SITE_URL}/images/bar_right.gif"> {poll_out.OP_J_ANSWERS}%</td>
+											</tr>
+<!-- ENDIF -->
+										</tbody>
+									</table>
+									<p align="center">{L_VOTES}: {poll_out.POLL_VOTES}</p>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td class="cat" colspan="7" align="center" valign="middle"></td>
+		</tr>
+	</tbody>
+</table>
+<!-- END poll_out -->
+<!-- ELSE -->
+<table>
+	<tbody>
+		<tr>
+			<td>
+				<div class="caption">
+					<div class="cap-left">
+						<div class="cap-right">
+							{L_POLL_OVER_VIEW}
+						</div>
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr valign="middle">
+			<td class="row3">
+				<div id="nnPolls_Overview">
+					<table border="1" cellpadding="5" cellspacing="0" width="750">
+						<tbody>
+							<tr>
+								<td class="colhead" align="center"><p>{L_ID}</p></td>
+								<td class="colhead"><p>{L_DATE_ADDED}</p></td>
+								<td class="colhead"><p>{L_QUESTION}</p></td>
+							</tr>
+<!-- BEGIN polls -->
+							<tr>
+								<td align="center"><a href="polloverview.php?id={polls.ID}">{polls.ID}</a></td>
+								<td>{polls.ADDED} ({polls.HOW_LONG_AGO}  ago)</td>
+								<td><a href="polloverview.php?id={polls.ID}">{polls.QUESTION}</a></td>
+							</tr>
+<!-- END polls -->
+						</tbody>
+					</table>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td class="cat" colspan="7" align="center" valign="middle"></td>
+		</tr>
+	</tbody>
+</table>
+<br clear="all" />
+
+<!-- IF SHOW_POLL -->
+<table>
+	<tbody>
+		<tr>
+			<td>
+				<div class="caption">
+					<div class="cap-left">
+						<div class="cap-right">
+							{L_POLL_QUESTION}
+						</div>
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr valign="middle">
+			<td class="row3">
+				<div id="nnPolls_Overview">
+					<table border="1" cellpadding="5" cellspacing="0" width="750">
+						<tbody>
+							<tr>
+								<td class="colhead" align="center"><p>{L_POLL_OPTION_NUM}</p></td>
+								<td class="colhead"><p>{L_QUESTION}</p></td>
+							</tr>
+							<tr>
+								<td  align="center">I</td>
+								<td >{OP_A}</td>
+							</tr>
+							<tr>
+								<td  align="center">II</td>
+								<td >{OP_B}</td>
+							</tr>
+<!-- IF OP_C -->
+							<tr>
+								<td  align="center">III</td>
+								<td >{OP_C}</td>
+							</tr>
+<!-- ENDIF -->
+<!-- IF OP_D -->
+							<tr>
+								<td  align="center">IV</td>
+								<td >{OP_D}</td>
+							</tr>
+<!-- ENDIF -->
+<!-- IF OP_E -->
+							<tr>
+								<td  align="center">V</td>
+								<td >{OP_E}</td>
+							</tr>
+<!-- ENDIF -->
+<!-- IF OP_F -->
+							<tr>
+								<td  align="center">VI</td>
+								<td >{OP_F}</td>
+							</tr>
+<!-- ENDIF -->
+<!-- IF OP_G -->
+							<tr>
+								<td  align="center">VII</td>
+								<td >{OP_G}</td>
+							</tr>
+<!-- ENDIF -->
+<!-- IF OP_H -->
+							<tr>
+								<td  align="center">VIII</td>
+								<td >{OP_H}</td>
+							</tr>
+<!-- ENDIF -->
+<!-- IF OP_I -->
+							<tr>
+								<td  align="center">IX</td>
+								<td >{OP_I}</td>
+							</tr>
+<!-- ENDIF -->
+<!-- IF OP_J -->
+							<tr>
+								<td  align="center">X</td>
+								<td >{OP_J}</td>
+							</tr>
+<!-- ENDIF -->
+						</tbody>
+					</table>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td class="cat" colspan="7" align="center" valign="middle"></td>
+		</tr>
+	</tbody>
+</table>
+<br clear="all" />
+
+<table>
+	<tbody>
+		<tr>
+			<td>
+				<div class="caption">
+					<div class="cap-left">
+						<div class="cap-right">
+							{L_POLL_USER_OVER_VIEW}
+						</div>
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr valign="middle">
+			<td class="row3">
+				<div id="nnPolls_user_overview">
+					<table border="1" cellpadding="5" cellspacing="0" width="750">
+						<tbody>
+							<tr>
+								<td class="colhead" align="center"><p>{L_USER}</p></td>
+								<td class="colhead"><p>{L_SELECTION}</p></td>
+							</tr>
+<!-- BEGIN users_var -->
+							<tr>
+								<td >
+									<table width="100%">
+										<tr>
+											<td width="15%">{users_var.U_AVATAR}</td>
+											<td width="85%">
+											<div class="article" id="titleCast">
+											<h2 class="imdb-odd">
+											<span class="itemprop" itemprop="name"><a href="user.php?op=profile&amp;id={users_var.ID}"><font style="background-color: #{users_var.COLOR};">{users_var.NAME}</font></a></span>
+											</h2>
+											<h4 class="inline">Uploaded:</h4>
+											<span class="itemprop" itemprop="name">{users_var.UPLOADED}</span>
+											<h4 class="inline">Downloaded:</h4>
+											<span class="itemprop" itemprop="name">{users_var.DOWNLOADED}</span>
+											</div
+											></td>
+										</tr>
+									</table>
+								</td>
+								<td>{users_var.ANSWER}</td>
+							</tr>
+<!-- END users_var -->
+						</tbody>
+					</table>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td class="cat" colspan="7" align="center" valign="middle"></td>
+		</tr>
+	</tbody>
+</table>
+<br clear="all" />
+<!-- ENDIF -->
+<!-- ENDIF -->
+
+<!-- INCLUDE themes/1thank/templates/overall_footer.html -->

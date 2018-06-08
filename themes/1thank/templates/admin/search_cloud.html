@@ -1,0 +1,73 @@
+<!-- INCLUDE themes/1thank/templates/admin/over_all_header.html -->
+<a name="maincontent"></a>
+
+<h1>{L_TITLE}</h1>
+
+<p>{L_TITLE_EXPLAIN}</p>
+<form name="formdata" id="acp_board" method="post" action="{U_ACTION}">
+{HIDDEN}
+		<fieldset>
+			<legend>{L_SCLOUD}</legend>
+		<dl>
+			<dt><label">{SCACTIVE}:</label><br /><span>{SCACTIVE_EXPLAIN}</span></dt>
+			<dd><input type="checkbox" name="sub_active" value="1" {SCACTIVE_OPTION} /></dd>
+		</dl>
+		<dl>
+			<dt><label">{SCUSER_ONLY}:</label><br /><span>{SCUSER_ONLY_EXPLAIN}</span></dt>
+			<dd><input type="checkbox" name="sub_user_only" value="1" {SCUSER_ONLY_OPTION} /></dd>
+		</dl>
+		<dl>
+			<dt><label">{SCHOW_MANY}:</label><br /><span>{SCHOW_MANY_EXPLAIN}</span></dt>
+			<dd><input type="text" name="sub_how_many" value="{SCHOW_MANY_OPT}" /></dd>
+		</dl>
+		<p class="submit-buttons">
+			<input class="button1" type="submit" id="submit" name="submit" value="{L_SUBMIT}" />&nbsp;
+			<input class="button2" type="reset" id="reset" name="reset" value="{L_RESET}" />
+		</p>
+		</fieldset>
+</form>
+<form action="{U_ACTION}" method="GET">
+{HIDDENA}
+		<fieldset>
+			<legend>{L_SCTERMS}</legend>
+		<dl>
+<input type="hidden" name="op" value="searchcloud" />
+<input type="text" name="usearch" value="{S_SEARCH_TERM}" /> <input type="submit" value="{L_SEARCH}" />
+		</dl>
+		</fieldset>
+</form>
+<!-- IF PAGINATION -->
+<div class="pagination" style="float: right; margin: 15px 0 2px 0">
+	<a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{S_ON_PAGE}</a> &bull; <span>{PAGINATION}</span>
+</div>
+<!-- ENDIF -->
+	<table cellspacing="1">
+	<thead>
+	<tr>
+		<th>{L_SCTERMS}</th>
+		<th style="text-align: center;">{L_SCTIMES}</th>
+		<th style="text-align: center;">{L_MARK}</th>
+	</tr>
+	</thead>
+	<tbody>
+	<!-- BEGIN search -->
+		<!-- IF search.S_ROW_COUNT is even --><tr class="row1"><!-- ELSE --><tr class="row2"><!-- ENDIF -->
+			<td>
+				{search.TEXT}
+			</td>
+			<td style="text-align: center;">{search.HITS}</td>
+			<td style="text-align: center;">{search.OPTION}</td>
+		</tr>
+	<!-- END search -->
+	</tbody>
+	</table>
+<!-- IF PAGINATION -->
+<div class="pagination" style="float: right; margin: 15px 0 2px 0">
+<form name="formdata" id="acp_board" method="post" action="{U_ACTION}">
+<input type="hidden" name="do" value="delallterm" />
+			<input class="button1" type="submit" id="submit" name="submit" value="{L_DELETE_ALL}" />&nbsp;
+</form>
+	<a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{S_ON_PAGE}</a> &bull; <span>{PAGINATION}</span>
+</div>
+<!-- ENDIF -->
+<!-- INCLUDE themes/1thank/templates/admin/over_all_footer.html -->

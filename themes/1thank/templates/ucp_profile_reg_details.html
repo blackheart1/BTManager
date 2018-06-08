@@ -1,0 +1,54 @@
+
+<form name="ucp" id="ucp" method="post" action="{PMBT_LINK_BACK}">
+<input type="hidden" name="take_edit" value="1" >
+<input type="hidden" name="action" value="profile" >
+<input type="hidden" name="op" value="editprofile" >
+<input type="hidden" name="mode" value="reg_details" >
+
+<h2>{L_EDIT_SETTINGS}</h2>
+<div class="panel">
+	<div class="inner"><span class="corners-top"><span></span></span>
+
+	<!-- IF S_FORCE_PASSWORD -->
+		<p>{L_FORCE_PASSWORD_EXPLAIN}</p>
+	<!-- ENDIF -->
+
+	<fieldset>
+	<!-- IF ERROR --><p class="error">{ERROR}</p><!-- ENDIF -->
+	<dl>
+		<dt><label>{L_USERNAME}:</label></dt>
+		<dd><strong>{CP_UNAME}</strong></dd>
+	</dl>
+	<dl>
+		<dt><label for="username">{L_COMPLETE_NAME}:</label><br /><span>{L_USER_NICK_EXP}</span></dt>
+		<dd><input type="text" name="name" id="name" value="{CP_USNAME}" class="inputbox" title="{L_COMPLETE_NAME}" /></dd>
+	</dl>
+	<dl>
+		<dt><label for="email">{L_EMAIL_ADDRESS}:</label></dt>
+		<dd><!-- IF ALLOW_EMAIL_CHANGE --><input type="text" name="new_email" id="new_email" maxlength="100" value="{EMAIL}" class="inputbox" title="{L_EMAIL_ADDRESS}" /><!-- ELSE --><strong>{EMAIL}</strong><!-- ENDIF --></dd>
+	</dl>
+	<!-- IF ALLOW_EMAIL_CHANGE -->
+		<dl>
+			<dt><label for="email_confirm">{L_CONFIRM_EMAIL}:</label><br /><span>{L_CONFIRM_EMAIL_EXP}</span></dt>
+			<dd><input type="text" name="email_confirm" id="email_confirm" maxlength="100" value="{CONFIRM_EMAIL}" class="inputbox" title="{L_CONFIRM_EMAIL}" /></dd>
+		</dl>
+	<!-- ENDIF -->
+		<dl>
+			<dt><label for="new_password">{L_NEW_PASSWORD}:</label><br /><span>{L_PASSWORD_EXP}</span></dt>
+			<dd><input type="password" name="newpasswd" id="newpasswd" maxlength="255" value="{NEW_PASSWORD}" class="inputbox" title="{L_CHANGE_PASSWORD}" /></dd>
+		</dl>
+		<dl>
+			<dt><label for="password_confirm">{L_CONFIRM_PASSWORD}:</label><br /><span>{L_CONFIRM_PASSWORD_EXPLAIN}</span></dt>
+			<dd><input type="password" name="newpasswdconf" id="newpasswdconf" maxlength="255" value="{PASSWORD_CONFIRM}" class="inputbox" title="{L_CONFIRM_PASSWORD}" /></dd>
+		</dl>
+	</fieldset>
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+
+<fieldset class="submit-buttons">
+	{S_HIDDEN_FIELDS}<input type="reset" value="{L_RESET}" name="reset" class="button2" />&nbsp; 
+	<input type="submit" name="submit" value="{L_SUBMIT}" class="button1" />
+	{S_FORM_TOKEN}
+</fieldset>
+</form>
+

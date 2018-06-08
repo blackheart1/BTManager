@@ -1,0 +1,73 @@
+<!-- INCLUDE themes/1thank/templates/admin/over_all_header.html -->
+<a name="maincontent"></a>
+
+<h1>{L_TITLE}</h1>
+
+<p>{L_TITLE_EXPLAIN}</p>
+<!-- IF SETTINGS -->
+<form name="formdata" id="acp_board" method="post" action="{U_ACTION}">
+<!-- BEGIN options -->
+	<!-- IF options.S_LEGEND -->
+		<!-- IF not options.S_FIRST_ROW -->
+			</fieldset>
+		<!-- ENDIF -->
+		<fieldset>
+			<legend>{options.LEGEND}</legend>
+	<!-- ELSE -->
+
+		<dl>
+			<dt><label for="{options.KEY}">{options.TITLE}:</label><!-- IF options.S_EXPLAIN --><br /><span>{options.TITLE_EXPLAIN}</span><!-- ENDIF --></dt>
+			<dd>{options.CONTENT}</dd>
+		</dl>
+
+	<!-- ENDIF -->
+<!-- END options -->
+	<p class="submit-buttons">
+		<input class="button1" type="submit" id="submit" name="submit" value="{L_SUBMIT}" />&nbsp;
+		<input class="button2" type="reset" id="reset" name="reset" value="{L_RESET}" />
+	</p>
+	{S_FORM_TOKEN}
+</fieldset>
+</form>
+<!-- ENDIF -->
+<!-- IF S_SHOW_USER_IMAGES -->
+		<table border="0" width="100%" cellspacing="1">
+			<tr>
+			<!-- BEGIN userimage -->
+				<td>
+					<a href="admin.php?op=image-bucket&amp;userfile={userimage.VAL}"><img src="admin/pics/userfile.png" alt="{L_USER_IMAGES}" title="{L_USER_IMAGES}" border="0"></a>
+					<br />
+					{L_USER} : {userimage.VAL}
+					<br />
+					{L_FOLDER_SIZE} : {userimage.VALFSIZE}
+					<br />
+					{L_NUM_FILES} : {userimage.VALFILE_COUNT}
+					<br />
+				</td>
+			<!-- IF userimage.S_ROW_COUNT is odd -->
+			</tr>
+			<tr>
+			<!-- ENDIF -->
+			<!-- END userimage -->
+			</tr>
+		</table>
+<!-- ELSE -->
+<div class="panel bg1" id="faqlinks">
+	<div class="inner"><span class="corners-top"><span></span></span>
+				<!-- BEGIN images -->
+		<div class="column1">
+			<dl class="faq">
+				<dt><strong>{images.NAME}</strong></dt>
+					<form name="formdata"method="POST" action="{U_ACTION}">
+					{images.HIDDEN}
+					<dd><a href="{images.LINK}"><img border="0" src="{images.SOURCE}"  onLoad='SetSize(this, 100)'></a></dd>
+					<dd>{L_FILE_SIZE} : {images.SIZE}</dd>
+					<dd><input class="button" value="{L_DELETE_FILE}" type="submit"></dd>
+					</form>
+			</dl>
+		</div>
+				<!-- END images -->
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+<!-- ENDIF -->
+<!-- INCLUDE themes/1thank/templates/admin/over_all_footer.html -->

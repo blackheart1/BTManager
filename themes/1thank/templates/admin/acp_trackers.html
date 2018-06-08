@@ -1,0 +1,134 @@
+<!-- INCLUDE themes/1thank/templates/admin/over_all_header.html -->
+
+<a name="maincontent"></a>
+
+<h1>{L_INTRO}</h1>
+
+<p>{L_INTRO_EXP}</p>
+
+	<!-- IF S_ERROR -->
+		<div class="errorbox">
+			<h3>{L_WARNING}</h3>
+			<p>{ERROR_MSG}</p>
+		</div>
+	<!-- ENDIF -->
+
+<!-- IF PAGINATION -->
+<div class="pagination" style="float: right; margin: 15px 0 2px 0">
+	<a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{S_ON_PAGE}</a> &bull; <span>{PAGINATION}</span>
+</div>
+<!-- ENDIF -->
+
+<div class="clearfix">&nbsp;</div>
+<div><br style="clear: both;" /></div>
+
+<!-- IF .trackers -->
+	<table cellspacing="1">
+	<thead>
+	<tr>
+		<th>{L_TRACKER}</th>
+		<th>{L_STATUS}</th>
+		<th>{L_UPDATED}</th>
+		<th>{L_TORRENTS}</th>
+		<th style="text-align: center;">{L_ACTIONS}</th>
+	</tr>
+	</thead>
+	<tbody>
+	<!-- BEGIN trackers -->
+		<!-- IF trackers.S_ROW_COUNT is even --><tr class="row1"><!-- ELSE --><tr class="row2"><!-- ENDIF -->
+			<td>{trackers.TRACKER}</td>
+			<td>{trackers.STATUS}</td>
+			<td>{trackers.UPDATED}</td>
+			<td><p>{trackers.TORRENTS} <a href="admin.php?i=torrentinfo&op=trackers&do=listtorrents&id={trackers.ID}">({L_VIEW})</a></p></td>
+			<td style="text-align: center;">
+				<p>
+					<a href="admin.php?i=torrentinfo&op=trackers&do=scrapenow&id={trackers.ID}"><img src="admin/pics/refresh.png" border="0" alt="{L_UPDATE_TOR_NOW}" title="{L_UPDATE_TOR_NOW}" /></a>
+					<a href="admin.php?i=torrentinfo&op=trackers&do=bantracker&id={trackers.ID}&action={trackers.ACT}"><img src="admin/pics/{trackers.BAN}" border="0" alt="{L_EXCLUDE_TOR}" title="{L_EXCLUDE_TOR}" /></a>
+				</p>
+			</td>
+		</tr>
+	<!-- END trackers -->
+	</tbody>
+	</table>
+<!-- ELSE -->
+	<div class="errorbox">
+		<p>{L_NO_ENTRIES}</p>
+	</div>
+<!-- ENDIF -->
+<!-- IF PAGINATION -->
+<div class="pagination" style="float: right; margin: 15px 0 2px 0">
+	<a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{S_ON_PAGE}</a> &bull; <span>{PAGINATION}</span>
+</div>
+<!-- ENDIF -->
+<!-- IF S_TORRENTS --><!-- INCLUDE themes/1thank/templates/semple_torrent_list.html --><!-- ENDIF -->
+<!-- IF S_UPDATE_TORRENTS -->
+<fieldset>
+	<legend>{L_UPDATING}</legend>
+	<p>{L_DECODED_DATA}</p>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody>
+			<tr>
+				<td>
+				<div style="overflow: auto; border: 1px none; white-space: nowrap; margin: 0px; padding: 2px; width: 100%; height: 300px;">
+	<!-- BEGIN trackers_resp -->
+	{trackers_resp.SCRAPE}
+	<!-- END trackers_resp -->
+				</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<br clear="all">
+	<br />
+	<table cellspacing="1">
+	<thead>
+	<tr>
+		<th>{L_NAME}</th>
+		<th>{L_SEEDERS}</th>
+		<th>{L_LEECHERS}</th>
+		<th>{L_COMPLETED}</th>
+		<th>{L_INFO_HASH}</th>
+	</tr>
+	</thead>
+	<tbody>
+	<!-- BEGIN trackers_update -->
+			<tr>
+					<td>{trackers_update.NAME}</td>
+					<td>{trackers_update.SEEDERS}</td>
+					<td>{trackers_update.LEECHERS}</td>
+					<td>{trackers_update.COMPLETED}</td>
+					<td>{trackers_update.INFO_HASH}</td>
+			</tr>
+	<!-- END trackers_update -->
+		</tbody>
+	</table>
+</fieldset>
+<!-- ENDIF -->
+<fieldset>
+	<legend>{L_BANNED_ANNOUNCE}</legend>
+	<p>{L_BANNED_ANNOUNCE_EXP}</p>
+<form action="{U_ACTION}" method="post">
+{HIDDEN}
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr>
+			<td width="50%">
+
+				<p>{L_ANNOUNCE_URL}</p>
+			</td>
+			<td width="50%">
+				<input name="announce" value="" type="text">
+			</td>
+		</tr>
+		<tr>
+			<td width="50%">
+
+				<input type="submit" name="postback_client" value="{L_SUBMIT}" />
+				<input type="reset" value="{L_CANCEL_MOD}" />
+			</td>
+			<td width="50%">
+			</td>
+		</tr>
+	</tbody></table>
+</form>
+</fieldset>
+<!-- INCLUDE themes/1thank/templates/admin/over_all_footer.html -->

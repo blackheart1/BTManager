@@ -1,0 +1,61 @@
+<!-- INCLUDE themes/1thank/templates/semple_header.html -->
+<!-- IF LOGIN_SUCCESS -->
+<div class="panel">
+	<div class="inner"><span class="corners-top"><span></span></span>
+	<div class="content">
+    	<h2>{TITTLE_M}</h2>
+            <div id="successbox" style="background-color:#FFFFFF;" >
+            <p>{MESSAGE}</p>
+            </div>
+	</div>
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+<!-- ELSE -->
+<form action="{U_ACTION}" method="post" id="login">
+<div class="panel">
+	<div class="inner"><span class="corners-top"><span></span></span>
+	<div class="content">
+    	<h2>{L_LOGIN}</h2>
+		<p>{L_LOGIN_EXP}</p>
+		
+		<fieldset class="fields1">
+		<!-- IF S_ERROR --><div class="error">{S_ERROR_MESS}</div><!-- ENDIF -->
+		<dl>
+			<dt><label for="{USERNAME_CREDENTIAL}">{L_USERNAME}:</label></dt>
+			<dd><input type="text" tabindex="1" name="username" id="username" size="25" value="{USERNAME}" class="inputbox autowidth" /></dd>
+		</dl>
+		<dl>
+			<dt><label for="{PASSWORD_CREDENTIAL}">{L_PASSWORD}:</label></dt>
+			<dd><input type="password" tabindex="2" id="password" name="password" size="25" class="inputbox autowidth" /></dd>
+		</dl>
+		
+<!-- IF S_GFX_CHECK -->
+		<dl>
+			<dt><label for="{USERNAME_CREDENTIAL}">{L_SECURITY_CODE}:</label></dt>
+<!-- IF RECAPTCHA -->
+                               <dd><div class="g-recaptcha" data-sitekey="{RECAPTCHA}"></div></dd>
+<!-- ELSE -->
+                                <dd>{S_GFX_CHECK}<br />
+                                <input type="text" name="gfxcode" size="10" maxlength="6"></dd>
+<!-- ENDIF -->
+		</dl>
+<!-- ENDIF -->
+		
+		<dl>
+			<dt><label for="{L_REMEMBER_ME}">{L_REMEMBER_ME}:</label></dt>
+            <dd><input type="checkbox" name="remember" value="yes" /></dd>
+		</dl>
+		<dl>
+			<dt>&nbsp;</dt>
+			<dd><a href="user.php?op=lostpassword">{L_LOST_PASSWORD}</a><br />
+            {HIDDEN}<input type="submit" name="login" tabindex="6" value="{L_LOGIN}" class="button1" /></dd>
+		</dl>
+
+	
+		</fieldset>
+	</div>
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+</form>
+<!-- ENDIF -->
+<!-- INCLUDE themes/1thank/templates/overall_footer.html -->

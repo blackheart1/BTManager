@@ -1,0 +1,30 @@
+<!-- INCLUDE themes/1thank/templates/overall_header.html -->
+
+<table class="tablebg" width="100%" cellspacing="0">
+    <tr>
+        <td>
+            <div class="caption">
+                <div class="cap-left">
+                    <div class="cap-right">
+                        <a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nndonate');"><img title="{L_EXPAND_ITEM}" id="nndonateimg" src="themes/1thank/pics/minus.gif"  alt="{L_EXPAND_ITEM}"></a>{L_DONATIONS}
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr valign="middle">
+        <td  class="row3" >
+            <div id="nndonate">
+            <br clear="all" />
+            <strong>{L_GOAL}: </strong><font color="red">{CURENTSY}{ASKING} </font>
+            <br clear="all" />
+            <strong> {L_COLECTED}: </strong><font color="green">{CURENTSY}{RECEAVED} </font>
+            <br clear="all" />
+            {CONTENT}
+            </div>
+        </td>
+    </tr>
+</table>
+<br clear="all" />
+
+<!-- INCLUDE themes/1thank/templates/overall_footer.html -->

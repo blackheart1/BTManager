@@ -1,0 +1,49 @@
+<!-- INCLUDE themes/1thank/templates/overall_header.html -->
+
+<!-- IF S_MESSAGE -->
+<!-- IF S_ERROR --><div id="errorbox" ><!-- ELSE --><div id="successbox" ><!-- ENDIF -->
+<span class="errorbox-title">{L_MESSAGE}</span>
+<p>{S_ERROR_MESS}</p>
+</div>
+<!-- ENDIF -->
+<fieldset>
+    <legend>{L_UPDATING}</legend>
+    <p>{L_DECODED_DATA}</p>
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tbody>
+            <tr>
+                <td>
+                <div style="overflow: auto; border: 1px none; white-space: nowrap; margin: 0px; padding: 2px; width: 100%; height: 300px;">
+    <!-- BEGIN trackers_resp -->
+    {trackers_resp.SCRAPE}
+    <!-- END trackers_resp -->
+                </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br clear="all" />
+    <br />
+    <table cellspacing="1">
+    <thead>
+    <tr>
+        <th>{L_NAME}</th>
+        <th>{L_SEEDERS}</th>
+        <th>{L_LEECHERS}</th>
+        <th>{L_COMPLETED}</th>
+        <th>{L_INFO_HASH}</th>
+    </tr>
+    </thead>
+    <tbody>
+            <tr>
+                <td>{NAME}</td>
+                <td>{SEEDERS}</td>
+                <td>{LEECHERS}</td>
+                <td>{COMPLETED}</td>
+                <td>{INFO_HASH}</td>
+            </tr>
+        </tbody>
+    </table>
+</fieldset>
+
+<!-- INCLUDE themes/1thank/templates/overall_footer.html -->

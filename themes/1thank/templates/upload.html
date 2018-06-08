@@ -1,0 +1,492 @@
+<!-- INCLUDE themes/1thank/templates/overall_header.html -->
+	<!-- DEFINE $TORRENT = 1 -->
+
+<!-- IF S_NOTICE -->
+{NOTICE}
+<!-- IF S_ERROR --><div id="errorbox" ><!-- ELSE --><div id="successbox" ><!-- ENDIF -->
+<span class="errorbox-title">{L_MESSAGE}</span>
+<p>{S_ERROR_MESS}</p>
+</div>
+<!-- ENDIF -->
+<script type="text/javascript" src="themes/1thank/templates/attach.js"></script>
+<script type="text/javascript" src="./java/tl.js"></script>
+<table class="tablebg" width="100%" cellspacing="0">
+    <tr>
+        <td>
+            <div class="caption">
+                <div class="cap-left">
+                    <div class="cap-right">
+                        <a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnSite_Upload');">{L_TITLE}</a>
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr valign="middle">
+        <td  class="row3" >
+            <div id="nnSite_News">
+<!-- IF ALLOW_LINK -->
+                <h2>{L_INTRO}</h2>
+                <hr />
+                <p>{L_INTRO_EXP}</p>
+                <table border="0" width="100%" height="100" align="center">
+                    <tr>
+                        <td>
+                            <p align="center">
+                                <a href="upload.php?op=torrent"><img src="themes/1thank/pics/torrent.png" border="0" /><br />{L_UPLOAD_A_TORRENT}</a>
+                            </p>
+                        </td>
+                        <td>
+                            <p align="center">
+                                <a href="upload.php?op=link"><img src="themes/1thank/pics/link.png" border="0" /><br />{L_UPLOAD_A_EDTWOK}</a>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+<!-- ENDIF -->
+            </div>
+        </td>
+    </tr>
+</table>
+<br clear="all" />
+<!-- IF S_ACTION == torrent -->
+<script type="text/javascript" src="bbcode.js"></script>
+<h2>{L_INTRO_TORRENT}</h2>
+
+    <form enctype="multipart/form-data" action="{SITE_URL}/upload.php?op=taketorrent" method="post" id="data" name="postform">
+<div class="panel">
+	<div class="inner"><span class="corners-top"><span></span></span>
+
+	<p>{L_INTRO_TORRENT_EXP}</p>
+
+	<fieldset class="fields2">
+        <dl>
+            <dt><label>{L_UPLOAD_FILE}:</label></dt>
+            <dd>
+                <input type="file" name="filex" size="60" /><br />
+                <span class="gensmall">{L_UPLOAD_FILE_EXP}</span>
+            </dd>
+        </dl>
+<!-- IF ALOW_NFO -->
+        <dl>
+            <dt><label>{L_UPLOAD_NFO}:</label></dt>
+            <dd>
+                <input type="file" name="nfox" size="60" /><br />
+                <span class="gensmall">{L_UPLOAD_NFO_EXP}</span>
+            </dd>
+        </dl>
+<!-- ENDIF -->
+        <dl>
+            <dt><label>{L_UPLOAD_NAME}:</label></dt>
+            <dd>
+                <input type="text" name="namex" size="40" /><br />
+                <span class="gensmall">{L_UPLOAD_NAME_EXP}</span>
+            </dd>
+        </dl>
+        <dl>
+            <dt><label>{L_UPLOAD_IMDB}:</label></dt>
+            <dd>
+                <input type="text" name="imdb_info" size="40" /><br />
+                <span class="gensmall">{L_UPLOAD_IMDB_EXP}</span>
+            </dd>
+        </dl>
+        <dl>
+            <dt><label>{L_MESSAGE_BODY}:</label></dt>
+            <dd>
+<!-- INCLUDE themes/1thank/templates/posting_editor.html -->
+<!-- IF ALOW_ATTACHMENTS -->
+            <fieldset class="fieldset">
+                <legend>{L_ATTACH_FILE}</legend>
+
+                <div style="padding:3px">
+                    <div style="margin-bottom:3px">
+                        <div>{L_YOUR_IMAGE_BUCKET}</div>
+                        <div>{L_VALID_EXTENTIONS}</div>
+                    </div>
+                    <div id="333333"></div>
+                    <div>
+                        <input type="button" id="manage_attachments_button" class="button" tabindex="1" style="font-weight:normal" value="{L_MANAGE_ATTACHMENTS}" title="{L_ADD_EDIT_ATTACHMENTS}" onclick="vB_Attachments.open_window('bitbucket-upload.php', 800, 600, '')" />
+
+                        <script type="text/javascript">
+                        var newpost_attachmentbit = '<!-' + '- BEGIN TEMPLATE: newpost_attachmentbit -' + '->\n<a href="#" onclick="insert_text(\'[img]%1$s[/img]\', true); return false;" style="line-height: 20px;"><img class="inlineimg" src="%1$s" alt="" border="0" /></a><!-' + '- END TEMPLATE: newpost_attachmentbit -' + '->';
+            vB_Attachments = new vB_Attachment('333333', '');
+                        </script>
+                        <noscript>
+                        <a rel="nofollow" href="bitbucket-upload.php" target="manageattach" title="{L_ADD_EDIT_ATTACHMENTS}" tabindex="1"><strong>{L_MANAGE_ATTACHMENTS}</strong></a>
+                        </noscript>
+                    </div>
+                </div>
+            </fieldset>
+<!-- ENDIF -->
+            </dd>
+        </dl>
+        <dl>
+            <dt><label>{L_CAT_SELECT}:</label></dt>
+            <dd>
+			{S_CAT_SELECT}
+            </dd>
+        </dl>
+<!-- IF ALOW_POSTER -->
+        <dl>
+            <dt><label>{L_UPLOAD_POSTER}:</label></dt>
+            <dd>
+                <input type="text" name="post_img" size="80" /><br />
+                <span class="gensmall">{L_UPLOAD_POSTER_EXP}</span>
+            </dd>
+        </dl>
+<!-- ENDIF -->
+<!-- IF ALOW_SCREEN_SHOT -->
+        <dl>
+            <dt><label>{L_UPLOAD_SCREEN_A}:</label></dt>
+            <dd>
+                <input type="text" name="screen1" size="80" /><br />
+                <span class="gensmall">{L_UPLOAD_SCREEN_A_EXP}</span>
+            </dd>
+        </dl>
+         <dl>
+            <dt><label>{L_UPLOAD_SCREEN_B}:</label></dt>
+            <dd>
+                <input type="text" name="screen1" size="80" /><br />
+                <span class="gensmall">{L_UPLOAD_SCREEN_B_EXP}</span>
+            </dd>
+        </dl>
+          <dl>
+            <dt><label>{L_UPLOAD_SCREEN_C}:</label></dt>
+            <dd>
+                <input type="text" name="screen1" size="80" /><br />
+                <span class="gensmall">{L_UPLOAD_SCREEN_C_EXP}</span>
+            </dd>
+        </dl>
+           <dl>
+            <dt><label>{L_UPLOAD_SCREEN_D}:</label></dt>
+            <dd>
+                <input type="text" name="screen1" size="80" /><br />
+                <span class="gensmall">{L_UPLOAD_SCREEN_D_EXP}</span>
+            </dd>
+        </dl>
+ <!-- ENDIF -->
+         <dl>
+            <dt><label>{L_UPLOAD_CHECK_SEM}:</label></dt>
+            <dd>
+                <input type="checkbox" checked="checked" name="jump_check" value="1"  /><br />
+                <span class="gensmall">{L_UPLOAD_CHECK_SEM_EXP}</span>
+            </dd>
+        </dl>
+<!-- IF ALOW_SHOUT_NEW -->
+         <dl>
+            <dt><label>{L_UPLOAD_SHOUT}:</label></dt>
+            <dd>
+                <input type="checkbox" name="shout" value="1"  /><br />
+                <span class="gensmall">{L_UPLOAD_SHOUT_EXP}</span>
+            </dd>
+        </dl>
+<!-- ENDIF -->
+<!-- IF ALOW_STICKY -->
+         <dl>
+            <dt><label>{L_UPLOAD_STICKY}:</label></dt>
+            <dd>
+                <input type="checkbox" name="evidence" value="1" /><br />
+                <span class="gensmall">{L_UPLOAD_STICKY_EXP}</span>
+            </dd>
+        </dl>
+<!-- ENDIF -->
+<!-- IF ALOW_RATIO_BUILD -->
+         <dl>
+            <dt><label>{L_UPLOAD_RATO_BUILDER}:</label></dt>
+            <dd>
+                <input type="radio" name="build" value="yes">{L_YES}<br />
+                <input type="radio" name="build" checked value="no">{L_NO}<br />
+                <span class="gensmall">{L_UPLOAD_RATO_BUILDER_EXP}</span>
+            </dd>
+        </dl>
+<!-- ENDIF -->
+<!-- IF ALOW_ADVANCED -->
+         <dl>
+            <dt><label>{L_UPLOAD_ADVANCED_OP}:</label></dt>
+            <dd>
+        <input type="checkbox" name="adv_opts" value="1" onClick="javascript:expand();" id="adv_check" /><br />
+        <span class="gensmall">{L_UPLOAD_ADVANCED_OP_EXP}</span>
+            </dd>
+        </dl>
+         <dl id="advanced_options_1" class="hide">
+            <dt><label>{L_UPLOAD_ADVANCE_DHT}:</label></dt>
+            <dd>
+        <input type="radio" name="dht_support" value="0" checked />{L_UPLOAD_ADVANCE_NOEDIT}<br />
+        <input type="radio" name="dht_support" value="1" onClick="javascript:document.formdata.private_torrent[2].checked = true;" />{L_UPLOAD_ADVANCE_DHT_INABLE}<br />
+        <input type="radio" name="dht_support" value="2" />{L_UPLOAD_ADVANCE_DHT_DISABLE}<br />
+        <span class="gensmall">{L_UPLOAD_ADVANCED_OP_DHT_EXP}</span>
+            </dd>
+        </dl>
+         <dl id="advanced_options_2" class="hide">
+            <dt><label>{L_UPLOAD_ADVANCE_PVT}:</label></dt>
+            <dd>
+        <input type="radio" name="private_torrent" value="0" checked />{L_UPLOAD_ADVANCE_NOEDIT}<br />
+        <input type="radio" name="private_torrent" value="1" onClick="javascript:document.formdata.dht_support[2].checked = true;" />{L_UPLOAD_ADVANCE_PVT_INABLE}<br />
+        <input type="radio" name="private_torrent" value="2" />{L_UPLOAD_ADVANCE_PVT_DISABLE}<br />
+        <span class="gensmall">{L_UPLOAD_ADVANCED_OP_PRIVATE_EXP}</span>
+            </dd>
+        </dl>
+<!-- ENDIF -->
+<!-- IF ALOW_PASSWORD -->
+         <dl>
+            <dt><label>{L_PASSWORD}:</label></dt>
+            <dd>
+        <input type="text" name="password" value="" /><br />
+        <span class="gensmall">{L_UPLOAD_PASSWORD_EXP}</span>
+            </dd>
+        </dl>
+<!-- ENDIF -->
+<!-- IF ALOW_HIDE_OWNER -->
+         <dl>
+            <dt><label>{L_UPLOAD_OWNER_TYPE}:</label></dt>
+            <dd>
+        <input type="radio" name="ownertype" value="0" checked />{L_UPLOAD_OWNER_TYPE_SHOW}<br />
+        <input type="radio" name="ownertype" value="1" />{L_UPLOAD_OWNER_TYPE_HIDE}<br />
+        <input type="radio" name="ownertype" value="2" />{L_UPLOAD_OWNER_TYPE_RELEASE}<br />
+        <span class="gensmall">{L_UPLOAD_OWNER_TYPE_EXP}</span>
+            </dd>
+        </dl>
+<!-- ENDIF -->
+<!-- IF ALOW_NOTIFY -->
+         <dl>
+            <dt><label>{L_UPLOAD_NOTIFY}:</label></dt>
+            <dd>
+        <input type="checkbox" name="commnotify" value="ok" /><br />
+        <span class="gensmall">{L_UPLOAD_NOTIFY_COMMENT}</span><br />
+        <input type="checkbox" name="seednotify" value="ok" /><br />
+        <span class="gensmall">{L_UPLOAD_NOTIFY_NEW_SEED}</span>
+            </dd>
+        </dl>
+<!-- ENDIF -->
+</fieldset>
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+<fieldset class="submit-buttons">
+	{S_HIDDEN_FIELDS}<input type="reset" value="{L_RESET}" name="reset" class="button2" />&nbsp; 
+	<input type="submit" name="submit" value="{L_SUBMIT}" class="button1" />
+</fieldset>
+</form>
+<!-- ELSEIF S_ACTION == link -->
+<script type="text/javascript" src="bbcode.js"></script>
+<h2>{L_INTRO_TORRENT}</h2>
+
+    <form enctype="multipart/form-data" action="{SITE_URL}/upload.php?op=takelink" method="post" id="data" name="postform">
+<div class="panel">
+	<div class="inner"><span class="corners-top"><span></span></span>
+
+	<p>{L_INTRO_TORRENT_EXP}</p>
+
+	<fieldset class="fields2">
+        <dl>
+            <dt><label>{L_UPLOAD_NAME}:</label></dt>
+            <dd>
+        <input type="text" name="namex" size="80" value="{S_NAMEX}" /><br />
+        <span class="gensmall">{L_UPLOAD_NAME_EXP}</span>
+            </dd>
+        </dl>
+        <dl>
+            <dt><label>{L_UPLOAD_IMDB}:</label></dt>
+            <dd>
+                <input type="text" name="imdb_info" size="40" /><br />
+                <span class="gensmall">{L_UPLOAD_IMDB_EXP}</span>
+            </dd>
+        </dl>
+        <dl>
+            <dt><label>{L_MESSAGE_BODY}:</label></dt>
+            <dd>
+<!-- INCLUDE themes/1thank/templates/posting_editor.html -->
+<!-- IF ALOW_ATTACHMENTS -->
+            <fieldset class="fieldset">
+                <legend>{L_ATTACH_FILE}</legend>
+
+                <div style="padding:3px">
+                    <div style="margin-bottom:3px">
+                        <div>{L_YOUR_IMAGE_BUCKET}</div>
+                        <div>{L_VALID_EXTENTIONS}</div>
+                    </div>
+                    <div id="333333"></div>
+                    <div>
+                        <input type="button" id="manage_attachments_button" class="button" tabindex="1" style="font-weight:normal" value="{L_MANAGE_ATTACHMENTS}" title="{L_ADD_EDIT_ATTACHMENTS}" onclick="vB_Attachments.open_window('bitbucket-upload.php', 800, 600, '')" />
+
+                        <script type="text/javascript">
+                        var newpost_attachmentbit = '<!-' + '- BEGIN TEMPLATE: newpost_attachmentbit -' + '->\n<a href="#" onclick="insert_text(\'[img]%1$s[/img]\', true); return false;" style="line-height: 20px;"><img class="inlineimg" src="%1$s" alt="" border="0" /></a><!-' + '- END TEMPLATE: newpost_attachmentbit -' + '->';
+            vB_Attachments = new vB_Attachment('333333', '');
+                        </script>
+                        <noscript>
+                        <a rel="nofollow" href="bitbucket-upload.php" target="manageattach" title="{L_ADD_EDIT_ATTACHMENTS}" tabindex="1"><strong>{L_MANAGE_ATTACHMENTS}</strong></a>
+                        </noscript>
+                    </div>
+                </div>
+            </fieldset>
+<!-- ENDIF -->
+            </dd>
+        </dl>
+        <dl>
+            <dt><label>{L_CAT_SELECT}:</label></dt>
+            <dd>
+        		{S_CAT_SELECT}
+            </dd>
+        </dl>
+        <dl>
+            <dt><label>{L_LINKS}:</label></dt>
+            <dd>
+                <h2>{L_ADD_FILE}</h2>
+                <hr />
+                <p>{L_ADD_LINK_FILE}</p>
+                <br />
+<!-- IF HAS_LINK -->
+                <table>
+                    <thead>
+                        <tr>
+                            <td nowrap=""></td>
+                            <td><p>{L_FILE_NAME}</p></td>
+                            <td><p>{L_SIZE}</p></td>
+                            <td><p>{L_LINK}</p></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+<!-- BEGIN links_var -->
+                        <tr>
+                            <td nowrap="">
+                                <p>
+                                    <input class="delete" value="{links_var.LINK_ID}" src="themes/1thank/pics/drop.gif" name="postback" type="submit">
+                                    <!-- IF links_var.LINK_MATCH --><a href="details.php?id={links_var.LINK_MATCH}"><img src="themes/1thank/pics/warning.gif" alt="" title="" border="0"></a><!-- ENDIF -->
+                                </p>
+                            </td>
+                            <td>
+                                <p>{links_var.LINK_NAME}</p>
+                            </td>
+                            <td>
+                                <p>{links_var.LINK_SIZE}</p>
+                            </td>
+                            <td>
+                                <a href="{links_var.LINK_MAGNET}">
+                                    <img src="themes/1thank/pics/minimagnet.gif" alt="" title="" border="0">
+                                </a>
+                                <a href="{links_var.LINK_ED2K}">
+                                    <img src="themes/1thank/pics/minidonkey.gif" alt="" title="" border="0">
+                                </a>
+                            </td>
+                        </tr>
+<!-- END links_var -->
+                    </tbody>
+                </table>
+<!-- ENDIF -->
+                <dl>
+                    <dt><label>{L_MAGNET_LINK}:</label></dt>
+                    <dd>
+                        <input name="magnetlink" size="60" maxlength="1000" type="text" />
+                    </dd>
+                </dl>
+                <dl>
+                    <dt><label>{L_ED2K_LINK}:</label></dt>
+                    <dd>
+                        <input name="ed2klink" size="60" maxlength="1000" type="text" />
+                    </dd>
+                </dl>
+                <dl>
+                    <dt><label>{L_MD5_HASH}:</label></dt>
+                    <dd>
+                        <input name="md5sum" size="60" maxlength="1000" type="text" />
+                    </dd>
+                </dl>
+                <fieldset class="submit-buttons">
+                    <input name="postback" value="{L_ADD_FILE}" type="submit" />
+                </fieldset>
+<!-- IF S_DUPLICATE > 0 -->
+                <blockquote>
+                    <p>
+                        <img src="themes/1thank/pics/warning.gif" alt="" title="" border="0">
+                        {L_DUPLICATE_FILES}<br />
+                        {L_DUPLICATE_FILES_NOT_ALL}
+                    </p>
+                </blockquote>
+<!-- ENDIF -->
+            </dd>
+        </dl>
+<!-- IF ALOW_POSTER -->
+        <dl>
+            <dt><label>{L_UPLOAD_POSTER}:</label></dt>
+            <dd>
+                <input type="text" name="post_img" size="80" /><br />
+                <span class="gensmall">{L_UPLOAD_POSTER_EXP}</span>
+            </dd>
+        </dl>
+<!-- ENDIF -->
+<!-- IF ALOW_SCREEN_SHOT -->
+        <dl>
+            <dt><label>{L_UPLOAD_SCREEN_A}:</label></dt>
+            <dd>
+                <input type="text" name="screen1" size="80" /><br />
+                <span class="gensmall">{L_UPLOAD_SCREEN_A_EXP}</span>
+            </dd>
+        </dl>
+         <dl>
+            <dt><label>{L_UPLOAD_SCREEN_B}:</label></dt>
+            <dd>
+                <input type="text" name="screen1" size="80" /><br />
+                <span class="gensmall">{L_UPLOAD_SCREEN_B_EXP}</span>
+            </dd>
+        </dl>
+          <dl>
+            <dt><label>{L_UPLOAD_SCREEN_C}:</label></dt>
+            <dd>
+                <input type="text" name="screen1" size="80" /><br />
+                <span class="gensmall">{L_UPLOAD_SCREEN_C_EXP}</span>
+            </dd>
+        </dl>
+           <dl>
+            <dt><label>{L_UPLOAD_SCREEN_D}:</label></dt>
+            <dd>
+                <input type="text" name="screen1" size="80" /><br />
+                <span class="gensmall">{L_UPLOAD_SCREEN_D_EXP}</span>
+            </dd>
+        </dl>
+ <!-- ENDIF -->
+         <dl>
+            <dt><label>{L_UPLOAD_CHECK_SEM}:</label></dt>
+            <dd>
+                <input type="checkbox" checked="checked" name="jump_check" value="1"  /><br />
+                <span class="gensmall">{L_UPLOAD_CHECK_SEM_EXP}</span>
+            </dd>
+        </dl>
+<!-- IF ALOW_SHOUT_NEW -->
+         <dl>
+            <dt><label>{L_UPLOAD_SHOUT}:</label></dt>
+            <dd>
+                <input type="checkbox" name="shout" value="1"  /><br />
+                <span class="gensmall">{L_UPLOAD_SHOUT_EXP}</span>
+            </dd>
+        </dl>
+<!-- ENDIF -->
+<!-- IF ALOW_STICKY -->
+         <dl>
+            <dt><label>{L_UPLOAD_STICKY}:</label></dt>
+            <dd>
+                <input type="checkbox" name="evidence" value="1" /><br />
+                <span class="gensmall">{L_UPLOAD_STICKY_EXP}</span>
+            </dd>
+        </dl>
+<!-- ENDIF -->
+<!-- IF ALOW_NOTIFY -->
+         <dl>
+            <dt><label>{L_UPLOAD_NOTIFY}:</label></dt>
+            <dd>
+        <input type="checkbox" name="commnotify" value="ok" /><br />
+        <span class="gensmall">{L_UPLOAD_NOTIFY_COMMENT}</span><br />
+        <input type="checkbox" name="seednotify" value="ok" /><br />
+        <span class="gensmall">{L_UPLOAD_NOTIFY_NEW_SEED}</span>
+            </dd>
+        </dl>
+<!-- ENDIF -->
+</fieldset>
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+<fieldset class="submit-buttons">
+	{S_HIDDEN_FIELDS}<input type="reset" value="{L_RESET}" name="reset" class="button2" />&nbsp; 
+	<input type="submit" name="submit" value="{L_SUBMIT}" class="button1" />
+</fieldset>
+</form>
+<!-- ENDIF -->
+
+<!-- INCLUDE themes/1thank/templates/overall_footer.html -->

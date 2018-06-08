@@ -1,0 +1,200 @@
+<!-- INCLUDE themes/1thank/templates/overall_header.html -->
+
+<!-- IF S_NOTICE -->
+<!-- IF S_ERROR --><div id="errorbox" ><!-- ELSE --><div id="successbox" ><!-- ENDIF -->
+<span class="errorbox-title">{L_MESSAGE}</span>
+<p>{S_ERROR_MESS}</p>
+</div>
+<!-- ENDIF -->
+<!-- IF S_TICKETS -->
+    <table border="0" cellspacing="1" cellpadding="2" class="TableMsg" width="100%" align="center">
+        <tr>
+            <td>&nbsp;</td>
+            <td class="TableHeaderText" title="{L_LANG_TIP_TICKET}"><a href="?s=advanced&sort=1&status=%status&way=%way">{L_LANG_TICKET}</a></td>
+            <td class="TableHeaderText" title="{L_LANG_TIP_DATE}"><a href="?s=advanced&sort=2&status=%status&way=%way">{L_LANG_DATE}</a></td>
+            <td class="TableHeaderText" title="{L_LANG_TIP_SUBJECT}"><a href="?s=advanced&sort=3&status=%status&way=%way">{L_LANG_SUBJECT}</a></td>
+            <td class="TableHeaderText" title="{L_LANG_TIP_CAT}"><a href="?s=advanced&sort=4&status=%status&way=%way">{L_LANG_CAT}</a></td>
+            <td class="TableHeaderText" title="{L_LANG_TIP_REP}"><a href="?s=advanced&sort=5&status=%status&way=%way">{L_LANG_REP}</a></td>
+            <td class="TableHeaderText" title="{L_LANG_TIP_PRIORITY}"><a href="?s=advanced&sort=6&status=%status&way=%way">{L_LANG_PRIORITY}</a></td>
+            <td class="TableHeaderText" title="{L_LANG_TIP_FROM}"><a href="?s=advanced&sort=7&status=%status&way=%way">{L_LANG_FROM}</a></td>
+            <td class="TableHeaderText" title="{L_LANG_STATUS}"><a href="?s=advanced&sort=8&way=%way">{L_LANG_STATUS}</a></td>
+            <td class="TableHeaderText" title="{L_LANG_CLOSED}"><a href="?s=advanced&sort=status&way=%way">{L_LANG_CLOSED}</a></td>
+        </tr>
+<!-- BEGIN ticket_var -->
+        <tr class="{class}" onmouseover="this.className='mainTableOn';" onmouseout="this.className='{class}';">
+           <td align="center" class="checkbox">{ticket_var.checkbox}</td>
+           <td align="center" class="ticket"><a href="{page}?a=view&amp;id={id}">{ticket_var.id}</a></td>
+           <td align="center" class="date">{short_time}</td>
+           <td class="subject"><a href="slove.php?a=view&amp;id={id}">{ticket_var.subject}</a></td>
+           <td class="category">{ticket_var.cat_name}</td>
+           <td class="rep">{ticket_var.rep_name}</td>
+           <td {pri_style}>{ticket_var.pri_text}</td>
+           <td class="from"><a onClick="document.search.email.value='{email}';" title="{email}">{ticket_var.name}</a></td>
+           <td align="center" class="ticket">{ticket_var.status}</td>
+           <td align="center" class="ticket">{ticket_var.closed}</td>
+        </tr>
+<!-- END ticket_var -->
+    </table>
+<!-- ELSEIF S_DIP_HELP -->
+<table cellpadding="0"  cellspacing="0" border="0" width='100%'>
+    <tr>
+        <td width="50%">
+            <table class="tablebg" width="100%" cellspacing="0">
+                <tr>
+                    <td>
+                        <div class="caption">
+                            <div class="cap-left">
+                                <div class="cap-right">
+                                    <a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnSummary');">{L_SUMMARY}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr valign="middle">
+                    <td  class="row3" >
+                        <div id="nnSummary">
+                            <table cellpadding="0" class="DashboardTable" cellspacing="0" border="0" width='100%'>
+                                <tr class="DashboardTableColor" height="24">
+                                    <th colspan='4'><nobr><strong>{L_MY_SUMMARY}</strong></nobr></th>
+                                </tr>
+                                <tr class="summarylist_gradbg_3">
+                                    <td width="10%"><img src="./images/spacer.gif" border="0" hspace="5" class="summary_overdue_icon_3"></td>
+                                    <td><a href="./problems.php?viewName=1">{L_PENDING_TICKETS}</a></td>
+                                    <td class='myview-count'><a href="./problems.php?viewName=Pending">{T_PENDING_NEW}</a></td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr class="summarylist_gradbg_3">
+                                    <td width="10%"><img src="./images/spacer.gif" border="0" hspace="5" class="summary_duetoday_3"></td>
+                                    <td><a href="./problems.php?viewName=2">{L_COMPLETED_TICKETS}</a></td>
+                                    <td class='myview-count'><a href="./problems.php?viewName=Completed">{T_SOLVED}</a></td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr class="summarylist_gradbg_3">
+                                    <td width="10%"><img src="./images/spacer.gif" border="0" hspace="5" class="summary_open_3"></td>
+                                    <td><a href="./problems.php?viewName=3">{L_INPROGRESS}</a></td>
+                                    <td class='myview-count'><a href="./problems.php?viewName=Inprogress">{T_INPROGRESS}</a></td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr class="summarylist_gradbg_3">
+                                    <td width="10%"><img src="./images/spacer.gif" border="0" hspace="5" class="summary_open_3"></td>
+                                    <td><a href="./problems.php?viewName=4">{L_WAITING_ON_INFO}</a></td>
+                                    <td class='myview-count'><a href="./problems.php?viewName=Waiting">{T_WAITING_ON_INFO}</a></td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr class="summarylist_gradbg_3">
+                                    <td width="10%"><img src="./images/spacer.gif" border="0" hspace="5" class="summary_open_3"></td>
+                                    <td><a href="./problems.php?viewName=5">{L_NOT_GOING_SOLVE}</a></td>
+                                    <td class='myview-count'><a href="./problems.php?viewName=Not">{T_NOT_GOING_TO}</a></td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr class="summarylist_gradbg_3">
+                                    <td width="10%"><img src="./images/spacer.gif" border="0" hspace="5" class="summary_open_3"></td>
+                                    <td><a href="./problems.php?viewName=6">{L_ALL_TICKETS}</a></td>
+                                    <td class='myview-count'><a href="./problems.php?viewName=All_Requester">{T_ALL_TICKETS}</a></td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+
+            </table>
+            <br clear="all" />
+        </td>
+        <td width="50%">
+            <table class="tablebg" width="100%" cellspacing="0">
+                <tr>
+                    <td>
+                        <div class="caption">
+                            <div class="cap-left">
+                                <div class="cap-right">
+                                    <a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnOpen_New_Suport_Ticket');">{L_OPEN_NEW_TICKET}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr valign="middle">
+                    <td  class="row3" >
+                        <div id="nnOpen_New_Suport_Ticket">
+                            <center><a href=problems.php><h2>{L_LANG_VIEW_OPEN}</h2></a></center>
+                            <br/>
+                            <script language="javascript" type="text/javascript">
+                            function setMessage() {
+                                var newmessage = document.replyForm.responses.value;
+                                document.replyForm.message.value += newmessage;
+                                document.replyForm.message.focus();
+                            }
+                            function resizer(inc,eid) {
+                              var txtarea = document.getElementById(eid);
+                              if (inc==1) {
+                                txtarea.rows = txtarea.rows + 5;
+                              } else {
+                                txtarea.rows = txtarea.rows - 5;
+                              }
+                              document.getElementById("textarea_next_time").value=txtarea.rows;
+                            }
+                            </script>
+                            <center>
+                                <font color="red" size="2">
+                                    <blockquote>{L_HELP_DESK_EXP_NEW_TICKET}
+                                    </blockquote>
+                                </font><br/>
+                            </center>
+                            <form method="post" action="helpdesk.php">
+                            <input type="hidden" name="op" value="ticket" >
+                            <table border="0" align="center" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td align="left" width="150">{L_CATEGORY}: <font class="important">*</font></td>
+                                    <td><select name="category">
+                                    <option value="0">({L_CHOOSE})</option>
+                                    <option value="1">{L_UPLOADING}</option>
+                                    <option value="2">{L_DOWNLOADING}</option>
+                                    <option value="3">{L_SHOUTS}</option>
+                                    <option value="4">{L_FORUM}</option>
+                                    <option value="5">{L_OTHER}</option>
+                                    </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left" width="150">{L_LANG_PRIORITY}: <font class="important">*</font></td>
+                                    <td>
+                                    <select name="priority">
+                                    <option value="0">({L_CHOOSE})</option>
+                                    <option value="Low">{L_LANG_LOW}</option>
+                                    <option value="Medium">{LANG_NORMAL}</option>
+                                    <option value="High">{L_LANG_HIGH}</option>
+                                    </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left">{L_LANG_SUBJECT}: <font class="important">*</font></td>
+                                    <td><input type="text" size="35" maxlength="60" name="title"></td>
+                                </tr>
+                                <tr>
+                                    <td align="left">{L_LANG_MSG}: <font class="important">*</font></td>
+                                    <td>
+                                        <textarea name="problem" id="message" cols="30" rows="6"></textarea>
+                                        <div style="text-align: right" class="resizer">
+                                            <a href="javascript:resizer(1,'message')" id="bigger">{L_LANG_BIGGER}</a>
+                                            <a href="javascript:resizer(-1,'message')" id="smaller">{L_LANG_SMALLER}</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="submit" value="{L_SUBMIT}" class="btn"></td>
+                                </tr>
+                            </table>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <br clear="all" />
+        </td>
+    </tr>
+</table>
+<!-- ENDIF -->
+
+<!-- INCLUDE themes/1thank/templates/overall_footer.html -->

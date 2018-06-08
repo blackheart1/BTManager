@@ -1,0 +1,68 @@
+
+<div class="panel">
+	<div class="inner"><span class="corners-top"><span></span></span>
+	<!-- IF not ALLOW_AVATAR -->
+		<p>{L_AVATAR_FEATURES_DISABLED}</p>
+	<!-- ENDIF -->
+
+	<fieldset>
+	<!-- IF ERROR --><p class="error">{ERROR}</p><!-- ENDIF -->
+	<dl>
+		<dt><label>{L_CURRENT_IMAGE}:</label><br /><span>{_AVATAR_EXPLAIN}</span></dt>
+		<dd><!-- IF CP_UAVATAR -->{CP_UAVATAR}<!-- ELSE --><img src="{T_THEME_PATH}/images/no_avatar.gif" alt="" /><!-- ENDIF --></dd>
+		<dd><label for="delete"><input type="checkbox" name="delete" id="delete" /> {L_DELETE_AVATAR}</label></dd>
+	</dl>
+
+	<!-- IF ALLOW_AVATAR_UPLOAD or S_CAN_UPLOAD -->
+		<dl>
+			<dt><label for="uploadfile">{L_UPLOAD_LOCAL_AVATAR}:</label><br /><span>{L_UPLOAD_LOCAL_AVATAR_EXP}</span></dt>
+			<dd><input type="hidden" name="MAX_FILE_SIZE" value="{AVATAR_SIZE}" /><input type="file" name="avupload" id="uploadfile" class="inputbox autowidth" /></dd>
+		</dl>
+	<!-- ENDIF -->
+
+	<!-- IF ALLOW_REMOTE_UPLOAD or S_EDIT -->
+		<dl>
+			<dt><label for="uploadurl">{L_UPLOAD_EXT_AVATAR}:</label><br /><span>{L_UPLOAD_EXT_AVATAR_EXP}</span></dt>
+			<dd><input type="text" name="uploadurl" id="uploadurl" value="{AVATAR_URL}" class="inputbox" /></dd>
+		</dl>
+	<!-- ENDIF -->
+
+	<!-- IF ALLOW_AVATAR_LINK or S_EDIT -->
+		<dl>
+			<dt><label for="remotelink">{L_LINK_EXT_AVATAR}:</label><br /><span>{L_LINK_EXT_AVATAR_EXP}</span></dt>
+			<dd><input type="text" name="remotelink" id="remotelink" value="{AVATAR_REMOTE}" class="inputbox" /></dd>
+		</dl>
+		<dl>
+			<dt><label for="width">{L_LINK_REMOTE_SIZE}:</label><br /><span>{L_LINK_REMOTE_SIZE_EXPLAIN}</span></dt>
+			<dd>
+				<label for="width"><input type="text" name="width" id="width" size="3" value="{AVATAR_SETWT}" class="inputbox autowidth" /> px</label> &times;&nbsp; 
+				<label for="height"><input type="text" name="height" id="height" size="3" value="{AVATAR_SETHT}" class="inputbox autowidth" /> px</label>
+			</dd>
+		</dl>
+	<!-- ENDIF -->
+	</fieldset>
+	
+	<!-- IF ALLOW_AVATAR_GALORY -->
+		<span class="corners-bottom"><span></span></span></div>
+	</div>
+
+	<div class="panel">
+		<div class="inner"><span class="corners-top"><span></span></span>
+
+		<h3>{L_AVATAR_GALLERY}</h3>
+	
+		<fieldset>
+<script language="JavaScript" type="text/JavaScript">
+function ChangeThumb(pic) {
+        document.images.Thumb.src = '{AVATAR_GALORY}/'+pic
+}
+</script>
+    <img src="avatars/blank.gif" name="Thumb" class="image" />
+			<label for="category">{L_AVATAR_CATEGORY}: <select name="avgallery" id="category" onChange="if(this.options[this.selectedIndex].value != 'none') ChangeThumb(this.options[this.selectedIndex].value);" onKeyUp="if(this.options[this.selectedIndex].value != 'none') ChangeThumb(this.options[this.selectedIndex].value);">{AVATAR_MAXSZ_SEL}</select></label>
+		</fieldset>
+
+	
+	<!-- ENDIF -->
+
+	<span class="corners-bottom"><span></span></span></div>
+</div>

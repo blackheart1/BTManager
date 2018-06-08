@@ -1,0 +1,268 @@
+<!-- IF U_USER -->
+
+<table class="tablebg" width="100%" cellspacing="0">
+<tr>
+<td>
+<div class="caption">
+<div class="cap-left">
+<div class="cap-right">
+<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnPersonal_stats');">{L_PERSONAL_STATS}</a>
+</div>
+</div>
+</div>
+</td></tr><tr valign="middle">
+
+<td class="row3" ><div id="nnPersonal_stats">
+
+<p align="center"><strong>{L_WELCOME_BACK}</strong></p>
+
+<p align="center"><strong>{U_USER_USERNAME}</strong></p>
+
+<center><strong>{U_AVATAR}</strong><br /><br /></center>
+
+<p><img src="themes/1thank/pics/pic_uploaded.gif" border="0" alt="{L_UPLODED}" title="{L_UPLODED}" />&nbsp;&nbsp;&nbsp;&nbsp;{U_UPLOADED}<br /><img src="themes/1thank/pics/pic_downloaded.gif" border="0" alt="{L_DOWNED}" title="{L_DOWNED}" />&nbsp;&nbsp;&nbsp;&nbsp;{U_DOWNLOADED}<br /><img src="themes/1thank/pics/pic_ratio.gif" border="0" alt="{L_RATIO}" title="{L_RATIO}" />&nbsp;&nbsp;&nbsp;{U_RATIO}<br />
+
+<!-- IF U_TSEEDING --><span class="overlib" onmouseover="return overlib('{U_TSEEDING}',CAPTION, '{L_T_U_SEED}',TEXTFONT,'Verdana',TEXTCOLOR,'#FFFFFF',CAPTIONFONT,'Lucida Console, Verdana',CENTER,FGCOLOR,'#000000',BGCOLOR,'#6F7578',CAPICON,'themes/1thank/pics/help.png',BORDER,2,SHADOW,SHADOWOPACITY,40,SHADOWCOLOR,'#030303',SHADOWX,2,SHADOWY,2);" onmouseout="return nd();" style="cursor:help"><!-- ENDIF -->
+
+<img src="themes/1thank/pics/upload.gif" border="0" alt="{L_T_U_SEED}" title="{L_T_U_SEED}" /></span>&nbsp;{U_TSEEDING_CNT}<br />
+
+<!-- IF U_TLEECHING --><span class="overlib" onmouseover="return overlib('{U_TLEECHING}',CAPTION, '{L_T_U_LEECH}',TEXTFONT,'Verdana',TEXTCOLOR,'#FFFFFF',CAPTIONFONT,'Lucida Console, Verdana',CENTER,FGCOLOR,'#000000',BGCOLOR,'#6F7578',CAPICON,'themes/1thank/pics/help.png',BORDER,2,SHADOW,SHADOWOPACITY,40,SHADOWCOLOR,'#030303',SHADOWX,2,SHADOWY,2);" onmouseout="return nd();" style="cursor:help"><!-- ENDIF -->
+
+<img src="themes/1thank/pics/download.gif" border="0" alt="{L_T_U_LEECH}" title="{L_T_U_LEECH}" />&nbsp;{U_TLEECHINGCNT}</p><br />
+
+<br />
+
+<p>{L_SEED_BOMUS}: <a href='mybonus.php'>{U_SEED_BONUS}</a></p>
+
+<p>{L_TANSF_BONUS}: <a href="bonus_transfer.php">{L_CLICK_HERE}</a></p>
+
+</div>
+
+</td></tr>
+
+</table>
+
+<br clear="all" />
+
+
+
+<table class="tablebg" width="100%" cellspacing="0">
+
+<tr><td>
+
+<div class="caption">
+
+<div class="cap-left">
+
+<div class="cap-right">
+
+<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnGeneral');">{L_GENERAL}</a>
+
+</div>
+
+</div>
+
+</div>
+
+</td></tr><tr valign="middle">
+
+<td  class="row3" ><div id="nnGeneral">
+
+<table width="100%" border="0" cellspacing="1" cellpadding="1" class="forumline" align="center">
+
+<tr><td class="row2" width="100%"><a href="index.php">{L_INDEX} </a></td></tr>
+
+<tr><td class="row1" width="100%"><a href="rules.php">{L_RULES}</a></td></tr>
+
+<tr><td class="row2" width="100%"><a href="faq.php">{L_FAQS}</a></td></tr>
+
+<tr><td class="row1" width="100%"><a href="forum.php">{L_FORUM}</a></td></tr>
+
+<tr><td class="row1" width="100%"><a href="chat.php">{L_IRC_CHAT}</a></td></tr>
+
+<!-- IF U_SHOW_ARCADE --><tr><td class="row1" width="100%"><a href="arcade.php">{L_ARCADE}</a></td></tr><!-- ENDIF -->
+
+<!-- IF U_USER --><tr><td class="row1" width="100%"><a href="mytorrents.php">{L_YOUR_TORRENTS}</a></td></tr><!-- ENDIF -->
+
+<tr><td class="row1" width="100%"><a href="torrents.php">{L_BROWES}</a></td></tr>
+
+<!-- IF U_USER --><tr><td class="row1" width="100%"><a href="pm.php"><span <!-- IF U_PM_POPUP -->id="nopm_notif"<!-- ENDIF -->>{L_PRIVATE_MESSAGES}</span></a></td></tr><!-- ENDIF -->
+
+<!-- IF U_USER --><tr><td class="row1" width="100%"><a href="user.php?op=profile&amp;id={S_USER_ID}">{L_USER_CPANNEL}</a></td></tr><!-- ENDIF -->
+
+<!-- IF U_USER --><tr><td class="row1" width="100%"><a onclick="if(!confirm('{L_JAVA_CONF_LOGOUT}')){return false;};" href="user.php?op=logout" alt="{L_LOG_OUT}" title="{L_LOG_OUT}">{L_LOG_OUT}</a></td></tr><!-- ENDIF -->
+
+<!-- IF U_ADMIN --><tr><td class="row1" width="100%"><a href="admin.php">{L_ADMIN_CP}</a></td></tr><!-- ENDIF -->
+
+</table>
+
+</div>
+
+</td></tr>
+
+</table>
+
+<br clear="all" />
+
+<table class="tablebg" width="100%" cellspacing="0">
+
+<tr><td>
+
+<div class="caption">
+
+<div class="cap-left">
+
+<div class="cap-right">
+
+<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnTheme_change');">{L_THEME_CHANGER}</a>
+
+</div>
+
+</div>
+
+</div>
+
+</td></tr><tr valign="middle">
+
+<td class="row3" ><div id="nnTheme_change">
+
+<p align="center"><strong>{L_THEMES}</strong></p>
+
+<form id="acp_styles" type="hidden" method="post" action="#"><p><select id="template_file" name="theme_change" onchange="if (this.options[this.selectedIndex].value != '') this.form.submit();">
+
+<!-- BEGIN theme_var -->
+
+<option <!-- IF theme_var.SET -->selected="selected" <!-- ENDIF --> value="{theme_var.KEY}">{theme_var.VAL}</option>
+
+<!-- END theme_var -->
+
+</select></p><p align="center"><strong>{L_LANGUAGE}</strong></p>
+
+<p><select id="language_file" name="language_change" onchange="if (this.options[this.selectedIndex].value != '') this.form.submit();">
+
+<!-- BEGIN lang_var -->
+
+<option  <!-- IF lang_varS.SET -->selected="selected" <!-- ENDIF -->value="{lang_var.KEY}">{lang_var.VAL}</option>
+
+<!-- END lang_var -->
+
+</select></p> <input class="button2" type="submit" value="{L_SELECT}" ></form></div>
+
+</td></tr>
+
+</table>
+
+<br clear="all" />
+
+<!-- IF DONATIO_ON -->
+
+<table class="tablebg" width="100%" cellspacing="0">
+
+<tr><td>
+
+<div class="caption">
+
+<div class="cap-left">
+
+<div class="cap-right">
+
+<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnDonations');">{L_DONATIONS}</a>
+
+</div>
+
+</div>
+
+</div>
+
+</td></tr>
+
+<tr valign="middle">
+
+<td  class="row3" ><div id="nnDonations">
+
+<p class="donation" align="center" ><br />{L_PROGRESS}</p>
+
+<table class=main border=0 width=144px>
+
+<tr>
+
+<td style='padding: 0px; background-image: url(images/loadbarbg.gif); background-repeat: repeat-x'>{DONATION_IMAGE}
+
+<br />
+
+<p class="donation" align="center" >{DONATION_PERC}%</p>
+
+</td>
+
+</tr>
+
+</table><p class="donation"> {L_GOAL}
+
+<font color="red">{DONATION_ASKED}</font><br />
+
+ {L_COLECTED}
+
+ <font color="green">{DONATION_IN}</font>
+
+ </p>
+
+<br /><br />
+
+<strong><font color="red">&raquo;</font></strong>
+
+<a href="donate.php">{L_DONATE}</a><br /></div>
+
+</td></tr>
+
+</table>
+
+<br clear="all" />
+<!-- ENDIF -->
+
+<table class="tablebg" width="100%" cellspacing="0">
+
+<tr><td>
+
+<div class="caption">
+
+<div class="cap-left">
+
+<div class="cap-right">
+
+<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnInvites');">{L_INVITES}</a>
+
+</div>
+
+</div>
+
+</div>
+
+</td></tr><tr valign="middle">
+
+<td  class="row3" ><div id="nnInvites">
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+
+<tr><td align="center"><p>{L_INVITE_COUNT} {U_INVITES}</p><br /></td></tr>
+
+<tr><td align="center"><a href=invite.php>{L_SEND_INVITE}</a><br /></td></tr>
+
+</table>
+
+</div>
+
+</td>
+
+</tr>
+
+</table>
+
+<br clear="all" />
+
+</div>
+</td>
+<!-- ENDIF -->
+
+<td width="100%" valign="top">
+
+<div id="centercolumn">

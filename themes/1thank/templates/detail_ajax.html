@@ -1,0 +1,769 @@
+<!-- IF ACTION == error -->
+<div id="errorbox" >
+<span class="errorbox-title">{S_ERROR_HEADER}</span>
+{S_ERROR_MESS}
+</div>
+<!-- ELSEIF ACTION == close_view_details -->
+        <span id=ID{TORRENT}><p onclick="sndReq('op=view_details&torrent={TORRENT}', 'ID{TORRENT}')"><img src="themes/1thank/pics/plus.gif" alt="{L_TORRENT_DETAILS}" border="0"></p></span>
+<!-- ELSEIF ACTION == close_view_details_page -->
+<!-- ELSEIF ACTION == view_peers_page -->
+    <table class="tablebg" cellspacing="0" width="100%">
+        <tbody>
+            <tr>
+                <td>
+                    <div class="caption">
+                        <div class="cap-left">
+                            <div class="cap-right">
+                                <a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnPeers');"><img title="{L_EXPAND_ITEM}" id="nnPeersimg" src="themes/1thank/pics/minus.gif" alt="{L_EXPAND_ITEM}"></a>{L_PEER_LIST}
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr valign="middle">
+                <td class="row3">
+                    <div id="nnPeers">
+<table class="peertable" border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tbody>
+        <tr style="height:150px">
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tbody>
+<!-- BEGIN peer_list -->
+<!-- IF peer_list.S_FIRST_ROW -->
+                        </tr>
+<!-- ENDIF -->
+                            <td style="vertical-align:bottom">
+                                <div>
+                                                        <span class="overlib" onmouseover="return overlib('{L_UPLODED}: {peer_list.UPLOADED}<br />{L_DOWNED}: {peer_list.DOWNLOADED}<br />{L_COMPLETED}: {peer_list.PERCENT}<br />{L_RATIO}: {peer_list.RATIO}<br />{L_UP_SPEED}: {peer_list.SPEED}/s<br /><!-- IF  peer_list.DOWNLOAD_SPEED -->{L_DOWN_SPEED}: {peer_list.DOWNLOAD_SPEED}/s<br /><!-- ENDIF -->',CAPTION, 'Transfer',TEXTFONT,'Verdana',TEXTCOLOR,'#FFFFFF',CAPTIONFONT,'Lucida Console, Verdana',CENTER,FGCOLOR,'#000000',BGCOLOR,'#0000FF',CAPICON,'themes/1thank/pics/help.png',BORDER,2,SHADOW,SHADOWOPACITY,40,SHADOWCOLOR,'#030303',SHADOWX,2,SHADOWY,2);" onmouseout="return nd();" style="cursor:help">
+                                                            <img src="themes/1thank/pics/help.gif" alt="" title="" border="0">
+                                                        </span>
+                                                        <img src="themes/1thank/pics/<!-- IF peer_list.IS_SEEDER -->upload<!-- ELSE -->download<!-- ENDIF -->.gif" alt="<!-- IF peer_list.IS_SEEDER -->{L_SEEDING}<!-- ELSE -->{L_LEECHING}<!-- ENDIF -->" title="<!-- IF peer_list.IS_SEEDER -->{L_SEEDING}<!-- ELSE -->{L_LEECHING}<!-- ENDIF -->" border="0">
+                                                        <img src="client_icons/{peer_list.CLIENT_IMG}.gif" alt="{peer_list.USER_CLIENT}" title="{peer_list.USER_CLIENT}">
+                                                        <img src="themes/1thank/pics/<!-- IF peer_list.CONECTABLE -->icon_active<!-- ELSE -->icon_passive<!-- ENDIF -->.gif" alt="<!-- IF peer_list.CONECTABLE -->{L_ACTIVE}<!-- ELSE -->{L_IN_ACTIVE}<!-- ENDIF -->" title="<!-- IF peer_list.CONECTABLE -->{L_ACTIVE}<!-- ELSE -->{L_IN_ACTIVE}<!-- ENDIF -->" border="0">
+                                                    <span class="overlib" onmouseover="return overlib('{L_CONNECTED}: {peer_list.START_TIME} <br />{L_IN_ACTIVE}: {peer_list.IDLE_TIME} ',CAPTION, '{L_TIME_CONNECTED}',TEXTFONT,'Verdana',TEXTCOLOR,'#FFFFFF',CAPTIONFONT,'Lucida Console, Verdana',CENTER,FGCOLOR,'#000000',BGCOLOR,'#0000FF',CAPICON,'themes/1thank/pics/help.png',BORDER,2,SHADOW,SHADOWOPACITY,40,SHADOWCOLOR,'#030303',SHADOWX,2,SHADOWY,2);" onmouseout="return nd();" style="cursor:help"><img src="themes/1thank/pics/clock.gif" alt="" title="" border="0"></span>
+                                </div>
+                                <p>
+                                <!-- IF peer_list.IS_USER -->
+                                <a href="user.php?op=profile&amp;id={peer_list.USER_ID}" target="_top">{peer_list.AVATAR}
+                                <br />
+                                <font color="#{peer_list.USER_COLOR}">{peer_list.USER_NAME}</font>
+                                <br />
+                                {peer_list.RANK_IMG}
+                                </a>
+                                <!-- ELSE -->
+                                {peer_list.USER_IP}
+                                <!-- ENDIF -->
+                                </p>
+                                <table class="main" border="0" width="100">
+                                    <tbody>
+                                        <tr>
+                                            <td style="padding: 0px; background-image: url(images/loadbarbg.gif); background-repeat: repeat-x"><img src="images/loadbargreen.gif" alt="{peer_list.IMG_BAR_WIDTH}%" height="15" width="{peer_list.IMG_BAR_WIDTH}"><br /><font color="red" size="1"><center>{peer_list.PERCENT}</center></font>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+<!-- IF peer_list.S_LAST_ROW -->
+                        </tr>
+<!-- ENDIF -->
+<!-- BEGINELSE -->
+                            <td><p>{L_NO_PEERS}</p></td>
+<!-- END peer_list -->
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="cat" colspan="7" align="center" valign="middle"></td>
+            </tr>
+        </tbody>
+    </table>
+<br clear="all" />
+<!-- ELSEIF ACTION == view_files_page -->
+    <table class="tablebg" cellspacing="0" width="100%">
+        <tbody>
+            <tr>
+                <td>
+                    <div class="caption">
+                        <div class="cap-left">
+                            <div class="cap-right">
+                                <a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnfile_list');"><img title="{L_EXPAND_ITEM}" id="nnfile_listimg" src="themes/1thank/pics/minus.gif" alt="{L_EXPAND_ITEM}"></a>{L_FILE_LIST}
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr valign="middle">
+                <td class="row3">
+                    <div id="nnfile_list">
+                        <table class="filelist" align="middle">
+                            <thead>
+                                <tr>
+                                    <td width="4%">
+                                    </td>
+                                    <td align="center" width="24%">
+                                        <p><strong>{L_FILE_NAME}</strong></p>
+                                    </td>
+                                    <td align="center" width="24%">
+                                    <p><strong>{L_SIZE}</strong></p>
+                                    </td>
+                                    <td align="center" width="24%">
+                                    <p><strong>{L_MAGNET_LINK}</strong></p>
+                                    </td>
+                                    <td align="center" width="24%">
+                                    <p><strong>{L_ED2K_LINK}</strong></p>
+                                    </td>
+                                </tr>
+                            </thead>
+                                <tbody>
+<!-- BEGIN file_info -->
+                                    <tr>
+                                        <td align="right">
+                                        <p><img src="file_icons/{file_info.FILE_EXT}.png" alt="{L_FILE_ICON}"></p>
+                                        </td>
+                                        <td align="left">
+                                        <p>{file_info.FILENAME}</p>
+                                        </td>
+                                        <td align="center">
+                                        <p>{file_info.FILESIZE}</p>
+                                        </td>
+                                        <td align="center">
+                                        <!-- IF file_info.MAGLINK--><a href="{file_info.MAGLINK}"><img src="themes/1thank/pics/magnet_active.gif" alt="{L_DOWNLOAD_MAGLINK}" title="{L_DOWNLOAD_MAGLINK}" border="0"></a><!-- ELSE --><img src="themes/1thank/pics/magnet_inactive.gif" alt="{L_NO_MAG_LINK}" title="{L_NO_MAG_LINK}" border="0"><!-- ENDIF -->
+                                        </td>
+                                        <td align="center">
+                                        <p>
+                                        <!-- IF file_info.MAGLINK--><a href="{file_info.MAGLINK}"><img src="themes/1thank/pics/ed2k_active.gif" alt="{L_DOWNLOAD_EDTK}" title="{L_DOWNLOAD_EDTK}" border="0"></a><!-- ELSE --><img src="themes/1thank/pics/ed2k_inactive.gif" alt="{L_NO_EDTK_LINK}" title="{L_NO_EDTK_LINK}" border="0"><!-- ENDIF -->
+                                        </p>
+                                        </td>
+                                    </tr>
+<!-- END file_info -->
+                                </tbody>
+                            </table>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="cat" colspan="7" align="center" valign="middle"></td>
+            </tr>
+        </tbody>
+    </table>
+<br clear="all" />
+<!-- ELSEIF ACTION == view_rate_page -->
+    <table class="tablebg" cellspacing="0" width="100%">
+        <tbody>
+            <tr>
+                <td>
+                    <div class="caption">
+                        <div class="cap-left">
+                            <div class="cap-right">
+                                <a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnrate');"><img title="{L_EXPAND_ITEM}" id="nnrateimg" src="themes/1thank/pics/minus.gif" alt="{L_EXPAND_ITEM}"></a>{L_RATINGS}
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr valign="middle">
+                <td class="row3">
+                    <div id="nnrate">
+                        <table border="0" cellpadding="2" cellspacing="3" width="100%">
+                            <tr>
+                                <td>
+                                {L_RATINGS}
+                                </td>
+                                <td>
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <img src="themes/1thank/pics/{STARS}-rating.png" alt="" title="" border="0"> {RATIN_TOTAL}
+                                                </td>
+                                            </tr>
+<!-- IF U_USER -->
+                                            <tr>
+                                                <td>
+<!-- IF V_YOU_FILE -->
+                                                    <p>{L_NO_VOTE_YOUR_FILE}</p>
+<!-- ELSE -->
+<!-- IF V_UVOTED -->
+                                                    <hr style="color: #f00;background-color: #f00; width: 100%; height: 5px; ">
+                                                    <br clear="all" />
+                                                    {L_YOURATED_THIS}
+                                                    <br clear="all" />
+                                                    <img src="themes/1thank/pics/{V_URATING}-rating.png" alt="" title="" border="0"> {V_URATING_VAR}, {V_RATE_DATE}
+<!-- ELSE -->
+                                                    <form method="post" action="rate.php">
+                                                    <input name="op" value="star" type="hidden">
+                                                    <input name="id" value="{RATE_ID}" type="hidden">
+                                                    <select name="rating">
+                                                    <option value="0">({L_VOTE})</option>
+                                                    <option value="5">5 - {L_VOTE_E}</option>
+                                                    <option value="4">4 - {L_VOTE_D}</option>
+                                                    <option value="3">3 - {L_VOTE_C}</option>
+                                                    <option value="2">2 - {L_VOTE_B}</option>
+                                                    <option value="1">1 - {L_VOTE_A}</option>
+                                                    </select>
+                                                    <input value="{L_RATE}" type="submit"></form>
+<!-- ENDIF -->
+<!-- ENDIF -->
+                                                </td>
+                                            </tr>
+<!-- ENDIF -->
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                                <tr><td class="cat" colspan="7" align="center" valign="middle"></td><td class="cat2" colspan="7" align="center" valign="middle"></td>
+<!-- IF V_COMPLAINTS -->
+                            </tr>
+                            <tr>
+                                <td>
+                                {L_COMPLAINTS}
+                                </td>
+                                <td>
+                                    <table border="0" cellpadding="0" cellspacing="0">
+                                        <tbody>
+<!-- IF not V_YOU_FILE -->
+<!-- IF not U_COMPLAINT -->
+                                            <tr>
+                                                <td>
+                                                    <p>
+                                                    {L_COMPLAINTS_EXP}
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <form action="rate.php" method="POST">
+                                                    <input name="op" value="complaint" type="hidden">
+                                                    <input name="id" value="{RATE_ID}" type="hidden">
+                                                    <select name="complaint">{COMP_SELECT}</select>
+                                                    <input value="{L_SUBMIT}" type="submit">
+                                                    </form>
+                                                </td>
+                                            </tr>
+<!-- ENDIF -->
+<!-- ENDIF -->
+                                            <tr>
+                                                <td>
+                                                    <p>
+                                                    <!-- IF U_COMPLAINT -->{L_YOUR_COMP}: {U_P_COMP}<br /><!-- ENDIF -->
+                                                    {TOT_USER_COMP}
+                                                    <br />{L_IF_MAX_COMP}
+                                                    </p>
+                                                </td>
+                                            </tr>
+<!-- ENDIF -->
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="cat" colspan="7" align="center" valign="middle"></td>
+            </tr>
+        </tbody>
+    </table>
+<br clear="all" />
+<!-- ELSEIF ACTION == view_details_page -->
+<!-- IF LOGIN -->
+<div id="errorbox" >
+    <span class="errorbox-title">{TITTLE_M}</span>
+<!-- IF ERROR -->   <span class="errorbox-title">{E_ERROR}</span><!-- ENDIF -->
+        <form method="POST" action="{U_ACTION}">
+        {HIDDEN}
+        <p align="center">
+        {L_PASSWORD}<br />
+        <input type="password" name="password" size="20" />
+        <label class='Button'><input type="submit" /></label>
+        </p>
+        </form>
+</div>
+<!-- ELSE -->
+    <div id="title-overview-widget">
+        <table class="imdb-odd" id="title-overview-widget-layout" border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tbody>
+                <tr>
+<!-- IF POSTER -->
+                    <td class="imdb-odd"  rowspan="2" id="img_primary">
+                            <div class="image">
+                            <img alt="{TITLE}" title="{TITLE}" src="{POSTER}" itemprop="image" height="317" width="214">
+                            </div>
+                    </td>
+<!-- ENDIF -->
+                    <td class="imdb-odd"  id="overview-top">
+                        <h2  class="imdb-odd" class="header2">
+                        <span class="itemprop" itemprop="name">{TITLE}</span>
+                        </h2>
+<!-- IF TORRENT_LINK -->
+                        <a href="{TORRENT_LINK}"><img src="themes/1thank/pics/download.gif" alt="{L_DOWNLOAD}" title="{L_DOWNLOAD}" border="0"></a>
+<!-- ELSEIF TORRENT_UNLOCK -->
+                        <a href="{TORRENT_LINK}"><img src="themes/1thank/pics/lock_request.gif" alt="{L_DOWNLOAD}" title="{L_DOWNLOAD}" border="0"></a>
+<!-- ELSEIF TORRENT_LOCKED -->
+                        <img src="themes/1thank/pics/lock.gif" alt="{L_DOWNLOAD}" title="{L_DOWNLOAD}" border="0">
+<!-- ENDIF -->
+<!-- IF EXPORT_LINK -->
+                        &nbsp;
+                        <span class="overlib" onmouseover="return overlib('{L_EXPORT_EXP}',CAPTION, '{L_EXPORT}',TEXTFONT,'Verdana',TEXTCOLOR,'#FFFFFF',CAPTIONFONT,'Lucida Console, Verdana',CENTER,FGCOLOR,'#000000',BGCOLOR,'#0000FF',CAPICON,'themes/1thank/pics/help.png',BORDER,2,SHADOW,SHADOWOPACITY,40,SHADOWCOLOR,'#030303',SHADOWX,2,SHADOWY,2);" onmouseout="return nd();" style="cursor:help">
+                            <a href="download.php?id=23&amp;export=1"><img src="themes/1thank/pics/export.gif" alt="" title="" border="0"></a>
+                        </span><!-- ENDIF -->
+<!-- IF MAGNET_LINK -->                     &nbsp;<a href="{MAGNET_LINK}"><img src="themes/1thank/pics/magnet.gif" alt="{L_DOWNLOAD_MAGNET_URL}" title="{L_DOWNLOAD_MAGNET_URL}" border="0"></a><!-- ENDIF -->
+<!-- IF EDIT_LINK -->                       &nbsp;<a href="edit.php?id={T_ID}"><img src="themes/1thank/pics/edit.gif" alt="{L_EDIT}" title="{L_EDIT}" border="0"></a><!-- ENDIF -->
+<!-- IF DELETE_LINK -->                     &nbsp;<a href="edit.php?op=delete&amp;id={T_ID}"><img src="themes/1thank/pics/drop.gif" alt="{L_DELETE}" title="{L_DELETE}" border="0"></a><!-- ENDIF -->
+<!-- IF BAN_LINK -->                        &nbsp;<a href="edit.php?op=ban&amp;id={T_ID}"><img src="themes/1thank/pics/ban.png" alt="{L_BAN_TORRENT}" title="{L_BAN_TORRENT}" border="0"></a><!-- ENDIF -->
+<!-- IF TORRENT_SCARPE --><!-- IF CAN_REFRESH -->                           &nbsp;<a href="{TORRENT_SCARPE}"><img src="themes/1thank/pics/refresh.png" alt="{L_REFRESH_PEERS}" title="{L_REFRESH_PEERS}" border="0"></a><!-- ELSE --><img src="themes/1thank/pics/refresh_gray.png" alt="{L_PEERS_UPDATE_ALREDY}" title="{L_PEERS_UPDATE_ALREDY}" border="0"><!-- ENDIF --><!-- ENDIF -->
+<!-- IF AUTH_TORRENT --><!-- IF AUTH_NEEDED -->                     &nbsp;<a href="mytorrents.php?op=displaytorrent&amp;id={T_ID}"><img src="themes/1thank/pics/auth_pending.gif" alt="{L_AUTH_PENDING}" title="{L_AUTH_PENDING}" border="0"></a><!-- ELSE --><a href="mytorrents.php?op=displaytorrent&amp;id={T_ID}"><img src="themes/1thank/pics/auth_none.gif" alt="{L_AUTH_PENDING_NONE}" title="{L_AUTH_PENDING_NONE}" border="0"></a><!-- ENDIF --><!-- ENDIF -->
+                        <h4 class="inline">{L_DATE_ADDED}:</h4>
+                        <span class="itemprop" itemprop="name">{TORRENT_ADDED}</span>
+                        <h4 class="inline">{L_PEERS}:</h4>
+                        <span class="itemprop" itemprop="name">{L_SEEDERS} : {TORRENT_SEEDS}</span>
+                        <span class="ghost">|</span>
+                        <span class="itemprop" itemprop="name">{L_LEECHERS} : {TORRENT_LEECH}</span>
+                        <span class="ghost">|</span>
+                        <span class="itemprop" itemprop="name">{L_COMPLETED} : {TORRENT_COMPL}</span>
+                        <span class="ghost">|</span>
+                        <span class="itemprop" itemprop="name">{L_PEER_SPEED} : {TORRENT_SPEED}</span>
+                        <span class="ghost">|</span>
+                        <span class="itemprop" itemprop="name">{L_EST_DOWNLOAD_TIME} : {TIME_TO_COMP}</span>
+                        <span class="ghost">|</span>
+<!-- IF SNATCH_LIST -->                     <div class="txt-block">
+                            <h4>{L_VIEW_SNATCH_LIST}</h4>
+                            <span itemprop="contentRating"><a href="viewsnatches.php?id={T_ID}">[{L_VIEW}]</a></span>
+                        </div><!-- ENDIF -->
+<!-- IF SNATCH_LIST -->                     <div class="txt-block">
+                            <h4>{L_REQ_RESEED}</h4>
+                            <span itemprop="contentRating"><a href="re-seed.php?id={T_ID}">[{L_GO}]</a></span>
+                        </div><!-- ENDIF -->
+<!-- IF SHOW_PASS_WORD -->                      <div class="txt-block">
+                            <h4>{L_PASSWORD}</h4>
+                            <span itemprop="contentRating">{SHOW_PASS_WORD}</span>
+                            <h4>{L_PASS_LINK}</h4>
+                            <span itemprop="contentRating">{PASSWORD_LINK}</span>
+                        </div><!-- ENDIF -->
+                        <div class="txt-block">
+                            <h4>{L_NUKED_TORRENT}</h4>
+                            <span itemprop="contentRating">{NUKED} {NUKED_REASON}</a></span>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+        <br clear="all" />
+        <div class="article" id="titleCast">
+            <h2 class="imdb-odd">{L_TORRENT_DETAILS}</h2>
+            <table class="cast_list">
+                <tbody>
+                    <tr>
+                        <td colspan="4" class="castlist_label">&nbsp;</td>
+                    </tr>
+                    <tr class="odd">
+                        <td class="primary_photo">
+                            <div class="txt-block">
+                                        <h4>{L_DL_SIZE}</h4>
+                                    <span itemprop="contentRating">{TORRENT_SIZE}</span>
+                            </div>
+                            <div class="txt-block">
+                                        <h4>{L_INFOHASH}</h4>
+                                    <span itemprop="contentRating">{TORRENT_INFOHASH}</span>
+                            </div>
+                            <div class="txt-block">
+                                        <h4>{L_NUB_OF_FILES}</h4>
+                                    <span itemprop="contentRating">{FILE_COUNT}</span>
+                            </div>
+                            <div class="txt-block">
+                                        <h4>{L_NT_DOWNLOASED}</h4>
+                                    <span itemprop="contentRating">{TIMES_DOWNLOADED}</span>
+                            </div>
+                            <div class="txt-block">
+                                        <h4>{L_NT_VIEWED}</h4>
+                                    <span itemprop="contentRating">{TIMES_SEEN}</span>
+                            </div>
+                            <div class="txt-block">
+                                        <h4>{L_NT_COMPLETED}</h4>
+                                    <span itemprop="contentRating">{TIMES_COMPLETE}</span>
+                            </div>
+                            <div class="txt-block">
+                                        <h4>{L_UPLOADED_BY}</h4>
+                                    <span itemprop="contentRating">
+<!-- IF UPLOADER_HIDE -->
+                                    {L_UNKNOWN}
+<!-- ELSE -->                                   <a href="user.php?op=profile&amp;id={UPLOADER_ID}"><font color="{UPLOADER_COLOR}">{UPLOADER}</font></a>
+<!-- ENDIF -->
+<!-- IF UPLOADER_HOST -->                                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[{UPLOADER_HOST}]<!-- ENDIF -->
+                                    </span>
+                            </div>
+                            <div class="txt-block">
+                                        <h4>{L_LASTACTION}</h4>
+                                    <span itemprop="contentRating">{LAST_ACTION}</span>
+                            </div>
+                            <div class="txt-block">
+                                        <h4>{L_CPL_BY}</h4>
+    <!-- IF SNATCH_LIST -->
+                            <div class="txt-block">
+                                        <h4>{L_CPL_BY}</h4>
+    <!-- BEGIN completer -->
+<!-- IF not completer.S_FIRST_ROW -->                            <span class="ghost">|</span> <!-- ENDIF -->
+                                    <span itemprop="contentRating"><a href="user.php?op=profile&amp;id={completer.ID}"><font color="{completer.COLOR}">{completer.NAME}</font></a></span>
+    <!-- BEGINELSE -->
+    <!-- END completer -->
+                            </div>
+<!-- ENDIF -->
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <br clear="all" />
+        <div class="article" id="titleCast">
+            <h2 class="imdb-odd">{L_DESCRIPTION}</h2>
+            <table class="cast_list">
+                <tbody>
+                    <tr>
+                        <td colspan="4" class="castlist_label">&nbsp;</td>
+                    </tr>
+                    <tr class="even">
+                        <td class="primary_photo">
+                            <p>{TORRENT_DESCP}</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <br clear="all" />
+        <div class="article" id="titleCast">
+            <h2 class="imdb-odd">{L_TRACKERS}</h2>
+            <table class="cast_list">
+                <tbody>
+                    <tr>
+                        <td colspan="4" class="castlist_label">{L_TRACKER_OVER_VIEW}:</td>
+                    </tr>
+    <!-- BEGIN trakers -->
+                    <!-- IF trakers.S_ROW_COUNT is even --><tr class="even"><!-- ELSE --><tr class="odd"><!-- ENDIF -->
+                        <td class="primary_link">
+                        <span itemprop="contentRating">{trakers.LINK}</span>
+                        </td>
+                    </tr>
+    <!-- END trakers -->
+                </tbody>
+            </table>
+        </div>
+        <br clear="all" />
+        <div class="article" id="titleCast">
+            <h2 class="imdb-odd">{L_SCREEN_SHOTS}</h2>
+            <table class="cast_list">
+                <tbody>
+                    <tr>
+                        <td colspan="4" class="castlist_label">&nbsp;</td>
+                    </tr>
+    <!-- BEGIN screen_shots -->
+                    <!-- IF screen_shots.S_ROW_COUNT is even --><tr class="even"><!-- ELSE --><tr class="odd"><!-- ENDIF -->
+                        <td class="primary_photo">
+                            <img src="{screen_shots.SHOT}" class="loadlate" >
+                        </td>
+                    </tr>
+    <!-- BEGINELSE -->
+                    <tr class="even">
+                        <td class="primary_photo">
+                            {L_NO_SCREEN_SHOTS}
+                        </td>
+                    </tr>
+    <!-- END screen_shots -->
+                </tbody>
+            </table>
+        </div>
+<!-- ENDIF -->
+<!-- ELSEIF ACTION == view_nfo_page -->
+    <table class="tablebg" cellspacing="0" width="100%">
+        <tbody>
+            <tr>
+                <td>
+                    <div class="caption">
+                        <div class="cap-left">
+                            <div class="cap-right">
+                                <a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnPeers');"><img title="{L_EXPAND_ITEM}" id="nnPeersimg" src="themes/1thank/pics/minus.gif" alt="{L_EXPAND_ITEM}"></a>{L_VIEW_NFO}
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr valign="middle">
+                <td class="row3">
+                    <div id="nnPeers">
+                    <pre>{NFO_INFO}</pre>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="cat" colspan="7" align="center" valign="middle"></td>
+            </tr>
+        </tbody>
+    </table>
+<br clear="all" />
+<!-- ELSEIF ACTION == get_imdb -->
+    <div id="title-overview-widget">
+        <table class="imdb-odd" id="title-overview-widget-layout" border="0" cellpadding="0" cellspacing="0">
+            <tbody>
+                <tr>
+                    <td class="imdb-odd"  rowspan="2" id="img_primary">
+                            <div class="image">
+                            <img alt="{IMDB_TITLE}" title="{IMDB_TITLE}" src="{IMDB_POSTER}" itemprop="image" height="317" width="214">
+                            </div>
+                    </td>
+                    <td class="imdb-odd"  id="overview-top">
+                        <h2  class="imdb-odd" class="header2">
+                        <span class="itemprop" itemprop="name">{IMDB_TITLE}</span>
+                        <span class="nobr">({IMDB_YEAR})</span>
+                        </h2>
+                        <div class="infobar2">
+                            <span title="{IMDB_RATTING}" class="us_{IMDB_RATTING_LOWER} titlePageSprite absmiddle" itemprop="contentRating"><meta itemprop="contentRating" content="{IMDB_RATTING}"></span>
+                            <time itemprop="duration" datetime="PT130M">
+                            {IMDB_RUNTIME} min
+                            </time>
+                            &nbsp;-&nbsp;
+<!-- BEGIN genre -->
+                            <span class="itemprop" itemprop="genre">{genre.GENRE}</span>
+<!-- IF not genre.S_LAST_ROW -->                             <span class="ghost">|</span> <!-- ENDIF -->
+<!-- END genre -->
+                            &nbsp;-&nbsp;
+                            <span class="nobr">
+                            {IMDB_RELEASE_DATE}<meta itemprop="datePublished" content="2013-03-08">
+                            ({IMDB_COUNTRY})
+                            </span>
+                         </div>
+                         <div class="star-box giga-star">
+                            <div class="imdb_star">{IMDB_SCORE}</div>
+                              <div class="star-box-details" itemtype="http://schema.org/AggregateRating" itemscope="" itemprop="aggregateRating">
+                                {L_RATINGS}:
+                                <strong><span itemprop="ratingValue">{IMDB_SCORE}</span></strong>
+                                <span class="mellow">/<span itemprop="bestRating">10</span></span>
+                                {L_FROM}
+
+                                <span itemprop="ratingCount">{IMDB_VOTES}</span>
+                                {L_USERS}
+
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <p itemprop="description">
+                        {IMDB_TAGLINE}
+                        </p>
+                        <div class="txt-block" itemprop="director" itemscope="" itemtype="http://schema.org/Person">
+                        <h4 class="inline">{L_DIRECTORS}:</h4>
+<!-- BEGIN director -->
+                        <span class="itemprop" itemprop="name">{director.NAME}</span>
+<!-- IF not director.S_LAST_ROW -->                          <span class="ghost">|</span> <!-- ENDIF -->
+<!-- END director -->
+                        </div>
+                        <div class="txt-block" itemprop="creator" itemscope="" itemtype="http://schema.org/Person">
+                            <h4 class="inline">{L_WRITERS}:</h4>
+<!-- BEGIN writers -->
+                            <span class="itemprop" itemprop="name">{writers.NAME}</span>{writers.ROLE}
+<!-- IF not writers.S_LAST_ROW -->                           <span class="ghost">|</span> <!-- ENDIF -->
+<!-- END writers -->
+                        </div>
+                       </td>
+                    </tr>
+                </table>
+            </div>
+            <br clear="all" />
+            <div class="article" id="titleCast">
+                <h2 class="imdb-odd">{L_CAST}</h2>
+                <table class="cast_list">
+                    <tbody>
+                        <tr>
+                            <td colspan="4" class="castlist_label">{L_FIRST_CAST_BILLED}:</td>
+                        </tr>
+        <!-- BEGIN cast -->
+                        <tr class="odd">
+                            <td class="primary_photo">
+                                <a target="_blank" href="http://us.imdb.com/Name?{cast.LINK}"><img alt="{cast.NAME}" title="{cast.NAME}" src="{cast.IMAGE}" class="loadlate" height="44" width="32"></a>
+                            </td>
+                            <td class="itemprop" itemprop="actor" itemscope="" itemtype="http://schema.org/Person">
+                            <a target="_blank" href="http://us.imdb.com/Name?{cast.LINK}" itemprop="url"> <span class="itemprop" itemprop="name">{cast.NAME}</span>
+                            </a>
+                            </td>
+                            <td class="ellipsis">
+                            ...
+                            </td>
+                            <td class="character">
+                            <div>
+                            <a target="_blank" href="http://us.imdb.com/Name?{cast.LINK}">{cast.ROLE}</a>
+                            </div>
+                            </td>
+                        </tr>
+        <!-- END cast -->
+                    </tbody>
+                </table>
+            </div>
+            <br clear="all" />
+            <div class="article" id="titleStoryLine">
+
+                <h2 class="imdb-odd">{L_STORYLINE}</h2>
+
+                <div class="inline canwrap" itemprop="description">
+                    <p>{IMDB_PLOT}</p>
+                </div>
+                <hr>
+                <div class="txt-block">
+                    <h4 class="inline">{L_TAGLINES}:</h4>
+        <!-- BEGIN taglines -->
+                    <p>{taglines.TAGS}</p>
+        <!-- IF not taglines.S_LAST_ROW -->  <hr width="40%"> <!-- ENDIF -->
+                    <hr width="40%">
+        <!-- END taglines -->
+                </div>
+                <hr>
+
+            <div class="txt-block">
+                        <h4>{L_MOTION_PIC_RATING}
+                        </h4>
+        <!-- BEGIN mpaarate -->
+                    <span itemprop="contentRating">{mpaarate.COUNTRY}({mpaarate.RATING})</span>
+        <!-- IF not mpaarate.S_LAST_ROW -->
+                    <span class="ghost">|</span>
+        <!-- ENDIF -->
+        <!-- END mpaarate -->
+            </div>
+            </div>
+            <br clear="all" />
+            <div class="article" id="titleComments">
+
+                <h2 class="imdb-odd">{L_COMMENTS}:</h2>
+
+                <div class="inline canwrap" itemprop="description">
+                    <p>
+                    {MOVE_COMMENTS}
+                    </p>
+                </div>
+            </div>
+            <br clear="all" />
+            <div class="article" id="titleVideos">
+
+                <h2 class="imdb-odd">{L_VIDEOS}:</h2>
+
+                <div class="inline canwrap" itemprop="description">
+        <!-- BEGIN trailers -->
+                                    <a target="_blank"  href="{trailers.LINK}" itemprop="url"><span class="itemprop" itemprop="name">{trailers.LINK}</span></a><br />
+        <!-- END trailers -->
+                </div>
+            </div>
+<!-- ELSEIF ACTION == view_coments_page -->
+<table class="tablebg" cellspacing="0" width="100%">
+    <tbody>
+        <tr>
+            <td>
+                <div class="caption">
+                    <div class="cap-left">
+                        <div class="cap-right">
+                            <a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnRating___Comments');"><img title="{L_EXPAND_ITEM}" id="nnRating___Commentsimg" src="themes/1thank/pics/minus.gif" alt="{L_EXPAND_ITEM}"></a>{L_COMMENTS}
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr valign="middle">
+            <td class="row3">
+                <div id="nnRating___Comments">
+<!-- IF CAN_COMMENT -->
+                    <p align="center">
+                    <a class="index" href="takethankyou.php?id={T_ID}"> <img src="./smiles/thankyou.gif" border="0"></a>
+                    <br />
+                    </p>
+                    <h2>
+                    <center>{L_ADD_QUICK_THANKS}</center>
+                    </h2>
+<!-- ENDIF -->
+<!-- BEGIN comments -->
+                    <a name="comm93"></a>
+                        <table class="main" width="100%">
+                            <thead>
+                                <tr>
+                                    <td class="colhead">{comments.COMMENT_TIME}, <a href="user.php?op=profile&amp;id={comments.USER_ID}" target="_top"><font color="#{comments.USER_COLOR}">{comments.USER_NAME}</font></a> {L_WROTE}:</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <table width="100%">
+                                            <tbody>
+                                                <tr>
+                                                    <td width="100">{comments.USER_AVATAR}</td>
+                                                    <td>
+                                                        <div align="right">
+<!-- IF comments.CAN_DELETE -->
+                                                            <a href="comment.php?op=delete&amp;id={T_ID}&amp;cid={comments.COMMENT_ID}" target="_top"><img src="themes/1thank/pics/drop.gif" alt="drop" title="{L_DELETE}" border="0"></a>
+<!-- ENDIF -->
+<!-- IF comments.CAN_EDIT -->
+                                                            <a href="comment.php?op=edit_coment&amp;id={T_ID}&amp;cid={comments.COMMENT_ID}" target="_top"><img src="themes/1thank/pics/edit.gif" alt="edit" title="{L_EDIT}" border="0"></a>
+<!-- ENDIF -->
+                                                        </div>
+                                                        <div align="justify">
+                                                            {comments.COMMENT_TXT}
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+<!-- BEGINELSE -->
+                    <br clear="all" />
+                    <br clear="all" />
+                    <br clear="all" />
+                    <h2>
+                    <center>{L_NO_COMMENTS}</center>
+                    </h2>
+                    <br clear="all" />
+                    <br clear="all" />
+<!-- END comments -->
+<!-- IF CAN_COMMENT -->
+                    <table border="0" cellpadding="2" cellspacing="3" width="100%">
+                        <tbody>
+                            <tr>
+                                <td>
+                                <hr noshade="" size="1">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                <p>{L_ADD_COMMENT}</p>
+                                </td>
+                                <td>
+                                <form name="torrentComment" method="POST" action="comment.php">
+                                <p><textarea rows="7" cols="40" name="comment"></textarea>
+                                <br />
+<!-- BEGIN smilies -->
+                                <a onclick="comment_smile('{smilies.SMILIE_CODE}',torrentComment.comment);"><img src="smiles/{smilies.SMILIE_IMG}" alt="{smilies.ALT}" border="0"></a>
+<!-- END smilies -->
+                                </p>
+                                <p><input value="{L_SUBMIT}" type="submit"></p>
+                                <input name="id" value="{T_ID}" type="hidden">
+                                <input name="op" value="add" type="hidden"></form>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+<!-- ENDIF -->
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="cat" colspan="7" align="center" valign="middle"></td>
+        </tr>
+    </tbody>
+</table>
+<br clear="all" />
+<!-- ENDIF -->

@@ -1,0 +1,8 @@
+<!-- INCLUDE themes/1thank/templates/admin/over_all_header.html -->
+<!-- IF S_FORWARD --><meta http-equiv="refresh" content="5;url={S_FORWARD}"><!-- ENDIF -->
+<div <!-- IF S_USER_NOTICE -->class="successbox"<!-- ELSE -->class="errorbox"<!-- ENDIF -->>
+	<h3>{MESSAGE_TITLE}</h3>
+	<p>{MESSAGE_TEXT}</p>
+</div>
+
+<!-- INCLUDE themes/1thank/templates/admin/over_all_footer.html -->

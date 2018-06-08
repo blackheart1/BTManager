@@ -1,0 +1,284 @@
+<!-- INCLUDE themes/1thank/templates/overall_header.html -->
+
+
+<!-- IF S_VIEW_HIGHSCORES -->
+ <div class="panel bg1" id="faqlinks">
+    <div class="inner"><span class="corners-top"><span></span></span>
+        <table width="100%" >
+            <tr>
+                <td style="padding-top:10px; padding-left:10px; padding-right:10px; padding-bottom:0px; text-align:center">
+                    <h3>{U_SCORE_USER}</h3>
+                    <table width="100%" >
+                    <!-- BEGIN userscorerow -->
+                        <tr>
+                            <td>{userscorerow.SCORE}</td>
+                        </tr>
+                    <!-- END userscorerow -->
+                    </table>
+                </td>
+            </tr>
+        </table>
+    <span class="corners-bottom"><span></span></span></div>
+</div>
+<!-- ELSEIF S_EDIT -->
+     <div class="panel bg1" id="faqlinks">
+        <div class="inner"><span class="corners-top"><span></span></span>
+            <table width="100%" >
+                <tr>
+                    <td style="padding-top:10px; padding-left:10px; padding-right:10px; padding-bottom:10px; text-align:center">
+                        <h3>{L_COMMENT}</h3>
+                        <!-- INCLUDE themes/1thank/templates/posting_buttons.html -->
+                        <form id="postform" method="post" action="{U_ACTION}">
+                        <fieldset class="submit-buttons">
+                            <br />
+                            <textarea name="message" cols="20" rows="4">{COMMENT}</textarea>
+                        </fieldset>
+                        <fieldset class="submit-buttons">
+                            <input class="button2" name="editgame" type="submit" value="{L_SUBMIT}" />
+                            <input class="button2" type="reset" id="reset" name="reset" value="{L_RESET}" />
+                        </fieldset>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        <span class="corners-bottom"><span></span></span></div>
+    </div>
+<!-- ELSE -->
+<SCRIPT>
+function popUp(page,PWidth,PHeight,id) {
+ eval("designerwiz"+id+"=window.open('"+page+"','designerwiz1','toolbar=0,scrollbars=0,location=0,status=1,menubars=1,resizable=1,width="+PWidth+",height="+PHeight+"')")
+eval;("wiz"+id+".window.moveTo((screen.width/2)-(PWidth/2),(screen.height/2)-(PHeight/2))")
+}
+</SCRIPT>
+    <div class="panel bg1" id="faqlinks">
+                <dd><!-- IF PREVIOUS_PAGE --><a href="{PREVIOUS_PAGE}" class="left-box {S_CONTENT_FLOW_BEGIN}">{L_PREVIOUS}</a><!-- ENDIF --></dd>
+                <dd><!-- IF NEXT_PAGE --><a href="{NEXT_PAGE}" class="right-box {S_CONTENT_FLOW_END}">{L_NEXT}</a><!-- ENDIF --></dd>
+        <div class="inner"><span class="corners-top"><span></span></span>
+            <!-- BEGIN gamerow -->
+            <dl class="faq">
+                <dt style="text-align:center"><strong>{gamerow.GAME_NAME}</strong></dt>
+            </dl>
+            <div align="center">
+                <strong><a href="javascript:setFlashSize('game', {gamerow.GAME_WIDTH}*0.50, {gamerow.GAME_HEIGHT}*0.50);">50%</a>-<a href="javascript:setFlashSize('game', {gamerow.GAME_WIDTH}*0.75, {gamerow.GAME_HEIGHT}*0.75);">75%</a>-<a href="javascript:setFlashSize('game', {gamerow.GAME_WIDTH}, {gamerow.GAME_HEIGHT});">100%</a>-<a href="javascript:setFlashSize('game', {gamerow.GAME_WIDTH}*1.25, {gamerow.GAME_HEIGHT}*1.25);">125%</a>-<a href="javascript:setFlashSize('game', {gamerow.GAME_WIDTH}*1.5, {gamerow.GAME_HEIGHT}*1.5);">150%</a></strong><br />
+                ({L_RESIZING})
+                <div id="game" style="width:{gamerow.GAME_WIDTH}px; height:{gamerow.GAME_HEIGHT}px;">
+                    <script type="text/javascript" language="JavaScript">
+                        function setFlashSize(divid, newW, newH){
+                            document.getElementById(divid).style.width = newW+"px";
+                            document.getElementById(divid).style.height = newH+"px";
+                        }
+                        document.write('<object data="{gamerow.GAME_FILENAME}?g={gamerow.GAME_ID}" width="100%" height="100%" type="application/x-shockwave-flash">');
+                        document.write('<param name="movie" value="{gamerow.GAME_FILENAME}?g={gamerow.GAME_ID}" />');
+                        document.write('</object>');
+                    </script>
+                    <noscript>
+                        <object type="application/x-shockwave-flash" data="{gamerow.GAME_FILENAME}?g={gamerow.GAME_ID}" width="{gamerow.GAME_WIDTH}" height="{gamerow.GAME_HEIGHT}">
+                            <param name="movie" value="{gamerow.GAME_FILENAME}?g={gamerow.GAME_ID}" />
+                        </object>
+                    </noscript>
+                </div>
+            </div>
+                <table width="100%" >
+                    <tr>
+                        <td style="width:50%; padding-top:10px; padding-left:10px; padding-right:10px; padding-bottom:10px; vertical-align:top">
+                            <h3>{L_GAME_DIR}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{gamerow.GAME_USES}</h3>
+                            <dl>
+                                <dd>{gamerow.GAME_DIR}</dd>
+                            </dl>
+                        </td>
+                        <td style="width:50%; padding-top:10px; padding-left:10px; padding-right:10px; padding-bottom:10px; vertical-align:top">
+                            <h3>{L_GAME_DESC}</h3>
+                            <dl>
+                                <dd>{gamerow.GAME_DESC}</dd>
+                            </dl>
+                        </td>
+                    </tr>
+                </table>
+                <table width="100%" >
+                    <tr>
+                        <td style="padding-top:10px; padding-left:10px; padding-right:10px; padding-bottom:10px; vertical-align:top">
+                            <h3>{L_GAME_PLAYED}</h3>
+                            <dl>
+                                <dd>{gamerow.GAME_PLAY}</dd>
+                            </dl>
+                        </td>
+                        <td style="padding-top:10px; padding-left:10px; padding-right:10px; padding-bottom:10px; vertical-align:top">
+                            <h3>{L_GAME_SIZE}</h3>
+                            <dl>
+                                <dd>{gamerow.GAME_SIZE}</dd>
+                            </dl>
+                        </td>
+                        <td style="padding-top:10px; padding-left:10px; padding-right:10px; padding-bottom:10px; vertical-align:top">
+                            <h3>{L_GAME_RATING}</h3>
+                            <dl>
+                                <dd>{gamerow.GAME_RATING}</dd>
+                            </dl>
+                        </td>
+                        <td style="padding-top:10px; padding-left:10px; padding-right:10px; padding-bottom:10px; vertical-align:top">
+                            <h3>{L_GAME_NUM_RATINGS}</h3>
+                            <dl>
+                                <dd>{gamerow.GAME_NUMRATINGS}</dd>
+                            </dl>
+                        </td>
+                        <!-- IF S_ALLOW_FAV --><td style="padding-top:10px; padding-left:10px; padding-right:10px; padding-bottom:10px; vertical-align:top">
+                            <h3>{L_GAME_ADD_REMOVE}</h3>
+                            <dl>
+                                <dd><a href="{gamerow.U_ADD_REMOVE}">{gamerow.GAME_ADD_REMOVE}</a></dd>
+                            </dl>
+                        </td><!-- ENDIF -->
+                        <td style="padding-top:10px; padding-left:10px; padding-right:10px; padding-bottom:10px; vertical-align:top">
+                            <h3>{L_NUM_FAVORITES}</h3>
+                            <dl>
+                                <dd><a href="{gamerow.U_ADD_REMOVE}">{gamerow.GAME_NUMFAVORITES}</a></dd>
+                            </dl>
+                        </td>
+                    </tr>
+                </table>
+            <!-- END gamerow -->
+            <!-- IF S_HIGHSCORE -->
+                <table width="100%" >
+                    <tr>
+                        <td style="padding-top:10px; padding-left:10px; padding-right:10px; padding-bottom:0px; text-align:center">
+                            <h3>{L_GAME_HIGHSCORES}</h3>
+                            <table width="100%" cellpadding="0" cellspacing="0">
+                            <!-- IF S_NOT_ENOUGH --><strong>{L_TROPHIES_WARNING}</strong><!-- ENDIF -->
+                            <!-- BEGIN scorerow -->
+                                <tr style="height:18px<!-- IF scorerow.CURRENT_USER -->; background-color:#CADCEB<!-- ENDIF -->">
+                                    <td style="width:50%; text-align:right">{scorerow.SCORE}&nbsp;</td>
+                                    <td>-</td>
+                                    <td style="width:50%; text-align:left">&nbsp;{scorerow.SCORE_USER}</td>
+                                </tr>
+                            <!-- END scorerow -->
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <!-- IF S_EXTRA_SCORES -->
+                <table width="100%" >
+                    <tr>
+                        <td style="padding-top:0px; padding-left:10px; padding-right:10px; padding-bottom:10px; text-align:center">
+                            <dt><a href="javascript: void(0);" onClick="var spoiler = this.parentNode.parentNode.getElementsByTagName('dd')[0]; if ( spoiler.style.display == 'none' ) { spoiler.style.display = 'block'; this.innerHTML = 'less high scores'; } else { spoiler.style.display = 'none'; this.innerHTML = 'more high scores'; };">{L_MORE_HIGH_SCORES}</a></dt><dd style="display: none;">
+                            <table width="100%" >
+                            <!-- BEGIN extrascorerow -->
+                                <tr>
+                                    <td style="width:50%; text-align:right">{extrascorerow.SCORE}</td>
+                                    <td>-</td>
+                                    <td style="width:50%; text-align:left">{extrascorerow.SCORE_USER}</td>
+                                </tr>
+                            <!-- END extrascorerow -->
+                            </table>
+                            </dd>
+                        </td>
+                    </tr>
+                </table>
+                <!-- ENDIF -->
+            <!-- ENDIF -->
+            <span class="corners-bottom"><span></span></span></div>
+    </div>
+<!-- IF S_HAS_COMMENTS -->
+            <div class="pagination">
+                {L_NUM_COMMENTS} &bull; <!-- IF PAGINATION --><a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{PAGE_NUMBER}</a> &bull; <span>{PAGINATION}</span><!-- ELSE -->{PAGE_NUMBER}<!-- ENDIF -->
+            </div><br /><br clear="all" /><!-- ENDIF -->
+<!-- BEGIN commentrow -->
+    <div class="post <!-- IF commentrow.S_ROW_COUNT is odd -->bg1<!-- ELSE -->bg2<!-- ENDIF --><!-- IF commentrow.S_ONLINE --> online<!-- ENDIF -->">
+        <div class="inner"><span class="corners-top"><span></span></span>
+            <div class="postbody">
+                <!-- IF S_COMMENTS -->
+                    <ul class="profile-icons">
+                        <!-- IF commentrow.U_EDIT --><li class="edit-icon"><a href="{commentrow.U_EDIT}" title="{L_EDIT_POST}"><span>{L_EDIT_POST}</span></a></li><!-- ENDIF -->
+                        <!-- IF commentrow.U_DELETE --><li class="delete-icon"><a href="{commentrow.U_DELETE}" title="{L_DELETE_COMMENT}"><span>{L_DELETE_COMMENT}</span></a></li><!-- ENDIF -->
+                    </ul>
+                <!-- ENDIF -->
+                <div class="content">{commentrow.COMMENT}</div>
+            </div>
+            <dl class="postprofile">
+                <dt>
+                    <!-- IF commentrow.POSTER_AVATAR -->
+                    {commentrow.POSTER_AVATAR}<br />
+                    <!-- ENDIF -->
+                    <!-- IF not commentrow.U_POST_AUTHOR --><strong>{commentrow.POST_AUTHOR_FULL}</strong><!-- ELSE -->{commentrow.POST_AUTHOR_FULL}<!-- ENDIF -->
+                </dt>
+                <dt>
+                    <strong>{commentrow.COMMENT_USER}</strong>
+                </dt>
+                <!-- IF commentrow.RANK_TITLE or commentrow.RANK_IMG --><dd>{commentrow.RANK_TITLE}<!-- IF commentrow.RANK_TITLE and commentrow.RANK_IMG --><br /><!-- ENDIF -->{commentrow.RANK_IMG}</dd><!-- ENDIF -->
+            </dl>
+        <span class="corners-bottom"><span></span></span></div>
+    </div>
+            <!-- END commentrow -->
+            <!-- IF S_HAS_COMMENTS --><div class="pagination">
+                {L_NUM_COMMENTS} &bull; <!-- IF PAGINATION --><a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{PAGE_NUMBER}</a> &bull; <span>{PAGINATION}</span><!-- ELSE -->{PAGE_NUMBER}<!-- ENDIF -->
+            </div><br /><br clear="all" /><!-- ENDIF -->
+            <!-- IF S_CAN_COMMENT -->
+            <div class="panel bg1" id="faqlinks">
+                <div class="inner"><span class="corners-top"><span></span></span>
+                <table width="100%" >
+                    <tr>
+                        <td style="padding-top:10px; padding-left:10px; padding-right:10px; padding-bottom:10px; text-align:center">
+                            <dt>
+                            	<h3>{L_COMMENT}</h3>
+                                <a href="javascript: void(0);" onClick="var spoiler = this.parentNode.parentNode.getElementsByTagName('dd')[0]; if ( spoiler.style.display == 'none' ) { spoiler.style.display = 'block'; this.innerHTML = 'hide'; } else { spoiler.style.display = 'none'; this.innerHTML = 'show'; };">{L_SHOW}</a>
+                            </dt>
+                            <dd style="display: none;">
+                                <form name="post_form" id="post_form" method="post" action="{U_ACTION}">
+                                <div align="center">
+										<script type="text/javascript">
+                                            // <![CDATA[
+            
+                                            var form_name = 'post_form';
+                                            var text_name = 'message';
+                                            // ]]>
+                                        </script>
+                            <table width="100%" cellspacing="5" cellpadding="0" border="0" align="center">
+                                <tr>
+                                    <td class="gensmall" align="center"><strong>{L__SMILIES}</strong></td>
+                                </tr>
+                                <tr>
+                                    <td align="center">
+<!-- BEGIN smiley -->
+                                        <a href="#" onclick="insert_text('{smiley.A_SMILEY_CODE}', true); return false;" style="line-height: 20px;"><img src="{smiley.SMILEY_IMG}" width="{smiley.SMILEY_WIDTH}" height="{smiley.SMILEY_HEIGHT}" alt="{smiley.SMILEY_CODE}" title="{smiley.SMILEY_DESC}" hspace="2" vspace="2" /></a>
+
+<!-- END smiley -->
+                                    </td>
+                                </tr>
+
+<!-- IF S_SHOW_SMILEY_LINK -->
+                                <tr>
+                                    <td align="center"><a class="nav" href="{U_MORE_SMILIES}" onclick="PopMoreSmiles('post_form','message'); return false;">{L__MORE_SMILIES}</a></td>
+                                </tr>
+<!-- ENDIF -->
+
+                            </table>
+                                	<table>
+										<!-- INCLUDE themes/1thank/templates/posting_buttons.html -->
+    <tr valign="middle" align="{S_CONTENT_FLOW_BEGIN}">
+        <td colspan="2">
+                        <script type="text/javascript">
+                        // <![CDATA[
+                            colorPalette('h', 16, 7)
+                        // ]]>
+                        </script>
+        </td>
+    </tr>
+									</table>
+								</div>
+                                <fieldset class="submit-buttons">
+                                <textarea name="message" id="message" rows="10" cols="30" tabindex="3" onselect="storeCaret(this);" onclick="storeCaret(this);" onkeyup="storeCaret(this);" class="inputbox"></textarea>
+                                <br /><br />
+                                <input class="button2" name="editgame" type="submit" value="{L_SUBMIT}" />
+                                <input class="button2" type="reset" name="reset" value="{L_RESET}" />
+                                </fieldset>
+                                </form>
+                          </dd>
+                            
+
+                        </td>
+                    </tr>
+                </table>
+                <span class="corners-bottom"><span></span></span></div>
+            </div>
+            <!-- ENDIF -->
+<!-- ENDIF -->
+
+
+<!-- INCLUDE themes/1thank/templates/overall_footer.html -->

@@ -1,0 +1,54 @@
+<div class="forabg">
+	<div class="inner">
+    	<span class="corners-top"><span></span></span>
+        <ul class="topiclist">
+            <li class="header">
+                <dl class="icon">
+                    <dt>
+                        {L_POLLS}
+                    </dt>
+                </dl>
+            </li>
+        </ul>
+    	<span class="corners-bottom"><span></span></span>
+    </div>
+</div>	
+<!-- IF U_MODERATOR -->
+<div>
+    <font class="small">{L_MOD_OPTIONS}
+     - [<a class="altlink" href="makepoll.php?returnto=main"><strong>{L__NEW}</strong></a>]
+     - [<a class="altlink" href="makepoll.php?action=edit&amp;pollid={POLL_ID}&amp;returnto=main"><strong>{L_EDIT}</strong></a>]
+     - [<a class="altlink" href="polls.php?action=delete&amp;pollid={POLL_ID}&amp;returnto=main"><strong>{L_DELETE}</strong></a>]
+    </font>
+</div>
+ <!-- ENDIF -->
+<table class='poll' align="center" border="1" cellpadding="2" cellspacing="2"><tbody><tr class='poll'><td class="poll">
+<!-- IF POLL_LOCKED -->
+<p class="poll_q"><strong>{POLL_QUESTION}</strong></p>
+<!-- IF POLL_VOTED -->
+<table class='poll' border="1" cellpadding="2" cellspacing="2">
+<tbody>
+<!-- BEGIN poll_var_answered -->
+<tr class='poll'><td width="1%">
+<nobr>{poll_var_answered.P_ANSWER}&nbsp;&nbsp;</nobr>
+</td>
+<td width="99%"><img src="{SITE_URL}/images/bar_left.gif"><img src="{SITE_URL}/images/bar.gif" width="{poll_var_answered.P_IMAGE_W}" height="10"><img src="{SITE_URL}/images/bar_right.gif"> {poll_var_answered.ANSWER_VOTES}%</td>
+</tr>
+<!-- END poll_var_answered -->
+</tbody>
+</table>
+<p>{L_VOTES}: {POLL_VOTE_COUNT}<br />
+[<a class="altlink" href="polloverview.php"><strong>{L_VIEW_RESULTS}</strong></a>]</p>
+</td></tr></tbody></table><div style="height: 2px;"></div>
+	<!-- ELSE -->
+<form method="post" action="index.php"><p class='poll'>
+<input type="hidden" name="vote" value="1" />
+<!-- BEGIN poll_var_no_answered -->
+<input name="choice" value="{poll_var_no_answered.VALUE}" type="radio" />{poll_var_no_answered.VAL_QUEST}<br />
+<!-- END poll_var_no_answered -->
+<br /></p><div align="center"><input value="{L_VOTE}" class="btn" type="submit" /><br />[<a href="polls.php"><strong>{L_VIEW_RESULTS}</strong></a>]</div></form></td></tr></tbody></table></div>
+    <!-- ENDIF -->
+	<!-- ELSE -->
+<p class='poll'>{POLL_NO_POLL}<br /></td></tr></tbody></table></div>
+    <!-- ENDIF -->
+<div style="height: 2px;"></div>

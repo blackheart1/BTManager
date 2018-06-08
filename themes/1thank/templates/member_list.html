@@ -1,0 +1,32 @@
+<!-- INCLUDE themes/1thank/templates/overall_header.html -->
+
+<table width="100%" border="1" cellpadding="1" cellspacing="1">
+<script type="text/javascript" language="JavaScript">
+var expanded = 0;
+function expand(id) {
+        if (expanded == id) return;
+        var obj;
+        var obj2;
+        obj = document.getElementById("userpanel_"+id);
+        obj.className = 'show';
+        if (expanded != 0) {
+                obj2 = document.getElementById("userpanel_"+expanded);
+                obj2.className = 'hide';
+        }
+        expanded = id;
+}
+</script>
+
+<!-- BEGIN user_var -->
+    <tr>
+        <td onmouseover="javascript:expand({user_var.ID});"><p><font color="{user_var.COLOR}">{user_var.USERNAME}</font>{user_var.INACTWARNING}</p></td>
+        <td><p><span class="overlib" onmouseover="return overlib('<img src=\'themes/1thank/pics/pic_uploaded.gif\' border=\'0\' alt=\'\' title=\'\'   /> {user_var.PRETY_UPLOADED}<br /><img src=\'themes/1thank/pics/pic_downloaded.gif\' border=\'0\' alt=\'\' title=\'\'   /> {user_var.PRETY_DOWNLOADED}<br />{L_LAST_LOGIN}: {user_var.LASTLOGIN} ago',CAPTION, '{LANG__btuserdetails}',TEXTFONT,'Verdana',TEXTCOLOR,'#FFFFFF',CAPTIONFONT,'Lucida Console, Verdana',CENTER,FGCOLOR,'#000000',BGCOLOR,'#6F7578',CAPICON,'themes/1thank/pics/help.png',BORDER,2,SHADOW,SHADOWOPACITY,40,SHADOWCOLOR,'#030303',SHADOWX,2,SHADOWY,2);" onmouseout="return nd();" style="cursor:help"><img src="themes/1thank/pics/help.gif" border="0" alt="" title=""   /></span><img src="themes/1thank/pics/pic_ratio.gif" border="0" alt="" title=""   />{user_var.RATIO}</p></td>
+    </tr>
+    <tr class="hide" id="userpanel_{user_var.ID}">
+        <td nowrap nobr><p align="center"><a href="user.php?op=profile&amp;id={user_var.ID}"><img src="themes/1thank/pics/profile.png" border="0" alt="{L_PROFILE}" title="{L_PROFILE}"   /></a><a href="pm.php?op=send&amp;to={user_var.ID}"><img src="themes/1thank/pics/menu/pm.png" border="0" alt="{L_SEND_MESSAGE}" title="{L_SEND_MESSAGE}"   /></a></p></td>
+    </tr>
+<!-- END user_var -->
+</table>
+<br clear="all" />
+
+<!-- INCLUDE themes/1thank/templates/overall_footer.html -->

@@ -1,0 +1,35 @@
+body {
+
+    /*background-color: #a2a2a2;*/
+background: url(pics/backgroundblue.png);
+   
+    font-size: 11px;
+	text-align: center;
+
+}
+
+#pmbtwrap {
+
+	width: 950px;
+	margin: 10px auto;
+	text-align: left;
+}
+
+#theme-header {
+	height: 20px;
+	clear: both;
+	background: url(pics/top_ie.gif) repeat-y 0 0;
+	}
+
+#theme-body {
+	background: url(pics/bodybg_ie.png) repeat-y 0 0;
+	padding-right: 0px;
+	padding-left: 0px;
+	}
+
+#theme-footer {
+	height: 20px;
+	clear: both;
+	background: url(pics/bottom_ie.gif) repeat-y 0 0;
+	}
+

@@ -1,0 +1,143 @@
+<!-- INCLUDE themes/1thank/templates/overall_header.html -->
+
+<!-- IF S_NOTICE -->
+<!-- IF S_ERROR --><div id="errorbox" ><!-- ELSE --><div id="successbox" ><!-- ENDIF -->
+<span class="errorbox-title">{L_MESSAGE}</span>
+<p>{S_ERROR_MESS}</p>
+</div>
+<!-- ENDIF -->
+
+<!-- IF ACTION == donate_bonus -->
+<table class="tablebg" width="100%" cellspacing="0">
+	<tr>
+		<td>
+			<div class="caption">
+				<div class="cap-left">
+					<div class="cap-right">
+						<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnBonus_Transfer');"><img title="{L_EXPAND_ITEM}" id="nnBonus_Transferimg" src="themes/1thank/pics/minus.gif" alt="{L_EXPAND_ITEM}"></a>{L_TITTLE}
+					</div>
+				</div>
+			</div>
+		</td>
+	</tr>
+	<tr valign="middle">
+		<td  class="row3" >
+			<div id="nnBonus_Transfer">
+				<form name="transfer" method="post" action="{U_ACTION}">
+				{HIDDEN}
+				<table class="tablebg" cellspacing="0" width="100%">
+				<tbody>
+					<tr>
+						<td class="row1" colspan="2"><span class="gensmall">{L_TITTLE_EXP}</span></td>
+					<tr>
+						<td class="row1" width="35%"><strong class="genmed">{L_GIVE_BONUS_TO}:</strong></td>
+						<td class="row2"><input type="text" name="username" size="30" value="" /></td>
+					</tr>
+					<tr>
+						<td class="row1" width="35%"><strong class="genmed">{L_GIVE_BONUS_MESS}:</strong></td>
+						<td class="row2"><textarea name="why" id="why" cols="45" rows="5"></textarea></td>
+					</tr>
+					<tr>
+						<td class="row1" width="35%"><strong class="genmed">{L_HOW_MANY_POINTS_GIVE}:</strong></td>
+						<td class="row2"><input type="text" name="bonus" size="6" value="0" /></td>
+					</tr>
+					<tr>
+						<td class="row1" width="35%"><strong class="genmed">{L_GIVE_ANONYMUSLY}:</strong></td>
+						<td class="row2"><input type="checkbox" name="anonym" value="anonym" /></td>
+					</tr>
+					<tr>
+						<td colspan="2" align="center"><input name="submit" type="submit" value="{L_SEND_BONUS}" /></td>
+					</tr>
+				</tbody>
+				</table>
+				</form>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="7" valign="middle" align="center"></td>
+	</tr>
+</table>
+<br clear="all" />
+<!-- ELSEIF ACTION == use_bon -->
+<table class="tablebg" width="100%" cellspacing="0">
+	<tr>
+		<td>
+			<div class="caption">
+				<div class="cap-left">
+					<div class="cap-right">
+						<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnBonus_Transfer');"><img title="{L_EXPAND_ITEM}" id="nnBonus_Transferimg" src="themes/1thank/pics/minus.gif" alt="{L_EXPAND_ITEM}"></a>{L_BONUS_EXCHANGE}
+					</div>
+				</div>
+			</div>
+		</td>
+	</tr>
+	<tr valign="middle">
+		<td  class="row3" >
+			<div id="nnBonus_Transfer">
+				<table border="1" class="tablebg" cellspacing="0" width="100%">
+					<tr>
+						<td colspan="4">
+						{L_TITTLE_EXP}
+						</td>
+					</tr>
+					<tr>
+						<td>
+							{L_OPTIONS}
+						</td>
+						<td>
+							{L_OPTIONS_ABOUT}
+						</td>
+						<td>
+							{L_POINTS}
+						</td>
+						<td>
+							{L_TRADE}
+						</td>
+					</tr>
+<!-- BEGIN bonus_options -->
+					<tr>
+						<td>
+						{bonus_options.ID}
+						</td>
+						<td>
+						{bonus_options.NAME}
+						<br />
+						{bonus_options.DESCR}
+						</td>
+						<td>
+						{bonus_options.POINTS}
+						</td>
+						<td>
+							<form action="mybonus.php?action=exchange" method="post">
+							<input type="hidden" name="points" value="{bonus_options.POINTS}" />
+							<input type="hidden" name="option" value="{bonus_options.ID}" />
+							<input type="hidden" name="art" value="{bonus_options.ART}" />
+							<input type="submit" name="submit" value="<!-- IF bonus_options.ACTIVE -->{L_EXCHANGE}<!-- ELSE -->{L_DISABLED}" disabled="disabled<!-- ENDIF -->" />
+							</form>
+						</td>
+					</tr>
+<!-- BEGENELSE -->
+<!-- END bonus_options -->
+				</table>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="7" valign="middle" align="center"></td>
+	</tr>
+</table>
+<br clear="all" />
+<h2 class="imdb-odd">
+<span class="itemprop" itemprop="name">{L_HOW_TO_GET}</span>
+</h2>
+<!-- BEGIN earnby -->
+<div class="txt-block">
+<h4>{earnby.POINT}</h4>
+</div>
+<!-- END earnby -->
+
+<!-- ENDIF -->
+
+
+<!-- INCLUDE themes/1thank/templates/overall_footer.html -->

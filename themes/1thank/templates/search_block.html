@@ -1,0 +1,98 @@
+<div class="forabg">
+	<div class="inner">
+    	<span class="corners-top"><span></span></span>
+        <ul class="topiclist">
+            <li class="header">
+                <dl class="icon">
+                    <dt>
+                        {L_SEARCH}
+                    </dt>
+                </dl>
+            </li>
+        </ul>
+    	<span class="corners-bottom"><span></span></span>
+    </div>
+</div>	
+                    <script type="text/javascript" src="js/browse.js"></script>
+                    <form method="get" action="search.php"><br>
+<!-- IF cats_main -->
+                    <div id="cats" style="display: block;">
+                    <table>
+                      <tbody align="left">
+                        <tr>
+                        <td></td>
+<!-- BEGIN cats_main -->
+                          <td class="nopad" style="padding-bottom: 2px; padding-left: 7px;">
+                          {cats_main.IMAGE}&nbsp;&nbsp;
+                          <input id="checkAll{cats_main.ID}" onclick="checkAllFields(1,{cats_main.ID});" type="checkbox" />
+                          <a href="javascript: ShowHideMainSubCats({cats_main.TABLETYPE},{NCATS_VAR})"><img src="themes/1thank/pics/plus.gif" id="pic{cats_main.TABLETYPE}" alt="{L_EXPAND_ITEM}" title="{L_EXPAND_ITEM}" border="0">&nbsp;{cats_main.NAME}</a>&nbsp;
+                          </td>
+<!-- END cats_main -->
+                        </tr>
+                      </tbody>
+                    </table>
+                    </div>
+<!-- BEGIN cats_main -->
+                    <div id="tabletype{cats_main.TABLETYPE}" style="display: none;">
+                      <table>
+                        <tbody align="left">
+                          <tr>
+<!-- BEGIN sub -->
+                            <td class="subcatlink" style="padding-bottom: 2px; padding-left: 7px; width: 14.2857%;">
+                            {cats_main.sub.IMAGE}&nbsp;&nbsp;
+                            <input onclick="checkAllFields(2,{cats_main.sub.PARENT_ID});" name="cats{cats_main.sub.PARENT_ID}[]" value="{cats_main.sub.ID}" type="checkbox"<!-- IF cats_main.sub.CHECKED --> checked<!-- ENDIF -->>
+                            <br />{cats_main.sub.NAME}
+                            </td>
+<!-- END sub -->
+                            <td rowspan="4">&nbsp;</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+<!-- END cats_main -->
+<!-- ENDIF -->
+                    <table align="center" border="0" cellpadding="1" cellspacing="1">
+                        <tbody>
+                            <tr>
+                                <td>
+                                </td>
+                                <td>
+                                <input id="actb_textbox" name="search" value="{SEARCH_TEXT}" size="25" type="text" />
+                                </td>
+                                <td>
+                                {S_ACTB}
+                                <script type="text/javascript" language="JavaScript">actb(document.getElementById("actb_textbox"),customarray);</script>
+                                </td>
+                                <td><input value="{L_GO}" type="submit" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table align="center" border="0" cellpadding="1" cellspacing="1">
+                        <tbody>
+                            <tr>
+                                <td><p>{L_ORDER_BY}:</p></td>
+                                <td>
+                                <select name="orderby">
+                                <option value="0" selected="selected">{L_DATE}</option>
+                                <option value="1">{L_SEEDERS}</option>
+                                <option value="2">{L_LEECHERS}</option>
+                                <option value="3">{L_TOTAL_PEERS}</option>
+                                <option value="4">{L_DOWNED}</option>
+                                <option value="5">{L_RATINGS}</option>
+                                <option value="6">{L_NAME}</option>
+                                <option value="7">{L_SIZE}</option>
+                                <option value="8">{L_NUB_OF_FILES}</option>
+                                </select>
+                                </td>
+                                <td>
+                                <select name="ordertype"><option value="DESC">{L_DESCENDING}</option><option value="ASC">{L_ASCENDING}</option></select>
+                                </td>
+                                <td>
+                                <p><input name="incldead" value="true" type="checkbox" />{L_INCLUDE_DEAD}</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </form>
+<div style="height: 2px;"></div>

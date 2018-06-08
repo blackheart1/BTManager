@@ -1,0 +1,87 @@
+<!-- INCLUDE themes/1thank/templates/overall_header.html -->
+<!-- IF S_NOTICE -->
+<div id="successbox" >
+<span class="successbox-title">{TITTLE_M}</span>
+<p>{MESSAGE}</p>
+</div>
+<!-- ENDIF -->
+
+<!-- IF S_LOGIN -->
+<div id="page-body">
+<!-- IF S_ERROR -->
+<div id="errorbox" >
+<span class="errorbox-title">{L_BT_ERROR}</span>
+<p>{L_WRONG_PASS}</p>
+</div>
+<!-- ENDIF -->
+        <fieldset>
+            <legend><p>{L_PASS_PROT}</p></legend>
+            <p align="center">{L_PASSWORD_REQ}</p>
+            <form method="POST" action="{U_ACTION}">
+            {HIDDEN}
+            <br />{L_PASSWORD}<br /><input type="password" name="password" size="20" />
+            <p align="center"><input type="submit" value="{L_LOGIN}" /></p></form>
+        </fieldset>
+</div>
+<!-- ELSE -->
+<div class="forabg">
+	<div class="inner">
+    	<span class="corners-top"><span></span></span>
+        <ul class="topiclist">
+            <li class="header">
+                <dl class="icon">
+                    <dt>
+                        {T_NAME}
+                    </dt>
+                </dl>
+            </li>
+        </ul>
+    	<span class="corners-bottom"><span></span></span>
+    </div>
+</div>	
+        <fieldset class="submit-buttons">
+        <input title="{L_VIEW_DETAILS}" class="button" name="{L_VIEW_DETAILS}" type="submit" value="{L_VIEW_DETAILS}"  onclick="sndReq('{U_DETAIL_LINK}', 'DT')">
+        <!-- IF U_NFO_LINK --><input title="{L_VIEW_NFO}" class="button" name="{L_VIEW_NFO}" type="submit" value="{L_VIEW_NFO}"  onclick="sndReq('{U_NFO_LINK}', 'DT')"><!-- ENDIF -->
+        <!-- IF U_IMDB_LINK --><input title="{L_VIEW_IMDB}" class="button" name="{L_VIEW_IMDB}" type="submit" value="{L_VIEW_IMDB}"  onclick="sndReq('{U_IMDB_LINK}', 'DT')"><!-- ENDIF -->
+        <!-- IF U_PEERS_LINK --><input title="{L_VIEW_PEERS}" class="button" name="{L_VIEW_PEERS}" type="submit" value="{L_VIEW_PEERS}"  onclick="sndReq('{U_PEERS_LINK}', 'DT')"><!-- ENDIF -->
+        <input type="submit" onclick="sndReq('op=view_files_page&torrent={U_ID}&files=&pass=', 'DT')" value="Files " title="View File List" class="button"/>
+        <input title="{L_VIEW_RATING}" class="button" name="{L_VIEW_RATING}" type="submit" value="{L_VIEW_RATING}"  onclick="sndReq('{U_RATING_LINK}', 'DT')">
+        <input title="{L_VIEW_COMMENTS}" class="button" name="{L_VIEW_COMMENTS}" type="submit" value="{L_VIEW_COMMENTS}"  onclick="sndReq('{U_COMM_LINK}', 'DT')">
+        </fieldset>
+            	<div class="content">
+                    <span id="DT" class="tbody">
+                        <noscript>
+                            <iframe src="{SITE_URL}/ajax.php?op=view_details_page&amp;torrent={U_ID}{U_PASSWORD}" marginwidth="0" marginheight="0"  width="100%" align="middle" height="100%"></iframe>
+                        </noscript>
+                    </span>
+				</div>
+<a name="notify"></a>
+<script type="text/javascript">
+<!--
+    // Main PMBT Javascript Initialization
+    sndReq('op={U_J_LOAD}&torrent={U_ID}{U_PASSWORD}', 'DT');
+//-->
+</script>
+<!-- IF U_CAN_BOOK -->
+<div class="forabg">
+	<div class="inner">
+    	<span class="corners-top"><span></span></span>
+        <ul class="topiclist">
+            <li class="header">
+                <dl class="icon">
+                    <dt>
+                        {L_NOTIFY_EMAIL}
+                    </dt>
+                </dl>
+            </li>
+        </ul>
+    	<span class="corners-bottom"><span></span></span>
+    </div>
+</div>	
+            	<div class="content">
+				<p>{U_NOTIFY_SEEDER}</p>
+                <p>{U_NOTIFY_COMMENT}</p>
+				</div>
+<!-- ENDIF -->
+<!-- ENDIF -->
+<!-- INCLUDE themes/1thank/templates/overall_footer.html -->

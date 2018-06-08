@@ -1,0 +1,223 @@
+<!-- INCLUDE themes/1thank/templates/admin/over_all_header.html -->
+<a name="maincontent"></a>
+	<h1>{L_TITLE}</h1>
+
+	<p>{L_TITLE_EXPLAIN}</p>
+<!-- IF ACTION == pm -->
+	<form action="{S_POST_ACTION}" method="post" name="postform"{S_FORM_ENCTYPE}>
+<!-- IF S_POST_REVIEW --><!-- INCLUDE themes/1thank/templates/posting_review.html --><!-- ENDIF -->
+<!-- IF S_DISPLAY_PREVIEW --><!-- INCLUDE themes/1thank/templates/posting_preview.html --><!-- ENDIF -->
+{$CA_BLOCK_START}
+<table class="tablebg" width="100%" cellspacing="{$CA_SPACING}">
+<!-- IF ERROR -->
+	<tr>
+		<td class="row2" colspan="2" align="center"><span class="genmed error">{ERROR}</span></td>
+	</tr>
+<!-- ENDIF -->
+<!-- IF S_SHOW_TOPIC_ICONS or S_SHOW_PM_ICONS -->
+	<tr>
+		<td class="row1"><b class="genmed">{L_ICON}:</b></td>
+		<td class="row2">
+			<table width="100%" cellspacing="0" cellpadding="0" border="0">
+			<tr>
+				<td><input type="radio" class="radio" name="icon" value="0"{S_NO_ICON_CHECKED} /><span class="genmed"><!-- IF S_SHOW_TOPIC_ICONS --> { L_NO_TOPIC_ICON} <!-- ELSE --> {L_NO_PM_ICON} <!-- ENDIF --></span> <!-- BEGIN topic_icon --><span style="white-space: nowrap;"><input type="radio" class="radio" name="icon" value="{topic_icon.ICON_ID}"{topic_icon.S_ICON_CHECKED} /><img src="{topic_icon.ICON_IMG}" width="{topic_icon.ICON_WIDTH}" height="{topic_icon.ICON_HEIGHT}" alt="" title="" hspace="2" vspace="2" /></span> <!-- END topic_icon --></td>
+			</tr>
+			</table>
+		</td>
+	</tr>
+<!-- ENDIF -->
+	<tr>
+		<td class="row1">
+					<b>{L_BTACCESS_GROUP}:</b>
+					<br />
+					<span>{L_BTACCESS_GROUP_PM_EXP}</span>
+		</td>
+		<td class="row2">
+			{S_HIDDEN_ADDRESS_FIELD}
+<!-- BEGIN groups -->
+					<input tabindex="{groups.OPTION}" name="group[]" id="user[usergroupid]7_7" value="{groups.ID}" type="checkbox"> {groups.VAL}<br />
+
+<!-- END groups -->
+		</td>
+	</tr>
+
+	<tr>
+		<td class="row1">
+					<b>{L_BTACCESS_LEVEL}:</b>
+					<br />
+					<span>{L_BTACCESS_LEVEL_PM_EXP}</span>
+		</td>
+		<td class="row2">
+					<input tabindex="admin" name="level[]"  value="admin" type="checkbox"> {L_LEVEL_ADMIN}<br />
+					<input tabindex="moderator" name="level[]"  value="moderator" type="checkbox"> {L_LEVEL_MODER}<br />
+					<input tabindex="premium" name="level[]"  value="premium" type="checkbox"> {L_LEVEL_PREM}<br />
+					<input tabindex="user" name="level[]"  value="user" type="checkbox"> {L_LEVEL_USER}
+		</td>
+	</tr>
+
+<tr>
+	<td class="row1" width="22%"><b class="genmed">{L_TX_SUBJ}:</b></td>
+	<td class="row2" width="78%"><input class="post" style="width:450px" type="text" name="subject" size="45" maxlength="<!-- IF S_NEW_MESSAGE -->60<!-- ELSE -->64<!-- ENDIF -->" tabindex="2" value="{SUBJECT}" /></td>
+</tr>
+<tr>
+	<td class="row1" valign="top"><b class="genmed">{L_TX_BODY}:</b><br /><span class="gensmall">{L_MESSAGE_BODY_EXPLAIN}&nbsp;</span><br /><br />
+	<!-- IF S_SMILIES_ALLOWED -->
+		<table width="100%" cellspacing="5" cellpadding="0" border="0" align="center">
+		<tr>
+			<td class="gensmall" align="center"><b>{L__SMILIES}</b></td>
+		</tr>
+		<tr>
+			<td align="center">
+				<!-- BEGIN smiley -->
+					<a href="#" onclick="insert_text('{smiley.A_SMILEY_CODE}', true); return false;" style="line-height: 20px;"><img src="{smiley.SMILEY_IMG}" width="{smiley.SMILEY_WIDTH}" height="{smiley.SMILEY_HEIGHT}" alt="{smiley.SMILEY_CODE}" title="{smiley.SMILEY_DESC}" hspace="2" vspace="2" /></a>
+				<!-- END smiley -->
+			</td>
+		</tr>
+
+		<!-- IF S_SHOW_SMILEY_LINK -->
+			<tr>
+				<td align="center"><a class="nav" href="{U_MORE_SMILIES}" onclick="popup(this.href, 300, 350, '_phpbbsmilies'); return false;">{L__MORE_SMILIES}</a></td>
+			</tr>
+		<!-- ENDIF -->
+
+		</table>
+	<!-- ENDIF -->
+	</td>
+	<td class="row2" valign="top">
+		<script type="text/javascript">
+			// <![CDATA[
+
+			var form_name = 'postform';
+			var text_name = 'message';
+			// ]]>
+		</script>
+
+		<table width="100%" cellspacing="0" cellpadding="0" border="0">
+		<!-- INCLUDE themes/1thank/templates/posting_buttons.html -->
+		<tr>
+			<td valign="top" style="width: 100%;"><textarea name="message" rows="15" cols="76" tabindex="3" onselect="storeCaret(this);" onclick="storeCaret(this);" onkeyup="storeCaret(this);" style="width: 98%;">{MESSAGE}</textarea></td>
+			<!-- IF S_BBCODE_ALLOWED -->
+			<td width="80" align="center" valign="top">
+				<script type="text/javascript">
+				// <![CDATA[
+					colorPalette('v', 7, 6)
+				// ]]>
+				</script>
+			</td>
+			<!-- ENDIF -->
+	 	</tr>
+		</table>
+	</td>
+</tr>
+
+
+<tr>
+	<td class="cat" colspan="2" align="center">{S_HIDDEN_FIELDS}
+		<input class="btnlite" type="submit" tabindex="10" name="preview" value="{L_PREVIEW}" />
+		&nbsp; <input class="btnmain" type="submit" accesskey="s" tabindex="11" name="post" value="{L_SUBMIT}" />
+		&nbsp; <input class="btnlite" type="submit" accesskey="c" tabindex="14" name="cancel" value="{L_CANCEL}" />
+	</td>
+</tr>
+</table>
+	</form>
+<!-- ENDIF -->
+<!-- IF ACTION == email -->
+<!-- IF S_POST_REVIEW -->
+<table class="tablebg" width="100%" cellspacing="{$CA_SPACING}">
+	<tr>
+        <td class="row1">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td>
+                    	<div class="postbody">{PREVIEW_MESSAGE}</div>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+<!-- ENDIF -->
+		<form method="post" action="{U_ACTION}">
+		<fieldset>
+			<legend>{L_EM_MANGER}</legend>
+			<dl>
+				<dt>
+					<label for="access">{L_AC_TEST_EM}:</label>
+					<br />
+					<span>({L_AC_TEST_EM_EXP})</span>
+				</dt>
+				<dd>
+					<label for="rb_1_test_1"><input name="test" id="rb_1_test_1" value="1" tabindex="1" type="radio"> {L_YES}</label>
+					<label for="rb_0_test_1"><input name="test" id="rb_0_test_1" value="0" tabindex="1" checked="checked" type="radio"> {L_NO}</label>
+				</dd>
+			</dl>
+			<dl>
+				<dt>
+					<label for="access">{L_MAIL_BYPAS}:</label>
+					<br />
+					<span>({L_MAIL_BYPAS_EXP})</span>
+				</dt>
+				<dd>
+					<label for="bypass"><input name="bypass" value="1" type="radio"> {L_YES}</label>
+					<label for="bypass"><input name="bypass" value="0" checked="checked" type="radio"> {L_NO}</label>
+				</dd>
+			</dl>
+			<dl>
+				<dt>
+					<label for="access">{L_BTACCESS_GROUP}:</label>
+					<br />
+					<span>{L_BTACCESS_GROUP_EXP}</span>
+				</dt>
+				<dd >
+<!-- BEGIN groups -->
+					<label for="{groups.OPTION}"><input tabindex="{groups.OPTION}" name="group[]" id="user[usergroupid]7_7" value="{groups.OPTION}" type="checkbox"> {groups.VAL} </lable>
+
+					</dd>
+					<dd>
+<!-- END groups -->
+				</dd>
+			</dl>
+			<dl>
+				<dt>
+					<label for="access">{L_BTACCESS_LEVEL}:</label>
+					<br />
+					<span>{L_BTACCESS_LEVEL_EXP}</span>
+				</dt>
+				<dd>
+					<label for="admin"><input tabindex="admin" name="level[]"  value="admin" type="checkbox"> {L_LEVEL_ADMIN} </lable>
+				</dd>
+				<dd>
+					<label for="admin"><input tabindex="moderator" name="level[]"  value="moderator" type="checkbox"> {L_LEVEL_MODER} </lable>
+				</dd>
+				<dd>
+					<label for="admin"><input tabindex="premium" name="level[]"  value="premium" type="checkbox"> {L_LEVEL_PREM} </lable>
+				</dd>
+				<dd>
+					<label for="admin"><input tabindex="user" name="level[]"  value="user" type="checkbox"> {L_LEVEL_USER} </lable><br />
+				</dd>
+				<dt>
+					<label for="subject">{L_TX_SUBJ}:</label>
+				</dt>
+				<dd>
+					<input type="text" name="subject" cols="60">
+				</dd>
+			</dl>
+			<dl>
+				<dt>
+					<label for="body">{L_TX_BODY}:</label>
+					<br />
+					<span>{L_BODY_EXP}</span>
+				</dt>
+				<dd>
+					<textarea name="message" rows="10" cols="60"></textarea>
+				</dd>
+				<dt>
+					<input type="submit" value="{L_SUBMIT}" class="btn">
+				</dt>
+			</dl>
+		</fieldset>
+		</form>
+<!-- ENDIF -->
+<!-- IF ACTION == main -->
+<!-- ENDIF -->
+<!-- INCLUDE themes/1thank/templates/admin/over_all_footer.html -->

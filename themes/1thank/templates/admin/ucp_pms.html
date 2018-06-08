@@ -1,0 +1,236 @@
+<!-- INCLUDE themes/1thank/templates/admin/over_all_header.html -->
+<!-- IF ACTION == havepms -->
+	<fieldset>
+		<legend>{L_HAVE_PMS_HEADER}</legend>
+<!-- BEGIN listrow -->
+		<dl>
+			<dt style="text-align:left"><label for="{settingrow.ID}">{listrow.USERNAME}:</label></dt>
+			<dd>[<a href="{SITEURL}/admin.php?op=ucp_pms&amp;i=userinfo&amp;do=list&amp;userid={listrow.USER_ID}">{L_SHOW_ALL_PMS}</a>] [<a href="{SITEURL}/pm.php?op=send&amp;to={listrow.USER_ID}">{L_SEND_PM_USER}</a>] [<a href="{SITEURL}/user.php?op=editprofile&amp;id={listrow.USER_ID}">{L_EDIT_USER}</a>]</dd>
+		</dl>
+<!-- END listrow -->
+		<p><input class="button" value="{L_GO_BACK}" title="" tabindex="1" onclick="window.location='javascript:history.back(1)';" type="button"></p>
+	</fieldset>
+<!-- ELSEIF ACTION == allusershavepms -->
+	<fieldset>
+		<legend>{L_HAVE_PMS_HEADER}</legend>
+<!-- BEGIN listrow -->
+		<dl>
+			<dt style="text-align:left"><label for="{settingrow.ID}">{listrow.TOTTAL_USERS}:</label></dt>
+			<dd>[<a href="{SITEURL}/admin.php?op=ucp_pms&amp;i=userinfo&amp;do=havepms&amp;totalpms={listrow.TOTTAL_PMS}">{L_LIST_USERS}</a>]</dd>
+		</dl>
+<!-- END listrow -->
+		<p><input class="button" value="{L_GO_BACK}" title="" tabindex="1" onclick="window.location='javascript:history.back(1)';" type="button"></p>
+	</fieldset>
+<!-- ELSEIF ACTION == list -->
+	<h1>{L_READ_USER_PMS}</h1>
+<br />
+	<table align="center" border="1" width="95%" cellpadding="5" cellspacing="0">
+		<legend>{L_HEADER_SENT_PMS}</legend>
+		<tbody>
+			<tr>
+				<th>{L_ID}</th>
+				<th>{L_FROM}</th>
+				<th>{L_SUBJECT}</th>
+				<th>{L_DATE}</th>
+				<th></th>
+			</tr>
+<!-- BEGIN sent -->
+			<tr>
+				<td align="center" width="5px">{sent.PM_ID}</td>
+				<td align="center" width="40px">{sent.RECP}</td>
+				<td>{sent.SUBJECT}</td>
+				<td align="center" width="180px">{sent.DATE_SENT}</td>
+				<td align="center" width="160px">[<a href="admin.php?op=ucp_pms&i=userinfo&do=read&pmtextid={sent.PM_ID}">{L_VIEW_PMS}</a>]</td>
+			</tr>
+<!-- BEGINELSE -->
+			<tr>
+				<td colspan="6" align="center">{L_ERROR_NO_PMS}</td>
+			</tr>
+<!-- END sent -->
+		</tbody>
+	</table>
+<br />
+	<table align="center" border="1" width="95%" cellpadding="5" cellspacing="0">
+		<legend>{L_HEADER_RESEAVED_PMS}</legend>
+		<tbody>
+			<tr>
+				<th>{L_ID}</th>
+				<th>{L_FROM}</th>
+				<th>{L_SUBJECT}</th>
+				<th>{L_DATE}</th>
+				<th></th>
+			</tr>
+<!-- BEGIN received -->
+			<tr>
+				<td align="center" width="5px">{received.PM_ID}</td>
+				<td align="center" width="40px">{received.FROM}</td>
+				<td>{received.SUBJECT}</td>
+				<td align="center" width="180px">{received.DATE_SENT}</td>
+				<td align="center" width="160px">[<a href="admin.php?op=ucp_pms&i=userinfo&do=read&pmtextid={received.PM_ID}">{L_VIEW_PMS}</a>]</td>
+			</tr>
+<!-- BEGINELSE -->
+			<tr>
+				<td colspan="6" align="center">{L_ERROR_NO_PMS}</td>
+			</tr>
+<!-- END received -->
+			<tr>
+				<td colspan="6" align="center"><p><input class="button" value="{L_GO_BACK}" title="" tabindex="1" onclick="window.location='javascript:history.back(1)';" type="button"></p></td>
+			</tr>
+		</tbody>
+	</table>
+<!-- ELSEIF ACTION == read -->
+<table class="tablebg" width="100%" cellspacing="{$CA_SPACING}">
+		<legend>{L_READ_USER_PMS}</legend>
+	<tr>
+		<td class="row1" style="width:25%"><b class="genmed">{L_SENT}:</b></td>
+		<td class="row2">{DATE_SENT}</td>
+	</tr>
+	<tr>
+		<td class="row1"><b class="genmed">{L_TO}:</b><br />{L_LINK_TO_USER}</td>
+		<td class="row2">{MESSAGE_RESIP_FULL}</dd>
+		</dl>
+	<tr>
+		<td class="row1"><b class="genmed">{L_FROM}:</b><br />{L_LINK_TO_USER}</td>
+		<td class="row2">{MESSAGE_AUTHOR_FULL}</td>
+	</tr>
+    <tr>
+		<td class="row1"><b class="genmed">{L_SUBJECT}:</b></td>
+		<td class="row2">{SUBJECT}</td>
+	</tr>
+	<tr>
+		<td class="row1"><b class="genmed">{L_MESSAGE}:</b></td>
+		<td class="row2">{TEXT}</td>
+	</tr>
+	<tr>
+		<td colspan="2"><input class="button" value="{L_GO_BACK}" title="" tabindex="1" onclick="window.location='javascript:history.back(1)';" type="button"></p></td>
+	</tr>
+ </table>
+<!-- ELSEIF ACTION == search -->
+	<table align="center" border="1" width="95%" cellpadding="5" cellspacing="0">
+		<legend>{L_SEARCH_RESULT} {SEARCH_MATCH}: {SEARCH_WORD}</legend>
+		<tbody>
+			<tr>
+				<th>{L_ID}</th>
+				<th>{L_FROM}</th>
+				<th>{L_TO}</th>
+				<th>{L_SUBJECT}</th>
+				<th>{L_DATE}</th>
+				<th></th>
+			</tr>
+<!-- BEGIN search -->
+			<tr>
+				<td align="center" width="5px">{search.PM_ID}</td>
+				<td align="center" width="40px">{search.MESSAGE_AUTHOR_FULL}</td>
+				<td align="center" width="40px">{search.MESSAGE_RESIP_FULL}</td>
+				<td>{search.SUBJECT}</td>
+				<td align="center" width="180px">{search.DATE_SENT}</td>
+				<td align="center" width="160px">[<a href="admin.php?op=ucp_pms&i=userinfo&do=read&pmtextid={search.PM_ID}">{L_VIEW_PMS}</a>]</td>
+			</tr>
+<!-- BEGINELSE -->
+			<tr>
+				<td colspan="6" align="center">{L_ERROR_NO_PMS}</td>
+			</tr>
+<!-- END search -->
+			<tr>
+				<td colspan="6" align="center"><input class="button" value="{L_GO_BACK}" title="" tabindex="1" onclick="window.location='javascript:history.back(1)';" type="button"></td>
+			</tr>
+		</tbody>
+	</table>
+<!-- ELSEIF ACTION == latest -->
+	<table align="center" border="1" width="95%" cellpadding="5" cellspacing="0">
+		<legend>{HEADER}</legend>
+		<tbody>
+			<tr>
+				<th>{L_ID}</th>
+				<th>{L_FROM}</th>
+				<th>{L_TO}</th>
+				<th>{L_SUBJECT}</th>
+				<th>{L_DATE}</th>
+				<th></th>
+			</tr>
+<!-- BEGIN search -->
+			<tr>
+				<td align="center" width="5px">{search.PM_ID}</td>
+				<td align="center" width="40px">{search.MESSAGE_AUTHOR_FULL}</td>
+				<td align="center" width="40px">{search.MESSAGE_RESIP_FULL}</td>
+				<td>{search.SUBJECT}</td>
+				<td align="center" width="180px">{search.DATE_SENT}</td>
+				<td align="center" width="160px">[<a href="admin.php?op=ucp_pms&i=userinfo&do=read&pmtextid={search.PM_ID}">{L_VIEW_PMS}</a>]</td>
+			</tr>
+<!-- BEGINELSE -->
+			<tr>
+				<td colspan="6" align="center">{L_ERROR_NO_PMS}</td>
+			</tr>
+<!-- END search -->
+			<tr>
+				<td colspan="6" align="center"><input class="button" value="{L_GO_BACK}" title="" tabindex="1" onclick="window.location='javascript:history.back(1)';" type="button"></td>
+			</tr>
+		</tbody>
+	</table>
+<!-- ELSEIF ACTION == front -->
+    <h1>{L_PM_MANAGER}</h1>
+	<p>{L_PM_MANAGER_EXP}</p>
+	<form action="admin.php" method="post" name="listForm" id="listForm">
+	<input type="hidden" name="do" value="list" />
+	<input type="hidden" name="i" value="userinfo" />
+	<input type="hidden" name="op" value="ucp_pms" />
+    <fieldset>
+		<legend>{L_READ_USER_PMS}</legend>
+        <dl>
+			<dt style="text-align:left"><label for="it_userid_1">{L_USER_ID_SEARCH}:</label><br />{L_USER_ID_SEARCH_EXP}</dt>
+			<dd><input type="text" class="bginput" name="userid" id="it_userid_1" value="" size="35" dir="ltr" tabindex="1" /></dd>
+		</dl>
+                <p class="submit-buttons">
+                    <input type="submit" id="submit0" class="button" tabindex="1" value="{L_READ_PMS}" accesskey="s" />
+                </p>
+	</fieldset>
+	</form>
+	<form action="admin.php" method="post" name="resetForm" id="resetForm">
+	<input type="hidden" name="do" value="allusershavepms" />
+	<input type="hidden" name="i" value="userinfo" />
+	<input type="hidden" name="op" value="ucp_pms" />
+    <fieldset>
+        <dl>
+			<dt style="text-align:left"><label for="it_userid_1">{L_LIST_OF_PMS}:</label><br />{L_LIST_OF_PMS_EXP}</dt>
+			<dd><input type="submit" id="submit1" class="button" tabindex="1" value="{L_GO}" accesskey="s" /></dd>
+		</dl>
+	</fieldset>
+	</form>
+	<form action="admin.php" method="post" name="searchForm" id="searchForm">
+	<input type="hidden" name="do" value="search" />
+	<input type="hidden" name="i" value="userinfo" />
+	<input type="hidden" name="op" value="ucp_pms" />
+    <fieldset>
+		<legend>{L_HEADER_SEARCH}</legend>
+        <dl>
+			<dt style="text-align:left"><label for="ta_search_2">{L_SEARCH_PMS}:</label><br />{L_SEARCH_PMS_EXP}</dt>
+			<dd><textarea name="search" id="ta_search_2" rows="4" cols="40" wrap="virtual" dir="ltr" tabindex="1"></textarea></dd>
+		</dl>
+		<dl>
+			<dt style="text-align:left"><label for="Match">{L_SEARCH_MATCH}:</label></dt>
+			<dd>
+				<label for="rb_matchexact_3"><input type="radio" name="match" id="rb_matchexact_3" tabindex="1" value="exact" checked="checked" />{L_EXACT_TEXT}</label><br />
+				<label for="rb_matchall_3"><input type="radio" name="match" id="rb_matchall_3" tabindex="1" value="all" />{L_ALL_WORDS}</label><br />
+				<label for="rb_matchatleastone_3"><input type="radio" name="match" id="rb_matchatleastone_3" tabindex="1" value="atleastone" />{L_ATLEAST_ONE_WORD}</label>
+			</dd>
+		</dl>
+		<p><input type="submit" id="submit2" class="button" tabindex="1" value="{L_SEARCH}" accesskey="s" /></p>
+	</fieldset>
+	</form>
+	<form action="admin.php" method="post" name="latestForm" id="latestForm">
+	<input type="hidden" name="do" value="latest" />
+	<input type="hidden" name="i" value="userinfo" />
+	<input type="hidden" name="op" value="ucp_pms" />
+    <fieldset>
+		<legend>{L_LATEST_PMS}</legend>
+		<dl>
+			<dt style="text-align:left"><label for="showlatest">{L_NUM_TO_SHOW}:</label></dt>
+			<dd>
+				<input type="text" class="bginput" name="showlatest" id="it_showlatest_4" value="100" size="35" dir="ltr" tabindex="1" />
+			</dd>
+		</dl>
+		<p><input type="submit" id="submit3" class="button" tabindex="1" value="{L_GO}" accesskey="s" /></p>
+	</fieldset>
+	</form>
+<!-- ENDIF -->
+<!-- INCLUDE themes/1thank/templates/admin/over_all_footer.html -->

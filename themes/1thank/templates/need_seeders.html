@@ -1,0 +1,41 @@
+<!-- IF IS_NEED_SEEDS -->
+<div class="forabg">
+	<div class="inner">
+    	<span class="corners-top"><span></span></span>
+        <ul class="topiclist">
+            <li class="header">
+                <dl class="icon">
+                    <dt>
+                      {L_TORRENT_NEED_SEED}
+                    </dt>
+                </dl>
+            </li>
+        </ul>
+    	<span class="corners-bottom"><span></span></span>
+    </div>
+</div>	
+                <center><strong>{L_TORRENT_NEED_SEED_EXP}</strong></center>
+                <center>
+                    <table style="width: 100%;" class="table_table" border="2" cellspacing="0" cellpadding="0" >
+                        <tr>
+                            <td class="colhead">{L_TORRENT}</td>
+                            <td class="colhead">{L_LEECHERS}</td>
+                            <td class="colhead">{L_DOWNED}</td>
+                            <td class="colhead">{L_SNATCHED}</td>
+                            <td class="colhead">{L_ADDED}</td>
+                        </tr>
+                        <!-- BEGIN need_seeded -->
+                        <tr>
+                            <td class="table_col1" align="left">
+                                <a href="details.php?id={need_seeded.SEED_ID}&hit=1" alt="{need_seeded.SEED_NAME}" title="{need_seeded.SEED_NAME}">{need_seeded.SEED_NAME_SHORT}</a>
+                            </td>
+                            <td class="table_col1"><font color="red">{need_seeded.SEED_LEECH}</td>
+                            <td class="table_col1">{need_seeded.SEED_DOWN}</td>
+                            <td class="table_col1">{need_seeded.SEED_COMPL}</td>
+                            <td class="table_col1">{need_seeded.SEED_ADDED}</td>
+                        </tr>
+                        <!-- END need_seeded -->
+                    </table>
+                </center>
+<div style="height: 2px;"></div>
+<!-- ENDIF -->

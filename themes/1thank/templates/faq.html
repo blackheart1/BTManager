@@ -1,0 +1,85 @@
+<!-- INCLUDE themes/1thank/templates/overall_header.html -->
+
+
+<a name="faqtop"></a>
+
+<div id="pagecontent">
+
+    {$CA_BLOCK_START}
+<div class="forabg">
+	<div class="inner">
+    	<span class="corners-top"><span></span></span>
+        <ul class="topiclist">
+            <li class="header">
+                <dl class="icon">
+                    <dt>
+                        {L_FAQ_TITLE}
+                    </dt>
+                </dl>
+            </li>
+        </ul>
+    	<span class="corners-bottom"><span></span></span>
+    </div>
+</div>	
+    <table class="tablebg" width="100%" cellspacing="{$CA_SPACING}">
+    <tr>
+        <td class="row1">
+        <!-- BEGIN faq_block -->
+            <span class="gen"><strong>{faq_block.BLOCK_TITLE}</strong></span><br />
+            <!-- BEGIN faq_row -->
+                <span class="gen"><a class="postlink" href="#f{faq_block.S_ROW_COUNT}{faq_block.faq_row.S_ROW_COUNT}">{faq_block.faq_row.FAQ_QUESTION}</a></span><br />
+            <!-- END faq_row -->
+            <br />
+        <!-- END faq_block -->
+        </td>
+    </tr>
+    <tr>
+        <td class="cat">&nbsp;</td>
+    </tr>
+    </table>
+<div style="height: 2px;"></div>
+
+    <br clear="all" />
+
+    <!-- BEGIN faq_block -->
+<div class="forabg">
+	<div class="inner">
+    	<span class="corners-top"><span></span></span>
+        <ul class="topiclist">
+            <li class="header">
+                <dl class="icon">
+                    <dt>
+                        {faq_block.BLOCK_TITLE}
+                    </dt>
+                </dl>
+            </li>
+        </ul>
+    	<span class="corners-bottom"><span></span></span>
+    </div>
+</div>	
+                <table class="tablebg" width="100%" cellspacing="{$CA_SPACING}">
+                <!-- BEGIN faq_row -->
+                    <tr>
+                    <!-- IF faq_block.faq_row.S_ROW_COUNT is even -->
+                        <td class="row1" valign="top">
+                    <!-- ELSE -->
+                        <td class="row2" valign="top">
+                    <!-- ENDIF -->
+                            <div class="postbody"><a name="f{faq_block.S_ROW_COUNT}{faq_block.faq_row.S_ROW_COUNT}"></a><strong>&#187; {faq_block.faq_row.FAQ_QUESTION}</strong></div>
+                            <div class="postbody">{faq_block.faq_row.FAQ_ANSWER}</div>
+                            <p class="gensmall"><a href="#faqtop">{L_BACK_TO_TOP}</a></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="spacer" height="1"><img src="images/spacer.gif" alt="" width="1" height="1" /></td>
+                    </tr>
+                <!-- END faq_row -->
+                </table>
+<div style="height: 2px;"></div>
+        <br clear="all" />
+    <!-- END faq_block -->
+
+</div>
+
+
+<!-- INCLUDE themes/1thank/templates/overall_footer.html -->

@@ -1,0 +1,274 @@
+<script type="text/javascript">
+// <![CDATA[
+	function hide(id) { document.getElementById(id).style.display="none"; }
+    function show(id) { document.getElementById(id).style.display="block"; }
+    function layerTest(id) {
+      if ( document.getElementById(id).style.display == 'none' ) {
+          show(id);
+          } else {
+          hide(id);
+        }
+      }
+
+	function layerQR(id) {
+	  if ( document.getElementById(id).style.display == 'block' ) {
+          hide(id);
+          } else {
+          show(id);
+        }
+      }
+
+function popup(url, width, height, name)
+{
+	if (!name)
+	{
+		name = '_popup';
+	}
+
+	window.open(url.replace(/&amp;/g, '&'), name, 'height=' + height + ',resizable=yes,scrollbars=yes,status=yes,toolbar=no,menubar=yes,location=yes,width=' + width);
+	return false;
+}
+
+function jumpto()
+{
+	var page = prompt('{L_JUMP_PAGE}', '');
+	var per_page = '';
+	var base_url = '';
+
+	if (page !== null && !isNaN(page) && page == Math.floor(page) && page > 0)
+	{
+		if (base_url.indexOf('?') == -1)
+		{
+			document.location.href = base_url + '?start=' + ((page - 1) * per_page);
+		}
+		else
+		{
+			document.location.href = base_url.replace(/&amp;/g, '&') + '&start=' + ((page - 1) * per_page);
+		}
+	}
+}
+
+/**
+* Find a member
+*/
+function find_username(url)
+{
+	popup(url, 760, 570, '_usersearch');
+	return false;
+}
+
+/**
+* Mark/unmark checklist
+* id = ID of parent container, name = name prefix, state = state [true/false]
+*/
+function marklist(id, name, state)
+{
+	var parent = document.getElementById(id);
+	if (!parent)
+	{
+		eval('parent = document.' + id);
+	}
+
+	if (!parent)
+	{
+		return;
+	}
+
+	var rb = parent.getElementsByTagName('input');
+
+	for (var r = 0; r < rb.length; r++)
+	{
+		if (rb[r].name.substr(0, name.length) == name)
+		{
+			rb[r].checked = state;
+		}
+	}
+}
+
+function selectCode(a)
+{
+   // Get ID of code block
+   var e = a.parentNode.parentNode.getElementsByTagName('CODE')[0];
+
+   // Not IE
+   if (window.getSelection)
+   {
+      var s = window.getSelection();
+      // Safari
+      if (s.setBaseAndExtent)
+      {
+         s.setBaseAndExtent(e, 0, e, e.innerText.length - 1);
+      }
+      // Firefox and Opera
+      else
+      {
+         var r = document.createRange();
+         r.selectNodeContents(e);
+         s.removeAllRanges();
+         s.addRange(r);
+      }
+   }
+   // Some older browsers
+   else if (document.getSelection)
+   {
+      var s = document.getSelection();
+      var r = document.createRange();
+      r.selectNodeContents(e);
+      s.removeAllRanges();
+      s.addRange(r);
+   }
+   // IE
+   else if (document.selection)
+   {
+      var r = document.body.createTextRange();
+      r.moveToElementText(e);
+      r.select();
+   }
+}
+
+// ]]>
+</script>
+<table width="100%">
+<tr>
+<td width="20%" valign="top">
+<div >
+<!-- IF S_SHOW_PM_BOX and S_POST_ACTION -->
+	<form action="{S_POST_ACTION}" method="post" name="postform"{S_FORM_ENCTYPE}>
+	{S_FORM_TOKEN}
+<!-- ENDIF -->
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr>
+	<td width="20%" valign="top" id="ucp-left">
+
+<!-- IF S_SHOW_PM_BOX and S_POST_ACTION -->
+    {$CA_BLOCK_START}
+	<table class="tablebg" width="100%" cellspacing="{$CA_SPACING}">
+	{$CA_CAP_START}{L__PM_TO}{$CA_CAP_END}
+	<!-- IF not S_ALLOW_MASS_PM -->
+	<tr>
+		<td class="row1"><strong class="genmed">{L__USERNAME}:</strong><br />[ <a href="{U_FIND_USERNAME}" onclick="find_username(this.href); return false;">{L__FIND_USERNAME}</a> ]</td>
+	</tr>
+
+	<tr>
+		<td class="row2"><textarea name="username_list" rows="5" cols="22"></textarea>&nbsp;<input class="post" type="submit" name="add_to" value="{L__ADD}" /></td>
+	</tr>
+	<!-- ELSE -->
+		<tr>
+			<td class="row1"><strong class="genmed">{L__USERNAMES}:</strong></td>
+		</tr>
+		<tr>
+			<td class="row2"><textarea name="username_list" rows="5" cols="22"></textarea><br />
+				[ <a href="{U_FIND_USERNAME}" onclick="find_username(this.href); return false;">{L__FIND_USERNAME}</a> ]
+			</td>
+		</tr>
+	<!-- ENDIF -->
+	<!-- IF S_GROUP_OPTIONS -->
+		<tr>
+			<td class="row1"><strong class="genmed">{L__USERGROUPS}:</strong></td>
+		</tr>
+		<tr>
+			<td class="row2"><select name="group_user_list[]" multiple="true" size="5" style="width:150px">{S_GROUP_OPTIONS}</select></td>
+		</tr>
+	<!-- ENDIF -->
+	<!-- IF S_ALLOW_MASS_PM -->
+		<tr>
+			<td class="row1"><div style="float: {S_CONTENT_FLOW_BEGIN};">&nbsp;<input class="post" type="submit" name="add_bcc" value="{L__ADD_BCC}" />&nbsp;</div><div style="float: {S_CONTENT_FLOW_END};">&nbsp;<input class="post" type="submit" name="add_to" value="{L__ADD_TO}" />&nbsp;</div></td>
+		</tr>
+	<!-- ENDIF -->
+	</table>
+	{$CA_BLOCK_END}
+	<div style="padding: 2px;"></div>
+<!-- ENDIF -->
+
+<table class="tablebg" width="100%" cellspacing="0">
+<tr><td>
+<div class="caption">
+<div class="cap-left">
+<div class="cap-right">
+{L_OPTIONS}
+</div>
+</div>
+</div>
+</td></tr><tr valign="middle">
+<td  class="row3">
+			<ul class="nav" style="margin: 0; padding: 0; list-style-type: none; line-height: 175%;">
+			<!-- BEGIN folder -->
+							<li>&#187; <!-- IF MODE != folder --><a href="{PMBT_LINK_BACK}op=folder&amp;i={folder.FOLDER_ID}"><!-- IF folder.UNREAD_MESSAGES > 0 --><strong>{folder.FOLDER_NAME} ({folder.UNREAD_MESSAGES})</strong><!-- ELSE -->{folder.FOLDER_NAME}<!-- ENDIF --></a><!-- ELSE --><!-- IF folder.UNREAD_MESSAGES > 0 --><strong>{folder.FOLDER_NAME} ({folder.UNREAD_MESSAGES})</strong><!-- ELSE -->{folder.FOLDER_NAME}<!-- ENDIF --><!-- ENDIF --></li>
+			<!-- END folder -->
+							<li>&#187; <!-- IF MODE != send --><a href="{PMBT_LINK_BACK}op=send">{L_UCP_PM_COMPOSE}</a><!-- ELSE --><strong>{L_UCP_PM_COMPOSE}</strong><!-- ENDIF --></li>
+							<li>&#187; <!-- IF MODE != drafts --><a href="{PMBT_LINK_BACK}op=drafts">{L_UCP_PM_DRAFTS}</a><!-- ELSE --><strong>{L_UCP_PM_DRAFTS}</strong><!-- ENDIF --></li>
+							<li>&#187; <!-- IF MODE != options --><a href="{PMBT_LINK_BACK}op=options">{L_FOLDER_OPTIONS}</a><!-- ELSE --><strong>{L_FOLDER_OPTIONS}</strong><!-- ENDIF --></li>
+
+
+						</ul>
+				</td>
+	</tr>
+</table>
+<br clear="all" />
+
+
+<table class="tablebg" width="100%" cellspacing="0">
+<tr><td>
+<div class="caption">
+<div class="cap-left">
+<div class="cap-right">
+Friends
+</div>
+</div>
+</div>
+</td></tr><tr valign="middle">
+<td  class="row3" align="center">
+
+			<strong class="genmed" style="color:green">{L_ON_LINE}</strong>
+
+			<ul class="nav" style="margin: 0; padding: 0; list-style-type: none; line-height: 175%;">
+			<!-- BEGIN friends_online -->
+							<li><a href="user.php?op=profile&amp;id={friends_online.USER_ID}"><font color="{friends_online.USER_COLOUR}"><!-- IF friends_online.USERNAME_FULL -->{friends_online.USERNAME_FULL}<!-- ELSE -->{friends_online.USERNAME}<!-- ENDIF --></font></a>
+								</li>
+			<!-- BEGINELSE -->
+				<li>{L_NO_FRIENDS_ONLINE}</li>
+			<!-- END friends_online -->
+						</ul>
+
+			<hr />
+
+			<strong class="genmed error">{L_OFF_LINE}</strong>
+
+			<ul class="nav" style="margin: 0; padding: 0; list-style-type: none; line-height: 175%;">
+
+			<!-- BEGIN friends_offline -->
+							<li><a href="user.php?op=profile&amp;id={friends_offline.USER_ID}"><font color="{friends_offline.USER_COLOUR}"><!-- IF friends_offline.USERNAME_FULL -->{friends_offline.USERNAME_FULL}<!-- ELSE -->{friends_offline.USERNAME}<!-- ENDIF --></font></a>
+								</li>
+			<!-- BEGINELSE -->
+				<li>{L_NO_FRIENDS_ONLINE}</li>
+			<!-- END friends_online -->
+						</ul>
+
+		</td>
+	</tr>
+	</table>
+	<br clear="all" />
+
+<!-- IF S_SHOW_COLOUR_LEGEND -->
+    {$CA_BLOCK_START}
+	<table class="tablebg" width="100%" cellspacing="{$CA_SPACING}" cellpadding="0">
+	{$CA_CAP_START}{L__MESSAGE_COLOURS}{$CA_CAP_END}
+	<!-- BEGIN pm_colour_info -->
+		<tr>
+			<!-- IF not pm_colour_info.IMG -->
+				<td class="row1 {pm_colour_info.CLASS}" width="5"><img src="images/spacer.gif" width="5" alt="{pm_colour_info.LANG}" /></td>
+			<!-- ELSE -->
+				<td class="row1" width="25" align="center">{pm_colour_info.IMG}</td>
+			<!-- ENDIF -->
+			<td class="row1"><span class="genmed">{pm_colour_info.LANG}</span></td>
+		</tr>
+	<!-- END pm_colour_info -->
+	</table>
+	{$CA_BLOCK_END}
+
+<br clear="all" />
+<!-- ENDIF -->
+</td>
+<td><img src="images/spacer.gif" width="4" alt="" /></td>
+<td width="80%" valign="top">
+<div id="center">

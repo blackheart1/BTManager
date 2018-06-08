@@ -1,0 +1,392 @@
+<!-- INCLUDE themes/1thank/templates/overall_header.html -->
+
+<!-- IF S_NOTICE -->
+<!-- IF S_ERROR --><div id="errorbox" ><!-- ELSE --><div id="successbox" ><!-- ENDIF -->
+<span class="errorbox-title">{L_MESSAGE}</span>
+<p>{S_ERROR_MESS}</p>
+</div>
+<!-- ENDIF -->
+<!-- IF ACTION == reqadd -->
+<!-- INCLUDEPHP blocks/search_block.php -->
+<!-- INCLUDE themes/1thank/templates/search_block.html -->
+<script type="text/javascript" src="bbcode.js"></script>
+<table class="tablebg" width="100%" cellspacing="0">
+    <tr>
+        <td>
+            <div class="caption">
+                <div class="cap-left">
+                    <div class="cap-right">
+                        <a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnMake_an_Offer');"><img title="{L_EXPAND_ITEM}" id="nnMake_an_Offerimg" src="themes/1thank/pics/minus.gif" alt="{L_EXPAND_ITEM}"></a>{L_ADD_REQUESTS}
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr valign="middle">
+        <td  class="row3" >
+            <div id="nnMake_an_Offer">
+                <form name="add" method=post action="{U_ACTION}">
+                {HIDDEN}
+                <table class="tablebg" width="100%" cellspacing="0">
+                    <tr>
+                        <td class="row1" width="35%"><strong class="genmed">{L_NAME}:</strong></td>
+                        <td class="row2"><input type="text" name="name" size="80" /></td>
+                    </tr>
+                    <tr>
+                        <td class="row1" width="35%"><strong class="genmed">{L_DESCRIPTION}:</strong><br /><span class="gensmall">{L_DESCRIPTION_EXPLAIN}</span><br /><br />
+                        <!-- IF S_SMILIES_ALLOWED -->
+                            <table width="100%" cellspacing="5" cellpadding="0" border="0" align="center">
+                            <tr>
+                                <td class="gensmall" align="center"><strong>{L__SMILIES}</strong></td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+<!-- BEGIN smiley -->
+                                    <a href="#" onclick="insert_text('{smiley.A_SMILEY_CODE}', true); return false;" style="line-height: 20px;"><img src="{smiley.SMILEY_IMG}" width="{smiley.SMILEY_WIDTH}" height="{smiley.SMILEY_HEIGHT}" alt="{smiley.SMILEY_CODE}" title="{smiley.SMILEY_DESC}" hspace="2" vspace="2" /></a>
+<!-- END smiley -->
+                                </td>
+                            </tr>
+
+                            <!-- IF S_SHOW_SMILEY_LINK -->
+                                <tr>
+                                    <td align="center"><a class="nav" href="{U_MORE_SMILIES}" onclick="popup(this.href, 300, 350, '_phpbbsmilies'); return false;">{L__MORE_SMILIES}</a></td>
+                                </tr>
+                            <!-- ENDIF -->
+
+                            </table>
+                        <!-- ENDIF -->
+                    </td>
+                        <td class="row2">
+                            <script type="text/javascript">
+                                // <![CDATA[
+
+                                var form_name = 'add';
+                                var text_name = 'msg';
+                                // ]]>
+                            </script>
+
+                            <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                            <!-- INCLUDE themes/1thank/templates/posting_buttons.html -->
+                            <tr>
+                                <td valign="top" style="width: 100%;"><textarea name="msg" rows="15" cols="76" tabindex="3" onselect="storeCaret(this);" onclick="storeCaret(this);" onkeyup="storeCaret(this);" style="width: 98%;">{MESSAGE}</textarea></td>
+                                <!-- IF S_BBCODE_ALLOWED -->
+                                <td width="80" align="center" valign="top">
+                                    <script type="text/javascript">
+                                    // <![CDATA[
+                                        colorPalette('v', 7, 6)
+                                    // ]]>
+                                    </script>
+                                </td>
+                                <!-- ENDIF -->
+                            </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="row1" width="35%"><strong class="genmed">{L_CAT_SELECT}:</strong></td>
+                        <td class="row2">{S_CAT_SELECT}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center"><input type=submit value='{L_SUBMIT}' /></td>
+                    </tr>
+                </table>
+                </form>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="7" valign="middle" align="center"></td>
+    </tr>
+</table>
+<br clear="all" />
+<!-- ELSEIF ACTION == reqfil -->
+<table class="tablebg" width="100%" cellspacing="0">
+    <tr>
+        <td>
+            <div class="caption">
+                <div class="cap-left">
+                    <div class="cap-right">
+                        <a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnOffer');"><img title="{L_EXPAND_ITEM}" id="nnOfferimg" src="themes/1thank/pics/minus.gif" alt="{L_EXPAND_ITEM}"></a>{L_FILL_REUEST}
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr valign="middle">
+        <td  class="row3" >
+            <div id="nnOffer">
+            <h2>{L_INTRO}</h2>
+            <hr />
+
+            <p>{L_INTRO_EXP}</p>
+            <form name="add" method=post action="{U_ACTION}">
+            {HIDDEN}
+            <table class="tablebg" width="100%" cellspacing="0">
+                <tr>
+                    <td class="row1" width="35%">
+                        <strong class="genmed">{L_UPLOADED_URL}:</strong><br />
+                    </td>
+                    <td class="row2"><input type="text" name="filledurl" value="" size="60"></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center"><input type=submit value='{L_SUBMIT}'>&nbsp;<input type="reset" value="{L_RESET}" /></td>
+                </tr>
+            </table>
+            </form>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="7" valign="middle" align="center"></td>
+    </tr>
+</table>
+<br clear="all" />
+<!-- ELSEIF ACTION == viewvotes -->
+<table class="tablebg" width="100%" cellspacing="0">
+    <tr>
+        <td>
+            <div class="caption">
+                <div class="cap-left">
+                    <div class="cap-right">
+                        <a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnOffer');"><img title="{L_EXPAND_ITEM}" id="nnOfferimg" src="themes/1thank/pics/minus.gif" alt="{L_EXPAND_ITEM}"></a>{L_REQUESTS}
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr valign="middle">
+        <td  class="row3" >
+            <div id="nnOffer">
+<!-- BEGIN votes -->
+                <table class="tablebg" width="100%" cellspacing="0">
+                    <tr>
+                        <td class="row1" width="35%">
+                        {L_NAME}
+                        </td>
+                        <td class="row2">
+                        <a href="user.php?op=profile&amp;id={votes.ID}"><font color="{votes.COLOR}">{votes.NAME}</font></a> <!-- IF votes.ONLINE -->{IMG_ONLINE}<!-- ENDIF -->
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="row1" width="35%">
+                        {L_GROUP}
+                        </td>
+                        <td class="row2">
+                        {votes.RANK}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="row1" width="35%">
+                        {L_UPLODED}
+                        </td>
+                        <td class="row2">
+                        {votes.UPLOADED}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="row1" width="35%">
+                        {L_DOWNED}
+                        </td>
+                        <td class="row2">
+                        {votes.DOWNLOADED}
+                        </td>
+                    </tr>
+                </table>
+<!-- BEGINELSE -->
+<!-- END votes -->
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="7" valign="middle" align="center"></td>
+    </tr>
+</table>
+<br clear="all" />
+<!-- ELSEIF ACTION == details -->
+<table class="tablebg" width="100%" cellspacing="0">
+    <tr>
+        <td>
+            <div class="caption">
+                <div class="cap-left">
+                    <div class="cap-right">
+                        <a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnOffer');"><img title="{L_EXPAND_ITEM}" id="nnOfferimg" src="themes/1thank/pics/minus.gif" alt="{L_EXPAND_ITEM}"></a>{L_REQUESTS}
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr valign="middle">
+        <td  class="row3" >
+            <div id="nnOffer">
+                <table class="tablebg" width="100%" cellspacing="0">
+                    <tr>
+                        <td class="row1" width="35%">
+                        {L_NAME}
+                        </td>
+                        <td class="row2">
+                        {O_NAME}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="row1" width="35%">
+                        {L_DESCRIPTION}
+                        </td>
+                        <td class="row2">
+                        {O_DESCRIPTION}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="row1" width="35%">
+                        {L_DATE_ADDED}
+                        </td>
+                        <td class="row2">
+                        {O_DATE_ADDED}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="row1" width="35%">
+                        {L_REQUESTED_BY}
+                        </td>
+                        <td class="row2">
+                        {O_OFFER_BY}
+                        </td>
+                    </tr>
+                    <tr>
+                    <!-- IF CAN_VOTE -->
+                        <td class="row1" width="35%">
+                        {L_VOTE}
+                        </td>
+                        <td class="row2">
+                        <strong><a href="viewrequests.php?action=vote&amp;id={O_ID}">{VOTE_IMG}</a>
+                        </td>
+                    </tr>
+                    <!-- ENDIF -->
+                    <!-- IF MOD_MOD -->
+                    <tr>
+                        <td colspan="2" align="center">
+
+                        <!-- IF CAN_EDIT --><a href="viewrequests.php?id={O_ID}&amp;action=edit" class="sublink">{EDIT_REQ_IMG}</a>&nbsp;<a href="viewrequests.php?id={O_ID}&amp;action=deletereq" class="sublink">{DELETE_REQ_IMG}</a><!-- ENDIF -->
+                        </td>
+                    </tr>
+                    <!-- ENDIF -->
+                </table>
+                <p align="center"><!-- IF CAN_FILL --><a href="viewrequests.php?id={O_ID}&amp;action=reqfil&amp;mode=fill" class="sublink">{FILL_REQ_IMG}</a>&nbsp;<!-- ENDIF --><a class="index" href="viewrequests.php?action=reqadd">{NEW_REQ_IMG}</a>&nbsp;<a class="index" href="viewrequests.php?action=comment&amp;tid={O_ID}">{REPLY_IMG}</a></p>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="7" valign="middle" align="center"></td>
+    </tr>
+</table>
+<br clear="all" />
+<a name="startcomments"></a>
+            {O_COMMENTS}
+<br clear="all" />
+<!-- ELSE -->
+<table class="tablebg" width="100%" cellspacing="0">
+    <tr>
+        <td>
+            <div class="caption">
+                <div class="cap-left">
+                    <div class="cap-right">
+                        <a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnrequest');"><img title="{L_EXPAND_ITEM}" id="nnrequestimg" src="themes/1thank/pics/minus.gif" alt="{L_EXPAND_ITEM}"></a>{L_REQUESTS}
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr valign="middle">
+        <td  class="row3" >
+            <div id="nnrequest">
+                <fieldset class="display-options">
+                    <p align=center><a href=viewrequests.php?action=reqadd>{L_MAKE_REQUEST}</a> &bull; <a href="viewrequests.php?requestorid={U_UID}">{L_VIEW_OWN_REQ}</a></p>
+                </fieldset>
+<!-- IF PAGINATION -->
+                <div class="pagination" style="float: right; margin: 15px 0 15px 0">
+                    <a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{S_ON_PAGE}</a> &bull; <span>{PAGINATION}</span>
+                </div>
+<!-- ENDIF -->
+<table style="border-collapse: collapse;" align="center" border="1" bordercolor="#0033FF" cellpadding="1" cellspacing="0" width="100%">
+    <tbody>
+        <tr>
+            <th>{L_REQUESTED_BY}</th>
+            <th width="100%">{L_DETAILS}</th>
+        </tr>
+<!-- BEGIN requests -->
+        <tr class=<!-- IF requests.ROW_COUNT is even -->"row1"<!-- ELSE -->"row2"<!-- ENDIF -->>
+            <td class="row" align="center" valign="top">
+            <div class="postauthor">{requests.ADDEDBY_NAME}</div>
+            <div class="postonline"><!-- IF requests.ADDEDBY_ONLINE -->{IMG_ONLINE}<!-- ENDIF --></div>
+            <div class="posterrank">{requests.ADDEDBY_RANK}</div>
+            <div class="postavatar">{requests.ADDEDBY_AVATAR}</div>
+            <div class="postdetails">
+            <img src="themes/1thank/pics/pic_uploaded.gif" alt="" title="" border="0">&nbsp;{requests.ADDEDBY_UPLOADED}<br />
+            <img src="themes/1thank/pics/pic_downloaded.gif" alt="" title="" border="0">&nbsp;{requests.ADDEDBY_DOWNLOADED}<br />
+            <img src="themes/1thank/pics/pic_ratio.gif" alt="" title="" border="0">&nbsp;{requests.ADDEDBY_RATIO}<br />
+            </div>
+            <img src="./images/spacer.gif" alt="" height="1" width="120">
+            </td>
+            <td class="row" height="25" valign="top" width="100%">
+            <div class="postsubject"><a href="./viewrequests.php?action=details&amp;id={requests.ID}">{requests.NAME}</a></div>
+            <div class="postdetails">{L_VOTES}:&nbsp;<a href="./viewrequests.php?action=viewvotes&amp;requestid={requests.ID}">{requests.VOTES}</a></div>
+            <div class="postdetails">{L_CATEGORY}:&nbsp;{requests.CAT}</div>
+            <!-- IF requests.FILLED --><div class="postdetails"><a href="{requests.FILLED}">{L_FILLED}</a></div><!-- ENDIF -->
+            <div class="postdetails"><a href="viewrequests.php?action=details&amp;id={requests.ID}#startcomments">{L_COMMENTS}:&nbsp;{requests.COMMENTS}</a></div>
+            </td>
+        </tr>
+        <tr class=<!-- IF requests.ROW_COUNT is even -->"row1"<!-- ELSE -->"row2"<!-- ENDIF -->>
+            <td class="postbottom" align="center">
+                    {requests.ADDED}
+            </td>
+            <td class="postbottom postbuttons" valign="middle">
+                <div style="float: right">
+                    <!-- IF requests.VOTE --><a href="viewrequests.php?action=vote&amp;id={requests.ID}" class="sublink">{VOTE_IMG}</a>&nbsp;<!-- ENDIF -->
+                    <!-- IF requests.DELETE --><a href="viewrequests.php?action=deletereq&amp;id={requests.ID}" class="sublink">{DELETE_IMG}</a>&nbsp;<!-- ENDIF -->
+                    <!-- IF requests.EDIT --><a href="viewrequests.php?action=edit&amp;id={requests.ID}" class="sublink">{EDIT_IMG}</a><!-- ENDIF -->
+                </div>
+                <a href="user.php?op=profile&amp;id={requests.ADDEDBY_ID}" >{PROFILE_IMG}</a>&nbsp;
+                <a href="pm.php?op=send&amp;to={requests.ADDEDBY_ID}">{PM_IMG}</a>&nbsp;
+                <!-- IF requests.ICQ --><a href="http://www.icq.com/whitepages/wwp.php?to={requests.ICQ}">{ICQ_IMG}</a>&nbsp;<!-- ENDIF -->
+                <!-- IF requests.AIM --><a href="aim:goim?screenname={requests.AIM}">{AIM_IMG}</a>&nbsp;<!-- ENDIF -->
+                <!-- IF requests.MSN --><a href="msnim:chat?contact={requests.MSN}">{MSN_IMG}</a>&nbsp;<!-- ENDIF -->
+                <!-- IF requests.YIM --><a href="ymsgr:chat?{requests.YIM}">{YIM_IMG}</a>&nbsp;<!-- ENDIF -->
+                <!-- IF requests.JABBER --><a href="xmpp:{requests.JABBER}?message">{JABBER_IMG}</a>&nbsp;<!-- ENDIF -->
+                <!-- IF requests.SKYPE --><a href="skype:{requests.SKYPE}">{SKYPE_IMG}</a>&nbsp;<!-- ENDIF -->
+                <!-- IF requests.MAIL -->{EMAIL_IMG}<!-- ENDIF -->
+            </td>
+        </tr>
+        <tr>
+            <td class="spacer" colspan="2" height="1"><img src="./images/spacer.gif" alt="" height="1" width="1"></td>
+        </tr>
+<!-- BEGINELSE -->
+        <tr>
+            <td class="spacer" colspan="2" height="1">{L_NO_REQUEST_NOW}</td>
+        </tr>
+<!-- END requests -->
+</tbody></table>
+<!-- IF PAGINATION -->
+                <div class="pagination" style="float: right; margin: 15px 0 15px 0">
+                    <a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{S_ON_PAGE}</a> &bull; <span>{PAGINATION}</span>
+                </div>
+<!-- ENDIF -->
+                <br clear="all" />
+                <fieldset class="display-options">
+                    <form method="get" action="{U_ACTION}">
+                    <span class="gensmall">{L_DISPLAY_LOG}:</span> &nbsp;{S_LIMIT_DAYS}&nbsp;
+                    <span class="gensmall">{L_SORT_BY}:</span> {S_SORT_KEY}&nbsp;
+                    <span class="gensmall">{L_CAT_SELECT}:</span> {S_CAT} {S_SORT_DIR}
+                    <input class="button2" type="submit" value="{L_GO}" name="sort" />
+                    {S_FORM_TOKEN}
+                    </form>
+                </fieldset>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="7" valign="middle" align="center"></td>
+    </tr>
+</table>
+<br clear="all" />
+<!-- ENDIF -->
+
+<!-- INCLUDE themes/1thank/templates/overall_footer.html -->

@@ -1,0 +1,36 @@
+<!-- INCLUDE themes/1thank/templates/overall_header.html -->
+
+<!-- IF S_NOTICE -->
+<!-- IF S_ERROR --><div id="errorbox" ><!-- ELSE --><div id="successbox" ><!-- ENDIF -->
+<span class="errorbox-title">{L_MESSAGE}</span>
+<p>{S_ERROR_MESS}</p>
+</div>
+<!-- ENDIF -->
+<table class="tablebg" width="100%" cellspacing="0">
+<tr><td>
+<div class="caption">
+<div class="cap-left">
+<div class="cap-right">
+<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnIRC_Chat');"><img title="{L_EXPAND_ITEM}" id="nnIRC_Chatimg" src="themes/1thank/pics/minus.gif"  alt="{L_EXPAND_ITEM}"></a>{L_IRC_CHAT}
+</div>
+</div>
+</div>
+</td></tr><tr valign="middle">
+<td  class="row3" ><div id="nnIRC_Chat">
+<applet code="IRCApplet.class" archive="pjirc/irc.jar,pjirc/pixx.jar" width="640" height="400">
+{PARMS}
+<param name="style:floatingasl" value="true">
+<param name="pixx:nickfield" value="true">
+<param name="pixx:highlight" value="true">
+<param name="pixx:highlightnick" value="true">
+<param name="pixx:styleselector" value="true">
+<param name="pixx:setfontonstyle" value="true">
+</applet></div>
+</td></tr>
+<tr>
+<td class="cat" colspan="7" valign="middle" align="center"></td>
+</tr>
+</table>
+<br clear="all" >
+
+<!-- INCLUDE themes/1thank/templates/overall_footer.html -->

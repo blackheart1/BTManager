@@ -1,0 +1,100 @@
+<!-- IF S_USER_LOGGED_IN -->
+<div id="quick_reply">
+		<div class="panel">
+			<div class="inner"><span class="corners-top"><span></span></span>
+<form id="postform" method="post" onsubmit="Gettext('message',true)" action="{S_QR_POST_ACTION}"{S_FORM_ENCTYPE}>
+<h3>{L_QUICK_REPLY}</h3>
+<!-- IF S_WYSIWYG_SHOW -->	
+	<textarea id="dvSample" style="display:none;position:absolute;top:-20;left:-20;width:1px;height:1px">{MESSAGE}{DRAFT_MESSAGE}{SIGNATURE}</textarea>
+	<script type="text/javascript" src="{SITE_FULL_URL}/images/wc.js"></script>
+	<script language="Javascript">
+	document.writeln('<style type="text/css">.container{width:100%;min-width:570px;background-color:#FFFFFF;border:1px solid #B5C4DD;}.toolbar{background-image:url("{SITE_FULL_URL}/images/editor/toolbar_background.gif");padding:4px 0;}.toolbar2{background-image:url("{SITE_FULL_URL}/images/editor/toolbar_background.gif");padding:0;}.button{padding:2px;}.oover{border:1px solid #316ac5;background:#f1f6f8;padding:1px;}#sddm{margin:0;padding:0;z-index:30}#sddm li{margin:0;padding:0;list-style:none;float:left;font:bold 11px arial}#sddm li img{display:block;margin:0 1px 0 0;padding:1px 2px}#sddm li a{display:block;margin:0 1px 0 0;padding:3px 10px;background-image:url("{SITE_FULL_URL}/images/editor/custom.gif");width:116px;color:#989898;text-align:center;text-decoration:none}#sddm div{overflow:auto;width:160px;height:120px;-moz-opacity:.8;filter:alpha(opacity=80);opacity:.80;position:absolute;visibility:hidden;margin:0;padding:0;background:#fff;border:1px solid #eee}#sddm div img{width:120px;}#sddm div a{position:relative;display:block;margin:0;padding:5px 10px;width:auto;white-space:nowrap;text-align:left;text-decoration:none;background:#FFF;color:#000}#sddm div a:hover{background:#eee;color:#545454;border:1px solid #7d7d7d}.rteStart {background-image:url({SITE_FULL_URL}/images/editor/start.gif);float:left;height:25px;width:7px;}</style>');
+	document.writeln('<div class="container"><div class="rteStart"></div><div class="toolbar">');
+	var fontsarr=[{S_WYSIWYG_FONTS}];
+	var l_sent =[{S_WYSIWYG_EXP}];
+	var lang_s = new Array("{L_E_FONT}","{L_E_SIZE}","{L_E_P}","{S_EXP}","{S_LINK_P}","{S_PALET}","{S_WYSIWYG_BG}","{S_WYSIWYG_COLOR}","{L_ENTER_DESC}","{S_E_DIR}","{SITE_FULL_URL}/","{L_E_IMM}","{L_E_URL}","{S_LINK_P}","{L_E_ENTER_VIDEO}","{L_E_ROWS}","{L_E_COLUM}","{L_E_DISABLE}");
+	// dropdown divs of the toolbar
+	var timeout=500;var closetimer=0;var ddmenuitem=0;function mopen(id){mcancelclosetime();if(ddmenuitem)ddmenuitem.style.visibility='hidden';ddmenuitem=document.getElementById(id);ddmenuitem.style.visibility='visible'};function mclose(){if(ddmenuitem)ddmenuitem.style.visibility='hidden'};function mclosetime(){closetimer=window.setTimeout(mclose,timeout)};function mcancelclosetime(){if(closetimer){window.clearTimeout(closetimer);closetimer=null}};
+	<!-- IF S_BBCODE_ALLOWED -->
+	// print toolbar icons with commands
+	var lang = new Array("{L_E_UNDO}","{L_E_REDO}","","{L_E_B}","{L_E_U}","{L_E_I}","{L_E_S}","","{L_E_HR}","{L_E_SUP}","{L_E_SUB}","","{L_E_REMOVE}","{L_E_BACKPALETTE}","{L_E_PALETTE}",<!-- IF S_LINKS_ALLOWED -->"{L_E_LINK}","{L_E_UNLINK}",<!-- ENDIF -->"",<!-- IF S_BBCODE_IMG -->"{L_E_IMAGE}",<!-- ENDIF -->"{L_E_TABLE}","","{L_E_JL}","{L_E_JC}","{L_E_JR}","{L_E_JF}","","{L_E_OL}","{L_E_UL}",""<!-- IF S_BBCODE_QUOTE -->,"{L_E_QUOTE}"<!-- ENDIF -->,"{L_E_CODE}","{L_E_PHPCODE}","{L_E_RF}"<!-- IF S_BBCODE_FLASH -->,"{L_E_FLASH}"<!-- ENDIF -->,"{L_E_OUT}","{L_E_IND}","{L_E_EX}","{L_E_CON}","");
+	var button_command = new Array("comm._command('Undo')","comm._command('Redo')","","comm._command(\'bold\')","comm._command('underline')","comm._command('italic')","comm._command('StrikeThrough')","","comm._command('InsertHorizontalRule')","comm._command('superscript')","comm._command('subscript')","","comm._command('delete')","toggle_visibility('cph','Colorpaletteh')","toggle_visibility('cpf','Colorpalettef')"<!-- IF S_LINKS_ALLOWED -->,"comm._url("+ lang_s[4] +")","comm._command('Unlink')"<!-- ENDIF -->,"",<!-- IF S_BBCODE_IMG -->"comm._image()",<!-- ENDIF -->"comm._table()","","comm._command('justifyleft')","comm._command('justifycenter')","comm._command('justifyright')","comm._command('justifyfull')","","comm._command('InsertOrderedlist')","comm._command('InsertUnOrderedlist')","",<!-- IF S_BBCODE_QUOTE -->"comm._HTML('[quote]','[/quote]')",<!-- ENDIF -->"comm._HTML('[code]','[/code]')","comm._HTML('[code=php]','[/code]')","comm._command('removeformat')",<!-- IF S_BBCODE_FLASH -->"comm._HTML('[flash]','[/flash]')",<!-- ENDIF -->"comm._command('outdent')","comm._command('indent')","textbox_resize(100)","textbox_resize(-100)","");
+	var images = new Array("arrow_undo.gif","arrow_redo.gif","seperator.gif","text_bold.gif","text_underline.gif","text_italic.gif","strike.gif","seperator.gif","hr.gif","superscript.gif","subscript.gif","seperator.gif","del.gif","back.gif","palette.gif",<!-- IF S_LINKS_ALLOWED -->"world_link.gif","world_delete.gif",<!-- ENDIF -->"seperator.gif",<!-- IF S_BBCODE_IMG -->"photo.gif",<!-- ENDIF -->"table.gif","seperator.gif","text_align_left.gif","text_align_center.gif","text_align_right.gif","text_align_justify.gif","seperator.gif","text_list_numbers.gif","text_list_bullets.gif","seperator.gif",<!-- IF S_BBCODE_QUOTE -->"quote.gif",<!-- ENDIF -->"page_white_code.gif","page_white_php.gif","delete.gif",<!-- IF S_BBCODE_FLASH -->"flash.gif",<!-- ENDIF -->"text_indent_remove.gif","text_indent.gif","arrow_down.gif","arrow_up.gif","seperator.gif");
+	var ids = new Array;
+	ids[13] = 'Colorpaletteh';
+	ids[14] = 'Colorpalettef';
+	for (i=0;i<lang.length;i++)
+		if(ids[i]){
+		document.writeln( '<img src="{SITE_FULL_URL}/images/editor/'+ images[i] +'" class="button" onClick="' + button_command[i] + ';" onmouseover="overIcon(this)" onmouseout="outIcon(this)" title="'+lang[i]+'" id="'+ ids[i] +'" />');
+		}else if(lang[i] != ""){
+		document.writeln( '<img src="{SITE_FULL_URL}/images/editor/'+ images[i] +'" class="button" onClick="' + button_command[i] + ';" onmouseover="overIcon(this)" onmouseout="outIcon(this)" title="'+lang[i]+'" />');
+		}else{
+		document.writeln( '<img src="{SITE_FULL_URL}/images/editor/'+ images[i] +'" />');
+		}
+	document.writeln('<img src="{SITE_FULL_URL}/images/editor/switch.gif" onclick="comm._toggle()" id="switch" style="border:1px solid #316ac5;background:#f1f6f8;padding:1px;" title="{L_E_SWITCH}" />');	
+	// custom BBcode
+	<!-- IF S_BBCODE_IMAGE_SHOW -->
+	document.writeln('<!-- BEGIN custom_tags --><img src="{SITE_FULL_URL}/images/editor/{custom_tags.BBCODE_TAG}.png"  class="button" onmouseover="overIcon(this)" onmouseout="outIcon(this)" alt="{custom_tags.BBCODE_TAG}" onclick="comm._HTML(\'[{custom_tags.BBCODE_TAG}]\',\'[/{custom_tags.BBCODE_TAG}]\')" title="{custom_tags.BBCODE_HELPLINE}" /><!-- END custom_tags --></div>');
+	<!-- ELSE -->
+	document.writeln('</div><div class="rteStart"></div><div class="toolbar2"><!-- BEGIN custom_tags --><input type="button" class="button2" name="addbbcode{custom_tags.BBCODE_ID}" value="{custom_tags.BBCODE_TAG}" onclick="comm._HTML(\'[{custom_tags.BBCODE_TAG}]\',\'[/{custom_tags.BBCODE_TAG}]\')" title="{custom_tags.BBCODE_HELPLINE}" /><!-- END custom_tags --><div style="clear:both"></div></div>');
+	<!-- ENDIF -->
+	//Size menu
+	document.writeln('<div class="rteStart"></div><div class="toolbar2"><ul id="sddm"><li><img src="{SITE_FULL_URL}/images/editor/fontsize.gif" onclick="mopen(\'m1\'); return false;" onmouseout="mclosetime()" title="'+ lang_s[1] +'" /><div id="m1" onmouseover="mcancelclosetime()" onclick="mclose()" onmouseout="mclosetime()"><a href="javascript:;" onclick="comm._select(\'fontsize\',1);"><font size="1">1 (8pt)</font></a><a href="javascript:;" onclick="comm._select(\'fontsize\',2);"><font size="2">2 (10pt)</font></a><a href="javascript:;" onclick="comm._select(\'fontsize\',3);"><font size="3">3 (12pt)</font></a><a href="javascript:;" onclick="comm._select(\'fontsize\',4);"><font size="4">4 (14pt)</font></a><a href="javascript:;" onclick="comm._select(\'fontsize\',5);"><font size="5">5 (18pt)</font></a><a href="javascript:;" onclick="comm._select(\'fontsize\',6);"><font size="6">6 (24pt)</font></a></div></li>');
+	//font menu
+	document.writeln('<li><img src="{SITE_FULL_URL}/images/editor/fontfamily.gif" onclick="mopen(\'m2\'); return false;" onmouseout="mclosetime()" title="'+ lang_s[0] +'" /><div id="m2" onmouseover="mcancelclosetime()" onclick="mclose()" onmouseout="mclosetime()">');
+	for (i=0;i<fontsarr.length;i++)
+		document.writeln('<a href="javascript:;" onclick="comm._select(\'fontname\',\'' + fontsarr[i] + '\');"><font face="' + fontsarr[i] + '">' + fontsarr[i] + '</font></a>');
+		document.writeln('</a></div></li>');
+	// Heading menu
+	document.writeln('<li><img src="{SITE_FULL_URL}/images/editor/paragraph.gif" onclick="mopen(\'m4\'); return false;" onmouseout="mclosetime()" title="'+ lang_s[2] +'" /><div id="m4" onmouseover="mcancelclosetime()" onclick="mclose()" onmouseout="mclosetime()"><a href="javascript:;" onclick="comm._select(\'formatblock\',\'<p>\');"><p style="margin: 0px; padding: 0px;">Paragraph</p></a><a href="javascript:;" onclick="comm._select(\'formatblock\',\'<h6>\');"><h6 style="margin: 0px; padding: 0px;">Heading 6</h6></a><a href="javascript:;" onclick="comm._select(\'formatblock\',\'<h5>\');"><h5 style="margin: 0px; padding: 0px;">Heading 5</h5></a><a href="javascript:;" onclick="comm._select(\'formatblock\',\'<h4>\');"><h4 style="margin: 0px; padding: 0px;">Heading 4</h4></a><a href="javascript:;" onclick="comm._select(\'formatblock\',\'<h3>\');"><h3 style="margin: 0px; padding: 0px;">Heading 3</h3></a><a href="javascript:;" onclick="comm._select(\'formatblock\',\'<h2>\');"><h2 style="margin: 0px; padding: 0px;">Heading 2</h2></a><a href="javascript:;" onclick="comm._select(\'formatblock\',\'<h1>\');"><h1 style="margin: 0px; padding: 0px;">Heading 1</h1></a></div></li>');
+	// custom menu
+	document.writeln('<li><a onclick="mopen(\'m3\'); return false;" onmouseout="mclosetime()">'+ lang_s[3] +'</a><div id="m3" onmouseover="mcancelclosetime()" onclick="mclose()" onmouseout="mclosetime()">');
+	for (i=0;i<l_sent.length;i++){
+		document.writeln('<a href="javascript:;" onclick="comm._HTML(\' \',\' \',\'' + l_sent[i] + '\');">' + l_sent[i] + '</a>');
+		}
+	document.writeln('</a></div></li>');
+	document.writeln('</ul><div style="clear:both"></div></div>');
+	<!-- ENDIF -->
+	</script>
+
+	<div id="cph" style="background:#fff;padding: 3px; overflow: hidden; cursor: default; position: absolute;z-index: 100; display: none;"><script language="JavaScript">comm._palette('hilitecolor');</script></div>
+	<div id="cpf" style="background:#fff;padding: 3px; overflow: hidden; cursor: default; position: absolute;z-index: 100; display: none;"><script language="JavaScript">comm._palette('forecolor');</script></div>
+	<script type="text/javascript">
+	document.writeln('<iframe id="box" scrolling="auto"  style="border:1px solid #a9b8c2;width: 100%; height: 150px;" frameborder="0"></iframe>');
+	document.writeln('<textarea id="box_text" style="display:none;width: 99.6%; height: 150px;background:'+ lang_s[6] + ';" cols="60" rows="10" class="inputbox" tabindex="3" onselect="storeCaret(this);" onclick="storeCaret(this);" onkeyup="storeCaret(this);"></textarea>');	
+	bbcode.Start();
+	document.writeln('<textarea <!-- IF S_UCP_ACTION and not S_PRIVMSGS and not S_EDIT_DRAFT -->name="signature" id="signature" <!-- ELSE -->name="message" id="message"<!-- ENDIF --> rows="15" cols="76" tabindex="3" onselect="storeCaret(this);" onclick="storeCaret(this);" onkeyup="storeCaret(this);" class="inputbox" style="display:none;"></textarea>');
+	document.writeln('</div>');
+	</script>
+	<noscript>
+			<textarea <!-- IF S_UCP_ACTION and not S_PRIVMSGS and not S_EDIT_DRAFT -->name="signature" id="signature" style="height: 9em;"<!-- ELSE -->name="message" id="message"<!-- ENDIF --> rows="15" cols="76" tabindex="3" onselect="storeCaret(this);" onclick="storeCaret(this);" onkeyup="storeCaret(this);" class="inputbox">{MESSAGE}{DRAFT_MESSAGE}{SIGNATURE}</textarea>
+	</noscript>
+<!-- ELSE -->
+			<fieldset class="fields1">
+			<!-- IF S_BBCODE_ALLOWED -->
+
+				<!-- INCLUDE posting_buttons.html -->
+			<!-- ENDIF -->
+			<div id="message-box">
+				<textarea name="message" id="message" rows="8" cols="76" class="inputbox" tabindex="2">{MESSAGE}</textarea>
+			</div>
+			</fieldset>
+<!-- ENDIF -->
+		<div class="panel bg2">
+			<div class="inner"><span class="corners-top"><span></span></span>
+
+			<fieldset class="submit-buttons">
+				{S_FORM_TOKEN}
+				{S_QR_HIDDEN_FIELDS}
+				<input type="submit" name="preview" tabindex="6" value="{L_PREVIEW}" class="button1" onclick="document.getElementById('postform').action += '#preview';" />&nbsp;
+				<input type="submit" name="post" tabindex="5" value="{L_SUBMIT}" class="button1" accesskey="s" />
+			</fieldset>
+
+			<span class="corners-bottom"><span></span></span></div>
+		</div>
+	</form>
+
+</div>
+</div>
+</div>
+<!-- ENDIF -->

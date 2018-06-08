@@ -1,0 +1,24 @@
+<!-- INCLUDE themes/1thank/templates/overall_header.html -->
+
+<!-- IF U_MCP --><p>{CURRENT_TIME} <br />[&nbsp;<a href="{U_MCP}">{L_MCP}</a>&nbsp;]</p><!-- ELSEIF S_USER_LOGGED_IN --><p>{CURRENT_TIME}</p><!-- ENDIF -->
+
+<!-- IF S_DISPLAY_SEARCH or (U_USER and not S_IS_BOT) -->
+<ul class="linklist">
+	<!-- IF S_DISPLAY_SEARCH -->
+		<li><a href="{U_SEARCH_UNANSWERED}">{L_SEARCH_UNANSWERED}</a><!-- IF U_USER --> &bull; <a href="{U_SEARCH_UNREAD}">{L_SEARCH_UNREAD}</a> &bull; <a href="{U_SEARCH_NEW}">{L_SEARCH_NEW}</a><!-- ENDIF --> &bull; <a href="{U_SEARCH_ACTIVE_TOPICS}">{L_SEARCH_ACTIVE_TOPICS}</a></li>
+	<!-- ENDIF -->
+	<!-- IF not S_IS_BOT and U_MARK_FORUMS --><li class="rightside"><a href="{U_MARK_FORUMS}" accesskey="m">{L_MARK_FORUMS_READ}</a></li><!-- ENDIF -->
+</ul>
+<!-- ENDIF -->
+<!-- INCLUDE themes/1thank/templates/forumlist_body.html -->
+<div class="navbar">
+<div class="inner"><span class="corners-top"><span></span></span>
+<div style ="text-align: center;">
+<span class="corners-bottom"><span></span></span></div>
+	<ul class="linklist">
+			<li class="rightside"><!-- IF U_TEAM --><a href="{U_TEAM}">{L_THE_TEAM}</a> &bull; <!-- ENDIF --></li>
+		</ul>
+</div>
+</div>
+
+<!-- INCLUDE themes/1thank/templates/overall_footer.html -->

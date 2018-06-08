@@ -1,0 +1,35 @@
+<div class="myFrame">
+    <div class="myF-caption">{L_NEWEST_MEMBERS}</div>
+    <div class="wrapper">
+        <div class="myF-content">
+            <table class="tablebg" width="100%" cellspacing="0">
+                <tr valign="middle">
+                    <td class="row3">
+                        <div id="nnNewest_Members">
+                            <table class="torrenttable" width="100%" border="0" cellpadding="3">
+                                <tr>
+                                <!-- IF IS_NEW_USERS -->
+                                <!-- BEGIN new_user -->
+                                    <td>
+                                        <center>{new_user.AVATAR}<br />
+                                            <a href="user.php?op=profile&amp;id={new_user.UID}"><font color="{new_user.COLOR}">{new_user.NAME}</font></a>
+                                        </center>
+                                    </td>
+                                    <!-- END new_user -->
+                                    <!-- ELSE -->
+                                    <td padding="0">{L_NO_NEW_USERS}</td>
+                                    <!-- ENDIF -->
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="7" valign="middle" align="center"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<br clear="all" />

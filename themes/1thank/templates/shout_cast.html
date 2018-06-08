@@ -1,0 +1,88 @@
+<table class="tablebg" width="100%" cellspacing="0">
+    <tr>
+        <td>
+            <div class="caption">
+                <div class="cap-left">
+                    <div class="cap-right">
+                            {SERVERTITLE}
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr valign="middle">
+        <td class="row3">
+<div id="nnPersonal_stats">
+<p align="center"><strong>
+<a href="http://{RADIO_IP}:{RADIO_PORT}/listen.pls">{L_CLICK_HERE_TO_LISTEN}</a></strong></p>
+<br>
+<br>
+<div align="center">
+  <center>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%">
+  <tr>
+    <td width="45%">
+    <div align="center">
+      <center>
+      <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111">
+        <tr>
+          <td width="50%" align="center">
+          <img border="0" src="themes/1thank/images/shoutcast.gif" width="160" height="44"></td>
+          <td width="50%" align="center">
+          <img border="0" src="themes/1thank/images/winamp.gif" width="75" height="76"></td>
+        </tr>
+      </table>
+      </center>
+    </div>
+    </td>
+    <td width="55%">
+    <table border="0" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111">
+    <tr>
+      <td align="left"><strong>{L_RADIO_STATUS} :</strong> </td>
+      <td><img border="0" src="<!-- IF STREAMSTATUS == 1 -->{SITE_URL}/themes/1thank/images/greenLED.gif<!-- ELSE -->{SITE_URL}/themes/1thank/images/redLED.gif<!-- ENDIF -->"></td>
+    </tr>
+    <tr>
+      <td align="left"><strong>{L_CUR_BITRATE} :</strong> </td>
+      <td>{BITRATE}KBPS</td>
+    </tr>
+    <tr>
+      <td align="left"><strong>{L_RADIO_DJ} :&nbsp; </strong></td>
+      <td>{RADIO_DJ}</td>
+    </tr>
+    <tr>
+      <td align="left"><strong>{L_CURNETLY_PLAYING} :&nbsp;</strong></td>
+      <td>{LAST_TRACK}</td>
+    </tr>
+    <tr>
+      <td align="left"><strong>{L_MEMBERS_LESTINING}:&nbsp;</strong></td>
+      <td>{CURRENTLISTENERS}</td>
+    </tr>
+    <tr>
+      <td align="left" valign="top"><strong>{L_LAST_TRACKS}&nbsp;</strong></td>
+     <td>
+<!-- BEGIN last_songs -->
+     {last_songs.DATE} {last_songs.SONG}<BR>
+<!-- END last_songs -->
+     </td>
+    </tr>
+  </table>
+    <p></td>
+  </tr>
+</table>
+  </center>
+</div>
+<p>&nbsp;</p>
+<div align="center">
+  <center>
+
+  <p></p>
+
+  </center>
+</div>
+
+<p align="center">{L_REQ_TO_LESTIN} </p>
+<p align="center">{L_POWERED_BY}</p>
+</div>
+</td></tr>
+</table>
+<br clear="all" />

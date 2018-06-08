@@ -1,0 +1,297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="{S_CONTENT_DIRECTION}" lang="{S_USER_LANG}" xml:lang="{S_USER_LANG}">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset={S_CONTENT_ENCODING}" />
+        <meta http-equiv="content-style-type" content="text/css" />
+        <meta http-equiv="content-language" content="{S_USER_LANG}" />
+        <meta http-equiv="imagetoolbar" content="no" />
+        <meta name="resource-type" content="document" />
+        <meta name="distribution" content="global" />
+        {META}
+        <title>{SITENAME} &bull; <!-- IF S_IN_MCP -->{L_MCP} &bull; <!-- ELSEIF S_IN_UCP -->{L_UCP} &bull; <!-- ENDIF -->{PAGE_TITLE}</title>
+
+		<script type="text/javascript" src="{SITE_URL}/themes/1thank/js/prototype.js"></script>
+        <script type="text/javascript" src="{SITE_URL}/themes/1thank/js/scriptaculous.js?load=effects,builder"></script>
+        <script type="text/javascript" src="{SITE_URL}/themes/1thank/js/lightbox.js"></script>
+        <script type="text/javascript" src="{SITE_URL}/themes/1thank/js/jquery.smoothmenu.js"></script>
+        <script type="text/javascript" src="{SITE_URL}/themes/1thank/js/core.js"></script>
+        <script type="text/javascript" src="{SITE_URL}/themes/1thank/js/ncode_imageresizer.js"></script>
+        <script type="text/javascript">
+		<!--
+		NcodeImageResizer.MODE = 'newwindow';
+		NcodeImageResizer.MAXWIDTH = 500;
+		NcodeImageResizer.MAXHEIGHT =400;
+		
+		NcodeImageResizer.Msg1 = '{L_FULL_IMG}';
+		NcodeImageResizer.Msg2 = '{L_RESIZE_IMG}';
+		NcodeImageResizer.Msg3 = '{L_RESIZE_IMG}';
+		NcodeImageResizer.Msg4 = '{L_SMALL_IMG}';
+		//-->
+		</script>
+		<script type="text/javascript">
+		pmbtsite_url = "{SITE_URL}";
+		tag_prompt = "Enter a Text:";
+		img_prompt = "Insert Link from Image";
+		font_formatter_prompt = "Enter a Text - ";
+		link_text_prompt = "Enter a Link Name (Optional):";
+		link_url_prompt = "Enter the Full Address on the left of:";
+		link_email_prompt = "Enter your Full Link:";
+		list_type_prompt = "Which type of List would you like? Give ' 1 ' for a Numerical List, 'a' for an Alphabetical List, or nothing at all for a Simple Point List.";
+		list_item_prompt = "Enter one point of list. Press OK to enter another point of list or press 'Cancel' to Finish.";
+		_btshoutnowprivate = "{L_PRIVATE_SHOUT}";
+		shoutrefresht = "{S_SHOUT_REF}";
+		shoutidle = "{S_SHOUT_IDL}";
+		function change_bg(img, state)
+		{
+		if (state == "1")
+		img.src = img.src.replace(".gif","_over.gif");
+		else if (state == "0")
+		img.src = img.src.replace("_over.gif",".gif");
+		else if (state == "2")
+		img.src = img.src.replace("_over.gif",".gif");
+		else if (state == "3")
+		img.src = img.src.replace("_over.gif",".gif");
+		}
+		var pd = new Date();
+		var last_reload = pd.getTime();
+		function do_breload() {
+			if (document.location.href.match(/\/torrents\.php/)) {
+			   var d = new Date();
+			   if (last_reload && last_reload > (d.getTime() - "4000")) return;
+				  last_reload = d.getTime();
+			   bparam('page=1')
+		
+			}
+		}
+		
+		function toggle2(nome) {
+		if(document.getElementById(nome).style.display=='none')
+		{
+		SetCookie(nome,'');
+		document.getElementById(nome).style.display = '';
+		document.getElementById(nome+"img").src="themes/1thank/pics/minus.gif";
+		} else {
+		SetCookie(nome,'none',200);
+		document.getElementById(nome).style.display = 'none';
+		document.getElementById(nome+"img").src="themes/1thank/pics/plus.gif";
+		}
+		}
+		
+		function SetCookie(cookieName,cookieValue,nDays) {
+		 var today = new Date();
+		 var expire = new Date();
+		 if (nDays==null || nDays==0) nDays=1;
+		 expire.setTime(today.getTime() + 3600000*24*nDays);
+		 document.cookie = cookieName+"="+escape(cookieValue)
+						 + ";expires="+expire.toGMTString();
+		}
+		function bparam(){
+			document.getElementById('myAnchor').href="torrents.php"
+		}
+		// <![CDATA[
+		var jump_page = '{LA_JUMP_PAGE}:';
+		var on_page = '{ON_PAGE}';
+		var per_page = '{PER_PAGE}';
+		var base_url = '{A_BASE_URL}';
+		
+		var menu_state = 'shown';
+		
+		
+		/**
+		* Jump to page
+		*/
+		function jumpto()
+		{
+			var page = prompt(jump_page, on_page);
+		
+			if (page !== null && !isNaN(page) && page == Math.floor(page) && page > 0)
+			{
+				if (base_url.indexOf('?') == -1)
+				{
+					document.location.href = base_url + '?page=' + ((page - 1) * per_page/per_page+1);
+				}
+				else
+				{
+					document.location.href = base_url.replace(/&amp;/g, '&') + '&page=' + ((page - 1) * per_page/per_page+1);
+				}
+			}
+		}
+		
+		/**
+		* Set display of page element
+		* s[-1,0,1] = hide,toggle display,show
+		*/
+		function dE(n, s, type)
+		{
+			if (!type)
+			{
+				type = 'block';
+			}
+		
+			var e = document.getElementById(n);
+			if (!s)
+			{
+				s = (e.style.display == '') ? -1 : 1;
+			}
+			e.style.display = (s == 1) ? type : 'none';
+		}
+		// ]]>
+		</script>
+		<script type="text/javascript" src="{SITE_URL}/global.js"></script>
+		<script type="text/javascript" src="{SITE_URL}/overlib/overlib.js"><!-- overLIB (c) Erik Bosrup --></script>
+		<script type="text/javascript" src="{SITE_URL}/overlib/overlib_shadow.js"><!-- overLIB (c) Erik Bosrup --></script>
+		<script src="{SITE_URL}/themes/1thank/js/jquery.js" type="text/javascript"></script>
+		<script src="{SITE_URL}/themes/1thank/js/jquery-ui-1.7.2.custom.min.js" type="text/javascript"></script>
+		<script src="{SITE_URL}/themes/1thank/js/ui.selectmenu.js" type="text/javascript"></script>
+		<script src="{SITE_URL}/themes/1thank/js/jquery.cookie.js" type="text/javascript"></script>
+		<script src="{SITE_URL}/themes/1thank/js/jquery.thumbnailScroller.js" type="text/javascript"></script>
+		<script type="text/javascript" src="{SITE_URL}/themes/1thank/js/jquery.smoothmenu.js"></script>
+		<script type="text/javascript" src="{SITE_URL}/themes/1thank/js/core.js"></script>
+		<script src="{SITE_URL}/themes/1thank/js/jquery.jcarousel.js" type="text/javascript"></script>
+		<script type="text/javascript" src="{SITE_URL}/themes/1thank/js/jquery.qtip-1.0.0-rc3.min.js"></script>
+		<script src="{SITE_URL}/themes/1thank/js/init.js" type="text/javascript"></script>
+		<script type="text/javascript" src="{SITE_URL}/themes/1thank/js/jquery.jqDock.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				var jqDockOpts = {align: 'left', duration: 200, labels: 'tc', size: 48, distance: 85};
+				$('#jqDock').jqDock(jqDockOpts);
+			});
+		</script>
+		<script type="text/javascript" src="themes/1thank/templates/styleswitcher.js"></script>
+		<script type="text/javascript" src="themes/1thank/templates/forum_fn.js"></script>
+		
+		<link href="themes/1thank/print.css" rel="stylesheet" type="text/css" media="print" title="printonly" />
+		<link href="themes/1thank/style.css" rel="stylesheet" type="text/css" media="screen, projection" />
+		<link href="themes/1thank/stylesheet.css" rel="stylesheet" type="text/css" media="screen, projection" />
+		
+		<link href="themes/1thank/normal.css" rel="stylesheet" type="text/css" title="A" />
+		<link href="themes/1thank/medium.css" rel="alternate stylesheet" type="text/css" title="A+" />
+		<link href="themes/1thank/large.css" rel="alternate stylesheet" type="text/css" title="A++" />
+		
+		<!-- IF S_CONTENT_DIRECTION eq rtl -->
+			<link href="themes/1thank/bidi.css" rel="stylesheet" type="text/css" media="screen, projection" />
+		<!-- ENDIF -->
+		
+		
+		
+		<script type="text/javascript" src="themes/1thank/templates/editor.js"></script>
+
+
+	</head>
+
+    <body onload="shoutthis_ajax()">
+    <div id="bodybg">
+        <div id="pmbtwrapper">
+            <div id="pmbshad-l">
+                <div id="pmbshad-r">
+                    <div id="header">
+    
+                        <div id="head-l">
+    
+                            <div id="head-r">
+                                <div id="userarea" class="smalltext"><p class="right">It is currently <?php echo date("D M j G:i:s T Y");?></p>
+                                </div>
+                                <div  class="smalltext">
+                                	<div id="search-box">
+                                    <form action="./search.php" method="post" id="search">
+                                        <input name="search" id="keywords" type="text" maxlength="128" title="{L_SEARCH}" class="inputbox search" value="{L_SEARCH}" onclick="if(this.value=='{L_SEARCH}')this.value='';" onblur="if(this.value=='')this.value='{L_SEARCH}';" >
+                                        <input class="button2" value="Search" type="submit" >{L_TORRENTS}<br >
+                                    </form>
+                                    <form action="./forum.php?action=search" method="post" id="search">
+                                        <input name="search" id="keywords" type="text" maxlength="128" title="{L_SEARCH}" class="inputbox search" value="{L_SEARCH}" onclick="if(this.value=='{L_SEARCH}')this.value='';" onblur="if(this.value=='')this.value='{L_SEARCH}';" >
+                                        <input class="button2" value="Search" type="submit" >{L_FORUM}<br >
+                                    </form>
+                                </div>
+    
+            
+    
+                            </div>
+                            <a href="./index.php" title=""><span id="pmbtlogo"><br /><br /><br /><br /><p style="color:#f8f4f4; font-size:35px; font-weight:800; font-style:italic;">{SITENAME}</p></span></a>
+    
+                        </div>
+                    </div>
+                </div>					
+                    
+                <div id="toolbar">
+            		<div id="topmenu">
+                        <ul>
+                            <li><a  href="index.php"><span>{L_INDEX}</span></a></li>
+                            <li><a  href="user.php?op=editprofile"><span>{L_YOUR_ACCOUNT}</span></a></li>
+                            <li><a  href="torrents.php"><span>{L_BROWES}</span></a></li>
+                            <li><a  href="faq.php"><span>{L_FAQS}</span></a></li>
+                            <li><a  href="forum.php"><span>{L_FORUM}</span></a></li>
+                            <!-- IF not U_USER --><li><a  href="/user.php?op=register"><span>{L_REGISTOR}</span></a></li><!-- ENDIF -->
+                            <li><!-- IF U_USER --><a onClick="if(!confirm('{L_JAVA_CONF_LOGOUT}')){return false;};" href="user.php?op=logout" alt="{L_LOGOUT}" title="{L_LOGOUT}"><span>{L_LOGOUT}</span><!-- ELSE --><a href="login.php" alt="{L_LOGIN}" title="{L_LOGIN}"><span>{L_LOGIN}</span><!-- ENDIF --></a></li>
+                            <!-- IF U_USER --><li><a href="mytorrents.php"><span>{L_YOUR_TORRENTS}</span></a></li><!-- ENDIF -->
+                            <!-- IF U_UPLOAD_TOR --><li><a href="/upload.php"><span>{L_UPLOAD}</span></a></li><!-- ENDIF -->
+                            <!-- IF U_SHOW_ARCADE --><li><a href="arcade.php">{L_ARCADE}</a></li><!-- ENDIF -->
+                        </ul>
+            		</div>
+                </div>
+    			<div id="bodyarea">
+    				<br />
+                    <br />
+    				<div class="navbar">
+    					<div class="inner"><span class="corners-top"><span></span></span>
+    					</div>
+                		<ul class="linklist navlinks">
+                            <li class="icon-home"><a href="index.php" accesskey="h">{L_INDEX}</a> <!-- BEGIN navlinks --> <strong>&#8249;</strong> <a href="{navlinks.U_VIEW_FORUM}">{navlinks.FORUM_NAME}</a><!-- END navlinks --></li>
+    
+            
+                            <li class="rightside"><a href="#" onclick="fontsizeup(); return false;" onkeypress="fontsizeup(); return false;" class="fontsize" title="{L_CHANGE_FONT_SIZE}">{L_CHANGE_FONT_SIZE}</a></li>
+                            <!-- IF S_WATCH_FORUM_LINK --><li <!-- IF S_WATCHING_FORUM -->class="icon-unsubscribe"<!-- ELSE -->class="icon-subscribe"<!-- ENDIF -->><a href="{S_WATCH_FORUM_LINK}" title="{S_WATCH_FORUM_TITLE}">{S_WATCH_FORUM_TITLE}</a></li><!-- ENDIF -->
+                            <!-- IF U_WATCH_TOPIC --><li class="rightside"><a href="{U_WATCH_TOPIC}" title="{L_WATCH_TOPIC}" class="watchtopic">{L_WATCH_TOPIC}</a></li><!-- ENDIF -->
+                            <!-- IF U_BOOKMARK_TOPIC --><li class="rightside"><a href="{U_BOOKMARK_TOPIC}" title="{L_BOOKMARK_TOPIC}" class="bookmark">{L_BOOKMARK_TOPIC}</a></li><!-- ENDIF -->
+                            <!-- IF U_EMAIL_TOPIC --><li class="rightside"><a href="{U_EMAIL_TOPIC}" title="{L_EMAIL_TOPIC}" class="sendemail">{L_EMAIL_TOPIC}</a></li><!-- ENDIF -->
+                            <!-- IF U_EMAIL_PM --><li class="rightside"><a href="{U_EMAIL_PM}" title="{L_EMAIL_PM}" class="sendemail">{L_EMAIL_PM}</a></li><!-- ENDIF -->
+                            <!-- IF U_PRINT_TOPIC --><li class="rightside"><a href="{U_PRINT_TOPIC}" title="{L_PRINT_TOPIC}" accesskey="p" class="print">{L_PRINT_TOPIC}</a></li><!-- ENDIF -->
+                            <!-- IF U_PRINT_PM --><li class="rightside"><a href="{U_PRINT_PM}" title="{L_PRINT_PM}" accesskey="p" class="print">{L_PRINT_PM}</a></li><!-- ENDIF -->
+                        </ul>
+    
+                    <!-- IF not S_USER_LOGGED_IN and not S_IS_BOT and S_LOGIN_ANYWHERE and not AUTO_REFRESH -->
+                        <form method="post" action="{S_LOGIN_ANYWHERE}">
+                            <fieldset class="quick-login" style="float:left;position:relative;white-space:nowrap">
+                                <label for="prime_login_username">Login:</label>&nbsp;<input tabindex="100" type="text" name="username" id="prime_login_username" size="10" class="inputbox" style="min-width:100px" title="{L_USERNAME}" />  
+                                <label for="prime_login_password">Has≈?o:</label>&nbsp;<input tabindex="101" type="password" name="password" id="prime_login_password" size="10" class="inputbox" title="{L_PASSWORD}" />
+                                <!-- IF S_AUTOLOGIN_ENABLED --><label for="prime_login_autologin"><input tabindex="102" type="checkbox" name="autologin" id="prime_login_autologin" /> {L_PRIME_REMEMBER_ME}</label><!-- ENDIF -->
+                                <input tabindex="103" type="submit" name="login" value="{L_LOGIN}" class="button2" />
+            
+                            </fieldset>
+                        </form>
+                        <!-- ENDIF -->
+                        <!-- IF U_USER -->
+                        <ul class="linklist leftside">
+                            <li class="icon-ucp">
+                                <a href="user.php?op=profile" title="{L_USERPROFILE}" accesskey="u">{L_USERPROFILE}</a>
+                                (<a href="pm.php?op=folder&amp;i=0">{L_PRIVATE_MESSAGES} {U_USER_UNRED_PM}</a>)&bull; 
+                                <a href="forum.php?action=search&amp;search_id=egosearch">{L_SEARCH_SELF}</a>
+    
+                                <!-- IF U_RESTORE_PERMISSIONS --> &bull;
+                                <a href="{U_RESTORE_PERMISSIONS}">{L_RESTORE_PERMISSIONS}</a>
+                                <!-- ENDIF -->
+                            </li>
+                        </ul>
+                        <!-- ENDIF -->
+    
+                        <ul class="linklist rightside">
+						    <li class="icon-search"><a href="search.php" title="{L_SEARCH}">{L_SEARCH}</a></li>
+                            <!-- IF not S_IS_BOT -->
+                            <!-- IF S_DISPLAY_MEMBERLIST --><li class="icon-members"><a href="{U_MEMBERLIST}" title="{L_MEMBERLIST_EXPLAIN}">{L_MEMBERLIST}</a></li><!-- ENDIF -->
+                            <!-- IF not U_USER and S_REGISTER_ENABLED --><li class="icon-register"><a href="/user.php?op=register">{L_REGISTOR}</a></li><!-- ENDIF -->
+                            <li class="icon-logout"><a href="user.php?op=logout" title="{L_LOGOUT}" accesskey="l">{L_LOGOUT}</a></li>
+                            <!-- ENDIF -->
+                        </ul>
+                        <span class="corners-bottom"><span></span></span>
+                    </div>
+                	<a name="start_here"></a>
+                	<div id="page-body">
+                    
+                     <!-- IF S_BOARD_DISABLED and S_USER_LOGGED_IN and (U_MCP or U_ACP) --> 
+                        <div id="message" class="rules">
+                            <div class="inner"><span class="corners-top"><span></span></span>
+                                <strong>{L_INFORMATION}:</strong> {L_BOARD_DISABLED}
+                            <span class="corners-bottom"><span></span></span></div>
+        
+                        </div>
+                    <!-- ENDIF -->
+    				</div>				

@@ -1,0 +1,87 @@
+<!-- INCLUDE themes/1thank/templates/admin/over_all_header.html -->
+<a name="maincontent"></a>
+
+<h1>{L_INTRO}</h1>
+
+<p>{L_INTRO_EXP}</p>
+
+<!-- IF S_MESSAGE -->
+
+<hr />
+<div <!-- IF S_USER_NOTICE -->class="successbox"<!-- ELSE -->class="errorbox"<!-- ENDIF -->>
+	<h3>{MESSAGE_TITLE}</h3>
+	<p>{MESSAGE_TEXT}</p>
+</div>
+
+<!-- ENDIF -->
+
+<hr />
+<fieldset>
+	<legend>{L_BANNED_CLIENTS}</legend>
+	<p>{L_BANNED_CLIENTS_EXP}</p>
+	<!-- IF .clientbans -->
+	<table cellspacing="1">
+	<thead>
+	<tr>
+		<th>{L_CLIENT}</th>
+		<th>{L_REASON}</th>
+		<th>{L_ACTIONS}</th>
+	</tr>
+	</thead>
+	<tbody>
+	<!-- BEGIN clientbans -->
+		<!-- IF clientbans.S_ROW_COUNT is even --><tr class="row1"><!-- ELSE --><tr class="row2"><!-- ENDIF -->
+			<td>
+				{clientbans.CLIENT_BAN_NAME}
+			</td>
+			<td>{clientbans.CLIENT_BAN_REASON}</td>
+			<td>
+			<a href="admin.php?i=torrentinfo&amp;op=client_ban&amp;do=editclientban&amp;id={clientbans.ID}"><img src="themes/1thank/pics/edit.gif" border="0" alt="{L_EDIT}" title="{L_EDIT}"   /></a>
+			<a href="admin.php?i=torrentinfo&amp;op=client_ban&amp;do=delclientban&amp;id={clientbans.ID}"><img src="themes/1thank/pics/drop.gif" border="0" alt="{L_DELETE}" title="{L_DELETE}"   /></a>
+			</td>
+		</tr>
+	<!-- END clientbans -->
+	</tbody>
+	</table>
+<!-- ELSE -->
+	<div class="errorbox">
+		<p>{L_NO_CLIENT_BANS}</p>
+	</div>
+<!-- ENDIF -->
+</fieldset>
+<hr />
+<fieldset>
+	<legend>{L_BANNED_CLIENT}</legend>
+	<p>{L_BANNED_CLIENT_EXP}</p>
+<form action="{U_ACTION}" method="post">
+{HIDDEN}
+	<table width="100%" cellpadding="0" cellspacing="0" border="0">
+		<tr>
+			<td width="50%">
+				<p>{L_CLIENT}</p>
+			</td>
+			<td width="50%">
+				<input type="text" name="ban_client" value="{CLIENT_BAN_NAME}" />
+			</td>
+		</tr>
+		<tr>
+			<td width="50%">
+				<p>{L_REASON}</p>
+			</td>
+			<td width="50%">
+				<input type="text" name="reason_client" value="{CLIENT_BAN_REASON}" />
+			</td>
+		</tr>
+		<tr>
+			<td width="50%">
+				<input type="submit" name="postback_client" value="{L_SUBMIT}" />
+				<input type="reset" value="{L_CANCEL_MOD}" />
+			</td>
+			<td width="50%">
+			</td>
+		</tr>
+	</table>
+</form>
+</fieldset>
+
+<!-- INCLUDE themes/1thank/templates/admin/over_all_footer.html -->

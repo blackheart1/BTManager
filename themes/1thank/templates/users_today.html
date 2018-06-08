@@ -1,0 +1,23 @@
+<div class="forabg">
+    <div class="inner">
+        <span class="corners-top"><span></span></span>
+        <ul class="topiclist">
+            <li class="header">
+                <dl class="icon">
+                    <dt>
+{L_USERS_ON_TODAY}
+                    </dt>
+                </dl>
+            </li>
+        </ul>
+        <span class="corners-bottom"><span></span></span>
+    </div>	
+</div>
+<!-- BEGIN user_today -->
+<a href="user.php?op=profile&amp;id={user_today.ID}" title="{user_today.LAST_CLICK} {L_AGO}"><font color="{user_today.COLOR}">{user_today.USERNAME}</font></a>
+            {user_today.LEVEL_ICON}
+            <!-- IF user_today.WARNED --><img src="images/warning.gif" title="{L_WARNED}" alt="{L_WARNED}" /><!-- ENDIF -->
+            <!-- IF user_today.DONER --><img src="images/donator.gif" height="16" width="16" title="{L_DONOR}" alt="{L_DONOR}" /><!-- ENDIF -->
+<!-- IF not user_today.S_LAST_ROW -->, <!-- ENDIF -->
+<!-- END user_today -->
+<div style="height: 2px;"></div>

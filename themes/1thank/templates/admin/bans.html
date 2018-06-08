@@ -1,0 +1,153 @@
+<!-- INCLUDE themes/1thank/templates/admin/over_all_header.html -->
+<a name="maincontent"></a>
+
+<h1>{L_TITLE}</h1>
+
+<p>{L_TITLE_EXPLAIN}</p>
+<hr />
+<fieldset>
+	<legend>{L_BANNED_IPS}</legend>
+	<p>{L_BANNED_IPS_EXP}</p>
+	<!-- IF .ipbans -->
+	<table cellspacing="1">
+	<thead>
+	<tr>
+		<th>{L_START_IP}</th>
+		<th>{L_END_IP}</th>
+		<th>{L_REASON}</th>
+		<th>{L_ACTIONS}</th>
+	</tr>
+	</thead>
+	<tbody>
+	<!-- BEGIN ipbans -->
+		<!-- IF ipbans.S_ROW_COUNT is even --><tr class="row1"><!-- ELSE --><tr class="row2"><!-- ENDIF -->
+			<td>
+				{ipbans.IPSTART}
+			</td>
+			<td style="text-align: center;">{ipbans.IPEND}</td>
+			<td style="text-align: center;">{ipbans.REASON}</td>
+			<td>
+			<a href="admin.php?i=userinfo&op=editban&id={ipbans.ID}"><img src="themes/1thank/pics/edit.gif" border="0" alt="" title=""   /></a>
+			<a href="admin.php?i=userinfo&op=delban&id={ipbans.ID}"><img src="themes/1thank/pics/drop.gif" border="0" alt="" title=""   /></a>
+			</td>
+		</tr>
+	<!-- END ipbans -->
+	</tbody>
+	</table>
+<!-- ELSE -->
+	<div class="errorbox">
+		<p>{L_NO_IP_BANS}</p>
+	</div>
+<!-- ENDIF -->
+</fieldset>
+<hr />
+<fieldset>
+	<legend>{L_BANNED_USERS}</legend>
+	<p>{L_BANNED_USERS_EXP}</p>
+<!-- IF .userbans -->
+	<table cellspacing="1">
+	<thead>
+	<tr>
+		<th>{L_USER_BANNED}</th>
+		<th>{L_REASON}</th>
+		<th>{L_ACTIONS}</th>
+	</tr>
+	</thead>
+	<tbody>
+	<!-- BEGIN userbans -->
+		<!-- IF userbans.S_ROW_COUNT is even --><tr class="row1"><!-- ELSE --><tr class="row2"><!-- ENDIF -->
+			<td>
+				{userbans.USER}
+			</td>
+			<td style="text-align: center;">{userbans.REASON}</td>
+			<td>
+			<a href="admin.php?i=userinfo&op=editban&uid={userbans.ID}"><img src="themes/1thank/pics/edit.gif" border="0" alt="" title=""   /></a>
+			<a href="admin.php?i=userinfo&op=delban&uid={userbans.ID}"><img src="themes/1thank/pics/drop.gif" border="0" alt="" title=""   /></a>
+			</td>
+		</tr>
+	<!-- END userbans -->
+	</tbody>
+	</table>
+<!-- ELSE -->
+	<div class="errorbox">
+		<p>{L_NO_USER_BANS}</p>
+	</div>
+<!-- ENDIF -->
+</fieldset>
+<hr />
+<fieldset>
+	<legend>{L_BAN_IP}</legend>
+	<p>{L_BAN_IP_EXP}</p>
+<form action="{U_ACTION}" method="post">
+{HIDEI}
+	<table width="100%" cellpadding="0" cellspacing="0" border="0">
+		<tr>
+			<td width="50%">
+				<p>{L_START_IP}</p>
+			</td>
+			<td width="50%">
+				<input type="text" name="startip" value="{START_IPBAN}" />
+			</td>
+		</tr>
+		<tr>
+			<td width="50%">
+				<p>{L_END_IP}</p>
+			</td>
+			<td width="50%">
+				<input type="text" name="endip" value="{END_IPBAN}" />
+			</td>
+		</tr>
+		<tr>
+			<td width="50%">
+				<p>{L_REASON}</p>
+			</td>
+			<td width="50%">
+				<input type="text" name="reason_ip" value="{IP_BAN_REASON}" />
+			</td>
+		</tr>
+		<tr>
+			<td width="50%">
+				<input type="submit" name="postback_ip" value="{L_SUBMIT}" />
+				<input type="reset" value="{L_CANCEL_MOD}" />
+			</td>
+			<td width="50%"></td>
+		</tr>
+	</table>
+</form>
+</fieldset>
+<hr />
+<fieldset>
+	<legend>{L_BAN_USER}</legend>
+	<p>{L_BAN_USER_EXP}</p>
+<form action="{U_ACTION}" method="post">
+{HIDEU}
+	<table width="100%" cellpadding="0" cellspacing="0" border="0">
+		<tr>
+			<td width="50%">
+				<p>{L_USER_BANNED}</p>
+			</td>
+			<td width="50%">
+				<input type="text" name="username" value="{USER_BAN_NAME}" />
+			</td>
+		</tr>
+		<tr>
+			<td width="50%">
+				<p>{L_REASON}</p>
+			</td>
+			<td width="50%">
+				<input type="text" name="reason_user" value="{USER_BAN_REASON}" />
+			</td>
+		</tr>
+		<tr>
+			<td width="50%">
+				<input type="submit" name="postback_user" value="{L_SUBMIT}" />
+				<input type="reset" value="{L_CANCEL_MOD}" />
+			</td>
+			<td width="50%">
+			</td>
+		</tr>
+	</table>
+</form>
+</fieldset>
+
+<!-- INCLUDE themes/1thank/templates/admin/over_all_footer.html -->

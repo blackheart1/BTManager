@@ -1,0 +1,201 @@
+<!-- INCLUDE themes/1thank/templates/admin/over_all_header.html -->
+<script type="text/javascript" src="global.js"></script>
+<script type="text/javascript" src="bbcode.js"></script>
+<script type="text/javascript" src="themes/1thank/templates/attach.js"></script>
+
+<script type="text/javascript" src="./java/tl.js"></script>
+<h1>{L_TITLE}</h1>
+
+<p>{L_EXPLAIN}</p>
+
+<!-- IF POS == newsect -->
+<form name="formdata" id="data" method="post" action="{U_ACTION}">
+{HIDEN}
+		<fieldset>
+		<dl>
+			<dt><label for="title">{L_SECTION_TITTLE}:</label><br /><span>{L_SECTION_TITTLE_EXP}</span></dt>
+			<dd><input style="width: 400px;" name="title" type="text" value="{R_TITLE}"></dd>
+		</dl>
+		<dl>
+			<dt><label for="rules">{L_RULES}:</label><br /><span>
+		<!-- IF S_SMILIES_ALLOWED -->
+
+			<table width="100%" cellspacing="5" cellpadding="0" border="0" align="center">
+
+			<tr>
+
+				<td class="gensmall" align="center"><b>{L__SMILIES}</b></td>
+
+			</tr>
+
+			<tr>
+
+				<td align="center">
+
+					<!-- BEGIN smiley -->
+
+						<a href="#" onclick="insert_text('{smiley.A_SMILEY_CODE}', true); return false;" style="line-height: 20px;"><img src="{smiley.SMILEY_IMG}" width="{smiley.SMILEY_WIDTH}" height="{smiley.SMILEY_HEIGHT}" alt="{smiley.SMILEY_CODE}" title="{smiley.SMILEY_DESC}" hspace="2" vspace="2" /></a>
+
+					<!-- END smiley -->
+
+				</td>
+
+			</tr>
+
+	
+
+			<!-- IF S_SHOW_SMILEY_LINK -->
+
+				<tr>
+
+					<td align="center"><a class="nav" href="{U_MORE_SMILIES}" onclick="popUp(this.href+'&amp;pop\=smilies&amp;form\=formdata&amp;area\=text', 300, 350, '_phpbbsmilies'); return false;">{L__MORE_SMILIES}</a></td>
+
+				</tr>
+
+			<!-- ENDIF -->
+
+	
+
+			</table>
+
+		<!-- ENDIF -->
+			</span></dt>
+			<dd>
+			<span class="gensmall">{L_MESSAGE_BODY_EXP}&nbsp;</span>
+
+			<hr />
+
+			<script type="text/javascript">
+
+				// <![CDATA[
+
+		
+
+				var form_name = 'formdata';
+
+				var text_name = 'text';
+
+				var user_name = '{U_USER_USERNAME}';
+
+				var siteurl = '{SITE_URL}';
+
+				// ]]>
+
+			</script>		
+
+	
+
+			<table width="100%" cellspacing="0" cellpadding="0" border="0">
+			<tr>
+				<td width="80" align="center" valign="top">
+
+			<!-- INCLUDE themes/1thank/templates/posting_buttons.html -->
+
+				</td>
+			</tr>
+			<tr>
+
+				<td valign="top" style="width: 100%;"><textarea name="text" id="text" rows="15" cols="76" tabindex="3"  style="width: 98%;">{R_RULES}</textarea></td>
+
+				<!-- IF S_BBCODE_ALLOWED -->
+
+				<td width="80" align="center" valign="top">
+
+					<script type="text/javascript">
+
+					// <![CDATA[
+
+						colorPalette('v', 7, 6)
+
+					// ]]>
+
+					</script>
+
+				</td>
+
+				<!-- ENDIF -->
+
+			</tr>
+
+			</table>
+			</dd>
+		</dl>
+		<dl>
+			<dt>
+			<label for="public">{L_PUBLIC_VIEW}:</label><br />
+			<span>{L_PUBLIC_VIEW_EXP}</span></dt>
+			<dd>
+				<select name="public">
+					<option value="yes"<!-- IF R_PUBLIC --> selected<!-- ENDIF -->>{L_YES}</option>
+					<option value="no"<!-- IF not R_PUBLIC --> selected<!-- ENDIF -->>{L_NO}</option>
+				</select>
+			</dd>
+		</dl>
+		<dl>
+			<dt><label for="group">{L_SELECT_GROUP}:</label><br /><span>{L_SELECT_GROUP_EXP}</span></dt>
+			<dd>
+				<select name="level[]" multiple="multiple">{GROUPS_LEVEL}</select>
+			</dd>
+		</dl>
+	<p class="submit-buttons">
+		<input class="button1" type="submit" id="submit" name="submit" value="{L_SUBMIT}" />&nbsp;
+		<input class="button2" type="reset" id="reset" name="reset" value="{L_RESET}" />
+	</p>
+</fieldset>
+</form>
+<!-- ELSE -->
+<fieldset>
+<dl>
+<a href=admin.php?i=staff&op=modrules&act=newsect>{L_ADD_NEW_RULE_SECTION}</a>
+</dl>
+</fieldset>
+<br clear="all" >
+<!-- BEGIN rules_var -->
+<fieldset>
+<legend>
+{rules_var.TITLE}
+</legend>
+<dl>
+{rules_var.RULE}
+</dl>
+<br clear="all">
+<legend>
+{L_ADVANCED_RULE_INFO}
+</legend>
+<dl>
+			<dt><label for="group">{L_IS_PUBLIC}:</label><br /><span>{L_IS_PUBLIC_EXP}</span></dt>
+			<dd>
+				{rules_var.R_PUBLIC}
+			</dd>
+</dl>
+<dl>
+			<dt><label for="group">{L_VIEWABL_BY}:</label><br /><span>{L_VIEWABL_BY_EXP}</span></dt>
+			<dd>
+<!-- BEGIN group -->
+				<a href="memberslist.php?mode=group&amp;g=8" style="color: #{rules_var.group.COLOR}; font-weight: bold;">{rules_var.group.TITLE}</a>
+<!-- END group -->
+			</dd>
+</dl>
+<br clear="all">
+<legend>
+Options
+</legend>
+<dl>
+			<dt><label for="group">{L_EDIT}:</label><br /><span></span></dt>
+			<dd>
+				<form method=post action=admin.php?i=staff&op=modrules&act=edit><input type=hidden value={rules_var.ID} name=id><input type=submit value='{L_EDIT}'></form>
+			</dd>
+</dl>
+
+<dl>
+			<dt><label for="group">{L_DELETE}:</label><br /><span></span></dt>
+			<dd>
+				<form name=delete-rule method=post action=i=staff&op=modrules&act=delete><input type=hidden name=delete value={rules_var.ID}> <input class=btn type=submit value="{L_DELETE}" ></form>
+			</dd>
+</dl>
+<br clear="all">
+</fieldset>
+<br clear="all">
+<!-- END rules_var -->
+<!-- ENDIF -->
+<!-- INCLUDE themes/1thank/templates/admin/over_all_footer.html -->

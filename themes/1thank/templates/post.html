@@ -1,0 +1,66 @@
+<!-- IF S_STANDALONE -->
+<!-- INCLUDE themes/1thank/templates/overall_header.html -->
+
+<!-- ENDIF -->
+	<table class="tablebg" width="100%" cellspacing="0">
+	<tr>
+		<th>{L_AUTHOR}</th>
+		<th width="100%">{L_MESSAGE}</th>
+	</tr>
+<!-- BEGIN commentlist -->
+		<tr class="row1">
+			<td align="center" valign="top" class="row">
+				<a name="post{commentlist.ID}"></a>
+							<strong class="genmed">{commentlist.P_USERNAME}</strong><br />
+							<span class="gensmall">{commentlist.P_GROUP}</span><br />
+							<p><img src="themes/1thank/pics/pic_uploaded.gif" alt="" title="" border="0">{commentlist.P_UPLOADED}</p>
+							<p><img src="themes/1thank/pics/pic_downloaded.gif" alt="" title="" border="0">{commentlist.P_DOWNLOADED}</p>
+							<p><img src="themes/1thank/pics/pic_ratio.gif" alt="" title="" border="0">{commentlist.P_RATIO}</p>
+							<strong class="genmed">{L_COMMENTS}:{commentlist.P_COMMENT_COUNT}</strong><br />
+							{commentlist.P_AVATAR}
+						<td class="row2">
+							<div style="float: right">
+							<!-- IF commentlist.P_CANEDIT --><a href="{commentlist.P_EDIT}{commentlist.ID}&amp;forum_id={commentlist.P_FORUM}" class="sublink">{EDIT_IMG}</a><!-- ENDIF -->
+							<a href="{commentlist.P_REPLY}{commentlist.ID}&amp;forum_id={commentlist.P_FORUM}&mode=quote&amp;post={commentlist.ID}" class="sublink">{IMG_QUOTE}</a>
+							</div>
+							<div class="postbody">
+							{commentlist.P_COMMENT}
+							</div>
+							<!-- IF commentlist.P_EDITED -->
+							<!-- edit note -->
+							<br clear="all" /><br />
+								<div class="smallfont">
+									<hr style="color: rgb(244, 244, 244); background-color: rgb(244, 244, 244);" size="1">
+									<em>
+
+											{commentlist.P_EDITED_BY}
+
+
+									</em>
+								</div>
+							<!-- / edit note -->
+							<!-- ENDIF -->
+						</td>
+						<br clear="all" /><br />
+		</tr>
+		<tr>
+			<td class="row2" colspan="2">
+							<div style="float: left">
+							{commentlist.P_ADDED}
+							</div>
+							<div style="float: right">
+							<!-- IF commentlist.P_EDITED --><a href="./viewrequests.php?action=origcoment&amp;cid={commentlist.ID}&amp;forum_id={commentlist.P_FORUM}" class="sublink">{VIEW_ORIF}</a>&nbsp;<!-- ENDIF -->
+							<!-- IF commentlist.P_CANDELETE --><a href="{commentlist.P_DELET}{commentlist.ID}&amp;forum_id={commentlist.P_FORUM}" class="sublink">{DELETE_IMG}</a>&nbsp;<!-- ENDIF -->
+							</div>
+			</td>
+		</tr>
+	<tr>
+		<td class="spacer" colspan="2" height="1"><img src="./images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+<!-- END commentlist -->
+	</table>
+				<br clear="all" />
+<!-- IF S_STANDALONE -->
+
+<!-- INCLUDE themes/1thank/templates/overall_footer.html -->
+<!-- ENDIF -->

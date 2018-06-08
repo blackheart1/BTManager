@@ -1,0 +1,130 @@
+<!-- IF S_TORRENTS -->
+<table class="tablebg" width="100%" cellspacing="0">
+<tbody><tr><td>
+<div class="caption">
+<div class="cap-left">
+<div class="cap-right">
+
+<a class="c4" style="cursor: pointer; float: left;" onclick="toggle2('nn ');"><img title="{L_EXPAND_ITEM}" id="nn&nbsp;img" src="themes/1thank/pics/minus.gif" alt="{L_EXPAND_ITEM}"></a>&nbsp;
+</div>
+</div>
+</div>
+</td></tr><tr valign="middle">
+<td class="row3">
+<div id="nn&nbsp;">
+<br clear="all" />
+  <div class="pagination">
+    <span>
+      <strong>{L_PAGES} {CURENT_PAGE}/{TOTTAL_PAGES}</strong>
+    </span> •
+    <span>
+      <!-- IF not PREV_PAGE --><strong>&lt;&lt;&lt;&lt;</strong><!-- ELSE --><a href="torrents.php?page={PREV_PAGE}">&lt;&lt;&lt;&lt;</a><!-- ENDIF -->
+{GENERATED_PAGES}
+        <!-- IF not NEXT_PAGE --><strong>&gt;&gt;&gt;&gt;</strong><!-- ELSE --><a href="torrents.php?page={NEXT_PAGE}">&gt;&gt;&gt;&gt;</a><!-- ENDIF -->
+        <span>
+        </span>
+      </span>
+    </span>
+  </span>
+</div>
+<br />
+<br />
+<table border="1" cellpadding="5" cellspacing="0">
+<tbody><tr>
+<td class="colhead" align="center">{L_TYPE}</td>
+<td class="colhead" align="left">{L_NAME}</td>
+<td class="colhead" align="right"><img src="themes/1thank/pics/completed.gif" alt="{L_NUB_OF_FILES}" title="{L_NUB_OF_FILES}" border="0"></td>
+<td class="colhead" align="right"><img src="themes/1thank/pics/comments.png" alt="{L_COMMENTS}" title="{L_COMMENTS}" border="0"></td>
+<td class="colhead" align="center"><img src="themes/1thank/pics/report.gif" alt="{L_RATINGS}" title="{L_RATINGS}" border="0"></td>
+<td class="colhead" align="center">{L_UPLODED}</td>
+<td class="colhead" align="center"><img src="themes/1thank/pics/completion.gif" alt="{L_AVG_SPEED}" title="{L_AVG_SPEED}" border="0"></td>
+<td class="colhead" align="center"><img src="themes/1thank/pics/servers.png" alt="{L_SIZE}" title="{L_SIZE}" border="0"></td>
+<td class="colhead" align="center"><img src="themes/1thank/pics/completed.png" alt="{L_DOWNED}" title="{L_DOWNED}" border="0"></td>
+<td class="colhead" align="right"><img src="themes/1thank/pics/seeders.png" alt="{L_SEEDERS}" title="{L_SEEDERS}" border="0"></td>
+<td class="colhead" align="right"><img src="themes/1thank/pics/leechers.png" alt="{L_LEECHERS}" title="{L_LEECHERS}" border="0"></td>
+<td class="colhead" align="center"><img src="themes/1thank/pics/peers.gif" alt="{L_ADDED_BY}" title="{L_ADDED_BY}" border="0"></td>
+</tr>
+<!-- BEGIN torrent_var -->
+<tr>
+<td style="padding: 0px;" align="center"><a href="/torrents.php?cat=16">{torrent_var.CATEGORY}</a></td>
+<td align="left">
+  <nobr>
+    <p class="title">
+       <nobr>
+      <!-- IF torrent_var.NUKED --><img src="themes/1thank/pics/nuked.gif" alt="{L_NUKED_TORRENT}" title="{L_NUKED_TORRENT}" border="0"><!-- ENDIF -->
+      <!-- IF torrent_var.FREE_DL --><img src="themes/1thank/pics/magic.gif" alt="{L_FEE_TORRENT}" title="{L_FEE_TORRENT}" border="0"><!-- ENDIF -->
+      <!-- IF not torrent_var.LOCAL_T --><img src="themes/1thank/pics/external.gif" alt="{L_EXTER_TRACKER}" title="{L_EXTER_TRACKER}" border="0"><!-- ENDIF -->
+      <!-- IF torrent_var.DHT_INABLED --><span class="overlib" onmouseover="return overlib('{LA_DHT_EXPL}',CAPTION, '{L_DHT_SUPORT}',TEXTFONT,'Verdana',TEXTCOLOR,'#FFFFFF',CAPTIONFONT,'Lucida Console, Verdana',LEFT,FGCOLOR,'#000000',BGCOLOR,'#6F7578',CAPICON,'themes/1thank/pics/help.gif',BORDER,2,SHADOW,SHADOWOPACITY,40,SHADOWCOLOR,'#030303',SHADOWX,2,SHADOWY,2);" onmouseout="return nd();" style="cursor: help;">
+      <img src="themes/1thank/pics/dht.gif" alt="{L_DHT_SUPORT}" title="{L_DHT_SUPORT}" border="0"></span><!-- ENDIF -->
+      <br />
+      <a style="text-decoration: none;" href="details.php?id={torrent_var.ID}<!-- IF HIT_COUNT -->&amp;hit=1<!-- ENDIF -->" title="{torrent_var.FULL_NAME}">{torrent_var.SHORTNAME}</a>
+      </nobr></p><!-- IF torrent_var.CAN_DOWN_LOAD --><a class="index" href="download.php?id={torrent_var.ID}"><img style="border: medium none ;" alt="download" src="themes/1thank/pics/download2.gif" align="right"></a><!-- ENDIF -->
+
+      </nobr><br />
+      <!-- IF torrent_var.BANNED --><img src="themes/1thank/pics/banned.png" alt="{L_BANNED_TORRENT}" title="{L_BANNED_TORRENT}" border="0"><!-- ENDIF -->
+      <!-- IF torrent_var.CAN_EDIT --><a href="edit.php?id={torrent_var.ID}"><img src="themes/1thank/pics/edit.gif" alt="{L_EDIT}" title="{L_EDIT}" border="0"></a><!-- ENDIF -->
+      <!-- IF torrent_var.CAN_DEL --><a href="edit.php?op=delete&amp;id={torrent_var.ID}"><img src="themes/1thank/pics/drop.gif" alt="{L_DELETE}" title="{L_DELETE}" border="0"></a><!-- ENDIF -->
+      <!-- IF torrent_var.CAN_BAN --><a href="edit.php?op=ban&amp;id={torrent_var.ID}"><img src="themes/1thank/pics/ban.png" alt="{L_BANTORRENT}" title="{L_BANTORRENT}" border="0"></a><!-- ENDIF -->
+      <!-- IF not torrent_var.LOCAL_T --><!-- IF torrent_var.REFRESH_T --><a href="scrape-external.php?id={torrent_var.ID}&amp;tracker=&amp;return={S_RETURN}"><img src="themes/1thank/pics/refresh.png" alt="{L_REFRESH_PEERS}" title="{L_REFRESH_PEERS}" border="0"></a>
+      <!-- ELSE --><img src="themes/1thank/pics/refresh_gray.png" alt="{L_PEERS_UPDATE_ALREDY}" title="{L_PEERS_UPDATE_ALREDY}" border="0"><!-- ENDIF -->
+      <!-- IF torrent_var.NEED_AUTH -->{torrent_var.AUTH_LINK}<!-- ENDIF --><!-- ENDIF -->
+      <br />
+      <span id="ID{torrent_var.ID}">
+      <a onclick="sndReq('op=view_details&amp;torrent={torrent_var.ID}', 'ID{torrent_var.ID}')"><img src="themes/1thank/pics/plus.gif" alt="{L_DETAILS}" title="{L_DETAILS}" border="0"></a>
+      </span>
+</td>
+<td align="right">{torrent_var.NUM_FILE}</td>
+<td align="right"><strong><a href="details.php?id=199&amp;hit={torrent_var.ID}&amp;comm=startcomments">{torrent_var.NUM_COMENTS}</a></strong></td>
+<td align="center">---</td>
+<td align="center">{torrent_var.DATE_ADDED}</td>
+<td align="center">{torrent_var.DOWNLOAD_SP}/s</td>
+<td align="center">{torrent_var.DOWNLOAD_SIZE}</td>
+
+<td align="center">{torrent_var.TIMES_SNATHED}<br />{L_TIMES}</td>
+<td align="right"><strong>{torrent_var.SEEDERS}</strong></td>
+<td align="right"><strong>{torrent_var.LEECHERS}</strong></td>
+<td align="center"><!-- IF torrent_var.ANONUMUS_UPLO -->{torrent_var.UPLOADERS_NAM} <!-- ELSE --> <a href="user.php?op=profile&amp;id={torrent_var.UPLODER_ID}"><font color="{torrent_var.UPLDER_COLOR}">{torrent_var.UPLOADERS_NAM}</font></a><!-- ENDIF --></td>
+</tr>
+<!-- END torrent_var -->
+</tbody></table>
+<br clear="all" />
+  <div class="pagination">
+    <span>
+      <strong>{L_PAGES} {CURENT_PAGE}/{TOTTAL_PAGES}</strong>
+    </span> •
+    <span>
+      <!-- IF not PREV_PAGE --><strong>&lt;&lt;&lt;&lt;</strong><!-- ELSE --><a href="torrents.php?page={PREV_PAGE}">&lt;&lt;&lt;&lt;</a><!-- ENDIF -->
+{GENERATED_PAGES}
+        <!-- IF not NEXT_PAGE --><strong>&gt;&gt;&gt;&gt;</strong><!-- ELSE --><a href="torrents.php?page={NEXT_PAGE}">&gt;&gt;&gt;&gt;</a><!-- ENDIF -->
+        <span>
+        </span>
+      </span>
+    </span>
+  </span>
+</div>
+</td></tr>
+</tbody></table>
+<!-- ELSE -->
+<table class="tablebg" width="100%" cellspacing="0">
+<tbody><tr><td>
+<div class="caption">
+<div class="cap-left">
+<div class="cap-right">
+
+<a class="c4" style="cursor: pointer; float: left;" onclick="toggle2('nn ');"><img title="{L_EXPAND_ITEM}" id="nn&nbsp;img" src="themes/1thank/pics/minus.gif" alt="{L_EXPAND_ITEM}"></a>&nbsp;
+</div>
+</div>
+</div>
+</td></tr><tr valign="middle">
+<td class="row3">
+<div id="nn&nbsp;">
+<h3>{L_NO_TORRENTS}</h3>
+</div>
+</td></tr>
+<tr>
+
+<td colspan="7" valign="middle" align="center"></td>
+</tr>
+</tbody></table>
+<br clear="all" />
+<!-- ENDIF -->

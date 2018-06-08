@@ -1,0 +1,11 @@
+<!-- INCLUDE themes/1thank/templates/overall_header.html -->
+<!-- IF S_FORWARD --><meta http-equiv="refresh" content="5;url={S_FORWARD}"><!-- ENDIF -->
+<div class="panel" id="<!-- IF S_ERROR -->errorbox<!-- ELSE -->message<!-- ENDIF -->">
+	<div class="inner"><span class="corners-top"><span></span></span>
+	<h2>{TITTLE_M}</h2>
+	<p>{MESSAGE}</p>
+	<!-- IF SCRIPT_NAME == "search" and not S_BOARD_DISABLED and not S_NO_SEARCH and L_RETURN_TO_SEARCH_ADV --><p><a href="{U_SEARCH}" class="{S_CONTENT_FLOW_BEGIN}">{L_RETURN_TO_SEARCH_ADV}</a></p><!-- ENDIF -->
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+
+<!-- INCLUDE themes/1thank/templates/overall_footer.html -->

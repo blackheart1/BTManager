@@ -1,0 +1,169 @@
+<!-- INCLUDE themes/1thank/templates/overall_header.html -->
+
+<!-- IF S_NOTICE -->
+<!-- IF S_ERROR --><div id="errorbox" ><!-- ELSE --><div id="successbox" ><!-- ENDIF -->
+<span class="errorbox-title">{L_MESSAGE}</span>
+<p>{S_ERROR_MESS}</p>
+</div>
+<!-- ENDIF -->
+<!-- IF ACTION == new -->
+<table class="tablebg" width="100%" cellspacing="0">
+    <tr>
+        <td>
+            <div class="caption">
+                <div class="cap-left">
+                    <div class="cap-right">
+                        <a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnOffer');">
+                        <img title="{L_EXPAND_ITEM}" id="nnOfferimg" src="themes/1thank/pics/minus.gif" alt="{L_EXPAND_ITEM}">
+                        </a>
+                        {L_INVITES}
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr valign="middle">
+        <td  class="row3" >
+            <div id="nninvites">
+                <table class="tablebg" width="100%">
+                    <tbody>
+                        <tr>
+                            <td class="title" colspan="30" align="center">
+                                <h2>{L_INVITE_HEADER}</h2>
+                                <hr>
+                                <p>
+                                {L_INVITE_EXP}
+                                </p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br clear="all" />
+                <table class="tablebg" width="100%">
+                <form method="post" action="invite.php">
+                <input type="hidden" name="action" value="take_new" />
+
+                    <tbody>
+                        <tr>
+                            <td class="row1" width="35%">
+                                <strong>{L_EMAIL_ADD}</strong>:
+                                <br />
+                                <br />
+                                <span class="gensmall">
+                                {L_EMAIL_ADD_EXP}
+                                </span>
+                            </td>
+                            <td class="row2" align="center">
+                                <input type="text" size="40" name="email" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="row1" width="35%">
+                                <strong>{L_ADD_MESSAGE}</strong>:
+                                <br />
+                                <span class="gensmall">
+                                {L_ADD_MESSAGE_EXP}
+                                </span>
+                            </td>
+                            <td class="row2" align="center">
+                                <textarea name="mess" rows="10" cols="40"></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="center">
+                                <input type="submit" value="{L_SUBMIT_ONES}" style='height: 25px'>
+                            </td>
+                        </tr>
+                    </tbody>
+                </form>
+                </table>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td class="cat" colspan="7" valign="middle" align="center"></td>
+    </tr>
+</table>
+<br clear="all" />
+<!-- ELSEIF ACTION == confirm -->
+        <table class="tablebg" width="40%" cellspacing="0">
+            <tr>
+                <td>
+                    <div class="caption">
+                        <div class="cap-left">
+                            <div class="cap-right">
+                            {L_INVITE}
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr valign="middle">
+                <td  class="row3">
+                    <div id="nnRegister">
+                        <span><p align="center">{L_WELCOME}</p></span>
+                        <table class="tablebg" width="100%" cellspacing="0">
+                        <form method="POST" action="{U_ACTION}">
+                        {HIDDEN}
+                            <tr>
+                                <td class="row1" width="35%">{L_USER_NAME}</td>
+                                <td class="row2"><p><input type="text" name="username" size="60"></p></td>
+                            </tr>
+                            <tr>
+                                <td class="row1" width="35%"><p>{L_PASSWORD}</p><br /><span class="gensmall">{L_PASSWORD_EXP}</span></td>
+                                <td class="row2"><p><input type="password" name="password" size="60"></p></td>
+                            </tr>
+                            <tr>
+                                <td class="row1" width="35%"><p>{L_PASSWORD_CONFIRM}</p></td>
+                                <td class="row2"><p><input type="password" name="cpassword" size="60"></p></td>
+                            </tr>
+<!-- IF S_DISCLAIMER -->
+                            <tr>
+                                <td class="row1" colspan="2">
+                                    <p align="center">{L_TERMS_CONDITION}:<br />
+                                    <table border="1" bgcolor="#3b3b3b" width="100%">
+                                        <tr>
+                                            <td class="shoutbox">
+                                            {U_DISCLAIMER}
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="row1" colspan="2" align="center">
+                                    {L_DISCLAIMER_ACCEPT}
+                                    <input type="radio" value="yes" name="disclaimer">
+                                    {L_DISCLAIMER_DECLINE}
+                                    <input type="radio" name="disclaimer" value="no" checked>
+                                </td>
+                            </tr>
+
+<!-- ENDIF -->
+<!-- IF S_CAPTCHA -->
+                            <tr>
+                                <td class="row1" colspan="2" align="center">
+<!-- IF RECAPTCHA -->
+                                <div class="g-recaptcha" data-sitekey="{RECAPTCHA}"></div>
+<!-- ELSE -->
+                                    <img src="gfxgen.php?code={GFX_CODE}" height="27" width="93" alt="{L_SECURITY_CODE}"><br />
+                                    <input type="text" name="gfxcode" size="10" maxlength="6"><br />
+<!-- ENDIF -->
+                                </td>
+                            </tr>
+<!-- ENDIF -->
+                            <tr>
+                                <td class="row1" colspan="2" align="center">
+                                    <input type="submit" value="{L_SIGN_UP}"><input type="reset" value="{L_CANCEL}">
+                                </td>
+                            </tr>
+                            </form>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+
+        </table>
+<!-- ENDIF -->
+
+<!-- INCLUDE themes/1thank/templates/overall_footer.html -->

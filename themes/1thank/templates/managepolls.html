@@ -1,0 +1,102 @@
+<!-- INCLUDE themes/1thank/templates/overall_header.html -->
+
+<!-- IF S_NOTICE -->
+
+<!-- IF S_ERROR --><div id="errorbox" ><!-- ELSE --><div id="successbox" ><!-- ENDIF -->
+
+<span class="errorbox-title">{L_MESSAGE}</span>
+
+<p>{S_ERROR_MESS}</p>
+
+</div>
+
+<!-- ENDIF -->
+<table class="tablebg" width="100%" cellspacing="0">
+	<tr>
+		<td>
+			<div class="caption">
+				<div class="cap-left">
+					<div class="cap-right">
+					{HEADER}
+					</div>
+				</div>
+			</div>
+		</td>
+	</tr>
+	<tr valign="middle">
+		<td  class="row3" >
+			<div id="nnMake_pol">
+				<form method="post" action="makepoll.php">
+				<table border="0" cellspacing="1" cellpadding="5" align="center" width="100%">
+				<theader>
+					<tr>
+						<td colspan="2" align="center"><p><font color="red">*</font> {L_REQ_FEALD}</p></td>
+					</tr>
+				</tbody>
+				{HIDDEN}
+					<tr>
+						<td class="rowhead">{L_QUISTION} <font color="red">*</font></td>
+						<td align="left"><input name="question" size="80" maxlength="255" value="{P_QUESTION}"></td>
+					</tr>
+					<tr>
+						<td class="rowhead">{L_OPTION_A} <font color="red">*</font></td>
+						<td align="left"><input name="option0" size="80" maxlength="60" value="{P_OPTIONA}"></td>
+					</tr>
+					<tr>
+						<td class="rowhead">{L_OPTION_B} <font color="red">*</font></td>
+						<td align="left"><input name="option1" size="80" maxlength="60" value="{P_OPTIONB}"></td>
+					</tr>
+					<tr>
+						<td class="rowhead">{L_OPTION_C}</td>
+						<td align="left"><input name="option2" size="80" maxlength="60" value="{P_OPTIONC}"><br /></td>
+					</tr>
+					<tr>
+						<td class="rowhead">{L_OPTION_D}</td>
+						<td align="left"><input name="option3" size="80" maxlength="60" value="{P_OPTIOND}"><br /></td>
+					</tr>
+					<tr>
+						<td class="rowhead">{L_OPTION_E}</td>
+						<td align="left"><input name="option4" size="80" maxlength="60" value="{P_OPTIONE}"><br /></td>
+					</tr>
+					<tr>
+						<td class="rowhead">{L_OPTION_F}</td>
+						<td align="left"><input name="option5" size="80" maxlength="60" value="{P_OPTIONF}"><br /></td>
+					</tr>
+					<tr>
+						<td class="rowhead">{L_OPTION_G}</td>
+						<td align="left"><input name="option6" size="80" maxlength="60" value="{P_OPTIONG}"><br /></td>
+					</tr>
+					<tr>
+						<td class="rowhead">{L_OPTION_H}</td>
+						<td align="left"><input name="option7" size="80" maxlength="60" value="{P_OPTIONH}"><br /></td>
+					</tr>
+					<tr>
+						<td class="rowhead">{L_OPTION_I}</td>
+						<td align="left"><input name="option8" size="80" maxlength="60" value="{P_OPTIONI}"><br /></td>
+					</tr>
+					<tr>
+						<td class="rowhead">{L_OPTION_J}</td>
+						<td align="left"><input name="option8" size="80" maxlength="60" value="{P_OPTIONJ}"><br /></td>
+					</tr>
+					<tr>
+						<td class="rowhead">{L_SORT}</td>
+						<td>
+						<input type="radio" name="sort" value="yes" <!-- IF P_SORT -->checked<!-- ENDIF -->>{L_YES}
+						<input type="radio" name="sort" value="no" <!-- IF not P_SORT -->checked<!-- ENDIF -->> {L_NO}
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2" align="center"><input type="submit" value="{P_SUBMIT}" style='height: 20pt'></td>
+					</tr>
+				</table>
+				</form>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="7" valign="middle" align="center"></td>
+	</tr>
+</table>
+<br clear="all" />
+
+<!-- INCLUDE themes/1thank/templates/overall_footer.html -->

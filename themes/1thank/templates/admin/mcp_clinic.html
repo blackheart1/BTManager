@@ -1,0 +1,134 @@
+<!-- INCLUDE themes/1thank/templates/admin/over_all_header.html -->
+<a name="maincontent"></a>
+
+<h1>{L_INTRO}</h1>
+
+<p>{L_INTRO_EXP}</p>
+
+<!-- IF S_MESSAGE -->
+
+<hr />
+<div <!-- IF S_USER_NOTICE -->class="successbox"<!-- ELSE -->class="errorbox"<!-- ENDIF -->>
+	<h3>{MESSAGE_TITLE}</h3>
+	<p>{MESSAGE_TEXT}</p>
+</div>
+
+<!-- ENDIF -->
+
+<hr />
+<fieldset>
+	<legend>{L_UPLOAD_TORRENT}</legend>
+	<p>{L_UPLOAD_LOCAL_FILE}</p>
+	<form method="post" enctype="multipart/form-data" action="{U_ACTION}">
+	{HIDDEN}
+		<dl>
+			<dt><label for="cat">{L_UPLOAD_FILE}:</label><br /></dt>
+			<dd><input type="file" name="filex" size="45" /></dd>
+		</dl>
+		<dl>
+			<dt><label for="cat">{L_SHOW_STRUCTURE}:</label><br /></dt>
+			<dd><input type="checkbox" name="showxml" value="true" /></dd>
+		</dl>
+<!-- IF S_SRAPE -->
+		<dl>
+			<dt><label for="cat">{L_FORCE_SCRAPE}:</label><br /></dt>
+			<dd><input type="checkbox" name="scrape" value="true" /></dd>
+		</dl>
+<!-- ENDIF -->
+		<p><input type="submit"  value="{L_SUBMIT}" /></p>
+		</form>
+</fieldset>
+
+<!-- IF FILE_DECODED -->
+<fieldset>
+	<legend>{L_UPDATING}</legend>
+	<p>{L_DECODED_DATA}</p>
+<!-- IF FILE_DECODED -->
+	<br clear="all">
+	<p>{L_XML_STRUCTURE}</p>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody>
+			<tr>
+				<td>
+				<div style="overflow: auto; border: 1px none; white-space: nowrap; margin: 0px; padding: 2px; width: 100%; height: 300px;">
+				<p>{S_STRUCTURE}</p>
+				</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<br clear="all">
+<!-- ENDIF -->
+	<br clear="all">
+<div <!-- IF S_VALIDANN -->class="success"<!-- ELSE -->class="error"<!-- ENDIF -->>
+	<p>{L_CHECK_ANNOUNCE} <!-- IF S_VALIDANN -->{S_ANNOUNCE}<!-- ELSE -->{L_NO_DEFAULT_ANNOUNCE}<!-- ENDIF --></p>
+</div>
+<div <!-- IF S_VALIDDIRECT -->class="success"<!-- ELSE -->class="error"<!-- ENDIF -->>
+	<p>{L_CKECK_DIRECTORY} <!-- IF S_VALIDANN -->{L_CHECK_FOUND}<!-- ELSE -->{L_CKECK_DIRECTORY_ERR}<!-- ENDIF --></p>
+</div>
+<div <!-- IF S_VALIDFILES -->class="success"<!-- ELSE -->class="error"<!-- ENDIF -->>
+	<p>{L_CHECK_FILES} <!-- IF S_VALIDANN -->{S_FILES_CONDITION}<!-- ELSE -->{L_TORRENT_NOT_CONSISTANT}<!-- ENDIF --></p>
+</div>
+<!-- IF .filesinfo -->
+<div style="overflow: auto; border: 1px none; white-space: nowrap; margin: 0px; padding: 2px; width: 100%; height: 300px;">
+<!-- BEGIN filesinfo -->
+<p <!-- IF filesinfo.ERROR_FILE -->class="errortext"<!-- ENDIF -->>
+<!-- IF filesinfo.ERROR_FILE -->{filesinfo.ERROR_FILE}<!-- ELSE -->{filesinfo.NAME} ({filesinfo.SIZE})<!-- ENDIF -->
+</p>
+<!-- END filesinfo -->
+</div>
+<br clear="all">
+<div>
+	<p>{L_FILES_SIZE}: {S_FILES_SIZE}</p>
+</div>
+<!-- ELSE -->
+<div class="error">
+	<p>{L_TORRENT_NOT_CONSISTANT}</p>
+</div>
+<!-- ENDIF -->
+<div <!-- IF S_PEACES_LENGTH -->class="success"<!-- ELSE -->class="error"<!-- ENDIF -->>
+	<p>{L_CHECK_PEACES_LENGTH} <!-- IF S_VALIDANN -->{S_FILES_PEASES_LENGTH}<!-- ELSE -->{L_TORRENT_NOT_CONSISTANT}<!-- ENDIF --></p>
+</div>
+<div <!-- IF S_PEACES_CHECK -->class="success"<!-- ELSE -->class="error"<!-- ENDIF -->>
+	<p>{L_CHECK_PEACES} <!-- IF S_PEACES_CHECK -->{L_PEACES_DATA_GOOD}<!-- ELSE -->{L_PEACES_DATA_FAIL}<!-- ENDIF --></p>
+</div>
+<br clear="all">
+<!-- ENDIF -->
+<!-- IF S_VALID_TORRENT -->
+<div class="success">
+	<p>{L_TORRENT_IS_VALID}</p>
+</div>
+<div>
+	<p>{L_TORRENT_ADVANCE_CHECK}</p>
+</div>
+<div <!-- IF S_DHT_SUPORT -->class="success"<!-- ELSE -->class="error"<!-- ENDIF -->>
+	<p>{L_DHT_SUPORT_CHECK} <!-- IF S_DHT_SUPORT -->{L_CHECK_SUPPORTED}<!-- ELSE -->{L_CHECK_NOT_SUPPORTED}<!-- ENDIF --></p>
+</div>
+<div <!-- IF S_MULTY_SUPORT -->class="success"<!-- ELSE -->class="error"<!-- ENDIF -->>
+	<p>{L_MULTY_TRACKER_CHECK} <!-- IF S_MULTY_SUPORT -->{L_CHECK_SUPPORTED}<!-- ELSE -->{L_CHECK_NOT_SUPPORTED}<!-- ENDIF --></p>
+</div>
+<div>
+	<p>{L_TRACKER_SCRAPE}</p>
+	<br />
+	<p>{S_SCRAPE_ANNOUNCE}</p>
+</div>
+<!-- IF S_SCRAPE_GOOD -->
+<!-- IF S_SCRAPE_SHOW -->
+<div style="overflow: auto; border: 1px none; white-space: nowrap; margin: 0px; padding: 2px; width: 100%; height: 300px;">
+	<p>{S_SCRAPE_RESULT}</p>
+<div>
+<!-- ENDIF -->
+<div>
+	<p>{L_SEEDER}:&nbsp;&nbsp;&nbsp;{S_SCRAPE_SEEDERS}</p>
+	<br />
+	<p>{L_LEECHERS}:&nbsp;&nbsp;&nbsp;{S_SCRAPE_LEECHERS}</p>
+	<br />
+	<p>{L_COMPLETED}:&nbsp;&nbsp;&nbsp;{S_SCRAPE_COMPLETED}</p>
+</div>
+<!-- ELSE -->
+<div class="error">
+	<p>{L_TORRENT_NOT_REGED_WITH}</p>
+</div>
+<!-- ENDIF -->
+<!-- ENDIF -->
+<!-- INCLUDE themes/1thank/templates/admin/over_all_footer.html -->

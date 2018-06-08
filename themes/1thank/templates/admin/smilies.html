@@ -1,0 +1,71 @@
+<!-- INCLUDE themes/1thank/templates/admin/over_all_header.html -->
+<a name="maincontent"></a>
+<script language="JavaScript" type="text/JavaScript">
+function ChangeThumb(pic) {
+        if (pic != 'none') document.images.Thumb.src = 'smiles/'+pic
+        else document.images.Thumb.src = 'avatars/blank.gif';
+}
+</script>
+
+<h1>{L_SMILIES}</h1>
+
+<p>{L_SMILIES_EXP}</p>
+
+<!-- IF .smilies -->
+	<table cellspacing="1">
+	<thead>
+	<tr>
+		<th>{L_ACTION}</th>
+		<th>{L_SMILE_CODE}</th>
+		<th>{L_SM_IMAGECODE}</th>
+		<th>{L_SMILE_ALT}</th>
+	</tr>
+	</thead>
+	<tbody>
+<!-- BEGIN smilies -->
+		<!-- IF smilies.S_ROW_COUNT is even --><tr class="row1"><!-- ELSE --><tr class="row2"><!-- ENDIF -->
+			<td>
+				<a href="admin.php?i=staff&amp;op=editsmile&amp;id={smilies.ID}#smiliesedit"><img src="themes/1thank/pics/edit.gif" border="0" alt="" title=""   /></a>
+				<a href="admin.php?i=staff&amp;op=delsmile&amp;id={smilies.ID}#smilies"><img src="themes/1thank/pics/drop.gif" border="0" alt="" title=""   /></a>
+			</td>
+			<td style="text-align: center;">{smilies.CODE}</td>
+			<td style="text-align: center;">{smilies.IMG}</td>
+			<td>{smilies.ALT}</td>
+		</tr>
+<!-- END smilies -->
+	</tbody>
+	</table>
+<!-- ELSE -->
+	<div class="errorbox">
+		<p>{L_NO_SET_SMILIES}</p>
+	</div>
+<!-- ENDIF -->
+<a name="smiliesedit"></a>
+<form name="formdata" id="acp_board" method="post" action="{EDACTION}">
+{HIDE}
+		<fieldset>
+			<legend>{L_AD_EDIT_SMILE}</legend>
+		<dl>
+			<dt><label for="{L_SMILE_CODE}">{L_SMILE_SELEC}:</label></dt>
+			<dd>{SUB_NAME}</dd>
+		</dl>
+		<dl>
+			<dt><label for="{L_SMILE_IMAGE}">{L_SMILE_IMAGE}:</label><br /><img src="{SUBSMI}" name="Thumb" alt="" /></dt>
+			<dd><select name="sub_image" onChange="ChangeThumb(this.options[this.selectedIndex].value);" onKeyUp="ChangeThumb(this.options[this.selectedIndex].value);">{SELIMG}</select></dd>
+		</dl>
+		<dl>
+			<dt><label for="{L_SMILE_ALT}">{L_SMILE_ALT_NAME}:</label></dt>
+			<dd>{ALTSUB}</dd>
+		</dl>
+		<!-- IF SUBPOS -->
+		<dl>
+			<dt><label for="{L_POSITION}">{L_POSITION}:</label></dt>
+			<dd><select name="sub_position">{SUBPOS}</select></dd>
+		</dl>
+		<!-- ENDIF -->
+	<p class="submit-buttons">
+		<input class="button1" type="submit" id="submit" name="submit" value="{L_SUBMIT}" />
+	</p>
+</fieldset>
+</form>
+<!-- INCLUDE themes/1thank/templates/admin/over_all_footer.html -->

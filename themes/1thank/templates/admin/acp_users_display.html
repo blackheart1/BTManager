@@ -1,0 +1,108 @@
+<!-- INCLUDE themes/1thank/templates/admin/over_all_header.html -->
+<a name="user"></a>
+
+<h1>{L_INTRO}</h1>
+
+<p>{L_INTRO_EXP}</p>
+
+<table cellpadding="3" width="100%">
+	<tr>
+		<td width="30%">
+			<form action="admin.php" method="GET">
+				<input type="hidden" name="op" value="user" />
+				<input type="text" name="usearch" value="" />
+				<input type="submit" value="{L_SEARCH_USER}" />
+			</form>
+		</td>
+		<td>
+			<form action="admin.php" method="GET">
+			<input type="hidden" name="op" value="user" />
+			<input type="text" name="umailsearch" value="" />
+			<input type="submit" value="{L_SEARCH_EMAIL}" />
+			</form>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<form action="admin.php" method="GET">
+			<input type="hidden" name="op" value="user" />
+			<input type="text" name="uipsearch" value="" />
+			<input type="submit" value="{L_SEARCH_IP}" />
+			</form>
+		</td>
+		<td>
+			<form action="admin.php" method="GET">
+			<input type="hidden" name="op" value="user" />
+			<input type="text" name="uhostsearch" value="" />
+			<input type="submit" value="{L_SEARCH_HOST}" />
+			</form>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="admin.php?op=user&dupeaccounts=1">{L_SEARCH_DUPIP}</a>
+		</td>
+	</tr>
+</table>
+
+<form id="list" method="post" action="{U_ACTION}">
+
+<!-- IF .userlist -->
+<!-- IF PAGINATION -->
+
+<div class="pagination" style="float: right; margin: 15px 0 2px 0">
+	<a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{S_ON_PAGE}</a> &bull; <span>{PAGINATION}</span>
+</div>
+<!-- ENDIF -->
+<div class="clearfix">&nbsp;</div>
+<div><br style="clear: both;" /></div>
+	<table cellspacing="1">
+	<thead>
+	<tr>
+		<th>{L_USERNAME}</th>
+		<th>{L_EMAIL}</th>
+		<th>{L_JOINED}</th>
+		<th>{L_LAST_ACTIVITY}</th>
+		<th style="text-align: center;">{L_POSTS}</th>
+		<th style="text-align: center;">{L_TORRENTS}</th>
+		<th style="text-align: center;">{L_OPTIONS}</th>
+	</tr>
+	</thead>
+	<tbody>
+	<!-- BEGIN userlist -->
+		<!-- IF userlist.S_ROW_COUNT is even --><tr class="row1"><!-- ELSE --><tr class="row2"><!-- ENDIF -->
+			<td>
+				<a href="./user.php?op=profile&id={userlist.USERID}"><font color="#{userlist.USER_COLOR}">{userlist.USERNAME}</font></a>
+				<br />
+				<span>
+				{userlist.USERIP}<a href="#" onClick="popup('whois.php?ip={userlist.USERLONG}',700,900,'Whois'); return false""> [{L_WHOIS}]</a>
+				</span>
+			</td>
+			<td style="text-align: left;">{userlist.USERMAIL}</td>
+			<td style="text-align: left;">{userlist.REGDATE}</td>
+			<td style="text-align: left;">{userlist.LASTSEEN}</td>
+			<td style="text-align: center;">{userlist.USERPOST}</td>
+			<td style="text-align: center;">{userlist.USERTORR}</td>
+			<td style="text-align: center;">{userlist.U_RATIO_COLOR}</td>
+		</tr>
+	<!-- END warned -->
+	</tbody>
+	</table>
+<!-- IF PAGINATION -->
+<div class="pagination" style="float: right; margin: 15px 0 2px 0">
+	<a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{S_ON_PAGE}</a> &bull; <span>{PAGINATION}</span>
+</div>
+<!-- ENDIF -->
+<!-- ELSE -->
+	<div class="errorbox">
+		<p>{L_NO_ENTRIES}</p>
+	</div>
+<!-- ENDIF -->
+<fieldset class="display-options">
+	{L_DISPLAY_WARNED}: &nbsp;{S_LIMIT_DAYS}&nbsp;{L_SORT_BY}: {S_SORT_KEY} {S_SORT_DIR}
+	<input class="button2" type="submit" value="{L_GO}" name="sort" />
+	{S_FORM_TOKEN}
+</fieldset>
+<hr />
+</form>
+<!-- INCLUDE themes/1thank/templates/admin/over_all_footer.html -->

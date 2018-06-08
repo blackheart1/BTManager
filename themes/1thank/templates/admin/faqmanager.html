@@ -1,0 +1,60 @@
+<!-- INCLUDE themes/1thank/templates/admin/over_all_header.html -->
+
+<a name="maincontent"></a>
+
+<h1>{L_TITLE}</h1>
+
+<p>{L_EXPLAIN}</p>
+						<!-- DEFINE $LI_USED = 0 -->
+<form method="post" action="admin.php?i=staff&amp;op=faqmanage&amp;action=reorder"><br />
+						<!-- BEGIN f_block1 -->
+							<!-- IF f_block1.S_SELECTED -->
+<table border="1" cellspacing="0" cellpadding="5" align="center" width="95%">
+	<tr>
+		<th style="text-align: center;">{L_POSITION}</th>
+		<th style="text-align: center;">{L_POSITION}</th>
+		<th>{L_SECTION_TITLE}</th>
+		<th style="text-align: center;">{L_STATUS}</th>
+		<th style="text-align: center;">{L_ACTIONS}</th>
+	</tr>
+
+						<!-- BEGIN f_block2 -->
+							<!-- IF .f_block1.f_block2 -->
+		<tr>
+			<td>{f_block1.f_block2.F_ORDER}</td>
+			<td align="center" width="40px">&nbsp;</td>
+			<td>{f_block1.f_block2.F_TITLE}</td>
+			<td align="center" width="60px">{f_block1.f_block2.F_FLAG}</td>
+			<td align="center" width="60px"><a href="admin.php?i=staff&amp;op=faqmanage&amp;action=edit&amp;id={f_block1.f_block2.F_ID}">{L_EDIT}</a> <a href="admin.php?i=staff&amp;op=faqmanage&amp;action=delete&amp;id={f_block1.f_block2.F_ID}">{L_DELETE}</a></td>
+		</tr>
+							<!-- DEFINE $LI_USED = 1 -->
+							<!-- ENDIF -->
+
+							<!-- BEGIN f_block3 -->
+		<tr>
+			<td align="center" width="40px">&nbsp;</td>
+			<td>{f_block1.f_block2.f_block3.F_ORDER}</td>
+			<td>{f_block1.f_block2.f_block3.F_TITLE}</td>
+			<td align="center" width="60px">{f_block1.f_block2.f_block3.F_FLAG}</td>
+			<td align="center" width="60px"><a href="admin.php?i=staff&amp;op=faqmanage&amp;action=edit&amp;id={f_block1.f_block2.f_block3.F_ID}">{L_EDIT}</a> <a href="admin.php?i=staff&amp;op=faqmanage&amp;action=delete&amp;id={f_block1.f_block2.f_block3.F_ID}">{L_DELETE}</a></td>
+		</tr>
+								<!-- DEFINE $LI_USED = 1 -->
+							<!-- END f_block3 -->
+						<!-- END f_block2 -->
+
+							<!-- ENDIF -->
+		<tr>
+			<td colspan="5" align="center"><a href="admin.php?i=staff&amp;op=faqmanage&amp;action=additem&amp;inid={f_block1.f_block2.F_ID}">{L_ADD_ITEM}</a></td>
+		</tr>
+	</table>
+	<br />
+						<!-- END f_block1 -->
+<p align="center"><input type="submit" name="reorder" value="Reorder"></p>
+</form>
+						<!-- IF not $LI_USED -->
+							<li></li>
+						<!-- ENDIF -->
+<table align="center" border="1" cellpadding="5" cellspacing="0" width="95%">
+<tbody><tr><td align="center"><a href="admin.php?i=staff&amp;op=faqmanage&amp;action=addsection">{L_ADD_SECTION}</a></td></tr>
+</tbody></table>
+<!-- INCLUDE themes/1thank/templates/admin/over_all_footer.html -->

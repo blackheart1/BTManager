@@ -1,0 +1,222 @@
+<!-- INCLUDE themes/1thank/templates/overall_header.html -->
+
+
+<table class="tablebg" width="100%" cellspacing="0">
+  <tr>
+    <td>
+      <div class="caption">
+        <div class="cap-left">
+          <div class="cap-right">
+            {CATEGORY_NAME}
+          </div>
+        </div>
+      </div>
+    </td>
+  </tr>
+  <tr valign="middle">
+    <td  class="row3" >
+      <div id="nn{CATEGORY_NAME}">
+<table width="100%" >
+    <tr>
+        <td style="width:15%; vertical-align:top">
+            <div class="panel bg3">
+                <div class="inner"><span class="corners-top"><span></span></span>
+                    <dl><dt style="text-align:center"><strong>{L_CAT}</strong></dt>
+                    <dd><hr /></dd></dl>
+                    <!-- IF S_ALL_GAMES -->
+                    <dl>
+                        <dd><a href="viewcategory.php?c={categoryrow.CATEGORY_ID}&sid={SESSION_ID}"><!-- IF S_IN_ALL_GAMES --><strong>{L_ALL_GAMES}</strong><!-- ELSE -->{L_ALL_GAMES}<!-- ENDIF --></a> {L_NUM_GAMES}</dd>
+                    </dl>
+                    <!-- ENDIF -->
+                    <!-- IF S_FAVORITES -->
+                    <dl>
+                        <dd><a href="viewcategory.php?c=105121&sid={SESSION_ID}"><!-- IF S_IN_FAVORITES --><strong>{L_FAVORITES}</strong><!-- ELSE -->{L_FAVORITES}<!-- ENDIF --></a> {L_FAV_GAMES}</dd>
+                    </dl>
+                    <!-- ENDIF -->
+                    <!-- BEGIN categoryrow -->
+                        <dl>
+                                <dd><a href="viewcategory.php?c={categoryrow.CATEGORY_ID}&sid={SESSION_ID}">{categoryrow.CATEGORY_NAME}</a> {categoryrow.CATEGORY_COUNT}</dd>
+                        </dl>
+                    <!-- END categoryrow -->
+                <span class="corners-bottom"><span></span></span></div>
+            </div>
+            <div class="panel bg3">
+                <div class="inner"><span class="corners-top"><span></span></span>
+                    <dl><dt style="text-align:center"><strong>{L_ARCADE_QUICK}</strong></dt>
+                    <dd><hr /></dd></dl>
+                    <dl>
+                        <dd><strong><a href="viewgame.php?g={RANDOM_ID}&sid={SESSION_ID}">{L_ARCADE_RANDOM}</a></strong></dd>
+                    </dl>
+                    <dl>
+                        <dd><br /><form name="quickJump">
+                                    <select style="font-size:10px; width:12em" name="gameList" onchange="location.href = quickJump.gameList.options[quickJump.gameList.selectedIndex].value">
+                                        <option value="arcade.php" selected="selected">{L_SELECT_A_GAME}</option>
+                                        <!-- BEGIN quickjumprow -->
+                                            <option value="viewgame.php?g={quickjumprow.GAME_ID}&sid={SESSION_ID}">{quickjumprow.GAME_NAME}</option>
+                                        <!-- END quickjumprow -->
+                                    </select>
+                                </form></dd>
+                    </dl>
+                    <dl>
+                        <dd><br /><form name="searchArcade" action="viewcategory.php?c={CATEGORY_ID}&sid={SESSION_ID}" method="post">
+                                <input style="font-size:10px; width:10em; margin-bottom:5px" name="keywords" id="keywords" type="text" maxlength="32" title="{L_SEARCH_KEYWORDS}" class="inputbox search" value="<!-- IF SEARCH_WORDS-->{SEARCH_WORDS}<!-- ELSE -->{L_SEARCH_MINI}<!-- ENDIF -->" onclick="if(this.value=='{LA_SEARCH_MINI}')this.value='';" onblur="if(this.value=='')this.value='{LA_SEARCH_MINI}';" />
+                                <br /><input class="button2" type="submit" value="{L_SEARCH}" />
+                            </form></dd>
+                    </dl>
+                <span class="corners-bottom"><span></span></span></div>
+            </div>
+            <div class="panel bg2">
+                <div class="inner"><span class="corners-top"><span></span></span>
+                    <dl><dt style="text-align:center"><strong>{L_LATEST}</strong></dt></dl>
+                    <!-- BEGIN latestrow -->
+                        <dl><dd><hr />
+                        <table cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td style="width:80px">
+                                    <dl><dd><a href="viewgame.php?g={latestrow.GAME_ID}&sid={SESSION_ID}"><img src="./flash/images/{latestrow.GAME_IMAGE}" align="absmiddle" alt="*" /></a></dd></dl>
+                                </td>
+                                <td>
+                                    <dl><dd><a href="viewgame.php?g={latestrow.GAME_ID}&sid={SESSION_ID}">{latestrow.GAME_NAME}</a>{latestrow.GAME_RATING}</dd>
+                                    <dd style="color:#999999">{L_GAME_COST_C}0</dd>
+                                    <dd>{L_GAME_RATINGS_C}{latestrow.GAME_NUM_RATINGS}</dd>
+                                    <dd>{L_GAME_PLAY_C}{latestrow.GAME_PLAYS}</dd>
+                                    <dd>{L_GAME_SIZE_C}{latestrow.GAME_SIZE}</dd>
+                                </td>
+                            </tr>
+                        </table></dd></dl>
+                    <!-- END latestrow -->
+                <span class="corners-bottom"><span></span></span></div>
+            </div>
+        </td>
+        <td style="width:80%; vertical-align:top">
+<div class="panel bg1">
+<div class="pagination">
+    <!-- IF CAT_NUM_GAMES -->({CAT_NUM_GAMES} {L_GAMES}) &bull; <!-- ENDIF --><!-- IF PAGINATION --><a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{PAGE_NUMBER}</a> &bull; <span>{PAGINATION}</span><!-- ELSE -->{PAGE_NUMBER}<!-- ENDIF -->
+</div>
+    <div class="inner"><span class="corners-top"><span></span></span>
+        <dl><dt style="text-align:center"><strong>{CATEGORY_NAME}</strong></dt></dl>
+            <dl><dd><hr />
+            <table cellpadding="0" cellspacing="0">
+                <tr style="">
+                    <td style="width:50px; padding:1px 1px 1px 0px"></td>
+                    <td style="width:80px; padding-right:5px">{L_GAME_NAME}</td>
+                    <td style="width:40%; padding-left:5px">{L_GAME_DESC}</td>
+                    <td style="width:5%; color:#999999">{L_GAME_COST}</td>
+                    <td style="width:7%">{L_GAME_USES}</td>
+                    <td style="width:5%">{L_GAME_RATING}</td>
+                    <td style="width:5%">{L_GAME_NUM_RATINGS}</td>
+                    <td style="width:5%">{L_GAME_PLAYED}</td>
+                    <td style="width:10%">{L_GAME_SIZE}</td>
+                    <td style="width:15%">{L_HIGHEST_SCORE}</td>
+                </tr>
+        <!-- BEGIN gamerow -->
+                <tr style="<!-- IF gamerow.S_DISABLED -->background-color:#EBCADB<!-- ENDIF -->">
+                    <td class="<!-- IF gamerow.COUNT is even -->bg2<!-- ENDIF -->" style="width:50px; padding:1px 1px 1px 0px"><a href="viewgame.php?g={gamerow.GAME_ID}&sid={SESSION_ID}"><img src="./flash/images/{gamerow.GAME_IMAGE}" align="absmiddle" align="absmiddle" alt="*" /></a></td>
+                    <td class="<!-- IF gamerow.COUNT is even -->bg2<!-- ENDIF -->" style="width:80px; padding-right:5px"><a href="viewgame.php?g={gamerow.GAME_ID}&sid={SESSION_ID}">{gamerow.GAME_NAME}</a><!-- IF gamerow.S_DISABLED -->&nbsp;<img src="./flash/images/included/lock.png" alt="*" /><!-- ENDIF --></td>
+                    <td class="<!-- IF gamerow.COUNT is even -->bg2<!-- ENDIF -->" style="width:40%; padding-left:5px">{gamerow.GAME_DESC}</td>
+                    <td class="<!-- IF gamerow.COUNT is even -->bg2<!-- ENDIF -->" style="width:5%; color:#999999">0</td>
+                    <td class="<!-- IF gamerow.COUNT is even -->bg2<!-- ENDIF -->" style="width:7%">{gamerow.GAME_USES}</td>
+                    <td class="<!-- IF gamerow.COUNT is even -->bg2<!-- ENDIF -->" style="width:5%">{gamerow.GAME_RATING}</td>
+                    <td class="<!-- IF gamerow.COUNT is even -->bg2<!-- ENDIF -->" style="width:5%">{gamerow.GAME_NUM_RATINGS}</td>
+                    <td class="<!-- IF gamerow.COUNT is even -->bg2<!-- ENDIF -->" style="width:5%">{gamerow.GAME_PLAYS}</td>
+                    <td class="<!-- IF gamerow.COUNT is even -->bg2<!-- ENDIF -->" style="width:10%">{gamerow.GAME_SIZE}</td>
+                    <td class="<!-- IF gamerow.COUNT is even -->bg2<!-- ENDIF -->" style="width:15%">{gamerow.GAME_HIGH_SCORE}</td>
+                </tr>
+        <!-- END gamerow -->
+            </table></dd></dl>
+<div class="pagination">
+    <!-- IF CAT_NUM_GAMES -->({CAT_NUM_GAMES} {L_GAMES}) &bull; <!-- ENDIF --><!-- IF PAGINATION --><a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{PAGE_NUMBER}</a> &bull; <span>{PAGINATION}</span><!-- ELSE -->{PAGE_NUMBER}<!-- ENDIF -->
+</div>
+    <span class="corners-bottom"><span></span></span></div>
+</div>
+<table width="100%" >
+    <tr>
+        <td style="width:33%; vertical-align:top">
+            <div class="panel bg3">
+                <div class="inner"><span class="corners-top"><span></span></span>
+                    <dl><dt style="text-align:center"><strong>{L_TOP_PLAY}</strong></dt></dl>
+                    <!-- BEGIN playedrow -->
+                        <dl><dd><hr />
+                        <table cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td style="width:80px">
+                                    <dl><dd><a href="viewgame.php?g={playedrow.GAME_ID}&sid={SESSION_ID}"><img src="./flash/images/{playedrow.GAME_IMAGE}" align="absmiddle" alt="*" /></a></dd></dl>
+                                </td>
+                                <td>
+                                    <dl><dd><a href="viewgame.php?g={playedrow.GAME_ID}&sid={SESSION_ID}">{playedrow.GAME_NAME}</a>{playedrow.GAME_RATING}</dd>
+                                    <dd>{L_GAME_RATINGS_C}{playedrow.GAME_NUM_RATINGS}</dd>
+                                    <dd style="color:#999999">{L_GAME_COST_C}0</dd>
+                                    <dd>{L_GAME_PLAY_C}{playedrow.GAME_PLAYS}</dd>
+                                    <dd>{L_GAME_SIZE_C}{playedrow.GAME_SIZE}</dd>
+                                </td>
+                            </tr>
+                        </table></dd></dl>
+                    <!-- END playedrow -->
+                <span class="corners-bottom"><span></span></span></div>
+            </div>
+        </td>
+        <td style="width:33%; vertical-align:top">
+            <div class="panel bg2">
+                <div class="inner"><span class="corners-top"><span></span></span>
+                    <dl><dt style="text-align:center"><strong>{L_TOP_RATE}</strong></dt></dl>
+                    <!-- BEGIN ratingrow -->
+                        <dl><dd><hr />
+                        <table cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td style="width:80px">
+                                    <dl><dd><a href="viewgame.php?g={ratingrow.GAME_ID}&sid={SESSION_ID}"><img src="./flash/images/{ratingrow.GAME_IMAGE}" align="absmiddle" alt="*" /></a></dd></dl>
+                                </td>
+                                <td>
+                                    <dl><dd><a href="viewgame.php?g={ratingrow.GAME_ID}&sid={SESSION_ID}">{ratingrow.GAME_NAME}</a>{ratingrow.GAME_RATING}</dd>
+                                    <dd style="color:#999999">{L_GAME_COST_C}0</dd>
+                                    <dd>{L_GAME_RATINGS_C}{ratingrow.GAME_NUM_RATINGS}</dd>
+                                    <dd>{L_GAME_PLAY_C}{ratingrow.GAME_PLAYS}</dd>
+                                    <dd>{L_GAME_SIZE_C}{ratingrow.GAME_SIZE}</dd>
+                                </td>
+                            </tr>
+                        </table></dd></dl>
+                    <!-- END ratingrow -->
+                <span class="corners-bottom"><span></span></span></div>
+            </div>
+        </td>
+        <td style="width:33%; vertical-align:top">
+            <div class="panel bg3">
+                <div class="inner"><span class="corners-top"><span></span></span>
+                    <dl><dt style="text-align:center"><strong>{L_RANDOM_GAMES}</strong></dt></dl>
+                    <!-- BEGIN randomrow -->
+                        <dl><dd><hr />
+                        <table cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td style="width:80px">
+                                    <dl><dd><a href="viewgame.php?g={randomrow.GAME_ID}&sid={SESSION_ID}"><img src="./flash/images/{randomrow.GAME_IMAGE}" align="absmiddle" alt="*" /></a></dd></dl>
+                                </td>
+                                <td>
+                                    <dl><dd><a href="viewgame.php?g={randomrow.GAME_ID}&sid={SESSION_ID}">{randomrow.GAME_NAME}</a>{randomrow.GAME_RATING}</dd>
+                                    <dd style="color:#999999">{L_GAME_COST_C}0</dd>
+                                    <dd>{L_GAME_RATINGS_C}{randomrow.GAME_NUM_RATINGS}</dd>
+                                    <dd>{L_GAME_PLAY_C}{randomrow.GAME_PLAYS}</dd>
+                                    <dd>{L_GAME_SIZE_C}{randomrow.GAME_SIZE}</dd>
+                                </td>
+                            </tr>
+                        </table></dd></dl>
+                    <!-- END randomrow -->
+              <span class="corners-bottom"><span></span></span></div>
+            </div>
+        </td>
+    </tr>
+</table>
+        </td>
+    </tr>
+</table>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="7" valign="middle" align="center">
+        </td>
+      </tr>
+    </table>
+<br clear="all" />
+
+
+<!-- INCLUDE themes/1thank/templates/overall_footer.html -->

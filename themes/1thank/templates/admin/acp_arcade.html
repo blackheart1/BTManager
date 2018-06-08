@@ -1,0 +1,528 @@
+<!-- INCLUDE themes/1thank/templates/admin/over_all_header.html -->
+
+<a name="maincontent"></a>
+	<!-- IF S_MANAGE_HIGHSCORES -->
+        <table cellspacing="1">
+		<caption>{GAME_NAME} {L_HIGHSCORES}</caption>
+        <thead>
+            <tr>
+                <th>{L_USERNAME}</th>
+                <th>{L_HIGHSCORE}</th>
+                <th>{L_ACTION}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- BEGIN scorerow -->
+            <tr>
+                <td class="<!-- IF scorerow.COUNT is odd -->col2<!-- ELSE -->col1<!-- ENDIF -->">{scorerow.USER}</td>
+                <td width="75%" class="<!-- IF scorerow.COUNT is odd -->col2<!-- ELSE -->col1<!-- ENDIF -->" id="{scorerow.COUNT}">
+                	<dl id="highscore{scorerow.COUNT}"><strong>{scorerow.SCORE}</strong></dl>
+                    <dl id="highscoreedit{scorerow.COUNT}" style="display:none">
+                    	<form id="category" method="post" action="{U_ACTION}">
+                            <input type="hidden" name="action" value="highscoreedit" />
+                            <input type="hidden" name="hid" value="{scorerow.ID}" />
+                            <input type="hidden" name="gid" value="{GAME_ID}" />
+                            <input type="text" name="newhighscore" value="{scorerow.SCORE}" maxlength="20" />
+                            <input class="button1" name="editcategory" type="submit" value="{L_SAVE}" />
+                            <input class="button2" name="editcategory" type="button" value="{L_CANCEL}" onclick="document.getElementById('highscoreedit{scorerow.COUNT}').style.display = 'none'; document.getElementById('highscore{scorerow.COUNT}').style.display = 'block'" />
+                        </form></dl>
+                </td>
+                <td class="<!-- IF scorerow.COUNT is odd -->col2<!-- ELSE -->col1<!-- ENDIF -->">
+                	<a href="javascript: void(0);" onClick="document.getElementById('highscoreedit{scorerow.COUNT}').style.display = 'block'; document.getElementById('highscore{scorerow.COUNT}').style.display = 'none'">{ICON_EDIT}</a>
+                    <a href="{scorerow.U_DELETE}">{ICON_DELETE}</a></td>
+            </tr>
+            <!-- END scorerow -->
+        </tbody>
+        </table>
+    <!-- ENDIF -->
+	<!-- IF S_RESYNCED -->
+		<script type="text/javascript">
+		<!--
+			var close_waitscreen = 1;
+		//-->
+		</script>
+
+		<div class="successbox">
+			<h3>{L_NOTIFY}</h3>
+			<p>{L_ARCADE_RESYNCED}</p>
+		</div>
+	<!-- ENDIF -->
+
+    <!-- IF S_NO_UPDATE -->
+		<script type="text/javascript">
+		<!--
+			var close_waitscreen = 1;
+		//-->
+		</script>
+
+		<div class="successbox">
+			<h3>{L_NOTIFY}</h3>
+			<p>{L_ARCADE_RESYNCED}</p>
+		</div>
+	<!-- ENDIF -->
+
+    <!-- IF S_UPDATE -->
+		<script type="text/javascript">
+		<!--
+			var close_waitscreen = 1;
+		//-->
+		</script>
+
+		<div class="errorbox">
+			<h3>{L_NOTIFY}</h3>
+			<p>{L_ARCADE_RESYNCED}</p>
+		</div>
+	<!-- ENDIF -->
+
+    <!-- IF S_SETTINGS -->
+    <table cellspacing="1">
+		<caption>{L_ARCADE_STATS}</caption>
+		<col class="col1" /><col class="col2" /><col class="col1" /><col class="col2" />
+	<thead>
+	<tr>
+		<th>{L_STATISTIC}</th>
+		<th>{L_VALUE}</th>
+		<th>{L_STATISTIC}</th>
+		<th>{L_VALUE}</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td>{L_TOTAL_GAMES}: </td>
+		<td><strong>{TOTAL_GAMES}</strong></td>
+		<td>{L_TOTAL_RATINGS}: </td>
+		<td><strong>{TOTAL_RATINGS}</strong></td>
+	</tr>
+	<tr>
+		<td>{L_TOTAL_PLAYS}: </td>
+		<td><strong>{TOTAL_PLAYS}</strong></td>
+        <td>{L_AVG_RATING}: </td>
+		<td><strong>{AVG_RATING}</strong></td>
+	</tr>
+	<tr>
+    	<td>{L_TOTAL_FAVORITES}: </td>
+		<td><strong>{TOTAL_FAVORITES}</strong></td>
+		<td>{L_TOTAL_SWF_SIZE}: </td>
+		<td><strong>{TOTAL_SWF_SIZE}</strong></td>
+	</tr>
+	<tr>
+		<td>{L_TOTAL_COMMENTS}: </td>
+		<td><strong>{TOTAL_COMMENTS}</strong></td>
+		<td>{L_TOTAL_IMG_SIZE}: </td>
+		<td><strong>{TOTAL_IMG_SIZE}</strong></td>
+	</tr>
+    <tr>
+        <td>{L_TOKENS_SPENT}: </td>
+		<td><strong>{TOKENS_SPENT}</strong></td>
+		<td>{L_ARCADE_STARTED}: </td>
+		<td><strong>{ARCADE_STARTED}</strong></td>
+	</tr>
+    <tr>
+    	<td>{L_TICKETS_DISPENSED}: </td>
+		<td><strong>{TICKETS_DISPENSED}</strong></td>
+        <td>{L_PLAYS_PER_DAY}: </td>
+		<td><strong>{PLAYS_PER_DAY}</strong></td>
+    </tr>
+	</tbody>
+	</table>
+    <br />
+    <form id="settings" method="post" action="{U_ACTION}">
+    <input type="hidden" name="action" value="updatesettings" />
+    <h1>{L_A_SETTINGS}</h1>
+        <p>{L_A_SETTINGS_DESC}</p>
+    <fieldset>
+		<legend>{L_AR_SETTINGS}</legend>
+    	<!-- BEGIN settingrow -->
+        <dl>
+			<dt style="text-align:right"><label for="{settingrow.ID}">{settingrow.NAME}:</label></dt>
+			<!-- IF settingrow.TYPE is odd --><dd><!-- IF settingrow.CONTENT --><label><input id="{settingrow.ID}" name="{settingrow.ID}" value="1" checked="checked" class="radio" type="radio"> {L_YES}</label><label><input name="{settingrow.ID}" value="0" class="radio" type="radio"> {L_NO}</label>
+            <!-- ELSE --><label><input id="{settingrow.ID}" name="{settingrow.ID}" value="1" class="radio" type="radio">
+            {L_YES}</label><label><input name="{settingrow.ID}" checked="checked" value="0" class="radio" type="radio"> {L_NO}</label>
+            <!-- ENDIF --></dd><!-- ELSE --><dd><input id="{settingrow.ID}" name="{settingrow.ID}" value="{settingrow.CONTENT}" size="3" maxlength="4" type="text" /> {L_MINUTES}</dd><!-- ENDIF -->
+		</dl>
+        <!-- END settingrow -->
+
+        <p class="submit-buttons">
+            <input class="button1" type="submit" id="submit" name="submit" value="{L_SUBMIT}" />&nbsp;
+            <input class="button2" type="reset" id="reset" name="reset" value="{L_RESET}" />
+        </p>
+    </fieldset>
+
+    </form>
+    <fieldset>
+			<legend>{L_AR_TASKS}</legend>
+    	<dl>
+			<form id="resetratings" method="post" action="{U_ACTION}">
+  			<input type="hidden" name="action" value="resetratings" />
+    		<dt style="text-align:right">{L_RESET_RATINGS}</dt>
+			<dd><input class="button2" name="resetratings" type="submit" value="{L_RUN_TASK}" /></dd>
+            </form>
+        </dl>
+        <dl>
+            <form id="resethighscores" method="post" action="{U_ACTION}">
+  			<input type="hidden" name="action" value="resethighscores" />
+    		<dt style="text-align:right">{L_RESET_HIGHSCORES}</dt>
+			<dd><input class="button2" name="resethighscores" type="submit" value="{L_RUN_TASK}" /></dd>
+            </form>
+		</dl>
+        <dl>
+			<form id="resetviews" method="post" action="{U_ACTION}">
+  			<input type="hidden" name="action" value="resetviews" />
+    		<dt style="text-align:right">{L_RESET_VIEWS}</dt>
+			<dd><input class="button2" name="resetviews" type="submit" value="{L_RUN_TASK}" /></dd>
+            </form>
+        </dl>
+    </fieldset>
+    <!-- ENDIF -->
+
+	<!-- IF S_MANAGE_CATEGORY -->
+    	<h1>{L_MANAGE_CAT}</h1>
+        <p>{L_MANAGE_CAT_DESC}</p>
+		<table cellspacing="1">
+        	<col class="row1" /><col class="row2" />
+            <tbody>
+			{S_TITLE}
+            <!-- BEGIN categoryrow -->
+                <tr>
+                	<td width="10px" class="<!-- IF categoryrow.COUNT is even -->row1<!-- ELSE -->row2<!-- ENDIF -->">
+                    	<dl>{categoryrow.CATEGORY_COUNT}</dl>
+                    </td>
+                    <td class="<!-- IF categoryrow.COUNT is even -->row2<!-- ELSE -->row1<!-- ENDIF -->">
+                        <dl id="name{categoryrow.CATEGORY_ID}"><strong><a href="{categoryrow.U_CATEGORY}">{categoryrow.CATEGORY_NAME}</a></strong></dl>
+                        <dl id="edit{categoryrow.CATEGORY_ID}" style="display:none"><form id="category" method="post" action="{U_ACTION}">
+                                <input type="hidden" name="action" value="editcategory" />
+                                <input type="hidden" name="category_id" value="{categoryrow.CATEGORY_ID}" />
+                                <input type="text" name="category_name" value="{categoryrow.CATEGORY_NAME}" maxlength="255" />
+                                <input class="button1" name="editcategory" type="submit" value="{L_SAVE}" />
+                                <input class="button2" name="editcategory" type="button" value="{L_CANCEL}" onclick="document.getElementById('edit{categoryrow.CATEGORY_ID}').style.display = 'none'; document.getElementById('name{categoryrow.CATEGORY_ID}').style.display = 'block'" />
+                            </form></dl>
+                    </td>
+                    <td class="<!-- IF categoryrow.COUNT is even -->row1<!-- ELSE -->row2<!-- ENDIF -->" style="vertical-align: top; width: 50px; text-align: center; white-space: nowrap;">
+                        <strong><a href="{categoryrow.U_VIEW_CATEGORY}" target="_blank">{L_VIEW}</a></strong>
+                    </td>
+                    <td class="<!-- IF categoryrow.COUNT is even -->row2<!-- ELSE -->row1<!-- ENDIF -->" style="vertical-align: top; width: 20px; text-align: center; white-space: nowrap;">
+                    	<a href="javascript: void(0);" onClick="document.getElementById('edit{categoryrow.CATEGORY_ID}').style.display = 'block'; document.getElementById('name{categoryrow.CATEGORY_ID}').style.display = 'none'">{ICON_EDIT}</a>
+                        <a href="{categoryrow.U_DELETE}">{ICON_DELETE}</a>
+                    </td>
+                </tr>
+            <!-- END categoryrow -->
+            </tbody>
+		</table>
+
+	<form id="category" method="post" action="{U_ACTION}">
+
+	<fieldset class="quick">
+		<input type="hidden" name="action" value="addcategory" />
+		<input type="text" name="category_name" value="" maxlength="255" />
+		<input class="button2" name="addcategory" type="submit" value="{L_CREATE_CAT}" />
+	</fieldset>
+
+	</form>
+	<!-- ENDIF -->
+
+    <!-- IF S_MANAGE_GAME -->
+    <h1>{L_MANAGE_GAMES}</h1>
+        <p>{L_MANAGE_GAMES_DESC}</p>
+		<table cellspacing="1">
+        	<col class="row1" /><col class="row2" />
+            <tbody>
+            {S_TITLE}
+            <!-- BEGIN gamerow -->
+                <tr>
+                	<td width="10px" class="<!-- IF gamerow.COUNT is even -->row2<!-- ELSE -->row1<!-- ENDIF -->">
+                    	<!-- IF gamerow.DISABLED --><img src="../arcade/images/included/disabled.png" alt="*" /><!-- ELSE --><img src="../arcade/images/included/enabled.png" alt="*" /><!-- ENDIF -->
+                    </td>
+                    <td class="<!-- IF gamerow.COUNT is even -->row1<!-- ELSE -->row2<!-- ENDIF -->">
+                        <strong><a href="{gamerow.U_GAME}">{gamerow.GAME_NAME}</a></strong>
+                    </td>
+                    <td class="<!-- IF gamerow.COUNT is even -->row2<!-- ELSE -->row1<!-- ENDIF -->" style="vertical-align: top; width: 50px; text-align: center; white-space: nowrap;">
+                        <strong><a href="{gamerow.U_VIEW_GAME}" target="_blank">{L_VIEW}</a></strong>
+                    </td>
+                    <td class="<!-- IF gamerow.COUNT is even -->row1<!-- ELSE -->row2<!-- ENDIF -->" style="vertical-align: top; width: 50px; text-align: center; white-space: nowrap;">
+                        <!-- IF gamerow.DISABLED --><strong><a href="{gamerow.U_ENABLE_DISABLE}">{L_ENABLE}</a></strong><!-- ELSE --><strong><a href="{gamerow.U_ENABLE_DISABLE}">{L_DISABLE}</a></strong><!-- ENDIF -->
+                    </td>
+                    <td class="<!-- IF gamerow.COUNT is even -->row2<!-- ELSE -->row1<!-- ENDIF -->" style="vertical-align: top; width: 50px; text-align: center; white-space: nowrap;">
+                        <!-- IF gamerow.S_HAS_HIGHSCORE --><strong><a href="{gamerow.U_MANAGE_HIGHSCORE}">{L_MANAGE_HIGHSCORES}</a></strong><!-- ELSE -->{L_NO} {L_HIGHSCORES}<!-- ENDIF -->
+                    </td>
+                    <td class="<!-- IF gamerow.COUNT is even -->row1<!-- ELSE -->row2<!-- ENDIF -->" style="vertical-align: top; width: 20px; text-align: center; white-space: nowrap;">
+                        <a href="{gamerow.U_GAME}">{ICON_EDIT}</a>
+                        <a href="{gamerow.U_DELETE}">{ICON_DELETE}</a>
+                    </td>
+                </tr>
+            <!-- END gamerow -->
+            </tbody>
+		</table>
+
+	<form id="game" method="post" action="{U_ACTION}">
+        <fieldset class="quick">
+            <input type="hidden" name="action" value="addgame" />
+
+            <input type="text" name="game_name" value="" maxlength="255" />
+            <input class="button2" name="addgame" type="submit" value="{L_ADD_GAME}" />
+        </fieldset>
+	</form>
+	<form id="game" method="post" action="{U_ARCHIVE_ACTION}">
+        <fieldset class="quick">
+            <select name="archive_file">
+                <option value="none" selected="yes">{L_CHOOSE_GAME}</option>
+                <!-- BEGIN archiverow -->
+                    <option value="{archiverow.FILE}">{archiverow.FILE}</option>
+                <!-- END archiverow -->
+            </select>
+            <input class="button2" name="addgame" type="submit" value="{L_ADD_GAME}" />
+        </fieldset>
+	</form>
+    <form id="game" method="post" action="{U_UPLOAD_ARCHIVE}" enctype="multipart/form-data">
+        <fieldset class="quick">
+        	<input type="hidden" name="MAX_FILE_SIZE" value="10485760" />
+            <input name="archive_file" type="file" />
+            <input class="button2" name="uploadarchive" type="submit" value="{L_UPLOAD_ARCHIVE}" />
+        </fieldset>
+	</form>
+        <!-- ENDIF -->
+
+    <!-- IF S_EDIT_GAME -->
+    	<h1>{L_EDIT_GAME}</h1>
+        <p>{L_EDIT_GAME_DESC}</p>
+    	<!-- IF S_ERROR -->
+       		{L_GAME_ERROR}<br />
+        <!-- ENDIF -->
+        	<fieldset>
+            	<legend>{L_GAME_NAME} {L_INFO}</legend>
+                <dl><dt style="text-align:right"><br /><strong><a href="{U_VIEW_GAME}" target="_blank">{L_VIEW}</a></strong></dt><dd><img src="{GAME_INFO_IMAGE}" /></dd></dl>
+                <dl>
+                    <dt style="text-align:right">{L_GAME_ID_C}</dt><dd>{GAME_INFO_ID}</dd>
+                </dl>
+                <dl>
+                    <dt style="text-align:right">{L_GAME_FILENAME_C}</dt><dd>{GAME_INFO_FILENAME}</dd>
+                </dl>
+                <dl>
+                    <dt style="text-align:right">{L_GAME_IMAGENAME_C}</dt><dd>{GAME_INFO_IMAGENAME}</dd>
+                </dl>
+                <dl>
+                    <dt style="text-align:right">{L_GAME_SIZE_C}</dt><dd>{GAME_INFO_SIZE}</dd>
+                </dl>
+                <dl>
+                    <dt style="text-align:right">{L_GAME_PLAYS_C}</dt><dd>{GAME_INFO_PLAYS}</dd>
+                </dl>
+                <dl>
+                    <dt style="text-align:right">{L_GAME_RATING_C}</dt><dd>{GAME_INFO_RATING}</dd>
+                </dl>
+                <dl>
+                    <dt style="text-align:right">{L_GAME_NUM_RATING_C}</dt><dd>{GAME_INFO_NUMRATINGS}</dd>
+                </dl>
+                <dl>
+                    <dt style="text-align:right">{L_GAME_NUM_FAVS_C}</dt><dd>{GAME_INFO_NUMFAVS}</dd>
+                </dl>
+            </fieldset>
+
+            <form enctype="multipart/form-data" id="game" method="post" action="{U_ACTION}">
+
+            <fieldset>
+            	<legend>{L_EDIT}</legend>
+                <input type="hidden" name="action" value="editgameinfo" />
+                <dl>
+                    <dt style="text-align:right">{L_GAME_NAME_C}</dt><dd><input type="text" name="game_name" value="{L_GAME_NAME}" maxlength="255" /></dd>
+                </dl>
+                <dl>
+                    <dt style="text-align:right">{L_GAME_CAT_C}</dt><dd><select name="game_cat" size="5">
+                    	<!-- BEGIN categoryrow -->
+                            	{categoryrow.CATEGORY_CODE}
+                        <!-- END categoryrow -->
+                    </select></dd>
+                </dl>
+                <dl>
+                    <dt style="text-align:right">{L_GAME_ENABLED_C}</dt>
+                    <dd><!-- IF S_ENABLED --><label><input id="game_enabled" name="game_enabled" checked="checked" value="1" class="radio" type="radio">
+                    {L_YES}</label><label><input name="game_enabled" value="0" class="radio" type="radio"> {L_NO}</label><!-- ELSE --><label><input id="game_enabled" name="game_enabled" value="1" class="radio" type="radio">
+                    {L_YES}</label><label><input name="game_enabled" checked="checked" value="0" class="radio" type="radio"> {L_NO}</label><!-- ENDIF -->
+                    </dd>
+                </dl>
+                <dl>
+                    <dt style="text-align:right">{L_GAME_HIGHSCORE_C}</dt>
+                    <dd><!-- IF S_HIGHSCORE --><label><input id="game_highscore" name="game_highscore" checked="checked" value="1" class="radio" type="radio">
+                    {L_YES}</label><label><input name="game_highscore" value="0" class="radio" type="radio"> {L_NO}</label><!-- ELSE --><label><input id="game_highscore" name="game_highscore" value="1" class="radio" type="radio">
+                    {L_YES}</label><label><input name="game_highscore" checked="checked" value="0" class="radio" type="radio"> {L_NO}</label><!-- ENDIF -->
+                    </dd>
+                </dl>
+                <dl>
+                    <dt style="text-align:right">{L_GAME_REV_SCORE_C}</dt>
+                    <dd><!-- IF S_REV_SCORE --><label><input id="game_rev_score" name="game_rev_score" checked="checked" value="1" class="radio" type="radio">
+                    {L_YES}</label><label><input name="game_rev_score" value="0" class="radio" type="radio"> {L_NO}</label><!-- ELSE --><label><input id="game_rev_score" name="game_rev_score" value="1" class="radio" type="radio">
+                    {L_YES}</label><label><input name="game_rev_score" checked="checked" value="0" class="radio" type="radio"> {L_NO}</label><!-- ENDIF -->{L_REV_DESC}
+                    </dd>
+                </dl>
+                <dl>
+                    <dt style="text-align:right">{L_GAME_KEYBOARD_C}</dt>
+                    <dd><!-- IF S_KEYBOARD --><label><input id="game_keyboard" name="game_keyboard" checked="checked" value="1" class="radio" type="radio">
+                    {L_YES}</label><label><input name="game_keyboard" value="0" class="radio" type="radio"> {L_NO}</label><!-- ELSE --><label><input id="game_keyboard" name="game_keyboard" value="1" class="radio" type="radio">
+                    {L_YES}</label><label><input name="game_keyboard" checked="checked" value="0" class="radio" type="radio"> {L_NO}</label><!-- ENDIF --><img src="../arcade/images/included/keyboard.gif" alt="*" />
+                    </dd>
+                </dl>
+                <dl>
+                    <dt style="text-align:right">{L_GAME_MOUSE_C}</dt>
+                    <dd><!-- IF S_MOUSE --><label><input id="game_mouse" name="game_mouse" checked="checked" value="1" class="radio" type="radio">
+                    {L_YES}</label><label><input name="game_mouse" value="0" class="radio" type="radio"> {L_NO}</label><!-- ELSE --><label><input id="game_mouse" name="game_mouse" value="1" class="radio" type="radio">
+                    {L_YES}</label><label><input name="game_mouse" checked="checked" value="0" class="radio" type="radio"> {L_NO}</label><!-- ENDIF --><img src="../arcade/images/included/mouse.gif" alt="*" />
+                    </dd>
+                </dl>
+                <dl>
+                    <dt style="text-align:right">{L_GAME_IMAGE_C}</dt><dd><input name="game_image" type="file" /> {L_IMAGE_LIMIT}</dd>
+                </dl>
+                <dl>
+                    <dt style="text-align:right">{L_REMOVE_IMAGE_C}</dt>
+                    <dd><!-- IF S_REMOVE_IMAGE --><label><input id="remove_image" name="remove_image" checked="checked" value="1" class="radio" type="radio">
+                    {L_YES}</label><label><input name="remove_image" value="0" class="radio" type="radio"> {L_NO}</label><!-- ELSE --><label><input id="remove_image" name="remove_image" value="1" class="radio" type="radio">
+                    {L_YES}</label><label><input name="remove_image" checked="checked" value="0" class="radio" type="radio"> {L_NO}</label><!-- ENDIF -->
+                    </dd>
+                </dl>
+                <dl>
+                    <dt style="text-align:right">{L_GAME_COST_C}</dt><dd><input type="text" name="game_cost" style="color:#888888" disabled="disabled" value="0" maxlength="255" /></dd>
+                </dl>
+                <dl>
+                    <dt style="text-align:right">{L_GAME_PPT_C}</dt><dd><input type="text" name="game_ppt" style="color:#888888" disabled="disabled" value="0" maxlength="255" /> {L_GAME_PPT_EXPLAIN}</dd>
+                </dl>
+                <dl>
+                    <dt style="text-align:right">{L_GAME_WIDTH_C}</dt><dd><input type="text" name="game_width" value="{L_GAME_WIDTH}" maxlength="255" /></dd>
+                </dl>
+                <dl>
+                    <dt style="text-align:right">{L_GAME_HEIGHT_C}</dt><dd><input type="text" name="game_height" value="{L_GAME_HEIGHT}" maxlength="255" /></dd>
+                </dl>
+                <dl>
+                    <dt style="text-align:right">{L_GAME_DESC_C}</dt><dd><textarea name="game_desc" cols="" rows="4">{L_GAME_DESC}</textarea></dd>
+                </dl>
+                <dl>
+                    <dt style="text-align:right">{L_GAME_DIR_C}</dt><dd><textarea name="game_dir" cols="" rows="4">{L_GAME_DIR}</textarea></dd>
+                </dl>
+                <p class="submit-buttons">
+                    <input class="button1" type="submit" id="submit" name="submit" value="{L_SAVE_GAME}" />&nbsp;
+					<input class="button2" type="reset" id="reset" name="reset" value="{L_RESET}" />
+                </p>
+            </fieldset>
+
+            </form>
+    <fieldset>
+			<legend>{L_GAME_TASKS}</legend>
+    	<dl>
+			<form id="resetratingsgame" method="post" action="{U_ACTION}">
+  			<input type="hidden" name="action" value="resetratingsgame" />
+    		<dt style="text-align:right">{L_RESET_RATING}</dt>
+			<dd><input class="button2" name="resetratings" type="submit" value="{L_RUN_TASK}" /></dd>
+            </form>
+        </dl>
+        <dl>
+            <form id="resethighscoresgame" method="post" action="{U_ACTION}">
+  			<input type="hidden" name="action" value="resethighscoresgame" />
+    		<dt style="text-align:right">{L_RESET_HIGHSCORE}</dt>
+			<dd><input class="button2" name="resethighscoresgame" type="submit" value="{L_RUN_TASK}" /></dd>
+            </form>
+		</dl>
+        <dl>
+			<form id="resetviewsgame" method="post" action="{U_ACTION}">
+  			<input type="hidden" name="action" value="resetviewsgame" />
+    		<dt style="text-align:right">{L_RESET_VIEW}</dt>
+			<dd><input class="button2" name="resetviewsgame" type="submit" value="{L_RUN_TASK}" /></dd>
+            </form>
+        </dl>
+    </fieldset>
+    <!-- ENDIF -->
+
+    <!-- IF S_ADD_GAME -->
+    	<h1>{L_ADD_GAME}</h1>
+        <p>{L_ADD_GAME_DESC}</p>
+    	<!-- IF S_ERROR -->
+       		{L_GAME_ERROR}<br />
+        <!-- ENDIF -->
+            <form enctype="multipart/form-data" id="game" method="post" action="{U_ACTION}">
+
+            <fieldset>
+            	<legend>{L_ADD_GAME}</legend>
+                <input type="hidden" name="action" value="addgameinfo" />
+                <input type="hidden" name="MAX_FILE_SIZE" value="10485760" />
+                <dl>
+                    <dt style="text-align:right">{L_GAME_NAME_C}</dt><dd><input type="text" name="game_name" value="{L_GAME_NAME}" maxlength="255" /></dd>
+                </dl>
+                <dl>
+                    <dt style="text-align:right">{L_GAME_CAT_C}</dt><dd><select name="game_cat" size="5">
+                    	<!-- BEGIN categoryrow -->
+                            	{categoryrow.CATEGORY_CODE}
+                        <!-- END categoryrow -->
+                    </select></dd>
+                </dl>
+                <dl>
+                    <dt style="text-align:right">{L_GAME_ENABLED_C}</dt>
+                    <dd><!-- IF S_ENABLED --><label><input id="game_enabled" name="game_enabled" checked="checked" value="1" class="radio" type="radio">
+                    {L_YES}</label><label><input name="game_enabled" value="0" class="radio" type="radio"> {L_NO}</label><!-- ELSE --><label><input id="game_enabled" name="game_enabled" value="1" class="radio" type="radio">
+                    {L_YES}</label><label><input name="game_enabled" checked="checked" value="0" class="radio" type="radio"> {L_NO}</label><!-- ENDIF -->
+                    </dd>
+                </dl>
+                <dl>
+                    <dt style="text-align:right">{L_GAME_HIGHSCORE_C}</dt>
+                    <dd><!-- IF S_HIGHSCORE --><label><input id="game_highscore" name="game_highscore" checked="checked"	 value="1" class="radio" type="radio">
+                    {L_YES}</label><label><input name="game_highscore" value="0" class="radio" type="radio"> {L_NO}</label><!-- ELSE --><label><input id="game_highscore" name="game_highscore" value="1" class="radio" type="radio">
+                    {L_YES}</label><label><input name="game_highscore" checked="checked" value="0" class="radio" type="radio"> {L_NO}</label><!-- ENDIF -->
+                    </dd>
+                </dl>
+                <dl>
+                    <dt style="text-align:right">{L_GAME_REV_SCORE_C}</dt>
+                    <dd><!-- IF S_REV_SCORE --><label><input id="game_rev_score" name="game_rev_score" checked="checked" value="1" class="radio" type="radio">
+                    {L_YES}</label><label><input name="game_rev_score" value="0" class="radio" type="radio"> {L_NO}</label><!-- ELSE --><label><input id="game_rev_score" name="game_rev_score" value="1" class="radio" type="radio">
+                    {L_YES}</label><label><input name="game_rev_score" checked="checked" value="0" class="radio" type="radio"> {L_NO}</label><!-- ENDIF -->
+                    </dd>
+                </dl>
+                <dl>
+                    <dt style="text-align:right">{L_GAME_KEYBOARD_C}</dt>
+                    <dd><!-- IF S_KEYBOARD --><label><input id="game_keyboard" name="game_keyboard" checked="checked" value="1" class="radio" type="radio">
+                    {L_YES}</label><label><input name="game_keyboard" value="0" class="radio" type="radio"> {L_NO}</label><!-- ELSE --><label><input id="game_keyboard" name="game_keyboard" value="1" class="radio" type="radio">
+                    {L_YES}</label><label><input name="game_keyboard" checked="checked" value="0" class="radio" type="radio"> {L_NO}</label><!-- ENDIF --><img src="../arcade/images/included/keyboard.gif" alt="*" />
+                    </dd>
+                </dl>
+                <dl>
+                    <dt style="text-align:right">{L_GAME_MOUSE_C}</dt>
+                    <dd><!-- IF S_MOUSE --><label><input id="game_mouse" name="game_mouse" checked="checked" value="1" class="radio" type="radio">
+                    {L_YES}</label><label><input name="game_mouse" value="0" class="radio" type="radio"> {L_NO}</label><!-- ELSE --><label><input id="game_mouse" name="game_mouse" value="1" class="radio" type="radio">
+                    {L_YES}</label><label><input name="game_mouse" checked="checked" value="0" class="radio" type="radio"> {L_NO}</label><!-- ENDIF --><img src="../arcade/images/included/mouse.gif" alt="*" />
+                    </dd>
+                </dl>
+                <dl>
+                    <dt style="text-align:right">{L_GAME_FILE_C}</dt><dd><input name="game_file" type="file" /> {L_LIMIT}</dd>
+                </dl>
+                <dl>
+                    <dt style="text-align:right">{L_GAME_FILE_C}</dt><dd><select name="game_swf_file">
+                            <option value="" selected="yes">{L_CHOOSE_FILE}</option>
+                            <!-- BEGIN swfrow -->
+                                <!-- IF swfrow.SELECTED -->selected="yes"<!-- ENDIF -->>{swfrow.FILE}<!-- IF swfrow.SELECTED -->selected="yes"<!-- ENDIF -->>{swfrow.FILE}<!-- IF swfrow.SELECTED -->selected="yes"<!-- ENDIF -->>{swfrow.FILE}<!-- IF swfrow.SELECTED -->selected="yes"<!-- ENDIF -->>{swfrow.FILE}<option value="{swfrow.FILE}" <!-- IF swfrow.SELECTED -->selected="yes"<!-- ENDIF -->>{swfrow.FILE}</option>
+                            <!-- END swfrow -->
+                        </select></dd>
+                </dl>
+                <dl>
+                    <dt style="text-align:right">{L_GAME_IMAGE_C}</dt><dd><input name="game_image" type="file" /> {L_IMAGE_LIMIT}</dd>
+                </dl>
+                <dl>
+                    <dt style="text-align:right">{L_GAME_COST_C}</dt><dd><input type="text" name="game_cost" style="color:#888888" disabled="disabled" value="0" maxlength="255" /></dd>
+                </dl>
+                <dl>
+                    <dt style="text-align:right">{L_GAME_PPT_C}</dt><dd><input type="text" name="game_ppt" style="color:#888888" disabled="disabled" value="0" maxlength="255" /> {L_GAME_PPT_EXPLAIN}</dd>
+                </dl>
+                <dl>
+                    <dt style="text-align:right">{L_GAME_WIDTH_C}</dt><dd><input type="text" name="game_width" value="{L_GAME_WIDTH}" maxlength="255" /></dd>
+                </dl>
+                <dl>
+                    <dt style="text-align:right">{L_GAME_HEIGHT_C}</dt><dd><input type="text" name="game_height" value="{L_GAME_HEIGHT}" maxlength="255" /></dd>
+                </dl>
+                <dl>
+                    <dt style="text-align:right">{L_GAME_DESC_C}</dt><dd><textarea name="game_desc" cols="" rows="4">{L_GAME_DESC}</textarea></dd>
+                </dl>
+                <dl>
+                    <dt style="text-align:right">{L_GAME_DIR_C}</dt><dd><textarea name="game_dir" cols="" rows="4">{L_GAME_DIR}</textarea></dd>
+                </dl>
+                <p class="submit-buttons">
+                    <input class="button1" type="submit" id="submit" name="submit" value="{L_ADD_GAME}" />&nbsp;
+                    <input class="button2" type="reset" id="reset" name="reset" value="{L_RESET}" />
+                </p>
+            </fieldset>
+
+            </form>
+    <!-- ENDIF -->
+
+<!-- INCLUDE themes/1thank/templates/admin/over_all_footer.html -->

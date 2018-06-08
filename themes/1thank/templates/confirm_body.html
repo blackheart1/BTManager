@@ -1,0 +1,28 @@
+<!-- INCLUDE themes/1thank/templates/overall_header.html -->
+
+<form id="confirm" action="{S_CONFIRM_ACTION}" method="post">
+<div class="panel">
+	<div class="inner"><span class="corners-top"><span></span></span>
+
+	<h2>{MESSAGE_TITLE}</h2>
+	<p>{MESSAGE_TEXT}</p>
+<!-- IF S_GFX -->
+<!-- IF RECAPTCHA -->
+        <div class="g-recaptcha" data-sitekey="{RECAPTCHA}"></div><br />
+<!-- ELSE -->
+        <img src="gfxgen.php?code={GFX_CODE}" height="27" width="93" alt="{L_SECURITY_CODE}"><br />
+        <input type="text" name="gfxcode" size="10" maxlength="6"><br />
+<!-- ENDIF -->
+<!-- ENDIF -->
+	
+	<fieldset class="submit-buttons">
+		{S_HIDDEN_FIELDS}
+		<input type="submit" name="confirm" value="{L_YES}" class="button2" />&nbsp; 
+		<input type="submit" name="cancel" value="{L_NO}" class="button2" />
+	</fieldset>
+
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+</form>
+
+<!-- INCLUDE themes/1thank/templates/overall_footer.html -->

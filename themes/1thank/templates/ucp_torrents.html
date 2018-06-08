@@ -1,0 +1,30 @@
+<!-- INCLUDE themes/1thank/templates/overall_header.html -->
+
+<div id="pagecontent">
+    <table class="tablebg" width="100%" cellspacing="0">
+        <tr>
+            <td>
+                <div class="caption">
+                    <div class="cap-left">
+                        <div class="cap-right">
+                            <a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnTorrent_Control_Panel');">
+                            {L_UCP_TORRENTS}</a>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr valign="middle">
+            <td  class="row3" >
+                <div id="nnTorrent_Control_Panel">
+                <p>{L_UCP_TORRENTS_EXP}</p>
+                </div>
+            </td>
+        </tr>
+    </table>
+<br clear="all" />
+<!-- IF UCP_EDIT_TOR -->
+<!-- ELSE -->
+<!-- ENDIF -->
+</div>
+<!-- INCLUDE themes/1thank/templates/overall_footer.html -->

@@ -1,0 +1,107 @@
+<!-- IF S_STANDALONE -->
+<!-- INCLUDE themes/1thank/templates/overall_header.html -->
+
+<!-- ENDIF -->
+<script type="text/javascript">
+// <![CDATA[
+function PopMoreSmiles(form,text) {
+        link='moresmiles.php?form='+form+'&text='+text;
+		newWin=window.open(link,'moresmile','height=500,width=600,resizable=yes,scrollbars=yes');
+		if (window.focus)
+		{
+			newWin.focus()
+		}
+}
+// ]]>
+</script>
+<table class="tablebg" width="100%" cellspacing="0">
+	<tr>
+		<td>
+			<div class="caption">
+				<div class="cap-left">
+					<div class="cap-right">
+						<a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnview_vote');"><img title="{L_EXPAND_ITEM}" id="nnview_voteimg" src="themes/1thank/pics/minus.gif"  alt="{L_EXPAND_ITEM}"></a>{P_TITLE}
+					</div>
+				</div>
+			</div>
+		</td>
+	</tr>
+	<tr valign="middle">
+		<td  class="row3" >
+			<div id="nnview_vote">
+				<form name="add" method=post action="{U_ACTION}">
+				{HIDDEN}
+				<table class="tablebg" width="100%" cellspacing="0">
+					<tr>
+						<td class="row1" width="35%">
+							<strong class="genmed">{L_COMMENT}:</strong>
+							<br />
+							<span class="gensmall">{L_COMMENT_EXPLAIN}</span>
+							<br />
+							<br />
+<!-- IF S_SMILIES_ALLOWED -->
+							<table width="100%" cellspacing="5" cellpadding="0" border="0" align="center">
+								<tr>
+									<td class="gensmall" align="center"><strong>{L__SMILIES}</strong></td>
+								</tr>
+								<tr>
+									<td align="center">
+<!-- BEGIN smiley -->
+										<a href="#" onclick="insert_text('{smiley.A_SMILEY_CODE}', true); return false;" style="line-height: 20px;"><img src="{smiley.SMILEY_IMG}" width="{smiley.SMILEY_WIDTH}" height="{smiley.SMILEY_HEIGHT}" alt="{smiley.SMILEY_CODE}" title="{smiley.SMILEY_DESC}" hspace="2" vspace="2" /></a>
+
+<!-- END smiley -->
+									</td>
+								</tr>
+
+<!-- IF S_SHOW_SMILEY_LINK -->
+								<tr>
+									<td align="center"><a class="nav" href="{U_MORE_SMILIES}" onclick="PopMoreSmiles('add','msg'); return false;">{L__MORE_SMILIES}</a></td>
+								</tr>
+<!-- ENDIF -->
+
+							</table>
+<!-- ENDIF -->
+					</td>
+						<td class="row2">
+							<script type="text/javascript">
+								// <![CDATA[
+
+								var form_name = 'add';
+								var text_name = 'msg';
+								// ]]>
+							</script>
+
+							<table width="100%" cellspacing="0" cellpadding="0" border="0">
+<!-- INCLUDE themes/1thank/templates/posting_buttons.html -->
+							<tr>
+								<td valign="top" style="width: 100%;"><textarea name="msg" rows="15" cols="76" tabindex="3" onselect="storeCaret(this);" onclick="storeCaret(this);" onkeyup="storeCaret(this);" style="width: 98%;">{MESSAGE}</textarea></td>
+								<!-- IF S_BBCODE_ALLOWED -->
+								<td width="80" align="center" valign="top">
+									<script type="text/javascript">
+									// <![CDATA[
+										colorPalette('v', 7, 6)
+									// ]]>
+									</script>
+								</td>
+								<!-- ENDIF -->
+							</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2" align="center"><input type="submit" value='{L_SUBMIT}'></td>
+					</tr>
+				</table>
+				</form>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="7" valign="middle" align="center"></td>
+	</tr>
+</table>
+<br clear="all" />
+<!-- IF S_STANDALONE -->
+
+<!-- INCLUDE themes/1thank/templates/overall_footer.html -->
+<!-- ENDIF -->

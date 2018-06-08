@@ -1,0 +1,100 @@
+<!-- INCLUDE themes/1thank/templates/overall_header.html -->
+
+<div id="center">
+    <table class="tablebg" cellspacing="0" width="100%">
+        <tbody>
+            <tr>
+                <td>
+                    <div class="caption">
+                        <div class="cap-left">
+                            <div class="cap-right">
+                                {L_SNATCH_DETAILS}
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr valign="middle">
+                <td class="row3">
+                    <div id="nnSnatch_Detailles">
+                        <p><a href="details.php?id={TID}"><strong>{FILE_NAME}</strong></a></p>
+                        <p align="center">{L_FIRST_LIST_EXP}</p>
+                        <!-- IF PAGINATION -->
+                        <div class="pagination" style="float: right; margin: 15px 0 15px 0">
+                            <a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{S_ON_PAGE}</a> &bull;
+                            <span>{PAGINATION}</span>
+                        </div>
+                        <!-- ENDIF -->
+                        <table width="100%" align="center" border="1" cellpadding="1" cellspacing="0">
+                            <tbody>
+<!-- BEGIN users_var -->
+                            <tr>
+                                <td >
+                                    <table width="100%">
+                                        <tr>
+                                            <td width="15%">{users_var.U_AVATAR}</td>
+                                            <td width="85%">
+                                                <div class="article" id="titleCast">
+                                                <h2 class="imdb-odd">
+                                                <span class="itemprop" itemprop="name"><a href="user.php?op=profile&amp;id={users_var.ID}"><font style="background-color: #{users_var.COLOR};">{users_var.NAME}</font></a>&nbsp;&nbsp;<!-- IF users_var.ONLINE --><img src="themes/1thank/pics/online.gif" alt="{L_ON_LINE}" title="{L_ON_LINE}" border="0"><!-- ELSE --><img src="themes/1thank/pics/offline.gif" alt="{L_OFF_LINE}" title="{L_OFF_LINE}" border="0"><!-- ENDIF -->
+                                                </span>
+                                                </h2>
+
+                                                <h4 class="imdb-odd">{L_USER_INFO}:</h4>
+                                                <span class="itemprop" itemprop="name"><a href="pm.php?op=send&amp;to={users_var.ID}"><img src="themes/1thank/pics/icon_mail.gif" alt="{L_NEW_MESAGE}" title="{L_NEW_MESAGE}" border="0"></a></span>&nbsp;&nbsp;
+                                                <span class="ghost">|</span>&nbsp;&nbsp;
+                                                <span class="itemprop" itemprop="name"><!-- IF users_var.USER_IP -->{users_var.USER_IP} ({users_var.USER_HOST})<!-- ENDIF --></span>
+
+                                                <br clear="all" />
+                                                <h4 class="imdb-odd">{L_GLOBAL_STATS}:</h4>
+                                                <span class="itemprop" itemprop="name">{L_UPLODED} : {users_var.UPLOADED}</span>&nbsp;&nbsp;
+                                                <span class="ghost">|</span>&nbsp;&nbsp;
+                                                <span class="itemprop" itemprop="name">{L_DOWNED} : {users_var.DOWNLOADED}</span>&nbsp;&nbsp;
+                                                <span class="ghost">|</span>&nbsp;&nbsp;
+                                                <span class="itemprop" itemprop="name">{L_RATIO} : {users_var.RATIO}</span>
+
+                                                <br clear="all" />
+                                                <h4 class="imdb-odd">{L_DOWN_LOAD_STATS}:</h4>
+                                                <span class="itemprop" itemprop="name">{L_UPLODED} : {users_var.T_UPLOADED}</span>&nbsp;&nbsp;
+                                                <span class="ghost">|</span>&nbsp;&nbsp;
+                                                <span class="itemprop" itemprop="name">{L_DOWNED} : {users_var.T_DOWNLOADED}</span>&nbsp;&nbsp;<span class="ghost">|</span>&nbsp;&nbsp;
+                                                <span class="itemprop" itemprop="name">{L_RATIO} : {users_var.T_RATIO}</span>&nbsp;&nbsp;
+                                                <span class="ghost">|</span>&nbsp;&nbsp;
+                                                <span class="itemprop" itemprop="name">{L_SEEDING} : <!-- IF users_var.SEEDER -->{L_YES}<!-- ELSE -->{L_NO}<!-- ENDIF --></span>&nbsp;&nbsp;
+                                                <span class="ghost">|</span>&nbsp;&nbsp;
+                                                </div>
+<!-- IF users_var.SIGNATURE -->
+                                                <div class="article" id="titleStoryLine">
+                                                <div class="txt-block">
+                                                <h4 class="imdb-odd">{L_SIGNATURE}</h4>
+                                                {users_var.SIGNATURE}
+                                                </div>
+                                                </div>
+<!-- ENDIF -->
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td>{users_var.ANSWER}</td>
+                            </tr>
+<!-- END users_var -->
+                            </tbody>
+                        </table>
+                        <!-- IF PAGINATION -->
+                        <div class="pagination" style="float: right; margin: 15px 0 15px 0">
+                            <a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{S_ON_PAGE}</a> &bull; <span>{PAGINATION}</span>
+                        </div>
+                        <!-- ENDIF -->
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="cat" colspan="7" align="center" valign="middle"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<br clear="all" />
+
+
+<!-- INCLUDE themes/1thank/templates/overall_footer.html -->

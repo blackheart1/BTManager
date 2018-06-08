@@ -1,0 +1,63 @@
+            <div id="users_simple" class="show">
+              <p>
+<!-- BEGIN user_online -->
+<!-- IF user_online.SHOW -->
+            <!-- IF user_online.SHOW_ICON -->*<!-- ENDIF --><a href="user.php?op=profile&amp;id={user_online.ID}"><font style='background-color: {user_online.COLOR};'>{user_online.USERNAME}</font></a>
+            {user_online.LEVEL_ICON}
+            <!-- IF user_online.WARNED --><img src="images/warning.gif" title="{L_WARNNED}" alt="{L_WARNNED}" /><!-- ENDIF -->
+            <!-- IF user_online.DONER --><img src="images/donator.gif" height="16" width="16" title="{L_DONOR}" alt="{L_DONOR}" /><!-- ENDIF -->
+<!-- ENDIF -->
+<!-- END user_online -->
+                </p>
+              <div style='font-size: 8pt;' align="center">
+                <a href="javascript:advanced();">{L_ADV_ONLINE_MO}</a>
+              </div>
+            </div>
+            <div id="users_advanced" class="hide">
+              <table border="1" width="100%" cellpadding="0" cellspacing="0">
+                <thead>
+                  <tr>
+                    <td>
+                      <p align="center"><b>{L_USER_NAME}</b></p>
+                    </td>
+                    <td>
+                      <p align="center"><b>{L_RATIO}</b></p>
+                    </td>
+                    <td>
+                      <p align="center"><b>{L_CURENT_BROWS}</b></p>
+                    </td>
+                    <td>
+                      <p align="center"><b>{L_LOGEDIN_FOR}</b></p>
+                    </td>
+                  </tr>
+                </thead>
+                <tbody>
+<!-- BEGIN user_online -->
+<!-- IF user_online.SHOW -->
+                  <tr>
+                    <td>
+                      <p>
+            <!-- IF user_online.SHOW_ICON -->*<!-- ENDIF --><a href="user.php?op=profile&amp;id={user_online.ID}"><font color="{user_online.COLOR}" style='background-color: #222;'>{user_online.USERNAME}</font></a>
+            {user_online.LEVEL_ICON}
+            <!-- IF user_online.WARNED --><img src="images/warning.gif" title="{L_WARNNED}" alt="{L_WARNNED}" /><!-- ENDIF -->
+            <!-- IF user_online.DONER --><img src="images/donator.gif" height="16" width="16" title="{L_DONOR}" alt="{L_DONOR}" /><!-- ENDIF -->
+                      </p>
+                    </td>
+                    <td>
+                      <p>{user_online.RATIO}</p>
+                    </td>
+                    <td>
+                      <p>{user_online.LAST_PAGE}</p>
+                    </td>
+                    <td>
+                      <p>{user_online.ON_TIME}</p>
+                    </td>
+                  </tr>
+<!-- ENDIF -->
+<!-- END user_online -->
+                </tbody>
+              </table>
+              <div style='font-size: 8pt;' align="center">
+                <a href="javascript:simple();">{L_SEMP_ONLINE_MOD}</a>
+              </div>
+            </div>

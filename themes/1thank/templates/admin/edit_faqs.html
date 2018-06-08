@@ -1,0 +1,94 @@
+<!-- INCLUDE themes/1thank/templates/admin/over_all_header.html -->
+<script type="text/javascript" src="{SITE_URL}/global.js"></script>
+
+<script type="text/javascript" src="overlib/overlib.js"><!-- overLIB (c) Erik Bosrup --></script>
+<script type="text/javascript" src="overlib/overlib_shadow.js"><!-- overLIB (c) Erik Bosrup --></script>
+<script type="text/javascript" src="bbcode.js"></script>
+<script type="text/javascript">
+pmbtsite_url = "{SITE_URL}";
+tag_prompt = "Enter a Text:";
+img_prompt = "Insert Link from Image";
+font_formatter_prompt = "Enter a Text - ";
+link_text_prompt = "Enter a Link Name (Optional):";
+link_url_prompt = "Enter the Full Address on the left of:";
+link_email_prompt = "Enter your Full Link:";
+list_type_prompt = "Which type of List would you like? Give ' 1 ' for a Numerical List, 'a' for an Alphabetical List, or nothing at all for a Simple Point List.";
+list_item_prompt = "Enter one point of list. Press OK to enter another point of list or press 'Cancel' to Finish.";
+</script>
+
+<a name="maincontent"></a>
+
+<h1>{L_TITLE}</h1>
+
+<p>{L_EXPLAIN}</p>
+
+<form name="formdata" id="acp_board" method="post" action="{U_ACTION}">
+{HIDEN}
+<!-- IF ISITEM -->
+	<table border="1" cellspacing="0" cellpadding="5" align="center" width="95%">
+		<!-- IF F_ID --><tr>
+			<td>{L_F_ID}</td>
+			<td>{F_ID}</td>
+		</tr><!-- ENDIF -->
+		<tr>
+			<td>{L_F_QUEST}</td>
+			<td><input style="width: 300px;" name="{F_Q_AREA}" value="{F_QUEST}" type="text"></td>
+		</tr>
+		<tr>
+			<td>{L_F_ANSWER}</td>
+			<td>
+            	<table width="100%" cellspacing="5" cellpadding="0" border="0" align="center">
+                	<tr>
+                    	<td>
+                        	<div>
+                                <dl>
+                                    <dt>&nbsp;</dt>
+<!-- INCLUDE themes/1thank/templates/text_area.html -->
+                                </dl>
+                            </div>
+                		</td>
+                    </tr>
+                </table>
+            </td>
+		</tr>
+		<tr>
+			<td>{L_F_STATUS}</td>
+			<td>{F_STATUS}</td>
+		</tr>
+		<tr>
+			<td>{L_F_CATIGORY}</td>
+			<td>{F_CATIGORY}</td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center">
+            <p class="submit-buttons">
+            <input type="submit" name="edit" value="{L_EDIT}" style="width: 60px;">
+            </p>
+            </td>
+		</tr>
+	</table>
+<!-- ELSE -->
+	<table border="1" cellspacing="0" cellpadding="5" align="center" width="95%">
+		<!-- IF F_ID --><tr>
+			<td>{L_F_ID}</td>
+			<td>{F_ID}</td>
+		</tr><!-- ENDIF -->
+		<tr>
+			<td>{L_F_QUEST}</td>
+			<td><input style="width: 300px;" name="title" value="{F_QUEST}" type="text"></td>
+		</tr>
+		<tr>
+			<td>{L_F_STATUS}</td>
+			<td>{F_STATUS}</td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center">
+            <p class="submit-buttons">
+            <input type="submit" name="edit" value="{L_EDIT}" style="width: 60px;">
+            </p>
+            </td>
+		</tr>
+	</table>
+<!-- ENDIF -->
+</form>
+<!-- INCLUDE themes/1thank/templates/admin/over_all_footer.html -->

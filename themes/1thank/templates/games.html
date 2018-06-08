@@ -1,0 +1,251 @@
+<!-- INCLUDE themes/1thank/templates/overall_header.html -->
+
+<!-- IF S_NOTICE -->
+<!-- IF S_ERROR --><div id="errorbox" ><!-- ELSE --><div id="successbox" ><!-- ENDIF -->
+<span class="errorbox-title">{L_MESSAGE}</span>
+<p>{S_ERROR_MESS}</p>
+</div>
+<!-- ENDIF -->
+<!-- IF ACTION == overview -->
+<table class="tablebg" width="100%" cellspacing="0">
+    <tr>
+        <td>
+            <div class="caption">
+                <div class="cap-left">
+                    <div class="cap-right">
+                        <a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnWelcome_The_Casino_');">{L_GAMES}</a>
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr valign="middle">
+        <td  class="row3" >
+            <div id="nnWelcome_The_Casino_">
+                <table  width="100%" cellspacing="0" cellpadding="0" border="1" background="casino/cback.jpg">
+                    <tr>
+                        <td align="center" class="rowhead2">
+                            <br/>
+                            <table class="forumline" align="center" border="0" cellpadding="1" cellspacing="1" width="80%">
+                              <tr>
+                                <td class="row2"><center>{L_LOTTERY_STATS}</center></td>
+                              </tr>
+                            </table>
+                            <table class="forumline"class="forumline" align="center" border="0" cellpadding="1" cellspacing="1" width="80%">
+                                <tr>
+                                    <td class="row1">{L_LOTTERY_STATUS} </td>
+                                    <td class="row2" align="left">{G_LOTERY_STATUS}</td>
+                                </tr>
+                                <tr>
+                                    <td class="row1">{L_NEXT_LOTTERY}</td>
+                                    <td class="row2" align="left">{G_NEXT_DRAW}</td>
+                                </tr>
+                                <tr>
+                                    <td class="row1">{L_CURRENT_POT}</td>
+                                    <td class="row2" align="left">{G_POT}</td>
+                                </tr>
+                                <tr>
+                                    <td class="row1">{L_HOW_MANY_WON}</td>
+                                    <td class="row2" align="left">{S_WINNER_COUNT}</td>
+                                </tr>
+                                <tr>
+                                    <td class="row1">{S_LAST_WIINER}</td>
+                                    <td class="row2" align="left">
+                                        {S_WINNERS}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="row1">{L_CURRENT_POT}</td>
+                                    <td class="row2" align="left">{S_LAST_POT}</td>
+                                </tr>
+                                <tr>
+                                    <td class="row1">{L_LAST_LOT_DATE}</td>
+                                    <td class="row2" align="left">{S_LAST_LOT_DATE}</td>
+                                </tr>
+                                <tr>
+                                    <td class="row1">{L_CURRENT_SOLD_TICK}</td>
+                                    <td class="row2" align="left">{S_CURRENT_TICK_AM}</td>
+                                </tr>
+                                <tr>
+                                    <td class="row1">{L_SHOW_LOTTERY_PLAYERS}</td>
+                                    <td class="row2" align="left"><a href='viewtickets.php'>{L_CLICK_HERE}</a></td>
+                                </tr>
+                            </table>
+                            <br/>
+                            <table bgcolor="#FFFFFF" width="40%"  border="1" align="center">
+                              <tr>
+                                <td class="row1" align="center"><a href="casino.php">{L_CASINO}</a></td>
+                              </tr>
+                              <tr>
+                                <td class="row1" align="center"><a href="blackjack.php">{L_BLACKJACK}</a></td>
+                              </tr>
+                              <tr>
+                                <td class="row1" align="center"><a href="arcade.php">{L_ARCADE}</a></td>
+                              </tr>
+<!-- IF S_MOD_USERS -->
+                              <tr>
+                                <td class="row1" align="center"><a href="casino_player.php">{L_CASINO_PLAYER_LIST}</a></td>
+                              </tr>
+<!-- ENDIF -->
+<!-- IF S_LOTTERY_OPEN -->
+                                <tr>
+                                    <td class="row1" ><a href="tickets.php">{L_PLAY_LOTTERY_NOW}</a></td>
+                                </tr>
+<!-- ENDIF -->
+                            </table>
+                            <br/>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </td>
+    </tr>
+
+    </tr>
+</table>
+<br clear="all" />
+<!-- ELSEIF ACTION == view_users -->
+<table class="tablebg" width="100%" cellspacing="0">
+    <tr>
+        <td>
+            <div class="caption">
+                <div class="cap-left">
+                    <div class="cap-right">
+                    <a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnCasino_Players_Record');">{L_CASINO_PLAYER_REC}</a>
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr valign="middle">
+        <td  class="row3" >
+            <div id="nnCasino_Players_Record">
+            <p align="center"><strong>{L_CASINO_RESULTS}</strong></p>
+            <p align="center"><a href="casino.php">{L_BACK}</a></p>
+<!-- IF PAGINATION -->
+
+<div class="pagination" style="float: right; margin: 15px 0 15px 0">
+    <a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{S_ON_PAGE}</a> &bull; <span>{PAGINATION}</span>
+</div>
+<!-- ENDIF -->
+
+            <br clear="all" />
+            <center>
+            <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                <tr>
+                    <td class="colhead">{L_USER_NAME}</td>
+                    <td class="colhead" align="left">{L_UPLODED}</td>
+                    <td class="colhead" align="left">{L_DOWNED}</td>
+                    <td class="colhead" align="left">{L_RATIO}</td>
+                    <td class="colhead" align="left">{L_CASINO_DEPOSIT}</td>
+                    <td class="colhead" align="left">{L_WON}</td>
+                    <td class="colhead" align="left">{L_LOST}</td>
+                    <td class="colhead" align="left">{L_PLAYS}</td>
+                    <td class="colhead" align="left">{L_TOTAL}</td>
+                    <!-- IF S_MOD_MODE -->
+                    <td class="colhead" align="left">{L_EDIT_PLAYER}</td>
+                    <!-- ENDIF -->
+                </tr>
+                <!-- BEGIN userlist -->
+                <tr>
+                    <td bgcolor="#242424"><strong>{userlist.NAME}</strong></td>
+                    <td align="left" bgcolor="#242424">{userlist.UPL}</td>
+                    <td align="left" bgcolor="#242424">{userlist.DOWNL}</td>
+                    <td align="left" bgcolor="#242424">{userlist.RATIO}</td>
+                    <td align=center bgcolor="#242424">{userlist.DEPOSIT}</td>
+                    <td align="left" bgcolor="#242424">{userlist.WON}</td>
+                    <td align="left" bgcolor="#242424">{userlist.LOST}</td>
+                    <td align="left" bgcolor="#242424">{userlist.TRYS}</td>
+                    <td align="left" bgcolor="#242424">{userlist.ALL}</td>
+                    <!-- IF S_MOD_MODE -->
+                    <td align="left" bgcolor="#242424">
+                        <form name="edit-player" method="post" action="casino_player.php">
+                            <input type="hidden" name="player" value="{userlist.USERID}">
+                            <input type="hidden" name="action" value="edit_users">
+                            <input class="btn" type="submit" value="{L_EDIT_PLAYER}">
+                        </form>
+                    </td>
+                    <!-- ENDIF -->
+                </tr>
+                <!-- BEGINELSE -->
+                <tbody>
+                    <tr>
+                        <td class='casino' align='center' colspan='4'>{L_NO_OPEN_BETS}</td>
+                    </tr>
+                </tbody>
+                <!-- END userlist -->
+            </table>
+            </center>
+<!-- IF PAGINATION -->
+
+<div class="pagination" style="float: right; margin: 15px 0 2px 0">
+    <a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{S_ON_PAGE}</a> &bull; <span>{PAGINATION}</span>
+</div>
+<!-- ENDIF -->
+            </div>
+        </td>
+    </tr>
+</table>
+<br clear="all" />
+<!-- ELSEIF ACTION == edit_users -->
+<table class="tablebg" width="100%" cellspacing="0">
+    <tr>
+        <td>
+            <div class="caption">
+                <div class="cap-left">
+                    <div class="cap-right">
+                        <a class="c4" style="cursor: pointer;float:left;" onclick="toggle2('nnEdit_Player');">{L_EDIT_PLAYER}&nbsp;&nbsp;{S_USERNAME}</a>
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr valign="middle">
+        <td  class="row3" >
+            <div id="nnEdit_Player">
+                <p align=center><a href="casino_player.php">{L_BACK_PLAYER_LIST}</a><br />
+                <br /><a href="{U_ACTION}">{L_BACK_CASINO}</a></p>
+
+                <form name="edit-player" method="post" action="{U_ACTION}">
+                <input type="hidden" name="player" value="{L_S_ID}">
+                <table class="tablebg" width="100%" cellspacing="0">
+                    <tr>
+                        <td class="row1" width="35%"><b class="genmed">{L_RATIO}:</td>
+                        <td class="row2">{S_RATIO}</td>
+                    </tr>
+                    <tr>
+                        <td class="row1" width="35%">{L_WINNINGS}:</td>
+                        <td class="row2"><input type="text" name="won" value='{S_WIN}' >&nbsp;<span class="gensmall">{S_WIN_NICE}</span></td>
+                    </tr>
+                    <tr>
+                        <td class="row1" width="35%">{L_LOST}:</td>
+                        <td class="row2"><input type="text" name="lost" value='{S_LOST}' >&nbsp;<span class="gensmall">{S_LOST_NICE}</span></td>
+                    </tr>
+                    <tr>
+                        <td class="row1" width="35%">{L_PLAYS}</td>
+                        <td class="row2"><input type="text" name="trys" value='{S_TRYS}' ></td>
+                    </tr>
+                    <tr>
+                        <td class="row1" width="35%">{L_LAST_PLAY}:</td>
+                        <td class="row2"><input type="text" name="date" value='{S_DATE}' ></td>
+                    </tr>
+                    <tr>
+                        <td class="row1" width="35%">{L_BANN_CASINO}:</td>
+                        <td class="row2">
+                            <select name="enableplay">
+                                '.<option value="yes" <!-- IF S_STATUS -->checked<!-- ENDIF --> >{L_YES}</option>
+                                <option value="no" <!-- IF not S_STATUS -->checked<!-- ENDIF -->>{L_NO}</option>.'
+                            </select>
+                        </td>
+                    </tr>
+
+                </table>
+                </form>
+</div>
+</td></tr>
+
+</table>
+<br clear="all" />
+<!-- ENDIF -->
+
+<!-- INCLUDE themes/1thank/templates/overall_footer.html -->
