@@ -1653,3 +1653,10 @@ fieldset.permissions .padding {
 .phpinfo td, .phpinfo th, .phpinfo h2, .phpinfo h1 {
 	text-align: left;
 }
+
+::selection {
+  background: #ffb7b7; /* WebKit/Blink Browsers - Changes the Background Color of Selected Text */
+}
+::-moz-selection {
+  background: #ffb7b7; /* Gecko Browsers - Changes the Background Color of Selected Text */
+}
