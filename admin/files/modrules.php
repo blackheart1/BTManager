@@ -29,6 +29,7 @@ $id = (int)request_var('id', '0');
 $act = request_var('act', '');
 if ($act == "delete")
 {
+$id = (int)request_var('delete', '0');
 		if (confirm_box(true))
 		{
 			$sql = "DELETE FROM ".$db_prefix."_rules WHERE id = $id ";
@@ -47,7 +48,7 @@ if ($act == "delete")
 		{
 								$hidden = build_hidden_fields(array(
 								"act"			=>	$act,
-								"id"			=>	$id,
+								"delete"		=>	$id,
 								'i'				=>	'staff',
 								'op'			=>	'modrules'
 								));
@@ -192,6 +193,17 @@ if(count($level) < 1)
 				$message_parser->message = $msg;
 				$bbcode_uid = $message_parser->bbcode_uid;
 				$message_parser->parse($enable_bbcode, ($config['allow_post_links']) ? $enable_urls : false, $enable_smilies, $img_status, $flash_status, true, $config['allow_post_links']);
+				if (sizeof($message_parser->warn_msg))
+				{
+					$template->assign_vars(array(
+						'S_ERROR'			=> true,
+						'S_FORWARD'			=> false,
+						'TITTLE_M'			=> $user->lang['BT_ERROR'],
+						'MESSAGE'			=> implode('<br />', $message_parser->warn_msg) . '<br /><br /><a href="javascript:history.go(-1)"  onMouseOver="self.status=document.referrer;return true">' . $user->lang['GO_BACK'] . '</a>',
+					));
+					echo $template->fetch('message_body.html');
+					close_out();
+				}
 				$msg = $db->sql_escape(stripslashes($message_parser->message));
 				$sql = "INSERT INTO ".$db_prefix."_rules ( `id` , `title` , `text` , `bbcode_uid`, `bbcode_bitfield`, `public` , `level` )VALUES (NULL , '$title', '".$msg."', '" . $message_parser->bbcode_uid . "', '" . $message_parser->bbcode_bitfield . "', '$public', '[" . implode("],[",$level) ."]')";
 				if (!$db->sql_query($sql)) btsqlerror($sql);
@@ -206,162 +218,168 @@ if(count($level) < 1)
 					close_out();
 }
 //EDIT RULE
-elseif ($act == "edit"){
-//$id = $_POST["id"];
-$sql_rule = "select * from ".$db_prefix."_rules where id=$id;";
-$res_rule = $db->sql_query($sql_rule);
-$res = $db->sql_fetchrow($res_rule);
-$db->sql_freeresult($res_rule);
-$group_level = group_select_options_id(str_replace(array('[',']',','),array('','',';;'),$res["level"]));
-//die(print_r(preg_split("/;;[\\s]*/",str_replace(array('[',']',','),array('','',';;'),$res["level"]))));
-					
-					include_once('include/function_posting.php');
-					include_once('include/message_parser.php');
-					include_once('include/class.bbcode.php');
-					$message_parser = new parse_message();
-					$message_parser->message = $res["text"];
-					$message_parser->decode_message($res['bbcode_uid']);
-				generate_smilies('inline', 0);
-				$num_predefined_bbcodes = 22;
-				$s_pm_icons = false;
-				if (!isset($icon_id))
-				{
-					$icon_id = false;
-				}
-				if ($config['enable_pm_icons'])
-				{
-					$s_pm_icons = posting_gen_topic_icons('post', $icon_id);
-				}
-			
-				$sql = 'SELECT bbcode_id, bbcode_tag, bbcode_helpline
-					FROM '.$db_prefix.'_bbcodes
-					WHERE display_on_posting = 1
-					ORDER BY bbcode_tag';
-				$result = $db->sql_query($sql);
-			
-				$i = 0;
-				while ($row = $db->sql_fetchrow($result))
-				{
-					// If the helpline is defined within the language file, we will use the localised version, else just use the database entry...
-					if (isset($user->lang[strtoupper($row['bbcode_helpline'])]))
-					{
-						$row['bbcode_helpline'] = $user->lang[strtoupper($row['bbcode_helpline'])];
-					}
-			
-					$template->assign_block_vars('custom_tags', array(
-						'BBCODE_NAME'		=> "'[{$row['bbcode_tag']}]', '[/" . str_replace('=', '', $row['bbcode_tag']) . "]'",
-						'BBCODE_ID'			=> $num_predefined_bbcodes + ($i * 2),
-						'BBCODE_TAG'		=> str_replace('=', '', $row['bbcode_tag']),
-						'BBCODE_HELPLINE'	=> $row['bbcode_helpline'],
-						'A_BBCODE_HELPLINE'	=> str_replace(array('&amp;', '&quot;', "'", '&lt;', '&gt;'), array('&', '"', "\'", '<', '>'), $row['bbcode_helpline']),
-					));
-			
-					$i++;
-				}
-				$db->sql_freeresult($result);
-					$hidden = build_hidden_fields(array(
-								"id"			=>	$res['id'],
-								"act"			=>	'edited',
-								'i'				=>	'staff',
-								'op'			=>	'modrules'
-								));
-			$template->assign_vars(array(
-					'R_TITLE'					=>	$res['title'],
-					'R_RULES'					=>	$message_parser->message,
-					'R_PUBLIC'					=>	(($res["public"] == "yes")?true:false),
-					'GROUPS_LEVEL'					=>	$group_level,
-					'U_ACTION'					=>	'admin.php',
-					'HIDEN'						=>	$hidden,
-					'POS'						=>	'newsect',
-					'GROUPS'					=>	group_select_options_id('1;;2;;3'),
-					'S_BBCODE_QUOTE'			=> checkaccess("u_add_quote_details"),
-					'S_BBCODE_IMG'				=> checkaccess("u_add_imgbbcode_details"),
-					'S_LINKS_ALLOWED'			=> checkaccess("u_links_in_details"),
-					'S_BBCODE_FLASH'			=> checkaccess("u_flash_in_details"),
-					'S_BBCODE_ALLOWED'			=>	true,
-					'S_SMILIES_ALLOWED'			=>	true,
-					'S_SHOW_SMILEY_LINK'		=>	true,
-					'T_TEMPLATE_PATH'			=> 'themes/' . $theme . '/templates',
-					'U_MORE_SMILIES' 			=> append_sid("{$siteurl}/posting.$phpEx", 'mode=smilies&amp;f=' . $forum_id),
-			));
-		echo $template->fetch('admin/modrules.html');
-		close_out();
-
-}
-//DO EDIT RULE, UPDATE DB
-elseif ($act=="edited"){
-$msg = request_var('text', '',true);
-if($msg == '')
+elseif ($act == "edit")
+{
+	$sql_rule = "select * from ".$db_prefix."_rules where id=$id;";
+	$res_rule = $db->sql_query($sql_rule);
+	$res = $db->sql_fetchrow($res_rule);
+	$db->sql_freeresult($res_rule);
+	$group_level = group_select_options_id(str_replace(array('[',']',','),array('','',';;'),$res["level"]));
+	include_once('include/function_posting.php');
+	include_once('include/message_parser.php');
+	include_once('include/class.bbcode.php');
+	$message_parser = new parse_message();
+	$message_parser->message = $res["text"];
+	$message_parser->decode_message($res['bbcode_uid']);
+	generate_smilies('inline', 0);
+	$num_predefined_bbcodes = 22;
+	$s_pm_icons = false;
+	if (!isset($icon_id))
 	{
-					$template->assign_vars(array(
-						'S_ERROR'			=> true,
-						'S_FORWARD'			=> false,
-						'TITTLE_M'			=> $user->lang['BT_ERROR'],
-						'MESSAGE'			=> $user->lang['RULES_FEALD_BLANK'] . '<br /><br /><a href="javascript:history.go(-1)"  onMouseOver="self.status=document.referrer;return true">' . $user->lang['GO_BACK'] . '</a>',
-					));
-					echo $template->fetch('message_body.html');
-					close_out();
+		$icon_id = false;
+	}
+	if ($config['enable_pm_icons'])
+	{
+		$s_pm_icons = posting_gen_topic_icons('post', $icon_id);
 	}
 
-$title = request_var('title', '',true);
-if($title == '')
+	$sql = 'SELECT bbcode_id, bbcode_tag, bbcode_helpline
+		FROM '.$db_prefix.'_bbcodes
+		WHERE display_on_posting = 1
+		ORDER BY bbcode_tag';
+	$result = $db->sql_query($sql);
+
+	$i = 0;
+	while ($row = $db->sql_fetchrow($result))
 	{
-					$template->assign_vars(array(
-						'S_ERROR'			=> true,
-						'S_FORWARD'			=> false,
-						'TITTLE_M'			=> $user->lang['BT_ERROR'],
-						'MESSAGE'			=> $user->lang['TITLE_BLANK'] . '<br /><br /><a href="javascript:history.go(-1)"  onMouseOver="self.status=document.referrer;return true">' . $user->lang['GO_BACK'] . '</a>',
+		// If the helpline is defined within the language file, we will use the localised version, else just use the database entry...
+		if (isset($user->lang[strtoupper($row['bbcode_helpline'])]))
+		{
+			$row['bbcode_helpline'] = $user->lang[strtoupper($row['bbcode_helpline'])];
+		}
+
+		$template->assign_block_vars('custom_tags', array(
+			'BBCODE_NAME'		=> "'[{$row['bbcode_tag']}]', '[/" . str_replace('=', '', $row['bbcode_tag']) . "]'",
+			'BBCODE_ID'			=> $num_predefined_bbcodes + ($i * 2),
+			'BBCODE_TAG'		=> str_replace('=', '', $row['bbcode_tag']),
+			'BBCODE_HELPLINE'	=> $row['bbcode_helpline'],
+			'A_BBCODE_HELPLINE'	=> str_replace(array('&amp;', '&quot;', "'", '&lt;', '&gt;'), array('&', '"', "\'", '<', '>'), $row['bbcode_helpline']),
+		));
+
+		$i++;
+	}
+	$db->sql_freeresult($result);
+		$hidden = build_hidden_fields(array(
+					"id"			=>	$res['id'],
+					"act"			=>	'edited',
+					'i'				=>	'staff',
+					'op'			=>	'modrules'
 					));
-					echo $template->fetch('message_body.html');
-					close_out();
+	$template->assign_vars(array(
+			'R_TITLE'					=>	$res['title'],
+			'R_RULES'					=>	$message_parser->message,
+			'R_PUBLIC'					=>	(($res["public"] == "yes")?true:false),
+			'GROUPS_LEVEL'					=>	$group_level,
+			'U_ACTION'					=>	'admin.php',
+			'HIDEN'						=>	$hidden,
+			'POS'						=>	'newsect',
+			'GROUPS'					=>	group_select_options_id('1;;2;;3'),
+			'S_BBCODE_QUOTE'			=> checkaccess("u_add_quote_details"),
+			'S_BBCODE_IMG'				=> checkaccess("u_add_imgbbcode_details"),
+			'S_LINKS_ALLOWED'			=> checkaccess("u_links_in_details"),
+			'S_BBCODE_FLASH'			=> checkaccess("u_flash_in_details"),
+			'S_BBCODE_ALLOWED'			=>	true,
+			'S_SMILIES_ALLOWED'			=>	true,
+			'S_SHOW_SMILEY_LINK'		=>	true,
+			'T_TEMPLATE_PATH'			=> 'themes/' . $theme . '/templates',
+			'U_MORE_SMILIES' 			=> append_sid("{$siteurl}/posting.$phpEx", 'mode=smilies&amp;f=' . $forum_id),
+	));
+	echo $template->fetch('admin/modrules.html');
+	close_out();
+}
+//DO EDIT RULE, UPDATE DB
+elseif ($act=="edited")
+{
+	$msg = request_var('text', '',true);
+	if($msg == '')
+	{
+		$template->assign_vars(array(
+			'S_ERROR'			=> true,
+			'S_FORWARD'			=> false,
+			'TITTLE_M'			=> $user->lang['BT_ERROR'],
+			'MESSAGE'			=> $user->lang['RULES_FEALD_BLANK'] . '<br /><br /><a href="javascript:history.go(-1)"  onMouseOver="self.status=document.referrer;return true">' . $user->lang['GO_BACK'] . '</a>',
+		));
+		echo $template->fetch('message_body.html');
+		close_out();
+	}
+
+	$title = request_var('title', '',true);
+	if($title == '')
+	{
+		$template->assign_vars(array(
+			'S_ERROR'			=> true,
+			'S_FORWARD'			=> false,
+			'TITTLE_M'			=> $user->lang['BT_ERROR'],
+			'MESSAGE'			=> $user->lang['TITLE_BLANK'] . '<br /><br /><a href="javascript:history.go(-1)"  onMouseOver="self.status=document.referrer;return true">' . $user->lang['GO_BACK'] . '</a>',
+		));
+		echo $template->fetch('message_body.html');
+		close_out();
 	}
 $public = request_var('public', '');
 if($public == '')
 	{
-					$template->assign_vars(array(
-						'S_ERROR'			=> true,
-						'S_FORWARD'			=> false,
-						'TITTLE_M'			=> $user->lang['BT_ERROR'],
-						'MESSAGE'			=> $user->lang['PUPLIC_FEALD_BLANK'] . '<br /><br /><a href="javascript:history.go(-1)"  onMouseOver="self.status=document.referrer;return true">' . $user->lang['GO_BACK'] . '</a>',
-					));
-					echo $template->fetch('message_body.html');
-					close_out();
+		$template->assign_vars(array(
+			'S_ERROR'			=> true,
+			'S_FORWARD'			=> false,
+			'TITTLE_M'			=> $user->lang['BT_ERROR'],
+			'MESSAGE'			=> $user->lang['PUPLIC_FEALD_BLANK'] . '<br /><br /><a href="javascript:history.go(-1)"  onMouseOver="self.status=document.referrer;return true">' . $user->lang['GO_BACK'] . '</a>',
+		));
+		echo $template->fetch('message_body.html');
+		close_out();
 	}
 $level = request_var('level', array(0));
 if(count($level) < 1)
 	{
-					$template->assign_vars(array(
-						'S_ERROR'			=> true,
-						'S_FORWARD'			=> false,
-						'TITTLE_M'			=> $user->lang['BT_ERROR'],
-						'MESSAGE'			=> $user->lang['GROUP_NOT_SET'] . '<br /><br /><a href="javascript:history.go(-1)"  onMouseOver="self.status=document.referrer;return true">' . $user->lang['GO_BACK'] . '</a>',
-					));
-					echo $template->fetch('message_body.html');
-					close_out();
+		$template->assign_vars(array(
+			'S_ERROR'			=> true,
+			'S_FORWARD'			=> false,
+			'TITTLE_M'			=> $user->lang['BT_ERROR'],
+			'MESSAGE'			=> $user->lang['GROUP_NOT_SET'] . '<br /><br /><a href="javascript:history.go(-1)"  onMouseOver="self.status=document.referrer;return true">' . $user->lang['GO_BACK'] . '</a>',
+		));
+		echo $template->fetch('message_body.html');
+		close_out();
 	}
-				
-				include_once('include/function_posting.php');
-				include_once('include/message_parser.php');
-				include_once('include/class.bbcode.php');
-				$bbcode_status		= ($config['allow_bbcode'] && $config['auth_bbcode_pm'] && checkaccess('u_add_bbcode_details')) ? true : false;
-				$smilies_status		= ($config['allow_smilies'] && $config['auth_smilies_pm'] && checkaccess('u_add_smiles_to_details')) ? true : false;
-				$img_status			= ($config['auth_img_pm'] && checkaccess('u_add_imgbbcode_details')) ? true : false;
-				$flash_status		= ($config['auth_flash_pm'] && checkaccess('u_flash_in_details')) ? true : false;
-				$url_status			= ($config['allow_post_links'] && checkaccess('u_links_in_details')) ? true : false;
-				$enable_sig			= ($config['allow_sig'] && $config['allow_sig_pm'] && checkaccess('u_sig'));
-				$enable_smilies		= ($config['allow_smilies'] && checkaccess('u_add_smiles_to_details'));
-				$enable_bbcode		= ($config['allow_bbcode'] && checkaccess('u_add_bbcode_details'));
-				$enable_urls		= ($config['enable_urls'] && checkaccess('u_links_in_details'))?true:false;
-				$message_parser = new parse_message();
-				$message_parser->message = $msg;
-				$bbcode_uid = $message_parser->bbcode_uid;
-				$message_parser->parse($enable_bbcode, ($config['allow_post_links']) ? $enable_urls : false, $enable_smilies, $img_status, $flash_status, true, $config['allow_post_links']);
-				$msg = $db->sql_escape(stripslashes($message_parser->message));
-$sql = "UPDATE ".$db_prefix."_rules set title='$title', text = '".$msg."', public='$public', level='[" . implode("],[",$level) ."]', bbcode_uid='" . $bbcode_uid . "', bbcode_bitfield='" . $message_parser->bbcode_bitfield . "' where id='$id'";
-//die($sql);
-if (!$db->sql_query($sql)) btsqlerror($sql);
-				//$sql = "INSERT INTO ".$db_prefix."_rules ( `id` , `title` , `text` , ` 	bbcode_uid`, `bbcode_bitfield`, `public` , `level` )VALUES (NULL , '$title', '".$msg."', '" . $message_parser->bbcode_bitfield . "', '" . $message_parser->bbcode_uid . "', '$public', '[" . implode("],[",$level) ."]')";
-//header("Refresh: 0; url=admin.php?i=staff&op=modrules");
+	
+	include_once('include/function_posting.php');
+	include_once('include/message_parser.php');
+	include_once('include/class.bbcode.php');
+	$bbcode_status		= ($config['allow_bbcode'] && $config['auth_bbcode_pm'] && checkaccess('u_add_bbcode_details')) ? true : false;
+	$smilies_status		= ($config['allow_smilies'] && $config['auth_smilies_pm'] && checkaccess('u_add_smiles_to_details')) ? true : false;
+	$img_status			= ($config['auth_img_pm'] && checkaccess('u_add_imgbbcode_details')) ? true : false;
+	$flash_status		= ($config['auth_flash_pm'] && checkaccess('u_flash_in_details')) ? true : false;
+	$url_status			= ($config['allow_post_links'] && checkaccess('u_links_in_details')) ? true : false;
+	$enable_sig			= ($config['allow_sig'] && $config['allow_sig_pm'] && checkaccess('u_sig'));
+	$enable_smilies		= ($config['allow_smilies'] && checkaccess('u_add_smiles_to_details'));
+	$enable_bbcode		= ($config['allow_bbcode'] && checkaccess('u_add_bbcode_details'));
+	$enable_urls		= ($config['enable_urls'] && checkaccess('u_links_in_details'))?true:false;
+	$message_parser = new parse_message();
+	$message_parser->message = $msg;
+	$bbcode_uid = $message_parser->bbcode_uid;
+	$message_parser->parse($enable_bbcode, ($config['allow_post_links']) ? $enable_urls : false, $enable_smilies, $img_status, $flash_status, true, $config['allow_post_links']);
+	if (sizeof($message_parser->warn_msg))
+	{
+		$template->assign_vars(array(
+			'S_ERROR'			=> true,
+			'S_FORWARD'			=> false,
+			'TITTLE_M'			=> $user->lang['BT_ERROR'],
+			'MESSAGE'			=> implode('<br />', $message_parser->warn_msg) . '<br /><br /><a href="javascript:history.go(-1)"  onMouseOver="self.status=document.referrer;return true">' . $user->lang['GO_BACK'] . '</a>',
+		));
+		echo $template->fetch('message_body.html');
+		close_out();
+	}
+	$msg = $db->sql_escape(stripslashes($message_parser->message));
+	$sql = "UPDATE ".$db_prefix."_rules set title='$title', text = '".$msg."', public='$public', level='[" . implode("],[",$level) ."]', bbcode_uid='" . $bbcode_uid . "', bbcode_bitfield='" . $message_parser->bbcode_bitfield . "' where id='$id'";
+	if (!$db->sql_query($sql)) btsqlerror($sql);
 							$template->assign_vars(array(
 								'S_USER_NOTICE'			=> true,
 								'META'				=>	meta_refresh(3,'admin.php?i=staff&op=modrules#modrules'),

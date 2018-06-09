@@ -59,6 +59,8 @@ $lang = array_merge($lang, array(
     'IS_PUBLIC_EXP'        => 'Public Rules can be seen by Unregistered Users and ALL Groups',
     'VIEWABL_BY'           => 'Select a Group for this Rule.',
     'VIEWABL_BY_EXP'       => 'These Rules Apply to these Groups and will ONLY be seen by them.',
+	'CONFIRM_DELETE_RULE'	=> 'Are You Sure you wish to Remove this Rule?',
+	'DELETE_SUCCESS'		=> 'Rule Has Been Removed',
 ));
 
 ?>

@@ -177,7 +177,17 @@ elseif ($action == "edititem" && $fid != NULL && $question != NULL && $answer !=
 	$message_parser = new parse_message();
 	$message_parser->message = $answer;
 	$message_parser->parse($enable_bbcode, true, $enable_smilies, $img_status, $flash_status, true, $config['allow_post_links'],true,true,true,'shout');
-	//die($message_parser->message);
+	if (sizeof($message_parser->warn_msg))
+	{
+		$template->assign_vars(array(
+			'S_ERROR'			=> true,
+			'S_FORWARD'			=> false,
+			'TITTLE_M'			=> $user->lang['BT_ERROR'],
+			'MESSAGE'			=> implode('<br />', $message_parser->warn_msg) . '<br /><br /><a href="javascript:history.go(-1)"  onMouseOver="self.status=document.referrer;return true">' . $user->lang['GO_BACK'] . '</a>',
+		));
+		echo $template->fetch('message_body.html');
+		close_out();
+	}
 	$sql_ary	= array(
 	'`question`'			=> $question,
 	'`answer`'				=> $message_parser->message,
@@ -373,6 +383,17 @@ elseif ($action == "addnewitem" && $question != NULL && $answer != NULL && $flag
 	$message_parser->message = $answer;
 	$bbcode_uid = $message_parser->bbcode_uid;
 	$message_parser->parse($enable_bbcode, ($config['allow_post_links']) ? $enable_urls : false, $enable_smilies, $img_status, $flash_status, true, $config['allow_post_links'],true,true,true,'shout');
+	if (sizeof($message_parser->warn_msg))
+	{
+		$template->assign_vars(array(
+			'S_ERROR'			=> true,
+			'S_FORWARD'			=> false,
+			'TITTLE_M'			=> $user->lang['BT_ERROR'],
+			'MESSAGE'			=> implode('<br />', $message_parser->warn_msg) . '<br /><br /><a href="javascript:history.go(-1)"  onMouseOver="self.status=document.referrer;return true">' . $user->lang['GO_BACK'] . '</a>',
+		));
+		echo $template->fetch('message_body.html');
+		close_out();
+	}
 	$sql_ary = array(
 	'`type`'					=> 'item',
 	'`question`'				=> $question,
