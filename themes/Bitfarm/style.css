@@ -793,6 +793,11 @@ td.postbottom {
 	padding: 4px;
 	color: #444;
 }
+.row1 reported, .row2 reported, .row3 reported, .forumrules reported, tr.row1 reported .row reported, tr.row2 reported .row reported, tr.row3 reported .row reported, .postbottom {
+	background: #E6EAF0 url(images/cell.gif) top left repeat-x;
+	padding: 4px;
+	color: #444;
+}
 td.postbuttons { padding-top: 3px; }
 .postdetails f {
 	color: #444;
@@ -1094,6 +1099,9 @@ fieldset {
 	border: 1px solid #666666;
 }
 
+.row1 reported {
+    background-color: #EBF0F3;
+}
 .row2 {
     background-color: #EBF0F3;
 	border: 1px solid #666666;
@@ -1102,7 +1110,7 @@ fieldset {
     background-color: #83B842;
 	border-left: solid 2px #EBF0F3;
 	border-right: solid 2px #EBF0F3;
-	border-top: solid 2px ##EBF0F3;
+	border-top: solid 2px #EBF0F3;
 	border-bottom: solid 2px #EBF0F3;
     border-radius: 8px 8px 8px 8px;
     box-shadow: 0 0 3px 0 #000000;
@@ -1298,6 +1306,7 @@ width : 188px;
 }
 #searchcloud {
 color : #980000;
+
 }
 #searchcloud a:link {
 text-decoration : none;
@@ -2374,6 +2383,12 @@ dl.codebox dt {
     background-color: #C1D289;
     border: 1px solid #BBBBBB;
     box-shadow: 0 0 0 1px #FFFFFF inset;
+}
+
+.reported {
+	background-color: #F7ECEF !important;
+	border-color:#c30206 !important;
+	border: 2px #F7ECEF !important;
 }
 
 ::selection {

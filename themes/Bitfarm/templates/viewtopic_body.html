@@ -133,7 +133,7 @@
 	<!-- IF postrow.S_FIRST_ROW or $CA_SPLIT_POSTS -->
 	{$CA_BLOCK_START}
 	{$CA_CAP2_START}{TOPIC_TITLE}{$CA_CAP2_END}
-	<table class="tablebg" width="100%" cellspacing="{$CA_SPACING}">
+	<table class="tablebg<!-- IF postrow.S_POST_REPORTED --> reported<!-- ENDIF -->" width="100%" cellspacing="{$CA_SPACING}">
         <!-- IF not $CA_SPLIT_POSTS -->
         <tr>
             <th>{L_AUTHOR}</th>
@@ -141,7 +141,7 @@
         </tr>
         <!-- ENDIF -->
 	<!-- ENDIF -->
-	<!-- IF postrow.S_ROW_COUNT is even --><tr class="row1"><!-- ELSE --><tr class="row2"><!-- ENDIF -->
+	<!-- IF postrow.S_ROW_COUNT is even --><tr class="<!-- IF postrow.S_POST_REPORTED -->reported<!-- ELSE -->row1<!-- ENDIF -->"><!-- ELSE --><tr class="<!-- IF postrow.S_POST_REPORTED -->reported<!-- ELSE -->row2<!-- ENDIF -->"><!-- ENDIF -->
 
 	<!-- IF postrow.S_IGNORE_POST -->
 			<td class="gensmall row" colspan="2" height="25" align="center"><!-- IF postrow.S_FIRST_UNREAD --><a name="unread"></a><!-- ENDIF --><a name="p{postrow.POST_ID}"></a>{postrow.L_IGNORE_POST}</td>
