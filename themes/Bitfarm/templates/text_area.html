@@ -76,12 +76,16 @@
 
             <input class="button2" accesskey="w" name="addbbcode16" value="URL" style="text-decoration: underline; width: 40px" onclick="bbstyle(16)" onmouseover="helpline('w')" onmouseout="helpline('tip')" type="button">
 
-            {L__FONT_SIZE}: <select name="addbbcode20" onchange="bbfontstyle('[size=' + this.form.addbbcode20.options[this.form.addbbcode20.selectedIndex].value + ']', '[/size]');this.form.addbbcode20.selectedIndex = 2;" onmouseover="helpline('f')" onmouseout="helpline('tip')">
-                <option value="7">{L__FONT_TINY}</option>
-                <option value="9">{L__FONT_SMALL}</option>
-                <option value="12" selected="selected">{L__FONT_NORMAL}</option>
-                <option value="18">{L__FONT_LARGE}</option>
-                <option value="24">{L__FONT_HUGE}</option>
+ 	<!-- BEGIN custom_tags -->
+			<input class="button2" accesskey="cb_{custom_tags.BBCODE_ID}" name="addbbcode{custom_tags.BBCODE_ID}" value="{custom_tags.BBCODE_TAG}" onmouseover="helpline('cb_{custom_tags.BBCODE_ID}')" onmouseout="helpline('tip')" onclick="bbstyle({custom_tags.BBCODE_ID})" type="button" />
+	<!-- END custom_tags -->
+    		<br />
+           {L__FONT_SIZE}: <select name="addbbcode20" onchange="bbfontstyle('[size=' + this.form.addbbcode20.options[this.form.addbbcode20.selectedIndex].value + ']', '[/size]');this.form.addbbcode20.selectedIndex = 2;" onmouseover="helpline('f')" onmouseout="helpline('tip')">
+                <option value="50">{L__FONT_TINY}</option>
+                <option value="85">{L__FONT_SMALL}</option>
+                <option value="100" selected="selected">{L__FONT_NORMAL}</option>
+                <option value="150">{L__FONT_LARGE}</option>
+                <option value="200">{L__FONT_HUGE}</option>
             </select>
 
         </div>
@@ -91,7 +95,7 @@
                       {L__FONT_COLOR}:
                         <script type="text/javascript">
                         // <![CDATA[
-                            colorPalette('h', 16, 7)
+                            colorPalette('h', 25, 7)
                         // ]]>
                         </script>
                                 <!-- ENDIF -->
