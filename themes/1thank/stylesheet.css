@@ -4,7 +4,7 @@
 	Based on style:	proSilver (this is the default phpBB 3 style)
 	Original author:	subBlue ( http://www.subBlue.com/ )
 	Modified by: 	gokinstudio	( http://www.gokinstudio.com/ )
-
+	
 	Copyright 2006 phpBB Group ( http://www.phpbb.com/ )
     --------------------------------------------------------------
 */
@@ -113,7 +113,7 @@ p.right {
 
 /* Border
 ---------------------------------------- */
-.border-left {
+.border-left { 
     background: url("images/border_left.gif") #FFFFFF repeat-y 0 0;
 }
 
@@ -121,8 +121,8 @@ p.right {
     background: url("images/border_right.gif") repeat-y 100% 0;
 }
 
-.border-top {
-    background: url("images/border_top.gif") repeat-x 0 0;
+.border-top { 
+    background: url("images/border_top.gif") repeat-x 0 0; 
 }
 
 .border-top-left {
@@ -134,21 +134,21 @@ p.right {
     width: 100%;
 }
 
-.border-bottom {
+.border-bottom { 
     background: url("images/border_bottom2.gif") repeat-x 0 100%;
 }
 
 .border-bottom span {
     background: url("images/border_bottom.gif") no-repeat 0 0;
     display: block;
-    height: 18px;
+    height: 18px; 
 }
 
-.border-bottom span span {
+.border-bottom span span { 
     background-position: 100% -18px;
 }
 
-.inside {
+.inside { 
     padding: 17px 27px 10px 27px;
 }
 
@@ -246,7 +246,7 @@ a#logo:hover {
 
 .navbar {
 	background-color: #ebebeb;
-	background-image: url("images/gradient.gif");
+	background-image: url("images/gradient.gif"); 
 	background-repeat: repeat-x;
 	font-size:9px;
 	padding: 0 10px;
@@ -261,7 +261,7 @@ a#logo:hover {
 
 .forumbg {
 	background: #ebebeb 0 0;
-	background-image: url("images/gradient.gif");
+	background-image: url("images/gradient.gif"); 
 	background-repeat: repeat-x;
 	margin-bottom: 4px;
 	padding: 0 5px;
@@ -483,7 +483,7 @@ table.info tbody th {
 
 /* Misc layout styles
 ---------------------------------------- */
-/* column[1-2] styles are containers for two column layouts
+/* column[1-2] styles are containers for two column layouts 
    Also see tweaks.css */
 .column1 {
 	float: left;
@@ -802,16 +802,16 @@ a.topictitle:active {
 }
 
 
-/* Profile searchresults */
+/* Profile searchresults */	
 .search .postprofile a {
 	color: #898989;
-	text-decoration: none;
+	text-decoration: none; 
 	font-weight: normal;
 }
 
 .search .postprofile a:hover {
 	color: #d3d3d3;
-	text-decoration: underline;
+	text-decoration: underline; 
 }
 
 /* Back to top of page */
@@ -1124,6 +1124,7 @@ div[class].topic-actions {
 	font-size: 1.5em;
 }
 
+
 .postbody h3 {
 	/* Postbody requires a different h3 format - so change it here */
 	font-size: 1.3em;
@@ -1324,7 +1325,7 @@ blockquote blockquote {
 	/* Nested quotes */
 	background-color: #bababa;
 	font-size: 1em;
-	margin: 0.5em 1px 0 15px;
+	margin: 0.5em 1px 0 15px;	
 }
 
 blockquote blockquote blockquote {
@@ -1395,7 +1396,7 @@ dl.codebox code {
 ----------------------------------------*/
 .attachbox {
 	float: left;
-	width: auto;
+	width: auto; 
 	margin: 5px 5px 5px 0;
 	padding: 6px;
 	background-color: #FFFFFF;
@@ -1477,7 +1478,7 @@ dl.file dt {
 dl.file dd {
 	color: #666666;
 	margin: 0;
-	padding: 0;
+	padding: 0;	
 }
 
 dl.thumbnail img {
@@ -1878,7 +1879,7 @@ ol.def-rules li {
 
 .pmlist li.pm_replied_colour, .pm_replied_colour {
 	border: solid 3px #c2c2c2;
-	border-width: 0 3px;
+	border-width: 0 3px;	
 }
 
 .pmlist li.pm_friend_colour, .pm_friend_colour {
@@ -1982,7 +1983,7 @@ fieldset dl {
 }
 
 fieldset dt {
-	float: left;
+	float: left;	
 	width: 40%;
 	text-align: left;
 	display: block;
@@ -2298,7 +2299,7 @@ input.search {
 .tiny { width: 10%;}
 /* proSilver Style Sheet Tweaks
 
-These style definitions are mainly IE specific
+These style definitions are mainly IE specific 
 tweaks required due to its poor CSS support.
 -------------------------------------------------*/
 
@@ -2340,12 +2341,12 @@ html>body dd label input { vertical-align: text-bottom; }	/* Align checkboxes/ra
 * html .column1, * html .column2 { width: 45%; }
 
 /* Nice method for clearing floated blocks without having to insert any extra markup (like spacer above)
-   From http://www.positioniseverything.net/easyclearing.html
+   From http://www.positioniseverything.net/easyclearing.html 
 #tabs:after, #minitabs:after, .post:after, .navbar:after, fieldset dl:after, ul.topiclist dl:after, ul.linklist:after, dl.polls:after {
-	content: ".";
-	display: block;
-	height: 0;
-	clear: both;
+	content: "."; 
+	display: block; 
+	height: 0; 
+	clear: both; 
 	visibility: hidden;
 }*/
 
@@ -2388,7 +2389,7 @@ dl.icon {
 	margin-left: 30%;
 	float: none;
 }
-/*
+/*  	
 --------------------------------------------------------------
 Colours and backgrounds for common.css
 -------------------------------------------------------------- */
@@ -2643,7 +2644,7 @@ p.rules {
 	background-image: none;
 }
 
-/*
+/*  	
 --------------------------------------------------------------
 Colours and backgrounds for links.css
 -------------------------------------------------------------- */
@@ -2732,7 +2733,7 @@ a.topictitle:active {
 	color: #B51319;
 }
 
-/* Profile searchresults */
+/* Profile searchresults */	
 .search .postprofile a {
 	color: #5a5a5a;
 }
@@ -2769,7 +2770,7 @@ a.right:hover {
 }
 
 
-/*
+/*  	
 --------------------------------------------------------------
 Colours and backgrounds for content.css
 -------------------------------------------------------------- */
@@ -2777,7 +2778,7 @@ Colours and backgrounds for content.css
 
 ul.forums {
 	background-color: #FFFFFF;
-	background-image: url("images/gradient.gif");
+	background-image: url("images/gradient.gif"); 
 	background-repeat: repeat-x;
 }
 
@@ -2803,7 +2804,7 @@ ul.topiclist li.row dt a.subforum.unread {
 }
 li.row {
 	background-color: #E8ECEE;
-	background-image: url("images/gradient.gif");
+	background-image: url("images/gradient.gif"); 
 	background-repeat: repeat-x;
 }
 
@@ -3060,7 +3061,7 @@ fieldset.polls dd div {
 	background-image: url("imageset/english/icon_user_online.gif");
 }
 
-/*
+/*  	
 --------------------------------------------------------------
 Colours and backgrounds for buttons.css
 -------------------------------------------------------------- */
@@ -3123,7 +3124,7 @@ a.fontsize {
 .info-icon, .info-icon a			{ background-image: url("imageset/icon_post_info.gif"); }
 .warn-icon, .warn-icon a			{ background-image: url("imageset/icon_user_warn.gif"); } /* Need updated warn icon */
 
-/*
+/*  	
 --------------------------------------------------------------
 Colours and backgrounds for cp.css
 -------------------------------------------------------------- */
@@ -3225,6 +3226,7 @@ ul.cplist {
 }
 
 /* Preferences pane layout
+
 ----------------------------------------*/
 #cp-main h2 {
 	color: #333333;
@@ -3319,7 +3321,7 @@ pmlist li.pm_foe_colour, .pm_foe_colour {
 	background-color: #EEE;
 }
 
-/*
+/*  	
 --------------------------------------------------------------
 Colours and backgrounds for forms.css
 -------------------------------------------------------------- */
@@ -3369,7 +3371,7 @@ fieldset.quick-login input.inputbox {
 /* Input field styles
 ---------------------------------------- */
 .inputbox {
-	background-color: #FFFFFF;
+	background-color: #FFFFFF; 
 	border-color: #B4BAC0;
 	color: #333333;
 }
@@ -3635,6 +3637,108 @@ body {
 ::selection {
   background: #ffb7b7; /* WebKit/Blink Browsers - Changes the Background Color of Selected Text */
 }
+
 ::-moz-selection {
   background: #ffb7b7; /* Gecko Browsers - Changes the Background Color of Selected Text */
 }
+
+/* imdb style start */
+.imdb_star {
+background-position:-180px -71px;
+width:66px;
+height:66px;
+line-height:66px;
+display:inline-block;
+text-align:center;
+vertical-align:middle;
+font-size:15px;
+font-weight:bold;
+color:black;
+font-family:tahoma;
+float:left;
+padding-right:5px;
+background-image:url(img/imdb_style.png);
+display:inline-block;
+vertical-align:middle;
+}
+table#name-overview-widget-layout td#overview-middle div.pro-list,table#title-overview-widget-layout td#overview-bottom div.pro-list,table#title-overview-widget-layout td#overview-bottom div.pro-list-wide,table#title-overview-widget-layout td#overview-bottom div.pro-list-watchlist,table#title-overview-widget-layout td#overview-bottom div.pro-list-no-trailer-watchlist{border-top:1px dotted #ccc;font-size:11px;line-height:140%;padding:8px 0 10px}
+table#title-overview-widget-layout td#overview-bottom div.pro-list{margin-top:6px;margin-left:30%;padding-bottom:5px}
+table#title-overview-widget-layout td#overview-bottom div.pro-list-no-trailer{margin:0;margin-top:6px;margin-left:253px;padding-bottom:5px}
+table#title-overview-widget-layout td#overview-bottom div.pro-list-watchlist{margin-top:6px;margin-left:372px;padding-bottom:5px}
+table#title-overview-widget-layout td#overview-bottom div.pro-list-no-trailer-watchlist{margin-top:6px;margin-left:253px;padding-bottom:5px}
+table#title-overview-widget-layout{margin-bottom:15px}
+table#name-overview-widget-layout,div#title-overview-widget table#title-overview-widget-layout{margin-bottom:0}
+table#title-overview-widget-layout td#overview-bottom,table#name-overview-widget-layout td#overview-bottom{padding-top:6px}
+table#title-overview-widget-layout td#overview-top .rightcornerlink,table#name-overview-widget-layout td#overview-top .rightcornerlink{font-size:10px;padding:6px 0 0 7px;width:64px}
+table#title-overview-widget-layout td#overview-top .txt-block{margin-right:7px}
+table#title-overview-widget-layout .tv-series-smaller{font-size:13px;white-space:nowrap}
+td#img_primary{padding:0 14px 0 0;vertical-align:top}
+td#img_primary img{border:1px solid #ddd;margin:-11px 0 -4px -1px}
+.article.title-overview,.article.name-overview{padding:10px 12px 0 0;position:relative;border:solid 1px #ddd}
+#overview-top div.txt-block span{color:#999;font-size:11px;background-image:url(img/content_bg.png!important);}
+td#overview-top{vertical-align:top;width:100%}
+td#overview-top div.txt-block span{font-size:inherit}
+td#overview-top div.txt-block a span.itemprop{color:#136cb2}
+table#name-overview-widget-layout td#overview-top div.no-pic-wrapper{position:relative;margin-bottom:12px}
+table#name-overview-widget-layout td#overview-top div.no-pic-wrapper img.no-pic-image{position:absolute;left:-14px;top:-10px}
+table#name-overview-widget-layout td#overview-top div.no-pic-wrapper div.no-pic-text-column{position:relative;margin-left:51px;border-bottom:1px dotted #ccc;min-height:58px}
+table#name-overview-widget-layout td#overview-top div.no-pic-wrapper div#warplink.rightcornerlink{position:absolute;right:0;top:0;float:none}
+.us_r{background-position:-165px -3px;height:16px;width:18px}
+.us_g{background-position:-72px -3px;height:16px;width:17px}
+.us_pg{background-position:-91px -3px;height:16px;width:27px}
+.us_pg_13{background-position:-119px -3px;height:16px;width:44px}
+.us_nc_17{background-position:-185px -3px;height:16px;width:44px}
+.us_unrated{background-position:-219px -20px;height:16px;width:29px}
+.us_not_rated{background-position:-188px -20px;height:16px;width:29px}
+.us_approved{background-position:-2px -2px;height:18px;width:68px}
+.us_x{background-position:-231px -3px;height:16px;width:15px}
+.us_tv_g{background-position:-2px -20px;height:16px;width:24px}
+.us_tv_pg{background-position:-28px -20px;height:16px;width:32px}
+.us_tv_y{background-position:-61px -20px;height:16px;width:24px}
+.us_tv_y7{background-position:-86px -20px;height:16px;width:32px}
+.us_tv_14{background-position:-119px -20px;height:16px;width:30px}
+.us_tv_ma{background-position:-151px -20px;height:16px;width:35px}
+label span.titlePageSprite{vertical-align:baseline}
+.watchOption .titlePageSprite{padding-top:2px}
+.watch-other-options span.titlePageSprite{float:left;margin-right:6px;padding:0}
+#watch-popover .option span.titlePageSprite{float:left;margin-right:5px;padding-top:2px}
+#watch-popover .tv-zip-location span.titlePageSprite{float:left;margin-right:6px}
+h1.header2 span.title-extra{display:block;font-size:13px;margin-top:-0.3em!important}
+.article h1.header2 span.itemprop{color:#333;font-size:21px;font-weight:bold!important}
+.article h1.header2{margin:0;padding:0;border-bottom:medium none!important}
+.article h1.header2 span{color:#666;font-size:15px;font-weight:normal!important}
+.redesign h2.tv_header{margin:0 0 2px;color:#333;font-size:15px!important}
+.redesign h2.tv_header span{color:#333;font-weight:normal;font-size:12px;white-space:nowrap}
+td#overview-top div.txt-block a span.itemprop{color:#136cb2}
+.see-more a span.itemprop{color:#136cb2}
+div.infobar2 a span.itemprop{color:#136cb2}
+div.article.contribute .button-box{float:left;padding-right:20px}
+div.article.contribute .form-box{padding-top:.25em}
+div.article.contribute .form-txt{font-size:13px;display:inline;vertical-align:middle}
+div.article.contribute select{font-family:verdana;vertical-align:middle;height:1.64em}
+.redesign .article.highlighted{background:#efe3a4;border:6px double white;margin:-3px -3px 2px -3px;padding:8px 12px}
+.add_photo_text{margin-left:25px;margin-right:25px;margin-top:-60px;text-align:center;width:164px;float:left}
+.add_photo_text a{text-decoration:none}
+.article .mediastrip{margin:-0.25em 0}
+div.article div.next-episode .odd{padding:8px 12px 10px 12px;color:#666;line-height:108%}
+div.article div.next-episode .odd .airtime{float:right;padding:0 0 4px 12px}
+div.article div.next-episode .odd .outline{font-size:11px;padding-top:4px}
+div.article.links{background-color:#fdfcf4}
+h2.imdb-odd{color:#a58500;font-size:17.5px;margin:0 0 .5em;padding:0}
+table.cast_list{border-collapse:collapse;width:100%;margin-top:-12px}
+table.cast_list td{padding:4px 6px 6px 6px}
+table.cast_list .primary_photo{padding:0 4px 0 0}
+table.cast_list td.primary_photo{width:32px}
+table.cast_list td.name{font-weight:bold}
+table.cast_list td.character div{color:#666;max-width:400px}
+.redesign table.cast_list td.ellipsis{color:#999!important;text-align:center}
+table.cast_list td.castlist_label{padding:12px 0 4px 0}
+
+.titlePageSprite{background-image:url(img/imdb_style.png);display:inline-block;vertical-align:middle}
+table#name-overview-widget-layout td#overview-middle div.pro-list,table#title-overview-widget-layout td#overview-bottom div.pro-list,table#title-overview-widget-layout td#overview-bottom div.pro-list-wide,table#title-overview-widget-layout td#overview-bottom div.pro-list-watchlist,table#title-overview-widget-layout td#overview-bottom div.pro-list-no-trailer-watchlist{
+border-top:1px dotted #ccc;
+font-size:11px;
+line-height:140%;
+padding:8px 0 10px
+}
+/* IMDB end*/
