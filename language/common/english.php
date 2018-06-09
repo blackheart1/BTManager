@@ -245,7 +245,7 @@ $lang = array_merge($lang, array(
     'DESCENDING'               => 'Descending',
     'DELIMITER'                => 'Delimiter',
     'DESCRIPTION'              => 'Description',
-	'DISPLAY'				   => 'Display',
+    'DISPLAY'                  => 'Display',
     'TRACKERS'                 => 'Trackers',
     'TRACKER_OVER_VIEW'        => 'Tracker Overview',
     'SDEFAULT'                 => 'Default',
@@ -768,27 +768,31 @@ $lang = array_merge($lang, array(
     'BOARD_SETTINGS'        => 'Board Settings',
     'SUBSCRIPTIONS'         => 'Subscriptions',
     'JAVA_CONF_LOGOUT'      => 'Are you sure you want to Logout?',
-	
-	#BBCode Errors
-    '_MAX_FONT_SIZE_EXCEEDED'   	=> 'You can Only Use Fonts up to Size %1$d.',
-    '_MAX_FLASH_HEIGHT_EXCEEDED'	=> 'Your Flash Files can Only be up to %1$d Pixels High.',
-    '_MAX_FLASH_WIDTH_EXCEEDED' 	=> 'Your Flash Files can Only be up to %1$d Pixels Wide.',
-    '_MAX_IMG_HEIGHT_EXCEEDED'  	=> 'Your Images can Only be up to %1$d Pixels High.',
-    '_MAX_IMG_WIDTH_EXCEEDED'   	=> 'Your Images can Only be up to %1$d Pixels Wide.',
-    '_UNAUTHORISED_BBCODE'  		=> 'You can NOT use certain BBCodes: %s.',
-	'_UNABLE_GET_IMAGE_SIZE'		=> 'It was not possible to determine the dimensions of the image.',
-	'_QUOTE_DEPTH_EXCEEDED'			=> 'You may embed only %1$d quotes within each other.',
-    '_TOO_FEW_CHARS'         		=> 'Your Message is Too Short.',
-    '_TOO_FEW_CHARS_LIMIT'   		=> 'Your Message contains %1$d Characters.  The Minimum Number of Characters you need to enter is %2$d.',
-    '_TOO_FEW_POLL_OPTIONS'  		=> 'You nust enter at least Two Poll Options.',
-    '_TOO_MANY_ATTACHMENTS'  		=> 'Can NOT Add another Attachment, %d is the Maximum.',
-    '_TOO_MANY_CHARS'        		=> 'Your Message contains Too many Characters.',
-    '_TOO_MANY_CHARS_POST'   		=> 'Your Message contains %1$d Characters.  The Maximum Number of Allowed Characters is %2$d.',
-    '_TOO_MANY_CHARS_SIG'    		=> 'Your Signature contains %1$d Characters.  The Maximum Number of Allowed Characters is %2$d.',
-    '_TOO_MANY_POLL_OPTIONS' 		=> 'You have tried to enter Too many Poll Options.',
-    '_TOO_MANY_SMILIES'      		=> 'Your Message contains Too many Smilies.  The Maximum Number of Smilies Allowed is %d.',
-    '_TOO_MANY_URLS'         		=> 'Your Message contains Too many URL\'s.  The Maximum Number of URL\'s Allowed is %d.',
-    '_TOO_MANY_USER_OPTIONS' 		=> 'You can NOT Specify more Options Per User than Existing Poll Options.',
+
+    #BBCode Errors
+    '_MAX_FONT_SIZE_EXCEEDED'    => 'You can Only use Fonts up to Size %1$d.',
+    '_MAX_FLASH_HEIGHT_EXCEEDED' => 'Your Flash Files can Only be up to %1$d Pixels High.',
+    '_MAX_FLASH_WIDTH_EXCEEDED'  => 'Your Flash Files can Only be up to %1$d Pixels Wide.',
+    '_MAX_IMG_HEIGHT_EXCEEDED'   => 'Your Images can Only be up to %1$d Pixels High.',
+    '_MAX_IMG_WIDTH_EXCEEDED'    => 'Your Images can Only be up to %1$d Pixels Wide.',
+    '_UNAUTHORISED_BBCODE'       => 'You can NOT use certain BBCodes: %s.',
+    '_UNABLE_GET_IMAGE_SIZE'     => 'It was NOT possible to determine the Dimensions of the Image.',
+    '_QUOTE_DEPTH_EXCEEDED'      => 'You may Embed Only %1$d Quotes within each other.',
+    '_TOO_FEW_CHARS'             => 'Your Message is Too Short.',
+
+    '_TOO_FEW_CHARS_LIMIT'       => 'Your Message contains %1$d Characters.  The Minimum Number of Characters Allowed is %2$d.',
+
+    '_TOO_FEW_POLL_OPTIONS'      => 'You must enter at least Two Poll Options.',
+    '_TOO_MANY_ATTACHMENTS'      => 'Can NOT Add another Attachment, %d is the Maximum.',
+    '_TOO_MANY_CHARS'            => 'Your Message contains too many Characters.',
+    '_TOO_MANY_CHARS_POST'       => 'Your Message contains %1$d Characters.  The Maximum Number of Characters Allowed is %2$d.',
+
+    '_TOO_MANY_CHARS_SIG'        => 'Your Signature contains %1$d Characters.  The Maximum Number of Characters Allowed is %2$d.',
+
+    '_TOO_MANY_POLL_OPTIONS'     => 'You have Exceeded the Maximum Allowed Poll Options.',
+    '_TOO_MANY_SMILIES'          => 'Your Message contains too many Smilies.  The Maximum Number of Smilies Allowed is %d.',
+    '_TOO_MANY_URLS'             => 'Your Message contains too many URL\'s.  The Maximum Number of URL\'s Allowed is %d.',
+    '_TOO_MANY_USER_OPTIONS'     => 'You can NOT Specify more Options Per User than Existing Poll Options.',
 
     #Template Related
     'NUKED_TORRENT'         => 'Nuked Torrent',

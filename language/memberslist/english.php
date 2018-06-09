@@ -175,13 +175,13 @@ $lang = array_merge($lang, array(
     'VISITED'                   => 'Last Visited',
 
     'WWW'                       => 'Website',
-	'ACTIVATE'					=> 'Activate',
-	'REMIND'					=> 'Remind',
-	'SEND_EMAIL'				=> 'E-mail',				// Used for submit buttons
-	'NO_USER'					=> 'No Matches Found.',
-	'NO_TOPIC'					=> 'The requested topic does not exist.',
-	'SORRY_AUTH_READ'			=> 'You are not authorised to read this forum.',
-	'FORM_INVALID'         		=> 'The Submitted Form was Invalid.  Try Submitting Again!',
+    'ACTIVATE'                  => 'Activate',
+    'REMIND'                    => 'Remind',
+    'SEND_EMAIL'                => 'email', // Used for Submit Buttons
+    'NO_USER'                   => 'No Matches Found.',
+    'NO_TOPIC'                  => 'The Requested Topic Does Not Exist.',
+    'SORRY_AUTH_READ'           => 'You are Not Authorised to Read this Forum.',
+    'FORM_INVALID'              => 'The Submitted Form was Invalid.  Try Submitting Again!',
 
 
     'USER_LAST_REMINDED' => array(
