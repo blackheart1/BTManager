@@ -43,7 +43,7 @@ $lang = array_merge($lang, array(
 
     'REASON'                => 'Reason',
     'CLIENT'                => 'Client',
-    'NO_CLIENT_BANS'        => 'No Banned Client\'s At This Time',
+    'NO_CLIENT_BANS'        => 'No Banned Client\'s at this Time',
     'BANNED_CLIENTS'        => 'Current Banned Client\'s',
     'BANNED_CLIENTS_EXP'    => 'Here is a List of the Currently Banned Client\'s and the Reason Why!',
     'BANNED_CLIENT'         => 'Add/Edit Banned Client\'s',

@@ -1,10 +1,10 @@
-﻿/*  phpBB 3.0 Style Sheet
+/*  phpBB 3.0 Style Sheet
     --------------------------------------------------------------
 	Style name:		1thank
 	Based on style:	proSilver (this is the default phpBB 3 style)
 	Original author:	subBlue ( http://www.subBlue.com/ )
 	Modified by: 	gokinstudio	( http://www.gokinstudio.com/ )
-	
+
 	Copyright 2006 phpBB Group ( http://www.phpbb.com/ )
     --------------------------------------------------------------
 */
@@ -113,7 +113,7 @@ p.right {
 
 /* Border
 ---------------------------------------- */
-.border-left { 
+.border-left {
     background: url("images/border_left.gif") #FFFFFF repeat-y 0 0;
 }
 
@@ -121,8 +121,8 @@ p.right {
     background: url("images/border_right.gif") repeat-y 100% 0;
 }
 
-.border-top { 
-    background: url("images/border_top.gif") repeat-x 0 0; 
+.border-top {
+    background: url("images/border_top.gif") repeat-x 0 0;
 }
 
 .border-top-left {
@@ -134,21 +134,21 @@ p.right {
     width: 100%;
 }
 
-.border-bottom { 
+.border-bottom {
     background: url("images/border_bottom2.gif") repeat-x 0 100%;
 }
 
 .border-bottom span {
     background: url("images/border_bottom.gif") no-repeat 0 0;
     display: block;
-    height: 18px; 
+    height: 18px;
 }
 
-.border-bottom span span { 
+.border-bottom span span {
     background-position: 100% -18px;
 }
 
-.inside { 
+.inside {
     padding: 17px 27px 10px 27px;
 }
 
@@ -246,7 +246,7 @@ a#logo:hover {
 
 .navbar {
 	background-color: #ebebeb;
-	background-image: url("images/gradient.gif"); 
+	background-image: url("images/gradient.gif");
 	background-repeat: repeat-x;
 	font-size:9px;
 	padding: 0 10px;
@@ -261,7 +261,7 @@ a#logo:hover {
 
 .forumbg {
 	background: #ebebeb 0 0;
-	background-image: url("images/gradient.gif"); 
+	background-image: url("images/gradient.gif");
 	background-repeat: repeat-x;
 	margin-bottom: 4px;
 	padding: 0 5px;
@@ -483,7 +483,7 @@ table.info tbody th {
 
 /* Misc layout styles
 ---------------------------------------- */
-/* column[1-2] styles are containers for two column layouts 
+/* column[1-2] styles are containers for two column layouts
    Also see tweaks.css */
 .column1 {
 	float: left;
@@ -802,16 +802,16 @@ a.topictitle:active {
 }
 
 
-/* Profile searchresults */	
+/* Profile searchresults */
 .search .postprofile a {
 	color: #898989;
-	text-decoration: none; 
+	text-decoration: none;
 	font-weight: normal;
 }
 
 .search .postprofile a:hover {
 	color: #d3d3d3;
-	text-decoration: underline; 
+	text-decoration: underline;
 }
 
 /* Back to top of page */
@@ -1124,7 +1124,6 @@ div[class].topic-actions {
 	font-size: 1.5em;
 }
 
-
 .postbody h3 {
 	/* Postbody requires a different h3 format - so change it here */
 	font-size: 1.3em;
@@ -1325,7 +1324,7 @@ blockquote blockquote {
 	/* Nested quotes */
 	background-color: #bababa;
 	font-size: 1em;
-	margin: 0.5em 1px 0 15px;	
+	margin: 0.5em 1px 0 15px;
 }
 
 blockquote blockquote blockquote {
@@ -1396,7 +1395,7 @@ dl.codebox code {
 ----------------------------------------*/
 .attachbox {
 	float: left;
-	width: auto; 
+	width: auto;
 	margin: 5px 5px 5px 0;
 	padding: 6px;
 	background-color: #FFFFFF;
@@ -1478,7 +1477,7 @@ dl.file dt {
 dl.file dd {
 	color: #666666;
 	margin: 0;
-	padding: 0;	
+	padding: 0;
 }
 
 dl.thumbnail img {
@@ -1621,8 +1620,15 @@ fieldset.polls dd div {
 .avatar {
 	border: none;
 	margin-bottom: 3px;
+	max-width:150px;
+	overflow:hidden;
 }
-
+.imgA1 {
+  z-index: 1;
+}
+.imgB1 {
+  z-index: 3;
+}
 .online {
 	background-image: none;
 	background-position: 100% 0;
@@ -1879,7 +1885,7 @@ ol.def-rules li {
 
 .pmlist li.pm_replied_colour, .pm_replied_colour {
 	border: solid 3px #c2c2c2;
-	border-width: 0 3px;	
+	border-width: 0 3px;
 }
 
 .pmlist li.pm_friend_colour, .pm_friend_colour {
@@ -1983,7 +1989,7 @@ fieldset dl {
 }
 
 fieldset dt {
-	float: left;	
+	float: left;
 	width: 40%;
 	text-align: left;
 	display: block;
@@ -2184,10 +2190,12 @@ fieldset.submit-buttons input {
 #smiley-box {
 	width: 18%;
 	float: right;
+	overflow:hidden;
 }
 
 #smiley-box img {
 	margin: 3px;
+	max-width:50px;
 }
 
 /* Input field styles
@@ -2299,7 +2307,7 @@ input.search {
 .tiny { width: 10%;}
 /* proSilver Style Sheet Tweaks
 
-These style definitions are mainly IE specific 
+These style definitions are mainly IE specific
 tweaks required due to its poor CSS support.
 -------------------------------------------------*/
 
@@ -2341,12 +2349,12 @@ html>body dd label input { vertical-align: text-bottom; }	/* Align checkboxes/ra
 * html .column1, * html .column2 { width: 45%; }
 
 /* Nice method for clearing floated blocks without having to insert any extra markup (like spacer above)
-   From http://www.positioniseverything.net/easyclearing.html 
+   From http://www.positioniseverything.net/easyclearing.html
 #tabs:after, #minitabs:after, .post:after, .navbar:after, fieldset dl:after, ul.topiclist dl:after, ul.linklist:after, dl.polls:after {
-	content: "."; 
-	display: block; 
-	height: 0; 
-	clear: both; 
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
 	visibility: hidden;
 }*/
 
@@ -2389,7 +2397,7 @@ dl.icon {
 	margin-left: 30%;
 	float: none;
 }
-/*  	
+/*
 --------------------------------------------------------------
 Colours and backgrounds for common.css
 -------------------------------------------------------------- */
@@ -2644,7 +2652,7 @@ p.rules {
 	background-image: none;
 }
 
-/*  	
+/*
 --------------------------------------------------------------
 Colours and backgrounds for links.css
 -------------------------------------------------------------- */
@@ -2733,7 +2741,7 @@ a.topictitle:active {
 	color: #B51319;
 }
 
-/* Profile searchresults */	
+/* Profile searchresults */
 .search .postprofile a {
 	color: #5a5a5a;
 }
@@ -2770,7 +2778,7 @@ a.right:hover {
 }
 
 
-/*  	
+/*
 --------------------------------------------------------------
 Colours and backgrounds for content.css
 -------------------------------------------------------------- */
@@ -2778,7 +2786,7 @@ Colours and backgrounds for content.css
 
 ul.forums {
 	background-color: #FFFFFF;
-	background-image: url("images/gradient.gif"); 
+	background-image: url("images/gradient.gif");
 	background-repeat: repeat-x;
 }
 
@@ -2804,7 +2812,7 @@ ul.topiclist li.row dt a.subforum.unread {
 }
 li.row {
 	background-color: #E8ECEE;
-	background-image: url("images/gradient.gif"); 
+	background-image: url("images/gradient.gif");
 	background-repeat: repeat-x;
 }
 
@@ -3061,7 +3069,7 @@ fieldset.polls dd div {
 	background-image: url("imageset/english/icon_user_online.gif");
 }
 
-/*  	
+/*
 --------------------------------------------------------------
 Colours and backgrounds for buttons.css
 -------------------------------------------------------------- */
@@ -3124,7 +3132,7 @@ a.fontsize {
 .info-icon, .info-icon a			{ background-image: url("imageset/icon_post_info.gif"); }
 .warn-icon, .warn-icon a			{ background-image: url("imageset/icon_user_warn.gif"); } /* Need updated warn icon */
 
-/*  	
+/*
 --------------------------------------------------------------
 Colours and backgrounds for cp.css
 -------------------------------------------------------------- */
@@ -3226,7 +3234,6 @@ ul.cplist {
 }
 
 /* Preferences pane layout
-
 ----------------------------------------*/
 #cp-main h2 {
 	color: #333333;
@@ -3321,7 +3328,7 @@ pmlist li.pm_foe_colour, .pm_foe_colour {
 	background-color: #EEE;
 }
 
-/*  	
+/*
 --------------------------------------------------------------
 Colours and backgrounds for forms.css
 -------------------------------------------------------------- */
@@ -3371,7 +3378,7 @@ fieldset.quick-login input.inputbox {
 /* Input field styles
 ---------------------------------------- */
 .inputbox {
-	background-color: #FFFFFF; 
+	background-color: #FFFFFF;
 	border-color: #B4BAC0;
 	color: #333333;
 }
