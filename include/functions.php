@@ -670,55 +670,6 @@ function on_page($num_items, $per_page, $start)
 
 	return sprintf($user->lang['PAGE_OF'], $on_page, max(ceil($num_items / $per_page), 1));
 }
-#DEPRICATED FUNCTION
-function format_date2($gmepoch, $format = false, $forcedate = false)
-	{
-		global $midnight,$u_datetime,$user,$db, $db_prefix;
-		return $user->format_date($gmepoch, $format, $forcedate);
-			list($d, $m, $y) = explode(' ', gmdate('j n Y', time() + $zone_offset));
-			$midnight = gmmktime(0, 0, 0, $m, $d, $y) +get_user_timezone($user->id);
-
-		$lang_dates = $user->lang['u_datetime'];
-		$format = (!$format) ? 'D M d, Y g:i a' : $format;
-		
-
-		// Short representation of month in format
-		if ((strpos($format, '\M') === false && strpos($format, 'M') !== false) || (strpos($format, '\r') === false && strpos($format, 'r') !== false))
-		{
-			$lang_dates['May'] = $lang_dates['May_short'];
-		}
-
-		unset($lang_dates['May_short']);
-
-		if (!$midnight)
-		{
-			list($d, $m, $y) = explode(' ', gmdate('j n Y', time() + 0 + 3600));
-			$midnight = gmmktime(0, 0, 0, $m, $d, $y) - 7200;
-		}
-
-		if (strpos($format, '|') === false || ($gmepoch < $midnight - 86400 && !$forcedate) || ($gmepoch > $midnight + 172800 && !$forcedate))
-		{
-			return strtr(@gmdate(str_replace('|', '', $format), $gmepoch +7200), $lang_dates);
-		}
-
-		if ($gmepoch > $midnight + 86400 && !$forcedate)
-		{
-			$format = substr($format, 0, strpos($format, '|')) . '||' . substr(strrchr($format, '|'), 1);
-			return str_replace('||', $u_datetime['TOMORROW'], strtr(@gmdate($format, $gmepoch +7200), $lang_dates));
-		}
-		else if ($gmepoch > $midnight && !$forcedate)
-		{
-			$format = substr($format, 0, strpos($format, '|')) . '||' . substr(strrchr($format, '|'), 1);
-			return str_replace('||', $u_datetime['TODAY'], strtr(@gmdate($format, $gmepoch +7200), $lang_dates));
-		}
-		else if ($gmepoch > $midnight - 86400 && !$forcedate)
-		{
-			$format = substr($format, 0, strpos($format, '|')) . '||' . substr(strrchr($format, '|'), 1);
-			return str_replace('||', $u_datetime['YESTERDAY'], strtr(@gmdate($format, $gmepoch +7200), $lang_dates));
-		}
-
-		return strtr(@gmdate(str_replace('|', '', $format), $gmepoch +7200), $lang_dates);
-	}
 function confirm_box($check, $title = '', $hidden = '', $html_body = 'confirm_body.html', $u_action = '', $gfx = false)
 {
 	global $user, $template, $db, $gfx_check, $recap_puplic_key, $recap_private_key;
