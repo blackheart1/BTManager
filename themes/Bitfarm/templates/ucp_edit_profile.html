@@ -131,6 +131,28 @@
     <td colspan="2" class="row1">{L_SIGNATURE_EXPLAIN}</td>
 </tr>
 
+<tr>
+    <td colspan="2">
+<!-- IF S_SMILIES_ALLOWED -->
+                            <table width="100%" cellspacing="5" cellpadding="0" border="0" align="center">
+                                <tr>
+                                    <td align="center"><strong>{L__SMILIES}</strong></td>
+                                </tr>
+                                <tr>
+                                    <td align="center"><!-- BEGIN smiley -->
+                                        <a href="#" onclick="insert_text('{smiley.A_SMILEY_CODE}', true); return false;" style="line-height: 20px;"><img src="{smiley.SMILEY_IMG}" width="{smiley.SMILEY_WIDTH}" height="{smiley.SMILEY_HEIGHT}" alt="{smiley.SMILEY_CODE}" title="{smiley.SMILEY_DESC}" hspace="2" vspace="2" /></a>
+<!-- END smiley -->
+                                    </td>
+                                </tr>
+<!-- IF S_SHOW_SMILEY_LINK -->
+                                <tr>
+                                    <td align="center"><a class="nav" href="{U_MORE_SMILIES}" onclick="popUp(this.href+'&amp;pop\=smilies&amp;form\=ucp&amp;area\=signature', 300, 350, '_phpbbsmilies'); return false;">{L__MORE_SMILIES}</a></td>
+                                </tr>
+<!-- ENDIF -->
+                            </table>
+<!-- ENDIF -->
+    </td>
+</tr>
 
 <tr>
     <td colspan="2" class="row2">
@@ -222,7 +244,7 @@
                     <td align="left">
                         <script type="text/javascript">
                         // <![CDATA[
-                            colorPalette('h', 6, 5)
+                            colorPalette('h', 27, 8)
                         // ]]>
                         </script>
                     </td>
@@ -1619,7 +1641,7 @@ function ChangeThumb(pic) {
             <td>
                 <strong class="gen">{CP_POST_COUNT}</strong><br />
                 <span class="genmed">[{POSTS_PCT} / {POSTS_DAY}]<br />
-                    <a href="./forum.php?action=search&search_id={CP_UID}">{L_SHOW_YOUR_POSTS}</a>
+                    <a href="{U_SEARCH_USER}">{L_SHOW_YOUR_POSTS}</a>
                 </span>
             </td>
         </tr>
