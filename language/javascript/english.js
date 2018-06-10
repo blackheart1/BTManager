@@ -1,0 +1,12 @@
+shout_idle_text = '<font style="font-size:9pt; color:#FF0000;">ShoutBox Notice!</font> You are currently idle in the shoutbox. Click <a href="?" onclick="shoutthis_ajax();">here</a> to un-idle yourself.';
+tag_prompt = "Enter a Text:";
+NO_AJAX_SUPORT = 'Your browser does not support AJAX!';
+invalid_server_responce = 'Invalid server response.';
+message_was_saved = 'Message was not saved!\n';
+img_prompt = "Insert Link from Image";
+font_formatter_prompt = "Enter a Text - ";
+link_text_prompt = "Enter a Link Name (Optional):";
+link_url_prompt = "Enter the Full Address on the left of:";
+link_email_prompt = "Enter your Full Link:";
+list_type_prompt = "Which type of List would you like? Give ' 1 ' for a Numerical List, 'a' for an Alphabetical List, or nothing at all for a Simple Point List.";
+list_item_prompt = "Enter one point of list. Press OK to enter another point of list or press 'Cancel' to Finish.";

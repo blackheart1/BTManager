@@ -157,7 +157,7 @@ function stopall()
 
 if(c >= 30){
 	 var div = document.getElementById('shoutidle');
-	 if(div != null)div.innerHTML ='<font style="font-size:9pt; color:#FF0000;">ShoutBox Notice!</font> You are currently idle in the shoutbox. Click <a href="?" onclick="shoutthis_ajax();">here</a> to un-idle yourself.';
+	 if(div != null)div.innerHTML = shout_idle_text;
 window.clearTimeout(this.ts);
 window.clearTimeout(this.ta);
 window.clearTimeout(this.tpm);
@@ -279,7 +279,7 @@ function sendPmId()
               }
             catch (e)
               {
-              alert("Your browser does not support AJAX!");
+              alert(NO_AJAX_SUPORT);
               return false;
               }
             }
@@ -304,7 +304,7 @@ if(pmIdsend.readyState == 4)
                 try { // precte odpoved
                     var response = pmIdsend.responseText;
                     //alert(response);
-                    if(response.length == 0) throw "Invalid server response.";
+                    if(response.length == 0) throw invalid_server_responce;
                     /*if(response.indexOf("login_error") >= 0) {
                         zobrazChybuPrihlaseni();
                         return;
@@ -313,7 +313,7 @@ if(pmIdsend.readyState == 4)
                     stav = response.getElementsByTagName("status"); // vsechny elementy kontakt
                     // nepodarilo se ulozit
                     if(stav[0].firstChild.data != "OK"){
-                        alert("Message was not saved!\n");
+                        alert(message_was_saved);
                         //document.getElementById('tarea_text').focus();
                     }
                     //else  zjistiPocetZpravAjax(); //odeslanoOK = true;

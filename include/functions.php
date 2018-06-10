@@ -3299,10 +3299,10 @@ function gen_avatar($id, $hight = false, $width = false){
 			$width = " width=\"".(($width)?$width : $truewidth)."\"";
 			if($row['avatar_ht'] != "0")$hight = " height=\"".$row['avatar_ht']."px\"";
 			if($row['avatar_wt'] != "0")$width = " width=\"".$row['avatar_wt']."px\"";
-			if($row['avatar_type'] == 0)return "<img".$hight.$width."  src=\"$siteurl/avatars/".$row["avatar"]."\" alt=\"".(($row["name"] == "") ? htmlspecialchars($row["username"]):htmlspecialchars($row["name"]))."\" border=\"0\">";
-			if($row['avatar_type'] == 1)return "<img".$hight.$width." src=\"$siteurl/".$row["avatar"]."\" alt=\"".(($row["name"] == "") ? htmlspecialchars($row["username"]):htmlspecialchars($row["name"]))."\" border=\"0\">";
-			if($row['avatar_type'] == 2)return "<img".$hight.$width." src=\"".$row["avatar"]."\" alt=\"".(($row["name"] == "") ? htmlspecialchars($row["username"]):htmlspecialchars($row["name"]))."\" border=\"0\">";
-			if($row['avatar_type'] == 3)return "<img".$hight.$width." src=\"./".$row["avatar"]."\" alt=\"".(($row["name"] == "") ? htmlspecialchars($row["username"]):htmlspecialchars($row["name"]))."\" border=\"0\">";
+			if($row['avatar_type'] == 0)return "<img".$hight.$width."  src=\"$siteurl/avatars/".$row["avatar"]."\" alt=\"".(($row["name"] == "") ? htmlspecialchars($row["username"]):htmlspecialchars($row["name"]))."\" border=\"0\" class=\"avatar\">";
+			if($row['avatar_type'] == 1)return "<img".$hight.$width." src=\"$siteurl/".$row["avatar"]."\" alt=\"".(($row["name"] == "") ? htmlspecialchars($row["username"]):htmlspecialchars($row["name"]))."\" border=\"0\" class=\"avatar\">";
+			if($row['avatar_type'] == 2)return "<img".$hight.$width." src=\"".$row["avatar"]."\" alt=\"".(($row["name"] == "") ? htmlspecialchars($row["username"]):htmlspecialchars($row["name"]))."\" border=\"0\" class=\"avatar\">";
+			if($row['avatar_type'] == 3)return "<img".$hight.$width." src=\"./".$row["avatar"]."\" alt=\"".(($row["name"] == "") ? htmlspecialchars($row["username"]):htmlspecialchars($row["name"]))."\" border=\"0\" class=\"avatar\">";
 			}
 			return $noavatar;
 }

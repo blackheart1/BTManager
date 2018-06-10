@@ -10,8 +10,8 @@
 <link rel="search" type="application/opensearchdescription+xml" title="{SITENAME}" href="{SITE_URL}/opensearch.php" />
 <link rel="alternate" type="application/rss+xml" title="{L_LAST_TORRENT}" href="{SITE_URL}/backend.php?op=last" />
 <link rel="alternate" type="application/rss+xml" title="{L_BEST_TORRENT}" href="{SITE_URL}/backend.php?op=best" />
-<link rel="StyleSheet" href="{SITE_URL}/themes/Bitfarm/style.css" type="text/css" />
-<link rel="stylesheet" href="{SITE_URL}/themes/Bitfarm/css/lightbox.css" type="text/css" />
+<link rel="StyleSheet" href="{SITE_URL}/themes/Bitfarm/style.css" type="text/css">
+<link rel="stylesheet" href="{SITE_URL}/themes/Bitfarm/css/lightbox.css" type="text/css">
 {META}
 <!--[if lt IE 7]>
 <script defer type="text/javascript" src="{SITE_URL}/pngfix.js"></script>
@@ -23,6 +23,7 @@
 <script type="text/javascript" src="{SITE_URL}/themes/Bitfarm/js/jquery.smoothmenu.js"></script>
 <script type="text/javascript" src="{SITE_URL}/themes/Bitfarm/js/core.js"></script>
 <script type="text/javascript" src="{SITE_URL}/themes/Bitfarm/js/ncode_imageresizer.js"></script>
+<script type="text/javascript" src="{SITE_URL}/language/javascript/{U_USER_LANG}.js"></script>
 <script type="text/javascript">
 <!--
 NcodeImageResizer.MODE = 'newwindow';
@@ -36,34 +37,23 @@ NcodeImageResizer.Msg4 = '{L_SMALL_IMG}';
 //-->
 </script>
 <script type="text/javascript">
-pmbtsite_url          = "{SITE_URL}";
-tag_prompt            = "Enter a Text:";
-img_prompt            = "Insert Link from Image";
-font_formatter_prompt = "Enter a Text - ";
-link_text_prompt      = "Enter a Link Name (Optional):";
-link_url_prompt       = "Enter the Full Address on the left of:";
-link_email_prompt     = "Enter your Full Link:";
-list_type_prompt      = "Which type of List would you like? Give ' 1 ' for a Numerical List, 'a' for an Alphabetical List, or nothing at all for a Simple Point List.";
-list_item_prompt      = "Enter one point of list. Press OK to enter another point of list or press 'Cancel' to Finish.";
-_btshoutnowprivate    = "{L_PRIVATE_SHOUT}";
-shoutrefresht         = "{S_SHOUT_REF}";
-shoutidle             = "{S_SHOUT_IDL}";
-
+pmbtsite_url = "{SITE_URL}";
+_btshoutnowprivate = "{L_PRIVATE_SHOUT}";
+shoutrefresht = "{S_SHOUT_REF}";
+shoutidle = "{S_SHOUT_IDL}";
 function change_bg(img, state)
 {
 if (state == "1")
-    img.src = img.src.replace(".gif","_over.gif");
+img.src = img.src.replace(".gif","_over.gif");
 else if (state == "0")
-    img.src = img.src.replace("_over.gif",".gif");
+img.src = img.src.replace("_over.gif",".gif");
 else if (state == "2")
-    img.src = img.src.replace("_over.gif",".gif");
+img.src = img.src.replace("_over.gif",".gif");
 else if (state == "3")
-    img.src = img.src.replace("_over.gif",".gif");
+img.src = img.src.replace("_over.gif",".gif");
 }
-
 var pd = new Date();
 var last_reload = pd.getTime();
-
 function do_breload() {
     if (document.location.href.match(/\/torrents\.php/)) {
 	   var d = new Date();
@@ -75,7 +65,7 @@ function do_breload() {
 }
 
 function toggle2(nome) {
-if (document.getElementById(nome).style.display=='none')
+if(document.getElementById(nome).style.display=='none')
 {
 SetCookie(nome,'');
 document.getElementById(nome).style.display = '';
@@ -105,6 +95,7 @@ var per_page = '{PER_PAGE}';
 var base_url = '{A_BASE_URL}';
 
 var menu_state = 'shown';
+
 
 /**
 * Jump to page
