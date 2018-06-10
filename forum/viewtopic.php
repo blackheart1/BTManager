@@ -956,6 +956,7 @@ while ($row = $db->sql_fetchrow($result))
 	{
 		$max_post_time = $row['post_time'];
 	}
+	$row['user_colour'] = '#' . $row['user_colour'];
 
 	$poster_id = $row['poster_id'];
 	// Does post have an attachment? If so, add it to the list

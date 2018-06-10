@@ -1307,9 +1307,9 @@ function display_forums($root_data = '', $display_moderators = false, $return_mo
 			'FORUM_IMAGE_SRC'		=> ($row['forum_image']) ? $phpbb_root_path . $row['forum_image'] : '',
 			'LAST_POST_SUBJECT'		=> censor_text($last_post_subject),
 			'LAST_POST_TIME'		=> $last_post_time,
-			'LAST_POSTER'			=> get_username_string('username', $row['forum_last_poster_id'], $row['forum_last_poster_name'], $row['forum_last_poster_colour']),
-			'LAST_POSTER_COLOUR'	=> get_username_string('colour', $row['forum_last_poster_id'], $row['forum_last_poster_name'], $row['forum_last_poster_colour']),
-			'LAST_POSTER_FULL'		=> get_username_string('full', $row['forum_last_poster_id'], $row['forum_last_poster_name'], $row['forum_last_poster_colour']),
+			'LAST_POSTER'			=> get_username_string('username', $row['forum_last_poster_id'], $row['forum_last_poster_name'],'#' . $row['forum_last_poster_colour']),
+			'LAST_POSTER_COLOUR'	=> get_username_string('colour', $row['forum_last_poster_id'], $row['forum_last_poster_name'],'#' . $row['forum_last_poster_colour']),
+			'LAST_POSTER_FULL'		=> get_username_string('full', $row['forum_last_poster_id'], $row['forum_last_poster_name'],'#' . $row['forum_last_poster_colour']),
 			'MODERATORS'			=> $moderators_list,
 			'SUBFORUMS'				=> $s_subforums_list,
 
@@ -1318,7 +1318,7 @@ function display_forums($root_data = '', $display_moderators = false, $return_mo
 			'L_MODERATOR_STR'		=> $l_moderator,
 
 			'U_VIEWFORUM'		=> $u_viewforum,
-			'U_LAST_POSTER'		=> get_username_string('profile', $row['forum_last_poster_id'], $row['forum_last_poster_name'], $row['forum_last_poster_colour']),
+			'U_LAST_POSTER'		=> get_username_string('profile', $row['forum_last_poster_id'], $row['forum_last_poster_name'],'#' . $row['forum_last_poster_colour']),
 			'U_LAST_POST'		=> $last_post_url)
 		);
 
@@ -1984,7 +1984,7 @@ function get_moderators(&$forum_moderators, $forum_id = false)
 	{
 		if (!empty($row['user_id']))
 		{
-			$forum_moderators[$row['forum_id']][] = get_username_string('full', $row['user_id'], $row['username'], $row['user_colour']);
+			$forum_moderators[$row['forum_id']][] = get_username_string('full', $row['user_id'], $row['username'], '#' . $row['user_colour']);
 		}
 		else
 		{

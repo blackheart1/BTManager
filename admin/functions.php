@@ -141,7 +141,7 @@ function validate_config_vars($config_vars, &$cfg_array, &$error)
 			case 'email':
 				if (!preg_match('/^' . get_preg_expression('email') . '$/i', $cfg_array[$config_name]))
 				{
-					$error[] = $user->lang['EMAIL_INVALID_EMAIL'] . 'invalid email';
+					$error[] = $user->lang['EMAIL_INVALID_EMAIL'];
 				}
 			break;
 

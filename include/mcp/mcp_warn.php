@@ -101,7 +101,7 @@ class mcp_warn
 			$template->assign_block_vars('highest', array(
 				'U_NOTES'		=> append_sid("{$phpbb_root_path}forum.$phpEx?action_mcp=mcp", 'i=notes&amp;mode=user_notes&amp;u=' . $row['id']),
 
-				'USERNAME_FULL'		=> get_username_string('full', $row['id'], $row['username'], $row['user_colour']),
+				'USERNAME_FULL'		=> get_username_string('full', $row['id'], $row['username'], '#' . $row['user_colour']),
 				'USERNAME'			=> $row['username'],
 				'USERNAME_COLOUR'	=> ($row['user_colour']) ? '#' . $row['user_colour'] : '',
 				'U_USER'			=> append_sid("{$phpbb_root_path}userfind_to_pm.$phpEx", 'mode=viewprofile&amp;u=' . $row['id']),
@@ -126,10 +126,10 @@ class mcp_warn
 			$template->assign_block_vars('latest', array(
 				'U_NOTES'		=> append_sid("{$phpbb_root_path}forum.$phpEx?action_mcp=mcp", 'i=notes&amp;mode=user_notes&amp;u=' . $row['user_id']),
 
-				'USERNAME_FULL'		=> get_username_string('full', $row['user_id'], $row['username'], $row['user_colour']),
+				'USERNAME_FULL'		=> get_username_string('full', $row['user_id'], $row['username'], '#' . $row['user_colour']),
 				'USERNAME'			=> $row['username'],
 				'USERNAME_COLOUR'	=> ($row['user_colour']) ? '#' . $row['user_colour'] : '',
-				'U_USER'			=> append_sid("{$phpbb_root_path}userfind_to_pm.$phpEx", 'mode=viewprofile&amp;u=' . $row['user_id']),
+				'U_USER'			=> append_sid("{$phpbb_root_path}userfind_to_pm.$phpEx", 'mode=viewprofile&amp;u=' . $row['id']),
 
 				'WARNING_TIME'	=> $user->format_date($row['warning_time']),
 				'WARNINGS'		=> $row['user_warnings'],
@@ -169,16 +169,17 @@ class mcp_warn
 
 		view_warned_users($users, $user_count, 15, $start, $sql_where, $sql_sort);
 		if(!is_array($users))$users = array();
+		//die(print_r($users));
 
 		foreach ($users as $row)
 		{
 			$template->assign_block_vars('user', array(
-				'U_NOTES'		=> append_sid("{$phpbb_root_path}forum.$phpEx?action_mcp=mcp", 'i=notes&amp;mode=user_notes&amp;u=' . $row['user_id']),
+				'U_NOTES'		=> append_sid("{$phpbb_root_path}forum.$phpEx?action_mcp=mcp", 'i=notes&amp;mode=user_notes&amp;u=' . $row['id']),
 
-				'USERNAME_FULL'		=> get_username_string('full', $row['user_id'], $row['username'], $row['user_colour']),
+				'USERNAME_FULL'		=> get_username_string('full', $row['id'], $row['username'], '#' . $row['user_colour']),
 				'USERNAME'			=> $row['username'],
 				'USERNAME_COLOUR'	=> ($row['user_colour']) ? '#' . $row['user_colour'] : '',
-				'U_USER'			=> append_sid("{$phpbb_root_path}userfind_to_pm.$phpEx", 'mode=viewprofile&amp;u=' . $row['user_id']),
+				'U_USER'			=> append_sid("{$phpbb_root_path}user.$phpEx", 'op=profile&amp;id=' . $row['id']),
 
 				'WARNING_TIME'	=> $user->format_date($row['user_last_warning']),
 				'WARNINGS'		=> $row['user_warnings'],
