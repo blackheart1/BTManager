@@ -386,7 +386,7 @@ $lang = array_merge($lang, array(
 
     'NOTIFY_COMMENTS_REMOVE' => 'You are Currently Listed to Receive Comment email.  If you Don\'t want to be emailed any more, please Click <a href=\'details.php?op=comment&trig=off&id=%1$s#notify\'>HERE</a>',
 
-    'REVERT_DEFAULT'           => 'Note that 0 Reverts to Site Default.',
+    'REVERT_DEFAULT'           => '<strong>Note:</strong> 0 Reverts to Site Default.',
     'NO_NAME_SET'              => 'No Name was Set.',
     'NO_ACTIVATION_KEY_SET'    => 'Activation Key NOT Specified!',
     'NO_TORRENTS'              => 'There are NO Torrents',

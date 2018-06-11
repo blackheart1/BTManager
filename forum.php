@@ -132,7 +132,7 @@ else
 					die();
 				}
 		}
-		
+
 		/////////////////////////////////////////////////////////Action: Remove bookmark
 		if (isset($do) AND $do == "removebook")
 		{
@@ -141,11 +141,11 @@ else
 					$db->sql_close();
 					die();
 		}
-		
+
 		///////////////////////////////////////////////////////// Action: DEFAULT ACTION (VIEW FORUMS)
 		if (isset($_GET["catchup"]))
 			catch_up();
-		
+
 		///////////////////////////////////////////////////////// Action: SHOW MAIN FORUM INDEX
 // Set some stats, get posts count from forums data if we... hum... retrieve all forums data
 		$sql = "SELECT COUNT( post_id )
@@ -158,7 +158,7 @@ else
         $res = $db->sql_query($sql);
         list ($total_topics) = $db->fetch_array($res);
         $db->sql_freeresult($res);
-        $sql = "SELECT COUNT(id) 
+        $sql = "SELECT COUNT(id)
 		FROM ".$db_prefix."_users;";
         $res = $db->sql_query($sql);
         list ($total_users) = $db->fetch_array($res);

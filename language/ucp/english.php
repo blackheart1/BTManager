@@ -251,6 +251,7 @@ $lang = array_merge($lang, array(
     'MANAGE_FOES'          => 'Manage Foes',
     'FRIEND_ONLINE'        => 'Friends',
     'SIGNATURE_EXPLAIN'    => 'This is a Block of Text that can be Added to your Posts.  There is a 255 Character Limit.',
+    'ONLINE'               => 'Online',
 
     #Added For 3.0.1
     '_AVATAR_EXPLAIN'          => 'Maximum Dimensions; Width: %1$d Pixels, Height: %2$d Pixels, File Size: %3$.2f KiB.',

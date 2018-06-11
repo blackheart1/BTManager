@@ -75,6 +75,8 @@ $lang = array_merge($lang, array(
     '_STATISTIC_RESYNC_OPTIONS'  => 'Resynchronise or Reset Statistics',
     '_RESET_ONLINE'              => 'Reset the Most Users Ever Online',
     '_RESET_DATE'                => 'Reset the Site\'s Start Date',
+    'EMAIL_INVALID_EMAIL'        => 'Invalid email Address',
+    'WARNING'                    => 'Warning',
 
     'SETTING_TOO_LOW'            => 'The Provided Value for the Setting \'%1$s\' is Too Low.  The Minimum Acceptable Value is %2$d.',
 
@@ -199,7 +201,7 @@ $lang = array_merge($lang, array(
     'LOG_CONFIG_VISUAL'        => '<strong>Altered the Anti Spam BOT Settings</strong>',
 
     'LOG_APPROVE_TOPIC'        => '<strong>Approved Topic</strong><br /> %s',
-	'LOG_SQL_ERROR'			   => '<strong>MySQL Error</strong><br /> \'%1$s\'<br />\'%2$s\'',
+    'LOG_SQL_ERROR'            => '<strong>MySQL Error</strong><br /> \'%1$s\'<br />\'%2$s\'',
     'LOG_BUMP_TOPIC'           => '<strong>User Bumped Topic</strong><br /> %s',
     'LOG_DELETE_POST'          => '<strong>Deleted Post</strong><br />%s',
     'LOG_DELETE_SHADOW_TOPIC'  => '<strong>Deleted Shadow Topic</strong><br /> %s',
@@ -239,7 +241,7 @@ $lang = array_merge($lang, array(
 
     'LOG_ERROR_JABBER'         => '<strong>Jabber Error</strong><br /> %s',
     'LOG_ERROR_EMAIL'          => '<strong>email Error</strong><br /> %s',
-	'RULE_REMOVED'			   => '<strong>Rule Removed</strong><br /> %s',
+    'RULE_REMOVED'             => '<strong>Rule Removed</strong><br /> %s',
 
     'LOG_FORUM_ADD'                        => '<strong>Created a New Forum</strong><br /> %s',
     'LOG_FORUM_COPIED_PERMISSIONS'         => '<strong>Copied Forum Permissions</strong> from %1$s<br /> %2$s',
@@ -497,7 +499,6 @@ $lang = array_merge($lang, array(
     'ACP_SEARCH_INDEX'      => 'Search Index',
     'ACP_SEARCH_SETTINGS'   => 'Search Settings',
     'LOG_CONFIG_SHOUTCAST'  => 'SHOUTcast Configuration Updated',
-	'EMAIL_INVALID_EMAIL'	=> 'The email address you entered is invalid.',
 ));
 
 ?>
