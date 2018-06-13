@@ -1941,7 +1941,7 @@ color : #980000;
 }
 .gensmall {
 	margin: 1px 1px;
-	font-size: 1em;
+	font-size: .8em;
 }
 table.legend td.gensmall {
 	margin: 1px 1px;
@@ -2313,8 +2313,8 @@ dl.codebox dt {
 	font-size: 1em;
 	line-height: 1.4em;
 /*	font-family: "Lucida Grande", "Trebuchet MS", Helvetica, Arial, sans-serif; */
-	background-color: #2E2E2E;
-	color: #EEE;
+	background-color: #F0F0F0 ;
+	color: #0E0D0D;
 }
 .quotewrapper, .codewrapper, .attachwrapper {
 	clear: both;
@@ -2340,8 +2340,8 @@ dl.codebox dt {
 	margin: 10px 5px 0px 5px;
 	padding: 2px 4px;
 	border: solid 1px #090909;
-	color: #D0D0D0;
-	background-color: #2E2E2E;
+	color: #F00A35;
+	background-color: #CECECE;
 	font-size: 0.85em;
 	font-weight: bold;
 }

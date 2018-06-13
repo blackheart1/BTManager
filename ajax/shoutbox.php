@@ -123,8 +123,8 @@ $template->assign_vars(array(
 		// Parse the message and subject
 		$text = bbcode_nl2br($text);
 		$text = smiley_text($text);
-		$quote = preg_replace('/<!-- s(.*?) -->(.*?)<!-- s(.*?) -->/i', '\\1', $shout["text"]);
-		$quote = preg_replace('/<!-- m -->(.*?)<!-- m -->/i', '\\1', $quote);
+		$quote = preg_replace('/<!-- s(.*?) -->(.*?)<!-- s(.*?) -->/i', ' \\1 ', $shout["text"]);
+		$quote = preg_replace('/<!-- m -->(.*?)<!-- m -->/i', ' \\1 ', $quote);
 						$showusername = true;
 						$shout_time = gmdate($shout_config['dateformat'], sql_timestamp_to_unix_timestamp($shout['posted'])+(60 * get_user_timezone($user->id)));
 						if(preg_match("/\/notice (.*)/",$text,$m))

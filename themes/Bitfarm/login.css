@@ -32,7 +32,21 @@ input#code{background-image:url(pics/red.png);}
 
 #vpbox{position:absolute;top:0;left:0;z-index:100;text-align:left;display:none;}
 #vpbox .load{text-align: center;}
-#vpbox .content{display:table;width:370px;padding:10px;background:#fff;border-radius:4px;position:relative;border:3px solid rgba(0,0,0,0);-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;-webkit-box-shadow:0 0 18px rgba(0,0,0,0.4);-moz-box-shadow:0 0 18px rgba(0,0,0,0.4);box-shadow:0 0 18px rgba(0,0,0,0.4);}
+#vpbox .content
+{
+	display:table;
+	width:370px;
+	padding:10px;
+	background:#fff;
+	position:relative;
+	border:3px solid rgba(0,0,0,0);
+	-webkit-box-shadow:0 0 18px rgba(0,0,0,0.4);
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	border-radius:5px;
+	-moz-box-shadow:0 0 18px rgba(0,0,0,0.4);
+	box-shadow:0 0 18px rgba(0,0,0,0.4);
+}
 #poem{color:#000;font-weight:bold;text-align:center;}
 img.reload{height:30px;width:269px;}
 img.reicon{height:30px;}

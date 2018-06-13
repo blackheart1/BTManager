@@ -1,4 +1,4 @@
-/*  phpBB 3.0 Style Sheet
+﻿/*  phpBB 3.0 Style Sheet
     --------------------------------------------------------------
 	Style name:		1thank
 	Based on style:	proSilver (this is the default phpBB 3 style)
@@ -2180,7 +2180,8 @@ fieldset.submit-buttons input {
 }
 
 #message-box textarea {
-	font-family: "Trebuchet MS", Verdana, Helvetica, Arial, sans-serif;
+	/*font-family: "Trebuchet MS", Verdana, Helvetica, Arial, sans-serif;*/
+	font-weight:300;
 	width: 100%;
 	font-size: 1.2em;
 	color: #333333;
@@ -2191,6 +2192,7 @@ fieldset.submit-buttons input {
 	width: 18%;
 	float: right;
 	overflow:hidden;
+	font-size: .9em;
 }
 
 #smiley-box img {
@@ -3749,3 +3751,14 @@ line-height:140%;
 padding:8px 0 10px
 }
 /* IMDB end*/
+.gensmall {
+	margin: 1px 1px;
+	font-size: .8em;
+	font-weight:200;
+}
+table.legend td.gensmall {
+	margin: 1px 1px;
+	font-size: .7em;
+	font-weight:200;
+}
+

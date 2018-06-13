@@ -6,110 +6,133 @@
 <!-- ELSEIF MODE == admin_reg_details -->
 <form name="ucp" id="ucp" method="post" action="{PMBT_LINK_BACK}">
 {S_HIDDEN_FIELDS}
-<table class="tablebg" width="100%" cellspacing="0">
+<div class="panel">
+	<div class="inner"><span class="corners-top"><span></span></span>
 
-<tr>
-    <td class="row1" width="35%"><strong class="genmed">{L_MOD_COMMENTS}: </strong></td>
-    <td class="row2"><textarea name="modcomment" rows="8" cols="60">{CP_MOD_COMENTS}</textarea></td>
-</tr>
-<tr>
-    <td class="row1" width="35%"><strong class="genmed">{L_GROUP}: </strong></td>
-    <td class="row2"><select name="group">{A_GROUP}</select></td>
-</tr>
-<tr>
-    <td class="row1" width="35%"><strong class="genmed">{L_ACC_LEVEL}: </strong></td>
-    <td class="row2">{A_LEVEL}</td>
-</tr>
-<tr>
-    <td class="row1" width="35%"><strong class="genmed">{L_WARNNED}: </strong></td>
-    <td class="row2"><!-- IF U_IS_WARNED -->
-    {L_YES}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{L_WARNED_TILL} {U_WARNED_TELL}<br /><strong>{L_DELETE_WARNING}&nbsp;<strong><input name="warned" value="no" type="checkbox">
-    <!-- ELSE -->
-   {L_NO}
-    <br />{L_WARN_USER_FOR} <select name=warnlength>
-    <option value="0">------</option>
-    <option value="604800">{L_ONE_WEEK}</option>
-    <option value="1209600">{L_TWO_WEEK}</option>
-    <option value="2419200">{L_FOUR_WEEK}</option>
-    <option value="4838400">{L_EIGHT_WEEK}</option>
-    <option value="-1">{L_NO_LIMET}</option>
-    </select>
-    <br /><strong>{L_SORT_REASON}:<strong>
-    <br />
-    <input type="text" rows="5" size ="40" name="warnpm"><br />
-    {L_UCP_WARN_REASON_EXPL}
+	<fieldset>
+	<dl>
+		<dt><label for="viewemail0">{L_MOD_COMMENTS}:</label></dt>
+		<dd>
+        <textarea name="modcomment" rows="8" cols="60">{CP_MOD_COMENTS}</textarea>
+		</dd>
+	</dl>
+	<dl>
+		<dt><label for="viewemail0">{L_GROUP}:</label></dt>
+		<dd>
+        <select name="group">{A_GROUP}</select>
+		</dd>
+	</dl>
+	<dl>
+		<dt><label for="viewemail0">{L_ACC_LEVEL}:</label></dt>
+		<dd>
+        {A_LEVEL}
+		</dd>
+	</dl>
+	<dl>
+		<dt><label for="viewemail0">{L_WARNNED}:</label></dt>
+		<dd>
+        <!-- IF U_IS_WARNED -->
+        {L_YES}&nbsp;{L_WARNED_TILL} {U_WARNED_TELL}<br />
+        <strong>{L_DELETE_WARNING}&nbsp;<strong><input name="warned" value="no" type="checkbox">
+        <!-- ELSE -->
+       {L_NO}
+        <br />{L_WARN_USER_FOR} <select name=warnlength>
+        <option value="0">------</option>
+        <option value="604800">{L_ONE_WEEK}</option>
+        <option value="1209600">{L_TWO_WEEK}</option>
+        <option value="2419200">{L_FOUR_WEEK}</option>
+        <option value="4838400">{L_EIGHT_WEEK}</option>
+        <option value="-1">{L_NO_LIMET}</option>
+        </select>
+        <br /><strong>{L_SORT_REASON}:<strong>
+        <br />
+        <input type="text" rows="5" size ="40" name="warnpm"><br />
+        <span class="gensmall">{L_UCP_WARN_REASON_EXPL}</span>
+	    <!-- ENDIF -->
+		</dd>
+	</dl>
+	<dl>
+		<dt><label for="viewemail0">{L_UPLODED}:</label></dt>
+		<dd>
+        <input name="up" value="{CP_TRUEUPLOADED}" size="40" type="text">&nbsp;&nbsp;{CP_UUPLOADED}
+		</dd>
+	</dl>
+	<dl>
+		<dt><label for="viewemail0">{L_DOWNED}:</label></dt>
+		<dd>
+        <input name="down" value="{CP_TRUEDOWNLOADED}" size="40" type="text">&nbsp;&nbsp;{CP_UDOWNLOADED}
+		</dd>
+	</dl>
+	<dl>
+		<dt><label for="viewemail0">{L_SEED_BOMUS}:</label></dt>
+		<dd>
+        <input name="seed" value="{CP_SEED_POINTS}" size="40" type="text">&nbsp;&nbsp;{CP_SEED_POINTS}
+		</dd>
+	</dl>
+	<dl>
+		<dt><label for="viewemail0">{L_INVITES}:</label></dt>
+		<dd>
+        <input name="invit" value="{CP_INVITES}" size="40" type="text">&nbsp;&nbsp;{CP_INVITES}
+		</dd>
+	</dl>
+	<dl>
+		<dt><label for="viewemail0">{L_USER_SEEDBOX}:</label></dt>
+		<dd>
+        <input name="seedbox" value="{U_SEEDBOX_IP}" size="40" type="text">&nbsp;&nbsp;{U_SEEDBOX_IP}
+		</dd>
+	</dl>
+	<dl>
+		<dt><label for="viewemail0">{L_M_SITE_HELPER}:</label></dt>
+		<dd>
+    	<input type="radio" name="helper"<!-- IF U_SITE_HELPER --> checked="checked"<!-- ENDIF --> value="true" >&nbsp;&nbsp;{L_YES} &nbsp;&nbsp;<input type="radio" name="helper" value="false"<!-- IF not U_SITE_HELPER --> checked="checked"<!-- ENDIF --> >&nbsp;&nbsp;{L_NO}<br />
+		</dd>
+	</dl>
+	<dl>
+		<dt><label for="viewemail0">{L_UCP_HELPER_FOR}:</label></dt>
+		<dd>
+    	<textarea cols=30 rows=1 name=help_able>{U_SITE_HELP_WITH}</textarea>
+		</dd>
+	</dl>
+	<dl>
+		<dt><label for="viewemail0">{L_ACCOUT_STATUS}:</label><br />
+        <span class="gensmall">{L_ACCOUT_EXP_STATUS}</span></dt>
+		<dd>
+        <select name="active">
+        <option <!-- IF not U_ACTIVATED_ACC -->selected <!-- ENDIF -->value="0">{L_INACTIVE}</option>
+        <option <!-- IF U_ACTIVATED_ACC -->selected <!-- ENDIF -->value="1">{L_ACTIVE}</option>
+        </select>
+		</dd>
+	</dl>
+	<dl>
+		<dt><label for="viewemail0">{L_UCP_BAN_FORUM}:</label></dt>
+		<dd>
+	    <input type="radio" name="forumban"<!-- IF U_FORUM_BANNED --> checked="checked"<!-- ENDIF --> value="true" >&nbsp;&nbsp;{L_YES} &nbsp;&nbsp;<input type="radio" name="forumban" value="false"<!-- IF not U_FORUM_BANNED --> checked="checked"<!-- ENDIF --> >&nbsp;&nbsp;{L_NO}
+		</dd>
+	</dl>
+	<dl>
+		<dt><label for="viewemail0">{L_UCP_SHOUT_BAN}:</label></dt>
+		<dd>
+   		<input type="radio" name="shoutban"<!-- IF not CP_UCANSHOUT --> checked="checked"<!-- ENDIF --> value="true" >&nbsp;&nbsp;{L_YES} &nbsp;&nbsp;<input type="radio" name="shoutban" value="false"<!-- IF CP_UCANSHOUT --> checked="checked"<!-- ENDIF --> >&nbsp;&nbsp;{L_NO}
+		</dd>
+	</dl>
+	<dl>
+		<dt><label for="viewemail0">{L_UCP_DISABLE_ACC}:</label><br />
+        <span class="gensmall">{L_UCP_DISABLE_ACC_EXPL}</span></dt>
+		<dd>
+        <input type="radio" name="disable"<!-- IF CP_DISABLED --> checked="checked"<!-- ENDIF --> value="true" >&nbsp;&nbsp;{L_YES} &nbsp;&nbsp;<input type="radio" name="disable" value="false"<!-- IF not CP_DISABLED --> checked="checked"<!-- ENDIF --> >&nbsp;&nbsp;{L_NO}<br />
+        <textarea cols=30 rows=1 name=disable_res>{CP_DISABLED_REASON}</textarea>
+		</dd>
+	</dl>
+	</fieldset>
 
-    <!-- ENDIF -->
-    </td>
-</tr>
-<tr>
-    <td class="row1" width="35%"><strong class="genmed">{L_UPLODED}: </strong></td>
-    <td class="row2"><input name="up" value="{CP_TRUEUPLOADED}" size="40" type="text">&nbsp;&nbsp;{CP_UUPLOADED}</td>
-</tr>
-<tr>
-    <td class="row1" width="35%"><strong class="genmed">{L_DOWNED}: </strong></td>
-    <td class="row2"><input name="down" value="{CP_TRUEDOWNLOADED}" size="40" type="text">&nbsp;&nbsp;{CP_UDOWNLOADED}</td>
-</tr>
-<tr>
-    <td class="row1" width="35%"><strong class="genmed">{L_SEED_BOMUS} </strong></td>
-    <td class="row2"><input name="seed" value="{CP_SEED_POINTS}" size="40" type="text">&nbsp;&nbsp;{CP_SEED_POINTS}</td>
-</tr>
-<tr>
-    <td class="row1" width="35%"><strong class="genmed">{L_INVITES}: </strong></td>
-    <td class="row2"><input name="invit" value="{CP_INVITES}" size="40" type="text">&nbsp;&nbsp;{CP_INVITES}</td>
-</tr>
-<tr>
-    <td class="row1" width="35%"><strong class="genmed">{L_USER_SEEDBOX}: </strong></td>
-    <td class="row2"><input name="seedbox" value="{U_SEEDBOX_IP}" size="40" type="text">&nbsp;&nbsp;{U_SEEDBOX_IP}</td>
-</tr>
-<tr>
-    <td class="row1" width="35%"><strong class="genmed">{L_M_SITE_HELPER}: </strong></td>
-    <td class="row2">
-    <input type="radio" name="helper"<!-- IF U_SITE_HELPER --> checked="checked"<!-- ENDIF --> value="true" >&nbsp;&nbsp;{L_YES} &nbsp;&nbsp;<input type="radio" name="helper" value="false"<!-- IF not U_SITE_HELPER --> checked="checked"<!-- ENDIF --> >&nbsp;&nbsp;{L_NO}
-    </td>
-</tr>
-<tr>
-    <td class="row1" width="35%"><strong class="genmed">{L_UCP_HELPER_FOR}: </strong></td>
-    <td class="row2">
-    <textarea cols=30 rows=1 name=help_able>{U_SITE_HELP_WITH}</textarea>
-    </td>
-</tr>
-<tr>
-    <td class="row1" width="35%"><strong class="genmed">{L_ACCOUT_STATUS}: </strong><br /><span class="gensmall">{L_ACCOUT_EXP_STATUS}</span></td>
-    <td class="row2">
-    <select name="active">
-    <option <!-- IF not U_ACTIVATED_ACC -->selected <!-- ENDIF -->value="0">{L_INACTIVE}</option>
-    <option <!-- IF U_ACTIVATED_ACC -->selected <!-- ENDIF -->value="1">{L_ACTIVE}</option>
-    </select>
-    </td>
-</tr>
-<tr>
-    <td class="row1" width="35%"><strong class="genmed">{L_UCP_BAN_FORUM}: </strong><br /><span class="gensmall">{L_UCP_BAN_USER_FORUM}</span></td>
-    <td class="row2">
-    <input type="radio" name="forumban"<!-- IF U_FORUM_BANNED --> checked="checked"<!-- ENDIF --> value="true" >&nbsp;&nbsp;{L_YES} &nbsp;&nbsp;<input type="radio" name="forumban" value="false"<!-- IF not U_FORUM_BANNED --> checked="checked"<!-- ENDIF --> >&nbsp;&nbsp;{L_NO}
-    </td>
-</tr>
-<tr>
-    <td class="row1" width="35%"><strong class="genmed">{L_UCP_SHOUT_BAN}: </strong><br /><span class="gensmall">{L_UCP_SHOUT_BAN_EXPL}</span></td>
-    <td class="row2">
-    <input type="radio" name="shoutban"<!-- IF not CP_UCANSHOUT --> checked="checked"<!-- ENDIF --> value="true" >&nbsp;&nbsp;{L_YES} &nbsp;&nbsp;<input type="radio" name="shoutban" value="false"<!-- IF CP_UCANSHOUT --> checked="checked"<!-- ENDIF --> >&nbsp;&nbsp;{L_NO}
-    </td>
-</tr>
-<tr>
-    <td class="row1" width="35%"><strong class="genmed">{L_UCP_DISABLE_ACC}: </strong><br /><span class="gensmall">{L_UCP_DISABLE_ACC_EXPL}</span></td>
-    <td class="row2">
-    <input type="radio" name="disable"<!-- IF CP_DISABLED --> checked="checked"<!-- ENDIF --> value="true" >&nbsp;&nbsp;{L_YES} &nbsp;&nbsp;<input type="radio" name="disable" value="false"<!-- IF not CP_DISABLED --> checked="checked"<!-- ENDIF --> >&nbsp;&nbsp;{L_NO}<br />
-    <textarea cols=30 rows=1 name=disable_res>{CP_DISABLED_REASON}</textarea>
-    </td>
-</tr>
-
-<tr>
-    <td colspan="2" align="center">
-        <input class="btnmain" type="submit" name="submit" value="{L_SUBMIT}" />&nbsp;&nbsp;
-        <input class="btnlite" type="reset" value="{L_RESET}" name="reset" />
-    </td>
-</tr>
-</table>
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+	
+<fieldset class="submit-buttons">
+	{S_HIDDEN_FIELDS}<input type="reset" value="{L_RESET}" name="reset" class="button2" />&nbsp; 
+	<input type="submit" name="submit" value="{L_SUBMIT}" class="button1" />
+	{S_FORM_TOKEN}
+</fieldset>
 </form>
 <!-- ELSEIF MODE == reg_details -->
 <!-- INCLUDE themes/1thank/templates/ucp_profile_reg_details.html -->
@@ -343,8 +366,8 @@
 	<span class="corners-bottom"><span></span></span></div>
 </div>
 <fieldset class="submit-buttons">
-	<input type="reset" value="{L_RESET}" name="reset" class="button2" />&nbsp; 
-	<input type="submit" name="submit" value="{L_SUBMIT}" class="button1" />
+	<input type="submit" name="submit" value="{L_SUBMIT}" class="button1" />&nbsp; 
+	<input type="reset" value="{L_RESET}" name="reset" class="button2" />
 </fieldset>
 </form>
 <!-- ELSEIF MODE == profile_info -->

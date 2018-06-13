@@ -291,6 +291,7 @@ $java_link = '&torrent=' . $id . (($password)? '&password=' . $password : '');
 
 $template->assign_vars(array(
         'U_ID'             =>  $id,
+		'T_NAME'				=> $torrent["name"],
         'U_PASSWORD'       =>  ($password)? '&password=' . $password : '',
         'U_CAN_BOOK'       =>  ($user->user AND $torrent["type"] != "link")? true : false,
         'U_DETAIL_LINK'    =>  'op=view_details_page' . $java_link,

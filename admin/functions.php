@@ -54,11 +54,11 @@ function tidy_database()
 	$db->sql_freeresult($result);
 
 	// Delete those rows from the acl tables not having listed the forums above
-	$sql = 'DELETE FROM ' . $db_prefix . '_acl_groups
+	$sql = 'DELETE FROM ' . $db_prefix . '_acl_groups 
 		WHERE ' . $db->sql_in_set('forum_id', $forum_ids, true);
 	$db->sql_query($sql);
 
-	$sql = 'DELETE FROM ' . $db_prefix . '_acl_users
+	$sql = 'DELETE FROM ' . $db_prefix . '_acl_users 
 		WHERE ' . $db->sql_in_set('forum_id', $forum_ids, true);
 	$db->sql_query($sql);
 
@@ -141,7 +141,8 @@ function validate_config_vars($config_vars, &$cfg_array, &$error)
 			case 'email':
 				if (!preg_match('/^' . get_preg_expression('email') . '$/i', $cfg_array[$config_name]))
 				{
-					$error[] = $user->lang['EMAIL_INVALID_EMAIL'];
+					//die(print_r($cfg_array));
+					$error[] = $user->lang['EMAIL_INVALID_EMAIL'] . ' ' . $config_name;
 				}
 			break;
 
@@ -181,9 +182,9 @@ function validate_config_vars($config_vars, &$cfg_array, &$error)
 					break;
 				}
 
-				$cfg_array[$config_name] = basename($cfg_array[$config_name]);
+				//$cfg_array[$config_name] = basename($cfg_array[$config_name]);
 
-				if (!file_exists($phpbb_root_path . 'language/' . $cfg_array[$config_name] . '/'))
+				if (!file_exists($phpbb_root_path . 'language/common/' . $cfg_array[$config_name] . '.php'))
 				{
 					$error[] = $user->lang['WRONG_DATA_LANG'];
 				}
@@ -888,7 +889,7 @@ function view_log($mode, &$log, &$log_count, $limit = 0, $offset = 0, $forum_id 
 	$sql = "SELECT l.*,UNIX_TIMESTAMP(l.datetime) AS datetime, u.username, u.clean_username, u.can_do , b.group_colour AS user_colour
 		FROM " . $db_prefix . "_log l, " . $db_prefix . "_users u, " . $db_prefix . "_level_settings b
 		WHERE l.log_type = $log_type
-			AND u.id = l.userid
+			AND u.id = l.userid 
 			AND b.group_id = u.can_do
 			" . (($limit_days) ? "AND UNIX_TIMESTAMP(l.datetime) >= $limit_days" : '') . "
 			$sql_forum
@@ -1637,7 +1638,7 @@ function num_files($directory='.'){
         closedir($handle);
         return $numFiles;
     }
-}
+} 
 function esc_magic($x) {
         if (!get_magic_quotes_gpc()) return escape($x);
         else return $x;
@@ -2078,7 +2079,7 @@ function group_select_options_id($group_ids, $exclude_ids = false, $manage_found
 {
 	global $db, $user, $config, $db_prefix;
 	$sql = 'SELECT group_id, group_name, group_founder_manage FROM `' . $db_prefix . '_level_settings` ';
-	$result = $db->sql_query($sql) or btsqlerror($sql);
+	$result = $db->sql_query($sql) or btsqlerror($sql); 
 	$s_group_options = '';
 	while ($row = $db->sql_fetchrow($result))
 	{
@@ -2095,7 +2096,7 @@ function group_select_options($group_id, $exclude_ids = false, $manage_founder =
 {
 	global $db, $user, $config, $db_prefix;
 	$sql = 'SELECT level, name FROM `' . $db_prefix . '_levels` ';
-	$result = $db->sql_query($sql) or btsqlerror($sql);
+	$result = $db->sql_query($sql) or btsqlerror($sql); 
 	$s_group_options = '';
 	while ($row = $db->sql_fetchrow($result))
 	{
@@ -2110,8 +2111,8 @@ function group_select_options($group_id, $exclude_ids = false, $manage_founder =
 function get_acc_edit_rights()
 {
 	global $db, $db_prefix, $user;
-	$sql = "SELECT COLUMN_NAME
-		FROM INFORMATION_SCHEMA.Columns
+	$sql = "SELECT COLUMN_NAME 
+		FROM INFORMATION_SCHEMA.Columns 
 		WHERE TABLE_NAME = '" . $db_prefix . "_levels'
 		AND COLUMN_NAME NOT IN ('level','name','group_id','group_type','color','group_desc')";
 	$result = $db->sql_query($sql) or btsqlerror($sql);
@@ -3637,11 +3638,11 @@ function view_warned_users(&$users, &$user_count, $limit = 0, $offset = 0, $limi
 
 	$sql = 'SELECT id, username, can_do, l.group_colour AS user_colour, user_warnings, user_last_warning
 		FROM ' . $db_prefix . '_users , ' . $db_prefix . '_level_settings l
-		WHERE
-		l.group_id = can_do
+		WHERE 
+		l.group_id = can_do 
 		AND user_warnings > 0
 		' . (($limit_days) ? "AND user_last_warning >= $limit_days" : '') . "
-		ORDER BY $sort_by
+		ORDER BY $sort_by 
 		LIMIT $offset, $limit";
 		//die($sql);
 	$result = $db->sql_query($sql);
@@ -3886,11 +3887,11 @@ function validateURL($url)
     $regex .= "(\:[0-9])?"; // Port
     $regex .= "(\/([a-z0-9+\$_-]\.?)+)*\/?"; // Path
     $regex .= "(\?[a-z+&\$_.-][a-z0-9;:@&%=+\/\$_.-]*)?"; // GET Query
-    $regex .= "(#[a-z_.-][a-z0-9+\$_.-]*)?"; // Anchor
-	if(preg_match("/^$regex$/", $url))
-	{
+    $regex .= "(#[a-z_.-][a-z0-9+\$_.-]*)?"; // Anchor 
+	if(preg_match("/^$regex$/", $url)) 
+	{ 
 		return true;
-	}
+	} 
 	else
 	{
 		return false;

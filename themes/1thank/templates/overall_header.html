@@ -200,7 +200,7 @@
                                     </form>
                                     <form action="./forum.php?action=search" method="post" id="search">
                                         <input name="search" id="keywords" type="text" maxlength="128" title="{L_SEARCH}" class="inputbox search" value="{L_SEARCH}" onclick="if(this.value=='{L_SEARCH}')this.value='';" onblur="if(this.value=='')this.value='{L_SEARCH}';" >
-                                        <input class="button2" value="Search" type="submit" >{L_FORUM}<br >
+                                        <input class="button2" value="Search" type="submit" >{L_FORUM}&nbsp;&nbsp;&nbsp;&nbsp;<br >
                                     </form>
                                 </div>
     
@@ -220,6 +220,7 @@
                             <li><a  href="user.php?op=editprofile"><span>{L_YOUR_ACCOUNT}</span></a></li>
                             <li><a  href="torrents.php"><span>{L_BROWES}</span></a></li>
                             <li><a  href="faq.php"><span>{L_FAQS}</span></a></li>
+                            <li><a  href="rules.php"><span>{L_RULES}</span></a></li>
                             <li><a  href="forum.php"><span>{L_FORUM}</span></a></li>
                             <!-- IF not U_USER --><li><a  href="/user.php?op=register"><span>{L_REGISTOR}</span></a></li><!-- ENDIF -->
                             <li><!-- IF U_USER --><a onClick="if(!confirm('{L_JAVA_CONF_LOGOUT}')){return false;};" href="user.php?op=logout" alt="{L_LOGOUT}" title="{L_LOGOUT}"><span>{L_LOGOUT}</span><!-- ELSE --><a href="login.php" alt="{L_LOGIN}" title="{L_LOGIN}"><span>{L_LOGIN}</span><!-- ENDIF --></a></li>

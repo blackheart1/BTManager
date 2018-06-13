@@ -807,10 +807,9 @@ function ChangeThumb(pic) {
     </td>
 </tr>
 <tr>
-    <td colspan="2" align="center"><br />
-        <input class="btnlite" type="reset" value="{L_RESET}" name="reset" />&nbsp;&nbsp;
-        <input class="btnmain" type="submit" name="submit" value="{L_SUBMIT}" />
-
+    <td colspan="2" align="center">
+        <input class="btnmain" type="submit" name="submit" value="{L_SUBMIT}" />&nbsp;&nbsp;
+        <input class="btnlite" type="reset" value="{L_RESET}" name="reset" />
     </td>
 </tr>
 </table>
@@ -1628,19 +1627,19 @@ function ChangeThumb(pic) {
         <tr>
             <td align="right" valign="top" nowrap="nowrap"><strong class="genmed">{l_JOINED}: </strong></td>
 
-            <td width="100%"><strong class="gen">{CP_UREGDATE}</strong></td>
+            <td width="100%"><strong class="genmed">{CP_UREGDATE}</strong></td>
         </tr>
         <tr>
             <td align="right" valign="top" nowrap="nowrap"><strong class="genmed">{L_LAST_SEEN}: </strong></td>
 
-            <td width="100%"><strong class="gen">{CP_ULASTSEEN}</strong></td>
+            <td width="100%"><strong class="genmed">{CP_ULASTSEEN}</strong></td>
         </tr>
         <tr>
             <td align="right" valign="top" nowrap="nowrap">
                 <strong class="genmed">{L_TOTAL_POSTS}: </strong>
             </td>
             <td>
-                <strong class="gen">{CP_POST_COUNT}</strong><br />
+                <strong class="genmed">{CP_POST_COUNT}</strong><br />
                 <span class="genmed">[{POSTS_PCT} / {POSTS_DAY}]<br />
                     <a href="{U_SEARCH_USER}">{L_SHOW_YOUR_POSTS}</a>
                 </span>
@@ -1652,7 +1651,7 @@ function ChangeThumb(pic) {
                     <strong class="genmed">{L_ACTIVE_IN_FORUM}: </strong>
                 </td>
                 <td><!-- IF ACTIVE_FORUM --><strong>
-                    <a class="gen" href="{U_ACTIVE_FORUM}">{ACTIVE_FORUM}</a></strong><br />
+                    <a class="genmed" href="{U_ACTIVE_FORUM}">{ACTIVE_FORUM}</a></strong><br />
                     <span class="genmed">[ {ACTIVE_FORUM_POSTS} / {ACTIVE_FORUM_PCT} ]</span><!-- ELSE -->
                     <span class="gen">-</span><!-- ENDIF -->
                 </td>
@@ -1662,7 +1661,7 @@ function ChangeThumb(pic) {
                     <strong class="genmed">{L_ACTIVE_IN_TOPIC}: </strong>
                 </td>
                 <td><!-- IF ACTIVE_TOPIC -->
-                    <strong><a class="gen" href="{U_ACTIVE_TOPIC}">{ACTIVE_TOPIC}</a></strong><br />
+                    <strong><a class="genmed" href="{U_ACTIVE_TOPIC}">{ACTIVE_TOPIC}</a></strong><br />
                     <span class="genmed">[ {ACTIVE_TOPIC_POSTS} / {ACTIVE_TOPIC_PCT} ]</span><!-- ELSE -->
                     <span class="gen">-</span><!-- ENDIF -->
                 </td>

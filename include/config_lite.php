@@ -26,13 +26,11 @@ if (!defined('IN_PMBT'))
 //if (@file_exists("setup/index.php")) die();
 
 //Compressed Output Buffering always makes trouble with BT clients
+if (extension_loaded('zlib')){ ob_end_clean();}
 if (function_exists('ob_gzhandler') && !ini_get('zlib.output_compression'))
-
-    ob_start('ob_gzhandler');
-
-    else
-
-        ob_start();
+	ob_start('ob_gzhandler');
+else
+	ob_start();
 @ob_implicit_flush(0);
 
 $phpver = phpversion();

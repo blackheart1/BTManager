@@ -29,12 +29,20 @@ $id = (int)request_var('id', '0');
 $act = request_var('act', '');
 if ($act == "delete")
 {
-$id = (int)request_var('delete', '0');
+	$id = (int)request_var('delete', '0');
+	$sql_rule = "select `title` from ".$db_prefix."_rules where id=$id;";
+	$sql = $db->sql_query($sql_rule);
+	$row = $db->sql_fetchrow($sql);
+	if(!isset($row['title']))
+	{
+		trigger_error($user->lang['NO_RULE'] . '<br /><br /><a href="javascript:history.go(-1)"  onMouseOver="self.status=document.referrer;return true">' . $user->lang['GO_BACK'] . '</a>');
+	}
+
 		if (confirm_box(true))
 		{
 			$sql = "DELETE FROM ".$db_prefix."_rules WHERE id = $id ";
 			if (!$db->sql_query($sql)) btsqlerror($sql);
-						add_log('admin','RULE_REMOVED');
+						add_log('admin','RULE_REMOVED',$row['title']);
                                 $template->assign_vars(array(
 								        'S_USER_NOTICE'				=> true,
 										'S_FORWARD'					=> $u_action,

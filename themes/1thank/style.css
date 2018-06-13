@@ -688,6 +688,7 @@ color : #6f0000;
 }
 a {
 color : #1c1c1c;
+
 }
 a.header:active {
 color : red;
@@ -1378,6 +1379,7 @@ li.pagination {
 .titlespace {
 	margin-bottom: 15px;
 }
+
 
 .headerspace {
 	margin-top: 20px;
@@ -2582,6 +2584,7 @@ ul.profile-icons li.web-icon	{ width: 20px; height: 20px; }
 ul.profile-icons li.msnm-icon	{ width: 20px; height: 20px; }
 ul.profile-icons li.icq-icon	{ width: 20px; height: 20px; }
 ul.profile-icons li.jabber-icon	{ width: 20px; height: 20px; }
+
 ul.profile-icons li.pm-icon		{ width: 20px; height: 20px; }
 ul.profile-icons li.quote-icon	{ width: 53px; height: 17px; }
 ul.profile-icons li.report-icon	{ width: 20px; height: 20px; }
@@ -3276,7 +3279,8 @@ fieldset.submit-buttons input {
 }
 
 #message-box textarea {
-	font-family: "Trebuchet MS", Verdana, Helvetica, Arial, sans-serif;
+	/*font-family: "Trebuchet MS", Verdana, Helvetica, Arial, sans-serif;*/
+	font-weight:300;
 	width: 100%;
 	font-size: 1.2em;
 	color: #333333;
@@ -3287,6 +3291,7 @@ fieldset.submit-buttons input {
 	width: 18%;
 	float: right;
 	overflow:hidden;
+	font-size: .9em;
 }
 
 #smiley-box img {
@@ -4077,6 +4082,42 @@ dl.thumbnail dt a:hover img {
 
 /* Post poll styles
 ----------------------------------------*/
+table.poll {
+width:100%;
+color:#000000;
+font-weight:bold;
+font-family : sans-serif;
+font-size : 12pt;
+}
+p.poll{
+width:100%;
+color:#000000;
+font-weight:bold;
+font-family : sans-serif;
+font-size : 12pt;
+}
+p.poll_q{
+width:100%;
+color:#000000;
+font-weight:bold;
+font-family : sans-serif;
+font-size : 15pt;
+text-align:center;
+}
+tr.poll{
+width:100%;
+color:#000000;
+font-weight:bold;
+font-family : sans-serif;
+font-size : 12pt;
+}
+td.poll{
+width:100%;
+color:#000000;
+font-weight:bold;
+font-family : sans-serif;
+font-size : 12pt;
+}
 
 fieldset.polls dl {
 	border-top-color: #E5E6E5;
@@ -4832,4 +4873,14 @@ border-top:1px dotted #ccc;
 font-size:11px;
 line-height:140%;
 padding:8px 0 10px
+}
+.gensmall {
+	margin: 1px 1px;
+	font-size: .8em;
+	font-weight:200;
+}
+table.legend td.gensmall {
+	margin: 1px 1px;
+	font-size: .7em;
+	font-weight:200;
 }
