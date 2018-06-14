@@ -2218,6 +2218,7 @@ CREATE TABLE IF NOT EXISTS `#prefix#_users` (
   `donated` decimal(10,1) unsigned NOT NULL DEFAULT '0.0',
   `dondate` datetime NOT NULL DEFAULT 0,
   `torrent_per_page` int(10) DEFAULT NULL,
+  `view_dead_tor` TINYINT(1) NOT NULL DEFAULT '0',
   `donator_tell` datetime NOT NULL DEFAULT 0,
   `dongift` int(1) unsigned NOT NULL DEFAULT '0',
   `inactwarning` tinyint(1) NOT NULL DEFAULT '0',
