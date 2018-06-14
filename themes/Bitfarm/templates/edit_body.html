@@ -32,12 +32,14 @@ function PopMoreSmiles(form,text) {
                 <form enctype="multipart/form-data" name="add" method=post action="{U_ACTION}">
                 {HIDDEN}
                 <table class="tablebg" width="100%" cellspacing="0">
+<!-- IF ALOW_NFO -->
                     <tr>
                         <td class="row1" width="35%">
                             <strong class="genmed">{L_UPLOAD_NFO}:</strong><br />
                         </td>
                         <td class="row2"><input type="file" name="nfox" size="60" /></td>
                     </tr>
+<!-- ENDIF -->
                     <tr>
                         <td class="row1" width="35%">
                             <strong class="genmed">{L_EDIT_NAME}:</strong><br />
@@ -52,6 +54,7 @@ function PopMoreSmiles(form,text) {
                         </td>
                         <td class="row2"><input type="text" name="imdblink" value="{E_IMDB}" size="60"></td>
                     </tr>
+<!-- IF ALOW_POSTER -->
                     <tr>
                         <td class="row1" width="35%">
                             <strong class="genmed">{L_EDIT_POSTER}:</strong><br />
@@ -59,6 +62,8 @@ function PopMoreSmiles(form,text) {
                         </td>
                         <td class="row2"><input type="text" name="post_img" value="{E_POSTER}" size="60"></td>
                     </tr>
+<!-- ENDIF -->
+<!-- IF ALOW_SCREEN_SHOT -->
                     <tr>
                         <td class="row1" width="35%">
                             <strong class="genmed">{L_EDIT_SCREENA}:</strong><br />
@@ -87,6 +92,7 @@ function PopMoreSmiles(form,text) {
                         </td>
                         <td class="row2"><input type="text" name="screen4" value="{E_SCRD}" size="60"></td>
                     </tr>
+<!-- ENDIF -->
 <!-- IF MODMODE -->
                     <tr>
                         <td class="row1" width="35%">
@@ -95,12 +101,14 @@ function PopMoreSmiles(form,text) {
                         <td class="row2"><input type="radio" name="banned" <!-- IF BANNED -->checked="checked" <!-- ENDIF -->value="yes">{L_YES}<input type="radio" name="banned" <!-- IF not BANNED -->checked="checked" <!-- ENDIF -->value="no">{L_NO}</td>
                     </tr>
 <!-- ENDIF -->
+<!-- IF ALOW_RATIO_BUILD -->
                     <tr>
                         <td class="row1" width="35%">
                             <strong class="genmed">{L_RATIO_BUILDER}:</strong><br />
                         </td>
                         <td class="row2"><input type="radio" name="build" <!-- IF BUILD -->checked="checked" <!-- ENDIF -->value="yes">{L_YES}<input type="radio" name="build" <!-- IF not BUILD -->checked="checked" <!-- ENDIF -->value="no">{L_NO}</td>
                     </tr>
+<!-- ENDIF -->
                     <tr>
                         <td class="row1" width="35%">
                             <strong class="genmed">{L_NUKE}:</strong><br />
@@ -170,6 +178,7 @@ function PopMoreSmiles(form,text) {
                         <td class="row1" width="35%"><strong class="genmed">{L_CAT_SELECT}:</strong></td>
                         <td class="row2">{O_CAT_SELECT}</td>
                     </tr>
+<!-- IF ALOW_STICKY -->
                     <tr>
                         <td class="row1" width="35%">
                             <strong class="genmed">{L_EDIT_EVIDENT}:</strong><br />
@@ -177,6 +186,8 @@ function PopMoreSmiles(form,text) {
                         </td>
                         <td class="row2"><input type="radio" name="evidence" <!-- IF EVIDENT -->checked="checked" <!-- ENDIF -->value="yes">{L_YES}<input type="radio" name="evidence" <!-- IF not EVIDENT -->checked="checked" <!-- ENDIF -->value="no">{L_NO}</td>
                     </tr>
+<!-- ENDIF -->
+<!-- IF ALOW_HIDE_OWNER -->
                     <tr>
                         <td class="row1" width="35%">
                             <strong class="genmed">{L_EDIT_PRIVACY}:</strong><br />
@@ -184,6 +195,8 @@ function PopMoreSmiles(form,text) {
                         </td>
                         <td class="row2">{PRIVATE_SEL}</td>
                     </tr>
+<!-- ENDIF -->
+<!-- IF ALOW_PASSWORD -->
                     <tr>
                         <td class="row1" width="35%">
                             <strong class="genmed">{L_PASSWORD}:</strong><br />
@@ -191,6 +204,7 @@ function PopMoreSmiles(form,text) {
                         </td>
                         <td class="row2"><input type="text" name="password" value="{E_PASS}" size="60"></td>
                     </tr>
+<!-- ENDIF -->
                     <tr>
                         <td colspan="2" align="center"><input type=submit value='{L_SUBMIT}'>&nbsp;<input type="reset" value="{L_RESET}" /></td>
                     </tr>

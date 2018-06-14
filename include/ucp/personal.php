@@ -128,6 +128,7 @@ $template->assign_vars(array(
 		'S_CUSTOM_DATEFORMAT'	=> $s_custom,
 		'S_HIDDEN_FIELDS'		=> build_hidden_fields($hidden),
 		'CP_TORPERPAGE'			=> ($userrow["torrent_per_page"] > 0)? $userrow["torrent_per_page"] : 0,
+		'CP_VIEW_DEAD'			=> $userrow["view_dead_tor"],
 		'CP_HIDE_PROFILE'		=> ($userrow["hide_profile"] == 'true')? true : false,
 		'CP_PARKED'				=> ($userrow["parked"] == 'true')? true : false,
 		'CP_SHOW_ONLINE'		=> ($userrow["Show_online"] == 'true')? true : false,

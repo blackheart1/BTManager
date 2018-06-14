@@ -79,8 +79,8 @@ $orderby = " ORDER BY ".$db_prefix."_torrents.leechers $type,  ";//
         if ($catmain) $catwhere = " AND ".$db_prefix."_torrents.category IN ('".$catmain."')";
         else $catwhere = "";
         $passwhere = " AND ".$db_prefix."_torrents.password IS NULL ";
-        $viswhere = "visible = 'yes' AND banned = 'no'";
-        if ($user->moderator) $viswhere = "1";
+        $viswhere = (($user->view_dead_tor)? "banned = 'no'" : "visible = 'yes' AND banned = 'no'");
+        if ($user->moderator) $viswhere = (($user->view_dead_tor)? "1" : "visible = 'yes'" );
         if ($user->premium) $passwhere = "";
 
         $from = ($page - 1) * $torrent_per_page;

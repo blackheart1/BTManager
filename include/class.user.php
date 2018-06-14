@@ -25,6 +25,7 @@ if (!defined('IN_PMBT'))
 }
 class User {
         var $id;
+		var $view_dead_tor;
         var $name;
         var $level;
         var $group;
@@ -504,6 +505,7 @@ class User {
 								$this->session_id = substr($val, 4, 16);
                                 $this->forumbanned = (($row["forumbanned"]== 'yes')? true : false);
 								$this->user_torrent_per_page = $row["torrent_per_page"];
+								$this->view_dead_tor = $row["view_dead_tor"];
 								$this->sig = $row["signature"];
 								$this->sig_bbcode_bitfield = $row["sig_bbcode_bitfield"];
 								$this->sig_bbcode_uid = $row["sig_bbcode_uid"];
@@ -593,6 +595,7 @@ class User {
 								$this->session_id = substr($val, 4, 16);
                                 $this->forumbanned = (($row["forumbanned"]== 'yes')? true : false);
 								$this->user_torrent_per_page = $row["torrent_per_page"];
+								$this->view_dead_tor = $row["view_dead_tor"];
 								$this->sig = $row["signature"];
 								$this->sig_bbcode_bitfield = $row["sig_bbcode_bitfield"];
 								$this->user_notify = $row['user_notify'];
@@ -671,6 +674,7 @@ class User {
 				$this->data['user_dateformat'] = 'd M Y H:i';
 				$this->date_format = $this->data['user_dateformat'];
 				$this->user_torrent_per_page = "10";
+				$this->view_dead_tor = 0;
                 global $theme;
                 $this->theme = $theme;
                 $this->forumbanned = true;

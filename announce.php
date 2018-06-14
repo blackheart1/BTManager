@@ -382,14 +382,7 @@ if(!$compact){
                while ($row = $db->sql_fetchrow($res)) {
                         $peers .= pack("Nn", sprintf("%d",$row["ip"]), $row["port"]);
                 }
-				if($peers == "")
-				{
-					$resp .= benc_str("peers");
-				}
-				else
-				{
 					$resp .= benc_str("peers") . strlen($peers).":".$peers;
-				}
 
 }
         $db->sql_freeresult($res);
@@ -651,11 +644,12 @@ if ($uid != 0 AND !($event =="started")) {
 unset($uploaded ,$downloaded, $self, $uid, $sql);
 
 if ($debug) {
-        $email = New eMail();
-        $email->Add('black_heart@me.com');
-        $email->subject = "Announce Debug";
-        $email->body = $_SERVER["REQUEST_URI"]."\n\n\n".$resp;
-        $email->Send();
+	add_log('admin','LOG_ANNOUNCE',$_SERVER["REQUEST_URI"]."\n\n\n".$resp);
+        //$email = New eMail();
+        //$email->Add('black_heart@me.com');
+        //$email->subject = "Announce Debug";
+        //$email->body = $_SERVER["REQUEST_URI"]."\n\n\n".$resp;
+        //$email->Send();
 }
 
 benc_resp_raw($resp);

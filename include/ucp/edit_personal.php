@@ -39,6 +39,7 @@ if (!defined('IN_PMBT'))
 		$customtheme						=  request_var('customtheme', '0');
 		$customlang							=  request_var('customlang', '0');
 		$user_torrent_per_page				=  request_var('user_torrent_per_page', '0');
+		$view_dead_tor						=  request_var('view_dead', $userrow['view_dead_tor']);
 		$u_country							=  request_var('u_country', '0');
 		$u_parked							=  request_var('parked', '0');
 		$hide_profile						=  request_var('hide_profile', '0');
@@ -60,6 +61,7 @@ if (!defined('IN_PMBT'))
 		$post_st							= request_var('post_st', ($userrow['user_post_show_days']) ? $userrow['user_post_show_days'] : 0);
 
 
+		$sqlval['view_dead_tor']			= $view_dead_tor;
 		$sqlval['user_topic_sortby_type']	= $topic_sk;
 		$sqlval['user_post_sortby_type']	= $post_sk;
 		$sqlval['user_topic_sortby_dir']	= $topic_sd;
