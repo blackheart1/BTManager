@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File ucp/english.php 2018-04-28 10:31:00 Thor
+** File ucp/english.php 2018-06-16 08:43:00 Thor
 **
 ** CHANGES
 **
@@ -24,6 +24,7 @@
 ** 2018-04-23 - Added Missing Languages
 ** 2018-04-28 - Amended the Wording of some Sentences
 ** 2018-04-28 - Added Missing Languages
+** 2018-06-16 - Added New Languages
 **/
 
 if (!defined('IN_PMBT'))
@@ -316,6 +317,8 @@ $lang = array_merge($lang, array(
     'DHT_SUPORT'               => 'DHT Support',
     'TORRENT DETAILS'          => 'Torrent Details',
     'POST_TIME'                => 'Post Time',
+    'VIEW_DEAD_TORRENTS'       => 'View Dead Torrents',
+    'VIEW_DEAD_TORRENTS_EXP'   => 'View Torrents that have No Peers',
 ));
 
 ?>
