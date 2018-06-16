@@ -177,9 +177,12 @@ switch($op) {
 		}
         case "takeedit":
 		{
+			$sql = "SELECT * FROM ".$db_prefix."_torrents WHERE id = '".$id."';";
+			$res = $db->sql_query($sql) or btsqlerror($sql);
+			$torrentrow  = $db->sql_fetchrow($res);
                 $errmsg = Array();
-                $post_img = request_var('post_img','',true);
-				if($post_img != '')
+                $post_img = request_var('post_img',$torrentrow['post_img'],true);
+				if($post_img != '' AND checkaccess("u_add_poster"))
 				{
 					if (!preg_match('#^(https?://).*?\.(gif|jpg|jpeg|png)$#i', $post_img, $match))
 					{
@@ -198,8 +201,8 @@ switch($op) {
 				{
 					$post_img = NULL;
 				}
-                $screen1 = request_var('screen1','',true);
-				if($screen1 != '')
+                $screen1 = request_var('screen1',$torrentrow['screen1'],true);
+				if($screen1 != '' AND checkaccess("u_add_screen_shots"))
 				{
 					if (!preg_match('#^(https?://).*?\.(gif|jpg|jpeg|png)$#i', $screen1, $match))
 					{
@@ -218,8 +221,8 @@ switch($op) {
 				{
 					$screen1 = NULL;
 				}
-                $screen2 = request_var('screen2','',true);
-				if($screen2 != '')
+                $screen2 = request_var('screen2',$torrentrow['screen2'],true);
+				if($screen2 != '' AND checkaccess("u_add_screen_shots"))
 				{
 					if (!preg_match('#^(https?://).*?\.(gif|jpg|jpeg|png)$#i', $screen2, $match))
 					{
@@ -238,8 +241,8 @@ switch($op) {
 				{
 					$screen2 = NULL;
 				}
-                $screen3 = request_var('screen3','',true);
-				if($screen3 != '')
+                $screen3 = request_var('screen3',$torrentrow['screen3'],true);
+				if($screen3 != '' AND checkaccess("u_add_screen_shots"))
 				{
 					if (!preg_match('#^(https?://).*?\.(gif|jpg|jpeg|png)$#i', $screen3, $match))
 					{
@@ -258,8 +261,8 @@ switch($op) {
 				{
 					$screen3 = NULL;
 				}
-                $screen4 = request_var('screen4','',true);
-				if($screen4 != '')
+                $screen4 = request_var('screen4',$torrentrow['screen4'],true);
+				if($screen4 != '' AND checkaccess("u_add_screen_shots"))
 				{
 					if (!preg_match('#^(https?://).*?\.(gif|jpg|jpeg|png)$#i', $screen4, $match))
 					{
@@ -291,12 +294,12 @@ switch($op) {
                 $sql = "SELECT info_hash, owner,save_as FROM ".$db_prefix."_torrents WHERE id = '".$id."';";
                 $res = $db->sql_query($sql);
                 list ($info_hash, $original_owner,$save_as) = $db->fetch_array($res);
-                $infohash_hex = preg_replace_callback('/./s', "hex_esc", str_pad($torrent["info_hash"],20));
+                $infohash_hex = preg_replace_callback('/./s', "hex_esc", str_pad($torrentrow["info_hash"],20));
                 $db->sql_freeresult($res);
                 $category = intval($torrent_category);
                 if ($category < 1) $errmsg[] = $user->lang['ERROR_NO_CAT_SELECTED'];
                 $nf = $_FILES["nfox"];
-                $nfname = unesc($nf["name"]);
+                $nfname = ((checkaccess("u_add_nfo")? unesc($nf["name"]) : '');
                 if ($nfname != "")
 				{
 					if (!is_filename($nfname)) $errmsg[] = $user->lang['ERROR_INVALID_NFO_NAME'];
@@ -304,6 +307,7 @@ switch($op) {
 					if (!is_uploaded_file($nf["tmp_name"])) $errmsg[] = $user->lang['ERROR_UPLOADING_NFO'];
 					if ($nf["size"] <= 0) $errmsg[] = $user->lang['ERROR_EMPTY_NFO'];
                 }
+				$category			= request_var('torrent_category', 0);
                 $cats = catlist();
                 $in_cat = false;
                 while ($cat = each($cats) AND !$in_cat) {
@@ -331,21 +335,22 @@ switch($op) {
 					@unlink($nfopath);
 					move_uploaded_file($nf["tmp_name"],$nfopath);
                 }
-				if($evidence == "") $evidence = 'no';
+                $evidence = request_var('evidence',$torrentrow['evidence']);
+				if($evidence == "" OR $evidence == "no" OR !checkaccess("u_add_sticky_upload")) $evidence = 'no';
 				else $evidence = 'yes';
 				$password = htmlspecialchars(request_var('password','',true));
-                if ($password == "") $password = NULL;
+                if ($password == "" OR !checkaccess("u_add_password_torrent")) $password = NULL;
 				else
 				$password = $password;
-				$namex = utf8_normalize_nfc(request_var('namex','',true));
+				$namex = utf8_normalize_nfc(request_var('namex',$torrentrow['save_as'],true));
 				if ($namex == ""){
-					$namex = $save_as;
+					$namex = $torrentrow['save_as'];
 				}
 				else
 				{
 					$namex = $namex;
 				}
-                $ownertype = intval(request_var('ownertype',''));
+                $ownertype = ((checkaccess("u_hide_torrent_owner"))? request_var('ownertype',$torrentrow['ownertype']) : 0);
                 if ($ownertype == 2) {
                         $owner = 0;
                         $sql = "DELETE FROM ".$db_prefix."_privacy_global WHERE torrent = '".$id."';";
@@ -356,17 +361,17 @@ switch($op) {
                         $db->sql_query($sql) or btsqlerror($sql);
 
                 }
-                else $owner = $original_owner;
-                $banned = request_var('banned','no');
-                $nuked = request_var('nuked','no');
-                $nukereason = utf8_normalize_nfc(request_var('nukereason','',true));
+                else $owner = $torrentrow['owner'];
+                $banned = ((checkaccess("m_can_edit_others_torrents"))? request_var('banned',$torrentrow['banned']) : 'no');
+                $nuked = ((checkaccess("u_apply_ratiobuild"))? request_var('nuked',$torrentrow['nuked']) : 'no');
+                $nukereason = ((checkaccess("u_apply_ratiobuild"))? utf8_normalize_nfc(request_var('nukereason',$torrentrow['nukereason'],true)) : '');
                 $nukereason = $nukereason;
-                $evidence = request_var('evidence','no');
-				if($evidence == 'yes')$evidence = 1;
+                $evidence = ((checkaccess("u_add_sticky_upload"))? request_var('evidence',$torrentrow['evidence']) : 0);
+				if($evidence == '1' OR $evidence == 'yes')$evidence = 1;
 				else
 				$evidence = 0;
                 $imdblink = request_var('imdblink','');
-                $build = request_var('build','');
+                $build = ((checkaccess("u_apply_ratiobuild"))? request_var('build',$torrentrow['ratiobuild']) : 'no');
 				if($build =='yes' OR $build == '1') $build = 'yes';
 				else
 				$build = 'no';
