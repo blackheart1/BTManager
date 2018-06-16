@@ -191,12 +191,12 @@ switch($op) {
 					}
 					else
 					{
-						$post_img = "'" . $db->sql_escape($post_img) . "'";
+						$post_img = $post_img;
 					}
 				}
 				else
 				{
-					$post_img = "NULL";
+					$post_img = NULL;
 				}
                 $screen1 = request_var('screen1','',true);
 				if($screen1 != '')
@@ -211,12 +211,12 @@ switch($op) {
 					}
 					else
 					{
-						$screen1 = "'" . $db->sql_escape($screen1) . "'";
+						$screen1 = $screen1;
 					}
 				}
 				else
 				{
-					$screen1 = "NULL";
+					$screen1 = NULL;
 				}
                 $screen2 = request_var('screen2','',true);
 				if($screen2 != '')
@@ -231,12 +231,12 @@ switch($op) {
 					}
 					else
 					{
-						$screen2 = "'" . $db->sql_escape($screen2) . "'";
+						$screen2 = $screen2;
 					}
 				}
 				else
 				{
-					$screen2 = "NULL";
+					$screen2 = NULL;
 				}
                 $screen3 = request_var('screen3','',true);
 				if($screen3 != '')
@@ -251,12 +251,12 @@ switch($op) {
 					}
 					else
 					{
-						$screen3 = "'" . $db->sql_escape($screen3) . "'";
+						$screen3 = $screen3;
 					}
 				}
 				else
 				{
-					$screen3 = "NULL";
+					$screen3 = NULL;
 				}
                 $screen4 = request_var('screen4','',true);
 				if($screen4 != '')
@@ -271,12 +271,12 @@ switch($op) {
 					}
 					else
 					{
-						$screen4 = "'" . $db->sql_escape($screen4) . "'";
+						$screen4 = $screen4;
 					}
 				}
 				else
 				{
-					$screen4 = "NULL";
+					$screen4 = NULL;
 				}
 				if (count($errmsg) > 0){
 					$template->assign_vars(array(
@@ -334,18 +334,18 @@ switch($op) {
 				if($evidence == "") $evidence = 'no';
 				else $evidence = 'yes';
 				$password = htmlspecialchars(request_var('password','',true));
-                if ($password == "") $password = "NULL";
+                if ($password == "") $password = NULL;
 				else
-				$password = "'" . $db->sql_escape($password) . "'";
+				$password = $password;
 				$namex = utf8_normalize_nfc(request_var('namex','',true));
 				if ($namex == ""){
 					$namex = $save_as;
 				}
 				else
 				{
-					$namex = $db->sql_escape($namex);
+					$namex = $namex;
 				}
-                $ownertype = intval($ownertype);
+                $ownertype = intval(request_var('ownertype',''));
                 if ($ownertype == 2) {
                         $owner = 0;
                         $sql = "DELETE FROM ".$db_prefix."_privacy_global WHERE torrent = '".$id."';";
@@ -360,12 +360,16 @@ switch($op) {
                 $banned = request_var('banned','no');
                 $nuked = request_var('nuked','no');
                 $nukereason = utf8_normalize_nfc(request_var('nukereason','',true));
-                $nukereason = $db->sql_escape($nukereason);
+                $nukereason = $nukereason;
                 $evidence = request_var('evidence','no');
 				if($evidence == 'yes')$evidence = 1;
 				else
 				$evidence = 0;
                 $imdblink = request_var('imdblink','');
+                $build = request_var('build','');
+				if($build =='yes' OR $build == '1') $build = 'yes';
+				else
+				$build = 'no';
 				
 				include_once('include/function_posting.php');
 				include_once('include/message_parser.php');
@@ -385,31 +389,35 @@ switch($op) {
 				$message_parser->parse($enable_bbcode, ($config['allow_post_links']) ? $enable_urls : false, $enable_smilies, $img_status, $flash_status, true, $config['allow_post_links']);
 
                #Build data base changes
+			   $sql_ary		=(array(
+							'name' 					=> $namex, 
+							'descr' 				=> $message_parser->message, 
+							'bbcode_bitfield' 		=> $message_parser->bbcode_bitfield, 
+							'bbcode_uid'			=> $message_parser->bbcode_uid, 
+							'category' 				=> (int)$torrent_category, 
+							'ownertype' 			=> $ownertype, 
+							'owner' 				=> (int)$owner, 
+							'password' 				=> $password, 
+							'banned' 				=> $banned, 
+							'nuked' 				=> $nuked, 
+							'ratiobuild' 			=> $build, 
+							'nukereason' 			=> $nukereason, 
+							'evidence' 				=> $evidence, 
+							'imdb' 					=> $imdblink, 
+							'post_img' 				=> $post_img, 
+							'screan1' 				=> $screen1, 
+							'screan2' 				=> $screen2, 
+							'screan3' 				=> $screen3, 
+							'screan4' 				=> $screen4, 
+			   		));
+
 			   $sql = "UPDATE ".$db_prefix."_torrents 
 			   			SET 
-							name = '".$namex."', 
-							descr = '".$db->sql_escape($message_parser->message)."', 
-							bbcode_bitfield = '".$message_parser->bbcode_bitfield."', 
-							bbcode_uid = '".$message_parser->bbcode_uid."', 
-							category = '".$torrent_category."', 
-							ownertype = '".$ownertype."', 
-							owner = '".$owner."', 
-							password = ".$password.", 
-							banned = '".$banned."', 
-							nuked = '".$nuked."', 
-							ratiobuild = '".$build."', 
-							nukereason ='".$nukereason."', 
-							evidence = '".$evidence."', 
-							imdb = '".$imdblink."', 
-							post_img = ".$post_img.", 
-							screan1 = ".$screen1.", 
-							screan2 = ".$screen2.", 
-							screan3 = ".$screen3.", 
-							screan4 = ".$screen4." 
+							" . $db->sql_build_array('UPDATE', $sql_ary) . " 
 						WHERE 
-							id = '".$id."';";
+							id = ".$id.";";
 					#Apply changes to the data base
-					//die($sql);
+
                 $db->sql_query($sql) or btsqlerror($sql);
 						meta_refresh(5, $siteurl . '/details.php?id=' . $id);
 						$template->assign_vars(array(
@@ -456,7 +464,7 @@ switch($op) {
 					$template->assign_block_vars('custom_tags', array(
 						'BBCODE_NAME'		=> "'[" . $rows['bbcode_tag'] . "]', '[/" . str_replace('=', '', $rows['bbcode_tag']) . "]'",
 						'BBCODE_ID'			=> $num_predefined_bbcodes + ($i * 2),
-						'BBCODE_TAG'		=> $rows['bbcode_tag'],
+						'BBCODE_TAG'		=> str_replace('=', '', $rows['bbcode_tag']),
 						'BBCODE_HELPLINE'	=> $rows['bbcode_helpline'],
 						'A_BBCODE_HELPLINE'	=> str_replace(array('&amp;', '&quot;', "'", '&lt;', '&gt;'), array('&', '"', "\'", '<', '>'), $rows['bbcode_helpline']),
 					));
@@ -492,6 +500,14 @@ switch($op) {
 				}  
 				$s .= "</select>\n";
 				$template->assign_vars(array(
+						'ALOW_POSTER'				=> checkaccess("u_add_poster"),
+						'ALOW_SCREEN_SHOT'			=> checkaccess("u_add_screen_shots"),
+						'ALOW_NFO'					=> checkaccess("u_add_nfo"),
+						'ALOW_NOTIFY'				=> checkaccess("u_upload_notify"),
+						'ALOW_HIDE_OWNER'			=> checkaccess("u_hide_torrent_owner"),
+						'ALOW_PASSWORD'				=> checkaccess("u_add_password_torrent"),
+						'ALOW_RATIO_BUILD'			=> checkaccess("u_apply_ratiobuild"),
+						'ALOW_STICKY'				=> checkaccess("u_add_sticky_upload"),
 						'U_ACTION'					=>	'./edit.php',
 						'ACTION'					=>	'torrent',
 						'MODMODE'					=>	checkaccess("m_can_edit_others_torrents"),

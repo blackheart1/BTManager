@@ -571,6 +571,15 @@ $lang = array_merge($lang, array(
     'acl_a_cache_settings'  => array('lang' => 'Can Alter Cache Settings', 'cat' => 'settings'),
     'acl_a_cache_time_sql'  => array('lang' => 'Can Manage Cache Data base Times Settings', 'cat' => 'settings'),
     'acl_a_cache_time_tmpl' => array('lang' => 'Can Manage Cache Theme Time Settings', 'cat' => 'settings'),
+	#updated admin access
+	'acl_a_paypal'					=> array('lang' => 'Can Manage PayPal Settings', 'cat' => 'settings'),
+	'acl_a_irc'						=> array('lang' => 'Can Manage IRC Settings', 'cat' => 'settings'),
+	'acl_a_faq_manage'				=> array('lang' => 'Can Manage FAQ\'s Settings', 'cat' => 'settings'),
+	'acl_a_torrent_filter'			=> array('lang' => 'Can Manage Torrent Upload Filters', 'cat' => 'trac'),
+	'acl_a_torrent_clinic'			=> array('lang' => 'Can Manage Torrent Clinic', 'cat' => 'trac'),
+	'acl_a_client_ban'				=> array('lang' => 'Can Ban Torrent Clients', 'cat' => 'trac'),
+	'acl_a_torrent_categories'		=> array('lang' => 'Can Manage Torrent Categories', 'cat' => 'trac'),
+	'acl_a_hit_and_run'				=> array('lang' => 'Can Manage Hit And Run Settings', 'cat' => 'trac'),
 
 ));
 
