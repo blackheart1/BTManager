@@ -295,9 +295,9 @@ switch ($op) {
 						}
 				
 						$template->assign_block_vars('custom_tags', array(
-							'BBCODE_NAME'		=> "'[{$row['bbcode_tag']}]', '[/" . str_replace('=', '', $row['bbcode_tag']) . "]'",
+							'BBCODE_NAME'		=> "'[{$rows['bbcode_tag']}]', '[/" . str_replace('=', '', $rows['bbcode_tag']) . "]'",
 							'BBCODE_ID'			=> $num_predefined_bbcodes + ($i * 2),
-							'BBCODE_TAG'		=> $rows['bbcode_tag'],
+							'BBCODE_TAG'		=> str_replace('=', '', $rows['bbcode_tag']),
 							'BBCODE_HELPLINE'	=> $rows['bbcode_helpline'],
 							'A_BBCODE_HELPLINE'	=> str_replace(array('&amp;', '&quot;', "'", '&lt;', '&gt;'), array('&', '"', "\'", '<', '>'), $rows['bbcode_helpline']),
 						));
@@ -318,7 +318,7 @@ switch ($op) {
 					$res2 = $db->sql_query($sql) or btsqlerror($sql);
 					$row2 = $db->sql_fetchrow($res2);
                     $template->assign_vars(array(
-			        'L_EDIT_TITLE'				=> sprintf($user->lang['BLOCK_TITLE'],$row2[0]),
+			        'L_EDIT_TITLE'				=> sprintf($user->lang['BLOCK_TITLE'],$row2['name']),
 			        'C_ID'						=> $cid,
 			        'T_ID'						=> $id,
 			        'T_NAME'					=> $row2['name'],
@@ -340,7 +340,7 @@ switch ($op) {
 			        'S_ERROR'					=> false,
 			        'S_SUCCESS'					=> true,
 			        'TITTLE_M'					=> $user->lang['COMENT_ON_TOR'],
-			        'MESSAGE'					=> "<p>".str_replace("**id**", $id,_btcommentdeleted)."</p>",
+			       // 'MESSAGE'					=> "<p>".str_replace("**id**", $id,_btcommentdeleted)."</p>",
 					));
 					if(!$take ==1)$edit = true;
 							break;

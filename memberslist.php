@@ -81,10 +81,10 @@ switch ($mode)
 {
 	case 'leaders':
 		// Display a listing of board admins, moderators
-		include($phpbb_root_path . 'includes/functions_user.' . $phpEx);
+		//include($phpbb_root_path . 'includes/functions_user.' . $phpEx);
 
 		$page_title = $user->lang['THE_TEAM'];
-		$template_html = 'memberslist_leaders.html';
+		$template_html = 'memberlist_leaders.html';
 
 		$user_ary = $auth->acl_get_list(false, array('a_', 'm_'), false);
 
@@ -165,7 +165,7 @@ switch ($mode)
 
 			'FROM'		=> array(
 				$db_prefix . '_users'		=> 'u',
-				$db_prefix. '_acl_groups'	=> 'g'
+				$db_prefix. '_level_settings'	=> 'g'
 			),
 
 			'LEFT_JOIN'	=> array(
@@ -180,6 +180,7 @@ switch ($mode)
 
 			'ORDER_BY'	=> 'g.group_name ASC, u.clean_username ASC'
 		));
+		//die($sql);
 		$result = $db->sql_query($sql);
 
 		while ($row = $db->sql_fetchrow($result))
@@ -242,7 +243,7 @@ switch ($mode)
 			}
 			else
 			{
-				$group_name = ($row['group_type'] == GROUP_SPECIAL) ? $user->lang['G_' . $row['group_name']] : $row['group_name'];
+				$group_name = ($row['group_type'] == 3) ? $user->lang[$row['group_name']] : $row['group_name'];
 				$u_group = append_sid("{$phpbb_root_path}memberslist.$phpEx", 'mode=group&amp;g=' . $row['group_id']);
 			}
 
@@ -734,7 +735,7 @@ switch ($mode)
 		// Send email to user...
 		if ($user_id)
 		{
-			if ($user_id == ANONYMOUS || !$config['board_email_form'])
+			if ($user_id == 0 || !$config['board_email_form'])
 			{
 				trigger_error('NO_EMAIL');
 			}
@@ -857,7 +858,7 @@ switch ($mode)
 					WHERE user_id = ' . $user->id;
 				//$result = $db->sql_query($sql);
 
-				include_once($phpbb_root_path . 'includes/functions_messenger.' . $phpEx);
+				include_once($phpbb_root_path . 'include/function_messenger.' . $phpEx);
 				$messenger = new messenger(false);
 				$email_tpl = ($user_id) ? 'profile_send_email' : 'email_notify';
 
@@ -921,7 +922,7 @@ switch ($mode)
 					{
 						$messenger->assign_vars(array(
 							'TOPIC_NAME'	=> htmlspecialchars_decode($row['topic_title']),
-							'U_TOPIC'		=> generate_board_url() . "/viewtopic.$phpEx?f=" . $row['forum_id'] . "&t=$topic_id")
+							'U_TOPIC'		=> generate_board_url() . "/forum.$phpEx?action=viewtopic&f=" . $row['forum_id'] . "&t=$topic_id")
 						);
 					}
 
@@ -929,7 +930,7 @@ switch ($mode)
 				}
 
 				meta_refresh(3, append_sid("{$phpbb_root_path}index.$phpEx"));
-				$message = ($user_id) ? sprintf($user->lang['RETURN_INDEX'], '<a href="' . append_sid("{$phpbb_root_path}index.$phpEx") . '">', '</a>') : sprintf($user->lang['RETURN_TOPIC'],  '<a href="' . append_sid("{$phpbb_root_path}viewtopic.$phpEx", "f={$row['forum_id']}&amp;t=$topic_id") . '">', '</a>');
+				$message = ($user_id) ? sprintf($user->lang['RETURN_INDEX'], '<a href="' . append_sid("{$phpbb_root_path}index.$phpEx") . '">', '</a>') : sprintf($user->lang['RETURN_TOPIC'],  '<a href="' . append_sid("{$phpbb_root_path}forum.$phpEx?action=viewtopic", "f={$row['forum_id']}&amp;t=$topic_id") . '">', '</a>');
 				trigger_error($user->lang['EMAIL_SENT'] . '<br /><br />' . $message);
 			}
 		}
@@ -949,7 +950,7 @@ switch ($mode)
 			$template->assign_vars(array(
 				'EMAIL'				=> $email,
 				'NAME'				=> $name,
-				'S_LANG_OPTIONS'	=> 'english',//language_select($email_lang),
+				'S_LANG_OPTIONS'	=> '<option value="english" selected="selected">english</option>',//language_select($email_lang),
 
 				'L_EMAIL_BODY_EXPLAIN'	=> $user->lang['EMAIL_TOPIC_EXPLAIN'],
 				'S_POST_ACTION'			=> append_sid("{$phpbb_root_path}memberslist.$phpEx", 'mode=email&amp;t=' . $topic_id))
@@ -1799,7 +1800,6 @@ function _sort_last_active($first, $second)
 			global $pmbt_cache;
 			$ranks = $pmbt_cache->obtain_ranks();
 		}
-	
 		if (!empty($user_rank))
 		{
 			$rank_title = (isset($ranks['special'][$user_rank]['rank_title'])) ? $ranks['special'][$user_rank]['rank_title'] : '';

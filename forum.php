@@ -59,7 +59,7 @@ else
 		'U_SEARCH_UNREAD'		=> append_sid("{$phpbb_root_path}search.$phpEx", 'search_id=unreadposts'),
 		'U_SEARCH_ACTIVE_TOPICS'=> append_sid("{$phpbb_root_path}search.$phpEx", 'search_id=active_topics'),
 		'U_DELETE_COOKIES'		=> append_sid("{$phpbb_root_path}ucp.$phpEx", 'mode=delete_cookies'),
-		'U_TEAM'				=> ($user->data['user_id'] != ANONYMOUS && !$auth->acl_get('u_viewprofile')) ? '' : append_sid("{$phpbb_root_path}memberlist.$phpEx", 'mode=leaders'),
+		'U_TEAM'				=> '',
 		'S_DISPLAY_SEARCH'		=> (!$config['load_search']) ? 0 : (isset($auth) ? ($auth->acl_get('u_search') && $auth->acl_getf_global('f_search')) : 1),
 		));
 		//if($save)echo ' save';
@@ -132,7 +132,7 @@ else
 					die();
 				}
 		}
-
+		
 		/////////////////////////////////////////////////////////Action: Remove bookmark
 		if (isset($do) AND $do == "removebook")
 		{
@@ -141,11 +141,11 @@ else
 					$db->sql_close();
 					die();
 		}
-
+		
 		///////////////////////////////////////////////////////// Action: DEFAULT ACTION (VIEW FORUMS)
 		if (isset($_GET["catchup"]))
 			catch_up();
-
+		
 		///////////////////////////////////////////////////////// Action: SHOW MAIN FORUM INDEX
 // Set some stats, get posts count from forums data if we... hum... retrieve all forums data
 		$sql = "SELECT COUNT( post_id )
@@ -158,7 +158,7 @@ else
         $res = $db->sql_query($sql);
         list ($total_topics) = $db->fetch_array($res);
         $db->sql_freeresult($res);
-        $sql = "SELECT COUNT(id)
+        $sql = "SELECT COUNT(id) 
 		FROM ".$db_prefix."_users;";
         $res = $db->sql_query($sql);
         list ($total_users) = $db->fetch_array($res);
