@@ -580,6 +580,15 @@ $lang = array_merge($lang, array(
 	'acl_a_client_ban'				=> array('lang' => 'Can Ban Torrent Clients', 'cat' => 'trac'),
 	'acl_a_torrent_categories'		=> array('lang' => 'Can Manage Torrent Categories', 'cat' => 'trac'),
 	'acl_a_hit_and_run'				=> array('lang' => 'Can Manage Hit And Run Settings', 'cat' => 'trac'),
+	'acl_a_mass_message'			=> array('lang' => 'Can Manage Mass Messaging', 'cat' => 'misc'),
+	'acl_a_shouts'					=> array('lang' => 'Can Manage Shoutbox Settings', 'cat' => 'settings'),
+	'acl_a_shout_cast'				=> array('lang' => 'Can Manage Shout Cast Settings', 'cat' => 'settings'),
+	'acl_a_torrents'				=> array('lang' => 'Can Manage Uploaded Torrents', 'cat' => 'trac'),
+	'acl_a_smilies'					=> array('lang' => 'Can Manage Smilies', 'cat' => 'settings'),
+	'acl_a_trackers'				=> array('lang' => 'Can Manage External Trackers', 'cat' => 'trac'),
+	'acl_a_massupload'				=> array('lang' => 'Can Use Mass Upload System', 'cat' => 'trac'),
+	'acl_a_ratiowarn'				=> array('lang' => 'Can Manage Ratio Warning System', 'cat' => 'trac'),
+	'acl_a_search_cloud'			=> array('lang' => 'Can Manage Search Cloud System', 'cat' => 'trac'),
 
 ));
 

@@ -23,7 +23,9 @@ if (!defined('IN_PMBT'))
 	include_once './../../security.php';
 	die ("You can't access this file directly");
 }
-
-adminentry("webupdate","webupdate",$user->lang['MENU_WEB_UPDATE'],"siteinfo","admin");
-$op_keys = explode(",","webupdate");
+if($auth->acl_get('a_board'))
+{
+	adminentry("webupdate","webupdate",$user->lang['MENU_WEB_UPDATE'],"siteinfo","admin");
+	$op_keys = explode(",","webupdate");
+}
 ?>

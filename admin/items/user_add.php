@@ -24,6 +24,9 @@ if (!defined('IN_PMBT'))
 	die ("You can't access this file directly");
 }
 
-adminentry("user_add","user_add",$user->lang['MENU_USER_ADD'],"userinfo","mod");
-$op_keys = explode(",","user_add,take_user_add");
+if($auth->acl_get('a_user'))
+{
+	adminentry("user_add","user_add",$user->lang['MENU_USER_ADD'],"userinfo","mod");
+	$op_keys = explode(",","user_add,take_user_add");
+}
 ?>

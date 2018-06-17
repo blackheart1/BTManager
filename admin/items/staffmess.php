@@ -23,6 +23,9 @@ if (!defined('IN_PMBT'))
 	include_once './../../security.php';
 	die ("You can't access this file directly");
 }
-adminentry("massmessage","staffmess",$user->lang['MENU_MESSENGING'],"userinfo","admin");
-$op_keys = explode(",","staffmess");
+if($auth->acl_get('a_mass_message'))
+{
+	adminentry("massmessage","staffmess",$user->lang['MENU_MESSENGING'],"userinfo","admin");
+	$op_keys = explode(",","staffmess");
+}
 ?>

@@ -23,6 +23,9 @@ if (!defined('IN_PMBT'))
 	include_once './../../security.php';
 	die ("You can't access this file directly");
 }
-adminentry("bonus_system","bonus_system",$user->lang['MENU_BONOUS'],"userinfo","mod");
-$op_keys = explode(",","bonus_system");
+if($auth->acl_get('a_bonus_system'))
+{
+	adminentry("bonus_system","bonus_system",$user->lang['MENU_BONOUS'],"userinfo","mod");
+	$op_keys = explode(",","bonus_system");
+}
 ?>

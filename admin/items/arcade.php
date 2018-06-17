@@ -23,6 +23,9 @@ if (!defined('IN_PMBT'))
 	include_once './../../security.php';
 	die ("You can't access this file directly");
 }
-adminentry("arcade","arcade",$user->lang['MENU_ARCADE'],"userinfo",'admin');
-$op_keys = explode(",","arcade");
+if($auth->acl_get('a_arcade_manage'))
+{
+	adminentry("arcade","arcade",$user->lang['MENU_ARCADE'],"userinfo",'admin');
+	$op_keys = explode(",","arcade");
+}
 ?>

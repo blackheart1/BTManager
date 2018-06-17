@@ -23,6 +23,9 @@ if (!defined('IN_PMBT'))
 	include_once './../../security.php';
 	die ("You can't access this file directly");
 }
-adminentry("trackers","trackers",$user->lang['MENU_TRACKERS'],"torrentinfo","mod");
-$op_keys = explode(",","trackers,listtorrents,scrapenow,bantracker,bannewtracker");
+if($auth->acl_get('a_trackers'))
+{
+	adminentry("trackers","trackers",$user->lang['MENU_TRACKERS'],"torrentinfo","mod");
+	$op_keys = explode(",","trackers,listtorrents,scrapenow,bantracker,bannewtracker");
+}
 ?>

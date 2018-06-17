@@ -23,6 +23,9 @@ if (!defined('IN_PMBT'))
 	include_once './../../security.php';
 	die ("You can't access this file directly");
 }
-adminentry("warned","warned",$user->lang['MENU_WARNED'],"userinfo","mod");
-$op_keys = explode(",","warned");
+if($auth->acl_get('m_warn'))
+{
+	adminentry("warned","warned",$user->lang['MENU_WARNED'],"userinfo","mod");
+	$op_keys = explode(",","warned");
+}
 ?>

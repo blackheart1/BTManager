@@ -23,6 +23,9 @@ if (!defined('IN_PMBT'))
 	include_once './../../security.php';
 	die ("You can't access this file directly");
 }
-adminentry("client_ban","client_ban",$user->lang['MENU_CLIENT_BAN'],"torrentinfo","mod");
-$op_keys = explode(",","client_ban,editclientban,addclientban,delclientban");
+if($auth->acl_get('a_client_ban'))
+{
+	adminentry("client_ban","client_ban",$user->lang['MENU_CLIENT_BAN'],"torrentinfo","mod");
+	$op_keys = explode(",","client_ban,editclientban,addclientban,delclientban");
+}
 ?>

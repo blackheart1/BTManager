@@ -23,6 +23,9 @@ if (!defined('IN_PMBT'))
 	include_once './../../security.php';
 	die ("You can't access this file directly");
 }
-adminentry("categories","categories",$user->lang['MENU_CATS'],"torrentinfo","mod");
-$op_keys = explode(",","categories,addcategory,editcategory,delcategory,sortindexrebuild");
+if($auth->acl_get('a_torrent_categories'))
+{
+	adminentry("categories","categories",$user->lang['MENU_CATS'],"torrentinfo","mod");
+	$op_keys = explode(",","categories,addcategory,editcategory,delcategory,sortindexrebuild");
+}
 ?>

@@ -23,6 +23,9 @@ if (!defined('IN_PMBT'))
 	include_once './../../security.php';
 	die ("You can't access this file directly");
 }
-adminentry("ratiowarn","ratiowarn",$user->lang['ACP_P_RATIO_WARN'],"userinfo","mod");
-$op_keys = explode(",","ratiowarn");
+if($auth->acl_get('a_ratiowarn'))
+{
+	adminentry("ratiowarn","ratiowarn",$user->lang['ACP_P_RATIO_WARN'],"userinfo","mod");
+	$op_keys = explode(",","ratiowarn");
+}
 ?>

@@ -23,6 +23,9 @@ if (!defined('IN_PMBT'))
 	include_once './../../security.php';
 	die ("You can't access this file directly");
 }
-adminentry("faqmanage","faqmanage",$user->lang['MENU_FAQ'],"staff","mod");
-$op_keys = explode(",","faqmanage");
+if($auth->acl_get('a_faq_manage'))
+{
+	adminentry("faqmanage","faqmanage",$user->lang['MENU_FAQ'],"staff","mod");
+	$op_keys = explode(",","faqmanage");
+}
 ?>

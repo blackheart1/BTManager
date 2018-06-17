@@ -23,6 +23,9 @@ if (!defined('IN_PMBT'))
 	include_once './../../security.php';
 	die ("You can't access this file directly");
 }
-adminentry("modrules","modrules",$user->lang['MOD_RULES_PANEL'],"staff","mod");
-$op_keys = explode(",","modrules");
+if($auth->acl_get('a_site_rules'))
+{
+	adminentry("modrules","modrules",$user->lang['MOD_RULES_PANEL'],"staff","mod");
+	$op_keys = explode(",","modrules");
+}
 ?>

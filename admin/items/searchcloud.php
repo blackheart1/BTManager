@@ -23,6 +23,9 @@ if (!defined('IN_PMBT'))
 	include_once './../../security.php';
 	die ("You can't access this file directly");
 }
-adminentry("searchcloud","searchcloud",$user->lang['MENU_CLOUD'],"staff","mod");
-$op_keys = explode(",","searchcloud,delterm");
+if($auth->acl_get('a_search_cloud'))
+{
+	adminentry("searchcloud","searchcloud",$user->lang['MENU_CLOUD'],"staff","mod");
+	$op_keys = explode(",","searchcloud,delterm");
+}
 ?>

@@ -23,6 +23,9 @@ if (!defined('IN_PMBT'))
 	include_once './../../security.php';
 	die ("You can't access this file directly");
 }
-adminentry("admin_paypal","admin_paypal",$user->lang['MENU_PAYPAL'],"siteinfo","admin");
-$op_keys = explode(",","admin_paypal,admin_paypal");
+if($auth->acl_get('a_paypal'))
+{
+	adminentry("admin_paypal","admin_paypal",$user->lang['MENU_PAYPAL'],"siteinfo","admin");
+	$op_keys = explode(",","admin_paypal,admin_paypal");
+}
 ?>

@@ -23,6 +23,9 @@ if (!defined('IN_PMBT'))
 	include_once './../../security.php';
 	die ("You can't access this file directly");
 }
-adminentry("levels","levels",$user->lang['MENU_LEVELS'],"userinfo","admin");
-$op_keys = explode(",","levels,levels");
+if($auth->acl_get('a_group'))
+{
+	adminentry("levels","levels",$user->lang['MENU_LEVELS'],"userinfo","admin");
+	$op_keys = explode(",","levels,levels");
+}
 ?>

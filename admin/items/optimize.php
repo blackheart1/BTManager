@@ -23,6 +23,9 @@ if (!defined('IN_PMBT'))
 	include_once './../../security.php';
 	die ("You can't access this file directly");
 }
-adminentry("optimize","optimize",$user->lang['MENU_OPTIMIZE'],"staff","mod");
-$op_keys = explode(",","optimize");
+if($auth->acl_get('a_board'))
+{
+	adminentry("optimize","optimize",$user->lang['MENU_OPTIMIZE'],"staff","mod");
+	$op_keys = explode(",","optimize");
+}
 ?>

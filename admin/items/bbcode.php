@@ -23,6 +23,9 @@ if (!defined('IN_PMBT'))
 	include_once './../../security.php';
 	die ("You can't access this file directly");
 }
-adminentry("bbcode","bbcode",$user->lang['MENU_BBCODES'],"staff","mod");
-$op_keys = explode(",","bbcode,delete_bbcode,clear_bbcode,new_bbcode,edit_bbcode");
+if($auth->acl_get('a_bbcode'))
+{
+	adminentry("bbcode","bbcode",$user->lang['MENU_BBCODES'],"staff","mod");
+	$op_keys = explode(",","bbcode,delete_bbcode,clear_bbcode,new_bbcode,edit_bbcode");
+}
 ?>

@@ -23,6 +23,9 @@ if (!defined('IN_PMBT'))
 	include_once './../../security.php';
 	die ("You can't access this file directly");
 }
-adminentry("forum","forum",$user->lang['MENU_FORUM'],"siteinfo","admin");
-$op_keys = explode(",","forum,setting_forum_local,setting_mod_local,setting_forum_conf,forum_pruning,forum_permissions,setting_group_local,setting_user_local,forum_words,forum_search");
+if($auth->acl_get('a_forum'))
+{
+	adminentry("forum","forum",$user->lang['MENU_FORUM'],"siteinfo","admin");
+	$op_keys = explode(",","forum,setting_forum_local,setting_mod_local,setting_forum_conf,forum_pruning,forum_permissions,setting_group_local,setting_user_local,forum_words,forum_search");
+}
 ?>

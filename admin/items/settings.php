@@ -23,6 +23,9 @@ if (!defined('IN_PMBT'))
 	include_once './../../security.php';
 	die ("You can't access this file directly");
 }
-adminentry("settings","settings",$user->lang['MENU_SETTINGS'],"siteinfo","admin");
-$op_keys = explode(",","settings,savesettings,settings_pm,settings_bbcode,sig_settings,acp_email");
+if($auth->acl_get('a_board'))
+{
+	adminentry("settings","settings",$user->lang['MENU_SETTINGS'],"siteinfo","admin");
+	$op_keys = explode(",","settings,savesettings,settings_pm,settings_bbcode,sig_settings,acp_email");
+}
 ?>

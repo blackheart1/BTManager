@@ -23,6 +23,9 @@ if (!defined('IN_PMBT'))
 	include_once './../../security.php';
 	die ("You can't access this file directly");
 }
-adminentry("log","log",$user->lang['MENU_LOGS'],"siteinfo","mod");
-$op_keys = explode(",","log,delete_log,clear_log,admin_log");
+if($auth->acl_get('a_viewlogs'))
+{
+	adminentry("log","log",$user->lang['MENU_LOGS'],"siteinfo","mod");
+	$op_keys = explode(",","log,delete_log,clear_log,admin_log");
+}
 ?>

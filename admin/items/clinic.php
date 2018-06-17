@@ -23,6 +23,9 @@ if (!defined('IN_PMBT'))
 	include_once './../../security.php';
 	die ("You can't access this file directly");
 }
-adminentry("clinic","clinic",$user->lang['MENU_CLINIC'],"torrentinfo","mod");
-$op_keys = explode(",","clinic");
+if($auth->acl_get('a_torrent_clinic'))
+{
+	adminentry("clinic","clinic",$user->lang['MENU_CLINIC'],"torrentinfo","mod");
+	$op_keys = explode(",","clinic");
+}
 ?>

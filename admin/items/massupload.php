@@ -23,6 +23,9 @@ if (!defined('IN_PMBT'))
 	include_once './../../security.php';
 	die ("You can't access this file directly");
 }
-adminentry("massupload","massupload",$user->lang['MENU_MASSUPLOAD'],"torrentinfo","mod");
-$op_keys = explode(",","massupload,scantorrents,takemassupload");
+if($auth->acl_get('a_massupload'))
+{
+	adminentry("massupload","massupload",$user->lang['MENU_MASSUPLOAD'],"torrentinfo","mod");
+	$op_keys = explode(",","massupload,scantorrents,takemassupload");
+}
 ?>

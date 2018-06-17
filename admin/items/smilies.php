@@ -23,6 +23,9 @@ if (!defined('IN_PMBT'))
 	include_once './../../security.php';
 	die ("You can't access this file directly");
 }
-adminentry("smilies","smilies",$user->lang['MENU_SMILIES'],"staff","mod");
-$op_keys = explode(",","smilies,addsmile,editsmile,delsmile");
+if($auth->acl_get('a_smilies'))
+{
+	adminentry("smilies","smilies",$user->lang['MENU_SMILIES'],"staff","mod");
+	$op_keys = explode(",","smilies,addsmile,editsmile,delsmile");
+}
 ?>

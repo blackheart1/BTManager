@@ -23,6 +23,9 @@ if (!defined('IN_PMBT'))
 	include_once './../../security.php';
 	die ("You can't access this file directly");
 }
-adminentry("irc","irc",$user->lang['MENU_IRC'],"siteinfo","mod");
-$op_keys = explode(",","irc");
+if($auth->acl_get('a_group'))
+{
+	adminentry("irc","irc",$user->lang['MENU_IRC'],"siteinfo","mod");
+	$op_keys = explode(",","irc");
+}
 ?>

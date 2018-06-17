@@ -23,6 +23,9 @@ if (!defined('IN_PMBT'))
 	include_once './../../security.php';
 	die ("You can't access this file directly");
 }
-adminentry("shout_cast","shout_cast",$user->lang['MENU_SHOUT_CAST'],"siteinfo","mod");
-$op_keys = explode(",","shout_cast");
+if($auth->acl_get('a_shout_cast'))
+{
+	adminentry("shout_cast","shout_cast",$user->lang['MENU_SHOUT_CAST'],"siteinfo","mod");
+	$op_keys = explode(",","shout_cast");
+}
 ?>

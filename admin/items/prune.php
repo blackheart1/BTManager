@@ -23,6 +23,9 @@ if (!defined('IN_PMBT'))
 	include_once './../../security.php';
 	die ("You can't access this file directly");
 }
-adminentry("prune","prune",$user->lang['MENU_PRUNE'],"userinfo","admin");
-$op_keys = explode(",","prune");
+if($auth->acl_get('a_userdel'))
+{
+	adminentry("prune","prune",$user->lang['MENU_PRUNE'],"userinfo","admin");
+	$op_keys = explode(",","prune");
+}
 ?>

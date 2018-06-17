@@ -23,6 +23,9 @@ if (!defined('IN_PMBT'))
 	include_once './../../security.php';
 	die ("You can't access this file directly");
 }
-adminentry("filter","filter",$user->lang['MENU_FILTER'],"torrentinfo","mod");
-$op_keys = explode(",","filter,addfilter,editfilter,delfilter");
+if($auth->acl_get('a_torrent_filter'))
+{
+	adminentry("filter","filter",$user->lang['MENU_FILTER'],"torrentinfo","mod");
+	$op_keys = explode(",","filter,addfilter,editfilter,delfilter");
+}
 ?>

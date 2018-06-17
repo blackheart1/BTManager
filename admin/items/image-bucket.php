@@ -23,6 +23,9 @@ if (!defined('IN_PMBT'))
 	include_once './../../security.php';
 	die ("You can't access this file directly");
 }
-adminentry("image-bucket","image-bucket",$user->lang['MENU_IMG_BUCKET'],"siteinfo","admin");
-$op_keys = explode(",","image-bucket,delimage,imagesettings");
+if($auth->acl_get('a_attach'))
+{
+	adminentry("image-bucket","image-bucket",$user->lang['MENU_IMG_BUCKET'],"siteinfo","admin");
+	$op_keys = explode(",","image-bucket,delimage,imagesettings");
+}
 ?>

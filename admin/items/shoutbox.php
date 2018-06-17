@@ -23,6 +23,9 @@ if (!defined('IN_PMBT'))
 	include_once './../../security.php';
 	die ("You can't access this file directly");
 }
-adminentry("shoutbox","shoutbox",$user->lang['MENU_SHOUTBOX'],"siteinfo","mod");
-$op_keys = explode(",","shoutbox");
-?>
+if($auth->acl_get('a_shouts'))
+{
+	adminentry("shoutbox","shoutbox",$user->lang['MENU_SHOUTBOX'],"siteinfo","mod");
+	$op_keys = explode(",","shoutbox");
+}
+?>	
