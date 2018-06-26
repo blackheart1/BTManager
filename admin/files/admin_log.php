@@ -31,7 +31,37 @@ $user->set_lang('admin/logs',$user->ulanguage);
 		$sort_days	= request_var('st', '');
 		$sort_key	= request_var('sk', 't');
 		$sort_dir	= request_var('sd', 'd');
-		$del	= request_var('del', '');
+		$del		= request_var('del', '');
+		$mode		= request_var('mode', 'admin');
+		$u_action 	= './admin.php?i=siteinfo&amp;op=log&amp;mode=' . $mode;
+							$template->assign_block_vars('l_block1.l_block2',array(
+							'L_TITLE'		=> $user->lang['ACP_LOGGING'],
+							'S_SELECTED'	=> true,
+							'U_TITLE'		=> '1',));
+								$template->assign_block_vars('l_block1.l_block2.l_block3',array(
+								'S_SELECTED'	=> ('admin' ==$mode)? true:false,
+								'IMG' => '',
+								'L_TITLE' => $user->lang['ACP_ADMIN_LOGS'],
+								'U_TITLE' => append_sid("{$siteurl}/admin.$phpEx", 'i=siteinfo&amp;op=log&amp;mode=admin'),
+								));
+								$template->assign_block_vars('l_block1.l_block2.l_block3',array(
+								'S_SELECTED'	=> ('mod' ==$mode)? true:false,
+								'IMG' => '',
+								'L_TITLE' => $user->lang['ACP_MOD_LOGS'],
+								'U_TITLE' => append_sid("{$siteurl}/admin.$phpEx", 'i=siteinfo&amp;op=log&amp;mode=mod'),
+								));
+								$template->assign_block_vars('l_block1.l_block2.l_block3',array(
+								'S_SELECTED'	=> ('users' ==$mode)? true:false,
+								'IMG' => '',
+								'L_TITLE' => $user->lang['ACP_USERS_LOGS'],
+								'U_TITLE' => append_sid("{$siteurl}/admin.$phpEx", 'i=siteinfo&amp;op=log&amp;mode=users'),
+								));
+								$template->assign_block_vars('l_block1.l_block2.l_block3',array(
+								'S_SELECTED'	=> ('critical' ==$mode)? true:false,
+								'IMG' => '',
+								'L_TITLE' => $user->lang['ACP_CRITICAL_LOGS'],
+								'U_TITLE' => append_sid("{$siteurl}/admin.$phpEx", 'i=siteinfo&amp;op=log&amp;mode=critical'),
+								));
 if($deleteall && $auth->acl_get('a_clearlogs'))
 {
 		if (confirm_box(true))
@@ -105,7 +135,7 @@ if($delmarked && $auth->acl_get('a_clearlogs'))
 }
 		$action		= request_var('action', '');
 		$page		= request_var('page', 0);
-		$u_action = './admin.php?i=siteinfo&amp;op=log';
+		//$u_action = './admin.php?i=siteinfo&amp;op=log';
 		$limit_days = array(0 => $user->lang['ALL_ENTRIES'], 1 => $user->lang['1_DAY'], 7 => $user->lang['7_DAYS'], 14 => $user->lang['2_WEEKS'], 30 => $user->lang['1_MONTH'], 90 => $user->lang['3_MONTHS'], 180 => $user->lang['6_MONTHS'], 365 => $user->lang['1_YEAR']);
 		$sort_by_text = array('u' => $user->lang['SORT_USERNAME'], 't' => $user->lang['SORT_DATE'], 'i' => $user->lang['SORT_IP'], 'o' => $user->lang['SORT_ACTION']);
 		$sort_by_sql = array('u' => 'userid', 't' => 'datetime', 'i' => 'ip', 'o' => 'event');
@@ -114,27 +144,35 @@ if($delmarked && $auth->acl_get('a_clearlogs'))
 		// Define where and sort sql for use in displaying logs
 		$sql_where = (!$sort_days==0 || !$sort_days=='') ? " WHERE datetime > SUBDATE(SYSDATE(), INTERVAL ".$sort_days." DAY) " : '';
 		$sql_sort = $sort_by_sql[$sort_key] . ' ' . (($sort_dir == 'd') ? 'DESC' : 'ASC');
-		$from = ($page) * $torrent_per_page;
-		$totsql = "SELECT COUNT(*) as tot FROM ".$db_prefix."_log " . $sql_where . "ORDER BY " . $sql_sort . ";";
-		$totres = $db->sql_query($totsql)or btsqlerror($totsql);
-		list ($tot) = $db->fetch_array($totres);
-		$db->sql_freeresult($totres);
-		$pages = ceil($tot / $torrent_per_page);
-		$start = ($page >=1)?(($torrent_per_page * $page) - $torrent_per_page) : 0;
-		$sql = "SELECT 
-					l.*
-				FROM 
-					`".$db_prefix."_log` l
-					" . $sql_where . "
-				ORDER BY " . $sql_sort . " 
-				LIMIT " . $start . ", " . $torrent_per_page . "; ";
-		$res = $db->sql_query($sql)or btsqlerror($sql);
+		$keywords = utf8_normalize_nfc(request_var('keywords', '', true));
+		$start = ($page >=1)?(($config['topics_per_page'] * $page) - $config['topics_per_page']) : 0;
+			// Define forum list if we're looking @ mod logs
+		if ($mode == 'mod')
+		{
+			include_once('include/functions_forum.php');
+			$forum_box = '<option value="0">' . $user->lang['ALL_FORUMS'] . '</option>' . make_forum_select($forum_id);
+			
+			$template->assign_vars(array(
+				'S_SHOW_FORUMS'			=> true,
+				'S_FORUM_BOX'			=> $forum_box)
+			);
+		}
+
+	// Grab log data
+		$log_data = array();
+		$log_count = 0;
+		$start = view_log($mode, $log_data, $log_count, $config['topics_per_page'], $start, $forum_id, 0, 0, $sql_where, $sql_sort, $keywords);
+		$l_title = $user->lang['ACP_' . strtoupper($mode) . '_LOGS'];
+		$l_title_explain = $user->lang['ACP_' . strtoupper($mode) . '_LOGS_EXPLAIN'];
+		$start = ($page >=1)?(($config['topics_per_page'] * $page) - $config['topics_per_page']) : 0;
 		$template->assign_vars(array(
-			'L_TITLE'		=> $user->lang['ACP_ADMIN_LOGS'],
-			'L_EXPLAIN'		=> $user->lang['ACP_ADMIN_LOGS_EXPLAIN'],
-			'U_ACTION'		=> $u_action,
-			'S_ON_PAGE'		=> on_page($tot, $torrent_per_page, $start),
-			'PAGINATION'	=> generate_pagination($u_action . "&amp;$u_sort_param$keywords_param", $tot, $torrent_per_page, $start, true),
+			'L_TITLE'		=> $l_title,
+			'L_EXPLAIN'		=> $l_title_explain,
+			'U_ACTION'		=> $u_action . "&amp;$u_sort_param$keywords_param&amp;start=$start",
+			
+			'S_ON_PAGE'		=> on_page($log_count, $config['topics_per_page'], $start),
+			'PAGINATION'	=> generate_pagination($u_action . "&amp;$u_sort_param$keywords_param", $log_count, $config['topics_per_page'], $start, true),
+			
 			'S_LIMIT_DAYS'	=> $s_limit_days,
 			'S_SORT_KEY'	=> $s_sort_key,
 			'S_SORT_DIR'	=> $s_sort_dir,
@@ -142,30 +180,29 @@ if($delmarked && $auth->acl_get('a_clearlogs'))
 			'S_KEYWORDS'	=> $keywords,
 			)
 		);
-        while ($errors = $db->sql_fetchrow($res)) {
+		foreach ($log_data as $errors)
+		{
 		$data = array();
 		$errors['ip_g'] = $errors["ip"];
-		$errors = array_merge($errors, build_user_array($errors['userid']));
-		$data = unserialize(stripslashes($errors['results']));
-				$s_data = (isset($user->lang[strtoupper($errors['action'])])) ? $user->lang[strtoupper($errors['action'])] : '{' . ucfirst(str_replace('_', ' ', $errors['action'])) . '}';
-				//echo substr_count($s_data, '%') . '<br>';
-				if ((substr_count($s_data, '%') - sizeof($data)) > 0)
+			$data = array();
+				
+			$checks = array('viewtopic', 'viewlogs', 'viewforum');
+			foreach ($checks as $check)
+			{
+				if (isset($errors[$check]) && $errors[$check])
 				{
-					$data = (!is_array($data))?array($data) : $data;
-					//print_r( $data);
-					$data = array_merge($data, array_fill(0, substr_count($s_data, '%') - sizeof($data), ''));
+					$data[] = '<a href="' . $errors[$check] . '">' . $user->lang['LOGVIEW_' . strtoupper($check)] . '</a>';
 				}
-
-				$s_data = vsprintf($s_data, $data);
+			}
 			$template->assign_block_vars('log', array(
-				'USERNAME'			=> ($errors['userid'] == 0)? $user->lang['UNKNOWN'] : $errors['name'],
-				'USER_ID'			=>	$errors['userid'],
-				'USER_COLOR'		=>	$errors['color'],
-				'IP'				=> ($errors['userid'] == 0)? long2ip($errors["ip_g"]) : long2ip($errors["ip"]),
-				'DATE'				=> $errors['datetime'],
-				'ACTION'			=> $s_data,//$errors['action'],
-				'DATA'				=> (is_array($data))? '' : nl2br(stripslashes($data)),
-				'ID'				=> $errors['event'],
+				'USERNAME'			=> $errors['username_full'],
+				'USER_ID'			=>	$errors['user_id'],
+				'REPORTEE_USERNAME'	=> ($errors['reportee_username'] && $errors['user_id'] != $errors['reportee_id']) ? $errors['reportee_username_full'] : '',
+				'IP'				=> $errors["ip"],
+				'DATE'				=> $user->format_date($errors['time']),
+				'ACTION'			=> $errors['action'],
+				'DATA'				=> (sizeof($data)) ? implode(' | ', $data) : '',
+				'ID'				=> $errors['id'],
 				)
 			);
         } 

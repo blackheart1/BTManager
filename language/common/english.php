@@ -820,6 +820,19 @@ $lang = array_merge($lang, array(
     'EMAIL_ADDRESS'         => 'email Address',
     'UCP'                   => 'User Control Panel',
     'SEARCH_SELF'           => 'View your Posts',
+	'report_reasons'		=> array(
+					'TITLE' 			=> array(
+						'SPAM'				=> 'Spam', 
+						'OTHER'				=> 'Other',
+						'OFF_TOPIC'			=> 'Off Topic',
+						'WAREZ'				=> 'warez',
+						),
+					'DESCRIPTION'		=> array(
+						'SPAM'				=> 'The reported post has for only purpose to advertise for a website or another product', 
+						'OTHER'				=> 'The reported post does not fit into any other category (please use the description field)',
+						'OFF_TOPIC'			=> 'The reported post is off topic',
+						'WAREZ'				=> 'The reported post contains links to pirated or illegal software',
+						)),
 ));
 
 $u_datetime = array(

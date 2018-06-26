@@ -895,7 +895,6 @@ function view_log($mode, &$log, &$log_count, $limit = 0, $offset = 0, $forum_id 
 			$sql_forum
 		ORDER BY $sort_by
 		LIMIT $offset,$limit";
-		//die($sql);
 	$result = $db->sql_query($sql) or btsqlerror($sql);
 
 	$i = 0;
@@ -921,7 +920,7 @@ function view_log($mode, &$log, &$log_count, $limit = 0, $offset = 0, $forum_id 
 
 			'user_id'			=> $row['userid'],
 			'username'			=> $row['username'],
-			'username_full'		=> get_username_string('full', $row['userid'], $row['username'], $row['user_colour'], false, $profile_url),
+			'username_full'		=> get_username_string('full', $row['userid'], $row['username'], '#' . $row['user_colour'], false, $profile_url),
 
 			'ip'				=> long2ip($row['ip']),
 			'time'				=> $row['datetime'],
@@ -1061,8 +1060,9 @@ function view_log($mode, &$log, &$log_count, $limit = 0, $offset = 0, $forum_id 
 	$sql = 'SELECT COUNT(l.event) AS total_entries
 		FROM ' . $db_prefix . "_log l
 		WHERE l.log_type = $log_type
-			AND l.datetime >= $limit_days
+			" . (($limit_days) ? "AND UNIX_TIMESTAMP(l.datetime) >= $limit_days" : '') . " 
 			$sql_forum";
+			//die($sql);
 	$result = $db->sql_query($sql) or btsqlerror($sql);
 	$log_count = (int) $db->sql_fetchfield('total_entries');
 	$db->sql_freeresult($result);

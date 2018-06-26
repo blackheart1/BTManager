@@ -24,14 +24,12 @@
 if (!defined('IN_PMBT'))
 {
 	include_once './../../security.php';
-	die ('Error 404 - Page Not Found');
+	die ("You can't access this file directly");
 }
-
 include_once 'include/class.bbcode.php';
 include_once 'include/functions_forum.php';
 include_once 'include/function_posting.php';
 include_once 'include/user.functions.php';
-
 $user->set_lang('admin/acp_levels',$user->ulanguage);
 
 $start = request_var('page', 0)*$config['topics_per_page'];
@@ -44,9 +42,9 @@ $start = request_var('page', 0)*$config['topics_per_page'];
 		$action		= request_var('action', array('a'=>''));
 		if(!count($action))$action		= (isset($_POST['add'])) ? 'add' : ((isset($_POST['addusers'])) ? 'addusers' : request_var('action', ''));
 		else 		$action		= key($action);
+		
 
-
-		if(!checkaccess("a_edit_level"))
+		if(!$auth->acl_get('a_group'))
 		{
                                 $template->assign_vars(array(
 								        'S_USER_NOTICE'			=> false,
@@ -89,50 +87,74 @@ $start = request_var('page', 0)*$config['topics_per_page'];
                             'L_TITLE' => $user->lang['EDIT_GROUP_PERM'],
 							'U_TITLE' => append_sid($u_action, 'action=edit_site_prem'),
 							));
-							$template->assign_block_vars('l_block1.l_block2',array(
-                            'L_TITLE'       => $user->lang['PERM_ROLES'],
-							'S_SELECTED'	=> true,
-							'U_TITLE'		=> '1',));
-							$template->assign_block_vars('l_block1.l_block2.l_block3',array(
-							'S_SELECTED'	=> ('admin_roles' ==$action)? true:false,
-							'IMG' => '',
-                            'L_TITLE' => $user->lang['ADMIN_ROLES'],
-							'U_TITLE' => append_sid($u_action, 'action=admin_roles'),
-							));
-							$template->assign_block_vars('l_block1.l_block2.l_block3',array(
-							'S_SELECTED'	=> ('mod_roles' ==$action)? true:false,
-							'IMG' => '',
-                            'L_TITLE' => $user->lang['MOD_ROLES'],
-							'U_TITLE' => append_sid($u_action, 'action=mod_roles'),
-							));
-							$template->assign_block_vars('l_block1.l_block2.l_block3',array(
-							'S_SELECTED'	=> ('user_roles' ==$action)? true:false,
-							'IMG' => '',
-                            'L_TITLE' => $user->lang['USER_ROLES'],
-							'U_TITLE' => append_sid($u_action, 'action=user_roles'),
-							));
-							$template->assign_block_vars('l_block1.l_block2.l_block3',array(
-							'S_SELECTED'	=> ('forum_roles' ==$action)? true:false,
-							'IMG' => '',
-                            'L_TITLE' => $user->lang['FORUM_ROLES'],
-							'U_TITLE' => append_sid($u_action, 'action=forum_roles'),
-							));
-							$template->assign_block_vars('l_block1.l_block2',array(
-                            'L_TITLE'       => $user->lang['ASSIGN_ROLES'],
-							'S_SELECTED'	=> true,
-							'U_TITLE'		=> '1',));
-							$template->assign_block_vars('l_block1.l_block2.l_block3',array(
-							'S_SELECTED'	=> ('forum_roles' ==$action)? true:false,
-							'IMG' => '',
-                            'L_TITLE' => $user->lang['GLOBAL_GROUP_PERM'],
-							'U_TITLE' => append_sid($u_action, 'action=setting_group_global&amp;mode=setting_group_global'),
-							));
-							$template->assign_block_vars('l_block1.l_block2.l_block3',array(
-							'S_SELECTED'	=> ('forum_roles' ==$action)? true:false,
-							'IMG' => '',
-                            'L_TITLE' => $user->lang['GROUP_FORUM_PERM'],
-							'U_TITLE' => append_sid($u_action, 'action=setting_group_local&amp;mode=setting_group_local'),
-							));
+							if ($auth->acl_get('a_roles'))
+							{
+								$template->assign_block_vars('l_block1.l_block2',array(
+								'L_TITLE'       => $user->lang['PERM_ROLES'],
+								'S_SELECTED'	=> true,
+								'U_TITLE'		=> '1',));
+								if ($auth->acl_get('a_aauth'))
+								{
+									$template->assign_block_vars('l_block1.l_block2.l_block3',array(
+									'S_SELECTED'	=> ('admin_roles' ==$action)? true:false,
+									'IMG' => '',
+									'L_TITLE' => $user->lang['ADMIN_ROLES'],
+									'U_TITLE' => append_sid($u_action, 'action=admin_roles'),
+									));
+								}
+								if ($auth->acl_get('a_mauth'))
+								{
+									$template->assign_block_vars('l_block1.l_block2.l_block3',array(
+									'S_SELECTED'	=> ('mod_roles' ==$action)? true:false,
+									'IMG' => '',
+									'L_TITLE' => $user->lang['MOD_ROLES'],
+									'U_TITLE' => append_sid($u_action, 'action=mod_roles'),
+									));
+								}
+								if ($auth->acl_get('a_uauth'))
+								{
+									$template->assign_block_vars('l_block1.l_block2.l_block3',array(
+									'S_SELECTED'	=> ('user_roles' ==$action)? true:false,
+									'IMG' => '',
+									'L_TITLE' => $user->lang['USER_ROLES'],
+									'U_TITLE' => append_sid($u_action, 'action=user_roles'),
+									));
+								}
+								if ($auth->acl_get('a_fauth'))
+								{
+									$template->assign_block_vars('l_block1.l_block2.l_block3',array(
+									'S_SELECTED'	=> ('forum_roles' ==$action)? true:false,
+									'IMG' => '',
+									'L_TITLE' => $user->lang['FORUM_ROLES'],
+									'U_TITLE' => append_sid($u_action, 'action=forum_roles'),
+									));
+								}
+							}
+							if ($auth->acl_get('a_authgroups'))
+							{
+								$template->assign_block_vars('l_block1.l_block2',array(
+								'L_TITLE'       => $user->lang['ASSIGN_ROLES'],
+								'S_SELECTED'	=> true,
+								'U_TITLE'		=> '1',));
+							}
+							if ($auth->acl_get('a_authgroups') && ($auth->acl_get('a_mauth') || $auth->acl_get('a_aauth')))
+							{
+								$template->assign_block_vars('l_block1.l_block2.l_block3',array(
+								'S_SELECTED'	=> ('forum_roles' ==$action)? true:false,
+								'IMG' => '',
+								'L_TITLE' => $user->lang['GLOBAL_GROUP_PERM'],
+								'U_TITLE' => append_sid($u_action, 'action=setting_group_global&amp;mode=setting_group_global'),
+								));
+							}
+							if ($auth->acl_get('a_authgroups') && ($auth->acl_get('a_mauth') || $auth->acl_get('a_fauth')))
+							{
+								$template->assign_block_vars('l_block1.l_block2.l_block3',array(
+								'S_SELECTED'	=> ('forum_roles' ==$action)? true:false,
+								'IMG' => '',
+								'L_TITLE' => $user->lang['GROUP_FORUM_PERM'],
+								'U_TITLE' => append_sid($u_action, 'action=setting_group_local&amp;mode=setting_group_local'),
+								));
+							}
 		// Check and set some common vars
 		$group_id	= request_var('g', '0');
 		$mark_ary	= request_var('mark', array(0));
@@ -222,7 +244,7 @@ $start = request_var('page', 0)*$config['topics_per_page'];
 				if (confirm_box(true))
 				{
 					$group_name = ($group_row['group_type'] == 3) ? $user->lang['G_' . $group_row['group_name']] : $group_row['group_name'];
-					group_user_attributes('default', $group_id, $mark_ary, false, $group_name, $group_row);
+					group_user_attributes('default', $group_id, $mark_ary, false, $group_name, $group_row);	
 					trigger_error($user->lang['GROUP_DEFS_UPDATED'] . back_link($u_action . '&amp;action=list&amp;g=' . $group_id));
 				}
 				else
@@ -316,14 +338,14 @@ $start = request_var('page', 0)*$config['topics_per_page'];
 									echo $template->fetch('admin/message_body.html');
 									close_out();
 									}
-							$sql = 'SELECT COUNT(id) as num
+							$sql = 'SELECT COUNT(id) as num 
 								FROM `' . $db_prefix . '_users`
 								WHERE `can_do` = ' . $group_id;
 							$result = $db->sql_query($sql);
 							$row = $db->sql_fetchrow($result);
 							$gn = request_var('gn', '');
 							$gname = request_var('gname', '');
-
+		
 							if($row[0] >= 1 && !$gn)
 							{
 							$hidden = build_hidden_fields(array(
@@ -337,7 +359,7 @@ $start = request_var('page', 0)*$config['topics_per_page'];
 										'sid'		=> '',
 										'gname'		=> $gname,
 									));
-
+		
 							$template->assign_vars(array(
 								'U_ACTION'				=> $u_action,
 								'U_BACK'				=> $u_action,
@@ -354,16 +376,16 @@ $start = request_var('page', 0)*$config['topics_per_page'];
 								$gn = request_var('gn', '');
 								$gname = request_var('gname', '');
 								// Reset Users group
-								$sql = 'UPDATE ' . $db_prefix . "_users
+								$sql = 'UPDATE ' . $db_prefix . "_users 
 									SET `can_do` = '$gn'
 									WHERE `can_do` = $group_id;";
 								$db->sql_query($sql);
-
+		
 								// Delete group
 								$sql = 'DELETE FROM ' . $db_prefix . "_levels
 									WHERE group_id = $group_id";
 								$db->sql_query($sql);
-
+		
 								// Delete auth entries from the groups table
 								$sql = 'DELETE FROM ' . $db_prefix . "_level_settings
 									WHERE group_id = $group_id";
@@ -373,8 +395,8 @@ $start = request_var('page', 0)*$config['topics_per_page'];
 									WHERE group_id = $group_id";
 								$db->sql_query($sql);
 							}
-
-
+		
+		
 							add_log('admin','LOG_GROUP_DELETE', $gname);
 										$template->assign_vars(array(
 												'S_USER_NOTICE'			=> true,
@@ -438,7 +460,7 @@ $start = request_var('page', 0)*$config['topics_per_page'];
 			$admin_role->main('',$action);
 			echo $template->fetch('admin/' . $admin_role->tpl_name . '.html');
 			close_out();
-			break;
+			break;			
 			case 'setting_user_global':
 			case 'setting_user_local':
 			case 'setting_group_local':
@@ -468,7 +490,7 @@ $start = request_var('page', 0)*$config['topics_per_page'];
 			$admin_role->main('',$mode);
 			echo $template->fetch('admin/' . $admin_role->tpl_name . '.html');
 			close_out();
-			break;
+			break;			
 			case 'edit_site_prem':
 					$do = request_var('do', '');
 					if($do == 'edit_perm')
@@ -486,7 +508,7 @@ $start = request_var('page', 0)*$config['topics_per_page'];
 							else
 							{
 							$sql = "SELECT * FROM
-									 `" . $db_prefix . "_level_privlages`
+									 `" . $db_prefix . "_level_privlages` 
 									 WHERE id = " . $perm_id;
 							$result = $db->sql_query($sql);
 							$val = $db->sql_fetchrow($result);
@@ -532,7 +554,7 @@ $start = request_var('page', 0)*$config['topics_per_page'];
 								close_out();
 							}
 							//Update changes
-							$sql = 'UPDATE `' . $db_prefix . '_level_privlages` SET
+							$sql = 'UPDATE `' . $db_prefix . '_level_privlages` SET 
 								acc_point = ' . $perm_name . ',
 								descr = ' . $perm_desc . '
 								WHERE id = ' . $perm_id . ' LIMIT 1;';
@@ -540,11 +562,11 @@ $start = request_var('page', 0)*$config['topics_per_page'];
 							//Check to see if changes need to be made and do so if needed
 							if(!str_replace("'","",$perm_name) == $old_perm_name)
 							{
-								$sql = "ALTER TABLE `" . $db_prefix . "_levels`
-									CHANGE `" . $old_perm_name . "` `" . str_replace("'","",$perm_name) . "`
-									ENUM(\'true\',\'false\')
-									CHARACTER SET utf8_bin
-									COLLATE utf8_bin
+								$sql = "ALTER TABLE `" . $db_prefix . "_levels` 
+									CHANGE `" . $old_perm_name . "` `" . str_replace("'","",$perm_name) . "` 
+									ENUM(\'true\',\'false\') 
+									CHARACTER SET utf8_bin 
+									COLLATE utf8_bin 
 									NOT NULL DEFAULT \'false\'";
 									$db->sql_query($sql)or btsqlerror($sql);
 							}
@@ -599,18 +621,46 @@ $start = request_var('page', 0)*$config['topics_per_page'];
 					}
 					elseif($do == 'delete_perm')
 					{
-						if (confirm_box(true))
+						if($auth->acl_get('a_groupdel'))
 						{
+							if (confirm_box(true))
+							{
+							$group_id = request_var('gid', 0);
+							$group_name = request_var('gname', '');
+								$sqla = 'DELETE FROM `' . $db_prefix . '_level_privlages` WHERE `torrent_level_privlages`.`id` = $group_id"';
+								$sqlb = 'ALTER TABLE `' . $db_prefix . '_levels` DROP `' . $group_name . '`;';
+								$db->sql_query($sqla);
+								$db->sql_query($sqlb);
+								add_log('admin','LOG_ACL_DEL_ACC_PERM_', $group_name);
+                                $template->assign_vars(array(
+								        'S_USER_NOTICE'			=> true,
+										'S_FORWARD'				=> false,
+								        'MESSAGE_TITLE'			=> $user->lang['SUCCESS'],
+                                        'MESSAGE_TEXT'			=> $user->lang['AUTH_UPDATED'].back_link('admin.php?op=levels&i=userinfo&action=edit_site_prem'),
+                                ));
+								echo $template->fetch('admin/message_body.html');
+								close_out();
+
+							}
+							else
+							{
+							$group_id = request_var('id', 0);
+								$sql = "SELECT * FROM
+										 `" . $db_prefix . "_level_privlages` 
+										 WHERE id = '" . $group_id . "'";
+								$result = $db->sql_query($sql);
+								$val = $db->sql_fetchrow($result);
+								confirm_box(false, $user->lang['CONFIRM_OPERATION'], build_hidden_fields(array(
+									'gid'			=> $group_id,
+									'gname'		=> $val['acc_point'],
+									'do'		=> 'delete_perm',
+									'action'	=> 'edit_site_prem')),'admin/confirm_body.html',$u_action
+								);
+							}
 						}
 						else
 						{
-							confirm_box(false, $user->lang['CONFIRM_OPERATION'], build_hidden_fields(array(
-								'mark'		=> $mark_ary,
-								'g'			=> $group_id,
-								'i'			=> $i,
-								'gname'		=> $group_row['group_name'],
-								'action'	=> $action)),'admin/confirm_body.html',$u_action
-							);
+							break;
 						}
 					}
 					elseif($do == 'new_perm')
@@ -635,7 +685,7 @@ $start = request_var('page', 0)*$config['topics_per_page'];
 							if(!$perm_tag == 'a' || !$perm_tag == 'm' || !$perm_tag == 'u')$error[] = $user->lang['INVALED_PERM_TAG'];
 							$perm_name	= request_var('perm_name', '');
 							$sql = "SELECT * FROM
-									 `" . $db_prefix . "_level_privlages`
+									 `" . $db_prefix . "_level_privlages` 
 									 WHERE acc_point = '" . $perm_name . "'";
 							$result = $db->sql_query($sql);
 							$val = $db->sql_fetchrow($result);
@@ -677,10 +727,10 @@ $start = request_var('page', 0)*$config['topics_per_page'];
 											NULL , \'' . $perm_name . '\', ' . $perm_desc . '
 											);';
 							$db->sql_query($sql);
-							$sql = "ALTER TABLE `" . $db_prefix . "_levels` ADD
-										`".$perm_name."`
-										ENUM( 'true', 'false' )
-										NOT NULL
+							$sql = "ALTER TABLE `" . $db_prefix . "_levels` ADD 
+										`".$perm_name."` 
+										ENUM( 'true', 'false' ) 
+										NOT NULL 
 										DEFAULT 'false';";
 							$db->sql_query($sql);
 									$template->assign_vars(array(
@@ -1206,11 +1256,11 @@ $start = request_var('page', 0)*$config['topics_per_page'];
 									$row = $db->sql_fetchrow($result);
 									$params = array();
 									$values = array();
-													array_push($params,'group_id');
+													array_push($params,'group_id'); 
 													array_push($values,$group_id);
-													array_push($params,'name');
+													array_push($params,'name'); 
 													array_push($values,$db->sql_escape($group_name));
-													array_push($params,'level');
+													array_push($params,'level'); 
 													array_push($values,strtoupper($db->sql_escape($group_name)));
 									foreach ($row as $var => $val)
 			                             {
@@ -1218,7 +1268,7 @@ $start = request_var('page', 0)*$config['topics_per_page'];
 											{
 	    								  		if($val=="false" || $val=="true" || $var=="color" || $var=="group_desc")
 												{
-													array_push($params,$var);
+													array_push($params,$var); 
 													array_push($values,$val);
 										  		}
 										  	}

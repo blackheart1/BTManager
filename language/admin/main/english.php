@@ -134,6 +134,7 @@ $lang = array_merge($lang, array(
 
     'LOG_ACL_ADD_MOD_LOCAL_M_'     => '<strong>Added or Edited Moderators</strong> from %1$s to %2$s',
     'LOG_ACL_ADD_FORUM_LOCAL_F_'   => '<strong>Added or Edited the Forum Permissions</strong> from %1$s to %2$s',
+	'LOG_ACL_DEL_ACC_PERM_'		   => '<strong>Removed Access Permissions</strong><br /> %s',
 
     'LOG_ACL_DEL_ADMIN_GLOBAL_A_'  => '<strong>Removed Administrators</strong><br /> %s',
     'LOG_ACL_DEL_MOD_GLOBAL_M_'    => '<strong>Removed Global Moderators</strong><br /> %s',

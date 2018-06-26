@@ -37,18 +37,26 @@ if (empty($lang) || !is_array($lang))
 }
 
 $lang = array_merge($lang, array(
-    'ADMIN'          => 'Administration',
-    '_ASCENDING'     => 'Ascending',
-    '_DESCENDING'    => 'Descending',
-    'ACP_ADMIN_LOGS' => 'Administration Log',
+    'ADMIN'          				=> 'Administration',
+    '_ASCENDING'     				=> 'Ascending',
+    '_DESCENDING'   				=> 'Descending',
+    'ACP_ADMIN_LOGS' 				=> 'Administration Log',
+	'ACP_CRITICAL_LOGS'				=> 'Error log',
+	'ACP_MOD_LOGS'					=> 'Moderator log',
+	'ACP_USERS_LOGS'				=> 'User logs',
+	'ACP_LOGGING'					=> 'Logging',
+	'LOGVIEW_VIEWTOPIC'				=> 'View topic',
+	'LOGVIEW_VIEWLOGS'				=> 'View topic log',
+	'LOGVIEW_VIEWFORUM'				=> 'View forum',
+	'ALL_FORUMS'					=> 'All forums',
 
-    'ACP_ADMIN_LOGS_EXPLAIN'    => 'This Lists ALL the Actions carried out by Board Administrators.  You can Sort by Username, Date, IP or Action.  If you have the Appropriate Permissions you can also Clear Individual Operations or the Entire Log.',
+    'ACP_ADMIN_LOGS_EXPLAIN'    	=> 'This Lists ALL the Actions carried out by Board Administrators.  You can Sort by Username, Date, IP or Action.  If you have the Appropriate Permissions you can also Clear Individual Operations or the Entire Log.',
 
-    'ACP_CRITICAL_LOGS_EXPLAIN' => 'This Lists the Actions carried out by the Board itself.  This Log provides you with Information that you are able to use for Solving Specific Problems, for example Non Delivery of emails.  You can Sort by Username, Date, IP or Action.  If you have the Appropriate Permissions, you can also Clear Individual Operations or the Entire Log.',
+    'ACP_CRITICAL_LOGS_EXPLAIN' 	=> 'This Lists the Actions carried out by the Board itself.  This Log provides you with Information that you are able to use for Solving Specific Problems, for example Non Delivery of emails.  You can Sort by Username, Date, IP or Action.  If you have the Appropriate Permissions, you can also Clear Individual Operations or the Entire Log.',
 
-    'ACP_MOD_LOGS_EXPLAIN'      => 'This Lists ALL the Actions Done on the Forums, Topics and Posts as well as Actions carried out on Users by Moderators, including Banning.  You can Sort by Username, Date, IP or Action.  If you have the Appropriate Permissions, you can also Clear Individual Operations or the Entire Log.',
+    'ACP_MOD_LOGS_EXPLAIN'      	=> 'This Lists ALL the Actions Done on the Forums, Topics and Posts as well as Actions carried out on Users by Moderators, including Banning.  You can Sort by Username, Date, IP or Action.  If you have the Appropriate Permissions, you can also Clear Individual Operations or the Entire Log.',
 
-    'ACP_USERS_LOGS_EXPLAIN'    => 'This Lists ALL Actions Carried out by Users or on Users (Reports, Warnings and User Notes).',
+    'ACP_USERS_LOGS_EXPLAIN'    	=> 'This Lists ALL Actions Carried out by Users or on Users (Reports, Warnings and User Notes).',
 
     'SORT_USERNAME'                => 'Username',
     'SORT_DATE'                    => 'Date',

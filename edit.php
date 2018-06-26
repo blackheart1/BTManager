@@ -299,7 +299,7 @@ switch($op) {
                 $category = intval($torrent_category);
                 if ($category < 1) $errmsg[] = $user->lang['ERROR_NO_CAT_SELECTED'];
                 $nf = $_FILES["nfox"];
-                $nfname = ((checkaccess("u_add_nfo")? unesc($nf["name"]) : '');
+                $nfname = ((checkaccess("u_add_nfo"))? unesc($nf["name"]) : '');
                 if ($nfname != "")
 				{
 					if (!is_filename($nfname)) $errmsg[] = $user->lang['ERROR_INVALID_NFO_NAME'];

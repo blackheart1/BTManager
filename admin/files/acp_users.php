@@ -967,7 +967,7 @@ class acp_users
 
 					if ($where_sql || $deleteall)
 					{
-						$sql = 'DELETE FROM ' . $db_prefix . '_logs
+						$sql = 'DELETE FROM ' . $db_prefix . '_log
 							WHERE log_type = ' . 3 . "
 							AND reportee_id = $user_id
 							$where_sql";

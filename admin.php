@@ -41,7 +41,7 @@ $admin_userinfo = array();
 $admin_torrentinfo = array();
 $auth = new auth();
 $auth->acl($user);
-$convert_row = array('viewimg'=>0,'popuppm'		=>1);
+$convert_row = array('viewimg'=>0,'popuppm'=>1);
 function phpbb_optionset($bit, $set, $data)
 {
 	if ($set && !($data & 1 << $bit))
@@ -400,40 +400,44 @@ else
 			}
 		}
 		if (($lversion = $pmbt_cache->get('source_version',86400)) === false)$lversion = array('LATEST_VERSION'=>'0.0.0');
-
-		$sql = "SELECT event, action, results, ip, datetime, userid FROM `".$db_prefix."_log` ORDER BY datetime DESC LIMIT 0, 5 "; 
-		$res = $db->sql_query($sql);
-        while ($errors = $db->sql_fetchrow($res)) {
-		$data = array();
-		$errors['ip_g'] = $errors["ip"];
-		$errors = array_merge($errors, build_user_array($errors['userid']));
-		$data = unserialize(stripslashes($errors['results']));
+		if($auth->acl_get('a_viewlogs'))
+		{
+			$sql = "SELECT event, action, results, ip, datetime, userid FROM `".$db_prefix."_log` ORDER BY datetime DESC LIMIT 0, 5 "; 
+			$res = $db->sql_query($sql);
+			while ($errors = $db->sql_fetchrow($res))
+			{
+				$data = array();
+				$errors['ip_g'] = $errors["ip"];
+				$errors = array_merge($errors, build_user_array($errors['userid']));
+				$data = unserialize(stripslashes($errors['results']));
 				$s_data = (isset($user->lang[strtoupper($errors['action'])])) ? $user->lang[strtoupper($errors['action'])] : '{' . ucfirst(str_replace('_', ' ', $errors['action'])) . '}';
-				//echo substr_count($s_data, '%') . '<br>';
 				if ((substr_count($s_data, '%') - sizeof($data)) > 0)
 				{
 					$data = (!is_array($data))?array($data) : $data;
-					//print_r( $data);
 					$data = array_merge($data, array_fill(0, substr_count($s_data, '%') - sizeof($data), ''));
 				}
-
+	
 				$s_data = vsprintf($s_data, $data);
-		if($errors['userid'] == "0")
-		{
-		$by2['username'] = "Unknown";
-		}else{
-		$sqler = ("SELECT username FROM ".$db_prefix."_users WHERE id='".$errors['userid']."'");
-        $by = $db->sql_query($sqler);
-        $by2 = $db->sql_fetchrow($by);
+				if($errors['userid'] == "0")
+				{
+					$by2['username'] = $user->lang['UNKNOWN'];
+				}
+				else
+				{
+				$sqler = ("SELECT username FROM ".$db_prefix."_users WHERE id='".$errors['userid']."'");
+					$by = $db->sql_query($sqler);
+					$by2 = $db->sql_fetchrow($by);
+					$db->sql_freeresult($by);
+				}
+									$template->assign_block_vars('log', array(
+									'USERNAME'		=> ($errors['userid'] == 0)? $user->lang['UNKNOWN'] : $errors['name'],
+									'IP'		=> ($errors['userid'] == 0)? long2ip($errors["ip_g"]) : long2ip($errors["ip"]),
+									'DATE'		=> $errors['datetime'],
+									'ACTION'		=> $s_data,
+									));
+			} 
+			$db->sql_freeresult($res);
 		}
-							$template->assign_block_vars('log', array(
-							'USERNAME'		=> ($errors['userid'] == 0)? $user->lang['UNKNOWN'] : $errors['name'],
-							'IP'		=> ($errors['userid'] == 0)? long2ip($errors["ip_g"]) : long2ip($errors["ip"]),
-							'DATE'		=> $errors['datetime'],
-							'ACTION'		=> $s_data,
-							));
-        } 
-		$db->sql_freeresult($res);
 		$day_site_alive = sql_timestamp_to_unix_timestamp($start_date)/86400;
 		//Post's
 		$sql = "SELECT COUNT( post_id )
