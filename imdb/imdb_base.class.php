@@ -122,7 +122,7 @@
    if ($urlname===false) return;
 
    if ($this->usecache) {
-    $fname = "$this->cachedir/$this->imdbID.$wt";
+    $fname = $this->cachedir . 'imdb_' . $this->imdbID . $wt;
     if ( $this->usezip ) {
      if ( ($this->page[$wt] = @join("",@gzfile($fname))) ) {
       if ( $this->converttozip ) {
@@ -175,7 +175,7 @@
        $this->debug_scalar("<BR>***ERROR*** Configured cache directory lacks write permission!<BR>");
        return;
      }
-     $fname = "$this->cachedir/$this->imdbID.$wt";
+    $fname = $this->cachedir . 'imdb_' . $this->imdbID . $wt;
      if ( $this->usezip ) {
       $fp = gzopen ($fname, "w");
       gzputs ($fp, $this->page[$wt]);
@@ -238,6 +238,7 @@
    * @method purge
    */
   function purge() {
+	  return;
     if (is_dir($this->cachedir))  {
       if (is_writable($this->cachedir)) {
         $thisdir = dir($this->cachedir);
@@ -245,7 +246,7 @@
         while( $file=$thisdir->read() ) {
           if ($file!="." && $file!="..") {
             $fname = $this->cachedir . $file;
-	    if (is_dir($fname) || !preg_match("/[0-9].\b(Trailers|Plot|Title|Credits)\b/",$fname)) continue;
+	    if (is_dir($fname) || !preg_match("/imdb_[0-9].\b(Trailers|Plot|Title|Credits)\b/",$fname)) continue;
             $mod = filemtime($fname);
             if ($mod && ($now - $mod > $this->cache_expire)) unlink($fname);
           }

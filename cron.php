@@ -65,7 +65,7 @@ define('CRON_ID', time() . ' ' . RandomAlpha(32));
 			// Process email queue
 			$cron_type = 'queue';
 		}
-		else if (method_exists($pmbt_cache, 'tidy') && $time_now - $config['cache_gc'] > $config['cache_last_gc'])
+		else if (method_exists($pmbt_cache, 'tidy') && $time_now - $pmbt_cache->expire > $config['cache_last_gc'])
 		{
 			// Tidy the cache
 			$cron_type = 'tidy_cache';
@@ -84,11 +84,11 @@ define('CRON_ID', time() . ' ' . RandomAlpha(32));
 			// Tidy the search
 			$cron_type = 'tidy_search';
 		}
+		/*
 		else if ($time_now - $config['session_gc'] > $config['session_last_gc'])
 		{
 			$cron_type = 'tidy_sessions';
-		}
-//logerror($cron_type,'ERROR');
+		}*/
 $sql = 'UPDATE ' . $db_prefix."_settings
 	SET config_value = '" . $db->sql_escape(CRON_ID) . "'
 	WHERE config_name = 'cron_lock' AND config_value = '" . $db->sql_escape($config['cron_lock']) . "'";
@@ -129,7 +129,7 @@ switch ($cron_type)
 		// Select the search method
 		$search_type = basename($config['search_type']);
 
-		if (time() - $config['search_gc'] <= $config['search_last_gc'] || !file_exists($phpbb_root_path . 'includes/search/' . $search_type . '.' . $phpEx))
+		if (time() - $config['search_gc'] <= $config['search_last_gc'] || !file_exists($phpbb_root_path . 'include/search/' . $search_type . '.' . $phpEx))
 		{
 			break;
 		}
@@ -172,17 +172,6 @@ switch ($cron_type)
 		include_once('admin/functions.php');
 
 		tidy_database();
-
-	break;
-
-	case 'tidy_sessions':
-
-		if (time() - $config['session_gc'] <= $config['session_last_gc'])
-		{
-			break;
-		}
-
-		$user->session_gc();
 
 	break;
 

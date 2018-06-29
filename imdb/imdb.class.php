@@ -167,7 +167,7 @@ function get_image_extension($filename, $include_dot = true, $shorter_extensions
    }
    
    if ($this->usecache) {
-    $fname = "$this->cachedir$this->imdbID.$wt";
+    $fname = $this->cachedir . 'imdb_' . $this->imdbID . $wt;
     if ( $this->usezip ) {
      if ( ($this->page[$wt] = @join("",@gzfile($fname))) ) {
       if ( $this->converttozip ) {
@@ -184,6 +184,7 @@ function get_image_extension($filename, $include_dot = true, $shorter_extensions
       return;
      }
     } else { // no zip
+	//die($fname);
      @$fp = fopen ($fname, "r");
      if ($fp) {
       $temp="";
@@ -197,14 +198,14 @@ function get_image_extension($filename, $include_dot = true, $shorter_extensions
    } // end cache
 
    $req = new IMDB_Request("");
-   $url = "http://".$this->imdbsite."/title/tt".$this->imdbID.$urlname;
+   $url = "https://www.imdb.com/title/tt".$this->imdbID.$urlname;
    //die($url);
    $req->setURL($url);
    $req->sendRequest();
    $this->page[$wt]=$req->getResponseBody();
    if( $this->page[$wt] ){ //storecache
     if ($this->storecache) {
-     $fname = "$this->cachedir$this->imdbID.$wt";
+    $fname = $this->cachedir . 'imdb_' . $this->imdbID . $wt;
      if ( $this->usezip ) {
       $fp = gzopen ($fname, "w");
       gzputs ($fp, $this->page[$wt]);
@@ -317,6 +318,7 @@ function get_image_extension($filename, $include_dot = true, $shorter_extensions
    * @method purge
    */
   function purge() {
+	  return;
     if (is_dir($this->cachedir))  {
       $thisdir = dir($this->cachedir);
       $now = time();
@@ -339,7 +341,7 @@ function get_image_extension($filename, $include_dot = true, $shorter_extensions
    * @return string url
    */
   function main_url(){
-   return "http://".$this->imdbsite."/title/tt".$this->imdbid()."/";
+   return "https://".$this->imdbsite."/title/tt".$this->imdbid()."/";
   }
 
  #-------------------------------------------[ Movie title (name) and year ]---
@@ -1092,7 +1094,7 @@ function get_image_extension($filename, $include_dot = true, $shorter_extensions
         $tag_e = strpos($this->page["Trailers"],"</a>            </span",$tag_s);
         $trail = substr($this->page["Trailers"], $tag_s, $tag_e - $tag_s +1);
         if (preg_match_all("/<a href=\"(.*?)\"/",$trail,$matches))
-          for ($i=0;$i<count($matches[0]);++$i) $this->trailers[] = "http://".$this->imdbsite.$matches[1][$i];
+          for ($i=0;$i<count($matches[0]);++$i) $this->trailers[] = "https://".$this->imdbsite.$matches[1][$i];
 		//die(print_r($this->trailers));
       }
       $tag_s = strpos($this->page["Trailers"], "<h3>Trailers on Other Sites</h3>");
@@ -1132,7 +1134,7 @@ function trailer () {
       $goofs = substr($this->page["Trivia"],$tag_s,$tag_e - $tag_s);
       if (preg_match_all("/<li>(.*?)<br><br><\/li>/",$goofs,$matches)) {
         $gc = count($matches[1]);
-        for ($i=0;$i<$gc;++$i) $this->trivia[] = str_replace('href="/','href="http://'.$this->imdbsite."/",$matches[1][$i]);
+        for ($i=0;$i<$gc;++$i) $this->trivia[] = str_replace('href="/','href="https://'.$this->imdbsite."/",$matches[1][$i]);
       }
     }
     return $this->trivia;
@@ -1153,8 +1155,8 @@ function trailer () {
     if (preg_match_all("/<li>(.*?)<\/b><br>(.*?)<br>(.*?)<br>.*?<\/li>/",str_replace("\n"," ",$this->page["Soundtrack"]),$matches)) {
       $mc = count($matches[0]);
       for ($i=0;$i<$mc;++$i) $this->soundtracks[] = array("soundtrack"=>$matches[1][$i],"credits"=>array(
-                                                           str_replace('href="/','href="http://'.$this->imdbsite.'/',$matches[2][$i]),
-                                                           str_replace('href="/','href="http://'.$this->imdbsite.'/',$matches[3][$i])));
+                                                           str_replace('href="/','href="https://'.$this->imdbsite.'/',$matches[2][$i]),
+                                                           str_replace('href="/','href="https://'.$this->imdbsite.'/',$matches[3][$i])));
     }
    }
    return $this->soundtracks;
@@ -1239,7 +1241,7 @@ function trailer () {
   var $page = "";
   var $name = NULL;
   var $resu = array();
-  var $url = "http://uk.imdb.com/";
+  var $url = "https://www.imdb.com/";
   var $main_trailer = "";
 
   /** Read the config
@@ -1287,14 +1289,14 @@ function trailer () {
    }else{
      if (!isset($this->maxresults)) $this->maxresults = 20;
      if ($this->maxresults > 0) $query = ";mx=20";
-     if ($this->episode_search) $url = "http://".$this->imdbsite."/find?q=".urlencode($this->name).$query.";s=ep";
+     if ($this->episode_search) $url = "https://".$this->imdbsite."/find?q=".urlencode($this->name).$query.";s=ep";
      else {
        switch ($this->searchvariant) {
          case "moonface" : $query = ";more=tt;nr=1"; // @moonface variant (untested)
          case "sevec"    : $query = "&restrict=Movies+only&GO.x=0&GO.y=0&GO=search;tt=1"; // Sevec ori
          default         : $query = ";tt=on"; // Izzy
        }
-       $url = "http://".$this->imdbsite."/find?q=".urlencode($this->name).$query;
+       $url = "https://".$this->imdbsite."/find?q=".urlencode($this->name).$query;
      }
    }
    return $url;

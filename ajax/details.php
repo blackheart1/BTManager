@@ -1002,6 +1002,7 @@ if($op == 'get_imdb')
                 $cast = $movie->cast();
                 $write = $movie->writing();
                 $gen = $movie->genres();
+				$movie->photo_localurl();
 				$template->assign_vars(array(
 					'ACTION'			=> $op,
 					'IMDB_TITLE'		=>	$movie->title (),
@@ -1009,7 +1010,7 @@ if($op == 'get_imdb')
 					'IMDB_RUNTIME'		=>	$movie->runtime (),
 					'IMDB_TAGLINE'		=>	$movie->plotoutline (),
 					'MOVE_COMMENTS'		=>	$movie->comment (),
-					'IMDB_POSTER'		=>	$movie->photo_localurl(),
+					'IMDB_POSTER'		=>	$movie->main_photo,
 					'IMDB_COUNTRY'		=>	implode(",",$movie->country ()),
 					'IMDB_RELEASE_DATE'	=>	$release,
 					'IMDB_VOTES'		=>	$movie->votes (),

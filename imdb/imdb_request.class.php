@@ -12,7 +12,7 @@
  /* $Id: imdb_request.class.php,v 1.1 2008/09/21 02:34:43 joerobe Exp $ */
 
 if ( $PEAR ) { // Use the HTTP_Request class from the PEAR project.
-  require_once("HTTP/Request.php");
+  //require_once("HTTP/Request.php");
   class IMDB_Request extends HTTP_Request{
     function IMDB_Request($url){
       $this->HTTP_Request($url);
@@ -46,17 +46,18 @@ if ( $PEAR ) { // Use the HTTP_Request class from the PEAR project.
      * @method sendRequest
      */
     function sendRequest(){
-      $this->fpopened = $this->fopen($this->urltoopen);
+      //$this->fpopened = fopen($this->urltoopen, "r");
     }
     /** Get the Response body
      * @method getResponseBody
      * @return string page
      */
     function getResponseBody(){
-      $page = "";
+		$page = getUrlContent($this->urltoopen);
+     /* $page = "";
       while (!feof ($this->fpopened)) {
         $page .= fread ($this->fpopened, 1024);
-      }
+      }*/
       return $page;
     }
     /** Set the URL we need to parse
@@ -82,5 +83,16 @@ if ( $PEAR ) { // Use the HTTP_Request class from the PEAR project.
     }
   }
 }		
-
+function getUrlContent($url){
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $url);
+curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.1.4322)');
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+curl_setopt($ch, CURLOPT_TIMEOUT, 5);
+$data = curl_exec($ch);
+$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+curl_close($ch);
+return ($httpcode>=200 && $httpcode<300) ? $data : false;
+}
 ?>

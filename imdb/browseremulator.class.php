@@ -91,7 +91,7 @@ class BrowserEmulator {
 	* Resets the port used for request to the HTTP default (80).
 	**/
      function resetPort () {
-	  $this->port = 80;
+	  $this->port = 443;
      }
 
 	/**
@@ -118,7 +118,8 @@ class BrowserEmulator {
 	  if ($path == "")
 	       $path = "/";
 	  $socket = false;
-	  $socket = fsockopen ($server, $this->port);
+	  //die($server);
+	  $socket = fsockopen ('ssl://' . $server, $this->port);
 	  if ($socket) {
 	       $this->headerLines["Host"] = $server;
 

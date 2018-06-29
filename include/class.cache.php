@@ -29,6 +29,8 @@ class pmbt_cache {
 	var $cache_dir = './';
 	var $expire = '60';
 	var $theme_expire = '60';
+	var $vars = array();
+	var $var_expires = array();
 
 
        function pmbt_cache()
@@ -250,6 +252,60 @@ class pmbt_cache {
 		}
 
 		return $censors;
+	}
+	/**
+	* Tidy cache
+	*/
+	function tidy()
+	{
+		global $phpEx;
+
+		$dir = @opendir($this->cache_dir);
+
+		if (!$dir)
+		{
+			return;
+		}
+
+		$time = time();
+
+		while (($entry = readdir($dir)) !== false)
+		{
+			if (preg_match('/^imdb_/', $entry) OR $entry == "." OR $entry == "..")
+			{
+				continue;
+			}
+
+			if (!($handle = @fopen($this->cache_dir . $entry, 'rb')))
+			{
+				continue;
+			}
+			if (preg_match('/\.html.php$/', $entry))
+			{
+			$expires = (int) (filemtime($this->cache_dir.$entry) + $this->theme_expire);
+			}
+			else
+			{
+			$expires = (int) (filemtime($this->cache_dir.$entry) + $this->expire);
+			}
+			fclose($handle);
+
+			if ($time >= $expires)
+			{
+				$this->remove_file($entry);
+			}
+		}
+		closedir($dir);
+
+
+		set_config('cache_last_gc', time(), true);
+	}
+	/**
+	* Load global cache
+	*/
+	function load()
+	{
+		return $this->_read('data_global');
 	}
 	function obtain_attach_extensions($forum_id)
 	{
