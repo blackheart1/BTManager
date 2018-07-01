@@ -224,6 +224,8 @@ class acp_permissions
 
 
 		// Handle actions
+				//die($action);
+
 		if (strpos($mode, 'setting_') === 0 && $action)
 		{
 			switch ($action)
@@ -751,7 +753,8 @@ class acp_permissions
 			}
 		}
 
-		$auth_admin->acl_clear_prefetch($user_id);
+		$auth_admin->acl_clear_prefetch();
+		//$auth_admin->acl_cache($user);
 
 		// Do we need to recache the moderator lists?
 		if ($permission_type == 'm_')
@@ -773,7 +776,7 @@ class acp_permissions
 		}
 		else
 		{
-			trigger_error($user->lang['AUTH_UPDATED'] . back_link($this->u_action . (($user_id > 0)? '&amp;user_id[]=' . implode('&amp;user_id[]=', $user_id) : '')));
+			trigger_error($user->lang['AUTH_UPDATED'] . back_link($this->u_action . ((count($user_id) > 0)? '&amp;user_id[]=' . implode('&amp;user_id[]=', $user_id) : '')));
 		}
 	}
 

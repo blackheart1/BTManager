@@ -37,7 +37,7 @@ function adm_back_link($u_action)
 */
 function tidy_database()
 {
-	global $db, $db_prefix;
+	global $db, $db_prefix, $announce_interval;
 
 	// Here we check permission consistency
 
@@ -61,8 +61,82 @@ function tidy_database()
 	$sql = 'DELETE FROM ' . $db_prefix . '_acl_users 
 		WHERE ' . $db->sql_in_set('forum_id', $forum_ids, true);
 	$db->sql_query($sql);
+	$local_query = "SHOW TABLE STATUS LIKE '".$db_prefix."_%';";
+	$result = $db->sql_query($local_query) or btsqlerror($local_query);
+	if ($db->sql_numrows($result) > 0) {
+			while ($row = $db->sql_fetchrow($result)) {
+					$local_query = "REPAIR TABLE ".$row['Name'];
+					$db->sql_query($local_query) or btsqlerror($local_query);
+					$local_query = "OPTIMIZE TABLE ".$row['Name'];
+					$resultat  = $db->sql_query($local_query) or btsqlerror($local_query);
+					$db->sql_freeresult($resultat);
+			}
+	}
+	$db->sql_freeresult($result);
+	$db->sql_query("UPDATE ".$db_prefix."_torrents SET seeders = 0, leechers = 0, tot_peer = 0, speed = 0 WHERE tracker IS NULL;");
+	
+	$sql = "DELETE FROM ".$db_prefix."_peers WHERE UNIX_TIMESTAMP(last_action) < UNIX_TIMESTAMP(NOW()) - ".intval($announce_interval).";";
+	$res = $db->sql_query($sql) or btsqlerror($sql);
+	$sql = "SELECT count(*) as tot, torrent, seeder, (SUM(download_speed)+SUM(upload_speed))/2 as speed FROM ".$db_prefix."_peers GROUP BY torrent, seeder;";
+	$res = $db->sql_query($sql) or btsqlerror($sql);
+	while($row = $db->sql_fetchrow($res)) {
+			if ($row["seeder"]=="yes") $sql = "UPDATE ".$db_prefix."_torrents SET seeders= '".$row["tot"]."', speed = speed + '".intval($row["speed"])."' WHERE id='".$row["torrent"]."'; ";
+			else $sql = "UPDATE ".$db_prefix."_torrents SET leechers='".$row["tot"]."', speed = speed + '".intval($row["speed"])."' WHERE id='".$row["torrent"]."'; ";
+			$db->sql_query($sql);
+	}
+	
+	$db->sql_query("UPDATE ".$db_prefix."_torrents SET tot_peer = seeders + leechers;");
+	$db->sql_query("UPDATE ".$db_prefix."_snatched SET seeder = 'no';");
+	$sql = "SELECT uid, torrent FROM ".$db_prefix."_peers WHERE seeder = 'yes';";
+	$res = $db->sql_query($sql) or btsqlerror($sql);
+	while($row = $db->sql_fetchrow($res)) {
+		$db->sql_query("UPDATE ".$db_prefix."_snatched SET seeder = 'yes' WHERE userid = '".$row["uid"]."' AND torrentid = '".$row["torrent"]."';");
+	}
 
 	set_config('database_last_gc', time(), true);
+}
+/**
+* Tidy Warnings
+* Remove all warnings which have now expired from the database
+* The duration of a warning can be defined by the administrator
+* This only removes the warning and reduces the associated count,
+* it does not remove the user note recording the contents of the warning
+*/
+function tidy_warnings()
+{
+	global $db, $config, $db_prefix;
+
+	$expire_date = time() - ($config['warnings_expire_days'] * 86400);
+	$warning_list = $user_list = array();
+
+	$sql = 'SELECT * FROM ' . $db_prefix . "_warnings
+		WHERE warning_time < $expire_date";
+	$result = $db->sql_query($sql);
+
+	while ($row = $db->sql_fetchrow($result))
+	{
+		$warning_list[] = $row['warning_id'];
+		$user_list[$row['user_id']] = isset($user_list[$row['user_id']]) ? ++$user_list[$row['user_id']] : 1;
+	}
+	$db->sql_freeresult($result);
+
+	if (sizeof($warning_list))
+	{
+
+		$sql = 'DELETE FROM ' . $db_prefix . '_warnings
+			WHERE ' . $db->sql_in_set('warning_id', $warning_list);
+		$db->sql_query($sql);
+
+		foreach ($user_list as $user_id => $value)
+		{
+			$sql = 'UPDATE ' . $db_prefix . "_users SET user_warnings = user_warnings - $value
+				WHERE id = $user_id";
+			$db->sql_query($sql);
+		}
+
+	}
+
+	set_config('warnings_last_gc', time(), true);
 }
 /**
 * Generate sort selection fields

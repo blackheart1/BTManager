@@ -68,7 +68,7 @@ class acp_prune
 		if ($all_forums)
 		{
 			$sql = 'SELECT forum_id
-				FROM ' . FORUMS_TABLE . '
+				FROM ' . $db_prefix . '_forums
 				ORDER BY left_id';
 			$result = $db->sql_query($sql);
 
@@ -105,8 +105,8 @@ class acp_prune
 
 				// Get a list of forum's or the data for the forum that we are pruning.
 				$sql = 'SELECT forum_id, forum_name
-					FROM ' . FORUMS_TABLE . '
-					WHERE forum_type = ' . FORUM_POST . "
+					FROM ' . $db_prefix . '_forums
+					WHERE forum_type = ' . $db_prefix . "_posts
 						$sql_forum
 					ORDER BY left_id ASC";
 				$result = $db->sql_query($sql);

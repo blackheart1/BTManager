@@ -75,11 +75,11 @@ class auth
 				$this->acl_options['option'][(int) $row['auth_option_id']] = $row['auth_option'];
 			}
 			$db->sql_freeresult($result);
-//die(print_r($this->acl_options));
+
 			$pmbt_cache->put('_acl_options', $this->acl_options);
-			$this->acl_cache($userdata);
 		}
-		else if (!trim($uperm_set['user_permissions']))
+		
+		if (!trim($uperm_set['user_permissions']))
 		{
 			$this->acl_cache($userdata);
 		}
@@ -407,6 +407,7 @@ class auth
 				SET user_permissions = '" . $db->sql_escape($sql_in) . "',
 					user_perm_from = 0
 				WHERE id = " . $sql_is;
+				//die($sql);
 			$db->sql_query($sql);// or btsqlerror($sql);
 		}
 

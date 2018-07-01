@@ -19,7 +19,7 @@ font-size:12px;
   display: inline;
   float: left;
   width: 100%;
-  height: 150px;
+  height: 300px;
   overflow:auto;
   background-color:#FFFFFF;
 }
@@ -4775,6 +4775,11 @@ text-align : center;
     color: #ccc;
     text-decoration: none;
 }
+.imdb-odd{
+background-image:url(images/content_bg.png!important);
+
+background-color:#FFFFFF;
+}
 /* imdb style start */
 .imdb_star {
 background-position:-180px -71px;
@@ -4808,7 +4813,7 @@ table#title-overview-widget-layout .tv-series-smaller{font-size:13px;white-space
 td#img_primary{padding:0 14px 0 0;vertical-align:top}
 td#img_primary img{border:1px solid #ddd;margin:-11px 0 -4px -1px}
 .article.title-overview,.article.name-overview{padding:10px 12px 0 0;position:relative;border:solid 1px #ddd}
-#overview-top div.txt-block span{color:#999;font-size:11px;background-image:url(img/content_bg.png!important);}
+#overview-top div.txt-block span{color:#999;font-size:11px;background-image:url(images/content_bg.png!important);}
 td#overview-top{vertical-align:top;width:100%}
 td#overview-top div.txt-block span{font-size:inherit}
 td#overview-top div.txt-block a span.itemprop{color:#136cb2}

@@ -8,6 +8,10 @@
 
 <form id="list" method="post" action="{U_ACTION}">
 
+<fieldset class="display-options" style="float: left">
+	{L_SEARCH_KEYWORDS}: <input type="text" name="keywords" value="{S_KEYWORDS}" />&nbsp;<input type="submit" class="button2" name="filter" value="{L_SEARCH}" />
+</fieldset>
+
 <!-- IF PAGINATION -->
 <div class="pagination" style="float: right; margin: 15px 0 2px 0">
 	<a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{S_ON_PAGE}</a> &bull; <span>{PAGINATION}</span>
