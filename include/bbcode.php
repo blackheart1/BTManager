@@ -119,6 +119,7 @@ class bbcode
 							//echo $preg['replace'][$key];
 							if (is_callable($preg['replace'][$key]))
 							{
+								//echo 'iscallback' . $preg['replace'][$key] . '<br>';
 								$message = preg_replace_callback($search, $preg['replace'][$key], $message);
 							}
 							else
@@ -401,7 +402,9 @@ class bbcode
 						}
 
 						// Replace {L_*} lang strings
-						$bbcode_tpl = preg_replace('/{L_([A-Z_]+)}/e', "(!empty(\$user->lang['\$1'])) ? \$user->lang['\$1'] : ucwords(strtolower(str_replace('_', ' ', '\$1')))", $bbcode_tpl);
+						$bbcode_tpl = preg_replace_callback('/{L_([A-Z0-9_]+)}/', function ($match) use ($user) {
+							return (!empty($user->lang[$match[1]])) ? $user->lang($match[1]) : ucwords(strtolower(str_replace('_', ' ', $match[1])));
+						}, $bbcode_tpl);
 
 						if (!empty($rowset[$bbcode_id]['second_pass_replace']))
 						{
@@ -518,6 +521,11 @@ class bbcode
 		return trim($tpl);
 	}
 
+	function bbcode_text($text)
+	{
+		die($text);
+		return str_replace(array("\r\n", '\"', '\'', '(', ')'), array("\n", '"', '&#39;', '&#40;', '&#41;'), trim($text));
+	}
 	/**
 	* Second parse list bbcode
 	*/

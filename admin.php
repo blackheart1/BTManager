@@ -94,7 +94,7 @@ if (!$auth->acl_get('a_'))
 {
 	trigger_error('NO_ADMIN');
 }
-if (!checkaccess("m_see_admin_cp")){
+if (!$auth->acl_get('a_')){
 	header("Location: ".$siteurl."/login.php?return=".$_SERVER["REQUEST_URI"]);
 	die();
 }
@@ -406,10 +406,11 @@ else
 			$res = $db->sql_query($sql);
 			while ($errors = $db->sql_fetchrow($res))
 			{
-				$data = array();
+				$data = '';
 				$errors['ip_g'] = $errors["ip"];
 				$errors = array_merge($errors, build_user_array($errors['userid']));
-				$data = unserialize(stripslashes($errors['results']));
+				$l_data = unserialize(stripslashes($errors['results']));
+				if(sizeof($l_data) > 0) { $data = $l_data; }
 				$s_data = (isset($user->lang[strtoupper($errors['action'])])) ? $user->lang[strtoupper($errors['action'])] : '{' . ucfirst(str_replace('_', ' ', $errors['action'])) . '}';
 				if ((substr_count($s_data, '%') - sizeof($data)) > 0)
 				{
@@ -417,7 +418,7 @@ else
 					$data = array_merge($data, array_fill(0, substr_count($s_data, '%') - sizeof($data), ''));
 				}
 	
-				$s_data = vsprintf($s_data, $data);
+				$s_data = vsprintf($s_data, ((sizeof($data) > 0) ? implode(' | ', $data) : ''));
 				if($errors['userid'] == "0")
 				{
 					$by2['username'] = $user->lang['UNKNOWN'];

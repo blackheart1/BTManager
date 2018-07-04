@@ -976,7 +976,7 @@ while ($row = $db->sql_fetchrow($result))
 			'COMMENT'			=> $message,
 			'U_DELETE'			=> $delete,
 			'U_EDIT'			=> $edit,
-			'S_ONLINE'			=> ($row['comment_user'] == ANONYMOUS || !$config['load_onlinetrack']) ? false : (($user_cache[$row['comment_user']]['online']) ? true : false),
+			'S_ONLINE'			=> ($row['comment_user'] == 0 || !$config['load_onlinetrack']) ? false : (($user_cache[$row['comment_user']]['online']) ? true : false),
 			'POSTER_AVATAR'		=> $user_cache[$row['comment_user']]['avatar'],
 			'RANK_TITLE'		=> $user_cache[$row['comment_user']]['rank_title'],
 			'RANK_IMG'			=> $user_cache[$row['comment_user']]['rank_image'],

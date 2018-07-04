@@ -25,6 +25,10 @@ if (!defined('IN_PMBT'))
 }
 include_once('include/user.functions.php');
 $user->set_lang('admin/logs',$user->ulanguage);
+define('ADMIN_MODE',0);
+define('MOD_MODE',1);
+define('USERS_MODE',3);
+define('CRITICAL_MODE',2);
 		$deletemark = (!empty($_POST['delmarked'])) ? true : false;
 		$deleteall	= (!empty($_POST['delall'])) ? true : false;
 		$marked		= request_var('mark', array(0));
@@ -66,8 +70,9 @@ if($deleteall && $auth->acl_get('a_clearlogs'))
 {
 		if (confirm_box(true))
 		{
-		$db->sql_query("TRUNCATE `".$db_prefix."_log`;");
-					add_log('admin', 'LOG_CLEAR_ADMIN');
+			$sql = "DELETE FROM ".$db_prefix."_log WHERE log_type = " . constant(strtoupper($mode) . '_MODE') . ";";
+			$db->sql_query($sql);
+					add_log('admin', 'LOG_CLEAR_' . strtoupper($mode));
                                 $template->assign_vars(array(
 								        'S_USER_NOTICE'				=> true,
 										'S_FORWARD'					=> $u_action,
@@ -80,11 +85,12 @@ if($deleteall && $auth->acl_get('a_clearlogs'))
 		else
 		{
 								$hidden = build_hidden_fields(array(
-								"st"			=> $sort_days,
+								"st"		=> $sort_days,
 								"sk"		=> $sort_key,
 								"sd" 		=> $sort_dir,
-								"delall" 		=> $deleteall,
+								"delall" 	=> $deleteall,
 								"i"			=> 'siteinfo',
+								'mode'		=> $mode,
 								"op"		=> 'log',
 								));
 		confirm_box(false, $user->lang['CONFIRM_OPERATION'], $hidden,'admin/confirm_body.html','admin.php',true);
@@ -96,7 +102,7 @@ if($delmarked && $auth->acl_get('a_clearlogs'))
 		{
                         $sql = "DELETE FROM ".$db_prefix."_log WHERE event IN (".$del.");";
                         $db->sql_query($sql) or btsqlerror($sql);
-					add_log('admin', 'LOG_CLEAR_ADMIN');
+					add_log('admin', 'LOG_CLEAR_' . strtoupper($mode));
                                 $template->assign_vars(array(
 								        'S_USER_NOTICE'            => true,
 										'S_FORWARD'			=> $u_action,
@@ -108,7 +114,7 @@ if($delmarked && $auth->acl_get('a_clearlogs'))
 		}
 		else
 		{
-		if(!checkaccess('a_clearlogs')){
+		if(!$auth->acl_get('a_clearlogs')){
 		$template->assign_vars(array(
 	        'S_ERROR'            => true,
 	        'TITTLE_M'           => $user->lang['BT_ERROR'],
@@ -129,13 +135,13 @@ if($delmarked && $auth->acl_get('a_clearlogs'))
 								"i"			=> 'siteinfo',
 								"op"		=> 'log',
 								"del"		=> implode(",",$marks),
+								'mode'		=> $mode,
 								));
 		confirm_box(false, $user->lang['CONFIRM_OPERATION'], $hidden,'admin/confirm_body.html','admin.php');
 		}
 }
 		$action		= request_var('action', '');
 		$page		= request_var('page', 0);
-		//$u_action = './admin.php?i=siteinfo&amp;op=log';
 		$limit_days = array(0 => $user->lang['ALL_ENTRIES'], 1 => $user->lang['1_DAY'], 7 => $user->lang['7_DAYS'], 14 => $user->lang['2_WEEKS'], 30 => $user->lang['1_MONTH'], 90 => $user->lang['3_MONTHS'], 180 => $user->lang['6_MONTHS'], 365 => $user->lang['1_YEAR']);
 		$sort_by_text = array('u' => $user->lang['SORT_USERNAME'], 't' => $user->lang['SORT_DATE'], 'i' => $user->lang['SORT_IP'], 'o' => $user->lang['SORT_ACTION']);
 		$sort_by_sql = array('u' => 'userid', 't' => 'datetime', 'i' => 'ip', 'o' => 'event');
@@ -178,6 +184,7 @@ if($delmarked && $auth->acl_get('a_clearlogs'))
 			'S_SORT_DIR'	=> $s_sort_dir,
 			'S_CLEARLOGS'	=> $auth->acl_get('a_clearlogs'),
 			'S_KEYWORDS'	=> $keywords,
+			'S_LOG_OPTIONS'	=> ($log_data) ? true : false,
 			)
 		);
 		foreach ($log_data as $errors)

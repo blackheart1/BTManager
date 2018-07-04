@@ -25,11 +25,12 @@ if (!defined('IN_PMBT'))
 }
 require_once("common.php");
 $user->set_lang('profile',$user->ulanguage);
+$user->set_lang('ucp',$user->ulanguage);
 $template = new Template();
 $id												= request_var('id', $user->id);
-$mode											= request_var('mode', '');
-$action											= request_var('action', '');
-$take_edit										= request_var('take_edit', '');
+$mode											= request_var('mode', 'front');
+$action											= request_var('action', 'overview');
+$take_edit										= (($_POST['preview'])? false : request_var('take_edit', ''));
 $admin_mode = false;
 if($user->id == 0 OR ($user->id != $userrow["id"] && !$auth->acl_get('a_user'))){
               set_site_var('- '.$user->lang['USER_CPANNEL'].' - '.$user->lang['BT_ERROR']);
@@ -66,8 +67,7 @@ else $uid = $user->id;
 				$admin_mode = true;
 			
 			}
-
-                                $template->assign_vars(array(
+							$template->assign_vars(array(
                                         'S_MOD_MODE'            => $admin_mode,
                                         'PMBT_LINK_BACK'            => ($admin_mode)? $siteurl.'/user.php?op=editprofile&amp;'.'id=' . $uid . '&amp;' : $siteurl.'/user.php?op=editprofile&amp;',
 		                                'T_TEMPLATE_PATH'=> $siteurl . "/themes/" . $theme . "/templates",
@@ -151,6 +151,9 @@ $user_friends = '';
         $sql = "SELECT B.slave, U.username, IF (U.name IS NULL, U.username, U.name) as name, U.can_do as can_do, U.lastlogin as laslogin, U.Show_online as show_online FROM ".$db_prefix."_private_messages_bookmarks B LEFT JOIN ".$db_prefix."_users U ON B.slave = U.id WHERE B.master = '".$userrow["id"]."' ORDER BY name ASC;";
         $res = $db->sql_query($sql) or btsqlerror($sql);
         if ($n = $db->sql_numrows($res)) {
+							$template->assign_vars(array(
+                                        'S_FRIENS'            => true,
+                                ));
                 for ($i = 1; list($uid2, $username, $user_name, $can_do, $laslogin, $show_online) = $db->fetch_array($res); $i++) {
                         $user_friends .= "<option value=\"" . $uid2 ."\">" . $user_name . "</option>";
 						$which = (time() - 300 < sql_timestamp_to_unix_timestamp($laslogin) && ($show_online == 'true' || $user->admin)) ? 'online' : 'offline';

@@ -1317,7 +1317,7 @@ function trailer () {
        if ($header = $be->getResponseHeader("Location")){
         if (strpos($header,$this->imdbsite."/find?")) {
           return $this->results($header);
-          break(4);
+          //break(4);
         }
         $url = explode("/",$header);
         $id  = substr($url[count($url)-2],2);

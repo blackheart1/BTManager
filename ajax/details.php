@@ -990,7 +990,7 @@ if($op == 'get_imdb')
         $can_access = false;
 		}
                 $thenumbers = ltrim(strrchr($torrent["imdb"],'tt'),'tt');
-                $thenumbers = ereg_replace("[^A-Za-z0-9]", "", $thenumbers);
+                $thenumbers = preg_replace("/[^A-Za-z0-9]/", "", $thenumbers);
                 $movie = new imdb ($thenumbers);
 				$release = $movie->release_date();
 				$mpaa  =  $movie->mpaa();

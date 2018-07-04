@@ -167,7 +167,7 @@ class User {
 			{
 
 				// Do not fill the image to let designers decide what to do if the image is empty
-				$img_data = '';
+				$img_data = array();
 				if($suffix == '')
 				{
 					if (file_exists( $root_path . 'themes/' . $theme . '/pics/' . $this->ulanguage .'/' . $img . '.gif'))$suffix = 'gif';

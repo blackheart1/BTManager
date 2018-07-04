@@ -917,7 +917,6 @@ class auth_admin extends auth
 				}
 			}
 		}
-
 		$db->sql_multi_insert($table, $sql_ary);
 
 		if ($clear_prefetch)
