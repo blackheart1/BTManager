@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File edit/english.php 2018-04-23 09:47:00 Black_heart
+** File edit/english.php 2018-07-05 12:42:00 Thor
 **
 ** CHANGES
 **
@@ -22,6 +22,7 @@
 ** 2018-03-02 - Fixed Spelling
 ** 2018-04-21 - Amended the Wording of some Sentences
 ** 2018-04-23 - Removed Reduntent text
+** 2018-07-05 - Added Missing Language
 **/
 
 if (!defined('IN_PMBT'))
@@ -56,6 +57,7 @@ $lang = array_merge($lang, array(
     'SUCCES_EDIT_TAKEN'       => 'Your Changes were Successfully Updated!',
     'SUCCES_ADMIN_DELETE'     => 'Torrents have been Successfully Removed!',
     'UPLOAD_NFO'              => 'Upload NFO File',
+    'UPLOAD_NFO_EXP'          => 'An (.)nfo File is a Text File containing Information about this Torrent.',
     'EDIT_NAME'               => 'Torrent Name',
 
     'EDIT_NAME_EXP'           => 'Will be Generated from the Filename if left Blank.  Try to give it a Descriptive Name',
