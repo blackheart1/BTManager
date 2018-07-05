@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File acp_permissions/english.php 2018-07-05 08:48:00 Thor
+** File acp_permissions/english.php 2018-07-05 13:07:00 Thor
 **
 ** CHANGES
 **
@@ -25,6 +25,7 @@
 ** 2018-04-14 - Added Missing Languages
 ** 2018-04-14 - Amended !defined('IN_PMBT') New Version
 ** 2018-07-05 - Amended the Wording of some Sentences and Spell Checked
+** 2018-07-05 - Added Missing Language
 **/
 
 if (!defined('IN_PMBT'))
@@ -591,6 +592,7 @@ $lang = array_merge($lang, array(
     'acl_a_massupload'         => array('lang' => 'Can Use Mass Upload System', 'cat' => 'trac'),
     'acl_a_ratiowarn'          => array('lang' => 'Can Manage Ratio Warning System', 'cat' => 'trac'),
     'acl_a_search_cloud'       => array('lang' => 'Can Manage Search Cloud System', 'cat' => 'trac'),
+    'acl_a_site_rules'         => array('lang' => 'Can Manage Rules Settings', 'cat' => 'settings'),
 ));
 
 // Adding the Permissions
