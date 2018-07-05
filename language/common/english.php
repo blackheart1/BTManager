@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File common/english.php 2018-05-15 09:31:00 Thor
+** File common/english.php 2018-07-05 08:56:00 Thor
 **
 ** CHANGES
 **
@@ -25,6 +25,7 @@
 ** 2018-04-22 - Amended the Wording of some Sentences
 ** 2018-04-23 - Added Missing Language
 ** 2018-05-15 - Added Missing Language
+** 2018-07-05 - Amended the Wording of some Sentences and Spell Checked
 **/
 
 if (!defined('IN_PMBT'))
@@ -820,19 +821,20 @@ $lang = array_merge($lang, array(
     'EMAIL_ADDRESS'         => 'email Address',
     'UCP'                   => 'User Control Panel',
     'SEARCH_SELF'           => 'View your Posts',
-	'report_reasons'		=> array(
-					'TITLE' 			=> array(
-						'SPAM'				=> 'Spam', 
-						'OTHER'				=> 'Other',
-						'OFF_TOPIC'			=> 'Off Topic',
-						'WAREZ'				=> 'warez',
-						),
-					'DESCRIPTION'		=> array(
-						'SPAM'				=> 'The reported post has for only purpose to advertise for a website or another product', 
-						'OTHER'				=> 'The reported post does not fit into any other category (please use the description field)',
-						'OFF_TOPIC'			=> 'The reported post is off topic',
-						'WAREZ'				=> 'The reported post contains links to pirated or illegal software',
-						)),
+
+    'report_reasons'    => array(
+        'TITLE'             => array(
+            'SPAM'              => 'Spam',
+            'OTHER'             => 'Other',
+            'OFF_TOPIC'         => 'Off Topic',
+            'WAREZ'             => 'Warez',
+        ),
+        'DESCRIPTION'   => array(
+            'SPAM'              => 'The Reported Post Only Purpose was to Advertise a Website or another Product',
+            'OTHER'             => 'The Reported Post does NOT fit into any Other Category (please use the Description Field)',
+            'OFF_TOPIC'         => 'The Reported Post is Off Topic',
+            'WAREZ'             => 'The Reported Post contains Links to Pirated or Illegal Software',
+    )),
 ));
 
 $u_datetime = array(

@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File acp_permissions/english.php 2018-04-14 10:52:00 Thor
+** File acp_permissions/english.php 2018-07-05 08:48:00 Thor
 **
 ** CHANGES
 **
@@ -24,6 +24,7 @@
 ** 2018-03-28 - Amended !defined('IN_PMBT') Corrected Path
 ** 2018-04-14 - Added Missing Languages
 ** 2018-04-14 - Amended !defined('IN_PMBT') New Version
+** 2018-07-05 - Amended the Wording of some Sentences and Spell Checked
 **/
 
 if (!defined('IN_PMBT'))
@@ -571,25 +572,25 @@ $lang = array_merge($lang, array(
     'acl_a_cache_settings'  => array('lang' => 'Can Alter Cache Settings', 'cat' => 'settings'),
     'acl_a_cache_time_sql'  => array('lang' => 'Can Manage Cache Data base Times Settings', 'cat' => 'settings'),
     'acl_a_cache_time_tmpl' => array('lang' => 'Can Manage Cache Theme Time Settings', 'cat' => 'settings'),
-	#updated admin access
-	'acl_a_paypal'					=> array('lang' => 'Can Manage PayPal Settings', 'cat' => 'settings'),
-	'acl_a_irc'						=> array('lang' => 'Can Manage IRC Settings', 'cat' => 'settings'),
-	'acl_a_faq_manage'				=> array('lang' => 'Can Manage FAQ\'s Settings', 'cat' => 'settings'),
-	'acl_a_torrent_filter'			=> array('lang' => 'Can Manage Torrent Upload Filters', 'cat' => 'trac'),
-	'acl_a_torrent_clinic'			=> array('lang' => 'Can Manage Torrent Clinic', 'cat' => 'trac'),
-	'acl_a_client_ban'				=> array('lang' => 'Can Ban Torrent Clients', 'cat' => 'trac'),
-	'acl_a_torrent_categories'		=> array('lang' => 'Can Manage Torrent Categories', 'cat' => 'trac'),
-	'acl_a_hit_and_run'				=> array('lang' => 'Can Manage Hit And Run Settings', 'cat' => 'trac'),
-	'acl_a_mass_message'			=> array('lang' => 'Can Manage Mass Messaging', 'cat' => 'misc'),
-	'acl_a_shouts'					=> array('lang' => 'Can Manage Shoutbox Settings', 'cat' => 'settings'),
-	'acl_a_shout_cast'				=> array('lang' => 'Can Manage Shout Cast Settings', 'cat' => 'settings'),
-	'acl_a_torrents'				=> array('lang' => 'Can Manage Uploaded Torrents', 'cat' => 'trac'),
-	'acl_a_smilies'					=> array('lang' => 'Can Manage Smilies', 'cat' => 'settings'),
-	'acl_a_trackers'				=> array('lang' => 'Can Manage External Trackers', 'cat' => 'trac'),
-	'acl_a_massupload'				=> array('lang' => 'Can Use Mass Upload System', 'cat' => 'trac'),
-	'acl_a_ratiowarn'				=> array('lang' => 'Can Manage Ratio Warning System', 'cat' => 'trac'),
-	'acl_a_search_cloud'			=> array('lang' => 'Can Manage Search Cloud System', 'cat' => 'trac'),
 
+    #Updated Admin Access
+    'acl_a_paypal'             => array('lang' => 'Can Manage PayPal Settings', 'cat' => 'settings'),
+    'acl_a_irc'                => array('lang' => 'Can Manage IRC Settings', 'cat' => 'settings'),
+    'acl_a_faq_manage'         => array('lang' => 'Can Manage FAQ\'s Settings', 'cat' => 'settings'),
+    'acl_a_torrent_filter'     => array('lang' => 'Can Manage Torrent Upload Filters', 'cat' => 'trac'),
+    'acl_a_torrent_clinic'     => array('lang' => 'Can Manage Torrent Clinic', 'cat' => 'trac'),
+    'acl_a_client_ban'         => array('lang' => 'Can Ban Torrent Clients', 'cat' => 'trac'),
+    'acl_a_torrent_categories' => array('lang' => 'Can Manage Torrent Categories', 'cat' => 'trac'),
+    'acl_a_hit_and_run'        => array('lang' => 'Can Manage Hit and Run Settings', 'cat' => 'trac'),
+    'acl_a_mass_message'       => array('lang' => 'Can Manage Mass Messaging', 'cat' => 'misc'),
+    'acl_a_shouts'             => array('lang' => 'Can Manage Shoutbox Settings', 'cat' => 'settings'),
+    'acl_a_shout_cast'         => array('lang' => 'Can Manage Shoutcast Settings', 'cat' => 'settings'),
+    'acl_a_torrents'           => array('lang' => 'Can Manage Uploaded Torrents', 'cat' => 'trac'),
+    'acl_a_smilies'            => array('lang' => 'Can Manage Smilies', 'cat' => 'settings'),
+    'acl_a_trackers'           => array('lang' => 'Can Manage External Trackers', 'cat' => 'trac'),
+    'acl_a_massupload'         => array('lang' => 'Can Use Mass Upload System', 'cat' => 'trac'),
+    'acl_a_ratiowarn'          => array('lang' => 'Can Manage Ratio Warning System', 'cat' => 'trac'),
+    'acl_a_search_cloud'       => array('lang' => 'Can Manage Search Cloud System', 'cat' => 'trac'),
 ));
 
 // Adding the Permissions

@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File main/english.php 2018-04-19 23:23:00 Black_heart
+** File main/english.php 2018-07-05 08:47:00 Thor
 **
 ** CHANGES
 **
@@ -25,6 +25,7 @@
 ** 2018-04-01 - Removed define Language & Changed to Correct Format & Amended templates/admin/main.html
 ** 2018-04-09 - Amended the Wording of some Sentences
 ** 2018-04-19 - Added New Log Text
+** 2018-07-05 - Amended the Wording of some Sentences and Spell Checked
 **/
 
 if (!defined('IN_PMBT'))
@@ -134,7 +135,7 @@ $lang = array_merge($lang, array(
 
     'LOG_ACL_ADD_MOD_LOCAL_M_'     => '<strong>Added or Edited Moderators</strong> from %1$s to %2$s',
     'LOG_ACL_ADD_FORUM_LOCAL_F_'   => '<strong>Added or Edited the Forum Permissions</strong> from %1$s to %2$s',
-	'LOG_ACL_DEL_ACC_PERM_'		   => '<strong>Removed Access Permissions</strong><br /> %s',
+    'LOG_ACL_DEL_ACC_PERM_'        => '<strong>Removed Access Permissions</strong><br /> %s',
 
     'LOG_ACL_DEL_ADMIN_GLOBAL_A_'  => '<strong>Removed Administrators</strong><br /> %s',
     'LOG_ACL_DEL_MOD_GLOBAL_M_'    => '<strong>Removed Global Moderators</strong><br /> %s',

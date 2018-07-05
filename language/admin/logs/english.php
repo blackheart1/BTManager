@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File logs/english.php 2018-04-09 09:34:00 Thor
+** File logs/english.php 2018-07-05 08:47:00 Thor
 **
 ** CHANGES
 **
@@ -23,6 +23,7 @@
 ** 2018-03-29 - Amended the Wording of some Sentences
 ** 2018-03-29 - Amended !defined('IN_PMBT') Corrected Path
 ** 2018-04-09 - Amended the Wording of some Sentences
+** 2018-07-05 - Amended the Wording of some Sentences and Spell Checked
 **/
 
 if (!defined('IN_PMBT'))
@@ -37,39 +38,39 @@ if (empty($lang) || !is_array($lang))
 }
 
 $lang = array_merge($lang, array(
-    'ADMIN'          				=> 'Administration',
-    '_ASCENDING'     				=> 'Ascending',
-    '_DESCENDING'   				=> 'Descending',
-    'ACP_ADMIN_LOGS' 				=> 'Administration Log',
-	'ACP_CRITICAL_LOGS'				=> 'Error log',
-	'ACP_MOD_LOGS'					=> 'Moderator log',
-	'ACP_USERS_LOGS'				=> 'User logs',
-	'ACP_LOGGING'					=> 'Logging',
-	'LOGVIEW_VIEWTOPIC'				=> 'View topic',
-	'LOGVIEW_VIEWLOGS'				=> 'View topic log',
-	'LOGVIEW_VIEWFORUM'				=> 'View forum',
-	'ALL_FORUMS'					=> 'All forums',
+    'ADMIN'                     => 'Administration',
+    '_ASCENDING'                => 'Ascending',
+    '_DESCENDING'               => 'Descending',
+    'ACP_ADMIN_LOGS'            => 'Administration Logs',
+    'ACP_CRITICAL_LOGS'         => 'Error Logs',
+    'ACP_MOD_LOGS'              => 'Moderator Logs',
+    'ACP_USERS_LOGS'            => 'User Logs',
+    'ACP_LOGGING'               => 'Logging',
+    'LOGVIEW_VIEWTOPIC'         => 'View Topic',
+    'LOGVIEW_VIEWLOGS'          => 'View Topic Log',
+    'LOGVIEW_VIEWFORUM'         => 'View Forum',
+    'ALL_FORUMS'                => 'All Forums',
 
-    'ACP_ADMIN_LOGS_EXPLAIN'    	=> 'This Lists ALL the Actions carried out by Board Administrators.  You can Sort by Username, Date, IP or Action.  If you have the Appropriate Permissions you can also Clear Individual Operations or the Entire Log.',
+    'ACP_ADMIN_LOGS_EXPLAIN'    => 'This Lists ALL the Actions carried out by the Board Administrators.  You can Sort by Username, Date, IP or Action.  If you have the Appropriate Permissions you can also Clear Individual Operations or the Entire Log.',
 
-    'ACP_CRITICAL_LOGS_EXPLAIN' 	=> 'This Lists the Actions carried out by the Board itself.  This Log provides you with Information that you are able to use for Solving Specific Problems, for example Non Delivery of emails.  You can Sort by Username, Date, IP or Action.  If you have the Appropriate Permissions, you can also Clear Individual Operations or the Entire Log.',
+    'ACP_CRITICAL_LOGS_EXPLAIN' => 'This Lists the Actions carried out by the Board itself.  This Log provides you with Information that you are able to use for Solving Specific Problems, for example Non Delivery of emails.  You can Sort by Username, Date, IP or Action.  If you have the Appropriate Permissions, you can also Clear Individual Operations or the Entire Log.',
 
-    'ACP_MOD_LOGS_EXPLAIN'      	=> 'This Lists ALL the Actions Done on the Forums, Topics and Posts as well as Actions carried out on Users by Moderators, including Banning.  You can Sort by Username, Date, IP or Action.  If you have the Appropriate Permissions, you can also Clear Individual Operations or the Entire Log.',
+    'ACP_MOD_LOGS_EXPLAIN'      => 'This Lists ALL the Actions Done on the Forums, Topics and Posts as well as Actions carried out on Users by Moderators, including Banning.  You can Sort by Username, Date, IP or Action.  If you have the Appropriate Permissions, you can also Clear Individual Operations or the Entire Log.',
 
-    'ACP_USERS_LOGS_EXPLAIN'    	=> 'This Lists ALL Actions Carried out by Users or on Users (Reports, Warnings and User Notes).',
+    'ACP_USERS_LOGS_EXPLAIN'    => 'This Lists ALL the Actions Carried out by Users or on User (Reports, Warnings and User Notes).',
 
     'SORT_USERNAME'                => 'Username',
     'SORT_DATE'                    => 'Date',
-    'NO_AUTH_ACC'                  => 'You DO NOT have Permission to Access Logs!',
+    'NO_AUTH_ACC'                  => 'You DO NOT have Permission to Access the Logs!',
     'AUTH_CLEAR_LOGS_FAIL'         => 'You DO NOT have Permission to Clear the Logs!',
     'SORT_IP'                      => 'IP Address',
     'SORT_ACTION'                  => 'Log Action',
-    'NO_ENTRIES'                   => 'NO Log Entries for this Period.',
+    'NO_ENTRIES'                   => 'No Log Entries for this Period.',
     'SORT_IP'                      => 'IP Address',
     'SORT_DATE'                    => 'Date',
     'SORT_ACTION'                  => 'Log Action',
     'SEARCH_KEYWORDS'              => 'Search for Keywords',
-    'IP'                           => 'Users IP',
+    'IP'                           => 'User\'s IP',
     'TIME'                         => 'Time/Date',
     'CONFIRM_OPERATION'            => 'Are you sure you wish to Carry Out this Operation?',
     'PRUNE_SUCCESS'                => 'Pruning the Logs was Successful.',
