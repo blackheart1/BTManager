@@ -144,7 +144,7 @@ $cats = genrelist2();
 foreach ($cats as $cat)
 {
  $s .= "<optgroup label=\"" . htmlspecialchars($cat["name"]) . "\">";
- $subcats = $cat[subcategory];
+ $subcats = $cat['subcategory'];
 
  if (count($subcats) > 0)
  {
