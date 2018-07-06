@@ -32,7 +32,7 @@ define('CRITICAL_MODE',2);
 		$deletemark = (!empty($_POST['delmarked'])) ? true : false;
 		$deleteall	= (!empty($_POST['delall'])) ? true : false;
 		$marked		= request_var('mark', array(0));
-		$sort_days	= request_var('st', '');
+		$sort_days	= request_var('st', '0');
 		$sort_key	= request_var('sk', 't');
 		$sort_dir	= request_var('sd', 'd');
 		$del		= request_var('del', '');
@@ -140,15 +140,19 @@ if($delmarked && $auth->acl_get('a_clearlogs'))
 		confirm_box(false, $user->lang['CONFIRM_OPERATION'], $hidden,'admin/confirm_body.html','admin.php');
 		}
 }
-		$action		= request_var('action', '');
-		$page		= request_var('page', 0);
 		$limit_days = array(0 => $user->lang['ALL_ENTRIES'], 1 => $user->lang['1_DAY'], 7 => $user->lang['7_DAYS'], 14 => $user->lang['2_WEEKS'], 30 => $user->lang['1_MONTH'], 90 => $user->lang['3_MONTHS'], 180 => $user->lang['6_MONTHS'], 365 => $user->lang['1_YEAR']);
 		$sort_by_text = array('u' => $user->lang['SORT_USERNAME'], 't' => $user->lang['SORT_DATE'], 'i' => $user->lang['SORT_IP'], 'o' => $user->lang['SORT_ACTION']);
 		$sort_by_sql = array('u' => 'userid', 't' => 'datetime', 'i' => 'ip', 'o' => 'event');
+
 		$s_limit_days = $s_sort_key = $s_sort_dir = $u_sort_param = '';
 		gen_sort_selects($limit_days, $sort_by_text, $sort_days, $sort_key, $sort_dir, $s_limit_days, $s_sort_key, $s_sort_dir, $u_sort_param);
+
+
+		$action		= request_var('action', '');
+		$page		= request_var('page', 0);
+
 		// Define where and sort sql for use in displaying logs
-		$sql_where = (!$sort_days==0 || !$sort_days=='') ? " WHERE datetime > SUBDATE(SYSDATE(), INTERVAL ".$sort_days." DAY) " : '';
+		$sql_where = ($sort_days > 0) ? (time() - ($sort_days * 86400)) : 0;
 		$sql_sort = $sort_by_sql[$sort_key] . ' ' . (($sort_dir == 'd') ? 'DESC' : 'ASC');
 		$keywords = utf8_normalize_nfc(request_var('keywords', '', true));
 		$start = ($page >=1)?(($config['topics_per_page'] * $page) - $config['topics_per_page']) : 0;
@@ -170,11 +174,10 @@ if($delmarked && $auth->acl_get('a_clearlogs'))
 		$start = view_log($mode, $log_data, $log_count, $config['topics_per_page'], $start, $forum_id, 0, 0, $sql_where, $sql_sort, $keywords);
 		$l_title = $user->lang['ACP_' . strtoupper($mode) . '_LOGS'];
 		$l_title_explain = $user->lang['ACP_' . strtoupper($mode) . '_LOGS_EXPLAIN'];
-		$start = ($page >=1)?(($config['topics_per_page'] * $page) - $config['topics_per_page']) : 0;
 		$template->assign_vars(array(
 			'L_TITLE'		=> $l_title,
 			'L_EXPLAIN'		=> $l_title_explain,
-			'U_ACTION'		=> $u_action . "&amp;$u_sort_param$keywords_param&amp;start=$start",
+			'U_ACTION'		=> $u_action . "&amp;$keywords_param&amp;start=$start",
 			
 			'S_ON_PAGE'		=> on_page($log_count, $config['topics_per_page'], $start),
 			'PAGINATION'	=> generate_pagination($u_action . "&amp;$u_sort_param$keywords_param", $log_count, $config['topics_per_page'], $start, true),
