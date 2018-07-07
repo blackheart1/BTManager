@@ -701,7 +701,7 @@ CREATE TABLE IF NOT EXISTS `#prefix#_faq` (
   `categ` int(10) NOT NULL DEFAULT '0',
   `order` int(10) NOT NULL DEFAULT '0',
   `bbcode_bitfield` varchar(225) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `bbcode_uid` varchar(8) COLLATE utf8_bin NOT NULL DEFAULT ''
+  `bbcode_uid` varchar(8) COLLATE utf8_bin NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
