@@ -131,7 +131,7 @@ if ($do) {
                // echo str_replace(Array(" ","\n"),Array("&nbsp;","<br />\n"),htmlspecialchars($torrent->dump_mem(true,"UTF-8")));
 				//die();
                 unset($pagetorrent);
-                if (!torrent) {
+                if (!$torrent) {
                                 $template->assign_vars(array(
 											'S_MESSAGE'				=> true,
 											'S_USER_NOTICE'			=> false,

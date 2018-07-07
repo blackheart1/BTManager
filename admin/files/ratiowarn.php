@@ -111,37 +111,43 @@ if(!checkaccess('a_warn_sys'))
 				$start = ($page >=1)?(($torrent_per_page * $page) - $torrent_per_page) : 0;
 				$res_rws = $db->sql_query("SELECT *, TO_DAYS(NOW()) - TO_DAYS(warntime) as difference FROM ".$db_prefix."_ratiowarn WHERE warned='yes' LIMIT ".$start.",".$torrent_per_page.";");
 				$num = $db->sql_numrows($res_rws);
-				for ($i = 0; $i < $num; ++$i)
+				if($num > 0)
 				{
-					$arr = $db->sql_fetchrow($res_rws);
-					$uinfo = build_user_array($arr['userid']);
-					$banned = $arr['banned'];
-            
-					if($banned == 'no'){
-						$timeleft = ($arr['difference'] - $RATIOWARN_BAN)/-1;
-					}else{
-						$timeleft = "null";
-					}
-						$template->assign_block_vars('user', array(
-							'USER_ID'				=> $arr['userid'],
-							'USER_NAME'				=> $uinfo['name'],
-							'USER_NICK'				=> $uinfo['nick'],
-							'USER_GROUP'			=> $uinfo['lname'],
-							'USER_LEVEL'			=> $uinfo['level'],
-							'USER_REG_DATE'			=> $uinfo['reg'],
-							'USER_EMAIL'			=> $uinfo['email'],
-							'USER_COLOR'			=> $uinfo['color'],
-							'USER_UPED'				=> mksize($uinfo['uploaded']),
-							'USER_DOWNED'			=> mksize($uinfo['downloaded']),
-							'USER_RATIO'			=> $uinfo['ratio'],
-							'USER_RATIO_COLORED'	=> get_u_ratio($uinfo['uploaded'], $uinfo['downloaded']),
-							'TIME_LEFT'				=> sprintf($user->lang['TO_GO'],$timeleft),
-							'USER_ACTION'			=> $timeleft,
-							'WARNED'				=> (($arr['userid'] == 'yes')?$user->lang['YES']:$user->lang['NO']),
-							'BANNED'				=> (($arr['banned'] == 'yes')?$user->lang['YES']:$user->lang['NO']),
-						));
 					$template->assign_vars(array(
-					'S_ON_PAGE'		=> on_page($tot, $torrent_per_page, $start),
+					'S_WARNED'			=> true,
+					));
+					for ($i = 0; $i < $num; ++$i)
+					{
+						$arr = $db->sql_fetchrow($res_rws);
+						$uinfo = build_user_array($arr['userid']);
+						$banned = $arr['banned'];
+				
+						if($banned == 'no'){
+							$timeleft = ($arr['difference'] - $RATIOWARN_BAN)/-1;
+						}else{
+							$timeleft = "null";
+						}
+							$template->assign_block_vars('user', array(
+								'USER_ID'				=> $arr['userid'],
+								'USER_NAME'				=> $uinfo['name'],
+								'USER_NICK'				=> $uinfo['nick'],
+								'USER_GROUP'			=> $uinfo['lname'],
+								'USER_LEVEL'			=> $uinfo['level'],
+								'USER_REG_DATE'			=> $uinfo['reg'],
+								'USER_EMAIL'			=> $uinfo['email'],
+								'USER_COLOR'			=> $uinfo['color'],
+								'USER_UPED'				=> mksize($uinfo['uploaded']),
+								'USER_DOWNED'			=> mksize($uinfo['downloaded']),
+								'USER_RATIO'			=> $uinfo['ratio'],
+								'USER_RATIO_COLORED'	=> get_u_ratio($uinfo['uploaded'], $uinfo['downloaded']),
+								'TIME_LEFT'				=> sprintf($user->lang['TO_GO'],$timeleft),
+								'USER_ACTION'			=> $timeleft,
+								'WARNED'				=> (($arr['userid'] == 'yes')?$user->lang['YES']:$user->lang['NO']),
+								'BANNED'				=> (($arr['banned'] == 'yes')?$user->lang['YES']:$user->lang['NO']),
+							));
+					}
+					$template->assign_vars(array(
+					'S_ON_PAGE'		=> on_page($num, $torrent_per_page, $start),
 					'PAGINATION'	=> generate_pagination(append_sid($u_action,'do=warned'), $tot, $torrent_per_page, $start, true),
 					'U_ACTION'		=> $u_action,
 					));

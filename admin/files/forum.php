@@ -1842,8 +1842,11 @@ $icat	= request_var('icat', '');
 			WHERE parent_id = $parent_id
 			ORDER BY left_id";
 		$result = $db->sql_query($sql);
-	if ($row = $db->sql_fetchrow($result))
-	{
+		if ($row = $db->sql_fetchrow($result))
+		{
+			$template->assign_vars(array(
+				'S_FORUMS'		=> true,
+				));
 			do
 			{
 				$forum_type = $row['forum_type'];

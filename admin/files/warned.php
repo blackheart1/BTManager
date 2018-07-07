@@ -47,37 +47,43 @@ $user->set_lang('admin/warned',$user->ulanguage);
 		$start = ($page >=1)?(($torrent_per_page * $page) - $torrent_per_page) : 0;
 	$sqla = "SELECT id FROM ".$db_prefix."_users WHERE active='1' AND warned='1' " . $sql_where . " ORDER BY " . $sql_sort . " LIMIT ".$start.",".$torrent_per_page.";";
 	$resa = $db->sql_query($sqla)or btsqlerror($sqla);
-for ($i = 1; $i <= $num; $i++)
-{
-	$arr = $db->sql_fetchrow($resa);
-	$info_user = build_user_array($arr['id']);
-	$info_user['ratio_color'] = get_u_ratio($info_user['uploaded'],$info_user['downloaded']);
-	$uploaded = mksize($info_user["uploaded"]);
-	$downloaded = mksize($info_user["downloaded"]);
-	$added = substr($info_user['reg'],0,10);
-	$last_access = substr($info_user['lastlogin'],0,10);
-	$info_user['mdcoment_short'] = ((strlen($info_user['mdcoment']) <= 100) ? $info_user['mdcoment']: substr($info_user['mdcoment'],0,99)."...");
-			$template->assign_block_vars('warned', array(
-				'USERNAME_FULL'		=> get_username_string('full', $arr['id'], (($info_user['nick'] == '')? $info_user['name'] : $info_user['nick']), $info_user['color']),
-				'USERNAME'			=> get_username_string('username', $arr['id'], (($info_user['nick'] == '')? $info_user['name'] : $info_user['nick']), $info_user['color']),
-				'USER_COLOR'		=> get_username_string('colour', $arr['id'], (($info_user['nick'] == '')? $info_user['name'] : $info_user['nick']), $info_user['color']),
-				'U_VIEW_PROFILE'	=> get_username_string('profile', $arr['id'], (($info_user['nick'] == '')? $info_user['name'] : $info_user['nick']), $info_user['color']),
-				'U_UPLOADED'		=> $info_user["uploaded"],
-				'U_UPLOADED_ABV'	=> $uploaded,
-				'U_DOWNLOADED'		=> $info_user["downloaded"],
-				'U_DOWNLOADED_ABV'	=> $downloaded,
-				'U_RATIO_COLOR'		=> $info_user['ratio_color'],
-				'U_RATIO'			=> $info_user['ratio'],
-				'MOD_COMENT_FULL'	=> $info_user['mdcoment'],
-				'MOD_COMENT_SHORT'	=> $info_user['mdcoment_short'],
-				'JOINED'			=> $added,
-				'LAST_SEEN'			=> $last_access,
-				'U_GROUP'			=> ($user->lang[$info_user['group']])?$user->lang[$info_user['group']] : $info_user['group'],
-				'U_LEVEL'			=> $info_user['level'],
-				'U_WARNED_TEL'		=> gmdate("Y-m-d H:i:s",($userrow["warn_kapta"]+$userrow["warn_hossz"]))
-				)
-			);
-}
+		if($num > 0)
+		{
+			$template->assign_vars(array(
+			'S_WARNED'			=> true,
+			));
+			for ($i = 1; $i <= $num; $i++)
+			{
+				$arr = $db->sql_fetchrow($resa);
+				$info_user = build_user_array($arr['id']);
+				$info_user['ratio_color'] = get_u_ratio($info_user['uploaded'],$info_user['downloaded']);
+				$uploaded = mksize($info_user["uploaded"]);
+				$downloaded = mksize($info_user["downloaded"]);
+				$added = substr($info_user['reg'],0,10);
+				$last_access = substr($info_user['lastlogin'],0,10);
+				$info_user['mdcoment_short'] = ((strlen($info_user['mdcoment']) <= 100) ? $info_user['mdcoment']: substr($info_user['mdcoment'],0,99)."...");
+						$template->assign_block_vars('warned', array(
+							'USERNAME_FULL'		=> get_username_string('full', $arr['id'], (($info_user['nick'] == '')? $info_user['name'] : $info_user['nick']), $info_user['color']),
+							'USERNAME'			=> get_username_string('username', $arr['id'], (($info_user['nick'] == '')? $info_user['name'] : $info_user['nick']), $info_user['color']),
+							'USER_COLOR'		=> get_username_string('colour', $arr['id'], (($info_user['nick'] == '')? $info_user['name'] : $info_user['nick']), $info_user['color']),
+							'U_VIEW_PROFILE'	=> get_username_string('profile', $arr['id'], (($info_user['nick'] == '')? $info_user['name'] : $info_user['nick']), $info_user['color']),
+							'U_UPLOADED'		=> $info_user["uploaded"],
+							'U_UPLOADED_ABV'	=> $uploaded,
+							'U_DOWNLOADED'		=> $info_user["downloaded"],
+							'U_DOWNLOADED_ABV'	=> $downloaded,
+							'U_RATIO_COLOR'		=> $info_user['ratio_color'],
+							'U_RATIO'			=> $info_user['ratio'],
+							'MOD_COMENT_FULL'	=> $info_user['mdcoment'],
+							'MOD_COMENT_SHORT'	=> $info_user['mdcoment_short'],
+							'JOINED'			=> $added,
+							'LAST_SEEN'			=> $last_access,
+							'U_GROUP'			=> ($user->lang[$info_user['group']])?$user->lang[$info_user['group']] : $info_user['group'],
+							'U_LEVEL'			=> $info_user['level'],
+							'U_WARNED_TEL'		=> gmdate("Y-m-d H:i:s",($userrow["warn_kapta"]+$userrow["warn_hossz"]))
+							)
+						);
+			}
+		}
 		$template->assign_vars(array(
 			'L_TITLE'				=> $user->lang['ACP_WARNINGS'],
 			'L_TITLE_EXPLAIN'		=> $user->lang['ACP_WARNINGS_EXPLAIN'],

@@ -101,7 +101,14 @@ switch($do){
 $sql = "SELECT * FROM ".$db_prefix."_client_ban;";
 $res = $db->sql_query($sql);
 if ($db->sql_numrows($res) < 1) {
+		$template->assign_vars(array(
+		'S_BANNED'			=> false,
+		));
+	
 } else {
+		$template->assign_vars(array(
+		'S_BANNED'			=> true,
+		));
         while ($ban = $db->sql_fetchrow($res)) {
 			$template->assign_block_vars('clientbans', array(
 				'CLIENT_BAN_NAME'				=> $ban["client"],

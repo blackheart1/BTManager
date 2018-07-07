@@ -74,7 +74,17 @@ if ($do == "bannewtracker") {
 $sql = "SELECT id, url, status, UNIX_TIMESTAMP(updated) AS updated FROM ".$db_prefix."_trackers;";
 
 $res = $db->sql_query($sql) or btsqlerror($sql);
-        while ($tracker = $db->sql_fetchrow($res)) {
+ if ($db->sql_numrows($res) < 1) {
+		$template->assign_vars(array(
+		'S_TRACKERS'			=> false,
+		));
+	
+} else {
+		$template->assign_vars(array(
+		'S_TRACKERS'			=> true,
+		));
+
+       while ($tracker = $db->sql_fetchrow($res)) {
                 $torrentsql = "SELECT COUNT(id) FROM ".$db_prefix."_torrents WHERE tracker = '".$tracker["url"]."';";
                 $torrentres = $db->sql_query($torrentsql) or btsqlerror($torrentsql);
                 list ($torrents) = $db->fetch_array($torrentres);
@@ -106,6 +116,7 @@ $res = $db->sql_query($sql) or btsqlerror($sql);
 				)
 			);
         }
+}
 $db->sql_freeresult($res);
 
 
