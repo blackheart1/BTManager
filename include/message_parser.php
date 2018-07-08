@@ -1134,13 +1134,17 @@ class parse_message extends bbcode_firstpass
 	/**
 	* Init - give message here or manually
 	*/
-	function parse_message($message = '')
+	function __construct($message = '')
 	{
 		// Init BBCode UID
 		$this->bbcode_uid = substr(base_convert(substr(md5(microtime()), 4, 16), 16, 36), 0, 8);
 		$this->message = $message;
 	}
 
+	function parse_message($message = '')
+	{
+		$this->__construct($message);
+	}
 	/**
 	* Parse Message
 	*/

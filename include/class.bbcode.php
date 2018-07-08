@@ -411,14 +411,6 @@ class acp_bbcodes
 	function build_regexp(&$bbcode_match, &$bbcode_tpl)
 	{
 		global $siteurl;
-if (!class_exists('bbcode'))
-{
-	include('include/bbcode.php');
-}
-		if (empty($bbcoded))
-		{
-			$bbcoded = new bbcode($bitfield);
-		}
 		$bbcode_match = trim($bbcode_match);
 		$bbcode_tpl = trim($bbcode_tpl);
 		$utf8 = preg_match('/(URL|LOCAL_URL|RELATIVE_URL|INTTEXT)/', $bbcode_match);
@@ -522,16 +514,6 @@ if (!class_exists('bbcode'))
 					if (strpos($modifiers, $regex_modifiers[$i]) === false)
 					{
 						$modifiers .= $regex_modifiers[$i];
-
-						if ($regex_modifiers[$i] == 'e')
-						{
-							$fp_replace = "'" . str_replace("'", "\\'", $fp_replace) . "'";
-						}
-					}
-
-					if ($regex_modifiers[$i] == 'e')
-					{
-						$replace = "'.$replace.'";
 					}
 				}
 
@@ -560,7 +542,7 @@ if (!class_exists('bbcode'))
 		{
 			// No replacement is present, no need for a second-pass pattern replacement
 			// A simple str_replace will suffice
-			$fp_match = '!' . $fp_match . '!' . $modifiers;
+			$fp_match = '#' . $fp_match . '#' . $modifiers;
 			$sp_match = $fp_replace;
 			$sp_replace = '';
 		}
@@ -602,9 +584,13 @@ class bitfield
 {
 	var $data;
 
-	function bitfield($bitfield = '')
+	function __construct($bitfield = '')
 	{
 		$this->data = base64_decode($bitfield);
+	}
+	function bitfield($bitfield = '')
+	{
+		$this->__construct($bitfield);
 	}
 
 	/**

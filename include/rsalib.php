@@ -33,7 +33,7 @@ class RSA {
         Initializes the RSA Engine with given RSA Key Pair. You must have run
         keygen.php and obtained a valid RSA Key Pair
         */
-        function RSA($n = 0, $e = 0, $d = 0) {
+        function __construct($n = 0, $e = 0, $d = 0) {
                 if ($n == 0 OR $e == 0 OR $d == 0) list ($n, $e, $d) = $this->generate_keys();
                 $this->n = $n;
                 $this->e = $e;
@@ -48,6 +48,10 @@ class RSA {
                         return false;
                 }
         }
+	function RSA($n = 0, $e = 0, $d = 0)
+	{
+		$this->__construct($n, $e, $d);
+	}
 
         /*
         CONVERSIONS STRING-BINARY
