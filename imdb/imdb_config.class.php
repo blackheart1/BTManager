@@ -42,7 +42,7 @@ class imdb_config {
    *  configuration data here.
    * @constructor imdb_config
    */
-  function __construct(){
+  private function __construct(){
     /** IMDB server to use.
      *  choices are us.imdb.com, uk.imdb.com, akas.imdb.com, german.imdb.com and
      *  italian.imdb.com - the localized ones (i.e. italian and german) are only

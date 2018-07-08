@@ -180,7 +180,7 @@ function get_image_extension($filename, $include_dot = true, $shorter_extensions
     }
    } // end cache
 
-   $req = new IMDB_Request("");
+   $req = new IMDB_Request('');
    $url = "https://www.imdb.com/title/tt".$this->imdbID.$urlname;
    //die($url);
    $req->setURL($url);
@@ -288,11 +288,15 @@ function get_image_extension($filename, $include_dot = true, $shorter_extensions
    * @constructor imdb
    * @param string id
    */
-  function imdb ($id) {
+  function __construct($id) {
    $this->imdb_config();
    $this->setid($id);
    if ($this->storecache && ($this->cache_expire > 0)) $this->purge();
   }
+    public function imdb($id)
+    {
+        self::__construct($id);
+    }
 
  #---------------------------------------------------------[ Cache Purging ]---
   /** Check cache and purge outdated files
@@ -778,7 +782,7 @@ function get_image_extension($filename, $include_dot = true, $shorter_extensions
   $html = str_replace(array('  ',"\r\n", "\r", "\n"), '',$html);
   $row_s = strpos ( $html, ">".$table_start."");
    $row_e = $row_s;
-   if ( $row_s == 0 )  return array();
+   if ( $row_s == 0 )  return FALSE;
    $endtable = strpos($html, "</table>", $row_s);
   $pattern = str_replace(array('  ',"\r\n", "\r", "\n"), '',substr($html,$row_s,$endtable - $row_s));
    if (preg_match_all("/<tr>(.*?)<\/tr>/",$pattern,$matches)) {
@@ -845,7 +849,7 @@ function get_image_extension($filename, $include_dot = true, $shorter_extensions
    }
    //die($this->page["Credits"]);
    $director_rows = $this->get_table_rows($this->page["Credits"], "Directed by&nbsp;");
-   if($director_rows == '')$director_rows = $this->get_table_rows($this->page["Credits"], "Series Directed by&nbsp;");
+   if(!is_array($director_rows))$director_rows = $this->get_table_rows($this->page["Credits"], "Series Directed by&nbsp;");
 	if(!is_array($director_rows))$director_rows = array($director_rows);
    for ( $i = 0; $i < count ($director_rows); $i++){
 	$cels = $this->get_row_cels ($director_rows[$i]);
@@ -1235,10 +1239,14 @@ function trailer () {
   /** Read the config
    * @constructor imdbsearch
    */
-  function imdbsearch() {
+  function __construct() {
     $this->imdb_config();
     $this->search_episodes(FALSE);
   }
+	function imdbsearch()
+	{
+		self::__construct();
+	}
 
   /** Search for episodes or movies
    * @method search_episodes

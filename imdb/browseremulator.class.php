@@ -33,10 +33,14 @@ class BrowserEmulator {
      var $port;
      var $lastResponse = Array ();
 
-     function BrowserEmulator () {
+    function __construct () {
 	  $this->resetHeaderLines ();
 	  $this->resetPort ();
      }
+	function BrowserEmulator()
+	{
+		self::__construct();
+	}
 
 	/**
 	* Adds a single header field to the HTTP request header. The resulting header

@@ -42,19 +42,6 @@
   var $version = '1.2.4';
 
  #---------------------------------------------------------[ Debug helpers ]---
-  function debug_scalar($scalar) {
-    if ($this->debug) echo "<b><font color='#ff0000'>$scalar</font></b><br>";
-  }
-  function debug_object($object) {
-    if ($this->debug) {
-      echo "<font color='#ff0000'><pre>";
-      print_r($object);
-      echo "</pre></font>";
-    }
-  }
-  function debug_html($html) {
-    if ($this->debug) echo "<b><font color='#ff0000'>".htmlentities($html)."</font></b><br>";
-  }
 
  #---------------------------------------------------------[ Other Helpers ]---
   /** Get numerical value for month name

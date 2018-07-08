@@ -27,7 +27,7 @@ if ( $PEAR ) { // Use the HTTP_Request class from the PEAR project.
 	Add the PHP5-style constructor, but keep the PHP4-style one. */
 	function IMDB_Request($url)
 	{
-		$this->__construct($url);
+		self::__construct($url);
 	}
  }
 } else { // Use the browseremu class
@@ -45,16 +45,16 @@ if ( $PEAR ) { // Use the HTTP_Request class from the PEAR project.
      *  No need to call this.
      * @constructor IMDB_Request
      */
-    function __construct($url){
-      $this->BrowserEmulator();
+    function __construct($url = ''){
+      if(!$url == '')$this->BrowserEmulator();
       $this->urltoopen = $url;
     }
 
 	/*To not break everyone using your library, you have to keep backwards compatibility: 
 	Add the PHP5-style constructor, but keep the PHP4-style one. */
-	function IMDB_Request($url)
+	function IMDB_Request($url = '')
 	{
-		$this->__construct($url);
+		self::__construct($url);
 	}
     /** Send a request to the IMDB site
      * @method sendRequest
