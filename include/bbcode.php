@@ -39,7 +39,7 @@ class bbcode
 	* Constructor
 	* Init bbcode cache entries if bitfield is specified
 	*/
-	function bbcode($bitfield = '')
+	function __construct($bitfield = '')
 	{
 	global $theme, $siteurl;
 		if ($bitfield)
@@ -47,6 +47,10 @@ class bbcode
 			$this->bbcode_bitfield = $bitfield;
 			$this->bbcode_cache_init();
 		}
+	}
+	function bbcode($bitfield = '')
+	{
+		$this->__construct($bitfield);
 	}
 
 	/**

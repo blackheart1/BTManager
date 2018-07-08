@@ -52,7 +52,7 @@ class fulltext_native extends search_backend
 	*
 	* @access	public
 	*/
-	function fulltext_native(&$error)
+	function __construct(&$error)
 	{
 		global $phpbb_root_path, $phpEx, $config;
 
@@ -68,6 +68,13 @@ class fulltext_native extends search_backend
 
 
 		$error = false;
+	}
+
+	/*To not break everyone using your library, you have to keep backwards compatibility: 
+	Add the PHP5-style constructor, but keep the PHP4-style one. */
+	function fulltext_native(&$error)
+	{
+		$this->__construct($error);
 	}
 
 	/**

@@ -41,7 +41,7 @@ class p_master
 	* Constuctor
 	* Set module include path
 	*/
-	function p_master($include_path = false)
+	function __construct($include_path = false)
 	{
 		global $phpbb_root_path;
 
@@ -53,7 +53,12 @@ class p_master
 			$this->include_path .= '/';
 		}
 	}
-
+	/*To not break everyone using your library, you have to keep backwards compatibility: 
+	Add the PHP5-style constructor, but keep the PHP4-style one. */
+	function p_master($include_path = false)
+	{
+		$this->__construct($include_path);
+	}
 	/**
 	* Set custom include path for modules
 	* Schema for inclusion is include_path . modulebase

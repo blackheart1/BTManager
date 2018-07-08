@@ -62,6 +62,240 @@ class User {
 		var $keyvalues = array();
 		var $browser = '';
 
+	/**
+	* Constuctor
+	* Set User
+	*/
+   function __construct($user) {
+			global $db, $db_prefix, $siteurl, $cookiepath, $cookiedomain, $localhost_autologin, $sourcedir, $language, $theme, $_COOKIE, $_SERVER;
+			$this->host					= $this->extract_current_hostname();
+			$this->page					= $this->extract_current_page($sourcedir);
+			$this->ip = (!empty($_SERVER['REMOTE_ADDR'])) ? htmlspecialchars($_SERVER['REMOTE_ADDR']) : '';
+			$val = microtime();
+			/*if ((function_exists('sys_getloadavg') && $load = sys_getloadavg()) || ($load = explode(' ', @file_get_contents('/proc/loadavg'))))
+			{
+				$this->load = array_slice($load, 0, 1);
+				$this->load = floatval($this->load[0]);
+			}*/
+			$this->load = 0;
+		if ($_SERVER["REMOTE_ADDR"] == "127.0.0.1" AND $localhost_autologin) {
+					$uid = 1;
+					$sql ="SELECT U.*, L.group_type, L.group_founder_manage, L.group_skip_auth, L.group_message_limit, L.group_colour
+					FROM ".$db_prefix."_users U , ".$db_prefix."_level_settings L
+					WHERE L.group_id = U.can_do AND id = '1'";
+					$result = $db->sql_query($sql);
+					if ($row = $db->sql_fetchrow($result)) {
+							$this->id = $row["id"];
+							$this->name = $row["username"];
+							$this->level = $row["level"];
+							$this->theme = (($row["theme"] AND $row["theme"] != 'NULL')? $row["theme"] : $theme);
+							$this->email = $row["email"];
+							if(isset($_COOKIE["bttestperm"]) AND $row["level"]== "admin")$this->group = $_COOKIE["bttestperm"];
+							else
+							$this->group = $row["can_do"];
+							if (file_exists("./language/common/".$row["language"].".php"))
+							$this->ulanguage = $row["language"];
+							else
+							$this->ulanguage = 'english';
+							$this->passkey = $row["passkey"];
+							$this->act_key = $row["act_key"];
+							$this->lastpage = $row['lastpage'];
+							$this->uploaded = $row["uploaded"];
+							$this->downloaded = $row["downloaded"];
+							$this->modcomment = $row["modcomment"];
+							$this->invites = $row["invites"];
+							$this->invitees = $row["invitees"];
+							$this->seedbonus = $row["seedbonus"];
+							$this->can_shout = $row["can_shout"];
+							$this->color = $row["group_colour"];
+							$this->lastlogin = $row["lastlogin"];
+							$this->session_id = substr($val, 4, 16);
+							$this->forumbanned = (($row["forumbanned"]== 'yes')? true : false);
+							$this->user_torrent_per_page = $row["torrent_per_page"];
+							$this->view_dead_tor = $row["view_dead_tor"];
+							$this->sig = $row["signature"];
+							$this->sig_bbcode_bitfield = $row["sig_bbcode_bitfield"];
+							$this->sig_bbcode_uid = $row["sig_bbcode_uid"];
+							$this->bbcode_bitfield = $row["bbcode_bitfield"];
+							$this->bbcode_uid = $row["bbcode_uid"];
+							$this->lapost = $row["user_lastpost_time"];
+							$this->new_pm = $row["user_new_privmsg"];
+							$this->unread_pm = $row["user_unread_privmsg"];
+							$this->pm_popup = (($row["pm_popup"] == 'true')? true : false);
+							$this->pm_rule = $row["user_message_rules"];
+							$this->user_permissions = $row["user_permissions"];
+							$this->user_notify = $row['user_notify'];
+							$this->topic_show_days = $row['user_topic_show_days'];
+							$this->topic_sortby_type = $row['user_topic_sortby_type'];
+							$this->topic_sortby_dir = $row['user_topic_sortby_dir'];
+							$this->posts_show_days = $row['user_post_show_days'];
+							$this->posts_sortby_type = $row['user_post_sortby_type'];
+							$this->posts_sortby_dir = $row['user_post_sortby_dir'];
+							$this->user_type = $row["user_type"];
+							$this->dst = $row["user_dst"];
+							$this->data['message_limit'] = '200';
+							$this->data['session_page'] = $row['lastpage'];
+							$this->data['user_full_folder'] = $row['user_full_folder'];
+							$this->data['user_type'] = $row['user_type'];
+							$this->data['user_lastmark'] = $row['user_lastmark'];
+							$this->data['user_options'] = $row['user_options'];
+							$this->data['signature'] = $row['signature'];
+							$this->data['sig_bbcode_bitfield'] = $row['sig_bbcode_bitfield'];
+							$this->data['sig_bbcode_uid'] = $row['sig_bbcode_uid'];
+							$this->data['clean_username'] = $row['clean_username'];
+							$this->date_format = $row['user_dateformat'];
+							$this->lastpost = $row['user_lastpost_time'];
+							$this->posts = $row['user_posts'];
+							$this->optionset('viewimg', 1);
+							$this->parked = (($row['parked'] == 'true')? true : false);
+							$this->disabled = (($row['disabled'] == 'true')? true : false);
+							$this->disabled_reason = $row['disabled_reason'];
+							$this->admin = true;
+							$this->moderator = true;
+							$this->premium = true;
+							$this->user = true;
+							$this->browser	= (!empty($_SERVER['HTTP_USER_AGENT'])) ? htmlspecialchars((string) $_SERVER['HTTP_USER_AGENT']) : '';
+							return;
+					} else die ("FATAL ERROR! NO ADMINISTRATOR SET. THIS SHOULD NEVER HAPPEN");
+					return;
+			}
+			$user = cookie_decode($user);
+			$uid = intval($user[0]);
+			$username = addslashes($user[1]);
+			$pwd = $user[2];
+			$act_key = $user[3];
+
+			if ($uid != "" AND $pwd != "") {
+					$sql ="SELECT U.*, L.group_type, L.group_founder_manage, L.group_skip_auth, L.group_message_limit, L.group_colour
+					FROM ".$db_prefix."_users U , ".$db_prefix."_level_settings L
+					WHERE L.group_id = U.can_do AND id = '".$uid."' AND username = '".$username."' AND password = '".addslashes($pwd)."' AND act_key = '".addslashes($act_key)."';";
+					$result = $db->sql_query($sql);
+					if($row = $db->sql_fetchrow($result)) {
+							if(isset($_COOKIE["bttestlevel"]) AND $row["level"]== "admin")$row["level"] = $_COOKIE["bttestlevel"];
+							$this->id = $row["id"];
+							$this->name = $row["username"];
+							$this->nick = $row["name"];
+							$this->level = $row["level"];
+							$this->theme = (($row["theme"] AND $row["theme"] != 'NULL')? $row["theme"] : $theme);
+							if(isset($_COOKIE["bttestperm"]) AND $row["level"]== "admin")$this->group = $_COOKIE["bttestperm"];
+							else
+							$this->group = $row["can_do"];
+							$this->email = $row["email"];
+							if (file_exists("./language/common/".$row["language"].".php"))
+							$this->ulanguage = $row["language"];
+							else
+							$this->ulanguage = 'english';
+							$this->passkey = $row["passkey"];
+							$this->lastpage = $row['lastpage'];
+							$this->act_key = $row["act_key"];
+							$this->uploaded = $row["uploaded"];
+							$this->downloaded = $row["downloaded"];
+							$this->color = $row["group_colour"];
+							$this->modcomment = $row["modcomment"];
+							$this->invites = $row["invites"];
+							$this->invitees = $row["invitees"];
+							$this->seedbonus = $row["seedbonus"];
+							$this->can_shout = $row["can_shout"];
+							$this->lastlogin = $row["lastlogin"];
+							$this->user_permissions = $row["user_permissions"];
+							$this->user_type = $row["user_type"];
+							$this->session_id = substr($val, 4, 16);
+							$this->forumbanned = (($row["forumbanned"]== 'yes')? true : false);
+							$this->user_torrent_per_page = $row["torrent_per_page"];
+							$this->view_dead_tor = $row["view_dead_tor"];
+							$this->sig = $row["signature"];
+							$this->sig_bbcode_bitfield = $row["sig_bbcode_bitfield"];
+							$this->user_notify = $row['user_notify'];
+							$this->topic_show_days = $row['user_topic_show_days'];
+							$this->topic_sortby_type = $row['user_topic_sortby_type'];
+							$this->topic_sortby_dir = $row['user_topic_sortby_dir'];
+							$this->posts_show_days = $row['user_post_show_days'];
+							$this->posts_sortby_type = $row['user_post_sortby_type'];
+							$this->posts_sortby_dir = $row['user_post_sortby_dir'];
+							$this->sig_bbcode_uid = $row["sig_bbcode_uid"];
+							$this->bbcode_bitfield = $row["bbcode_bitfield"];
+							$this->bbcode_uid = $row["bbcode_uid"];
+							$this->lapost = $row["user_lastpost_time"];
+							$this->new_pm = $row["user_new_privmsg"];
+							$this->unread_pm = $row["user_unread_privmsg"];
+							$this->pm_rule = $row["user_message_rules"];
+							$this->pm_popup = (($row["pm_popup"] == 'true')? true : false);
+							$this->dst = $row["user_dst"];
+							$this->data['message_limit'] = $row['group_message_limit'];
+							$this->data['session_page'] = $row['lastpage'];
+							$this->data['user_full_folder'] = $row["user_full_folder"];
+							$this->data['user_lastmark'] = $row['user_lastmark'];
+							$this->data['user_type'] = $row['user_type'];
+							$this->data['user_options'] = $row['user_options'];
+							$this->data['signature'] = $row['signature'];
+							$this->data['sig_bbcode_bitfield'] = $row['sig_bbcode_bitfield'];
+							$this->data['sig_bbcode_uid'] = $row['sig_bbcode_uid'];
+							$this->data['user_dateformat'] = $row['user_dateformat'];
+							$this->data['clean_username'] = $row['clean_username'];
+							$this->lastpost = $row['user_lastpost_time'];
+							$this->posts = $row['user_posts'];
+							$this->optionset('viewimg', 1);
+							$this->date_format = $row['user_dateformat'];
+							$this->parked = (($row['parked'] == 'true')? true : false);
+							$this->disabled = (($row['disabled'] == 'true')? true : false);
+							$this->disabled_reason = $row['disabled_reason'];
+							if ($row["level"] == "admin") {
+									$this->admin = true;
+									$this->moderator = true;
+									$this->premium = true;
+									$this->user = true;
+							} elseif ($row["level"] == "moderator") {
+									$this->admin = false;
+									$this->moderator = true;
+									$this->premium = true;
+									$this->user = true;
+							} elseif ($row["level"] == "premium") {
+									$this->admin = false;
+									$this->moderator = false;
+									$this->premium = true;
+									$this->user = true;
+							} else {
+									$this->admin = false;
+									$this->moderator = false;
+									$this->premium = false;
+									$this->user = true;
+							}
+							$this->browser	= (!empty($_SERVER['HTTP_USER_AGENT'])) ? htmlspecialchars((string) $_SERVER['HTTP_USER_AGENT']) : '';
+							return;
+					}
+			}
+			$this->id = '0';
+			$this->name = "Anonymous";
+			$this->level = "guest";
+			$this->ulanguage = $language;
+			$this->group = "6";
+			$this->admin = false;
+			$this->moderator = false;
+			$this->premium = false;
+			$this->user = false;
+			$this->email = "anonymous@phpmybittorrent";
+			$this->act_key = "";
+			$this->passkey = "";
+			$this->invites = "";
+			$this->color = $row["group_colour"];
+			$this->data['user_dateformat'] = 'd M Y H:i';
+			$this->date_format = $this->data['user_dateformat'];
+			$this->user_torrent_per_page = "10";
+			$this->view_dead_tor = 0;
+			global $theme;
+			$this->theme = $theme;
+			$this->forumbanned = true;
+			$this->seedbonus = '0';
+			$this->nick = "guest";
+			$this->lastlogin = '0000-00-00 00:00:00';
+			$this->browser	= (!empty($_SERVER['HTTP_USER_AGENT'])) ? htmlspecialchars((string) $_SERVER['HTTP_USER_AGENT']) : '';
+	}
+	/*To not break everyone using your library, you have to keep backwards compatibility: 
+	Add the PHP5-style constructor, but keep the PHP4-style one. */
+	function User($user)
+	{
+		$this->__construct($user);
+	}
 	function lang()
 	{
 		$args = func_get_args();
@@ -459,229 +693,5 @@ class User {
 
 		return strtr(@gmdate($date_cache[$format]['format_long'], $gmepoch + $zone_offset), $date_cache[$format]['lang']);
 	}
-       function User($user) {
-                global $db, $db_prefix, $siteurl, $cookiepath, $cookiedomain, $localhost_autologin, $sourcedir, $language, $theme, $_COOKIE, $_SERVER;
-				$this->host					= $this->extract_current_hostname();
-				$this->page					= $this->extract_current_page($sourcedir);
-				$this->ip = (!empty($_SERVER['REMOTE_ADDR'])) ? htmlspecialchars($_SERVER['REMOTE_ADDR']) : '';
-				$val = microtime();
-				/*if ((function_exists('sys_getloadavg') && $load = sys_getloadavg()) || ($load = explode(' ', @file_get_contents('/proc/loadavg'))))
-				{
-					$this->load = array_slice($load, 0, 1);
-					$this->load = floatval($this->load[0]);
-				}*/
-				$this->load = 0;
-		    if ($_SERVER["REMOTE_ADDR"] == "127.0.0.1" AND $localhost_autologin) {
-                        $uid = 1;
-                        $sql ="SELECT U.*, L.group_type, L.group_founder_manage, L.group_skip_auth, L.group_message_limit, L.group_colour
-						FROM ".$db_prefix."_users U , ".$db_prefix."_level_settings L
-						WHERE L.group_id = U.can_do AND id = '1'";
-                        $result = $db->sql_query($sql);
-                        if ($row = $db->sql_fetchrow($result)) {
-                                $this->id = $row["id"];
-                                $this->name = $row["username"];
-                                $this->level = $row["level"];
-                                $this->theme = (($row["theme"] AND $row["theme"] != 'NULL')? $row["theme"] : $theme);
-                                $this->email = $row["email"];
-								if(isset($_COOKIE["bttestperm"]) AND $row["level"]== "admin")$this->group = $_COOKIE["bttestperm"];
-								else
-                                $this->group = $row["can_do"];
-								if (file_exists("./language/common/".$row["language"].".php"))
-                                $this->ulanguage = $row["language"];
-								else
-                                $this->ulanguage = 'english';
-                                $this->passkey = $row["passkey"];
-                                $this->act_key = $row["act_key"];
-								$this->lastpage = $row['lastpage'];
-								$this->uploaded = $row["uploaded"];
-								$this->downloaded = $row["downloaded"];
-								$this->modcomment = $row["modcomment"];
-								$this->invites = $row["invites"];
-								$this->invitees = $row["invitees"];
-								$this->seedbonus = $row["seedbonus"];
-								$this->can_shout = $row["can_shout"];
-								$this->color = $row["group_colour"];
-                                $this->lastlogin = $row["lastlogin"];
-								$this->session_id = substr($val, 4, 16);
-                                $this->forumbanned = (($row["forumbanned"]== 'yes')? true : false);
-								$this->user_torrent_per_page = $row["torrent_per_page"];
-								$this->view_dead_tor = $row["view_dead_tor"];
-								$this->sig = $row["signature"];
-								$this->sig_bbcode_bitfield = $row["sig_bbcode_bitfield"];
-								$this->sig_bbcode_uid = $row["sig_bbcode_uid"];
-								$this->bbcode_bitfield = $row["bbcode_bitfield"];
-								$this->bbcode_uid = $row["bbcode_uid"];
-								$this->lapost = $row["user_lastpost_time"];
-                                $this->new_pm = $row["user_new_privmsg"];
-                                $this->unread_pm = $row["user_unread_privmsg"];
-                                $this->pm_popup = (($row["pm_popup"] == 'true')? true : false);
-								$this->pm_rule = $row["user_message_rules"];
-								$this->user_permissions = $row["user_permissions"];
-								$this->user_notify = $row['user_notify'];
-								$this->topic_show_days = $row['user_topic_show_days'];
-								$this->topic_sortby_type = $row['user_topic_sortby_type'];
-								$this->topic_sortby_dir = $row['user_topic_sortby_dir'];
-								$this->posts_show_days = $row['user_post_show_days'];
-								$this->posts_sortby_type = $row['user_post_sortby_type'];
-								$this->posts_sortby_dir = $row['user_post_sortby_dir'];
-								$this->user_type = $row["user_type"];
-								$this->dst = $row["user_dst"];
-								$this->data['message_limit'] = '200';
-								$this->data['session_page'] = $row['lastpage'];
-								$this->data['user_full_folder'] = $row['user_full_folder'];
-								$this->data['user_type'] = $row['user_type'];
-								$this->data['user_lastmark'] = $row['user_lastmark'];
-								$this->data['user_options'] = $row['user_options'];
-								$this->data['signature'] = $row['signature'];
-								$this->data['sig_bbcode_bitfield'] = $row['sig_bbcode_bitfield'];
-								$this->data['sig_bbcode_uid'] = $row['sig_bbcode_uid'];
-								$this->data['clean_username'] = $row['clean_username'];
-								$this->date_format = $row['user_dateformat'];
-								$this->lastpost = $row['user_lastpost_time'];
-								$this->posts = $row['user_posts'];
-								$this->optionset('viewimg', 1);
-								$this->parked = (($row['parked'] == 'true')? true : false);
-								$this->disabled = (($row['disabled'] == 'true')? true : false);
-								$this->disabled_reason = $row['disabled_reason'];
-                                $this->admin = true;
-                                $this->moderator = true;
-                                $this->premium = true;
-                                $this->user = true;
-								$this->browser	= (!empty($_SERVER['HTTP_USER_AGENT'])) ? htmlspecialchars((string) $_SERVER['HTTP_USER_AGENT']) : '';
-                                return;
-                        } else die ("FATAL ERROR! NO ADMINISTRATOR SET. THIS SHOULD NEVER HAPPEN");
-                        return;
-                }
-                $user = cookie_decode($user);
-                $uid = intval($user[0]);
-                $username = addslashes($user[1]);
-                $pwd = $user[2];
-                $act_key = $user[3];
-
-                if ($uid != "" AND $pwd != "") {
-                        $sql ="SELECT U.*, L.group_type, L.group_founder_manage, L.group_skip_auth, L.group_message_limit, L.group_colour
-						FROM ".$db_prefix."_users U , ".$db_prefix."_level_settings L
-						WHERE L.group_id = U.can_do AND id = '".$uid."' AND username = '".$username."' AND password = '".addslashes($pwd)."' AND act_key = '".addslashes($act_key)."';";
-                        $result = $db->sql_query($sql);
-                        if($row = $db->sql_fetchrow($result)) {
-								if(isset($_COOKIE["bttestlevel"]) AND $row["level"]== "admin")$row["level"] = $_COOKIE["bttestlevel"];
-                                $this->id = $row["id"];
-                                $this->name = $row["username"];
-                                $this->nick = $row["name"];
-                                $this->level = $row["level"];
-                                $this->theme = (($row["theme"] AND $row["theme"] != 'NULL')? $row["theme"] : $theme);
-								if(isset($_COOKIE["bttestperm"]) AND $row["level"]== "admin")$this->group = $_COOKIE["bttestperm"];
-								else
-                                $this->group = $row["can_do"];
-                                $this->email = $row["email"];
-								if (file_exists("./language/common/".$row["language"].".php"))
-                                $this->ulanguage = $row["language"];
-								else
-                                $this->ulanguage = 'english';
-                                $this->passkey = $row["passkey"];
-								$this->lastpage = $row['lastpage'];
-								$this->act_key = $row["act_key"];
-								$this->uploaded = $row["uploaded"];
-								$this->downloaded = $row["downloaded"];
-								$this->color = $row["group_colour"];
-								$this->modcomment = $row["modcomment"];
-								$this->invites = $row["invites"];
-								$this->invitees = $row["invitees"];
-								$this->seedbonus = $row["seedbonus"];
-								$this->can_shout = $row["can_shout"];
-                                $this->lastlogin = $row["lastlogin"];
-								$this->user_permissions = $row["user_permissions"];
-								$this->user_type = $row["user_type"];
-								$this->session_id = substr($val, 4, 16);
-                                $this->forumbanned = (($row["forumbanned"]== 'yes')? true : false);
-								$this->user_torrent_per_page = $row["torrent_per_page"];
-								$this->view_dead_tor = $row["view_dead_tor"];
-								$this->sig = $row["signature"];
-								$this->sig_bbcode_bitfield = $row["sig_bbcode_bitfield"];
-								$this->user_notify = $row['user_notify'];
-								$this->topic_show_days = $row['user_topic_show_days'];
-								$this->topic_sortby_type = $row['user_topic_sortby_type'];
-								$this->topic_sortby_dir = $row['user_topic_sortby_dir'];
-								$this->posts_show_days = $row['user_post_show_days'];
-								$this->posts_sortby_type = $row['user_post_sortby_type'];
-								$this->posts_sortby_dir = $row['user_post_sortby_dir'];
-								$this->sig_bbcode_uid = $row["sig_bbcode_uid"];
-								$this->bbcode_bitfield = $row["bbcode_bitfield"];
-								$this->bbcode_uid = $row["bbcode_uid"];
-								$this->lapost = $row["user_lastpost_time"];
-                                $this->new_pm = $row["user_new_privmsg"];
-                                $this->unread_pm = $row["user_unread_privmsg"];
-								$this->pm_rule = $row["user_message_rules"];
-                                $this->pm_popup = (($row["pm_popup"] == 'true')? true : false);
-								$this->dst = $row["user_dst"];
-								$this->data['message_limit'] = $row['group_message_limit'];
-								$this->data['session_page'] = $row['lastpage'];
-								$this->data['user_full_folder'] = $row["user_full_folder"];
-								$this->data['user_lastmark'] = $row['user_lastmark'];
-								$this->data['user_type'] = $row['user_type'];
-								$this->data['user_options'] = $row['user_options'];
-								$this->data['signature'] = $row['signature'];
-								$this->data['sig_bbcode_bitfield'] = $row['sig_bbcode_bitfield'];
-								$this->data['sig_bbcode_uid'] = $row['sig_bbcode_uid'];
-								$this->data['user_dateformat'] = $row['user_dateformat'];
-								$this->data['clean_username'] = $row['clean_username'];
-								$this->lastpost = $row['user_lastpost_time'];
-								$this->posts = $row['user_posts'];
-								$this->optionset('viewimg', 1);
-								$this->date_format = $row['user_dateformat'];
-								$this->parked = (($row['parked'] == 'true')? true : false);
-								$this->disabled = (($row['disabled'] == 'true')? true : false);
-								$this->disabled_reason = $row['disabled_reason'];
-                                if ($row["level"] == "admin") {
-                                        $this->admin = true;
-                                        $this->moderator = true;
-                                        $this->premium = true;
-                                        $this->user = true;
-                                } elseif ($row["level"] == "moderator") {
-                                        $this->admin = false;
-                                        $this->moderator = true;
-                                        $this->premium = true;
-                                        $this->user = true;
-                                } elseif ($row["level"] == "premium") {
-                                        $this->admin = false;
-                                        $this->moderator = false;
-                                        $this->premium = true;
-                                        $this->user = true;
-                                } else {
-                                        $this->admin = false;
-                                        $this->moderator = false;
-                                        $this->premium = false;
-                                        $this->user = true;
-                                }
-								$this->browser	= (!empty($_SERVER['HTTP_USER_AGENT'])) ? htmlspecialchars((string) $_SERVER['HTTP_USER_AGENT']) : '';
-                                return;
-                        }
-                }
-                $this->id = '0';
-                $this->name = "Anonymous";
-                $this->level = "guest";
-                $this->ulanguage = $language;
-                $this->group = "6";
-                $this->admin = false;
-				$this->moderator = false;
-                $this->premium = false;
-                $this->user = false;
-                $this->email = "anonymous@phpmybittorrent";
-                $this->act_key = "";
-                $this->passkey = "";
-				$this->invites = "";
-				$this->color = $row["group_colour"];
-				$this->data['user_dateformat'] = 'd M Y H:i';
-				$this->date_format = $this->data['user_dateformat'];
-				$this->user_torrent_per_page = "10";
-				$this->view_dead_tor = 0;
-                global $theme;
-                $this->theme = $theme;
-                $this->forumbanned = true;
-				$this->seedbonus = '0';
-                $this->nick = "guest";
-                $this->lastlogin = '0000-00-00 00:00:00';
-				$this->browser	= (!empty($_SERVER['HTTP_USER_AGENT'])) ? htmlspecialchars((string) $_SERVER['HTTP_USER_AGENT']) : '';
-        }
 }
 ?>

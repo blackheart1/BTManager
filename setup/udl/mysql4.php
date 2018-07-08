@@ -35,7 +35,7 @@ if(!defined("SQL_LAYER")) {
                 //
                 // Constructor
                 //
-                function sql_db($sqlserver, $sqluser, $sqlpassword, $database, $persistency = true) {
+                function __construct($sqlserver, $sqluser, $sqlpassword, $database, $persistency = true) {
 
                         $this->persistency = $persistency;
                         $this->user = $sqluser;
@@ -61,6 +61,12 @@ if(!defined("SQL_LAYER")) {
                                 return false;
                         }
                 }
+				/*To not break everyone using your library, you have to keep backwards compatibility: 
+				Add the PHP5-style constructor, but keep the PHP4-style one. */
+				function sql_db($sqlserver, $sqluser, $sqlpassword, $database, $persistency = true)
+				{
+					$this->__construct($sqlserver, $sqluser, $sqlpassword, $database, $persistency);
+				}
 
                 //
                 // Other base methods

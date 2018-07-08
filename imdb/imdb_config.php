@@ -39,7 +39,7 @@ class imdb_config {
    *  configuration data here.
    * @constructor imdb_config
    */
-  function imdb_config(){
+  function __construct(){
     /** IMDB server to use.
      *  choices are us.imdb.com, uk.imdb.com, akas.imdb.com, german.imdb.com and
      *  italian.imdb.com - the localized ones (i.e. italian and german) are only
@@ -121,6 +121,13 @@ class imdb_config {
     # error_reporting(E_ALL);
     # error_reporting(E_ALL ^ E_NOTICE);
   }
+
+	/*To not break everyone using your library, you have to keep backwards compatibility: 
+	Add the PHP5-style constructor, but keep the PHP4-style one. */
+	function imdb_config()
+	{
+		$this->__construct();
+	}
 
 }
 ?>

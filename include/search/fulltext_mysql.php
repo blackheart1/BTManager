@@ -44,7 +44,10 @@ class fulltext_mysql extends search_backend
 	var $pcre_properties = false;
 	var $mbstring_regex = false;
 
-	function fulltext_mysql(&$error)
+	/**
+	* Constuctor
+	*/
+	function __construct(&$error)
 	{
 		global $config;
 
@@ -66,6 +69,13 @@ class fulltext_mysql extends search_backend
 		}
 
 		$error = false;
+	}
+
+	/*To not break everyone using your library, you have to keep backwards compatibility: 
+	Add the PHP5-style constructor, but keep the PHP4-style one. */
+	function fulltext_mysql(&$error)
+	{
+		$this->__construct($error);
 	}
 
 	/**

@@ -45,9 +45,10 @@ if(!defined("SQL_LAYER"))
 		);
 
 		/**
+		* Constuctor
 		* Connect to server
 		*/
-		function sql_db($sqlserver, $sqluser, $sqlpassword, $database, $persistency = false)
+		function __construct($sqlserver, $sqluser, $sqlpassword, $database, $persistency = false)
 		{
 			if (!function_exists('mysqli_connect'))
 			{
@@ -119,6 +120,13 @@ if(!defined("SQL_LAYER"))
 			}
 	
 			return $this->sql_error('');
+		}
+
+		/*To not break everyone using your library, you have to keep backwards compatibility: 
+		Add the PHP5-style constructor, but keep the PHP4-style one. */
+		function sql_db($sqlserver, $sqluser, $sqlpassword, $database, $persistency = false)
+		{
+			$this->__construct($sqlserver, $sqluser, $sqlpassword, $database, $persistency);
 		}
 		function sql_build_query($query, $array)
 		{

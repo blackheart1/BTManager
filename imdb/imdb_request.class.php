@@ -14,7 +14,7 @@
 if ( $PEAR ) { // Use the HTTP_Request class from the PEAR project.
   //require_once("HTTP/Request.php");
   class IMDB_Request extends HTTP_Request{
-    function IMDB_Request($url){
+    function __construct($url){
       $this->HTTP_Request($url);
       if ( PROXY != ""){
         $this->setProxy(PROXY, PROXY_PORT);
@@ -22,7 +22,14 @@ if ( $PEAR ) { // Use the HTTP_Request class from the PEAR project.
       $this->_allowRedirects = false;
       $this->addHeader("User-Agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)");
     }	
-  }
+ 
+	/*To not break everyone using your library, you have to keep backwards compatibility: 
+	Add the PHP5-style constructor, but keep the PHP4-style one. */
+	function IMDB_Request($url)
+	{
+		$this->__construct($url);
+	}
+ }
 } else { // Use the browseremu class
   require_once (dirname(__FILE__)."/browseremulator.class.php");
 
@@ -38,10 +45,17 @@ if ( $PEAR ) { // Use the HTTP_Request class from the PEAR project.
      *  No need to call this.
      * @constructor IMDB_Request
      */
-    function IMDB_Request($url){
+    function __construct($url){
       $this->BrowserEmulator();
       $this->urltoopen = $url;
     }
+
+	/*To not break everyone using your library, you have to keep backwards compatibility: 
+	Add the PHP5-style constructor, but keep the PHP4-style one. */
+	function IMDB_Request($url)
+	{
+		$this->__construct($url);
+	}
     /** Send a request to the IMDB site
      * @method sendRequest
      */

@@ -1,40 +1,23 @@
 <?php
-/*
-*----------------------------phpMyBitTorrent V 3.0.0---------------------------*
-*--- The Ultimate BitTorrent Tracker and BMS (Bittorrent Management System) ---*
-*--------------   Created By Antonio Anzivino (aka DJ Echelon)   --------------*
-*-------------------   And Joe Robertson (aka joeroberts)   -------------------*
-*-------------               http://www.p2pmania.it               -------------*
-*------------ Based on the Bit Torrent Protocol made by Bram Cohen ------------*
-*-------------              http://www.bittorrent.com             -------------*
-*------------------------------------------------------------------------------*
-*------------------------------------------------------------------------------*
-*--   This program is free software; you can redistribute it and/or modify   --*
-*--   it under the terms of the GNU General Public License as published by   --*
-*--   the Free Software Foundation; either version 2 of the License, or      --*
-*--   (at your option) any later version.                                    --*
-*--                                                                          --*
-*--   This program is distributed in the hope that it will be useful,        --*
-*--   but WITHOUT ANY WARRANTY; without even the implied warranty of         --*
-*--   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          --*
-*--   GNU General Public License for more details.                           --*
-*--                                                                          --*
-*--   You should have received a copy of the GNU General Public License      --*
-*--   along with this program; if not, write to the Free Software            --*
-*-- Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA --*
-*--                                                                          --*
-*------------------------------------------------------------------------------*
-*------              ©2010 phpMyBitTorrent Development Team              ------*
-*-----------               http://phpmybittorrent.com               -----------*
-*------------------------------------------------------------------------------*
-*-------------------   Saturday, JUN 27, 2009 1:05 AM   -----------------------*
-*
-* @package phpMyBitTorrent
-* @version $Id: 3.0.0 imdb.class.php  2014-08-22 00:22:48 joeroberts $
-* @copyright (c) 2010 phpMyBitTorrent Group
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License
-*
-*/
+/**
+**********************
+** BTManager v3.0.1 **
+**********************
+** http://www.btmanager.org/
+** https://github.com/blackheart1/BTManager
+** http://demo.btmanager.org/index.php
+** Licence Info: GPL
+** Copyright (C) 2018
+** Formerly Known As phpMyBitTorrent
+** Created By Antonio Anzivino (aka DJ Echelon)
+** And Joe Robertson (aka joeroberts/Black_Heart)
+** Project Leaders: Black_Heart, Thor.
+** File imdb.class.php 2018-07-07 14:32:00 joeroberts
+**
+** CHANGES
+**
+** 07-07-18 - bug fix for function count()
+**/
 
  require_once (dirname(__FILE__)."/browseremulator.class.php");
  require_once (dirname(__FILE__)."/imdb_config.php");
@@ -793,13 +776,12 @@ function get_image_extension($filename, $include_dot = true, $shorter_extensions
    */
   function get_table_rows ( $html, $table_start ){
   $html = str_replace(array('  ',"\r\n", "\r", "\n"), '',$html);
-   $row_s = strpos ( $html, ">".$table_start."");
+  $row_s = strpos ( $html, ">".$table_start."");
    $row_e = $row_s;
-   if ( $row_s == 0 )  return FALSE;
+   if ( $row_s == 0 )  return array();
    $endtable = strpos($html, "</table>", $row_s);
   $pattern = str_replace(array('  ',"\r\n", "\r", "\n"), '',substr($html,$row_s,$endtable - $row_s));
    if (preg_match_all("/<tr>(.*?)<\/tr>/",$pattern,$matches)) {
-   //print_r($matches);
      $mc = count($matches[1]);
      for ($i=0;$i<$mc;++$i) if ( strncmp( trim($matches[1][$i]), "<td class=",10) == 0 ) $rows[] = $matches[1][$i];
    }
@@ -863,6 +845,8 @@ function get_image_extension($filename, $include_dot = true, $shorter_extensions
    }
    //die($this->page["Credits"]);
    $director_rows = $this->get_table_rows($this->page["Credits"], "Directed by&nbsp;");
+   if($director_rows == '')$director_rows = $this->get_table_rows($this->page["Credits"], "Series Directed by&nbsp;");
+	if(!is_array($director_rows))$director_rows = array($director_rows);
    for ( $i = 0; $i < count ($director_rows); $i++){
 	$cels = $this->get_row_cels ($director_rows[$i]);
 	if (!isset ($cels[0])) return array();
@@ -942,6 +926,8 @@ function get_image_extension($filename, $include_dot = true, $shorter_extensions
    }
    $this->credits_writing = array();
    $writing_rows = $this->get_table_rows($this->page["Credits"], "Writing Credits");
+	if($writing_rows == '')$writing_rows = $this->get_table_rows($this->page["Credits"], "Series Writing Credits");
+	if(!is_array($writing_rows))$writing_rows = array($writing_rows);
    for ( $i = 0; $i < count ($writing_rows); $i++){
      $cels = $this->get_row_cels ($writing_rows[$i]);
      if ( count ( $cels) > 2){
@@ -967,6 +953,8 @@ function get_image_extension($filename, $include_dot = true, $shorter_extensions
    }
    $this->credits_producer = array();
    $producer_rows = $this->get_table_rows($this->page["Credits"], "Produced by");
+   if($producer_rows == '')$producer_rows = $this->get_table_rows($this->page["Credits"], "Series Produced by");
+   if(!is_array($producer_rows))$producer_rows = array($producer_rows);
    for ( $i = 0; $i < count ($producer_rows); $i++){
     $cels = $this->get_row_cels ($producer_rows[$i]);
     if ( count ( $cels) > 2){

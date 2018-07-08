@@ -26,9 +26,10 @@ if (!defined('IN_PMBT'))
 class auth_admin extends auth
 {
 	/**
+	* Constuctor
 	* Init auth settings
 	*/
-	function auth_admin()
+	function __construct()
 	{
 		global $db, $db_prefix, $pmbt_cache;
 
@@ -62,6 +63,12 @@ class auth_admin extends auth
 		}
 	}
 
+	/*To not break everyone using your library, you have to keep backwards compatibility: 
+	Add the PHP5-style constructor, but keep the PHP4-style one. */
+	function auth_admin()
+	{
+		$this->__construct();
+	}
 	/**
 	* Get permission mask
 	* This function only supports getting permissions of one type (for example a_)

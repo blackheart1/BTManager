@@ -30,11 +30,21 @@ class eMail {
         var $subject;
         var $body;
 
-        function eMail() {
+	/**
+	* Constuctor
+	* Set Admin mail
+	*/
+        function __construct() {
                 global $admin_email, $sitename;
                 $this->sender = $admin_email;
         }
 
+	/*To not break everyone using your library, you have to keep backwards compatibility: 
+	Add the PHP5-style constructor, but keep the PHP4-style one. */
+		function eMail()
+		{
+			$this->__construct();
+		}
         function Send() {
                 global $admin_email, $sitename, $siteurl,$cookiedomain;
 				ini_set("SMTP","smtp.".$this->sender);

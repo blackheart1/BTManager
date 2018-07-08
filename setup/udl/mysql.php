@@ -55,77 +55,47 @@ class sql_db
 
         //
 
-        function sql_db($sqlserver, $sqluser, $sqlpassword, $database, $persistency = true)
-
+        function __construct($sqlserver, $sqluser, $sqlpassword, $database, $persistency = true)
         {
-
-
-
                 $this->persistency = $persistency;
-
                 $this->user = $sqluser;
-
                 $this->password = $sqlpassword;
-
                 $this->server = $sqlserver;
-
                 $this->dbname = $database;
-
-
                 if($this->persistency)
-
                 {
-
                         $this->db_connect_id = @mysql_pconnect($this->server, $this->user, $this->password);
-
                 }
-
                 else
-
                 {
-
                         $this->db_connect_id = @mysql_connect($this->server, $this->user, $this->password);
-
                 }
-
                 if($this->db_connect_id)
-
                 {
-
                         if($database != "")
-
                         {
-
                                 $this->dbname = $database;
-
                                 $dbselect = @mysql_select_db($this->dbname);
-
                                 if(!$dbselect)
-
                                 {
-
                                         @mysql_close($this->db_connect_id);
-
                                         $this->db_connect_id = $dbselect;
-
                                 }
-
                         }
-
                         return $this->db_connect_id;
-
                 }
-
                 else
-
                 {
-
                         return false;
-
                 }
-
         }
 
+	/*To not break everyone using your library, you have to keep backwards compatibility: 
+	Add the PHP5-style constructor, but keep the PHP4-style one. */
+	function sql_db($sqlserver, $sqluser, $sqlpassword, $database, $persistency = true)
+	{
+		$this->__construct($sqlserver, $sqluser, $sqlpassword, $database, $persistency);
+	}
 
 	function sql_build_array($query, $assoc_ary = false)
 	{

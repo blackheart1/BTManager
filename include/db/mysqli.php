@@ -49,9 +49,10 @@ if(!defined("SQL_LAYER"))
 		);
 
 		/**
+		* Constructor
 		* Connect to server
 		*/
-		function sql_db($sqlserver, $sqluser, $sqlpassword, $database, $persistency = false)
+		function __construct($sqlserver, $sqluser, $sqlpassword, $database, $persistency = false)
 		{
 			if (!function_exists('mysqli_connect'))
 			{
@@ -128,6 +129,10 @@ if(!defined("SQL_LAYER"))
 			}
 	
 			return $this->sql_error('');
+		}
+		function sql_db($sqlserver, $sqluser, $sqlpassword, $database, $persistency = false)
+		{
+			$this->__construct($sqlserver, $sqluser, $sqlpassword, $database, $persistency);
 		}
 		function sql_build_query($query, $array)
 		{

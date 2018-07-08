@@ -141,9 +141,9 @@ switch ($op) {
                                 $errmsg[] = 'NO_ACTIVATION_KEY_SET';
                 }
                 if (count($errmsg) != 0) bterror($errmsg,'ACTIVATION_ERROR');
-					$sql_ary += array(
-						'user_type'				=> '0',
-						'active'	=> '1'
+					$sql_ary = array(
+						'user_type'		=> '0',
+						'active'		=> '1'
 					);
                 $sql = "UPDATE ".$db_prefix."_users SET " . $db->sql_build_array('UPDATE', $sql_ary) . " WHERE username = '".$db->sql_escape($username)."';";
                 if (!$db->sql_query($sql)) btsqlerror($sql);

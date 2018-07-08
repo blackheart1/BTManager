@@ -43,10 +43,17 @@ class search_backend
 	var $match_synonym = array();
 	var $replace_synonym = array();
 
-	function search_backend(&$error)
+	function __construct(&$error)
 	{
 		// This class cannot be used as a search plugin
 		$error = true;
+	}
+
+	/*To not break everyone using your library, you have to keep backwards compatibility: 
+	Add the PHP5-style constructor, but keep the PHP4-style one. */
+	function search_backend(&$error)
+	{
+		$this->__construct($error);
 	}
 
 	/**

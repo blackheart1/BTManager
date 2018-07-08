@@ -28,9 +28,18 @@ if (!defined('IN_PMBT'))
 @ini_set("memory_limit","64M");
 class fileerror extends filespec
 {
-	function fileerror($error_msg)
+	/**
+	* Constructor
+	*/
+	function __construct($error_msg)
 	{
 		$this->error[] = $error_msg;
+	}
+	/*To not break everyone using your library, you have to keep backwards compatibility: 
+	Add the PHP5-style constructor, but keep the PHP4-style one. */
+	function fileerror($error_msg)
+	{
+		$this->__construct($error_msg);
 	}
 }
 class filespec
@@ -60,7 +69,7 @@ class filespec
 	* File Class
 	* @access private
 	*/
-	function filespec($upload_ary, $upload_namespace)
+	function __construct($upload_ary, $upload_namespace)
 	{
 		if (!isset($upload_ary))
 		{
@@ -92,6 +101,12 @@ class filespec
 
 		$this->local = (isset($upload_ary['local_mode'])) ? true : false;
 		$this->upload = $upload_namespace;
+	}
+	/*To not break everyone using your library, you have to keep backwards compatibility: 
+	Add the PHP5-style constructor, but keep the PHP4-style one. */
+	function filespec($upload_ary, $upload_namespace)
+	{
+		$this->__construct($upload_ary, $upload_namespace);
 	}
 
 	/**
@@ -431,6 +446,7 @@ class fileupload
 	/**
 	* Init file upload class.
 	*
+	* Constructor
 	* @param string $error_prefix Used error messages will get prefixed by this string
 	* @param array $allowed_extensions Array of allowed extensions, for example array('jpg', 'jpeg', 'gif', 'png')
 	* @param int $max_filesize Maximum filesize
@@ -440,12 +456,18 @@ class fileupload
 	* @param int $max_height Maximum image height (only checked for images)
 	*
 	*/
-	function fileupload($error_prefix = '', $allowed_extensions = false, $max_filesize = false, $min_width = false, $min_height = false, $max_width = false, $max_height = false)
+	function __construct($error_prefix = '', $allowed_extensions = false, $max_filesize = false, $min_width = false, $min_height = false, $max_width = false, $max_height = false)
 	{
 		$this->set_allowed_extensions($allowed_extensions);
 		$this->set_max_filesize($max_filesize);
 		$this->set_allowed_dimensions($min_width, $min_height, $max_width, $max_height);
 		$this->set_error_prefix($error_prefix);
+	}
+	/*To not break everyone using your library, you have to keep backwards compatibility: 
+	Add the PHP5-style constructor, but keep the PHP4-style one. */
+	function fileupload($error_prefix = '', $allowed_extensions = false, $max_filesize = false, $min_width = false, $min_height = false, $max_width = false, $max_height = false)
+	{
+		$this->__construct($error_prefix = '', $allowed_extensions = false, $max_filesize = false, $min_width = false, $min_height = false, $max_width = false, $max_height = false);
 	}
 
 	/**

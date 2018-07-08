@@ -43,7 +43,7 @@ class Template {
      *
      * @param $file string the file name you want to load
      */
-    function Template($file = NULL) {
+    function __construct($file = NULL) {
 	global $theme, $phpEx, $pmbt_cache;
 	$this->expire = $pmbt_cache->theme_expire;
 	$this->cache_dir = $pmbt_cache->cache_dir;

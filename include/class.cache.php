@@ -32,8 +32,11 @@ class pmbt_cache {
 	var $vars = array();
 	var $var_expires = array();
 
+	/**
+	* Constuctor
+	*/
 
-       function pmbt_cache()
+       function __construct()
 	   {
 			global $db, $db_prefix;
 			$ch_con = $this->get_sql('cache');
@@ -53,6 +56,12 @@ class pmbt_cache {
 				$this->set_sql('cache', $ch_con);
 			}
 	   }
+	/*To not break everyone using your library, you have to keep backwards compatibility: 
+	Add the PHP5-style constructor, but keep the PHP4-style one. */
+		function pmbt_cache()
+		{
+			$this->__construct();
+		}
 	   function get_sql($file, $expire = 60)
 	   {
 		   if($expire > $this->expire)$expire = $expire;

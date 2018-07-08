@@ -38,7 +38,7 @@ class messenger
 	/**
 	* Constructor
 	*/
-	function messenger($use_queue = true)
+	function __construct($use_queue = true)
 	{
 		global $config;
 
@@ -48,6 +48,12 @@ class messenger
 		// Determine EOL character (\n for UNIX, \r\n for Windows and \r for Mac)
 		$this->eol = (!defined('PHP_EOL')) ? (($eol = strtolower(substr(PHP_OS, 0, 3))) == 'win') ? "\r\n" : (($eol == 'mac') ? "\r" : "\n") : PHP_EOL;
 		$this->eol = (!$this->eol) ? "\n" : $this->eol;
+	}
+	/*To not break everyone using your library, you have to keep backwards compatibility: 
+	Add the PHP5-style constructor, but keep the PHP4-style one. */
+	function messenger($use_queue = true)
+	{
+		$this->__construct($use_queue);
 	}
 
 	/**
