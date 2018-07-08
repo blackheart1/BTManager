@@ -464,13 +464,14 @@ class acp_permission_roles
 	function display_auth_options($auth_options)
 	{
 		global $template, $user;
+		$auth_admin = new auth_admin();
 
 		$content_array = $categories = array();
 		$key_sort_array = array(0);
 		$auth_options = array(0 => $auth_options);
 
 		// Making use of auth_admin method here (we do not really want to change two similar code fragments)
-		auth_admin::build_permission_array($auth_options, $content_array, $categories, $key_sort_array);
+		$auth_admin->build_permission_array($auth_options, $content_array, $categories, $key_sort_array);
 
 		$content_array = $content_array[0];
 

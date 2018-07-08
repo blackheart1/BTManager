@@ -33,7 +33,7 @@ $returnto = '';
 										'PAGE_TITLE'		=>	$user->lang['LOGIN'],
                                 ));
 								$login_complete = false;
-while (list($var,$val) = each($_GET))
+foreach($_GET as $var=>$val)
 {
 $hidden[$var] = $val;
 }
@@ -106,7 +106,7 @@ switch($op)
 								 	$db->sql_query("UPDATE ".$db_prefix."_users SET rem = 'yes' WHERE clean_username = '".$db->sql_escape(utf8_strtolower($username))."';");
 								 }
                                         //ob_end_clean();
-										while (list($var,$val) = each($_POST))
+										foreach ($_POST as $var=>$val)
 										{
 										if($var != 'username' AND $var != 'page' AND $var != 'op' AND $var != 'password' AND $var != 'gfxcode' AND $var != 'g-recaptcha-response' AND $var != 'recaptcha_challenge_field')$hidden[$var] = $var . '=' .$val;
 										if($var == 'page') $page = $val;

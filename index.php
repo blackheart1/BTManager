@@ -61,7 +61,6 @@ $birthday_list = $user->lang['NO_BIRTHDAY'];
 $template->assign_vars(array(
         'BIRTHDAY_LIST'            => $birthday_list,
 ));
-
 echo $template->fetch('index_body.html');
 close_out();
 ?>

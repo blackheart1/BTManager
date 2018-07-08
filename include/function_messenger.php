@@ -30,6 +30,7 @@ class messenger
 
 	var $mail_priority = 3;
 	var $use_queue = true;
+	var $extra_headers = array();
 
 	var $tpl_obj = NULL;
 	var $tpl_msg = array();
@@ -622,7 +623,7 @@ class queue
 	/**
 	* constructor
 	*/
-	function queue()
+	function __construct()
 	{
 		global $phpEx, $phpbb_root_path,$pmbt_cache;
 
@@ -632,6 +633,10 @@ class queue
 		// Determine EOL character (\n for UNIX, \r\n for Windows and \r for Mac)
 		$this->eol = (!defined('PHP_EOL')) ? (($eol = strtolower(substr(PHP_OS, 0, 3))) == 'win') ? "\r\n" : (($eol == 'mac') ? "\r" : "\n") : PHP_EOL;
 		$this->eol = (!$this->eol) ? "\n" : $this->eol;
+	}
+	function queue()
+	{
+		$this->__construct();
 	}
 
 	/**
@@ -999,11 +1004,15 @@ class smtp_class
 	var $backtrace = false;
 	var $backtrace_log = array();
 
-	function smtp_class()
+	function __construct()
 	{
 		// Always create a backtrace for admins to identify SMTP problems
 		$this->backtrace = true;
 		$this->backtrace_log = array();
+	}
+	function smtp_class()
+	{
+		$this->__construct();
 	}
 
 	/**

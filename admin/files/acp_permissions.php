@@ -361,12 +361,13 @@ class acp_permissions
 
 					$template->assign_vars(array(
 						'S_SELECT_USER'			=> true,
-						'U_FIND_USERNAME'		=> append_sid("{$phpbb_root_path}userfind_to_pm.$phpEx", 'mode=searchuser&amp;form=select_victim&amp;field=username&amp;select_single=true'),
+						'U_FIND_USERNAME'		=> append_sid("{$phpbb_root_path}memberslist.$phpEx", 'mode=searchuser&amp;form=select_victim&amp;field=username&amp;select_single=true'),
 					));
 
 				break;
 
 				case 'group':
+					//if(!is_array($group_id))
 
 					if (sizeof($group_id))
 					{
@@ -423,7 +424,7 @@ class acp_permissions
 						'S_DEFINED_USER_OPTIONS'	=> $items['user_ids_options'],
 						'S_DEFINED_GROUP_OPTIONS'	=> $items['group_ids_options'],
 						'S_ADD_GROUP_OPTIONS'		=> group_select_options_id(false, $items['group_ids'], false),	// Show all groups
-						'U_FIND_USERNAME'			=> append_sid("{$phpbb_root_path}userfind_to_pm.$phpEx", 'mode=searchuser&amp;form=add_user&amp;field=username&amp;select_single=true'),
+						'U_FIND_USERNAME'			=> append_sid("{$phpbb_root_path}memberslist.$phpEx", 'mode=searchuser&amp;form=add_user&amp;field=username&amp;select_single=true'),
 					));
 
 				break;

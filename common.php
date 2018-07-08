@@ -77,7 +77,7 @@ if (!preg_match("/cron.php/",$_SERVER['PHP_SELF']))
         //die($_SERVER["PHP_SELF"]);
         $a = 0;
         $returnto = '';
-        while (list($var,$val) = each($_GET))
+        foreach ($_GET as $var=>$val)
         {
             $returnto .= "&$var=$val";
             $a++;

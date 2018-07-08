@@ -54,6 +54,10 @@ class Template {
 		else
 		$this->file = $file;
     }
+	function Template($file = NULL)
+	{
+		$this->__construct($file);
+	}
     /**
      * Look for file in cache.
      */
