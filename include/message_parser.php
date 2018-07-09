@@ -1026,9 +1026,9 @@ class bbcode_firstpass extends bbcode
 		$url = str_replace(' ', '%20', $url);
 
 		// Checking urls
-		if (preg_match('#^' . get_preg_expression('url') . '$#i', $url) ||
-			preg_match('#^' . get_preg_expression('www_url') . '$#i', $url) ||
-			preg_match('#^' . preg_quote(generate_board_url(), '#') . get_preg_expression('relative_url') . '$#i', $url))
+		if (preg_match('#^' . get_preg_expression('url') . '$#iu', $url) ||
+			preg_match('#^' . get_preg_expression('www_url') . '$#iu', $url) ||
+			preg_match('#^' . preg_quote(generate_board_url(), '#') . get_preg_expression('relative_url') . '$#iu', $url))
 		{
 			$valid = true;
 		}

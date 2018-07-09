@@ -27,7 +27,7 @@ $user->set_lang('admin/mcp_categories',$user->ulanguage);
 $meta = "<script language=\"JavaScript\" type=\"text/JavaScript\">\n";
 $meta .= "function ChangeThumb(pic) {\n";
 $meta .= "        if (pic != 'none') document.images.Thumb.src = 'cat_pics/'+pic\n";
-$meta .= "        else document.images.Thumb.src = 'avatars/blank.gif';\n";
+$meta .= "        else document.images.Thumb.src = 'cat_pics/blank2.gif';\n";
 $meta .= "}\n";
 $meta .= "</script>\n";
 
@@ -275,7 +275,7 @@ $position .= "<option value=\"0\"  " . (($do == "editcategory" AND $row["sort_in
 								'SUBNAME'		=> ($do == "editcategory")?$row["name"] : '',
 								'SUBPARENT'		=> $sel_parent,
 								'ICONS'			=> $sel_image,
-								'ICON_SET'		=> ($do == "editcategory")? 'cat_pics/' . $row["image"] : 'avatars/blank.gif',
+								'ICON_SET'		=> ($do == "editcategory")? 'cat_pics/' . $row["image"] : 'cat_pics/blank2.gif',
 								'POSITION'		=> $position,
 								'HIDDEN'				=> build_hidden_fields($hidden),
 								'U_ACTION'				=> './admin.php',

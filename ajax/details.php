@@ -975,7 +975,7 @@ if($op == 'get_imdb')
 					}
 				}
                 $db->sql_freeresult($res);
-        require ("imdb/imdb.class.php");
+        require_once ("imdb/imdb.class.php");
         $sql = "SELECT 
 					imdb 
 				FROM 

@@ -75,10 +75,14 @@ $cat_sub = array();
 		{
 			$template->assign_block_vars('cats_main',$val);
 			//print_r($val);
-				foreach($cat_sub[$val['ID']] as $keys => $vals)
-				{
-					$template->assign_block_vars('cats_main.sub',$vals);
-				}
+			if(!isset($cat_sub[$val['ID']]))
+			{
+				$cat_sub[$val['ID']] = array();
+			}
+			foreach($cat_sub[$val['ID']] as $keys => $vals)
+			{
+				$template->assign_block_vars('cats_main.sub',$vals);
+			}
 		}
 	$template->assign_vars(array(
 			'NCATS_VAR'     => $ncats,

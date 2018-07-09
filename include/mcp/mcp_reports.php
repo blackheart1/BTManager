@@ -28,9 +28,15 @@ class mcp_reports
 	var $p_master;
 	var $u_action;
 
-	function mcp_reports(&$p_master)
+	function __construct(&$p_master)
 	{
 		$this->p_master = &$p_master;
+	}
+	/*To not break everyone using your library, you have to keep backwards compatibility: 
+	Add the PHP5-style constructor, but keep the PHP4-style one. */
+	function mcp_reports(&$p_master)
+	{
+		$this->__construct($p_master);
 	}
 
 
