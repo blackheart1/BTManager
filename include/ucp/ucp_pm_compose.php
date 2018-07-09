@@ -594,7 +594,7 @@ function compose_pm($id, $mode, $action)
 				$s_hidden_fields .= build_address_field($address_list);
 
 
-				confirm_box(false, 'SAVE_DRAFT', $s_hidden_fields);
+				confirm_box(false, '_SAVE_DRAFT', $s_hidden_fields);
 			}
 		}
 		else
@@ -906,7 +906,7 @@ function compose_pm($id, $mode, $action)
 					'S_U_TO'         => true,
 			));
 			$sql = 'SELECT U.id as id, U.username as name, L.group_colour as colour
-				FROM ' . $db_prefix . '_users U, ' . $db_prefix . '_level_settings L  
+				FROM ' . $db_prefix . '_users U, ' . $db_prefix . '_level_settings L
 				WHERE ' . $db->sql_in_set('id', array_map('intval', array_keys($address_list['u']))) . ' AND L.group_id = U.can_do
 				ORDER BY clean_username ASC';
 			$result['u'] = $db->sql_query($sql);
