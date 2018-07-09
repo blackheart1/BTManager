@@ -902,6 +902,9 @@ function compose_pm($id, $mode, $action)
 		$result = array();
 		if (!empty($address_list['u']))
 		{
+			$template->assign_vars(array(
+					'S_U_TO'         => true,
+			));
 			$sql = 'SELECT U.id as id, U.username as name, L.group_colour as colour
 				FROM ' . $db_prefix . '_users U, ' . $db_prefix . '_level_settings L  
 				WHERE ' . $db->sql_in_set('id', array_map('intval', array_keys($address_list['u']))) . ' AND L.group_id = U.can_do
@@ -911,6 +914,9 @@ function compose_pm($id, $mode, $action)
 
 		if (!empty($address_list['g']))
 		{
+			$template->assign_vars(array(
+					'S_G_TO'         => true,
+			));
 			$sql = 'SELECT g.group_id AS id, g.group_name AS name, g.group_colour AS colour
 				FROM ' . $db_prefix . '_level_settings g';
 
@@ -981,8 +987,8 @@ function compose_pm($id, $mode, $action)
 				if ($type == 'u')
 				{
 					$tpl_ary = array_merge($tpl_ary, array(
-						'U_VIEW'		=> get_username_string('profile', $id, ${$type}[$id]['name'], ${$type}[$id]['colour']),
-						'NAME_FULL'		=> get_username_string('full', $id, ${$type}[$id]['name'], ${$type}[$id]['colour']),
+						'U_VIEW'		=> get_username_string('profile', $id, ${$type}[$id]['name'], '#' . ${$type}[$id]['colour']),
+						'NAME_FULL'		=> get_username_string('full', $id, ${$type}[$id]['name'], '#' . ${$type}[$id]['colour']),
 					));
 				}
 				else

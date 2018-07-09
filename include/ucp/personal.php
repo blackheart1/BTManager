@@ -55,11 +55,6 @@ foreach ($themes as $key=>$val) {
         $custtheme .=" value=\"".$key."\">".$val."</option>\n";
 }
 unset($themes);
-$off_set ='';
-$sql = ("SELECT id,name from ".$db_prefix."_time_offset ORDER BY name");
-$tz_r = $db->sql_query($sql);
-while ($tz_a = $db->sql_fetchrow($tz_r))
-  $off_set .= "<option value=$tz_a[id]" . ($userrow["tzoffset"] == $tz_a['id'] ? " selected" : "") . ">$tz_a[name]</option>\n";
 $hidden = array(
 			'op'		=> 'editprofile',
 			'action'	=> 'preferences',
