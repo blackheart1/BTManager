@@ -450,14 +450,50 @@ switch ($action)
 		$db->sql_freeresult($result);
 	break;
 	case 'edit':
+					generate_smilies('inline', 0);
+					$num_predefined_bbcodes = 24;
+					$s_pm_icons = false;
+					$sql = 'SELECT bbcode_id, bbcode_tag, bbcode_helpline
+						FROM '.$db_prefix.'_bbcodes
+						WHERE display_on_posting = 1
+						ORDER BY bbcode_tag';
+					$result = $db->sql_query($sql);
+				
+					$i = 0;
+					while ($rows = $db->sql_fetchrow($result))
+					{
+						// If the helpline is defined within the language file, we will use the localised version, else just use the database entry...
+						if (isset($user->lang[strtoupper($rows['bbcode_helpline'])]))
+						{
+							$rows['bbcode_helpline'] = $user->lang[strtoupper($rows['bbcode_helpline'])];
+						}
+				
+						$template->assign_block_vars('custom_tags', array(
+							'BBCODE_NAME'		=> "'[{$rows['bbcode_tag']}]', '[/" . str_replace('=', '', $rows['bbcode_tag']) . "]'",
+							'BBCODE_ID'			=> $num_predefined_bbcodes + ($i * 2),
+							'BBCODE_TAG'		=> str_replace('=', '', $rows['bbcode_tag']),
+							'BBCODE_HELPLINE'	=> $rows['bbcode_helpline'],
+							'A_BBCODE_HELPLINE'	=> str_replace(array('&amp;', '&quot;', "'", '&lt;', '&gt;'), array('&', '"', "\'", '<', '>'), $rows['bbcode_helpline']),
+						));
+				
+						$i++;
+					}
+					$db->sql_freeresult($result);
 		$comment_id = request_var('c', 0);
 		$sql = 'SELECT *
 			FROM ' . $db_prefix . '_ar_comments
 			WHERE comment_id = ' . $comment_id;
 		$result = $db->sql_query($sql);
 		$row = $db->sql_fetchrow($result);
+					include_once('include/function_posting.php');
+					include_once('include/message_parser.php');
+					include_once('include/class.bbcode.php');
+					$message_parser = new parse_message();
+					$row["comment"] = smiley_text($row["comment"],true);
+					$message_parser->message = $row["comment"];
+					$message_parser->decode_message($row['bbcode_uid']);
 		
-		decode_message($row['comment'], $row['bbcode_uid']);
+		//decode_message($row['comment'], $row['bbcode_uid']);
 		if (!$allow_comments)
 		{
 			$url_loc = append_sid("viewgame.$phpEx", 'g=' . $game_id . '&action=p');
@@ -469,8 +505,15 @@ switch ($action)
 			$template->assign_vars(array(
 					'S_EDIT'	=> true,
 					'U_ACTION'	=> $url,
-					'COMMENT'	=> $row['comment'],
-					'S_BBCODE_ALLOWED'	=> true
+					'COMMENT'	=> $message_parser->message,
+					'S_SMILIES_ALLOWED'			=> ($config['allow_smilies'] && $config['auth_smilies_pm'] && checkaccess('u_pm_smilies')) ? true : false,
+					'S_SHOW_SMILEY_LINK'		=> ($config['allow_smilies'] && $config['auth_smilies_pm'] && checkaccess('u_pm_smilies')) ? true : false,
+					'S_BBCODE_ALLOWED'			=> ($config['allow_bbcode'] && $config['auth_bbcode_pm'] && checkaccess('u_pm_bbcode')) ? true : false,
+					'T_TEMPLATE_PATH' 			=> 'themes/' . $theme . '/templates',
+					'S_BBCODE_QUOTE'			=> true,
+					'S_BBCODE_IMG'				=> ($config['auth_img_pm'] && checkaccess('u_pm_img')) ? true : false,
+					'S_LINKS_ALLOWED'			=> ($config['allow_post_links']) ? true : false,
+					'S_BBCODE_FLASH'			=> ($config['auth_flash_pm'] && checkaccess('u_pm_flash')) ? true : false,
 			));
 		} else {
 			$url_loc = append_sid("viewgame.$phpEx", 'g=' . $game_id . '&action=p');

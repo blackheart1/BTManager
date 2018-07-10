@@ -26,9 +26,40 @@
             <table width="100%" >
                 <tr>
                     <td style="padding-top:10px; padding-left:10px; padding-right:10px; padding-bottom:10px; text-align:center">
+                        <form id="postform" name="add" method="post" action="{U_ACTION}">
                         <h3>{L_COMMENT}</h3>
+<script type="text/javascript" src="bbcode.js"></script>
+                             <script type="text/javascript">
+                                // <![CDATA[
+
+                                var form_name = 'add';
+                                var text_name = 'message';
+                                // ]]>
+                            </script>
+                       <!-- IF S_SMILIES_ALLOWED -->
+                            <table width="100%" cellspacing="5" cellpadding="0" border="0" align="center">
+                                <tr>
+                                    <td class="gensmall" align="center"><strong>{L__SMILIES}</strong></td>
+                                </tr>
+                                <tr>
+                                    <td align="center">
+    <!-- BEGIN smiley -->
+                                        <a href="#" onclick="insert_text('{smiley.A_SMILEY_CODE}', true); return false;" style="line-height: 20px;"><img src="{smiley.SMILEY_IMG}" width="{smiley.SMILEY_WIDTH}" height="{smiley.SMILEY_HEIGHT}" alt="{smiley.SMILEY_CODE}" title="{smiley.SMILEY_DESC}" hspace="2" vspace="2" /></a>
+    <!-- END smiley -->
+                                    </td>
+                                </tr>
+
+                            <!-- IF S_SHOW_SMILEY_LINK -->
+                                <tr>
+                                    <td align="center"><a class="nav" href="upload.php?op=up&pop=smilies&form=add&area=descr" onclick="popUp('upload.php\?op\=up&amp;pop\=smilies&amp;form\=add&amp;area\=descr', 300, 350, '_phpbbsmilies'); return false;">{L__MORE_SMILIES}</a></td>
+                                </tr>
+                            <!-- ENDIF -->
+
+                            </table>
+                        <!-- ENDIF -->
+                       <table width="100%" cellspacing="0" cellpadding="0" border="0">
                         <!-- INCLUDE themes/Bitfarm/templates/posting_buttons.html -->
-                        <form id="postform" method="post" action="{U_ACTION}">
+                        </table>
                         <fieldset class="submit-buttons">
                             <br />
                             <textarea name="message" cols="20" rows="4">{COMMENT}</textarea>
@@ -39,6 +70,15 @@
                         </fieldset>
                         </form>
                     </td>
+                                <!-- IF S_BBCODE_ALLOWED -->
+                                <td width="80" align="center" valign="top">
+                                    <script type="text/javascript">
+                                    // <![CDATA[
+                                        colorPalette('v', 20, 10)
+                                    // ]]>
+                                    </script>
+                                </td>
+                                <!-- ENDIF -->
                 </tr>
             </table>
         <span class="corners-bottom"><span></span></span></div>
