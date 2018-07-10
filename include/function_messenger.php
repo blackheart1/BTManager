@@ -25,7 +25,7 @@ if (!defined('IN_PMBT'))
 }
 class messenger
 {
-	var $vars, $msg, $extra_headers, $replyto, $from, $subject;
+	var $vars, $msg, $replyto, $from, $subject;
 	var $addresses = array();
 
 	var $mail_priority = 3;
