@@ -158,7 +158,7 @@ class acp_permission_roles
 
 					$role_name = utf8_normalize_nfc(request_var('role_name', '', true));
 					$role_description = utf8_normalize_nfc(request_var('role_description', '', true));
-					$auth_settings = request_var('setting', array('' => 0));
+					$auth_settings = request_var('setting', array('a'));
 
 					if (!$role_name)
 					{
@@ -220,7 +220,7 @@ class acp_permission_roles
 					$auth_admin->acl_set_role($role_id, $auth_settings);
 
 					$role_name = (!empty($user->lang[$role_name])) ? $user->lang[$role_name] : $role_name;
-					//add_log('admin', 'LOG_' . strtoupper($permission_type) . 'ROLE_' . strtoupper($action_a), $role_name);
+					add_log('admin', 'LOG_' . strtoupper($permission_type) . 'ROLE_' . strtoupper($action_a), $role_name);
 
 					trigger_error($user->lang['ROLE_' . strtoupper($action_a) . '_SUCCESS'] . back_link($this->u_action));
 
