@@ -249,6 +249,9 @@ if ($comm == ':thankyou:' OR $comm == 'startcomments'){
 elseif ($comm == 'imdb'){
     $jload = 'get_imdb';
 }
+elseif ($comm == 'files'){
+    $jload = 'view_files_page';
+}
 else {
     $jload = 'view_details_page';
 }
@@ -317,6 +320,9 @@ if ($comm == ':thankyou:' OR $comm == 'startcomments'){
 }
 elseif ($comm == 'imdb'){
     $jload = 'get_imdb';
+}
+elseif ($comm == 'files'){
+    $jload = 'view_files_page';
 }
 else {
     $jload = 'view_details_page';
