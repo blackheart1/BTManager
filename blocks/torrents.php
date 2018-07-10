@@ -16,18 +16,25 @@
 **
 ** CHANGES
 **
-** EXAMPLE 26-04-13 - Added Auto Ban
+** 2018-07-09 - Fix Foreach() error
+** 2018-07-09 - Fix for not showing
 **/
 if (!defined('IN_PMBT'))
 {
 	include_once './../security.php';
-	die ();
+	die ('Error 404 - Page Not Found');
 }
 global $db_prefix, $user, $auth, $db, $shout_config,$template,$siteurl,$language,$pmbt_cache,$minvotes;
         global $name, $search, $user, $download_level, $torrent_global_privacy, $onlysearch, 
 		$autoscrape, $theme, $btback1, $btback2, $btback3, $free_dl,$page, $prev, $pages, $pager, $next;
 $cat_main = array();
 $cat_sub = array();
+	if (!isset($template->filename['index_tor']))
+	{
+		$template->set_filenames(array(
+			'index_tor'	=> 'index_torrents.html')
+		);
+	}
         if(! $res = $db->sql_query(
         "SELECT *
 			FROM `".$db_prefix."_categories`
@@ -55,8 +62,8 @@ $cat_sub = array();
 		}
 
 $orderby = " ORDER BY ".$db_prefix."_torrents.evidence DESC, ";//
-$catmain = '';
-if ($user->moderator)$catmain = '1';
+$catmainv = '';
+if ($user->moderator)$catmainv = '1';
 require_once("include/torrent_functions.php");
 
 		foreach($cat_main as $key=>$val)
@@ -92,14 +99,17 @@ require_once("include/torrent_functions.php");
 						LEFT JOIN 
 							".$db_prefix."_level_settings L ON L.group_id = U.can_do 
 						WHERE 
-							".$catmain.$viswhere.$catwhere.$passwhere.$orderby.$db_prefix."_torrents.added 
+							".$catmainv.$viswhere.$catwhere.$passwhere.$orderby.$db_prefix."_torrents.added 
 							DESC 
 							LIMIT 0,5;";
 				$res = $db->sql_query($sql) or mysql_error();
         if ($db->sql_numrows($res) > 0) {
+	$template->assign_vars(array(
+			'S_TORRENTS'     => true,
+			));
 		//die($sql);
                 get_tor_vars($res, "",  "", "", '_ind');
-				$template->assign_block_vars('index_tor.tsble',array('OUT' => $template->fetch('index_torrents.html')));
+				$template->assign_block_vars('index_tor.tsble',array('OUT' => $template->assign_display('index_tor')));
 				unset($template->_tpldata['torrent_var_ind']);
 				}
 				$db->sql_freeresult($res);
