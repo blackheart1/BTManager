@@ -12,11 +12,12 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts/Black_Heart)
 ** Project Leaders: Black_Heart, Thor.
-** File categories.php 2018-02-17 14:32:00 Black_Heart
+** File categories.php 2018-07-09 20:10:00 Black_Heart
 **
 ** CHANGES
 **
-** EXAMPLE 26-04-13 - Added Auto Ban
+** 2018-07-09 - Fixed Array error
+** 2018-07-09 - Added Confirmation for delete
 **/
 if (!defined('IN_PMBT'))
 {
@@ -168,9 +169,23 @@ switch($do) {
         }
         case "delcategory": {
                 if (!isset($id) OR intval($id) < 1) break;
-                $sql = "DELETE FROM ".$db_prefix."_categories WHERE id = '".intval($id)."';";
+			if (confirm_box(true))
+			{
+				$sql = "DELETE FROM ".$db_prefix."_categories WHERE id = '".intval($id)."';";
+				add_log('admin','TOR_CATEGORY_REMOVED');
                 $db->sql_query($sql) or btsqlerror($sql);
                 break;
+			}
+			else
+			{
+				$hidden = build_hidden_fields(array(
+					"id"				=> $id,
+					"i"					=> 'torrentinfo',
+					"op"				=> 'categories',
+					"do"				=> $do,
+				));
+				confirm_box(false, 'DELETE_CON', $hidden,'confirm_body.html','admin.php');
+			}
         }
         case "sortindexrebuild": {
                 RebuildSortIndex();

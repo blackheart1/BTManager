@@ -23,6 +23,7 @@
 ** 2018-04-01 - Amended the Wording of some Sentences
 ** 2018-04-01 - Amended !defined('IN_PMBT') Corrected Path
 ** 2018-04-10 - Amended the Wording of some Sentences
+** 2018-07-09 - Added Confirmation text for delete
 **/
 
 if (!defined('IN_PMBT'))
@@ -46,6 +47,8 @@ $lang = array_merge($lang, array(
     'INTRO_EXP_EDIT'     =>	'In this Section you can Upload New Images to use for you Category Icons.  At this time you are Only Allowed to use <strong>png</strong>, <strong>gif</strong>, <strong>jpg</strong> and <strong>jpeg</strong> Extensions.  Remember that you have to make the <em>/cat_pics</em> Folder Writeable first.  Icons must NOT exceed <strong>48px x 48px</strong> and must NOT be Larger than <strong>17kb</strong>.  Once you have Uploaded the New Icon, you can choose it from the Drop Down List above.',
 
     'NO_CATEGORIES'      =>	'NO Categories to Administer',
+	'DELETE_CON'	 	 => 'Delete Category',
+	'DELETE_CON_CONFIRM' => 'Are you sure you wish to Remove this Category?',
     'ADD_EDIT_CAT'       =>	'Add/Edit Torrent Category',
     'POSITION'           =>	'Position',
     'PARENT'             =>	'Parent',
@@ -59,7 +62,6 @@ $lang = array_merge($lang, array(
     'EMPTY_FILE'         =>	'The Icon you are Uploading is Empty',
     'FATAL_ERROR_UPLOAD' =>	'Fatal Error in the Uploaded Category Icon.',
     'UPLOAD_SUCCESSFUL'  =>	'New Category Icon was Successfully Uploaded.',
-
     'UPLOAD_FAILED'      =>	'The Upload has Failed.  Please Check the Permissions of the <em>cat_pics</em> Directory and make sure that the Permissions are Set Correctly!',
 ));
 
