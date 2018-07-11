@@ -430,7 +430,7 @@ function multiscrape() {
 
         $infohashes = Array();
         while ($row_hash = $db->sql_fetchrow($hashres)) {
-                $infohashes[] = utf8_encode($row_hash["info_hash"]);
+                $infohashes[] = utf8_decode($row_hash["info_hash"]);
         }
         unset($row_hash, $sql);
         $db->sql_freeresult($hashres);
