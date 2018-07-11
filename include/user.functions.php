@@ -12,17 +12,19 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts/Black_Heart)
 ** Project Leaders: Black_Heart, Thor.
-** File user.functions.php 2018-02-18 14:32:00 joeroberts
+** File user.functions.php 2018-07-11 07:33:00 Thor
 **
 ** CHANGES
 **
-** EXAMPLE 26-04-13 - Added Auto Ban
+** 2018-07-11 - Amended Language
 **/
+
 if (!defined('IN_PMBT'))
 {
 	include_once './../security.php';
 	die ();
 }
+
 function user_ipwhois($ip)
 {
 	$ipwhois = '';
@@ -237,7 +239,7 @@ function avatar_remote($data, &$error)
 											 @mkdir($data['upload_dir'] . '/' . $data['user_id'],01777);
 											 umask($oldumask);
 										}
-											 
+
                                         $fhandle = opendir($data['upload_dir'] . '/' . $data['user_id']);
                                         while ($file = readdir($fhandle)) {
                                                 if (preg_match("/^".$data['upload_name']."\.(gif|jpg|jpeg|png)$/si",$file)) @unlink($data['upload_dir'] . '/' . $data['user_id'] . '/' . $filename);
@@ -456,9 +458,9 @@ function validate_string($string, $optional = false, $min = 0, $max = 0)
 
 	return false;
 }
-if (!function_exists("gen_avatar")){ 
+if (!function_exists("gen_avatar")){
 function gen_avatar($id, $hight = false, $width = false){
-        global $db, $db_prefix, $user, $theme, $avon, $avstore, $siteurl, $avgal;	
+        global $db, $db_prefix, $user, $theme, $avon, $avstore, $siteurl, $avgal;
 		if(!$avon)return;
 		// Colect Info on the user
 			$sql = "SELECT COUNT(id) AS count, `name`, `username`, `avatar`, `avatar_type`, `avatar_ht`, `avatar_wt` FROM ".$db_prefix."_users WHERE `id` = '".$id."' LIMIT 1;";
@@ -501,7 +503,7 @@ function gen_avatar($id, $hight = false, $width = false){
 }
 }
 function checkEmail( $email ){
-	if (phpversion() < '5.2.0') 
+	if (phpversion() < '5.2.0')
 	{
 		if(preg_match("/[a-zA-Z0-9_-.+]+@[a-zA-Z0-9-]+.[a-zA-Z]+/", $email) > 0)
 		{
@@ -510,7 +512,7 @@ function checkEmail( $email ){
 		else
 		{
 			return false;
-		}	
+		}
 	}
 	else
 	{
@@ -603,7 +605,7 @@ function group_create(&$group_id, $type, $name, $desc, $group_attributes, $allow
 		}
 		if (!$group_id OR $group_id == 0)
 		{
-			$sql = 'SELECT group_id 
+			$sql = 'SELECT group_id
 				FROM ' . $db_prefix . '_level_settings
 				ORDER BY group_id DESC LIMIT 1';
 			$result = $db->sql_query($sql) or btsqlerror($sql);
@@ -722,14 +724,14 @@ function get_avatar_filename($avatar_entry)
 }
 
 
-if (!function_exists("getuser")){ 
+if (!function_exists("getuser")){
 function getuser($name){
         global $db, $db_prefix;
-            $sql = "SELECT 
-			`id` 
-			FROM ".$db_prefix."_users 
-			WHERE username ='".$db->sql_escape($name)."' 
-			OR name = '".$db->sql_escape($name)."' 
+            $sql = "SELECT
+			`id`
+			FROM ".$db_prefix."_users
+			WHERE username ='".$db->sql_escape($name)."'
+			OR name = '".$db->sql_escape($name)."'
 			OR clean_username = '".$db->sql_escape(strtolower($name))."'";
 			$res = $db->sql_query($sql) or btsqlerror($sql);
             if ($db->sql_numrows($res) == 0) return "0";
@@ -739,7 +741,7 @@ function getuser($name){
 			}
 }
 }
-if (!function_exists("username_is")){ 
+if (!function_exists("username_is")){
 function username_is($id)
 {
         global $db, $db_prefix;
@@ -753,7 +755,7 @@ function username_is($id)
 
 }
 }
-if (!function_exists("getlevel")){ 
+if (!function_exists("getlevel")){
 function getlevel($userid){
         global $db, $db_prefix;
 			$sql = "SELECT `can_do` FROM ".$db_prefix."_users WHERE `id` = '".$userid."';";
@@ -765,7 +767,7 @@ function getlevel($userid){
 			}
 }
 }
-if (!function_exists("getusercolor")){ 
+if (!function_exists("getusercolor")){
 function getusercolor($level){
         global $db, $db_prefix;
 			$sql = "SELECT group_colour FROM ".$db_prefix."_level_settings WHERE `group_id` = '".$level."';";
@@ -774,7 +776,7 @@ function getusercolor($level){
 		return '#' . $row['group_colour'];
 }
 }
-if (!function_exists("get_user_timezone")){ 
+if (!function_exists("get_user_timezone")){
 function get_user_timezone($id) {
         global $db, $db_prefix, $user;
   if ($user->user){
@@ -790,7 +792,7 @@ function get_user_timezone($id) {
 	}
 }
 }
-if (!function_exists("processinput")){ 
+if (!function_exists("processinput")){
 function processinput($name,&$input) {
         global $sqlfields, $sqlvalues;
         if (!get_magic_quotes_gpc()) $input = addslashes($input);
@@ -798,14 +800,14 @@ function processinput($name,&$input) {
         $sqlvalues[] = ($input != "NULL") ? "'".$input."'" : "NULL";
 }
 }
-if (!function_exists("processload")){ 
+if (!function_exists("processload")){
 function processload($name,$input) {
         global $sqlfields, $sqlvalues;
         $sqlfields[] = $name;
         $sqlvalues[] = ($input != 0) ? "".$input."" : 0;
 }
 }
-if (!function_exists("tz_select")){ 
+if (!function_exists("tz_select")){
 	function tz_select($default = '', $userrow = '', $truncate = false)
 	{
 	        global $db, $db_prefix;
@@ -813,11 +815,11 @@ if (!function_exists("tz_select")){
 		$tz_r = $db->sql_query($sql) or btsqlerror($sql);
 		while ($tz_a = $db->sql_fetchrow($tz_r))
 		  $default .= "<option value=" . $tz_a['id'] . "" . ($userrow["tzoffset"] == $tz_a['id'] ? " selected" : "") . ">" . $tz_a['name'] . "</option>\n";
-		
+
 	return $default;
 	}
 }
-if (!function_exists("cnt_select")){ 
+if (!function_exists("cnt_select")){
 	function cnt_select($countries = '', $userrow = array("country" =>0,))
 	{
 	        global $db, $db_prefix;
@@ -828,7 +830,7 @@ if (!function_exists("cnt_select")){
 	return $countries;
 	}
 }
-if (!function_exists("confirm_box")){ 
+if (!function_exists("confirm_box")){
 function confirm_box($check, $title = '', $hidden = '', $html_body = 'confirm_body.html', $u_action = '')
 {
 	global $user, $template, $db;
@@ -1036,7 +1038,7 @@ function message_options($id, $mode, $global_privmsgs_rules, $global_rule_condit
 
 		if ($full_action)
 		{
-			$sql = 'UPDATE ' . $db_prefix . '_users 
+			$sql = 'UPDATE ' . $db_prefix . '_users
 				SET user_full_folder = ' . $set_folder_id . '
 				WHERE id = ' . $user->id;
 			$db->sql_query($sql) or btsqlerror($sql);
@@ -1050,7 +1052,7 @@ $template->assign_vars(array(
 	));
 		}
 	}
-	
+
 	// Add Folder
 	if (isset($_POST['addfolder']))
 	{
@@ -1233,9 +1235,9 @@ $template->assign_vars(array(
 			{
 				// Move Messages
 				case 1:
-				
+
 					$num_moved = move_pm($user->id, '10000', $msg_ids, $move_to, $remove_folder_id);
-					
+
 					// Something went wrong, only partially moved?
 					if ($num_moved != $folder_row['pm_count'])
 					{
@@ -1261,7 +1263,7 @@ $template->assign_vars(array(
 			// Check full folder option. If the removed folder has been specified as destination switch back to inbox
 			if ($user->data['user_full_folder'] == $remove_folder_id)
 			{
-				$sql = 'UPDATE ' . $db_prefix . '_users 
+				$sql = 'UPDATE ' . $db_prefix . '_users
 					SET user_full_folder = ' . 0 . '
 					WHERE id = ' . $user->id;
 				$db->sql_query($sql) or btsqlerror($sql);
@@ -1288,7 +1290,7 @@ $template->assign_vars(array(
 		}
 		else
 		{
-			confirm_box(false, 'REMOVE_FOLDER', build_hidden_fields($s_hidden_fields),'confirm_body.html','pm.php?op=options');
+			confirm_box(false, '_REMOVE_FOLDER', build_hidden_fields($s_hidden_fields),'confirm_body.html','pm.php?op=options');
 		}
 	}
 
@@ -1353,7 +1355,7 @@ $template->assign_vars(array(
 			$sql = 'INSERT INTO ' . $db_prefix . '_private_messages_rules ' . $db->sql_build_array('INSERT', $rule_ary);
 			$db->sql_query($sql)or btsqlerror($sql);
 			// Update users message rules
-			$sql = 'UPDATE ' . $db_prefix . '_users 
+			$sql = 'UPDATE ' . $db_prefix . '_users
 				SET user_message_rules = 1
 				WHERE id = ' . $user->id;
 			$db->sql_query($sql) or btsqlerror($sql);
@@ -1364,7 +1366,7 @@ $template->assign_vars(array(
 		{
 			$msg = $user->lang['_FORM_INVALID'];
 		}
-		
+
 		$message = $msg . '<br /><br />' . sprintf($user->lang['_RETURN_UCP'], '<a href="' . $redirect_url . '">', '</a>');
 		meta_refresh(3, $redirect_url);
 $template->assign_vars(array(
@@ -1406,7 +1408,7 @@ $template->assign_vars(array(
 			// Update users message rules
 			if (!$row)
 			{
-				$sql = 'UPDATE ' . $db_prefix . '_users 
+				$sql = 'UPDATE ' . $db_prefix . '_users
 					SET user_message_rules = 0
 					WHERE id = ' . $user->id;
 				$db->sql_query($sql) or btsqlerror($sql);
@@ -1433,7 +1435,7 @@ $template->assign_vars(array(
 	$result = $db->sql_query($sql) or btsqlerror($sql);
 	$num_messages = (int) $db->sql_fetchfield('num_messages');
 	$db->sql_freeresult($result);
-	
+
 	$folder[0] = array(
 		'folder_name'		=> $user->lang['_PM_INBOX'],
 		'message_status'	=> sprintf($user->lang['_FOLDER_MESSAGE_STATUS'], $num_messages, $user->data['message_limit'])
@@ -2164,7 +2166,7 @@ function define_rule_option($hardcoded, $rule_option, $rule_lang, $check_ary)
 function define_cond_option($hardcoded, $cond_option, $rule_option, $global_rule_conditions)
 {
 	global $db, $template, $auth, $user, $db_prefix;
-	
+
 	$template->assign_vars(array(
 		'S_COND_DEFINED'	=> true,
 		'S_COND_SELECT'		=> (!$hardcoded && isset($global_rule_conditions[$rule_option])) ? true : false)
@@ -2188,7 +2190,7 @@ function define_cond_option($hardcoded, $cond_option, $rule_option, $global_rule
 	{
 		case 'text':
 			$rule_string = request_var('rule_string', '', true);
-			
+
 			$template->assign_vars(array(
 				'S_TEXT_CONDITION'	=> true,
 				'CURRENT_STRING'	=> $rule_string,
@@ -2202,7 +2204,7 @@ function define_cond_option($hardcoded, $cond_option, $rule_option, $global_rule
 		case 'user':
 			$rule_user_id = request_var('rule_user_id', 0);
 			$rule_string = request_var('rule_string', '', true);
-			
+
 			if ($rule_string && !$rule_user_id)
 			{
 				$sql = 'SELECT id
@@ -2264,10 +2266,10 @@ function define_cond_option($hardcoded, $cond_option, $rule_option, $global_rule
 			{
 				$sql .= 'WHERE';
 			}
-			
-			$sql .= " (g.group_name NOT IN ('GUESTS', 'BOTS') OR g.group_type <> " . 3 . ')	
+
+			$sql .= " (g.group_name NOT IN ('GUESTS', 'BOTS') OR g.group_type <> " . 3 . ')
 				ORDER BY g.group_type DESC, g.group_name ASC';
-			
+
 			$result = $db->sql_query($sql) or btsqlerror($sql);
 
 			$s_group_options = '';
@@ -2280,7 +2282,7 @@ function define_cond_option($hardcoded, $cond_option, $rule_option, $global_rule
 
 				$s_class	= ($row['group_type'] == 3) ? ' class="sep"' : '';
 				$s_selected	= ($row['group_id'] == $rule_group_id) ? ' selected="selected"' : '';
-				
+
 				$s_group_options .= '<option value="' . $row['group_id'] . '"' . $s_class . $s_selected . '>' . (($row['group_type'] == 3) ? $user->lang[$row['group_name']] : $row['group_name']) . '</option>';
 			}
 			$db->sql_freeresult($result);
@@ -2334,7 +2336,7 @@ function show_defined_rules($user_id, $check_lang, $rule_lang, $action_lang, $fo
 		WHERE user_id = ' . $user_id . '
 		ORDER BY rule_id ASC';
 	$result = $db->sql_query($sql) or btsqlerror($sql);
-	
+
 	$count = 0;
 	while ($row = $db->sql_fetchrow($result))
 	{
@@ -2436,7 +2438,7 @@ function get_username_string($mode, $user_id, $username, $username_colour = '', 
 
 	return str_replace(array('{PROFILE_URL}', '{USERNAME_COLOUR}', '{USERNAME}'), array($profile_url, $username_colour, $username), (!$username_colour) ? $_profile_cache['tpl_profile'] : $_profile_cache['tpl_profile_colour']);
 }
-if (!function_exists("newuserpage")){ 
+if (!function_exists("newuserpage")){
 function newuserpage($page)
 {
 if(preg_match("/rules.php/",$page))return true;
@@ -2459,7 +2461,7 @@ return false;
 function build_user_array($id)
  {
  	global $db, $db_prefix;
-	$sql = 'SELECT U.language AS language, U.username AS name, U.lastlogin AS lastlogin, U.lastip AS ip, U.lasthost AS lasthost, U.name AS nick, U.can_do AS goup, U.level AS level, U.regdate AS reg, U.email AS email, U.uploaded AS uploaded, U.downloaded AS downloaded, U.uploaded/U.downloaded AS ratio, U.modcomment AS mdcoment, U.warned as warned, U.warn_hossz as length, U.warn_kapta as received, U.user_posts AS postcount, U.banreason AS banreason, U.ban AS banned, L.group_colour AS color, L.group_name AS lname 
+	$sql = 'SELECT U.language AS language, U.username AS name, U.lastlogin AS lastlogin, U.lastip AS ip, U.lasthost AS lasthost, U.name AS nick, U.can_do AS goup, U.level AS level, U.regdate AS reg, U.email AS email, U.uploaded AS uploaded, U.downloaded AS downloaded, U.uploaded/U.downloaded AS ratio, U.modcomment AS mdcoment, U.warned as warned, U.warn_hossz as length, U.warn_kapta as received, U.user_posts AS postcount, U.banreason AS banreason, U.ban AS banned, L.group_colour AS color, L.group_name AS lname
 			FROM `' . $db_prefix . '_users` U, `' . $db_prefix . '_level_settings` L
 			WHERE
 			U.id = ' . $id . ' and
