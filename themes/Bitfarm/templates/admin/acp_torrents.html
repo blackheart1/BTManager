@@ -41,10 +41,10 @@
 			<td><a href="./user.php?op=profile&amp;id={torrent.OWNER_ID}"><font color="#{torrent.OWNER_COLOR}">{torrent.OWNER}</font></a></td>
 			<td style="text-align: center;">{torrent.VISIBLE}</td>
 			<td>{torrent.LASTACTION}</td>
-			<td style="text-align: center;"><a href="edit.php?id={torrent.ID}"><img src="themes/Bitfarm/pics/edit.gif" border="0" alt="{L_EDIT}" title="{L_EDIT}" /></a>&nbsp;&nbsp;<a href="edit.php?op=ban&amp;id={torrent.ID}"><img src="themes/Bitfarm/pics/ban.png" border="0" alt="{L_DELETE}" title="{L_DELETE}" /></a></td>
+			<td style="text-align: center;"><a href="edit.php?id={torrent.ID}"><img src="themes/Bitfarm/pics/edit.gif" border="0" alt="{L_EDIT}" title="{L_EDIT}" /></a>&nbsp;&nbsp;<a href="edit.php?op=ban&amp;id={torrent.ID}"><img src="themes/Bitfarm/pics/ban.png" border="0" alt="{L_BAN_TORRENT}" title="{L_BAN_TORRENT}" /></a></td>
 			<td style="text-align: center;"><input type="checkbox" class="radio" name="torrent_id[]" value="{torrent.ID}" /></td>
 		</tr>
-	<!-- END log -->
+	<!-- END torrent -->
 	</tbody>
 	</table>
 
