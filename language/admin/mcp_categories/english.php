@@ -38,31 +38,31 @@ if (empty($lang) || !is_array($lang))
 }
 
 $lang = array_merge($lang, array(
-    'INTRO'              =>	'Torrent Categories',
+    'INTRO'              => 'Torrent Categories',
 
-    'INTRO_EXP'          =>	'In this Section you can Manage Torrent Categories that Users can Upload to.  The Installation provides this Tracker with some Common Categories for Torrents.<br />You can <strong>Add/Edit</strong> or <strong>Delete</strong> Categories.  You can also attach an Image to the Category.<br />Images are in the <em><strong>cat_pics</strong></em> Directory of the Tracker\'s Root Directory.  If the Theme has a <em><strong>pics/cat_pics</strong></em> Directory within it, Images that are in that Directory will be Displayed instead of Global Images.',
+    'INTRO_EXP'          => 'In this Section you can Manage Torrent Categories that Users can Upload to.  The Installation provides this Tracker with some Common Categories for Torrents.<br />You can <strong>Add/Edit</strong> or <strong>Delete</strong> Categories.  You can also attach an Image to the Category.<br />Images are in the <em><strong>cat_pics</strong></em> Directory of the Tracker\'s Root Directory.  If the Theme has a <em><strong>pics/cat_pics</strong></em> Directory within it, Images that are in that Directory will be Displayed instead of Global Images.',
 
-    'INTRO_EDIT'         =>	'Add New Torrent Category Icon',
+    'INTRO_EDIT'         => 'Add New Torrent Category Icon',
 
-    'INTRO_EXP_EDIT'     =>	'In this Section you can Upload New Images to use for you Category Icons.  At this time you are Only Allowed to use <strong>png</strong>, <strong>gif</strong>, <strong>jpg</strong> and <strong>jpeg</strong> Extensions.  Remember that you have to make the <em>/cat_pics</em> Folder Writeable first.  Icons must NOT exceed <strong>48px x 48px</strong> and must NOT be Larger than <strong>17kb</strong>.  Once you have Uploaded the New Icon, you can choose it from the Drop Down List above.',
+    'INTRO_EXP_EDIT'     => 'In this Section you can Upload New Images to use for you Category Icons.  At this time you are Only Allowed to use <strong>png</strong>, <strong>gif</strong>, <strong>jpg</strong> and <strong>jpeg</strong> Extensions.  Remember that you have to make the <em>/cat_pics</em> Folder Writeable first.  Icons must NOT exceed <strong>48px x 48px</strong> and must NOT be Larger than <strong>17kb</strong>.  Once you have Uploaded the New Icon, you can choose it from the Drop Down List above.',
 
-    'NO_CATEGORIES'      =>	'NO Categories to Administer',
-	'DELETE_CON'	 	 => 'Delete Category',
-	'DELETE_CON_CONFIRM' => 'Are you sure you wish to Remove this Category?',
-    'ADD_EDIT_CAT'       =>	'Add/Edit Torrent Category',
-    'POSITION'           =>	'Position',
-    'PARENT'             =>	'Parent',
-    'AT_END'             =>	'At the End',
-    'AT_BEGIN'           =>	'At the Beginning',
-    'AFTER'              =>	'After %1$s',
-    'SETASPARENT'        =>	'Set as Parent',
-    'UPLOAD_CAT'         =>	'Upload Category Icon',
-    'CAT_UPLOAD_TOBIG'   =>	'Category Icon is Too Large',
-    'INVALID_ICON'       =>	'Invalid Category Icon',
-    'EMPTY_FILE'         =>	'The Icon you are Uploading is Empty',
-    'FATAL_ERROR_UPLOAD' =>	'Fatal Error in the Uploaded Category Icon.',
-    'UPLOAD_SUCCESSFUL'  =>	'New Category Icon was Successfully Uploaded.',
-    'UPLOAD_FAILED'      =>	'The Upload has Failed.  Please Check the Permissions of the <em>cat_pics</em> Directory and make sure that the Permissions are Set Correctly!',
+    'NO_CATEGORIES'      => 'NO Categories to Administer',
+    'DELETE_CON'         => 'Delete Category',
+    'DELETE_CON_CONFIRM' => 'Are you sure you wish to Remove this Category?',
+    'ADD_EDIT_CAT'       => 'Add/Edit Torrent Category',
+    'POSITION'           => 'Position',
+    'PARENT'             => 'Parent',
+    'AT_END'             => 'At the End',
+    'AT_BEGIN'           => 'At the Beginning',
+    'AFTER'              => 'After %1$s',
+    'SETASPARENT'        => 'Set as Parent',
+    'UPLOAD_CAT'         => 'Upload Category Icon',
+    'CAT_UPLOAD_TOBIG'   => 'Category Icon is Too Large',
+    'INVALID_ICON'       => 'Invalid Category Icon',
+    'EMPTY_FILE'         => 'The Icon you are Uploading is Empty',
+    'FATAL_ERROR_UPLOAD' => 'Fatal Error in the Uploaded Category Icon.',
+    'UPLOAD_SUCCESSFUL'  => 'New Category Icon was Successfully Uploaded.',
+    'UPLOAD_FAILED'      => 'The Upload has Failed.  Please Check the Permissions of the <em>cat_pics</em> Directory and make sure that the Permissions are Set Correctly!',
 ));
 
 ?>

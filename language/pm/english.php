@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File pm/english.php 2018-04-26 09:12:00 Thor
+** File pm/english.php 2018-07-11 07:33:00 Thor
 **
 ** CHANGES
 **
@@ -22,6 +22,7 @@
 ** 2018-03-02 - Fixed Spelling
 ** 2018-04-25 - Amended the Wording of some Sentences
 ** 2018-04-25 - Added Missing Languages
+** 2018-07-11 - Added Missing Languages
 **/
 
 if (!defined('IN_PMBT'))
@@ -865,5 +866,6 @@ $lang = array_merge($lang, array(
     '_btpm'                   => 'Private Messages',
     '_btrulesadd'             => 'Add New Rules Section',
     '_CONFIRM'                => 'Confirm Deletion of Attachment',
+    '_REMOVE_FOLDER'           => 'Delete Folder',
 ));
 ?>
