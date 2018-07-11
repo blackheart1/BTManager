@@ -105,14 +105,14 @@ if($force_passkey){
 				$passkey = NULL;
 				}
 $act_key = RandomAlpha(32);
-if($conferm_email)$sql = "INSERT INTO ".$db_prefix."_users (username, clean_username, email, password, act_key, can_do, uploaded, regdate, user_type" . $passkeyrow . ") VALUES ('".$db->sql_escape($username)."', '".$db->sql_escape($username_clean)."', '".$db->sql_escape($email)."', '".md5($password)."', '".$act_key."', " . $default_group[0] . ", '".$give_sign_up_credit."', NOW(), 1 " . $passkey .");";
+if($conferm_email)$sql = "INSERT INTO ".$db_prefix."_users (username, clean_username, email, password, act_key, can_do, uploaded, regdate, user_type" . $passkeyrow . ") VALUES ('".$db->sql_escape($username)."', '".$db->sql_escape($username_clean)."', '".$db->sql_escape($email)."', '".md5($password)."', '".$act_key."', " . $default_group['group_id'] . ", '".$give_sign_up_credit."', NOW(), 1 " . $passkey .");";
 else
-$sql = "INSERT INTO ".$db_prefix."_users (username, clean_username, email, password, act_key, can_do, uploaded, regdate, user_type" . $passkeyrow . ", active) VALUES ('".$db->sql_escape($username)."', '".$db->sql_escape($username_clean)."', '".$db->sql_escape($email)."', '".md5($password)."', '".$act_key."', " . $default_group[0] . ", '".$give_sign_up_credit."', NOW(), 0" . $passkey .", 1);";
+$sql = "INSERT INTO ".$db_prefix."_users (username, clean_username, email, password, act_key, can_do, uploaded, regdate, user_type" . $passkeyrow . ", active) VALUES ('".$db->sql_escape($username)."', '".$db->sql_escape($username_clean)."', '".$db->sql_escape($email)."', '".md5($password)."', '".$act_key."', " . $default_group['group_id'] . ", '".$give_sign_up_credit."', NOW(), 0" . $passkey .", 1);";
 $db->sql_query($sql) or btsqlerror($sql);
 $new_id = $db->sql_nextid();
-$sql = "INSERT INTO `".$db_prefix."_user_group` (`group_id`, `user_id`, `group_leader`, `user_pending`) VALUES ('" . $default_group[0] . "', '" . $new_id . "', '0', '0');";
+$sql = "INSERT INTO `".$db_prefix."_user_group` (`group_id`, `user_id`, `group_leader`, `user_pending`) VALUES ('" . $default_group['group_id'] . "', '" . $new_id . "', '0', '0');";
 $db->sql_query($sql) or btsqlerror($sql);
-group_set_user_default($default_group[0], array($new_id), false);
+group_set_user_default($default_group['group_id'], array($new_id), false);
 
 if($conferm_email) 
 {
