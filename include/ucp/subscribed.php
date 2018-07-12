@@ -54,7 +54,52 @@ $user->set_lang('forum',$user->ulanguage);
 		$sql = "SELECT * FROM `" . $db_prefix . "_comments` WHERE `torrent` = " . $dcont['torrent'] . " ORDER BY `added` DESC LIMIT 1";
 		$rescom = $db->sql_query($sql);
 		$rowcom = $db->sql_fetchrow($rescom);
-		if(!isset($userrow[$rowcom['user']]))$userrow[$rowcom['user']] = build_user_array($rowcom['user']);
+		if ($rowcom['user'] == 0)
+		{
+				if(!isset($userrow[$rowcom['user']]))$userrow[$rowcom['user']] == array(
+				'joined'		=> '',
+				'posts'			=> '',
+				'from'			=> 'unknown.gif',
+				'from_key'		=>	'N/A',
+				'upl'			=> '0',
+				'dnl'			=> '0',
+				'ratio'			=> '--',
+
+				'sig'					=> '',
+				'sig_bbcode_uid'		=> '',
+				'sig_bbcode_bitfield'	=> '',
+
+				'online'			=> false,
+				'avatar'			=> '',
+				'rank_title'		=> '',
+				'rank_image'		=> '',
+				'rank_image_src'	=> '',
+				'sig'				=> '',
+				'profile'			=> '',
+				'pm'				=> '',
+
+				'email'				=> '',
+				'www'				=> '',
+				'icq_status_img'	=> '',
+				'icq'				=> '',
+				'aim'				=> '',
+				'msn'				=> '',
+				'yim'				=> '',
+				'jabber'			=> '',
+				'search'			=> '',
+				'age'				=> '',
+
+				'username'			=> $user->lang['GUEST'],
+				'user_colour'		=> getusercolor('6'),
+
+				'warnings'			=> 0,
+				'allow_pm'			=> 0,
+			);		
+		}
+		else
+		{
+			if(!isset($userrow[$rowcom['user']]))$userrow[$rowcom['user']] = build_user_array($rowcom['user']);
+		}
 		//die(print_r($userrow));
 				$torrent = '';
 						$sql_t = "SELECT A.id as id, A.exeem, A.seeders, A.leechers, A.tot_peer, 
@@ -87,6 +132,7 @@ $user->set_lang('forum',$user->ulanguage);
 						}
                         else
                                 $cat_pics = $torrent["cat_name"];
+								//die($torrent['lastseed']);
 				$template->assign_block_vars('torrentrow',array(
 				'TORRENT_ID'     		=> $dcont['torrent'],
 				'STATUS'		 		=> $dcont['status'],
@@ -95,7 +141,7 @@ $user->set_lang('forum',$user->ulanguage);
 				'TORRENT_NAME'	 		=> $torrent['name'],
 				'U_TORFORUM'	 		=> $siteurl.'/details.php?id='.$dcont['torrent'].'&hit',
 				'DATE_ADDED'	 		=> $user->format_date(sql_timestamp_to_unix_timestamp($torrent['added'])),
-				'LAST_SEEDER'    		=> ($torrent['tracker'] != "")? '' : $user->format_date(sql_timestamp_to_unix_timestamp($torrent['lastseed'])),
+				'LAST_SEEDER'    		=> ($torrent['tracker'] != "")? '' : $user->format_date(sql_timestamp_to_unix_timestamp($rowcom['added'])),
 				'CAN_DOWNLOAD'	 		=> can_download($user, $torrent),
 				'CAN_EDIT'	 	 		=> ($torrent["owner"] == $user->id AND checkaccess("u_edit_own_torrents"))? true : checkaccess("m_can_edit_others_torrents")? true : false,
 				'CAN_DELETE'	 		=> ($torrent["owner"] == $user->id AND checkaccess("u_edit_own_torrents"))? true : checkaccess("m_can_edit_others_torrents")? true : false,
@@ -262,6 +308,8 @@ $user->set_lang('forum',$user->ulanguage);
 			));
 		}
 // Buildin watched forums
+						$forbidden_forums = $auth->acl_getf('!f_read', true);
+						$forbidden_forums = array_unique(array_keys($forbidden_forums));
 			$sql_array = array(
 				'SELECT'	=> 't.*, f.forum_name',
 
@@ -272,7 +320,7 @@ $user->set_lang('forum',$user->ulanguage);
 
 				'WHERE'		=> 'tw.user_id = ' . $user->id . '
 					AND t.topic_id = tw.forum_id
-					AND ' . $db->sql_in_set('t.forum_id', $forbidden_forum_ary, true, true),
+					AND ' . $db->sql_in_set('t.forum_id', $forbidden_forums, true, true),
 
 
 				'ORDER_BY'	=> 't.topic_last_post_time DESC'
