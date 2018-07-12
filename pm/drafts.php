@@ -27,6 +27,7 @@ $user->set_lang('pm',$user->ulanguage);
 require_once("include/ucp/functions_privmsgs.php");
 require_once("include/functions_forum.php");
 require_once("include/class.bbcode.php");
+include_once("include/utf/utf_tools.php");
 				$pm_drafts = true;
 				$u_action = "pm.php?op=drafts";
 	generate_smilies('inline', 0);
@@ -126,8 +127,8 @@ $template->assign_vars(array(
 
 				if ($submit && $edit)
 				{
-					$draft_subject = $db->sql_escape(request_var('subject', '', true));
-					$draft_message = $db->sql_escape(request_var('message', '', true));
+					$draft_subject = utf8_normalize_nfc(request_var('subject', '', true));
+					$draft_message = utf8_normalize_nfc(request_var('message', '', true));
 					if (check_form_key('ucp'))
 					{
 						if ($draft_message && $draft_subject)
