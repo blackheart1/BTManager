@@ -1380,7 +1380,28 @@ function ChangeThumb(pic) {
                 var text_name = 'message';
             // ]]>
             </script>
-            <table cellspacing="0" cellpadding="2" border="0">
+                         <!-- IF S_SMILIES_ALLOWED -->
+                            <table width="100%" cellspacing="5" cellpadding="0" border="0" align="center">
+                            <tr>
+                                <td class="gensmall" align="center"><strong>{L__SMILIES}</strong></td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+<!-- BEGIN smiley -->
+                                    <a href="#" onclick="insert_text('{smiley.A_SMILEY_CODE}', true); return false;" style="line-height: 20px;"><img src="{smiley.SMILEY_IMG}" width="{smiley.SMILEY_WIDTH}" height="{smiley.SMILEY_HEIGHT}" alt="{smiley.SMILEY_CODE}" title="{smiley.SMILEY_DESC}" hspace="2" vspace="2" /></a>
+<!-- END smiley -->
+                                </td>
+                            </tr>
+
+                            <!-- IF S_SHOW_SMILEY_LINK -->
+                                <tr>
+                                    <td align="center"><a class="nav" href="{U_MORE_SMILIES}" onclick="PopMoreSmiles('ucp','message'); return false;">{L__MORE_SMILIES}</a></td>
+                                </tr>
+                            <!-- ENDIF -->
+
+                            </table>
+                        <!-- ENDIF -->
+           <table cellspacing="0" cellpadding="2" border="0">
 <tr valign="middle" align="{ S_CONTENT_FLOW_BEGIN}">
     <td colspan="2">
         <script type="text/javascript">

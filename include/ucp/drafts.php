@@ -124,6 +124,7 @@ $user->set_lang('pm',$user->ulanguage);
 		'S_BBCODE_URL'			=> ($config['allow_post_links']) ? true : false,
 		'S_BBCODE_FLASH'		=> ($config['auth_flash_pm'] && $auth->acl_get('u_pm_flash')) ? true : false,
 		'S_SMILIES_ALLOWED'		=> true,
+		'S_SHOW_SMILEY_LINK'	=> true,
 		'T_TEMPLATE_PATH'		=> $siteurl . "/themes/" . $theme . "/templates",
 		'S_HIDDEN_FIELDS'		=> ($edit)? $edit_hidden : '<input name="do" value="edit_delete" type="hidden">',
 		'S_UCP_ACTION' 			=> $siteurl.'/user.php?op=editprofile&action=overview&mode=drafts'

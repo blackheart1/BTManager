@@ -63,7 +63,7 @@ $user->set_lang('pm',$user->ulanguage);
 				$s_hidden_fields['op'] = "editprofile";
 				$s_hidden_fields['action'] = 'overview';
 				$s_hidden_fields['mode'] = 'attachments';
-
+		
 			if (confirm_box(true))
 			{
 				if (!function_exists('delete_attachments'))
