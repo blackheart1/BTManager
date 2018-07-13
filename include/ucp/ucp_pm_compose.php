@@ -141,9 +141,9 @@ function compose_pm($id, $mode, $action)
 	switch ($action)
 	{
 		case 'post':
-			if (!checkaccess('u_sendpm'))
+			if (!$auth->acl_get('u_sendpm'))
 			{
-				pmbt_trigger_error('NO_AUTH_SEND_MESSAGE');
+				trigger_error('NO_AUTH_SEND_MESSAGE');
 			}
 		break;
 
@@ -153,12 +153,12 @@ function compose_pm($id, $mode, $action)
 		case 'quotepost':
 			if (!$msg_id)
 			{
-				pmbt_trigger_error('NO_MESSAGE1');
+				trigger_error('NO_MESSAGE');
 			}
 
-			if (!checkaccess('u_sendpm'))
+			if (!$auth->acl_get('u_sendpm'))
 			{
-				pmbt_trigger_error('NO_AUTH_SEND_MESSAGE');
+				trigger_error('NO_AUTH_SEND_MESSAGE');
 			}
 
 			if ($action == 'quotepost')
@@ -183,7 +183,7 @@ function compose_pm($id, $mode, $action)
 		case 'edit':
 			if (!$msg_id)
 			{
-				pmbt_trigger_error('NO_MESSAGE2');
+				trigger_error('NO_MESSAGE');
 			}
 
 			// check for outbox (not read) status, we do not allow editing if one user already having the message
@@ -196,14 +196,14 @@ function compose_pm($id, $mode, $action)
 		break;
 
 		case 'delete':
-			if (!checkaccess('u_pm_delete'))
+			if (!$auth->acl_get('u_pm_delete'))
 			{
-				pmbt_trigger_error('NO_AUTH_DELETE_MESSAGE');
+				trigger_error('NO_AUTH_DELETE_MESSAGE');
 			}
 
 			if (!$msg_id)
 			{
-				pmbt_trigger_error('NO_MESSAGE3');
+				trigger_error('NO_MESSAGE');
 			}
 
 			$sql = 'SELECT msg_id AS id, pm_unread, pm_new, author_id AS sender, folder_id
@@ -217,18 +217,18 @@ function compose_pm($id, $mode, $action)
 		break;
 
 		default:
-			pmbt_trigger_error('NO_ACTION_MODE', E_USER_ERROR);
+			trigger_error('NO_ACTION_MODE', E_USER_ERROR);
 		break;
 	}
 
-	if ($action == 'forward' && (!$config['forward_pm'] || !checkaccess('u_pm_forward')))
+	if ($action == 'forward' && (!$config['forward_pm'] || !$auth->acl_get('u_pm_forward')))
 	{
-		pmbt_trigger_error('NO_AUTH_FORWARD_MESSAGE');
+		trigger_error('NO_AUTH_FORWARD_MESSAGE');
 	}
 
-	if ($action == 'edit' && !checkaccess('u_pm_edit'))
+	if ($action == 'edit' && !$auth->acl_get('u_pm_edit'))
 	{
-		pmbt_trigger_error('NO_AUTH_EDIT_MESSAGE');
+		trigger_error('NO_AUTH_EDIT_MESSAGE');
 	}
 
 	if ($sql)
@@ -253,18 +253,18 @@ function compose_pm($id, $mode, $action)
 
 				if ($post)
 				{
-					pmbt_trigger_error($user->lang['_NO_EDIT_READ_MESSAGE']);
+					trigger_error('_NO_EDIT_READ_MESSAGE');
 				}
 			}
 
-			pmbt_trigger_error($user->lang['_NO_MESSAGE']);
+			trigger_error('_NO_MESSAGE');
 		}
 
 		if ($action == 'quotepost')
 		{
-			if (($post['forum_id'] && !get_forum_access_levels($post['forum_id'], 'minclassread')) || (!$post['forum_id'] && $user->forumbanned))
+			if (($post['forum_id'] && !$auth->acl_get('f_read', $post['forum_id'])) || (!$post['forum_id'] && !$auth->acl_getf_global('f_read')))
 			{
-				pmbt_trigger_error('NOT_AUTHORISED');
+				trigger_error('NOT_AUTHORISED');
 			}
 
 			// Passworded forum?
@@ -295,7 +295,7 @@ function compose_pm($id, $mode, $action)
 
 		if ((!$post['author_id'] || ($post['author_id'] == 0 && $action != 'delete')) && $msg_id)
 		{
-			pmbt_trigger_error('NO_AUTHOR');
+			trigger_error('NO_AUTHOR');
 		}
 
 		if ($action == 'quotepost')
@@ -374,14 +374,14 @@ function compose_pm($id, $mode, $action)
 
 	if (($to_group_id || isset($address_list['g'])) && (!$config['allow_mass_pm'] || !checkaccess('u_masspm_group')))
 	{
-		pmbt_trigger_error('NO_AUTH_GROUP_MESSAGE');
+		trigger_error('NO_AUTH_GROUP_MESSAGE');
 	}
 
 	if ($action == 'edit' && !$refresh && !$preview && !$submit)
 	{
 		if (!($message_time > time() - ($config['pm_edit_time'] * 60) || !$config['pm_edit_time']))
 		{
-			pmbt_trigger_error('CANNOT_EDIT_MESSAGE_TIME');
+			trigger_error('CANNOT_EDIT_MESSAGE_TIME');
 		}
 	}
 
@@ -420,7 +420,7 @@ function compose_pm($id, $mode, $action)
 
 			meta_refresh(3, $meta_info);
 			$message .= '<br /><br />' . sprintf($user->lang['_RETURN_FOLDER'], '<a href="' . $meta_info . '">', '</a>');
-			pmbt_trigger_error($message);
+			trigger_error($message);
 		}
 		else
 		{
@@ -548,6 +548,7 @@ function compose_pm($id, $mode, $action)
 	// Save Draft
 	if ($save && checkaccess('u_savedrafts'))
 	{
+		$draft_loaded = request_var('draft_loaded', '0');
 		$subject = utf8_normalize_nfc(request_var('subject', '', true));
 		$subject = (!$subject && $action != 'post') ? $user->lang['_NEW_MESSAGE'] : $subject;
 		$message = utf8_normalize_nfc(request_var('message', '', true));
@@ -556,40 +557,61 @@ function compose_pm($id, $mode, $action)
 		{
 			if (confirm_box(true))
 			{
-				$sql = 'INSERT INTO ' . $db_prefix . '_drafts ' . $db->sql_build_array('INSERT', array(
-					'user_id'		=> $user->id,
-					'topic_id'		=> 0,
-					'forum_id'		=> 0,
-					'save_time'		=> $current_time,
-					'draft_subject'	=> $subject,
-					'draft_message'	=> $message,
-					'draft_type'	=> 'pm',
-					'user_to'		=> $to_user_id,
-					'torrent'		=> 0
-					)
-				);
-				//die($sql);
-				$db->sql_query($sql) or btsqlerror($sql);;
+				if($draft_loaded > '0')
+				{
+					$sql = 'UPDATE ' . $db_prefix . '_drafts SET  ' . $db->sql_build_array('UPDATE', array(
+						'topic_id'		=> 0,
+						'forum_id'		=> 0,
+						'save_time'		=> $current_time,
+						'draft_subject'	=> $subject,
+						'draft_message'	=> $message,
+						'user_to'		=> $to_user_id,
+						)). ' WHERE `draft_id` = ' . $draft_loaded;
+				}
+				else
+				{
+					$sql = 'INSERT INTO ' . $db_prefix . '_drafts ' . $db->sql_build_array('INSERT', array(
+						'user_id'		=> $user->id,
+						'topic_id'		=> 0,
+						'forum_id'		=> 0,
+						'save_time'		=> $current_time,
+						'draft_subject'	=> $subject,
+						'draft_message'	=> $message,
+						'draft_type'	=> 'pm',
+						'user_to'		=> $to_user_id,
+						'torrent'		=> 0
+						)
+					);
+				}
+				$db->sql_query($sql) or btsqlerror($sql);
+				if($draft_loaded > '0')
+				{
+					$draft_id = $draft_loaded;
+				}else{
+					$draft_id = $db->sql_nextid();
+				}
+					
 
-				$redirect_url = append_sid("{$siteurl}/pm.$phpEx", "op=send&amp;i=pm&amp;mode=$mode");
+				$redirect_url = append_sid("{$siteurl}/pm.$phpEx", "op=send&amp;i=&amp;mode=edit&amp;d=$draft_id");
 
 				meta_refresh(3, $redirect_url);
 				$message = $user->lang['_DRAFT_SAVED'] . '<br /><br />' . sprintf($user->lang['_RETURN_UCP'], '<a href="' . $redirect_url . '">', '</a>');
 
-				bterror($message,$user->lang['SUCCESS']);
+				trigger_error($message);
 			}
 			else
 			{
 				$s_hidden_fields = build_hidden_fields(array(
-					'op'       => 'send',
-					'mode'		=> $mode,
-					'action'	=> $action,
-					'save'		=> '1',
-					'subject'	=> $subject,
-					'message'	=> $message,
-					'u'			=> $to_user_id,
-					'g'			=> $to_group_id,
-					'p'			=> $msg_id)
+					'op'       		=> 'send',
+					'mode'			=> $mode,
+					'action'		=> $action,
+					'save'			=> '1',
+					'subject'		=> $subject,
+					'message'		=> $message,
+					'u'				=> $to_user_id,
+					'g'				=> $to_group_id,
+					'p'				=> $msg_id,
+					'draft_loaded'	=> $draft_loaded)
 				);
 				$s_hidden_fields .= build_address_field($address_list);
 
@@ -747,15 +769,7 @@ function compose_pm($id, $mode, $action)
 			meta_refresh(3, $return_message_url);
 
 			$message = $user->lang['_MESSAGE_STORED'] . '<br /><br />' . sprintf($user->lang['_VIEW_PRIVATE_MESSAGE'], '<a href="' . $return_message_url . '">', '</a>') . '<br /><br />' . sprintf($user->lang['_CLICK_RETURN_FOLDER'], '<a href="' . $return_folder_url . '">', '</a>', $user->lang['_PM_OUTBOX']);
-			//pmbt_trigger_error($message);
-							$template->assign_vars(array(
-					'S_SUCCESS'			=> true,
-					'S_FORWARD'			=> false,
-					'TITTLE_M'			=> $user->lang['SUCCESS'],
-					'MESSAGE'			=> $message,
-				));
-				echo $template->fetch('message_body.html');
-				close_out();
+				trigger_error($message);
 
 		}
 
@@ -1039,7 +1053,7 @@ function compose_pm($id, $mode, $action)
 		break;
 
 		default:
-			pmbt_trigger_error('NO_ACTION_MODE', E_USER_ERROR);
+			trigger_error('NO_ACTION_MODE', E_USER_ERROR);
 		break;
 
 	}

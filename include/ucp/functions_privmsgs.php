@@ -1019,19 +1019,17 @@ function submit_pm($mode, $subject, &$data, $put_in_outbox = true)
 				'bcc_address'		=> implode(':', $bcc),
 				'message_reported'	=> 0,
 			);
-//die(print_r($data));
 		break;
 
 		case 'edit':
 			$sql_data = array(
 				'icon_id'			=> $data['icon_id'],
-				'message_edit_time'	=> $current_time,
 				'enable_bbcode'		=> $data['enable_bbcode'],
 				'enable_smilies'	=> $data['enable_smilies'],
 				'enable_magic_url'	=> $data['enable_urls'],
 				'enable_sig'		=> $data['enable_sig'],
-				'message_subject'	=> $subject,
-				'message_text'		=> $data['message'],
+				'subject'	=> $subject,
+				'text'		=> $data['message'],
 				'message_attachment'=> (!empty($data['attachment_data'])) ? 1 : 0,
 				'bbcode_bitfield'	=> $data['bbcode_bitfield'],
 				'bbcode_uid'		=> $data['bbcode_uid']
@@ -1053,8 +1051,8 @@ function submit_pm($mode, $subject, &$data, $put_in_outbox = true)
 		else if ($mode == 'edit')
 		{
 			$sql = 'UPDATE ' . $db_prefix . '_private_messages
-				SET message_edit_count = message_edit_count + 1, ' . $db->sql_build_array('UPDATE', $sql_data) . '
-				WHERE msg_id = ' . $data['msg_id'];
+				SET ' . $db->sql_build_array('UPDATE', $sql_data) . '
+				WHERE id = ' . $data['msg_id'];
 			$db->sql_query($sql);
 		}
 	}
