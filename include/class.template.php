@@ -709,7 +709,7 @@ class Template {
 							// Add the block reference for the last child.
 							$varref .= "['" . $blocks[0] . "']";
 						}
-						$token = "sizeof($varref)";
+						$token = "@sizeof($varref)";
 					}
 					else if (!empty($token))
 					{

@@ -106,7 +106,7 @@ switch ($cron_type)
 			break;
 		}
 
-		include_once($phpbb_root_path . 'include/function_messenger.' . $phpEx);
+		include_once('include/function_messenger.' . $phpEx);
 		$queue = new queue();
 
 		$queue->process();
@@ -134,7 +134,7 @@ switch ($cron_type)
 			break;
 		}
 
-		include_once("{$phpbb_root_path}include/search/$search_type.$phpEx");
+		include_once("include/search/$search_type.$phpEx");
 
 		// We do some additional checks in the module to ensure it can actually be utilised
 		$error = false;
@@ -194,7 +194,7 @@ switch ($cron_type)
 		// Do the forum Prune thang
 		if ($row['prune_next'] < time() && $row['enable_prune'])
 		{
-			include_once($phpbb_root_path . 'includes/functions_admin.' . $phpEx);
+			include_once('includes/functions_admin.' . $phpEx);
 
 			if ($row['prune_days'])
 			{

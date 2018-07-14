@@ -1810,7 +1810,7 @@ function place_pm_into_folder(&$global_privmsgs_rules, $release = false)
 	}
 
 	// Get those messages not yet placed into any box
-	$retrieve_sql = 'SELECT t.*, p.id as msg_id, p.*, u.username, u.id, u.can_do as group_id
+	$retrieve_sql = 'SELECT t.*, p.id as msg_id, p.text as message_text, p.subject as message_subject, p.*, u.username, u.id, u.can_do as group_id
 		FROM ' . $db_prefix . '_privmsgs_to t, ' . $db_prefix . '_private_messages p, ' . $db_prefix . "_users u
 		WHERE t.user_id = $user_id
 			AND p.sender = u.id

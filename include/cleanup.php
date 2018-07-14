@@ -403,68 +403,7 @@ if ($autodel_users)
     }
 $db->sql_freeresult($res);
 }
-	// Call cron-type script
-	$run_cron = true;
-	$call_cron = false;
-	if (!defined('IN_CRON') && $run_cron && !$config['board_disable'])
-	{
-		$call_cron = true;
-		$time_now = (!empty($user->time_now) && is_int($user->time_now)) ? $user->time_now : time();
 
-		// Any old lock present?
-		if (!empty($config['cron_lock']))
-		{
-			$cron_time = explode(' ', $config['cron_lock']);
-
-			// If 1 hour lock is present we do not call cron.php
-			if ($cron_time[0] + 3600 >= $time_now)
-			{
-				$call_cron = false;
-			}
-		}
-	}
-
-	// Call cron job?
-	if ($call_cron)
-	{
-		$cron_type = 'queue';
-
-		if ($time_now - $config['queue_interval'] > $config['last_queue_run'] && !defined('IN_ADMIN') && file_exists($phpbb_root_path . 'cache/queue.' . $phpEx))
-		{
-			// Process email queue
-			$cron_type = 'queue';
-		}
-		else if (method_exists($pmbt_cache, 'tidy') && $time_now - $config['cache_gc'] > $config['cache_last_gc'])
-		{
-			// Tidy the cache
-			$cron_type = 'tidy_cache';
-		}
-		else if ($config['warnings_expire_days'] && ($time_now - $config['warnings_gc'] > $config['warnings_last_gc']))
-		{
-			$cron_type = 'tidy_warnings';
-		}
-		else if ($time_now - $config['database_gc'] > $config['database_last_gc'])
-		{
-			// Tidy the database
-			$cron_type = 'tidy_database';
-		}
-		else if ($time_now - $config['search_gc'] > $config['search_last_gc'])
-		{
-			// Tidy the search
-			$cron_type = 'tidy_search';
-		}
-		else if ($time_now - $config['session_gc'] > $config['session_last_gc'])
-		{
-			$cron_type = 'tidy_sessions';
-		}
-
-		if ($cron_type)
-		{
-			$cron_type1 = array();
-			$cron_type1['cron_type'] = $cron_type;
-			//$template->assign_var('RUN_CRON_TASK', '<img src="' . append_sid($phpbb_root_path . 'cron.' . $phpEx, 'cron_type=' . $cron_type) . '" width="1" height="1" alt="cron" />');
-		}
-	}
 $db->sql_close();
 }
 @exec("php-cli " . $sourcedir . "cron.php  >  /dev/null 2>&1 &");

@@ -89,7 +89,7 @@ close_out();
 
 $sql = 'SELECT `group_id` FROM `'.$db_prefix.'_level_settings` WHERE `group_default` = 1 LIMIT 1 '; 
 $res = $db->sql_query($sql);
-$default_group = $db->fetch_array($res);
+$default_group = $db->sql_fetchrow($res);
 if($force_passkey){
                 do {
                         $passkey = ", '".RandomAlpha(32)."'";

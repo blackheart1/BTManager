@@ -234,7 +234,7 @@ $template->assign_vars(array(
 					else if ($pm_drafts)
 					{
 						$link_pm = true;
-						$insert_url = append_sid("{$siteurl}/pm.$phpEx", "op=send&amp;i=$id&amp;mode=compose&amp;d=" . $draft['draft_id']);
+						$insert_url = append_sid("{$siteurl}/pm.$phpEx", "op=send&amp;i=$id&amp;mode=edit&amp;d=" . $draft['draft_id']);
 					}
 
 					$template_row = array(
