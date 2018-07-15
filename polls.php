@@ -66,14 +66,14 @@ $returnto					= strip_tags(request_var('returnto', ''));
 					'action'	=>	'delete',
 					'returnto'	=>	$returnto,
 		));
-		confirm_box(false, $user->lang['CONFIRM_OPERATION'], $hidden,'confirm_body.html','polls.php');
+		confirm_box(false, $user->lang['POLL_DELETE'], $hidden,'confirm_body.html','polls.php');
 	}
   }
   $rows = $db->sql_query("SELECT COUNT(*) as count FROM ".$db_prefix."_polls") or sqlerr();
   $row = $db->sql_fetchrow($rows);
   $pollcount = $row['count'];
   if ($pollcount == 0)
-  	bterror("There are no polls!","Error");
+  	bterror($user->lang['ERROR_NO_POLLS'],$user->lang['BT_ERROR']);
   $polls = $db->sql_query("SELECT * FROM ".$db_prefix."_polls ORDER BY id DESC") or sqlerr();
     function srt($a,$b)
     {

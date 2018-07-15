@@ -42,6 +42,8 @@ $lang = array_merge($lang, array(
     'SELECTION'           => 'Selected',
     'POLL_REMOVED'        => 'Poll was Successfully Removed',
     'ANSWERS'             => 'Answers',
+    'POLL_DELETE'         => 'Are you sure you wish to Delete this Poll?',
+    'ERROR_NO_POLLS'      => 'There are No Polls!',
 ));
 
 ?>
