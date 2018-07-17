@@ -47,7 +47,7 @@ function is_valid_id($id)
 $timestamp=time();                                                                                            
 $timeout=$timestamp-$timeoutseconds=300;  
 $action			= request_var("action", '' , true);
-$pollid			= request_var('pollid', '0');
+$pollid			= request_var('pollid', 0);
 $question		= request_var("question", '' , true);
 $option0		= request_var("option0", '' , true);
 $option1		= request_var("option1", '' , true);
@@ -71,7 +71,7 @@ if ($action == "edit")
 	$res = $db->sql_query("SELECT * FROM ".$db_prefix."_polls WHERE id = $pollid")
 			or sqlerr(__FILE__, __LINE__);
 	if ($db->sql_numrows($res) == 0)
-		bterror("No poll found with ID $pollid.","Error");
+		bterror(sprintf($user->lang['NO_POLL_FOUND'], $pollid),$user->lang['BT_ERROR']);
 	$poll = $db->sql_fetchrow($res);
 }
 if ($_SERVER["REQUEST_METHOD"] == "POST")

@@ -114,7 +114,7 @@ $sql = "INSERT INTO `".$db_prefix."_user_group` (`group_id`, `user_id`, `group_l
 $db->sql_query($sql) or btsqlerror($sql);
 group_set_user_default($default_group['group_id'], array($new_id), false);
 
-if($conferm_email) 
+if($config['email_enable'] AND $conferm_email) 
 {
 			$act_key = md5($act_key);
 			require_once("include/class.email.php");

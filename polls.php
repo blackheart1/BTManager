@@ -112,7 +112,7 @@ $returnto					= strip_tags(request_var('returnto', ''));
         $os[$i] = array($vs[$i], $o[$i]);
     // now os is an array like this:
     if ($poll["sort"] == "yes")
-    	usort($os, srt);
+    	usort($os, 'srt');
     $i = 0;
     while ($a = $os[$i])
     {

@@ -36,6 +36,7 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, array(
     'POLL_OVER_VIEW'      => 'Poll Overview',
+    'POLL_QUESTION'       => 'Poll Questions',
     'POLL_ANSWERS'        => 'Poll Answers',
     'POLL_OPTION_NUM'     => 'Poll Option Number',
     'POLL_USER_OVER_VIEW' => 'Poll User Overview',

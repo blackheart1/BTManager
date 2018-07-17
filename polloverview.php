@@ -54,13 +54,6 @@ else
 	{
 		$sql = $db->sql_query("SELECT * FROM ".$db_prefix."_polls WHERE id = {$pollid} ORDER BY id DESC") or sqlerr();
 	
-	
-	
-	//print("<h1>Polls Overview</h1>\n");
-	
-	//print("<p><table width=750 border=1 cellspacing=0 cellpadding=5><tr>\n" .
-	//"<td class=colhead align=center>ID</td><td class=colhead>Added</td><td class=colhead>Question</td></tr>\n");
-	
 		while ($poll = $db->sql_fetchrow($sql))
 		{
 						$template->assign_block_vars('polls', array(
