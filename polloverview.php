@@ -35,7 +35,7 @@ $pollid					= request_var('id', '0');
 set_site_var($user->lang['POLL_OVER_VIEW']);
 if ($pollid == 0)
 {
-	 
+
 	$sql = $db->sql_query("SELECT id, added, question FROM ".$db_prefix."_polls ORDER BY id DESC");
 	while ($poll = $db->sql_fetchrow($sql))
 	{
@@ -53,7 +53,7 @@ else
 	if($pollid > 0)
 	{
 		$sql = $db->sql_query("SELECT * FROM ".$db_prefix."_polls WHERE id = {$pollid} ORDER BY id DESC") or sqlerr();
-	
+
 		while ($poll = $db->sql_fetchrow($sql))
 		{
 						$template->assign_block_vars('polls', array(
@@ -75,48 +75,48 @@ else
 												'OP_I'				=> (($poll["option8"] != '')? $poll["option8"] : FALSE),
 												'OP_J'				=> (($poll["option9"] != '')? $poll["option9"] : FALSE),
 										));
-						$sqlb = "SELECT 
-									P. * , 
-									U.uploaded, 
-									U.downloaded, 
-									IF(U.name IS NULL, U.username, U.name) as user_name, 
-									U.warned AS warned, 
-									U.uploaded/U.downloaded as ratio, 
-									U.aim AS aim, 
-									U.country AS country, 
-									U.icq AS icq, 
-									U.msn AS msn, 
-									U.yahoo AS yahoo, 
-									U.skype AS skype, 
-									U.jabber AS jabber, 
-									U.accept_mail AS accept_mail, 
-									U.ban as ban, 
-									U.regdate AS regdate, 
-									U.email AS email, 
-									U.avatar AS avatar, 
-									UNIX_TIMESTAMP(U.lastlogin) AS lststamp, 
-									U.lastlogin AS lastlogin, 
-									U.lastip AS lastip, 
-									U.lasthost AS lasthost, 
-									U.level as user_level, 
-									U.can_do as can_do, 
-									L.group_colour AS color, 
-									L.group_name AS co_name, 
-									C.name AS lname, 
-									C.flagpic AS flagpic 
-								FROM 
-									".$db_prefix."_pollanswers P 
-								LEFT JOIN 
-									".$db_prefix."_users U ON P.userid = U.id  
-								LEFT JOIN 
-									".$db_prefix."_level_settings L ON L.group_id = U.can_do 
-						LEFT JOIN 
-							".$db_prefix."_countries C ON C.id = U.country 
-									WHERE P.pollid = {$pollid} 
-									AND P.selection < 20 
+						$sqlb = "SELECT
+									P. * ,
+									U.uploaded,
+									U.downloaded,
+									IF(U.name IS NULL, U.username, U.name) as user_name,
+									U.warned AS warned,
+									U.uploaded/U.downloaded as ratio,
+									U.aim AS aim,
+									U.country AS country,
+									U.icq AS icq,
+									U.msn AS msn,
+									U.yahoo AS yahoo,
+									U.skype AS skype,
+									U.jabber AS jabber,
+									U.accept_mail AS accept_mail,
+									U.ban as ban,
+									U.regdate AS regdate,
+									U.email AS email,
+									U.avatar AS avatar,
+									UNIX_TIMESTAMP(U.lastlogin) AS lststamp,
+									U.lastlogin AS lastlogin,
+									U.lastip AS lastip,
+									U.lasthost AS lasthost,
+									U.level as user_level,
+									U.can_do as can_do,
+									L.group_colour AS color,
+									L.group_name AS co_name,
+									C.name AS lname,
+									C.flagpic AS flagpic
+								FROM
+									".$db_prefix."_pollanswers P
+								LEFT JOIN
+									".$db_prefix."_users U ON P.userid = U.id
+								LEFT JOIN
+									".$db_prefix."_level_settings L ON L.group_id = U.can_do
+						LEFT JOIN
+							".$db_prefix."_countries C ON C.id = U.country
+									WHERE P.pollid = {$pollid}
+									AND P.selection < 20
 									ORDER  BY P.selection DESC ";
 							$sql2 =$db->sql_query($sqlb) or mysql_error();
-		
+
 			while ($useras = $db->sql_fetchrow($sql2))
 			{
 							$template->assign_block_vars('users_var', array(

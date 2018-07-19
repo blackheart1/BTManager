@@ -34,14 +34,14 @@
 <!-- END poll_var_answered -->
 </tbody>
 </table>
-<p>{L_VOTES}: {POLL_VOTE_COUNT}<br />
+<br /><p align="center">{L_VOTES}: {POLL_VOTE_COUNT}<br />
 [<a class="altlink" href="polloverview.php"><strong>{L_VIEW_RESULTS}</strong></a>]</p>
 </td></tr></tbody></table></div>
 	<!-- ELSE -->
 <form method="post" action="index.php"><p class='poll'>
 <input type="hidden" name="vote" value="1" />
 <!-- BEGIN poll_var_no_answered -->
-<input name="choice" value="{poll_var_no_answered.VALUE}" type="radio" />{poll_var_no_answered.VAL_QUEST}<br />
+<input name="choice" value="{poll_var_no_answered.VALUE}" type="radio" />&nbsp;&nbsp;{poll_var_no_answered.VAL_QUEST}<br />
 <!-- END poll_var_no_answered -->
 <br /></p><div align="center"><input value="{L_VOTE}" class="btn" type="submit" /><br />[<a href="polls.php"><strong>{L_VIEW_RESULTS}</strong></a>]</div></form></td></tr></tbody></table></div>
     <!-- ENDIF -->
