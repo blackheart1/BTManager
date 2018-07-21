@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File details/english.php 2018-04-21 09:04:00 Thor
+** File details/english.php 2018-07-20 18:02:00 Thor
 **
 ** CHANGES
 **
@@ -22,6 +22,7 @@
 ** 2018-03-02 - Fixed Spelling
 ** 2018-04-21 - Amended the Wording of some Sentences
 ** 2018-04-23 - Added Missing Text
+** 2018-07-20 - Added Missing Language
 **/
 
 if (!defined('IN_PMBT'))
@@ -43,6 +44,7 @@ $lang = array_merge($lang, array(
     'VIEW_RATING'               => 'View Ratings',
     'VIEW_COMMENTS'             => 'View Comments',
     'VIEW_PEERS'                => 'View Peers',
+    'VIEW_FILE_LIST'            => 'View File List',
     'PASS_PROT'                 => 'Password Protection',
     'AUTH_REQ_MAIL_SUB'         => 'Download Request on %1$s'
     ,

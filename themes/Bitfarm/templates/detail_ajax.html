@@ -4,7 +4,7 @@
 {S_ERROR_MESS}
 </div>
 <!-- ELSEIF ACTION == close_view_details -->
-        <span id=ID{TORRENT}><p onclick="sndReq('op=view_details&torrent={TORRENT}', 'ID{TORRENT}')"><img src="themes/Bitfarm/pics/plus.gif" alt="{L_TORRENT_DETAILS}" border="0"></p></span>
+        <span id="ID{TORRENT}"><p onclick="sndReq('op=view_details&torrent={TORRENT}', 'ID{TORRENT}')"><img src="themes/Bitfarm/pics/plus.gif" alt="{L_TORRENT_DETAILS}" border="0"></p></span>
 <!-- ELSEIF ACTION == close_view_details_page -->
 <!-- ELSEIF ACTION == view_peers_page -->
     <table class="tablebg" cellspacing="0" width="100%">
@@ -35,7 +35,7 @@
 <!-- ENDIF -->
                             <td style="vertical-align:bottom">
                                 <div>
-                                                        <span class="overlib" onmouseover="return overlib('{L_UPLODED}: {peer_list.UPLOADED}<br />{L_DOWNED}: {peer_list.DOWNLOADED}<br />{L_COMPLETED}: {peer_list.PERCENT}<br />{L_RATIO}: {peer_list.RATIO}<br />{L_UP_SPEED}: {peer_list.SPEED}/s<br /><!-- IF  peer_list.DOWNLOAD_SPEED -->{L_DOWN_SPEED}: {peer_list.DOWNLOAD_SPEED}/s<br /><!-- ENDIF -->',CAPTION, 'Transfer',TEXTFONT,'Verdana',TEXTCOLOR,'#FFFFFF',CAPTIONFONT,'Lucida Console, Verdana',CENTER,FGCOLOR,'#000000',BGCOLOR,'#0000FF',CAPICON,'themes/Bitfarm/pics/help.png',BORDER,2,SHADOW,SHADOWOPACITY,40,SHADOWCOLOR,'#030303',SHADOWX,2,SHADOWY,2);" onmouseout="return nd();" style="cursor:help">
+                                                        <span class="overlib" onmouseover="return overlib('{L_UPLODED}: {peer_list.UPLOADED}<br />{L_DOWNED}: {peer_list.DOWNLOADED}<br />{L_COMPLETED}: {peer_list.PERCENT}<br />{L_RATIO}: {peer_list.RATIO}<br />{L_UP_SPEED}: {peer_list.SPEED}/s<br /><!-- IF peer_list.DOWNLOAD_SPEED -->{L_DOWN_SPEED}: {peer_list.DOWNLOAD_SPEED}/s<br /><!-- ENDIF -->',CAPTION, 'Transfer',TEXTFONT,'Verdana',TEXTCOLOR,'#FFFFFF',CAPTIONFONT,'Lucida Console, Verdana',CENTER,FGCOLOR,'#000000',BGCOLOR,'#0000FF',CAPICON,'themes/Bitfarm/pics/help.png',BORDER,2,SHADOW,SHADOWOPACITY,40,SHADOWCOLOR,'#030303',SHADOWX,2,SHADOWY,2);" onmouseout="return nd();" style="cursor:help">
                                                             <img src="themes/Bitfarm/pics/help.gif" alt="" title="" border="0">
                                                         </span>
                                                         <img src="themes/Bitfarm/pics/<!-- IF peer_list.IS_SEEDER -->upload<!-- ELSE -->download<!-- ENDIF -->.gif" alt="<!-- IF peer_list.IS_SEEDER -->{L_SEEDING}<!-- ELSE -->{L_LEECHING}<!-- ENDIF -->" title="<!-- IF peer_list.IS_SEEDER -->{L_SEEDING}<!-- ELSE -->{L_LEECHING}<!-- ENDIF -->" border="0">
@@ -199,8 +199,8 @@
                                                     <img src="themes/Bitfarm/pics/{V_URATING}-rating.png" alt="" title="" border="0"> {V_URATING_VAR}, {V_RATE_DATE}
 <!-- ELSE -->
                                                     <form method="post" action="rate.php">
-                                                    <input name="op" value="star" type="hidden">
-                                                    <input name="id" value="{RATE_ID}" type="hidden">
+                                                    <input name="op" value="star" type="hidden" />
+                                                    <input name="id" value="{RATE_ID}" type="hidden" />
                                                     <select name="rating">
                                                     <option value="0">({L_VOTE})</option>
                                                     <option value="5">5 - {L_VOTE_E}</option>
@@ -209,7 +209,7 @@
                                                     <option value="2">2 - {L_VOTE_B}</option>
                                                     <option value="1">1 - {L_VOTE_A}</option>
                                                     </select>
-                                                    <input value="{L_RATE}" type="submit"></form>
+                                                    <input value="{L_RATE}" type="submit" /></form>
 <!-- ENDIF -->
 <!-- ENDIF -->
                                                 </td>
@@ -241,10 +241,10 @@
                                             <tr>
                                                 <td>
                                                     <form action="rate.php" method="POST">
-                                                    <input name="op" value="complaint" type="hidden">
-                                                    <input name="id" value="{RATE_ID}" type="hidden">
+                                                    <input name="op" value="complaint" type="hidden" />
+                                                    <input name="id" value="{RATE_ID}" type="hidden" />
                                                     <select name="complaint">{COMP_SELECT}</select>
-                                                    <input value="{L_SUBMIT}" type="submit">
+                                                    <input value="{L_SUBMIT}" type="submit" />
                                                     </form>
                                                 </td>
                                             </tr>
@@ -278,7 +278,7 @@
 <!-- IF LOGIN -->
 <div id="errorbox" >
     <span class="errorbox-title">{TITTLE_M}</span>
-<!-- IF ERROR -->   <span class="errorbox-title">{E_ERROR}</span><!-- ENDIF -->
+<!-- IF ERROR -->  <span class="errorbox-title">{E_ERROR}</span><!-- ENDIF -->
         <form method="POST" action="{U_ACTION}">
         {HIDDEN}
         <p align="center">
@@ -294,14 +294,14 @@
             <tbody>
                 <tr>
 <!-- IF POSTER -->
-                    <td class="imdb-odd"  rowspan="2" id="img_primary">
+                    <td class="imdb-odd" rowspan="2" id="img_primary">
                             <div class="image">
                             <img alt="{TITLE}" title="{TITLE}" src="{POSTER}" itemprop="image" height="317" width="214">
                             </div>
                     </td>
 <!-- ENDIF -->
-                    <td class="imdb-odd"  id="overview-top">
-                        <h2  class="imdb-odd" class="header2">
+                    <td class="imdb-odd" id="overview-top">
+                        <h2 class="imdb-odd" class="header2">
                         <span class="itemprop" itemprop="name">{TITLE}</span>
                         </h2>
 <!-- IF TORRENT_LINK -->
@@ -515,13 +515,13 @@
         <table class="imdb-odd" id="title-overview-widget-layout" border="0" cellpadding="0" cellspacing="0">
             <tbody>
                 <tr>
-                    <td class="imdb-odd"  rowspan="2" id="img_primary">
+                    <td class="imdb-odd" rowspan="2" id="img_primary">
                             <div class="image">
                             <img alt="{IMDB_TITLE}" title="{IMDB_TITLE}" src="{IMDB_POSTER}" itemprop="image" height="317" width="214">
                             </div>
                     </td>
-                    <td class="imdb-odd"  id="overview-top">
-                        <h2  class="imdb-odd" class="header2">
+                    <td class="imdb-odd" id="overview-top">
+                        <h2 class="imdb-odd" class="header2">
                         <span class="itemprop" itemprop="name">{IMDB_TITLE}</span>
                         <span class="nobr">({IMDB_YEAR})</span>
                         </h2>
@@ -619,7 +619,7 @@
                     <h4 class="inline">{L_TAGLINES}:</h4>
         <!-- BEGIN taglines -->
                     <p>{taglines.TAGS}</p>
-        <!-- IF not taglines.S_LAST_ROW -->  <hr width="40%"> <!-- ENDIF -->
+        <!-- IF not taglines.S_LAST_ROW --> <hr width="40%"> <!-- ENDIF -->
                     <hr width="40%">
         <!-- END taglines -->
                 </div>
@@ -654,7 +654,7 @@
 
                 <div class="inline canwrap" itemprop="description">
         <!-- BEGIN trailers -->
-                                    <a target="_blank"  href="{trailers.LINK}" itemprop="url"><span class="itemprop" itemprop="name">{trailers.LINK}</span></a><br />
+                                    <a target="_blank" href="{trailers.LINK}" itemprop="url"><span class="itemprop" itemprop="name">{trailers.LINK}</span></a><br />
         <!-- END trailers -->
                 </div>
             </div>
@@ -749,9 +749,9 @@
                                 <a onclick="comment_smile('{smilies.SMILIE_CODE}',torrentComment.comment);"><img src="smiles/{smilies.SMILIE_IMG}" alt="{smilies.ALT}" border="0"></a>
 <!-- END smilies -->
                                 </p>
-                                <p><input value="{L_SUBMIT}" type="submit"></p>
-                                <input name="id" value="{T_ID}" type="hidden">
-                                <input name="op" value="add" type="hidden"></form>
+                                <p><input value="{L_SUBMIT}" type="submit" /></p>
+                                <input name="id" value="{T_ID}" type="hidden" />
+                                <input name="op" value="add" type="hidden" /></form>
                                 </td>
                             </tr>
                         </tbody>
