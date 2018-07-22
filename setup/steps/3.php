@@ -127,8 +127,10 @@ EOF;
 if (isset($postback)) {
         switch ($db_type) {
                 case "MySQL":
+                case "MySQL5":
                 case "MySQL4": {
                         $db = @mysql_connect($db_host,$db_user,$db_pass);
+						if($db_type == "MySQL5")$db_type = "MySQL4";
                         if (!$db) {
                                 $myerr = mysql_errno();
                                 if ($myerr > 2000 AND $myerr < 2100) { //Connection error
@@ -232,7 +234,8 @@ if ($error) {
 
         //DB Type
         echo "<tr><td width=\"30%\"><p>"._dbtype."</p></td><td width=\"70%\"><p><select size=\"1\" name=\"db_type\">";
-        echo "<option value=\"MySQL\" "; if ($db_type == "MySQL") echo "selected"; echo ">MySQL >= 4.1</option>";
+        echo "<option value=\"MySQL\" "; if ($db_type == "MySQL") echo "selected"; echo ">MySQL >=5.6.5</option>";
+        echo "<option value=\"MySQL5\" "; if ($db_type == "MySQL5") echo "selected"; echo ">MySQL 4.1 to 5.6.4</option>";
         echo "<option value=\"MySQL4\" "; if ($db_type == "MySQL4") echo "selected"; echo ">MySQL < 4.1</option>";
         echo "<option value=\"MySQLi\" "; if ($db_type == "MySQLi") echo "selected"; echo ">MySQLi</option>";
         echo "</select></p></td></tr>\n";
