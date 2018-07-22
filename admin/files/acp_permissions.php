@@ -69,7 +69,7 @@ class acp_permissions
 
 		$all_forums = request_var('all_forums', 0);
 		$subforum_id = request_var('subforum_id', 0);
-		$forum_id = request_var('forum_id', array(0));
+		$forum_id = request_var('forum_id', array('0'));
 
 		$username = request_var('username', array(''), true);
 		$usernames = request_var('usernames', '', true);
@@ -624,7 +624,7 @@ class acp_permissions
 	{
 		global $user, $auth;
 
-		$psubmit = request_var('psubmit', array(0 => array(0 => 0)));
+		$psubmit = request_var('psubmit', array('0' => array('0' => '0')));
 
 		// User or group to be set?
 		$ug_type = (sizeof($user_id)) ? 'user' : 'group';
@@ -638,8 +638,8 @@ class acp_permissions
 		$ug_id = $forum_id = 0;
 
 		// We loop through the auth settings defined in our submit
-		list($ug_id, ) = each($psubmit);
-		list($forum_id, ) = each($psubmit[$ug_id]);
+		list($ug_id, ) = @each($psubmit);
+		list($forum_id, ) = @each($psubmit[$ug_id]);
 
 		if (empty($_POST['setting']) || empty($_POST['setting'][$ug_id]) || empty($_POST['setting'][$ug_id][$forum_id]) || !is_array($_POST['setting'][$ug_id][$forum_id]))
 		{
@@ -655,7 +655,7 @@ class acp_permissions
 		$assigned_role = (isset($_POST['role'][$ug_id][$forum_id])) ? (int) $_POST['role'][$ug_id][$forum_id] : 0;
 
 		// Do the admin want to set these permissions to other items too?
-		$inherit = request_var('inherit', array(0 => array(0)));
+		$inherit = request_var('inherit', array('0' => array('0')));
 
 		$ug_id = array($ug_id);
 		$forum_id = array($forum_id);

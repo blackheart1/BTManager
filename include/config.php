@@ -264,18 +264,20 @@ if (isset($theme_change)){
 	if ($bttheme != "" AND is_dir("themes/".$bttheme) AND $bttheme != "CVS") {
 		setcookie("bttheme",$bttheme,$session_time,$cookiepath,$cookiedomain,0);
 		unset($_POST);
+		if ($user->user) $db->sql_query('UPDATE ' . $db_prefix . "_users SET theme = '" . $db->sql_escape($bttheme) . "' WHERE id = " . $user->id);
 	}
 }
 
 if(isset($language_change)){
 	$btlanguage = $language_change;
-	if ($btlanguage != "" AND is_readable("language/".$btlanguage.".php") AND $btlanguage != "CVS") {
+	if ($btlanguage != "" AND is_readable("language/common/".$btlanguage.".php") AND $btlanguage != "CVS") {
 		setcookie("btlanguage",$btlanguage,(time() + 31536000),$cookiepath,$cookiedomain,0);
 		unset($_POST);
+		if ($user->user) $db->sql_query('UPDATE ' . $db_prefix . "_users SET language = '" . $db->sql_escape($btlanguage) . "' WHERE id = " . $user->id);
 	}
 }
 
-if (isset($btlanguage) AND is_readable("language/".$btlanguage.".php")) $language = $btlanguage;
+if (isset($btlanguage) AND is_readable("language/common/".$btlanguage.".php")) $language = $btlanguage;
 $theme = $user->theme;
 if (isset($bttheme) AND is_readable("themes/".$bttheme."/main.php")) $theme = $bttheme;
 

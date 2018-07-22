@@ -543,18 +543,25 @@ function request_var($var_name, $default, $multibyte = false, $cookie = false, $
 	else
 	{
 		//list($key_type, $type) = @each($default);
+		
 		foreach($default as $key_type_val=>$type_var)
 		{
-			$type = $key_type_val;
-			$key_type = $type_var;
+			$type = $type_var;
+			$key_type = $key_type_val;
 		}
+		//print_r($default);
 		$type = gettype($type);
 		$key_type = gettype($key_type);
 		if ($type == 'array')
 		{
 			reset($default);
 			$default = current($default);
-			list($sub_key_type, $sub_type) = @each($default);
+			//list($sub_key_type, $sub_type) = @each($default);
+			foreach($default as $key_type_val=>$type_var)
+			{
+				$sub_type = $type_var;
+				$sub_key_type = $key_type_val;
+			}
 			$sub_type = gettype($sub_type);
 			$sub_type = ($sub_type == 'array') ? 'NULL' : $sub_type;
 			$sub_key_type = gettype($sub_key_type);
@@ -587,6 +594,7 @@ function request_var($var_name, $default, $multibyte = false, $cookie = false, $
 				{
 					$v = null;
 				}
+				print_r($var[$k]);
 				set_var($var[$k], $v, $type, $multibyte);
 			}
 		}

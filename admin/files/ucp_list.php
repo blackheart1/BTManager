@@ -32,10 +32,10 @@ class acp_inactive
 	function main($id, $mode)
 	{
 		global $config, $db, $user, $auth, $template, $db_prefix, $language;
-		global $phpbb_root_path, $phpbb_admin_path, $phpEx, $table_prefix, $conferm_email;
+		global $phpEx, $table_prefix, $conferm_email;
 
-		include_once($phpbb_root_path . 'include/user.functions.' . $phpEx);
-		include_once($phpbb_root_path . 'include/class.bbcode.' . $phpEx);
+		include_once('include/user.functions.' . $phpEx);
+		include_once('include/class.bbcode.' . $phpEx);
 
 		$user->set_lang('memberslist',$user->ulanguage);
 
@@ -110,7 +110,7 @@ class acp_inactive
 
 						if ($conferm_email && !empty($inactive_users))
 						{
-							include_once($phpbb_root_path . 'include/function_messenger.' . $phpEx);
+							include_once('include/function_messenger.' . $phpEx);
 
 							$messenger = new messenger(false);
 
@@ -194,7 +194,7 @@ class acp_inactive
 							if ((!$row['language']) OR !file_exists("language/email/".$row['language']."/user_remind_inactive.txt")) $lang_email = $language;
 							else $lang_email = $row['language'];
 						// Send the messages
-						include_once($phpbb_root_path . 'include/function_messenger.' . $phpEx);
+						include_once('include/function_messenger.' . $phpEx);
 
 						$messenger = new messenger();
 						$usernames = $user_ids = array();
@@ -267,8 +267,8 @@ class acp_inactive
 				'USERNAME'			=> get_username_string('username', $row['id'], $row['username'],  '#' . $row['user_colour']),
 				'USER_COLOR'		=> get_username_string('colour', $row['id'], $row['username'],  '#' . $row['user_colour']),
 
-				'U_USER_ADMIN'	=> append_sid("./admin.$phpEx", "op=user&amp;i=userinfo&amp;mode=overview&amp;vas=overview&amp;u={$row['id']}"),
-				'U_SEARCH_USER'	=> ($auth->acl_get('u_search')) ? append_sid("{$phpbb_root_path}forum.$phpEx", "action=search&amp;author_id={$row['id']}&amp;sr=posts") : '',
+				'U_USER_ADMIN'	=> append_sid("admin.$phpEx", "op=user&amp;i=userinfo&amp;mode=overview&amp;vas=overview&amp;u={$row['id']}"),
+				'U_SEARCH_USER'	=> ($auth->acl_get('u_search')) ? append_sid("forum.$phpEx", "action=search&amp;author_id={$row['id']}&amp;sr=posts") : '',
 			));
 		}
 
