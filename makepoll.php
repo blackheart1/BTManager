@@ -13,11 +13,14 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts/Black_Heart)
 ** Project Leaders: Black_Heart, Thor.
-** File makepoll.php 2018-07-17 08:10:00 Thor
+** File makepoll.php 2018-07-23 21:10:00 Black_Heart
 **
 ** CHANGES
 **
 ** 2018-07-17 - Added Language
+** 2018-07-23 - Added SQL security
+** 2018-07-23 - Repaired notice for edit time on poll
+** 2018-07-23 - Added notice for new and edit poll
 **/
 
 if (defined('IN_PMBT'))
@@ -42,22 +45,22 @@ function is_valid_id($id)
 }
 
 $timestamp = time();
-$timeout   = $timestamp - $timeoutseconds = 300;
-$action    = request_var("action", '', true);
+$timeout		= $timestamp - $timeoutseconds = 300;
+$action			= request_var("action", '', true);
 $pollid			= request_var('pollid', 0);
-$question  = request_var("question", '', true);
-$option0   = request_var("option0", '', true);
-$option1   = request_var("option1", '', true);
-$option2   = request_var("option2", '', true);
-$option3   = request_var("option3", '', true);
-$option4   = request_var("option4", '', true);
-$option5   = request_var("option5", '', true);
-$option6   = request_var("option6", '', true);
-$option7   = request_var("option7", '', true);
-$option8   = request_var("option8", '', true);
-$option9   = request_var("option9", '', true);
-$sort      = request_var("sort", '', true);
-$returnto  = request_var("returnto", '', true);
+$question		= request_var("question", '', true);
+$option0		= request_var("option0", '', true);
+$option1		= request_var("option1", '', true);
+$option2		= request_var("option2", '', true);
+$option3		= request_var("option3", '', true);
+$option4		= request_var("option4", '', true);
+$option5		= request_var("option5", '', true);
+$option6		= request_var("option6", '', true);
+$option7		= request_var("option7", '', true);
+$option8		= request_var("option8", '', true);
+$option9		= request_var("option9", '', true);
+$sort			= request_var("sort", '', true);
+$returnto		= request_var("returnto", '', true);
 
 $template->assign_vars(array(
                         'HEADER' => $user->lang['MAKE_POLL'],
@@ -78,57 +81,41 @@ if ($action == "edit")
 
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
+	$sql_ary = array("question"		=> $question,
+					"option0"		=> $option0,
+					"option1"		=> $option1,
+					"option2"		=> $option2,
+					"option3"		=> $option3,
+					"option4"		=> $option4,
+					"option5"		=> $option5,
+					"option6"		=> $option6,
+					"option7"		=> $option7,
+					"option8"		=> $option8,
+					"option9"		=> $option9,
+					"sort"			=> $sort,);
 
     if ($question == '' || $option0 == '' || $option1 == '')
         bterror($user->lang['MISSING_FORM_DATA'], $user->lang['BT_ERROR']);
 
     if ($pollid)
     {
-        $sql = "UPDATE " . $db_prefix . "_polls SET " .
-                                                "question = '" . $question . "', " .
-                                                "option0  = '" . $option0 . "', " .
-                                                "option1  = '" . $option1 . "', " .
-                                                "option2  = '" . $option2 . "', " .
-                                                "option3  = '" . $option3 . "', " .
-                                                "option4  = '" . $option4 . "', " .
-                                                "option5  = '" . $option5 . "', " .
-                                                "option6  = '" . $option6 . "', " .
-                                                "option7  = '" . $option7 . "', " .
-                                                "option8  = '" . $option8 . "', " .
-                                                "option9  = '" . $option9 . "', " .
-                                                "sort     = '" . $sort . "' " .
-                                                "WHERE id = $pollid";
-
-        $db->sql_query($sql);
+        $sql = "UPDATE " . $db_prefix . "_polls SET " . $db->sql_build_array('UPDATE', $sql_ary) . "WHERE id = $pollid";
+		$message = 'POLL_EDITED';
     }
     else
     {
-        $sql = "INSERT INTO " . $db_prefix . "_polls VALUES(0" .
-                                                            ", '" . gmdate("Y-m-d H:i:s", time()) . "'" .
-                                                            ", '" . $question .
-                                                            "', '" . $option0 .
-                                                            "', '" . $option1 .
-                                                            "', '" . $option2 .
-                                                            "', '" . $option3 .
-                                                            "', '" . $option4 .
-                                                            "', '" . $option5 .
-                                                            "', '" . $option6 .
-                                                            "', '" . $option7 .
-                                                            "', '" . $option8 .
-                                                            "', '" . $option9 .
-                                                            "', '" . $sort .
-                                                            "')";
-
-        $db->sql_query($sql);
+		$sql_ary += array("added"		=> gmdate("Y-m-d H:i:s", time()));
+        $sql = "INSERT INTO " . $db_prefix . "_polls " . $db->sql_build_array('INSERT', $sql_ary);
+		$message = 'POLL_TAKEN';
     }
+        $db->sql_query($sql);
 
-    if ($returnto == "main")
-        header("Location: $siteurl");
-    elseif ($pollid)
-        header("Location: $siteurl/polls.php#$pollid");
+    if ($pollid)
+        $link = "$siteurl/polls.php#$pollid";
     else
-        header("Location: $siteurl");
-    die;
+        $link = "$siteurl";
+ 	trigger_error($user->lang[$message] . back_link($link));
+   die;
 }
 
 if ($pollid)
@@ -139,7 +126,7 @@ if ($pollid)
                                                                 'action'   => 'edit',
                                                                 'returnto' => $returnto)),
     ));
-    //print("<center><h1>Edit poll</h1></center>");
+
 else
 {
     // Warn if Current Poll is less than 3 Days Old
@@ -150,17 +137,25 @@ else
     {
         $hours = floor((strtotime(gmdate("Y-m-d H:i:s", time())) - sql_timestamp_to_unix_timestamp($arr["added"])) / 3600);
         $days = floor($hours / 24);
-
         if ($days < 3)
         {
             $hours -= $days * 24;
 
             if ($days)
-                $t = "$days day" . ($days > 1 ? "s" : "");
+			{
+            	$t = $days . ' ' . $user->lang['DAY' . ($days > 1 ? "S" : "")];
+			}
             else
-            $t = "$hours hour" . ($hours > 1 ? "s" : "");
+			{
+            	$t = $hours . ' ' . $user->lang['HOUR' . ($hours > 1 ? "S" : "")];
+			}
 
-            //print("<p><center><font color=#FF0000><strong>{NEW_POLL_NOTICE}</strong></font></center></p>");
+		    $template->assign_vars(array(
+			'S_NOTICE'		=> true,
+			'S_ERROR'		=> true,
+			'L_MESSAGE'		=> $user->lang['WARNING'],
+			'S_ERROR_MESS'	=> sprintf($user->lang['NEW_POLL_NOTICE'],$arr['question'],$t),
+			));
         }
     }
 }
