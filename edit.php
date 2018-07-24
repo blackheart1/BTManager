@@ -181,7 +181,8 @@ switch($op) {
 			$res = $db->sql_query($sql) or btsqlerror($sql);
 			$torrentrow  = $db->sql_fetchrow($res);
                 $errmsg = Array();
-                $post_img = request_var('post_img',$torrentrow['post_img'],true);
+                $post_img = request_var('post_img',($torrentrow['post_img']?$torrentrow['post_img']:''),true);
+				//die($post_img);
 				if($post_img != '' AND checkaccess("u_add_poster"))
 				{
 					if (!preg_match('#^(https?://).*?\.(gif|jpg|jpeg|png)$#i', $post_img, $match))
@@ -201,7 +202,7 @@ switch($op) {
 				{
 					$post_img = NULL;
 				}
-                $screen1 = request_var('screen1',$torrentrow['screen1'],true);
+                $screen1 = request_var('screen1',($torrentrow['screen1']? $torrentrow['screen1'] : ''),true);
 				if($screen1 != '' AND checkaccess("u_add_screen_shots"))
 				{
 					if (!preg_match('#^(https?://).*?\.(gif|jpg|jpeg|png)$#i', $screen1, $match))
@@ -221,7 +222,7 @@ switch($op) {
 				{
 					$screen1 = NULL;
 				}
-                $screen2 = request_var('screen2',$torrentrow['screen2'],true);
+                $screen2 = request_var('screen2',($torrentrow['screen2']? $torrentrow['screen2'] : ''),true);
 				if($screen2 != '' AND checkaccess("u_add_screen_shots"))
 				{
 					if (!preg_match('#^(https?://).*?\.(gif|jpg|jpeg|png)$#i', $screen2, $match))
@@ -241,7 +242,7 @@ switch($op) {
 				{
 					$screen2 = NULL;
 				}
-                $screen3 = request_var('screen3',$torrentrow['screen3'],true);
+                $screen3 = request_var('screen3',($torrentrow['screen3']? $torrentrow['screen3'] : ''),true);
 				if($screen3 != '' AND checkaccess("u_add_screen_shots"))
 				{
 					if (!preg_match('#^(https?://).*?\.(gif|jpg|jpeg|png)$#i', $screen3, $match))
@@ -261,7 +262,7 @@ switch($op) {
 				{
 					$screen3 = NULL;
 				}
-                $screen4 = request_var('screen4',$torrentrow['screen4'],true);
+                $screen4 = request_var('screen4',($torrentrow['screen4']? $torrentrow['screen4'] : ''),true);
 				if($screen4 != '' AND checkaccess("u_add_screen_shots"))
 				{
 					if (!preg_match('#^(https?://).*?\.(gif|jpg|jpeg|png)$#i', $screen4, $match))
@@ -310,7 +311,7 @@ switch($op) {
 				$category			= request_var('torrent_category', 0);
                 $cats = catlist();
                 $in_cat = false;
-                while ($cat = each($cats) AND !$in_cat) {
+                while ($cat = @each($cats) AND !$in_cat) {
                         if ($category == $cat[1]["id"]) $in_cat = true;
                 }
                 if (!$in_cat) $errmsg[] = $user->lang['ERROR_INVALID_CAT'];
