@@ -23,7 +23,7 @@ if (!defined('IN_PMBT'))
 	include_once 'security.php';
 	die ("You can't access this file directly");
 }
-global $db, $db_prefix, $search_cloud, $search_cloud_user_only, $user;
+global $db, $db_prefix, $search_cloud, $search_cloud_user_only, $user, $template;
 include_once 'include/function_posting.php';
 if($search_cloud)
 {
@@ -59,20 +59,10 @@ $abc = array(0=>'a');
 				}
 
 $db->sql_freeresult($result);
-if(isset($template))
-{
 $template->assign_vars(array(
         'S_ACTB'            => "<SCRIPT type=\"text/javascript\" language=\"JavaScript\">
  var customarray=new Array('".implode("', '",$abc)."');
 </SCRIPT>
 <script type=\"text/javascript\" src=\"java/actb.js\"></script>",
 ));
-}
-else
-{
-echo "<SCRIPT type=\"text/javascript\" language=\"JavaScript\">
- var customarray=new Array('".implode("', '",$abc)."');
-</SCRIPT>
-<script type=\"text/javascript\" src=\"java/actb.js\"></script>";
-}
 ?>
