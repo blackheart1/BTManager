@@ -24,9 +24,9 @@ if (!defined('IN_PMBT'))
 	die ("You can't access this file directly");
 }
 $user->set_lang('admin/acp_hnr_system',$user->ulanguage);
-$cfgquery = "SELECT * FROM ".$db_prefix."_hit_n_run;";
+$cfgquery = "SELECT * FROM " . $db_prefix . "_hit_n_run;";
 $cgfres = $db->sql_query($cfgquery);
-$cfgrow = $db->sql_fetchrow($cfgres);
+$cfgrow = $db->sql_fetchrow($cgfres);
 $db->sql_freeresult($cfgres);
 		$do					= request_var('do', '');
 if ($do == "take_config") {
