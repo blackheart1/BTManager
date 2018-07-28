@@ -13,11 +13,11 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts/Black_Heart)
 ** Project Leaders: Black_Heart, Thor.
-** File avatar.php 2018-07-25 09:37:00 Thor
+** File avatar.php 2018-07-28 07:33:00 Thor
 **
 ** CHANGES
 **
-** 2018-07-25 - Added Missing Language
+** 2018-07-28 - Added Language to bterror()
 **/
 
 if (!defined('IN_PMBT'))
@@ -27,20 +27,21 @@ if (!defined('IN_PMBT'))
 }
 
 $user->set_lang('admin/avatar',$user->ulanguage);
+
 $cfgquery = "SELECT
-  `enable_avatars` AS ALLOW_AVATARS,
-  `enable_gallery_avatars` AS ALLOW_LOCAL,
-  `enable_remote_avatars` AS ALLOW_REMOTE,
-  `enable_avatar_uploading` AS ALLOW_UPLOAD,
-  `enable_remote_avatar_uploading` AS ALLOW_REMOTE_UPLOAD,
-  `maximum_avatar_file_size` AS MAX_FILESIZE,
-  `avatar_storage_path` AS AVATAR_STORAGE_PATH,
-  `avatar_gallery_path` AS AVATAR_GALLERY_PATH,
-  `minimum_avatar_dimensions_ht` AS MIN_AVATAR_SIZE_A,
-  `minimum_avatar_dimensions_wt` AS MIN_AVATAR_SIZE_B,
-  `maximum_avatar_dimensions_ht` AS MAX_AVATAR_SIZE_A,
-  `maximum_avatar_dimensions_wt` AS MAX_AVATAR_SIZE_B
- FROM ".$db_prefix."_avatar_config;";
+        `enable_avatars` AS ALLOW_AVATARS,
+        `enable_gallery_avatars` AS ALLOW_LOCAL,
+        `enable_remote_avatars` AS ALLOW_REMOTE,
+        `enable_avatar_uploading` AS ALLOW_UPLOAD,
+        `enable_remote_avatar_uploading` AS ALLOW_REMOTE_UPLOAD,
+        `maximum_avatar_file_size` AS MAX_FILESIZE,
+        `avatar_storage_path` AS AVATAR_STORAGE_PATH,
+        `avatar_gallery_path` AS AVATAR_GALLERY_PATH,
+        `minimum_avatar_dimensions_ht` AS MIN_AVATAR_SIZE_A,
+        `minimum_avatar_dimensions_wt` AS MIN_AVATAR_SIZE_B,
+        `maximum_avatar_dimensions_ht` AS MAX_AVATAR_SIZE_A,
+        `maximum_avatar_dimensions_wt` AS MAX_AVATAR_SIZE_B
+    FROM " . $db_prefix . "_avatar_config;";
 
 $cfgres = $db->sql_query($cfgquery)or die(mysql_error());
 $cfgrow = $db->sql_fetchrow($cfgres);
@@ -183,11 +184,12 @@ if (isset($do) && $do == "save")
         }
 
         $report .= '</ul>';
+
         $template->assign_vars(array(
-                                'S_USER_NOTICE' => false,
-                                'S_FORWARD'     => false,
-                                'MESSAGE_TITLE' => $user->lang['SETTINGS_NOT_SAVED'],
-                                'MESSAGE_TEXT'  => $report.back_link($u_action),
+                'S_USER_NOTICE' => false,
+                'S_FORWARD'     => false,
+                'MESSAGE_TITLE' => $user->lang['SETTINGS_NOT_SAVED'],
+                'MESSAGE_TEXT'  => $report . back_link($u_action),
         ));
 
         echo $template->fetch('admin/message_body.html');
@@ -198,21 +200,21 @@ if (isset($do) && $do == "save")
     }
     else
     {
-        $sql = "INSERT INTO ".$db_prefix."_avatar_config (".implode(", ",$sqlvalues).") VALUES ('".implode("', '",$sqlfields)."');";
+        $sql = "INSERT INTO " . $db_prefix . "_avatar_config (" . implode(", ",$sqlvalues) . ") VALUES ('" . implode("', '",$sqlfields) . "');";
 
         if (!$db->sql_query($sql)) btsqlerror($sql);
 
-        $db->sql_query("TRUNCATE TABLE ".$db_prefix."_avatar_config;");
+        $db->sql_query("TRUNCATE TABLE " . $db_prefix . "_avatar_config;");
         $db->sql_query($sql);
-        $pmbt_cache->remove_file("sql_".md5("avatar").".php");
+        $pmbt_cache->remove_file("sql_" . md5("avatar") . " . php");
 
         add_log('admin', 'LOG_CONFIG_AVATAR');
 
         $template->assign_vars(array(
-                                'S_USER_NOTICE' => true,
-                                'S_FORWARD'     => $u_action,
-                                'MESSAGE_TITLE' => $user->lang['SUCCESS'],
-                                'MESSAGE_TEXT'  => sprintf($user->lang['SITTINGS_SAVED'], $user->lang['AVATAR_SETTINGS']).back_link($u_action),
+                'S_USER_NOTICE' => true,
+                'S_FORWARD'     => $u_action,
+                'MESSAGE_TITLE' => $user->lang['SUCCESS'],
+                'MESSAGE_TEXT'  => sprintf($user->lang['SITTINGS_SAVED'], $user->lang['AVATAR_SETTINGS']) . back_link($u_action),
         ));
 
         echo $template->fetch('admin/message_body.html');
@@ -222,16 +224,16 @@ if (isset($do) && $do == "save")
 }
 
 $hidden = build_hidden_fields(array(
-                                'do' => 'save',
-                                'i'  => 'userinfo',
-                                'op' => 'avatar',
+        'do' => 'save',
+        'i'  => 'userinfo',
+        'op' => 'avatar',
 ));
 
 $template->assign_vars(array(
         'L_TITLE'         => $user->lang['AVATAR_SETTINGS'],
         'L_TITLE_EXPLAIN' => $user->lang['AVATAR_SETTINGSexplain'],
         'U_ACTION'        => 'admin.php',
-        'HIDEN'           => $hidden,
+        'HIDEN' => $hidden,
 ));
 
 drawRow("AVATAR_SETTINGS", "text", false, $user->lang["AVATAR_SETTINGS"]);

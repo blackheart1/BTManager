@@ -16,8 +16,8 @@
 **
 ** CHANGES
 **
-** 04-11-2018 added announcement 
-** 04-14-2018 changed how setting sql is built 
+** 04-11-2018 added announcement
+** 04-14-2018 changed how setting sql is built
 **/
 if (!defined('IN_PMBT'))
 {
@@ -156,12 +156,12 @@ if($op == 'settings_bbcode')
 			$admin_role->u_action = $u_action;
 				$template->assign_vars(array(
 					'U_ACTION'			=> '/admin.php?op=levels&i=userinfo&action=' . $action,
-					'ICON_MOVE_DOWN'	=> $user->img('icon_down', 'NEW_POST'),
-					'ICON_MOVE_UP'	=> $user->img('icon_up', 'NEW_POST'),
-					'ICON_MOVE_UP_DISABLED'	=> $user->img('icon_up', 'NEW_POST'),
-					'ICON_MOVE_DOWN_DISABLED'	=> $user->img('icon_down', 'NEW_POST'),
-					'ICON_EDIT'	=> $user->img('icon_edit', 'NEW_POST'),
-					'ICON_DELETE'	=> $user->img('icon_delete', 'NEW_POST'),)
+					'ICON_MOVE_DOWN'          => $user->img('icon_down', 'MOVE_DOWN'),
+					'ICON_MOVE_UP'            => $user->img('icon_up', 'MOVE_UP'),
+					'ICON_MOVE_UP_DISABLED'   => $user->img('icon_up_disabled', 'MOVE_UP_DISABLED'),
+					'ICON_MOVE_DOWN_DISABLED' => $user->img('icon_down_disabled', 'MOVE_DOWN_DISABLED'),
+					'ICON_EDIT'               => $user->img('icon_edit', 'EDIT'),
+					'ICON_DELETE'             => $user->img('icon_delete', 'DELETE'),)
 				);
 		$action					= request_var('action_i', $action);
 			$admin_role->main('',$mode);
@@ -255,8 +255,8 @@ if($op == 'settings_bbcode')
 				{
 					if(is_url(strtolower($a)))array_push($vallad_ann,$a);
 				}
-		
-		
+
+
 				//First I create the SQL arrays
 				//Then I accurately check each parameter before inserting it in SQL statement
 				//Some parameters that must be numeric have to be checked with an if clause because intval() function truncates to max integer
@@ -353,8 +353,8 @@ if($op == 'settings_bbcode')
 				$configquery = $db->sql_query($sql);
 				if (!$row = $db->sql_fetchrow($configquery)) die("phpMyBitTorrent not correctly installed! Ensure you have run setup.php or config_default.sql!!");
 				$pmbt_cache->set_sql("config", $row);
-		
-		
+
+
 				//Finally, I redirect the user to configuration page
 										$template->assign_vars(array(
 												'S_SUCCESS'            => true,
@@ -376,7 +376,7 @@ if($op == 'settings_bbcode')
 				WHERE display_on_posting = 1
 				ORDER BY bbcode_tag';
 			$result = $db->sql_query($sql);
-			
+
 			$i = 0;
 			$num_predefined_bbcodes = 22;
 			while ($rows = $db->sql_fetchrow($result))
@@ -386,7 +386,7 @@ if($op == 'settings_bbcode')
 				{
 					$rows['bbcode_helpline'] = $user->lang[strtoupper($rows['bbcode_helpline'])];
 				}
-		
+
 				$template->assign_block_vars('custom_tags', array(
 					'BBCODE_NAME'		=> "'[{$rows['bbcode_tag']}]', '[/" . str_replace('=', '', $rows['bbcode_tag']) . "]'",
 					'BBCODE_ID'			=> $num_predefined_bbcodes + ($i * 2),
@@ -394,7 +394,7 @@ if($op == 'settings_bbcode')
 					'BBCODE_HELPLINE'	=> $rows['bbcode_helpline'],
 					'A_BBCODE_HELPLINE'	=> str_replace(array('&amp;', '&quot;', "'", '&lt;', '&gt;'), array('&', '"', "\'", '<', '>'), $rows['bbcode_helpline']),
 				));
-		
+
 				$i++;
 			}
 			$db->sql_freeresult($result);
