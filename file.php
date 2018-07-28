@@ -197,6 +197,10 @@ if ((!$attachment['in_message'] && !$config['allow_attachments']) || ($attachmen
     trigger_error('ATTACHMENT_FUNCTIONALITY_DISABLED');
 }
 
+if ($thumbnail)
+{
+	$attachment['physical_filename'] = 'thumb_' . $attachment['physical_filename'];
+}
 $row = array();
 $filename = $config['upload_path'] . '/' . $attachment['physical_filename'];
 //die($filename);
@@ -215,7 +219,14 @@ if (headers_sent() || !file_exists($filename) || !is_readable($filename))
     trigger_error('UNABLE_TO_DELIVER_FILE');
 }
 
-//die();
+#Clear any unwanted blank spaces
+if (extension_loaded('zlib')){ ob_end_clean();}
+if (function_exists('ob_gzhandler') && !ini_get('zlib.output_compression'))
+	ob_start('ob_gzhandler');
+else
+	ob_start();
+ob_implicit_flush(0);
+
 header('Pragma: public');
 
 header('Content-Disposition: ' . ((strpos($attachment['mimetype'], 'image') === 0) ? 'inline' : 'attachment') . '; ' . header_filename(htmlspecialchars_decode($attachment['real_filename'])));
