@@ -992,7 +992,7 @@ if ('forum_search' == $op)
 
                if (count($errors) > 0)
                 {
-                    bterror(sprintf($errors, $user->lang['BOARD_NOT_SAVED']);
+                    bterror(sprintf($errors, $user->lang['BOARD_NOT_SAVED']));
                     die();
                 }
 
