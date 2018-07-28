@@ -1600,7 +1600,9 @@ class parse_message extends bbcode_firstpass
 						);
 
 						$this->attachment_data = array_merge(array(0 => $new_entry), $this->attachment_data);
-						$this->message = preg_replace('#\[attachment=([0-9]+)\](.*?)\[\/attachment\]#e', "'[attachment='.(\\1 + 1).']\\2[/attachment]'", $this->message);
+						$this->message = preg_replace_callback('#\[attachment=([0-9]+)\](.*?)\[\/attachment\]#', function ($match) {
+							return '[attachment=' . ($match[1] + 1) . ']' . $match[2] . '[/attachment]';
+						}, $this->message);
 						$this->filename_data['filecomment'] = '';
 					}
 				}
