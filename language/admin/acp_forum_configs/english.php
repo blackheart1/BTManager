@@ -48,6 +48,7 @@ $lang = array_merge($lang, array(
     'TITLE_EXPLAIN'     => 'Here you can Enable/Disable Several Forum Features.',
     'ALLOW_ATTACHMENTS' => 'Allow Attachments',
     'FORM_UPDATED'      => 'Forum Configuration',
+    'BOARD_NOT_SAVED'   => '%s Board Settings Not Saved',
 
     '_admpmax_filesize'                => 'Maximum Attachment File Size',
     '_admpmax_filesizeexplain'         => 'Maximum File Size Per Attachment in <strong>Bytes</strong>.',
