@@ -158,7 +158,7 @@ class acp_permission_roles
 
 					$role_name = utf8_normalize_nfc(request_var('role_name', '', true));
 					$role_description = utf8_normalize_nfc(request_var('role_description', '', true));
-					$auth_settings = request_var('setting', array('a'));
+					$auth_settings = request_var('setting', array('' => 0));
 
 					if (!$role_name)
 					{
