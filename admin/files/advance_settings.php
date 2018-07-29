@@ -1,4 +1,5 @@
 <?php
+
 /**
 **********************
 ** BTManager v3.0.1 **
@@ -12,11 +13,11 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts/Black_Heart)
 ** Project Leaders: Black_Heart, Thor.
-** File advance_settings.php 2018-07-28 22:08:00 Thor
+** File advance_settings.php 2018-07-29 07:27:00
 **
 ** CHANGES
 **
-** 2018-07-28 - Code Tidy
+** 2018-07-29 - Add Language to drawRow & Code Tidy
 **/
 
 if (!defined('IN_PMBT'))
@@ -77,7 +78,7 @@ if (isset($do) && $do == "save")
 
     $template->assign_vars(array(
             'S_SUCCESS' => true,
-            'S_FORWARD' => $siteurl."/admin.php?i=siteinfo&op=settings_pm",
+            'S_FORWARD' => $siteurl . "/admin.php?i=siteinfo&op=settings_pm",
             'TITTLE_M'  => $user->lang['SUCCESS'],
             'MESSAGE'   => $user->lang['_admsaved'],
     ));
@@ -88,9 +89,9 @@ if (isset($do) && $do == "save")
 }
 
 $hidden = build_hidden_fields(array(
-    'do' => 'save',
-    'i'  => 'siteinfo',
-    'op' => 'settings_pm',
+        'do' => 'save',
+        'i'  => 'siteinfo',
+        'op' => 'settings_pm',
 ));
 
 $template->assign_vars(array(
@@ -100,25 +101,25 @@ $template->assign_vars(array(
         'S_FORM_TOKEN'    => $hidden,
 ));
 
-drawRow("sitename","text", false ,'General Settings');
-drawRow("allow_privmsg","selecty_n",NULL,false,'allow_privmsg');
-drawRow("pm_max_boxes","text");
-drawRow('pm_max_msgs','text');
-drawRow('pm_max_recipients','text');
-//drawRow('allow_mass_pm','text');
-drawRow('full_folder_action','select',$user->lang["PMFULLOPTION"]);
-drawRow('pm_edit_time','text',NULL,false,'Minutes');
-drawRow("sitename","text", false ,'General Options');
-drawRow("allow_mass_pm","selecty_n",NULL,false,'allow_mass_pm');
-drawRow("auth_bbcode_pm","selecty_n",NULL,false,'auth_bbcode_pm');
-drawRow("auth_smilies_pm","selecty_n",NULL,false,'auth_smilies_pm');
-drawRow("allow_pm_attach","selecty_n",NULL,false,'allow_pm_attach');
-drawRow("allow_sig_pm","selecty_n",NULL,false,'allow_sig_pm');
-drawRow("print_pm","selecty_n",NULL,false,'print_pm');
-drawRow("forward_pm","selecty_n",NULL,false,'forward_pm');
-drawRow("auth_img_pm","selecty_n",NULL,false,'auth_img_pm');
-drawRow("auth_flash_pm","selecty_n",NULL,false,'auth_flash_pm');
-drawRow("enable_pm_icons","selecty_n",NULL,false,'enable_pm_icons');
+drawRow('sitename', 'text', false , $user->lang['GENERAL_SETTINGS']);
+drawRow('allow_privmsg', 'selecty_n', NULL, false, 'allow_privmsg');
+drawRow('pm_max_boxes', 'text');
+drawRow('pm_max_msgs', 'text');
+drawRow('pm_max_recipients', 'text');
+//drawRow('allow_mass_pm', 'text');
+drawRow('full_folder_action', 'select', $user->lang['PMFULLOPTION']);
+drawRow('pm_edit_time', 'text', NULL, false, $user->lang['EDIT_TIME_MINUTES']);
+drawRow('sitename','text', false , $user->lang['GENERAL_OPTIONS']);
+drawRow('allow_mass_pm', 'selecty_n', NULL, false, 'allow_mass_pm');
+drawRow('auth_bbcode_pm', 'selecty_n', NULL, false, 'auth_bbcode_pm');
+drawRow('auth_smilies_pm', 'selecty_n', NULL, false, 'auth_smilies_pm');
+drawRow('allow_pm_attach', 'selecty_n', NULL, false, 'allow_pm_attach');
+drawRow('allow_sig_pm', 'selecty_n', NULL, false, 'allow_sig_pm');
+drawRow('print_pm', 'selecty_n', NULL, false, 'print_pm');
+drawRow('forward_pm', 'selecty_n', NULL, false, 'forward_pm');
+drawRow('auth_img_pm', 'selecty_n', NULL, false, 'auth_img_pm');
+drawRow('auth_flash_pm', 'selecty_n', NULL, false, 'auth_flash_pm');
+drawRow('enable_pm_icons', 'selecty_n', NULL, false, 'enable_pm_icons');
 
 echo $template->fetch('admin/site_settings.html');
 close_out();

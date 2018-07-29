@@ -13,11 +13,11 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts/Black_Heart)
 ** Project Leaders: Black_Heart, Thor.
-** File sig_settings.php 2018-07-28 22:03:00 Thor
+** File sig_settings.php 2018-07-29 07:27:00 Thor
 **
 ** CHANGES
 **
-** 2018-07-28 - Code Tidy
+** 2018-07-29 - Add Language to drawRow & Code Tidy
 **/
 
 if (!defined('IN_PMBT'))
@@ -74,7 +74,7 @@ if (isset($do) && $do == "save")
 
     $template->assign_vars(array(
             'S_SUCCESS' => true,
-            'S_FORWARD' => $siteurl."/admin.php?i=siteinfo&op=sig_settings",
+            'S_FORWARD' => $siteurl . "/admin.php?i=siteinfo&op=sig_settings",
             'TITTLE_M'  => $user->lang['SUCCESS'],
             'MESSAGE'   => $user->lang['_admsaved'],
     ));
@@ -96,20 +96,20 @@ $template->assign_vars(array(
         'S_FORM_TOKEN'    => $hidden,
 ));
 
-drawRow("sitename","text", false ,'General Settings');
-drawRow("allow_sig","selecty_n",NULL,false,'allow_sig');
-drawRow("allow_sig_bbcode","selecty_n",NULL,false,'allow_sig_bbcode');
-drawRow("allow_sig_img","selecty_n",NULL,false,'allow_sig_img');
-drawRow("allow_sig_flash","selecty_n",NULL,false,'allow_sig_flash');
-drawRow("allow_sig_smilies","selecty_n",NULL,false,'allow_sig_smilies');
-drawRow("allow_sig_links","selecty_n",NULL,false,'allow_sig_links');
-drawRow("sitename","text", false ,'General Options');
-drawRow('max_sig_chars','text');
-drawRow('max_sig_urls','text');
-drawRow('max_sig_font_size','text',NULL,false,'%');
-drawRow('max_sig_smilies','text');
-drawRow('max_sig_img_width','text',NULL,false,'px');
-drawRow('max_sig_img_height','text',NULL,false,'px');
+drawRow('sitename','text', false, $user->lang['GENERAL_SETTINGS']);
+drawRow('allow_sig', 'selecty_n', NULL, false, 'allow_sig');
+drawRow('allow_sig_bbcode', 'selecty_n', NULL, false, 'allow_sig_bbcode');
+drawRow('allow_sig_img', 'selecty_n', NULL,false, 'allow_sig_img');
+drawRow('allow_sig_flash', 'selecty_n', NULL,false, 'allow_sig_flash');
+drawRow('allow_sig_smilies', 'selecty_n', NULL,false, 'allow_sig_smilies');
+drawRow('allow_sig_links', 'selecty_n', NULL,false, 'allow_sig_links');
+drawRow('sitename', 'text', false ,$user->lang['GENERAL_OPTIONS']);
+drawRow('max_sig_chars', 'text');
+drawRow('max_sig_urls', 'text');
+drawRow('max_sig_font_size', 'text', NULL, false, '%');
+drawRow('max_sig_smilies', 'text');
+drawRow('max_sig_img_width', 'text', NULL, false, 'px');
+drawRow('max_sig_img_height', 'text', NULL, false, 'px');
 
 echo $template->fetch('admin/site_settings.html');
 close_out();

@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File site_settings/english.php 2018-04-15 06:27:00 Thor
+** File site_settings/english.php 2018-07-29 07:37:00 Thor
 **
 ** CHANGES
 **
@@ -24,6 +24,7 @@
 ** 2018-04-12 - Amended !defined('IN_PMBT') Corrected Path
 ** 2018-04-15 - Amended !defined('IN_PMBT') New Version
 ** 2018-04-15 - Added Missing Languages
+** 2018-07-29 - Add Language to drawRow
 **/
 
 if (!defined('IN_PMBT'))
@@ -38,12 +39,16 @@ if (empty($lang) || !is_array($lang))
 }
 
 $lang = array_merge($lang, array(
-    'YES_NO_NUM' => array('1' =>'Yes','0'   =>'No'),
+    'YES_NO_NUM' => array('1' =>'Yes', '0' =>'No'),
 
     '_admsaved'            => 'Settings Saved!',
     '_admconfigttl'        => 'BTManager Configuration',
 
     '_admconfigttlexplain' => 'Here you can Setup the Basic Operation of your Tracker, Site Name and Description among other Settings where you can Adjust the Default Values for Themes and Languages.',
+
+    'GENERAL_SETTINGS'     => 'General Settings',
+    'GENERAL_OPTIONS'      => 'General Options',
+    'EDIT_TIME_MINUTES'    => 'Minutes',
 
     #User
     '_admpallow_change_email'         => 'Allow email Change',
