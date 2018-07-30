@@ -101,7 +101,7 @@ $template->assign_vars(array(
         'S_FORM_TOKEN'    => $hidden,
 ));
 
-drawRow('sitename', 'text', false , $user->lang['GENERAL_SETTINGS']);
+drawRow('sitename', 'text', false, $user->lang['GENERAL_SETTINGS']);
 drawRow('allow_privmsg', 'selecty_n', NULL, false, 'allow_privmsg');
 drawRow('pm_max_boxes', 'text');
 drawRow('pm_max_msgs', 'text');
