@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File details/english.php 2018-07-20 18:02:00 Thor
+** File details/english.php 2018-07-31 06:04:00 Thor
 **
 ** CHANGES
 **
@@ -23,6 +23,7 @@
 ** 2018-04-21 - Amended the Wording of some Sentences
 ** 2018-04-23 - Added Missing Text
 ** 2018-07-20 - Added Missing Language
+** 2018-07-31 - Added Missing Language
 **/
 
 if (!defined('IN_PMBT'))
@@ -127,6 +128,9 @@ $lang = array_merge($lang, array(
     'EXPORT'                    => 'Export',
 
     'EXPORT_EXP'                => 'Download this Torrent without your Passkey.  Used for Distribution on Sites that provide BitTorrent Index Services',
+
+    'LOGIN_PEER_DETAILS' => 'You need to be Logged in to View the Peer Details.',
+    'INVALID_TORRENT'    => 'Invalid Torrent!',
 
     // 3.0.1 Addons
     'RATE'                      => 'Rating!',

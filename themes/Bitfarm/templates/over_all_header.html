@@ -6,247 +6,309 @@
         <meta http-equiv="pragma" content="no-cache" />
         <meta http-equiv="expires" content="-1" />
         <meta http-equiv="cache-control" content="no-cache" />
-<link rel="shortcut icon" href="{SITE_URL}/themes/Bitfarm/favicon.ico" type="image/x-icon" />
-<link rel="search" type="application/opensearchdescription+xml" title="{SITENAME}" href="{SITE_URL}/opensearch.php" />
-<link rel="alternate" type="application/rss+xml" title="{L_LAST_TORRENT}" href="{SITE_URL}/backend.php?op=last" />
-<link rel="alternate" type="application/rss+xml" title="{L_BEST_TORRENT}" href="{SITE_URL}/backend.php?op=best" />
-<link rel="StyleSheet" href="{SITE_URL}/themes/Bitfarm/style.css" type="text/css">
-<link rel="stylesheet" href="{SITE_URL}/themes/Bitfarm/css/lightbox.css" type="text/css">
-{META}
-<!--[if lt IE 7]>
-<script defer type="text/javascript" src="{SITE_URL}/pngfix.js"></script>
-<![endif]-->
-<title>{SITENAME} &bull; <!-- IF S_IN_MCP -->{L_MCP} &bull; <!-- ELSEIF S_IN_UCP -->{L_USER_CPANNEL} &bull; <!-- ENDIF -->{PAGE_TITLE}</title>
-<script type="text/javascript" src="{SITE_URL}/themes/Bitfarm/js/prototype.js"></script>
-<script type="text/javascript" src="{SITE_URL}/themes/Bitfarm/js/scriptaculous.js?load=effects,builder"></script>
-<script type="text/javascript" src="{SITE_URL}/themes/Bitfarm/js/lightbox.js"></script>
-<script type="text/javascript" src="{SITE_URL}/themes/Bitfarm/js/jquery.smoothmenu.js"></script>
-<script type="text/javascript" src="{SITE_URL}/themes/Bitfarm/js/core.js"></script>
-<script type="text/javascript" src="{SITE_URL}/themes/Bitfarm/js/ncode_imageresizer.js"></script>
-<script type="text/javascript" src="{SITE_URL}/language/javascript/{U_USER_LANG}.js"></script>
-<script type="text/javascript">
-<!--
-NcodeImageResizer.MODE = 'newwindow';
-NcodeImageResizer.MAXWIDTH = 500;
-NcodeImageResizer.MAXHEIGHT =400;
 
-NcodeImageResizer.Msg1 = '{L_FULL_IMG}';
-NcodeImageResizer.Msg2 = '{L_RESIZE_IMG}';
-NcodeImageResizer.Msg3 = '{L_RESIZE_IMG}';
-NcodeImageResizer.Msg4 = '{L_SMALL_IMG}';
-//-->
-</script>
-<script type="text/javascript">
-pmbtsite_url = "{SITE_URL}";
-_btshoutnowprivate = "{L_PRIVATE_SHOUT}";
-shoutrefresht = "{S_SHOUT_REF}";
-shoutidle = "{S_SHOUT_IDL}";
-function change_bg(img, state)
-{
-if (state == "1")
-img.src = img.src.replace(".gif","_over.gif");
-else if (state == "0")
-img.src = img.src.replace("_over.gif",".gif");
-else if (state == "2")
-img.src = img.src.replace("_over.gif",".gif");
-else if (state == "3")
-img.src = img.src.replace("_over.gif",".gif");
-}
-var pd = new Date();
-var last_reload = pd.getTime();
-function do_breload() {
-    if (document.location.href.match(/\/torrents\.php/)) {
-	   var d = new Date();
-	   if (last_reload && last_reload > (d.getTime() - "4000")) return;
-	      last_reload = d.getTime();
-	   bparam('page=1')
+        <link rel="shortcut icon" href="{SITE_URL}/themes/Bitfarm/favicon.ico" type="image/x-icon" />
+        <link rel="search" type="application/opensearchdescription+xml" title="{SITENAME}" href="{SITE_URL}/opensearch.php" />
+        <link rel="alternate" type="application/rss+xml" title="{L_LAST_TORRENT}" href="{SITE_URL}/backend.php?op=last" />
+        <link rel="alternate" type="application/rss+xml" title="{L_BEST_TORRENT}" href="{SITE_URL}/backend.php?op=best" />
+        <link rel="StyleSheet" href="{SITE_URL}/themes/Bitfarm/style.css" type="text/css">
+        <link rel="stylesheet" href="{SITE_URL}/themes/Bitfarm/css/lightbox.css" type="text/css">
 
-	}
-}
+        {META}
+        <!--[if lt IE 7]>
+        <script defer type="text/javascript" src="{SITE_URL}/pngfix.js"></script>
+        <![endif]-->
+        <title>{SITENAME} &bull; <!-- IF S_IN_MCP -->{L_MCP} &bull; <!-- ELSEIF S_IN_UCP -->{L_USER_CPANNEL} &bull; <!-- ENDIF -->{PAGE_TITLE}</title>
 
-function toggle2(nome) {
-if(document.getElementById(nome).style.display=='none')
-{
-SetCookie(nome,'');
-document.getElementById(nome).style.display = '';
-document.getElementById(nome+"img").src="themes/Bitfarm/pics/minus.gif";
-} else {
-SetCookie(nome,'none',200);
-document.getElementById(nome).style.display = 'none';
-document.getElementById(nome+"img").src="themes/Bitfarm/pics/plus.gif";
-}
-}
+        <script type="text/javascript" src="{SITE_URL}/themes/Bitfarm/js/prototype.js"></script>
+        <script type="text/javascript" src="{SITE_URL}/themes/Bitfarm/js/scriptaculous.js?load=effects,builder"></script>
+        <script type="text/javascript" src="{SITE_URL}/themes/Bitfarm/js/lightbox.js"></script>
+        <script type="text/javascript" src="{SITE_URL}/themes/Bitfarm/js/jquery.smoothmenu.js"></script>
+        <script type="text/javascript" src="{SITE_URL}/themes/Bitfarm/js/core.js"></script>
+        <script type="text/javascript" src="{SITE_URL}/themes/Bitfarm/js/ncode_imageresizer.js"></script>
+        <script type="text/javascript" src="{SITE_URL}/language/javascript/{U_USER_LANG}.js"></script>
 
-function SetCookie(cookieName,cookieValue,nDays) {
- var today = new Date();
- var expire = new Date();
- if (nDays==null || nDays==0) nDays=1;
- expire.setTime(today.getTime() + 3600000*24*nDays);
- document.cookie = cookieName+"="+escape(cookieValue)
-                 + ";expires="+expire.toGMTString();
-}
-function bparam(){
-    document.getElementById('myAnchor').href="torrents.php"
-}
-// <![CDATA[
-var jump_page = '{LA_JUMP_PAGE}:';
-var on_page = '{ON_PAGE}';
-var per_page = '{PER_PAGE}';
-var base_url = '{A_BASE_URL}';
+        <script type="text/javascript">
+            <!--
+            NcodeImageResizer.MODE      = 'newwindow';
+            NcodeImageResizer.MAXWIDTH  = 500;
+            NcodeImageResizer.MAXHEIGHT = 400;
 
-var menu_state = 'shown';
+            NcodeImageResizer.Msg1 = '{L_FULL_IMG}';
+            NcodeImageResizer.Msg2 = '{L_RESIZE_IMG}';
+            NcodeImageResizer.Msg3 = '{L_RESIZE_IMG}';
+            NcodeImageResizer.Msg4 = '{L_SMALL_IMG}';
+            //-->
+        </script>
 
+        <script type="text/javascript">
+            pmbtsite_url       = "{SITE_URL}";
+            _btshoutnowprivate = "{L_PRIVATE_SHOUT}";
+            shoutrefresht      = "{S_SHOUT_REF}";
+            shoutidle          = "{S_SHOUT_IDL}";
 
-/**
-* Jump to page
-*/
-function jumpto()
-{
-	var page = prompt(jump_page, on_page);
+            function change_bg(img, state)
+            {
+                if (state == "1")
+                img.src = img.src.replace(".gif", "_over.gif");
 
-	if (page !== null && !isNaN(page) && page == Math.floor(page) && page > 0)
-	{
-		if (base_url.indexOf('?') == -1)
-		{
-			document.location.href = base_url + '?page=' + ((page - 1) * per_page/per_page+1);
-		}
-		else
-		{
-			document.location.href = base_url.replace(/&amp;/g, '&') + '&page=' + ((page - 1) * per_page/per_page+1);
-		}
-	}
-}
+                else if (state == "0")
+                img.src = img.src.replace("_over.gif", ".gif");
 
-/**
-* Set display of page element
-* s[-1,0,1] = hide,toggle display,show
-*/
-function dE(n, s, type)
-{
-	if (!type)
-	{
-		type = 'block';
-	}
+                else if (state == "2")
+                img.src = img.src.replace("_over.gif", ".gif");
 
-	var e = document.getElementById(n);
-	if (!s)
-	{
-		s = (e.style.display == '') ? -1 : 1;
-	}
-	e.style.display = (s == 1) ? type : 'none';
-}
-// ]]>
-</script>
-<script type="text/javascript" src="{SITE_URL}/global.js"></script>
-<script type="text/javascript" src="{SITE_URL}/overlib/overlib.js"><!-- overLIB (c) Erik Bosrup --></script>
-<script type="text/javascript" src="{SITE_URL}/overlib/overlib_shadow.js"><!-- overLIB (c) Erik Bosrup --></script>
-<script src="{SITE_URL}/themes/Bitfarm/js/jquery.js" type="text/javascript"></script>
-<script src="{SITE_URL}/themes/Bitfarm/js/jquery-ui-1.7.2.custom.min.js" type="text/javascript"></script>
-<script src="{SITE_URL}/themes/Bitfarm/js/ui.selectmenu.js" type="text/javascript"></script>
-<script src="{SITE_URL}/themes/Bitfarm/js/jquery.cookie.js" type="text/javascript"></script>
-<script src="{SITE_URL}/themes/Bitfarm/js/jquery.thumbnailScroller.js" type="text/javascript"></script>
-<script type="text/javascript" src="{SITE_URL}/themes/Bitfarm/js/jquery.smoothmenu.js"></script>
-<script type="text/javascript" src="{SITE_URL}/themes/Bitfarm/js/core.js"></script>
-<script src="{SITE_URL}/themes/Bitfarm/js/jquery.jcarousel.js" type="text/javascript"></script>
-<script type="text/javascript" src="{SITE_URL}/themes/Bitfarm/js/jquery.qtip-1.0.0-rc3.min.js"></script>
-<script src="{SITE_URL}/themes/Bitfarm/js/init.js" type="text/javascript"></script>
-<script type="text/javascript" src="{SITE_URL}/themes/Bitfarm/js/jquery.jqDock.min.js"></script>
-<script type="text/javascript">
-	$(function(){
-		var jqDockOpts = {align: 'left', duration: 200, labels: 'tc', size: 48, distance: 85};
-		$('#jqDock').jqDock(jqDockOpts);
-	});
-</script>
-</head>
-<!--[if lt IE 7]><link rel="stylesheet" type="text/css" media="screen" href="{SITE_URL}/themes/Bitfarm/iestyle.css">
-<![endif]-->
-<!--[if IE]>
-<link rel="stylesheet" type="text/css" media="screen" href="{SITE_URL}/themes/Bitfarm/iestyle.css">
-<![endif]-->
-<body class="{S_CONTENT_DIRECTION}" onLoad="shoutthis_ajax()">
-<div id="overDiv" style="position:absolute; visibility:hidden; z-index:1000;"></div>
-<div align="center">
-<div id="infobar">
-<div class="fltLeft"><!-- IF U_VIEW_ADMIN_PAN --><a class='admin' href='admin.php'>{L_ADMIN_CP}</a><!-- ENDIF --></div>
-<div class="fltRight">
-{L_LOGGED_IN_AS}: <a href="user.php?op=profile"><font color="#000" style='background-color: {U_USER_COLOR};'>{U_USER_USERNAME}</font></a>,
-<img width="20" height="20" border="none" title="{L_UPLODED}" alt="{L_UPLODED}" src="{SITE_URL}/themes/Bitfarm/images/uploaded.png">
-<font color="#009900">{U_UPLOADED} </font>
-<img width="20" height="20" border="none" title="{L_DOWNED}" alt="{L_DOWNED}" src="{SITE_URL}/themes/Bitfarm/images/downloaded.png">
-<font color="#CC0000">{U_DOWNLOADED} </font>
-<img width="20" height="20" border="none" title="{L_RATIO}" alt="{L_RATIO}" src="{SITE_URL}/themes/Bitfarm/images/ratio.png">
-{U_RATIO}
-<a href="user.php?op=editprofile">
-<img width="20" height="20" border="none" title="{L_YOUR_ACCOUNT}" alt="{L_YOUR_ACCOUNT}" src="{SITE_URL}/themes/Bitfarm/images/account.png">
-</a>
-<a href="user.php?op=profile">
-<img width="20" height="20" border="none" title="{L_USERPROFILE}" alt="{L_USERPROFILE}" src="{SITE_URL}/themes/Bitfarm/images/profile.png">
-</a>
-<!-- IF U_USER --><a onClick="if(!confirm('{L_JAVA_CONF_LOGOUT}')){return false;};" href="user.php?op=logout" alt="{L_LOGOUT}" title="{L_LOGOUT}"><!-- ELSE --><a href="login.php" alt="{L_LOGIN}" title="{L_LOGIN}"><!-- ENDIF -->
-<img width="20" height="20" border="none" title="{L_LOGOUT}" alt="{L_LOGOUT}" src="{SITE_URL}/themes/Bitfarm/images/logout.png">
-</a>
-<a href="pm.php">
-<img width="20" height="20" border="none"  title="{L_PM}" alt="{L_PM}" src="{SITE_URL}/themes/Bitfarm/images/<!-- IF U_USER_NEW_PM -->mail_new.png<!-- ELSE -->mail.png<!-- ENDIF -->">
-</a>
-</div>
-</div>
-</div>
-<div id="h_w">
-<div id="letter-container" class="letter-container">
-<h4>
-<a href="#">
-<span class="char1">B</span>
-<span class="char2">T</span>
-<span class="char3">M</span>
-<span class="char4">A</span>
-<span class="char5">N</span>
-<span class="char6">A</span>
-<span class="char7">G</span>
-<span class="char8">E</span>
-<span class="char9">R</span>
-</a>
-</h4>
-</div>
-</div>
-<div id="c_w">
-<div id="nav-holder">
-<div id="nav">
-<ul>
-<li><a title="{L_INDEX}" href="/">{L_INDEX}</a>
-</li>
-<li>
-<a title="{L_BROWES}" href="/torrents.php">{L_BROWES}</a>
-</li>
-<li>
-<a title="{L_UPLOAD}" href="/upload.php">{L_UPLOAD}</a>
-</li>
-<!-- IF U_USER --><li class="dropdown">
-<a id="hoverdown" href="#">{L_USER}
-<img width="8" height="10" border="0" title="{L_DEVICES}" alt="{L_DEVICES}" src="themes/Bitfarm/images/dropdown-arrow.png" style="margin-left:10px">
-</a>
-<ul class="sub_nav" style="display: none;">
-<li>
-<a alt="{L_USERPROFILE}" href="/user.php?op=profile">{L_USERPROFILE}</a>
-</li>
-<li>
-<a alt="{L_USEREPROFILE}" href="/user.php?op=editprofile">{L_USEREPROFILE}</a>
-</li>
-<li>
-<a alt="{L_BOARD_SETTINGS}" href="/user.php?op=editprofile&action=preferences&mode=personal">{L_BOARD_SETTINGS}</a>
-</li>
-<li>
-<a alt="{L_SUBSCRIPTIONS}" href="/user.php?op=editprofile&action=overview&mode=subscribed">{L_SUBSCRIPTIONS}</a>
-</li>
-</ul>
-</li><!-- ENDIF -->
-<li>
-<a title="{L_FORUM}" href="/forum.php">{L_FORUM}</a>
-</li>
-</ul>
-</div>
-</div>
+                else if (state == "3")
+                img.src = img.src.replace("_over.gif", ".gif");
+            }
+
+            var pd = new Date();
+            var last_reload = pd.getTime();
+
+            function do_breload()
+            {
+                if (document.location.href.match(/\/torrents\.php/))
+                {
+            	   var d = new Date();
+
+            	   if (last_reload && last_reload > (d.getTime() - "4000")) return;
+
+            	   last_reload = d.getTime();
+            	   bparam('page=1')
+            	}
+            }
+
+            function toggle2(nome)
+            {
+                if(document.getElementById(nome).style.display == 'none')
+                {
+                    SetCookie(nome,'');
+                    document.getElementById(nome).style.display = '';
+                    document.getElementById(nome + "img").src = "themes/Bitfarm/pics/minus.gif";
+                }
+                else
+                {
+                    SetCookie(nome,'none',200);
+                    document.getElementById(nome).style.display = 'none';
+                    document.getElementById(nome + "img").src = "themes/Bitfarm/pics/plus.gif";
+                }
+            }
+
+            function SetCookie(cookieName, cookieValue, nDays)
+            {
+                 var today  = new Date();
+                 var expire = new Date();
+
+                 if (nDays==null || nDays==0) nDays=1;
+
+                 expire.setTime(today.getTime() + 3600000 * 24 * nDays);
+
+                 document.cookie = cookieName + "=" + escape(cookieValue) + ";expires=" + expire.toGMTString();
+            }
+
+            function bparam()
+            {
+                document.getElementById('myAnchor').href = "torrents.php"
+            }
+
+            // <![CDATA[
+            var jump_page  = '{LA_JUMP_PAGE}:';
+            var on_page    = '{ON_PAGE}';
+            var per_page   = '{PER_PAGE}';
+            var base_url   = '{A_BASE_URL}';
+            var menu_state = 'shown';
+
+            /**
+            * Jump to page
+            */
+            function jumpto()
+            {
+            	var page = prompt(jump_page, on_page);
+
+            	if (page !== null && !isNaN(page) && page == Math.floor(page) && page > 0)
+            	{
+            		if (base_url.indexOf('?') == -1)
+            		{
+            			document.location.href = base_url + '?page=' + ((page - 1) * per_page / per_page + 1);
+            		}
+            		else
+            		{
+            			document.location.href = base_url.replace(/&amp;/g, '&') + '&page=' + ((page - 1) * per_page / per_page + 1);
+            		}
+            	}
+            }
+
+            /**
+            * Set Display of Page Element
+            * s[-1,0,1] = hide, toggle display, show
+            */
+
+            function dE(n, s, type)
+            {
+            	if (!type)
+            	{
+            		type = 'block';
+            	}
+
+            	var e = document.getElementById(n);
+
+            	if (!s)
+            	{
+            		s = (e.style.display == '') ? -1 : 1;
+            	}
+            	e.style.display = (s == 1) ? type : 'none';
+            }
+            // ]]>
+
+        </script>
+
+        <script type="text/javascript" src="{SITE_URL}/global.js"></script>
+        <script type="text/javascript" src="{SITE_URL}/overlib/overlib.js"><!-- overLIB (c) Erik Bosrup --></script>
+        <script type="text/javascript" src="{SITE_URL}/overlib/overlib_shadow.js"><!-- overLIB (c) Erik Bosrup --></script>
+        <script src="{SITE_URL}/themes/Bitfarm/js/jquery.js" type="text/javascript"></script>
+        <script src="{SITE_URL}/themes/Bitfarm/js/jquery-ui-1.7.2.custom.min.js" type="text/javascript"></script>
+        <script src="{SITE_URL}/themes/Bitfarm/js/ui.selectmenu.js" type="text/javascript"></script>
+        <script src="{SITE_URL}/themes/Bitfarm/js/jquery.cookie.js" type="text/javascript"></script>
+        <script src="{SITE_URL}/themes/Bitfarm/js/jquery.thumbnailScroller.js" type="text/javascript"></script>
+        <script type="text/javascript" src="{SITE_URL}/themes/Bitfarm/js/jquery.smoothmenu.js"></script>
+        <script type="text/javascript" src="{SITE_URL}/themes/Bitfarm/js/core.js"></script>
+        <script src="{SITE_URL}/themes/Bitfarm/js/jquery.jcarousel.js" type="text/javascript"></script>
+        <script type="text/javascript" src="{SITE_URL}/themes/Bitfarm/js/jquery.qtip-1.0.0-rc3.min.js"></script>
+        <script src="{SITE_URL}/themes/Bitfarm/js/init.js" type="text/javascript"></script>
+        <script type="text/javascript" src="{SITE_URL}/themes/Bitfarm/js/jquery.jqDock.min.js"></script>
+
+        <script type="text/javascript">
+        	$(function()
+            {
+        		var jqDockOpts = {align: 'left', duration: 200, labels: 'tc', size: 48, distance: 85};
+        		$('#jqDock').jqDock(jqDockOpts);
+        	});
+        </script>
+    </head>
+
+    <!--[if lt IE 7]>
+    <link rel="stylesheet" type="text/css" media="screen" href="{SITE_URL}/themes/Bitfarm/iestyle.css">
+    <![endif]-->
+
+    <!--[if IE]>
+    <link rel="stylesheet" type="text/css" media="screen" href="{SITE_URL}/themes/Bitfarm/iestyle.css">
+    <![endif]-->
+
+    <body class="{S_CONTENT_DIRECTION}" onLoad="shoutthis_ajax()">
+        <div id="overDiv" style="position:absolute; visibility:hidden; z-index:1000;"></div>
+        <div align="center">
+            <div id="infobar">
+                <div class="fltLeft">
+                    <!-- IF U_VIEW_ADMIN_PAN -->
+                    <a class='admin' href='admin.php'>{L_ADMIN_CP}</a>
+                    <!-- ENDIF -->
+                </div>
+
+                <div class="fltRight">
+                    {L_LOGGED_IN_AS}:
+                    <a href="user.php?op=profile">
+                        <font color="#000" style='background-color: {U_USER_COLOR};'>{U_USER_USERNAME}</font>
+                    </a>,
+
+                    <img width="20" height="20" border="none" title="{L_UPLODED}" alt="{L_UPLODED}" src="{SITE_URL}/themes/Bitfarm/images/uploaded.png">
+
+                    <font color="#009900">{U_UPLOADED}</font>
+                    <img width="20" height="20" border="none" title="{L_DOWNED}" alt="{L_DOWNED}" src="{SITE_URL}/themes/Bitfarm/images/downloaded.png">
+
+                    <font color="#CC0000">{U_DOWNLOADED}</font>
+                    <img width="20" height="20" border="none" title="{L_RATIO}" alt="{L_RATIO}" src="{SITE_URL}/themes/Bitfarm/images/ratio.png">
+
+                    {U_RATIO}
+                    <a href="user.php?op=editprofile">
+                        <img width="20" height="20" border="none" title="{L_YOUR_ACCOUNT}" alt="{L_YOUR_ACCOUNT}" src="{SITE_URL}/themes/Bitfarm/images/account.png">
+                    </a>
+
+                    <a href="user.php?op=profile">
+                        <img width="20" height="20" border="none" title="{L_USERPROFILE}" alt="{L_USERPROFILE}" src="{SITE_URL}/themes/Bitfarm/images/profile.png">
+                    </a>
+
+                    <a href="pm.php">
+                        <img width="20" height="20" border="none"  title="{L_PM}" alt="{L_PM}" src="{SITE_URL}/themes/Bitfarm/images/<!-- IF U_USER_NEW_PM -->mail_new.png<!-- ELSE -->mail.png<!-- ENDIF -->">
+                    </a>
+
+                    <!-- IF U_USER -->
+                        <a onClick="if(!confirm('{L_JAVA_CONF_LOGOUT}')){return false;};" href="user.php?op=logout" alt="{L_LOGOUT}" title="{L_LOGOUT}">
+                            <!-- ELSE -->
+                                <a href="login.php" alt="{L_LOGIN}" title="{L_LOGIN}">
+                            <!-- ENDIF -->
+                            <img width="20" height="20" border="none" title="{L_LOGOUT}" alt="{L_LOGOUT}" src="{SITE_URL}/themes/Bitfarm/images/logout.png">
+                        </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="h_w">
+            <div id="letter-container" class="letter-container">
+                <h4>
+                    <a href="#">
+                        <span class="char1">B</span>
+                        <span class="char2">T</span>
+                        <span class="char3">M</span>
+                        <span class="char4">A</span>
+                        <span class="char5">N</span>
+                        <span class="char6">A</span>
+                        <span class="char7">G</span>
+                        <span class="char8">E</span>
+                        <span class="char9">R</span>
+                    </a>
+                </h4>
+            </div>
+        </div>
+
+        <div id="c_w">
+            <div id="nav-holder">
+                <div id="nav">
+                    <ul>
+                        <li>
+                            <a title="{L_INDEX}" href="/">{L_INDEX}</a>
+                        </li>
+
+                        <li>
+                            <a title="{L_BROWES}" href="/torrents.php">{L_BROWES}</a>
+                        </li>
+
+                        <li>
+                            <a title="{L_UPLOAD}" href="/upload.php">{L_UPLOAD}</a>
+                        </li>
+
+                        <!-- IF U_USER -->
+                        <li class="dropdown">
+                            <a id="hoverdown" href="#">{L_USER}
+                                <img width="8" height="10" border="0" title="{L_USER_CONTROL_PANEL}" alt="{L_USER_CONTROL_PANEL}" src="themes/Bitfarm/images/dropdown-arrow.png" style="margin-left:10px">
+                            </a>
+
+                            <ul class="sub_nav" style="display: none;">
+                                <li>
+                                    <a alt="{L_USERPROFILE}" href="/user.php?op=profile">{L_USERPROFILE}</a>
+                                </li>
+
+                                <li>
+                                    <a alt="{L_USEREPROFILE}" href="/user.php?op=editprofile">{L_USEREPROFILE}</a>
+                                </li>
+
+                                <li>
+                                    <a alt="{L_BOARD_SETTINGS}" href="/user.php?op=editprofile&action=preferences&mode=personal">{L_BOARD_SETTINGS}</a>
+                                </li>
+
+                                <li>
+                                    <a alt="{L_SUBSCRIPTIONS}" href="/user.php?op=editprofile&action=overview&mode=subscribed">{L_SUBSCRIPTIONS}</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- ENDIF -->
+                        <li>
+                            <a title="{L_FORUM}" href="/forum.php">{L_FORUM}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
 
 <table width="100%" cellspacing="10" cellpadding="0" border="0">
-<tbody>
-<tr>
-<td width="15%" valign="top">
+    <tbody>
+        <tr>
+            <td width="15%" valign="top">
