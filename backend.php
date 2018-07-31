@@ -85,7 +85,7 @@ switch($op) {
 				$rssdead ="AND T.visible = 'yes' ";
 				else
 				$rssdead = "";
-				$search	= request_var('search', '');
+				$search	= request_var('search', '',true);
 				$cat	= (int)request_var('cat', 0);
 				$orderby	= request_var('orderby', '');
 				$ordertype	= request_var('ordertype', '');
@@ -99,6 +99,8 @@ switch($op) {
 				AND T.password IS NULL ";
                 if (!empty($search)) $sql .= " AND T.search_text LIKE ('%".$db->sql_escape(searchfield($search))."%') ";
                 if (!isset($ordertype) OR $ordertype != "ASC") $ordertype = "DESC";
+				else
+				$ordertype = "ASC";
                 if (isset($incldead) AND $incldead != "true") $sql .= "AND T.visible = 'yes' ";
                 if ($cat > 0) $sql .= " AND T.category = '".$cat."' ";
 				switch ($orderby) {
@@ -171,7 +173,7 @@ $seeds = Array();
 $leeches = Array();
 $pubd = Array();
 $sizet = Array();
-	include_once('include/function_posting.' . $phpEx);
+	include_once('include/function_posting.php');
 	include_once('include/class.bbcode.php');
 	
 	// Grab icons

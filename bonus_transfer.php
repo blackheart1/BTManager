@@ -64,17 +64,20 @@ if($action)
 				));
 			break;
 			 }
+			 //die($anonym);
 			$db->sql_query("UPDATE ".$db_prefix."_users SET seedbonus = seedbonus + $bonus WHERE id = '$kapo2'") or sqlerr(__FILE__, __LINE__);
 			$db->sql_query("UPDATE ".$db_prefix."_users SET seedbonus = seedbonus - $bonus WHERE id = '$kuldo'") or sqlerr(__FILE__, __LINE__);
 			include_once('include/function_posting.php');
 			if(!$why)$why=$user->lang['NO_REASON_GIVEN'];
 			if ($anonym != 'anonym') {
 				//pm message text here
-				$msg = sprintf($user->lang['BONUS_TRANSFERD'],$user->name,$bonus,$why);
+				$from = true;
+				$msg = sprintf($user->lang['BONUS_TRANSFER_PM'],$user->name,$bonus,$why);
 			}else{
+				$from = false;
 				$msg = sprintf($user->lang['BONUS_TRANSFER_PM'],$user->lang['UNKNOWN'],$bonus,$why);
 			}
-			system_pm($msg,$user->lang['BONUS_TRANSFER_PM_SUB'],$kapo2,0);
+			system_pm($msg,$user->lang['BONUS_TRANSFER_PM_SUB'],$kapo2,0,$from);
 				$template->assign_vars(array(
 					'S_NOTICE'			=> true,
 					'S_ERROR'			=> false,
