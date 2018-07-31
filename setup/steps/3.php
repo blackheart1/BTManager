@@ -41,7 +41,6 @@ $showpanel = false;
 
 //Configuration file prototype. Copyright Notice included ;)
 $configproto = <<<EOF
-
 <?php
 /**
 **********************
