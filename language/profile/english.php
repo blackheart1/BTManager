@@ -71,7 +71,7 @@ $lang = array_merge($lang, array(
     'BONUS_TO_SELF'         => 'You can NOT Transfer Points to Yourself!',
     'BONUS_TRANSFERD'       => 'Job Done.  Bonus Points Successfully Sent to %s',
     'BONUS_TRANSFER_PM_SUB' => 'Bonus Points Received',
-    'BONUS_TRANSFER_PM'     => '%1$s has gGiven you %2$s Bonus Points ' . "\n" . 'Here\'s a Message from them:' . "\n" . '%3$s',
+    'BONUS_TRANSFER_PM'     => '%1$s has given you %2$s Bonus Points ' . "\n" . 'Here\'s a Message from them:' . "\n" . '%3$s',
 
     'WELCOME' => 'Welcome! <br />Register an Account to Join Our Community.  This will Enable you to use the Full Range of Services on this Site, it will only take a few minutes.  Choose a Username and Password, and provide a Valid email Address.  Within a few minutes, you\'ll Receive an email, asking you to Confirm the Registration.',
 
