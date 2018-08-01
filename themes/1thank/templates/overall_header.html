@@ -250,17 +250,6 @@
                             <!-- IF U_PRINT_PM --><li class="rightside"><a href="{U_PRINT_PM}" title="{L_PRINT_PM}" accesskey="p" class="print">{L_PRINT_PM}</a></li><!-- ENDIF -->
                         </ul>
 
-                    <!-- IF not S_USER_LOGGED_IN and not S_IS_BOT and S_LOGIN_ANYWHERE and not AUTO_REFRESH -->
-                        <form method="post" action="{S_LOGIN_ANYWHERE}">
-                            <fieldset class="quick-login" style="float:left;position:relative;white-space:nowrap">
-                                <label for="prime_login_username">Login:</label>&nbsp;<input tabindex="100" type="text" name="username" id="prime_login_username" size="10" class="inputbox" style="min-width:100px" title="{L_USERNAME}" />  
-                                <label for="prime_login_password">HasÅ?o:</label>&nbsp;<input tabindex="101" type="password" name="password" id="prime_login_password" size="10" class="inputbox" title="{L_PASSWORD}" />
-                                <!-- IF S_AUTOLOGIN_ENABLED --><label for="prime_login_autologin"><input tabindex="102" type="checkbox" name="autologin" id="prime_login_autologin" /> {L_PRIME_REMEMBER_ME}</label><!-- ENDIF -->
-                                <input tabindex="103" type="submit" name="login" value="{L_LOGIN}" class="button2" />
-
-                            </fieldset>
-                        </form>
-                        <!-- ENDIF -->
                         <!-- IF U_USER -->
                         <ul class="linklist leftside">
                             <li class="icon-ucp">

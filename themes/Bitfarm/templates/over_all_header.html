@@ -15,9 +15,11 @@
         <link rel="stylesheet" href="{SITE_URL}/themes/Bitfarm/css/lightbox.css" type="text/css">
 
         {META}
+
         <!--[if lt IE 7]>
-        <script defer type="text/javascript" src="{SITE_URL}/pngfix.js"></script>
+            <script defer type="text/javascript" src="{SITE_URL}/pngfix.js"></script>
         <![endif]-->
+
         <title>{SITENAME} &bull; <!-- IF S_IN_MCP -->{L_MCP} &bull; <!-- ELSEIF S_IN_UCP -->{L_USER_CPANNEL} &bull; <!-- ENDIF -->{PAGE_TITLE}</title>
 
         <script type="text/javascript" src="{SITE_URL}/themes/Bitfarm/js/prototype.js"></script>
@@ -50,16 +52,16 @@
             function change_bg(img, state)
             {
                 if (state == "1")
-                img.src = img.src.replace(".gif", "_over.gif");
+                    img.src = img.src.replace(".gif", "_over.gif");
 
                 else if (state == "0")
-                img.src = img.src.replace("_over.gif", ".gif");
+                    img.src = img.src.replace("_over.gif", ".gif");
 
                 else if (state == "2")
-                img.src = img.src.replace("_over.gif", ".gif");
+                    img.src = img.src.replace("_over.gif", ".gif");
 
                 else if (state == "3")
-                img.src = img.src.replace("_over.gif", ".gif");
+                    img.src = img.src.replace("_over.gif", ".gif");
             }
 
             var pd = new Date();
@@ -74,6 +76,7 @@
             	   if (last_reload && last_reload > (d.getTime() - "4000")) return;
 
             	   last_reload = d.getTime();
+
             	   bparam('page=1')
             	}
             }
@@ -99,7 +102,7 @@
                  var today  = new Date();
                  var expire = new Date();
 
-                 if (nDays==null || nDays==0) nDays=1;
+                 if (nDays == null || nDays == 0) nDays = 1;
 
                  expire.setTime(today.getTime() + 3600000 * 24 * nDays);
 
@@ -112,54 +115,53 @@
             }
 
             // <![CDATA[
-            var jump_page  = '{LA_JUMP_PAGE}:';
-            var on_page    = '{ON_PAGE}';
-            var per_page   = '{PER_PAGE}';
-            var base_url   = '{A_BASE_URL}';
-            var menu_state = 'shown';
+                var jump_page  = '{LA_JUMP_PAGE}:';
+                var on_page    = '{ON_PAGE}';
+                var per_page   = '{PER_PAGE}';
+                var base_url   = '{A_BASE_URL}';
+                var menu_state = 'shown';
 
-            /**
-            * Jump to page
-            */
-            function jumpto()
-            {
-            	var page = prompt(jump_page, on_page);
+                /**
+                * Jump to page
+                */
+                function jumpto()
+                {
+                	var page = prompt(jump_page, on_page);
 
-            	if (page !== null && !isNaN(page) && page == Math.floor(page) && page > 0)
-            	{
-            		if (base_url.indexOf('?') == -1)
-            		{
-            			document.location.href = base_url + '?page=' + ((page - 1) * per_page / per_page + 1);
-            		}
-            		else
-            		{
-            			document.location.href = base_url.replace(/&amp;/g, '&') + '&page=' + ((page - 1) * per_page / per_page + 1);
-            		}
-            	}
-            }
+                	if (page !== null && !isNaN(page) && page == Math.floor(page) && page > 0)
+                	{
+                		if (base_url.indexOf('?') == -1)
+                		{
+                			document.location.href = base_url + '?page=' + ((page - 1) * per_page / per_page + 1);
+                		}
+                		else
+                		{
+                			document.location.href = base_url.replace(/&amp;/g, '&') + '&page=' + ((page - 1) * per_page / per_page + 1);
+                		}
+                	}
+                }
 
-            /**
-            * Set Display of Page Element
-            * s[-1,0,1] = hide, toggle display, show
-            */
+                /**
+                * Set Display of Page Element
+                * s[-1,0,1] = hide, toggle display, show
+                */
 
-            function dE(n, s, type)
-            {
-            	if (!type)
-            	{
-            		type = 'block';
-            	}
+                function dE(n, s, type)
+                {
+                	if (!type)
+                	{
+                		type = 'block';
+                	}
 
-            	var e = document.getElementById(n);
+                	var e = document.getElementById(n);
 
-            	if (!s)
-            	{
-            		s = (e.style.display == '') ? -1 : 1;
-            	}
-            	e.style.display = (s == 1) ? type : 'none';
-            }
+                	if (!s)
+                	{
+                		s = (e.style.display == '') ? -1 : 1;
+                	}
+                	e.style.display = (s == 1) ? type : 'none';
+                }
             // ]]>
-
         </script>
 
         <script type="text/javascript" src="{SITE_URL}/global.js"></script>
@@ -187,11 +189,11 @@
     </head>
 
     <!--[if lt IE 7]>
-    <link rel="stylesheet" type="text/css" media="screen" href="{SITE_URL}/themes/Bitfarm/iestyle.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="{SITE_URL}/themes/Bitfarm/iestyle.css">
     <![endif]-->
 
     <!--[if IE]>
-    <link rel="stylesheet" type="text/css" media="screen" href="{SITE_URL}/themes/Bitfarm/iestyle.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="{SITE_URL}/themes/Bitfarm/iestyle.css">
     <![endif]-->
 
     <body class="{S_CONTENT_DIRECTION}" onLoad="shoutthis_ajax()">
@@ -200,7 +202,7 @@
             <div id="infobar">
                 <div class="fltLeft">
                     <!-- IF U_VIEW_ADMIN_PAN -->
-                    <a class='admin' href='admin.php'>{L_ADMIN_CP}</a>
+                        <a class='admin' href='admin.php'>{L_ADMIN_CP}</a>
                     <!-- ENDIF -->
                 </div>
 
@@ -208,7 +210,7 @@
                     {L_LOGGED_IN_AS}:
                     <a href="user.php?op=profile">
                         <font color="#000" style='background-color: {U_USER_COLOR};'>{U_USER_USERNAME}</font>
-                    </a>,
+                    </a>
 
                     <img width="20" height="20" border="none" title="{L_UPLODED}" alt="{L_UPLODED}" src="{SITE_URL}/themes/Bitfarm/images/uploaded.png">
 
@@ -233,11 +235,11 @@
 
                     <!-- IF U_USER -->
                         <a onClick="if(!confirm('{L_JAVA_CONF_LOGOUT}')){return false;};" href="user.php?op=logout" alt="{L_LOGOUT}" title="{L_LOGOUT}">
-                            <!-- ELSE -->
-                                <a href="login.php" alt="{L_LOGIN}" title="{L_LOGIN}">
-                            <!-- ENDIF -->
-                            <img width="20" height="20" border="none" title="{L_LOGOUT}" alt="{L_LOGOUT}" src="{SITE_URL}/themes/Bitfarm/images/logout.png">
-                        </a>
+                    <!-- ELSE -->
+                        <a href="login.php" alt="{L_LOGIN}" title="{L_LOGIN}">
+                    <!-- ENDIF -->
+                        <img width="20" height="20" border="none" title="{L_LOGOUT}" alt="{L_LOGOUT}" src="{SITE_URL}/themes/Bitfarm/images/logout.png">
+                    </a>
                 </div>
             </div>
         </div>
@@ -276,6 +278,10 @@
                             <a title="{L_UPLOAD}" href="/upload.php">{L_UPLOAD}</a>
                         </li>
 
+                        <li>
+                            <a title="{L_FORUM}" href="/forum.php">{L_FORUM}</a>
+                        </li>
+
                         <!-- IF U_USER -->
                         <li class="dropdown">
                             <a id="hoverdown" href="#">{L_USER}
@@ -301,9 +307,6 @@
                             </ul>
                         </li>
                         <!-- ENDIF -->
-                        <li>
-                            <a title="{L_FORUM}" href="/forum.php">{L_FORUM}</a>
-                        </li>
                     </ul>
                 </div>
             </div>

@@ -485,7 +485,7 @@ html, body {
     font-size: 9pt;
     border-radius: 0 0 7px 7px;
     display: none;
-    left: 200px;
+    left: 280px;
     padding-bottom: 10px;
     position: absolute;
     top: 40px;
@@ -797,6 +797,11 @@ td.postbottom {
 	background: #E6EAF0 url(images/cell.gif) top left repeat-x;
 	padding: 4px;
 	color: #444;
+}
+.row4 {
+    background: #E6EAF0 url(images/cell.gif) top left repeat-x;
+    padding: 4px;
+    color: #444;
 }
 td.postbuttons { padding-top: 3px; }
 .postdetails f {
@@ -1295,18 +1300,8 @@ float : left;
 margin-right : 5px;
 padding-right : 0;
 }
-#donationbar-background {
-position : relative;
-bottom : 1px;
-right : 1px;
-background : url(pics/donations_bg.png);
-background-repeat : no-repeat;
-height : 18px;
-width : 188px;
-}
 #searchcloud {
 color : #980000;
-
 }
 #searchcloud a:link {
 text-decoration : none;
@@ -1331,37 +1326,11 @@ color : #880000;
 font-size : 3em;
 color : #980000;
 }
-span.donationsin {
-font-family : sans-serif;
-font-size : 10pt;
-color : #265514;
-position : relative;
-float : left;
-right : 5px;
-bottom : 25px;
-}
-span.donationsgoal {
-position : absolute;
-float : right;
-right : 17px;
-top : 2px;
-font-weight : bold;
-font-size : 8pt;
-color : #555556;
-}
-span.donationsthanks {
-position : absolute;
-right : 75px;
-font-weight : bold;
-font-size : 8pt;
-color : #cccccc;
-}
 span.mainbox-title {
 text-align : center;
 display : block;
 margin : 0 auto 10px;
 font-weight : bold;
-
 font-size : 8pt;
 color : #980000;
 }
