@@ -194,9 +194,6 @@ if (isset($do) && $do == "save")
 
         echo $template->fetch('admin/message_body.html');
         close_out();
-
-        //bterror($errors,"Avatar settings not saved",false);
-        bterror(sprintf($errors, $user->lang['AVATAR_NOT_SAVED']), false);
     }
     else
     {

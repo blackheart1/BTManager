@@ -196,7 +196,7 @@ elseif ($action == "edititem" && $fid != NULL && $question != NULL && $answer !=
 	'`bbcode_bitfield`'		=> $message_parser->bbcode_bitfield,
 	'`bbcode_uid`'			=> $message_parser->bbcode_uid
 	);
-	die($db->sql_build_array('UPDATE', $sql_ary));
+	//die($db->sql_build_array('UPDATE', $sql_ary));
 	$db->sql_query("UPDATE `".$db_prefix."_faq` SET " . $db->sql_build_array('UPDATE', $sql_ary) . " WHERE id='$fid'") or sqlerr();
 	$template->assign_vars(array(
 		'S_SUCCESS'            => true,

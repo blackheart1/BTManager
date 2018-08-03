@@ -81,8 +81,8 @@ switch($do)
             $reason_client = request_var('reason_client', '');
 
             if ($ban_client == '')
-            { //ip2long Returns < 0 if Input is Invalid
-                bterror(_admnoclient, _admban, false);
+            { 
+                bterror('NO_CLIENT_DEFINED','BT_ERROR', false);
                 break;
             }
 
