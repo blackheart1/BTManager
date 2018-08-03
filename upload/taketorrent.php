@@ -778,8 +778,8 @@ if($autoscrape AND $announce != "") {
                 $completed = $leechers = 0;
                 $visible = ($announce != "") ? "yes" : "no";
 }
-$build = request_var('build','');
-if(!isset($build)) $build = "no";
+$build = request_var('build','no');
+if($build=='' OR !$build == 'yes') $build = "no";
 $post_img = request_var('post_img','');
 $screen1 = request_var('screen1','');
 $screen2 = request_var('screen2','');
