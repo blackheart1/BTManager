@@ -888,7 +888,7 @@ function clean_sentbox($num_sentbox_messages)
 				AND t.user_id = ' . $user->id . '
 				AND t.folder_id = ' . -1 . '
 			ORDER BY p.sent ASC';
-		$result = $db->sql_query_limit($sql, ($num_sentbox_messages - $user->data['message_limit']));
+		$result = $db->sql_query($sql . ' LIMIT  ' . ($num_sentbox_messages - $user->data['message_limit']));
 
 		$delete_ids = array();
 		while ($row = $db->sql_fetchrow($result))
@@ -896,7 +896,7 @@ function clean_sentbox($num_sentbox_messages)
 			$delete_ids[] = $row['msg_id'];
 		}
 		$db->sql_freeresult($result);
-		//delete_pm($user->id, $delete_ids, -1);
+		delete_pm($user->id, $delete_ids, -1);
 	}
 }
 function submit_pm($mode, $subject, &$data, $put_in_outbox = true)
@@ -1313,7 +1313,7 @@ function message_history($msg_id, $user_id, $message_row, $folder, $in_post_mode
 	$recipients = array_unique($recipients);
 
 	// Get History Messages (could be newer)
-	$sql = 'SELECT p.*, u.*, t.*
+	$sql = 'SELECT u.*, p.*, t.*
 		FROM ' . $db_prefix . '_private_messages p, ' . $db_prefix . '_privmsgs_to t, ' . $db_prefix . '_users  u
 		WHERE t.msg_id = p.id
 			AND p.sender = u.id
@@ -1485,7 +1485,7 @@ function set_user_message_limit()
 
 	// Get maximum about from user memberships - if it is 0, there is no limit set and we use the maximum value within the config.
 	$sql = 'SELECT MAX(g.group_message_limit) as max_message_limit
-		FROM ' . GROUPS_TABLE . ' g, ' . $db_prefix . '_user_group ug
+		FROM ' . $db_prefix . '_level_settings g, ' . $db_prefix . '_user_group ug
 		WHERE ug.user_id = ' . $user->id . '
 			AND ug.user_pending = 0
 			AND ug.group_id = g.group_id';
@@ -2077,7 +2077,7 @@ function place_pm_into_folder(&$global_privmsgs_rules, $release = false)
 					WHERE user_id = $user_id
 						AND folder_id = $dest_folder
 					ORDER BY msg_id ASC";
-				$result = $db->sql_query_limit($sql, (($folder[$dest_folder] + sizeof($msg_ary)) - $user->data['message_limit']));
+				$result = $db->sql_query($sql . ' LIMIT ' . (($folder[$dest_folder] + sizeof($msg_ary)) - $user->data['message_limit']));
 
 				$delete_ids = array();
 				while ($row = $db->sql_fetchrow($result))
