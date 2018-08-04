@@ -156,6 +156,7 @@ if($delmarked && $auth->acl_get('a_clearlogs'))
 		$sql_sort = $sort_by_sql[$sort_key] . ' ' . (($sort_dir == 'd') ? 'DESC' : 'ASC');
 		$keywords = utf8_normalize_nfc(request_var('keywords', '', true));
 		$start = ($page >=1)?(($config['topics_per_page'] * $page) - $config['topics_per_page']) : 0;
+		$startp = $start;
 			// Define forum list if we're looking @ mod logs
 		if ($mode == 'mod')
 		{
@@ -179,8 +180,8 @@ if($delmarked && $auth->acl_get('a_clearlogs'))
 			'L_EXPLAIN'		=> $l_title_explain,
 			'U_ACTION'		=> $u_action . "&amp;$keywords_param&amp;start=$start",
 			
-			'S_ON_PAGE'		=> on_page($log_count, $config['topics_per_page'], $start),
-			'PAGINATION'	=> generate_pagination($u_action . "&amp;$u_sort_param$keywords_param", $log_count, $config['topics_per_page'], $start, true),
+			'S_ON_PAGE'		=> on_page($log_count, $config['topics_per_page'], $startp),
+			'PAGINATION'	=> generate_pagination($u_action . "&amp;$u_sort_param$keywords_param", $log_count, $config['topics_per_page'], $startp, true),
 			
 			'S_LIMIT_DAYS'	=> $s_limit_days,
 			'S_SORT_KEY'	=> $s_sort_key,
