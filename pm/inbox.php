@@ -33,6 +33,7 @@ $template->assign_vars(array(
 ));
 $mode = 'inbox';
 $folder_specified = request_var('i', 0);
+				set_user_message_limit();
 
 				if ($folder_specified)
 				{
@@ -184,7 +185,7 @@ $folder_specified = request_var('i', 0);
 					// Update unread status
 					update_unread_status($message_row['pm_unread'], $message_row['msg_id'], $user->id, $folder_id);
 				}
-//echo $folder_id;
+
 				$folder = get_folder($user->id, $folder_id);
 
 				$s_folder_options = $s_to_folder_options = '';

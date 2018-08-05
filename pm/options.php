@@ -32,6 +32,7 @@ $template->assign_vars(array(
         'S_UCP_ACTION'          => 'pm.php?op=options',
 ));
 $mode = 'options';
+				set_user_message_limit();
 				message_options($id, $mode, $global_privmsgs_rules, $global_rule_conditions);
 if ($user->user) {
         //Update online user list
