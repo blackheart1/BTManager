@@ -866,6 +866,10 @@ $lang = array_merge($lang, array(
     '_btpm'                   => 'Private Messages',
     '_btrulesadd'             => 'Add New Rules Section',
     '_CONFIRM'                => 'Confirm Deletion of Attachment',
-    '_REMOVE_FOLDER'           => 'Delete Folder',
+    '_REMOVE_FOLDER'          => 'Delete Folder',
+
+    'REPLY_PM_RE'             => 'Re: ',
+    'DEL_USER'                => 'DelUser',
+    'DELETED_ACCOUNT'         => 'Deleted Account',
 ));
 ?>

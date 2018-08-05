@@ -175,21 +175,21 @@ $lang = array_merge($lang, array(
     'VISITED'                   => 'Last Visited',
 
     'WWW'                       => 'Website',
-	'ACTIVATE'					=> 'Activate',
-	'REMIND'					=> 'Remind',
-	'SEND_EMAIL'				=> 'E-mail',				// Used for submit buttons
-	'NO_USER'					=> 'No Matches Found.',
-	'NO_TOPIC'					=> 'The requested topic does not exist.',
-	'SORRY_AUTH_READ'			=> 'You are not authorised to read this forum.',
-	'FORM_INVALID'         		=> 'The Submitted Form was Invalid.  Try Submitting Again!',
-	'PRIMARY_GROUP'				=> 'Primary Group',
-	'FORUMS'					=> 'Forum\'s',
-	'ALL_FORUMS'				=> 'All Forum\'s',
-	'RANK'						=> 'Rank',
+    'ACTIVATE'                  => 'Activate',
+    'REMIND'                    => 'Remind',
+    'SEND_EMAIL'                => 'email',             // Used for Submit Buttons
+    'NO_USER'                   => 'No Matches Found.',
+    'NO_TOPIC'                  => 'The Requested Topic does NOT Exist.',
+    'SORRY_AUTH_READ'           => 'You Are NOT Authorised to Read this Forum.',
+    'FORM_INVALID'              => 'The Submitted Form was Invalid.  Try Submitting Again!',
+    'PRIMARY_GROUP'             => 'Primary Group',
+    'FORUMS'                    => 'Forum\'s',
+    'ALL_FORUMS'                => 'All Forum\'s',
+    'RANK'                      => 'Rank',
 
 
     'USER_LAST_REMINDED' => array(
-        0 => 'NO Reminder was Sent at this time',
+        0 => 'No Reminder was Sent at this time',
         1 => '%1$d Reminder Sent<br />%2$s',
     ),
 ));

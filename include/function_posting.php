@@ -47,12 +47,12 @@ function add_attach($form_name, $forum_id, $local = false, $local_storage = '', 
 		return $filedata;
 	}
 	$extensions = array();
-$sql = 'SELECT `extension` as extension FROM `' . $db_prefix . '_extensions`'; 
+$sql = 'SELECT `extension` as extension FROM `' . $db_prefix . '_extensions`';
 $res = $db->sql_query($sql) OR btsqlerror($sql);
 while ($ct_a = $db->sql_fetchrow($res))$extensions[] = $ct_a['extension'];
 $upload->set_allowed_extensions($extensions);
 	$file = ($local) ? $upload->local_upload($local_storage, $local_filedata) : $upload->form_upload($form_name);
-	
+
 	if ($file->init_error)
 	{
 		$filedata['post_attach'] = false;
@@ -62,7 +62,7 @@ $upload->set_allowed_extensions($extensions);
 	if ($cat_id == 1 && !$file->is_image())
 	{
 		$file->remove();
-		bterror("Error", 'ATTACHED_IMAGE_NOT_IMAGE');
+		bterror('BT_ERROR', 'ATTACHED_IMAGE_NOT_IMAGE');
 	}
 	$filedata['thumbnail'] = ($file->is_image() && $config['img_create_thumbnail']) ? 1 : 0;
 
@@ -394,7 +394,7 @@ function delete_attachments($mode, $ids, $resync = true)
 
 			while ($row = $db->sql_fetchrow($result))
 			{
-				$remaining[] = $row['post_msg_id'];		
+				$remaining[] = $row['post_msg_id'];
 			}
 			$db->sql_freeresult($result);
 
@@ -418,7 +418,7 @@ function delete_attachments($mode, $ids, $resync = true)
 
 			while ($row = $db->sql_fetchrow($result))
 			{
-				$remaining[] = $row['post_msg_id'];		
+				$remaining[] = $row['post_msg_id'];
 			}
 			$db->sql_freeresult($result);
 
@@ -456,7 +456,7 @@ function delete_attachments($mode, $ids, $resync = true)
 
 			while ($row = $db->sql_fetchrow($result))
 			{
-				$remaining[] = $row['topic_id'];		
+				$remaining[] = $row['topic_id'];
 			}
 			$db->sql_freeresult($result);
 
@@ -501,7 +501,7 @@ function truncate_string($string, $max_length = 60, $max_store_length = 255, $al
 
 	$strip_reply = false;
 	$stripped = false;
-	if ($allow_reply && strpos($string, 'Re: ') === 0)
+	if ($allow_reply && strpos($string, $user->lang['REPLY_PM_RE']) === 0)
 	{
 		$strip_reply = true;
 		$string = substr($string, 4);
@@ -535,7 +535,7 @@ function truncate_string($string, $max_length = 60, $max_store_length = 255, $al
 
 	if ($strip_reply)
 	{
-		$string = 'Re: ' . $string;
+		$string = $user->lang['REPLY_PM_RE'] . $string;
 	}
 
 	if ($append != '' && $stripped)
@@ -689,8 +689,8 @@ function commenttable($rows, $what = 'forum', $reply, $action_edit = false, $act
 		$postername = htmlspecialchars($row["username"]);
 		if ($postername == "")
 		{
-			$postername = "Deluser";
-			$title = "Deleted Account";
+			$postername = $user->lang['DEL_USER'];
+			$title = $user->lang['DELETED_ACCOUNT'];
 			$privacylevel = "no";
 			$avatar = gen_avatar(0);
 			$usersignature = "";
@@ -762,7 +762,7 @@ function commenttable($rows, $what = 'forum', $reply, $action_edit = false, $act
 										'P_AVATAR'					=>	$avatar,
 				)
 			);
-	 
+
 	}
 	return $template->fetch('post.html');
 }
@@ -1488,7 +1488,7 @@ function submit_post($mode, $subject, $username, $topic_type, &$poll, &$data, $u
 				$sql = 'SELECT p.post_id, p.post_subject, p.post_time, p.poster_id, p.post_username, u.can_do, u.id, u.username, L.group_colour AS user_colour
 					FROM ' . $db_prefix . '_posts p, ' . $db_prefix . '_users u, ' . $db_prefix . '_level_settings L
 					WHERE p.poster_id = u.id
-						AND p.post_id = ' . (int) $row['last_post_id'] . 
+						AND p.post_id = ' . (int) $row['last_post_id'] .
 						' AND L.group_id = u.can_do';
 				$result = $db->sql_query($sql);
 				$row = $db->sql_fetchrow($result);

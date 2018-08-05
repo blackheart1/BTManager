@@ -123,19 +123,19 @@ $lang = array_merge($lang, array(
     'NO_SCREEN_SHOTS'           => 'NO Screenshots Added',
     'DOWNLOAD_MAGNET_URL'       => 'Download using Magnet URI',
 
-    'COMPLAINTS_EXP'            => 'Torrent Complaint Form.<br />This System allows you to Flag Torrents that DO NOT conform to our Rules.<br />Once a certain number of Complaints are Reached, the Torrent may be Banned from the List.<br />Please Send Positive Feedback on Torrents that are Good and Legal.<br />This Torrent is:-',
+    'COMPLAINTS_EXP' => 'Torrent Complaint Form.<br />This System allows you to Flag Torrents that DO NOT conform to our Rules.<br />Once a certain number of Complaints are Reached, the Torrent may be Banned from the List.<br />Please Send Positive Feedback on Torrents that are Good and Legal.<br />This Torrent is:-',
 
-    'EXPORT'                    => 'Export',
+    'EXPORT'     => 'Export',
 
-    'EXPORT_EXP'                => 'Download this Torrent without your Passkey.  Used for Distribution on Sites that provide BitTorrent Index Services',
+    'EXPORT_EXP' => 'Download this Torrent without your Passkey.  Used for Distribution on Sites that provide BitTorrent Index Services',
 
     'LOGIN_PEER_DETAILS' => 'You need to be Logged in to View the Peer Details.',
     'INVALID_TORRENT'    => 'Invalid Torrent!',
 
     // 3.0.1 Addons
-    'RATE'                      => 'Rating!',
-    'LOGIN'                     => 'Log In',
-    'AUTH_MINEATIO'      		=> 'Minimum Autherised Ratio',
+    'RATE'          => 'Rating!',
+    'LOGIN'         => 'Log In',
+    'AUTH_MINEATIO' => 'Minimum Authorised Ratio',
 ));
 
 ?>

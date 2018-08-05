@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File common/english.php 2018-07-05 08:56:00 Thor
+** File common/english.php 2018-08-05 23:25:00 Thor
 **
 ** CHANGES
 **
@@ -26,6 +26,7 @@
 ** 2018-04-23 - Added Missing Language
 ** 2018-05-15 - Added Missing Language
 ** 2018-07-05 - Amended the Wording of some Sentences and Spell Checked
+** 2018-08-05 - Added Language
 **/
 
 if (!defined('IN_PMBT'))
@@ -633,7 +634,7 @@ $lang = array_merge($lang, array(
     'G_PREMIUM_USER'           => 'Premium User',
     'G_MODERATOR'              => 'Moderator',
     'G_USER'                   => 'User',
-	'G_GUEST'					=> 'Guest',
+    'G_GUEST'                  => 'Guest',
     'NO_UPLOAD_FORM_FOUND'     => '',
     'ATTACHED_IMAGE_NOT_IMAGE' => '',
     'ATTACH_QUOTA_REACHED'     => 'Sorry.  The Board Attachment Quota has been Reached.',
@@ -889,5 +890,19 @@ $u_datetime = array(
     'Nov'       => 'Nov',
     'Dec'       => 'Dec',
 );
+
+# Include/functions.php
+
+$lang = array_merge($lang, array(
+    'UPLOAD_ERR_INI_SIZE'   => 'The Uploaded File Exceeds the upload_max_filesize Directive in php.ini',
+    'UPLOAD_ERR_FORM_SIZE'  => 'The Uploaded File Exceeds the MAX_FILE_SIZE Directive that was Specified in the HTML Form',
+    'UPLOAD_ERR_PARTIAL'    => 'The Uploaded File was Only Partially Uploaded',
+    'UPLOAD_ERR_NO_FILE'    => 'No File was Uploaded',
+    'UPLOAD_ERR_NO_TMP_DIR' => 'Missing a Temporary Folder',
+    'UPLOAD_ERR_CANT_WRITE' => 'Failed to Write File to Disk',
+    'UPLOAD_ERR_EXTENSION'  => 'File Upload Stopped by Extension',
+    'UPLOAD_ERR_UNKNOWN'    => 'Unknown Upload Error',
+    'REDIRECT_UNSECURE_URL' => 'Tried to Redirect to a Potentially Unsecured URL. %1$s',
+));
 
 ?>
