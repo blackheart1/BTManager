@@ -170,7 +170,7 @@ function display_recent_topics($topics_per_page, $num_pages, $excluded_topics, $
 				FROM ' . $db_prefix . '_forums
 				WHERE forum_id = ' . $spec_forum_id . '
 					AND forum_recent_topics = 1';
-			$result = $db->sql_query_limit($sql, 1);
+			$result = $db->sql_query($sql . " LIMIT 1");
 			$display_forum = (bool) $db->sql_fetchfield('display_forum');
 			$db->sql_freeresult($result);
 

@@ -70,25 +70,24 @@ include_once 'include/user.functions.php';
 		{
 			case 'setting_user_local':
 			case 'setting_user_global':
-			require_once("include/auth.php");
-			require_once("include/class.bbcode.php");
-			require_once("include/functions_forum.php");
-			require_once("admin/files/acp_permissions.php");
-			$auth = new auth();
-			$auth->acl($user);
-			$admin_role = new acp_permissions();
-			$admin_role->u_action = '/admin.php?op=' . $op.'&amp;i=userinfo' . (($mode)? '&amp;mode=' . $mode : '') . '&amp;vas=' . $vas;
-			$admin_role->main('',$mode);
-			$temp = $admin_role->tpl_name;
-			//die($admin_role->tpl_name . 'lol');
-			break;
+				require_once("include/auth.php");
+				require_once("include/class.bbcode.php");
+				require_once("include/functions_forum.php");
+				require_once("admin/files/acp_permissions.php");
+				$auth = new auth();
+				$auth->acl($user);
+				$admin_role = new acp_permissions();
+				$admin_role->u_action = '/admin.php?op=' . $op.'&amp;i=userinfo' . (($mode)? '&amp;mode=' . $mode : '') . '&amp;vas=' . $vas;
+				$admin_role->main('',$mode);
+				$temp = $admin_role->tpl_name;
+				break;
 			case 'overview':
 			case 'profile':
 			case 'attach':
-			require_once("admin/files/acp_users.php");
-			require_once("include/auth.php");
-			require_once("include/utf/utf_tools.php");
-			require_once("include/class.bbcode.php");
+				require_once("admin/files/acp_users.php");
+				require_once("include/auth.php");
+				require_once("include/utf/utf_tools.php");
+				require_once("include/class.bbcode.php");
 				$sql = 'SELECT bbcode_id, bbcode_tag, bbcode_helpline
 					FROM '.$db_prefix.'_bbcodes
 					WHERE display_on_posting = 1
@@ -96,7 +95,7 @@ include_once 'include/user.functions.php';
 				$result = $db->sql_query($sql);
 			
 				$i = 0;
-	$num_predefined_bbcodes = 22;
+				$num_predefined_bbcodes = 22;
 				while ($rows = $db->sql_fetchrow($result))
 				{
 					// If the helpline is defined within the language file, we will use the localised version, else just use the database entry...
@@ -117,24 +116,24 @@ include_once 'include/user.functions.php';
 				}
 				$db->sql_freeresult($result);
 				$user->set_lang('admin/permissions',$user->ulanguage);
-			$auth = new auth();
-			$auth->acl($user);
-			$admin_role = new acp_users();
-			$admin_role->u_action = '/admin.php?op=' . $op.'&amp;i=userinfo' . (($mode)? '&amp;mode=' . $mode : '') . '&amp;vas=' . $vas;
-			$temp = $admin_role->tpl_name;
-			$admin_role->main('',$mode);
-			break;
+				$auth = new auth();
+				$auth->acl($user);
+				$admin_role = new acp_users();
+				$admin_role->u_action = '/admin.php?op=' . $op.'&amp;i=userinfo' . (($mode)? '&amp;mode=' . $mode : '') . '&amp;vas=' . $vas;
+				$temp = $admin_role->tpl_name;
+				$admin_role->main('',$mode);
+				break;
 			case 'list':
-			require_once("admin/files/ucp_list.php");
-			require_once("include/auth.php");
-			require_once("include/utf/utf_tools.php");
-			$auth = new auth();
-			$auth->acl($user);
-			$admin_role = new acp_inactive();
-			$admin_role->u_action = '/admin.php?op=' . $op.'&amp;i=userinfo' . (($mode)? '&amp;mode=' . $mode : '') . '&amp;vas=' . $vas;
-			$admin_role->main('',$mode);
-			$temp = $admin_role->tpl_name;
-			break;
+				require_once("admin/files/ucp_list.php");
+				require_once("include/auth.php");
+				require_once("include/utf/utf_tools.php");
+				$auth = new auth();
+				$auth->acl($user);
+				$admin_role = new acp_inactive();
+				$admin_role->u_action = '/admin.php?op=' . $op.'&amp;i=userinfo' . (($mode)? '&amp;mode=' . $mode : '') . '&amp;vas=' . $vas;
+				$admin_role->main('',$mode);
+				$temp = $admin_role->tpl_name;
+				break;
 		}
 		$limit_days = array(0 => $user->lang['ALL_ENTRIES'], 1 => $user->lang['1_DAY'], 7 => $user->lang['7_DAYS'], 14 => $user->lang['2_WEEKS'], 30 => $user->lang['1_MONTH'], 90 => $user->lang['3_MONTHS'], 180 => $user->lang['6_MONTHS'], 365 => $user->lang['1_YEAR']);
 		$sort_by_text = array('u' => $user->lang['SORT_USERNAME'], 't' => $user->lang['SORT_DATE'], 'i' => $user->lang['SORT_IP'], 'o' => $user->lang['SORT_ACTION']);

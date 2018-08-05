@@ -1000,7 +1000,6 @@ class acp_attachments
 								'post_msg_id'	=> $post_row['post_id'],
 								'topic_id'		=> $post_row['topic_id'],
 							);
-							//die(print_r($row['attach_id']));
 
 							$sql = 'UPDATE ' . $db_prefix . '_attachments
 								SET ' . $db->sql_build_array('UPDATE', $sql_ary) . '
@@ -1040,7 +1039,7 @@ class acp_attachments
 				$sql = 'SELECT *
 					FROM ' . $db_prefix . '_attachments
 					WHERE is_orphan = 1
-						AND filetime < ' . time() . '
+						AND filetime < ' . (time() - 3*60*60) . '
 					ORDER BY filetime DESC';
 				$result = $db->sql_query($sql);
 

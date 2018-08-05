@@ -23,7 +23,7 @@ if (!defined('IN_PMBT'))
 	include_once './../../security.php';
 	die ("You can't access this file directly");
 }
-		$user->set_lang('admin/arcade',$user->ulanguage);
+		$user->set_lang('admin/acp_arcade',$user->ulanguage);
 		$mode			= request_var('mode', 'manage');
 							$template->assign_block_vars('l_block1.l_block2',array(
 							'L_TITLE'		=> $user->lang['ARCADE'],

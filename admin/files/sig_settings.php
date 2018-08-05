@@ -22,8 +22,8 @@
 
 if (!defined('IN_PMBT'))
 {
-    include_once './../../security.php';
-    die ("You can't access this file directly");
+	include_once './../../security.php';
+	die ("You can't access this file directly");
 }
 
 $sql = 'SELECT * FROM `' . $db_prefix . '_settings`';
@@ -65,10 +65,10 @@ if (isset($do) && $do == "save")
     if ($cfgrow['max_sig_img_height'] != $max_sig_img_height)$new_config['max_sig_img_height'] = $max_sig_img_height;
     if ($cfgrow['max_sig_links']      != $max_sig_links)$new_config['max_sig_links'] = $max_sig_links;
 
-    foreach($new_config as $config_name => $config_value)
-    {
-        set_config($config_name, $config_value);
-    }
+	foreach($new_config as $config_name => $config_value)
+	{
+		set_config($config_name, $config_value);
+	}
 
     $template->assign_vars(array(
             'S_SUCCESS' => true,
