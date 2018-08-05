@@ -254,9 +254,23 @@
                         <ul class="linklist leftside">
                             <li class="icon-ucp">
                                 <a href="user.php?op=profile" title="{L_USERPROFILE}" accesskey="u">{L_USERPROFILE}</a>
-                                (<a href="pm.php?op=folder&amp;i=0">{L_PRIVATE_MESSAGES} {U_USER_UNRED_PM}</a>)&bull;
-                                <a href="forum.php?action=search&amp;search_id=egosearch">{L_SEARCH_SELF}</a>
-
+                                (<a href="pm.php?op=folder&amp;i=0">{L_PRIVATE_MESSAGES} {U_USER_UNRED_PM}</a>) &bull;
+                                <a href="forum.php?action=search&amp;search_id=egosearch">{L_SEARCH_SELF}</a><br />
+                                <!-- IF U_TSEEDING -->
+                                <span class="overlib" onmouseover="return overlib('{U_TSEEDING}', CAPTION, '{L_T_U_SEED}', TEXTFONT, 'Verdana', TEXTCOLOR, '#000000', CAPTIONFONT, 'Lucida Console, Verdana', CENTER,FGCOLOR, '#FFFFFF', BGCOLOR, '#6F7578',CAPICON, 'themes/Bitfarm/pics/help.png', BORDER, 2, SHADOW, SHADOWOPACITY, 40, SHADOWCOLOR, '#030303', SHADOWX, 2,SHADOWY, 2);" onmouseout="return nd();" style="cursor:help">
+                                <!-- ENDIF -->
+                                <img src="themes/1thank/pics/pic_uploaded.gif" border="0" alt="{L_UPLODED}" title="{L_UPLODED}" />&nbsp;{U_UPLOADED}
+                                <!-- IF U_TSEEDING -->
+                                </span>
+                                <!-- ENDIF -->
+                                <!-- IF U_TLEECHING -->
+                                <span class="overlib" onmouseover="return overlib('{U_TLEECHING}', CAPTION, '{L_T_U_LEECH}', TEXTFONT, 'Verdana', TEXTCOLOR, '#000000', CAPTIONFONT, 'Lucida Console, Verdana', CENTER,FGCOLOR, '#FFFFFF', BGCOLOR, '#6F7578', CAPICON, 'themes/Bitfarm/pics/help.png', BORDER, 2, SHADOW, SHADOWOPACITY, 40, SHADOWCOLOR, '#030303', SHADOWX, 2, SHADOWY, 2);" onmouseout="return nd();" style="cursor:help">
+                                <!-- ENDIF -->
+                                <img src="themes/1thank/pics/pic_downloaded.gif" border="0" alt="{L_DOWNED}" title="{L_DOWNED}" />&nbsp;{U_DOWNLOADED}
+                                <!-- IF U_TLEECHING -->
+                                </span>
+                                <!-- ENDIF -->
+                                &bull; {L_SEED_BOMUS}<a href='mybonus.php'>{U_SEED_BONUS}</a>
                                 <!-- IF U_RESTORE_PERMISSIONS --> &bull;
                                 <a href="{U_RESTORE_PERMISSIONS}">{L_RESTORE_PERMISSIONS}</a>
                                 <!-- ENDIF -->
