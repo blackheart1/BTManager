@@ -451,7 +451,7 @@ function split_topic($action, $topic_id, $to_forum_id, $subject)
 						$limit_time_sql
 					ORDER BY $sort_order_sql";
 			}
-			$result = $db->sql_query_limit($sql, 0, $start);
+			$result = $db->sql_query($sql . ' LIMIT \'18446744073709551615\',' . $start);
 
 			$store = false;
 			$post_id_list = array();
@@ -602,7 +602,7 @@ function merge_posts($topic_id, $to_topic_id)
 		$sql = 'SELECT forum_id
 			FROM ' . $db_prefix . '_topics
 			WHERE topic_id = ' . $topic_id;
-		$result = $db->sql_query_limit($sql, 1);
+		$result = $db->sql_query($sql . " LIMIT 1");
 		$row = $db->sql_fetchrow($result);
 		$db->sql_freeresult($result);
 

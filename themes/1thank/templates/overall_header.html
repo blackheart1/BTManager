@@ -264,23 +264,15 @@
                         </ul>
                         <!-- ENDIF -->
 
-                        <ul class="linklist rightside"><!-- IF not S_IS_BOT -->
+                        <ul class="linklist rightside">
+						    <li class="icon-search"><a href="search.php" title="{L_SEARCH}">{L_SEARCH}</a></li>
                             <!-- IF S_DISPLAY_MEMBERLIST --><li class="icon-members"><a href="{U_MEMBERLIST}" title="{L_MEMBERLIST_EXPLAIN}">{L_MEMBERLIST}</a></li><!-- ENDIF -->
                             <!-- IF not U_USER and S_REGISTER_ENABLED --><li class="icon-register"><a href="/user.php?op=register">{L_REGISTOR}</a></li><!-- ENDIF -->
                             <li class="icon-logout"><a href="user.php?op=logout" title="{L_LOGOUT}" accesskey="l">{L_LOGOUT}</a></li>
-                            <!-- ENDIF -->
                         </ul>
                         <span class="corners-bottom"><span></span></span>
                     </div>
                 	<a name="start_here"></a>
                 	<div id="page-body">
 
-                     <!-- IF S_BOARD_DISABLED and S_USER_LOGGED_IN and (U_MCP or U_ACP) -->
-                        <div id="message" class="rules">
-                            <div class="inner"><span class="corners-top"><span></span></span>
-                                <strong>{L_INFORMATION}:</strong> {L_BOARD_DISABLED}
-                            <span class="corners-bottom"><span></span></span></div>
-
-                        </div>
-                    <!-- ENDIF -->
     				</div>

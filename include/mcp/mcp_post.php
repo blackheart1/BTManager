@@ -447,7 +447,7 @@ function change_poster(&$post_info, $userdata)
 			FROM ' . $db_prefix . '_posts
 			WHERE topic_id = ' . $post_info['topic_id'] . '
 				AND poster_id = ' . $post_info['user_id'];
-		$result = $db->sql_query_limit($sql, 1);
+		$result = $db->sql_query($sql . " LIMIT 1");
 		$topic_id = (int) $db->sql_fetchfield('topic_id');
 		$db->sql_freeresult($result);
 

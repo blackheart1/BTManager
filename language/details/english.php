@@ -135,6 +135,7 @@ $lang = array_merge($lang, array(
     // 3.0.1 Addons
     'RATE'                      => 'Rating!',
     'LOGIN'                     => 'Log In',
+    'AUTH_MINEATIO'      		=> 'Minimum Autherised Ratio',
 ));
 
 ?>

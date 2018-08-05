@@ -13,12 +13,13 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts/Black_Heart)
 ** Project Leaders: Black_Heart, Thor.
-** File ajax/details.php 2018-07-31 07:32:00 Thor
+** File ajax/details.php 2018-08-04 07:32:00 Black_Heart
 **
 ** CHANGES
 **
 ** 2018-05-15 fixed header
 ** 2018-07-31 Added Language to bterror()
+** 2018-08-04 Fix call to bad functio error()
 **/
 
 if (!defined('IN_PMBT'))
@@ -51,7 +52,7 @@ if($op == 'close_view_details_page')
 
 if($op == 'view_peers_page')
     {
-        if(!$user->user)error($user->lang['LOGIN_PEER_DETAILS']);
+        if(!$user->user)bterror($user->lang['LOGIN_PEER_DETAILS']);
 
         $tracker  = request_var('tracker', '');
         $type     = request_var('type', '');
@@ -59,7 +60,7 @@ if($op == 'view_peers_page')
         $password = request_var('password', '');
         $password = urldecode($password);
 
-                if (!isset($torrent) OR !is_numeric($torrent) OR $torrent < 1) error($user->lang['INVALID_ID']);
+                if (!isset($torrent) OR !is_numeric($torrent) OR $torrent < 1) bterror($user->lang['INVALID_ID']);
 
                 $sql = "SELECT
                             password .
@@ -326,7 +327,7 @@ if($op == 'view_rate_page')
         $password = urldecode($password);
         if( !isset( $id ) || !is_numeric($id) )
             {
-                error($user->lang['INVALID_TORRENT']);
+                bterror($user->lang['INVALID_TORRENT']);
             }
                 $sql = "SELECT
                             password .
@@ -364,7 +365,7 @@ if($op == 'view_rate_page')
                           'V_YOU_FILE'      => false,
                           'MINVOTES_NEEDED' => (($minvotes > 1)? true : false),
                                                 ));
-//                      close_out();
+
                 $sql = "SELECT
                             A.id as id,
                             A.numratings,
@@ -474,7 +475,7 @@ if($op == 'view_coments_page')
                 $id                 = (int)request_var('torrent', '0');
         if( !isset( $id ) || !is_numeric($id) )
             {
-                error($user->lang['INVALID_TORRENT']);
+                bterror($user->lang['INVALID_TORRENT']);
             }
                 include_once('include/function_posting.' . $phpEx);
                 include_once('include/class.bbcode.php');
@@ -975,7 +976,7 @@ if($op == 'get_imdb')
         //die($id);
         if( !isset( $id ) || !is_numeric($id) )
             {
-                error("Invalid torrent!" );
+                bterror($user->lang['INVALID_ID']);
             }
 
         $password = request_var('password', '');

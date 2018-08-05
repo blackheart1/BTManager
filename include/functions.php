@@ -594,7 +594,7 @@ function request_var($var_name, $default, $multibyte = false, $cookie = false, $
 				{
 					$v = null;
 				}
-				print_r($var[$k]);
+				//print_r($var_name);
 				set_var($var[$k], $v, $type, $multibyte);
 			}
 		}
@@ -2147,6 +2147,16 @@ function validate_jabber($jid)
 
 	return false;
 }
+/**
+* Display An error on the page
+
+* @param 	mixed	$error				Can be string|array This is the Errors
+* @param	string	$title				Can be lang[]|string This is the Header of the message
+* @param	boolean	$fatal				Can be true|false This is to determin if there is a redirect needed
+* @param	string	$redirect			URl in wich to redirect to
+* @param	int		$tm					redirect time in seconds
+
+*/
 function bterror($error, $title = 'GEN_ERROR', $fatal = true, $redirect = false, $tm = 3) {
         global $db, $db_prefix, $user, $template;
 		if(!isset($template))
@@ -3549,6 +3559,7 @@ function set_site_var($page_title = '')
  	 elseif ($perc<= 40) $pic = "loadbarred.gif";
 	elseif ($perc<= 70) $pic = "loadbaryellow.gif";
     else $pic = "loadbargreen.gif";
+	if($width >= '100')$width = "100";
 	$donateimage = "<img height=15 width=$width src=\"images/$pic\" alt='$donatein)%'>";
 	$template->assign_vars(array(
         'SITE_NEWS'            => ($welcome_message != "") ? $welcome_message : '',

@@ -920,7 +920,7 @@ function mcp_delete_post($post_ids)
 		$sql = 'SELECT COUNT(topic_id) AS topics_left
 			FROM ' . $db_prefix . '_topics
 			WHERE ' . $db->sql_in_set('topic_id', $topic_id_list);
-		$result = $db->sql_query_limit($sql, 1);
+		$result = $db->sql_query($sql . " LIMIT 1");
 
 		$deleted_topics = ($row = $db->sql_fetchrow($result)) ? ($affected_topics - $row['topics_left']) : $affected_topics;
 		$db->sql_freeresult($result);

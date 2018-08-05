@@ -628,7 +628,7 @@ class fulltext_mysql extends search_backend
 		}
 
 		// Only read one block of posts from the db and then cache it
-		$result = $db->sql_query_limit($sql, $config['search_block_size'], $start);
+		$result = $db->sql_query($sql . " LIMIT " .  $start . "," . $config['search_block_size']);
 
 		while ($row = $db->sql_fetchrow($result))
 		{

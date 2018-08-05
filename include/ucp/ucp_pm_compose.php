@@ -98,7 +98,7 @@ function compose_pm($id, $mode, $action)
 		// Add groups to PM box
 		if ($config['allow_mass_pm'] && checkaccess('u_masspm_group'))
 		{
-			$sql = 'SELECT g.group_id, g.group_name
+			$sql = 'SELECT g.group_id, g.group_name, g.group_type
 				FROM ' . $db_prefix . '_level_settings g';
 
 			if (!$auth->acl_gets('a_group', 'a_groupadd', 'a_groupdel'))
@@ -114,14 +114,14 @@ function compose_pm($id, $mode, $action)
 
 			$sql .= ($auth->acl_gets('a_group', 'a_groupadd', 'a_groupdel')) ? ' WHERE ' : ' AND ';
 
-			$sql .= 'g.group_receive_pm = 0
+			$sql .= 'g.group_receive_pm = 0  AND g.group_id <> ' . 6 . ' 
 				ORDER BY g.group_name ASC';
 			$result = $db->sql_query($sql)or btsqlerror($sql);
 
 			$group_options = '';
 			while ($row = $db->sql_fetchrow($result))
 			{
-				$group_options .= '<option' . (($row['group_type'] == 3) ? ' class="sep"' : '') . ' value="' . $row['group_id'] . '">' . $row['group_name'] . '</option>';
+				$group_options .= '<option' . (($row['group_type'] == 3) ? ' class="sep"' : '') . ' value="' . $row['group_id'] . '">' . (($row['group_type'] == 3) ? $user->lang['G_' . $row['group_name']] : $row['group_name']) . '</option>';
 			}
 			$db->sql_freeresult($result);
 		}

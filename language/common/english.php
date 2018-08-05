@@ -633,6 +633,7 @@ $lang = array_merge($lang, array(
     'G_PREMIUM_USER'           => 'Premium User',
     'G_MODERATOR'              => 'Moderator',
     'G_USER'                   => 'User',
+	'G_GUEST'					=> 'Guest',
     'NO_UPLOAD_FORM_FOUND'     => '',
     'ATTACHED_IMAGE_NOT_IMAGE' => '',
     'ATTACH_QUOTA_REACHED'     => 'Sorry.  The Board Attachment Quota has been Reached.',

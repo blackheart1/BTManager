@@ -901,6 +901,7 @@ function get_folder($user_id, $folder_id = false)
 {
 	global $db, $user, $template, $db_prefix;
 
+
 	$folder = array();
 
 	// Get folder information
@@ -993,9 +994,6 @@ function get_folder($user_id, $folder_id = false)
 
 	if ($folder_id !== false && !isset($folder[$folder_id]))
 	{
-$template->assign_vars(array(
-		'ERROR_MESSAGE' => 'RULE_ALREADY_DEFINED',
-	));
 		trigger_error('UNKNOWN_FOLDER');
 	}
 
@@ -2497,7 +2495,7 @@ function get_group_name($group_id)
 		return '';
 	}
 
-	return ($row['group_type'] == GROUP_SPECIAL) ? $user->lang['G_' . $row['group_name']] : $row['group_name'];
+	return ($row['group_type'] == 3) ? $user->lang['G_' . $row['group_name']] : $row['group_name'];
 }
 function group_user_attributes($action, $group_id, $user_id_ary = false, $username_ary = false, $group_name = false, $group_attributes = false)
 {

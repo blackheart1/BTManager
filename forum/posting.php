@@ -805,7 +805,7 @@ if ($submit || $preview || $refresh)
 				FROM ' . $db_prefix . "_posts
 				WHERE poster_ip = '" . $user->ip . "'
 					AND post_time > " . ($current_time - $config['flood_interval']);
-			$result = $db->sql_query_limit($sql, 1);
+			$result = $db->sql_query($sql . " LIMIT 1");
 			if ($row = $db->sql_fetchrow($result))
 			{
 				$last_post_time = $row['last_post_time'];

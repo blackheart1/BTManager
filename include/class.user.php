@@ -414,7 +414,7 @@ class User {
 				$this->img_array[$img]['image_height'] =(isset($imageinfo[1]) ? $imageinfo[1] : 0);
 			}
 
-			if(!file_exists('./themes/' . $theme . '/pics/' . $this->ulanguage .'/' . $this->img_array[$img]['image_filename']))return $img_data;
+			if(!file_exists('./themes/' . $theme . '/pics/' . $this->ulanguage .'/' . $this->img_array[$img]['image_filename']))return $alt;
 			$img_data['src'] = $siteurl . '/themes/' . $theme . '/pics/' . $this->ulanguage .'/' . $this->img_array[$img]['image_filename'];
 			$img_data['width'] = $this->img_array[$img]['image_width'];
 			$img_data['height'] = $this->img_array[$img]['image_height'];

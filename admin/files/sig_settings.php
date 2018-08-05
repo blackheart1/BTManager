@@ -28,7 +28,7 @@ if (!defined('IN_PMBT'))
 
 $sql = 'SELECT * FROM `' . $db_prefix . '_settings`';
 
-$avres  = $db->sql_query($sql) OR btsqlerror($avsql);
+$avres  = $db->sql_query($sql) or btsqlerror($avsql);
 $cfgrow = array();
 
 while ($adv_sett = $db->sql_fetchrow($avres))$cfgrow[$adv_sett['config_name']] = $adv_sett['config_value'] ;
@@ -64,12 +64,10 @@ if (isset($do) && $do == "save")
     if ($cfgrow['max_sig_img_width']  != $max_sig_img_width)$new_config['max_sig_img_width'] = $max_sig_img_width;
     if ($cfgrow['max_sig_img_height'] != $max_sig_img_height)$new_config['max_sig_img_height'] = $max_sig_img_height;
     if ($cfgrow['max_sig_links']      != $max_sig_links)$new_config['max_sig_links'] = $max_sig_links;
-    //  die(print_r($new_config));
 
-    foreach($new_config AS $config_name => $config_value)
+    foreach($new_config as $config_name => $config_value)
     {
         set_config($config_name, $config_value);
-        //$db->sql_query('UPDATE ' . $db_prefix . '_settings SET config_value = \'' . $value . "' WHERE config_name = '" . $key . "' LIMIT 1;")or mysql_error();
     }
 
     $template->assign_vars(array(

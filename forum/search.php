@@ -901,7 +901,7 @@ function strip_bbcode(&$text, $uid = '')
 						$sql .= ' AND ' . $db->sql_in_set('forum_id', $forum_ary, true);
 					}
 
-					$result = $db->sql_query_limit($sql, 1);
+					$result = $db->sql_query($sql . " LIMIT 1");
 					$g_forum_id = (int) $db->sql_fetchfield('forum_id');
 				}
 				$u_forum_id = $g_forum_id;

@@ -111,7 +111,7 @@ if (!preg_match("/cron.php/",$_SERVER['PHP_SELF']))
         $ip = getip();
         $sql = "UPDATE ".$db_prefix."_users
                         SET lastip = '".sprintf("%u",ip2long($ip))."',
-                        lastpage = '".addslashes(str_replace("/", '',substr($_SERVER['REQUEST_URI'],strrpos($_SERVER["REQUEST_URI"],"/")+1)))."',
+                        lastpage = '".$db->sql_escape(str_replace("/", '',substr($_SERVER['REQUEST_URI'],strrpos($_SERVER["REQUEST_URI"],"/")+1)))."',
                         lastlogin = NOW()
                         WHERE id = '".$user->id."'
                         LIMIT 1;";
