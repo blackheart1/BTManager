@@ -4080,7 +4080,7 @@ function categories_table($cats, $wherecatina, $linkpage = '', $display = 'block
 
         $html .= ($i && $i % $catsperrow == 0) ? "</tr><tr>" : "";
 
-        $html .= "<td class=\"nopad\" style=\"padding-bottom: 2px;padding-left: 7px;\"><img src=\"" . $img  . "\" title=\"" . htmlspecialchars($cat['name']) . "\" alt=\"" . htmlspecialchars($cat['name']) . "\" width=\"30px\" border=\"0\">&nbsp;&nbsp;<input id=\"checkAll{$cat['tabletype']}\" type=\"checkbox\" onclick=\"checkAllFields(1, {$cat['tabletype']});\" type=\"checkbox\" " . ($cat['checked'] ? "checked " : "") . "><a href=\"javascript: ShowHideMainSubCats({$cat['tabletype']}, {$ncats})\"><img border=\"0\" src=\"themes/" . $theme . "/pics/plus.gif\" id=\"pic{$cat['tabletype']}\" alt=\"Show/Hide\" alt=\"Show/Hide\">&nbsp;" . htmlspecialchars($cat['name']) . "</a>&nbsp;" . (($linkpage != '') ? "<a class=\"catlink\" href=\"{$linkpage}?{$cat['categories']}\">(All)</a>" : "") . "</td>\n";
+        $html .= "<td class=\"nopad\" style=\"padding-bottom: 2px;padding-left: 7px;\"><img src=\"" . $img  . "\" title=\"" . htmlspecialchars($cat['name']) . "\" alt=\"" . htmlspecialchars($cat['name']) . "\" width=\"30px\" border=\"0\">&nbsp;&nbsp;<input id=\"checkAll{$cat['tabletype']}\" type=\"checkbox\" onclick=\"checkAllFields(1, {$cat['tabletype']});\" type=\"checkbox\" " . ($cat['checked'] ? "checked " : "") . "><a href=\"javascript: ShowHideMainSubCats({$cat['tabletype']}, {$ncats})\"><img border=\"0\" src=\"themes/" . $theme . "/pics/plus.gif\" id=\"pic{$cat['tabletype']}\" alt=\"Show/Hide\" alt=\"Show/Hide\">&nbsp;" . htmlspecialchars($cat['name']) . "</a>&nbsp;" . (($linkpage != '') ? "<a class=\"catlink\" href=\"{$linkpage}?{$cat['categories']}\" />(All)</a>" : "") . "</td>\n";
 
         $i++;
     }
@@ -4142,7 +4142,7 @@ function subcategories_table($cats, $wherecatina, $linkpage = '', $ncats)
 
         $html .= "<td class=\"subcatlink\" style=\"padding-bottom: 2px;padding-left: 7px; width: " . $width . "%;\">"
                     . "<img src=\"" . $img  . "\" title=\"" . htmlspecialchars($cat['name']) . "\" alt=\"" . htmlspecialchars($cat['name']) . "\" width=\"30px\" border=\"0\">"
-                    . "&nbsp;&nbsp;<input type=\"checkbox\" onclick=\"checkAllFields(2," . $cats['tabletype'] . ");\" name=\"cats" . $cats['tabletype'] . "[]\" value=\"" . $cat['id'] . "\" type=\"checkbox\" " . (in_array($cat['id'], $wherecatina) ? "checked " : "") . ">"
+                    . "&nbsp;&nbsp;<input type=\"checkbox\" onclick=\"checkAllFields(2," . $cats['tabletype'] . ");\" name=\"cats" . $cats['tabletype'] . "[]\" value=\"" . $cat['id'] . "\" type=\"checkbox\" " . (in_array($cat['id'], $wherecatina) ? "checked " : "") . " />"
                    . (($linkpage != '') ? "<a href=\"" . $linkpage . "?cats" . $cats['tabletype'] . "[]=" . $cat['id'] . "\">" . htmlspecialchars($cat['name']) . "</a>" : htmlspecialchars($cat['name'])) . "</td>\n";
         $i++;
     }
