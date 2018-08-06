@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File common/english.php 2018-08-05 23:25:00 Thor
+** File common/english.php 2018-08-06 06:57:00 Thor
 **
 ** CHANGES
 **
@@ -903,6 +903,11 @@ $lang = array_merge($lang, array(
     'UPLOAD_ERR_EXTENSION'  => 'File Upload Stopped by Extension',
     'UPLOAD_ERR_UNKNOWN'    => 'Unknown Upload Error',
     'REDIRECT_UNSECURE_URL' => 'Tried to Redirect to a Potentially Unsecured URL. %1$s',
+    'ELAPSED_TIME_WEEK'     => 'Week',
+    'ELAPSED_TIME_DAY'      => 'Day',
+    'ELAPSED_TIME_HOUR'     => 'Hour',
+    'ELAPSED_TIME_MIN '     => 'Minute',
+    'ELAPSED_TIME_SEC'      => '< 1 Minute',
 ));
 
 ?>

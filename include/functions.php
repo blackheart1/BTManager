@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts/Black_Heart)
 ** Project Leaders: Black_Heart, Thor.
-** File functions.php 2018-08-05 23:25:00 Thor
+** File functions.php 2018-08-06 06:54:00 Thor
 **
 ** CHANGES
 **
@@ -1808,28 +1808,29 @@ function btsqlerror($sql, $u_action = false)
 
 function get_elapsed_time($ts)
 {
-  $mins  = floor((strtotime(gmdate("Y-m-d H:i:s", time())) - $ts) / 60);
-  $hours = floor($mins / 60);
-  $mins  -= $hours * 60;
-  $days  = floor($hours / 24);
-  $hours -= $days * 24;
-  $weeks = floor($days / 7);
-  $days  -= $weeks * 7;
-  $t     = "";
+    $mins  = floor((strtotime(gmdate("Y-m-d H:i:s", time())) - $ts) / 60);
+    $hours = floor($mins / 60);
+    $mins  -= $hours * 60;
+    $days  = floor($hours / 24);
+    $hours -= $days * 24;
+    $weeks = floor($days / 7);
+    $days  -= $weeks * 7;
+    $t     = "";
 
-if ($weeks)
-    return "$weeks week" . ($weeks > 1 ? "s" : "");
+    if ($weeks)
+        return "$weeks " . $user->lang['ELAPSED_TIME_WEEK' . ($weeks > 1 ? "s" : "")];
 
-if ($days)
-    return "$days day" . ($days > 1 ? "s" : "");
+    if ($days)
+        return "$days " . $user->lang['ELAPSED_TIME_DAY' . ($days > 1 ? "s" : "")];
 
-if ($hours)
-    return "$hours hour" . ($hours > 1 ? "s" : "");
+    if ($hours)
+        return "$hours " . $user->lang['ELAPSED_TIME_HOUR' . ($hours > 1 ? "s" : "")];
 
-if ($mins)
-    return "$mins min" . ($mins > 1 ? "s" : "");
+    if ($mins)
+        return "$mins " . $user->lang['ELAPSED_TIME_MIN' . ($mins > 1 ? "s" : "")];
 
-return "< 1 min";
+    return $user->lang['ELAPSED_TIME_SEC'];
+
 }
 
 function validate_num($num, $optional = false, $min = 0, $max = 1E99)
@@ -3599,13 +3600,13 @@ function get_censor_preg_expression($word, $use_unicode = true)
 }
 
 function ratingpic($num)
-{   //Gets The Correct Star Rating Picture
+{   // Gets The Correct Star Rating Picture
     $r = round($num * 2) / 2;
-    //echo $r . '<br>';
+    // echo $r . '<br>';
 
     if ($r < 1 or $r > 5) return;
 
-    //echo pic($r . "-rating.png");
+    // echo pic($r . "-rating.png");
     return pic($r . "-rating.png");
 }
 
@@ -3656,7 +3657,7 @@ function no_parse_message($text_noparse)
 
 function format_comment($text, $strip_html = false, $strip_slash = false, $allow_urls = true)
 {
-    //return;
+    // return;
     global $smilies, $privatesmilies, $user, $db, $db_prefix;
 
     $s = $text;
@@ -3709,8 +3710,8 @@ function format_comment($text, $strip_html = false, $strip_slash = false, $allow
             "<b>\\1</b>",
             "<i>\\1</i>",
             "<u>\\1</u>",
-            "<a href=\"\\1\" rel=\"lightbox[roadtrip]\" title=\"Image resized click to view full\" ><img border=0 src=\"\\1\" onload=\"SetSize(this, 500);\"></a>",
-            "<a href=\"\\1\" rel=\"lightbox[roadtrip]\" title=\"Image resized click to view full\" ><img border=0 src=\"\\1\" onload=\"SetSize(this, 500);\"></a>",
+            "<a href=\"\\1\" rel=\"lightbox[roadtrip]\" title=\"Image resized click to view full\" ><img border=\"0\" src=\"\\1\" onload=\"SetSize(this, 500);\"></a>",
+            "<a href=\"\\1\" rel=\"lightbox[roadtrip]\" title=\"Image resized click to view full\" ><img border=\"0\" src=\"\\1\" onload=\"SetSize(this, 500);\"></a>",
             "<font color=\\1>\\2</font>",
             "<font color=\\1>\\2</font>",
             "<a href=redirect.php?url=\\1 target=\"_blank\">\\3</a>",
@@ -3719,9 +3720,9 @@ function format_comment($text, $strip_html = false, $strip_slash = false, $allow
             "<center>\\1</center>",
             "<font face=\"\\1\">\\2</font>",
             "<embed style=\"width:500px; height:410px;\" id=\"VideoPlayback\" align=\"middle\" type=\"application/x-shockwave-flash\" src=\"http://video.google.com/googleplayer.swf?docId=\\1\" allowScriptAccess=\"sameDomain\" quality=\"best\" bgcolor=\"#ffffff\" scale=\"noScale\" wmode=\"window\" salign=\"TL\"  FlashVars=\"playerMode=embedded\"> </embed>",
-            "'<dl class=\"codebox\"><dt>Code: <a href=\"#\" onclick=\"selectCode(this); return false;\">Select all</a></dt><table class=main2 border=0 cellspacing=0 cellpadding=10><tr><td>'.stripslashes('$1').'<td></tr></table><br /></dl>'",
-            "'<dl class=\"codebox\"><dt>Code: <a href=\"#\" onclick=\"selectCode(this); return false;\">Select all</a></dt><table class=main2 border=0 cellspacing=0 cellpadding=10><tr><td>'.highlight_string(stripslashes('$1'), true).'<td></tr></table><br /></dl>'",
-            "'<dl class=\"codebox\"><dt>Code: <a href=\"#\" onclick=\"selectCode(this); return false;\">Select all</a></dt><table class=main2 border=0 cellspacing=0 cellpadding=10><tr><td>'.highlight_string(stripslashes('$1'), true).'<td></tr></table><br /></dl>'",
+            "'<dl class=\"codebox\"><dt>Code: <a href=\"#\" onclick=\"selectCode(this); return false;\">Select all</a></dt><table class=\"main2\" border=\"0\" cellspacing=\"0\" cellpadding=\"10\"><tr><td>'.stripslashes('$1').'<td></tr></table><br /></dl>'",
+            "'<dl class=\"codebox\"><dt>Code: <a href=\"#\" onclick=\"selectCode(this); return false;\">Select all</a></dt><table class=\"main2\" border=\"0\" cellspacing=\"0\" cellpadding=\"10\"><tr><td>'.highlight_string(stripslashes('$1'), true).'<td></tr></table><br /></dl>'",
+            "'<dl class=\"codebox\"><dt>Code: <a href=\"#\" onclick=\"selectCode(this); return false;\">Select all</a></dt><table class=\"main2\" border=\"0\" cellspacing=\"0\" cellpadding=\"10\"><tr><td>'.highlight_string(stripslashes('$1'), true).'<td></tr></table><br /></dl>'",
             "<script type=\"text/javascript\" src=\"http://download.skype.com/share/skypebuttons/js/skypeCheck.js\"></script><a href=\"skype:spockst?call\"><img src=\"http://mystatus.skype.com/smallclassic/\\1\" style=\"border: none;\" width=\"114\" height=\"20\" alt=\"My status\" /></a>",
             "<iframe src=\"\\1\" name=\"frame1\" scrolling=\"auto\" frameborder=\"0\" align=\"middle\" height = \"500px\" width = \"600px\"></iframe>",
             "<img src=http://www.funnyweb.dk:8080/aim/\\1 alt=\\2>",
@@ -3807,9 +3808,9 @@ function format_quotes($s)
 
     if ($openval[$i] > $closeval[$i]) return $s; // Cannot Close Before Opening. Return Raw String...
 
-    $s = str_replace("[quote]", "<p class=sub><b>Quote:</b></p><table class=main border=1 cellspacing=0 cellpadding=10><tr><td style='border: 1px black dotted'>", $s);
+    $s = str_replace("[quote]", "<p class='sub'><strong>Quote:</strong></p><table class='main' border='1' cellspacing='0' cellpadding='10'><tr><td style='border: 1px black dotted'>", $s);
 
-    $s = preg_replace("/\\[quote=(.+?)\\]/", "<p class=sub><b>\\1 wrote:</b></p><table class=main border=1 cellspacing=0 cellpadding=10><tr><td style='border: 1px black dotted'>", $s);
+    $s = preg_replace("/\\[quote=(.+?)\\]/", "<p class='sub'><strong>\\1 wrote:</strong></p><table class='main' border='1' cellspacing='0' cellpadding='10'><tr><td style='border: 1px black dotted'>", $s);
 
     $s = str_replace("[/quote]", "</td></tr></table><br><p>", $s);
 
