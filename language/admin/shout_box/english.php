@@ -77,11 +77,13 @@ $lang = array_merge($lang, array(
     '_admpshout_new_torrent'        => 'Announce New Torrents ',
     '_admpshout_new_torrentexplain' => 'Automatically Post a Shout when a New Torrent is Uploaded',
     '_admpshout_new_porn'           => 'Announce New Porn Torrents ',
+
     '_admpshout_new_pornexplain'    => 'Automatically Post a Shout when a Torrent is Uploaded in the Porn Category.<br />This DOES NOT Override the Announce New Torrents if it\'s Turned OFF',
-	'_admpcan_quote'				=> 'Allow Quote',
-	'_admpcan_quoteexplain'			=> 'Allow users to use the quote function',
-	'_admpautodelet'				=> 'Auto Delete Shouts',
-	'_admpautodeletexplain'			=> 'Turn on shout auto delete system to help remove old shouts',
+
+    '_admpcan_quote'                => 'Allow Quote',
+    '_admpcan_quoteexplain'         => 'Allow users to use the quote function',
+    '_admpautodelet'                => 'Auto Delete Shouts',
+    '_admpautodeletexplain'         => 'Turn on shout auto delete system to help remove old shouts',
 ));
 
 ?>
