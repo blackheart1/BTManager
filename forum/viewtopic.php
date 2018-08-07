@@ -367,7 +367,6 @@ if (isset($_GET['e']))
 		redirect($redirect_url . ((!$post_id) ? "&amp;p=$jump_to" : "&amp;p=$post_id") . "#p$jump_to");
 	}
 }
-
 // What is start equal to?
 if ($post_id)
 {

@@ -38,6 +38,7 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, array(
     'YES_NO_NM' => array('1'=>'Yes', '0'=>'No'),
     'YES_NO'    => array('yes'=>'Yes', 'no'=>'No'),
+    'YES_NO_TF' => array("true"=>'Yes', "false"=>'No'),
 
     'SHOUT_CONF'            => 'Shoutbox Configuration',
 
@@ -59,7 +60,7 @@ $lang = array_merge($lang, array(
     '_admprefresh_timeexplain'      => 'This is the Amount of Time the Shoutbox Refreshes in Seconds',
     '_admpbbcode_on'                => 'Allow the Use of BBCode in Shouts ',
     '_admpbbcode_onexplain'         => 'Allow Users to be able to use BBCodes in Shouts',
-    '_admpautodelete_time'          => 'Auto Delete ',
+    '_admpautodelete_time'          => 'Auto Delete Time',
 
     '_admpautodelete_timeexplain'   => 'How Long do you want Shouts to be Displayed for before they are Deleted.  Time is Set in Minutes',
 
@@ -76,8 +77,11 @@ $lang = array_merge($lang, array(
     '_admpshout_new_torrent'        => 'Announce New Torrents ',
     '_admpshout_new_torrentexplain' => 'Automatically Post a Shout when a New Torrent is Uploaded',
     '_admpshout_new_porn'           => 'Announce New Porn Torrents ',
-
     '_admpshout_new_pornexplain'    => 'Automatically Post a Shout when a Torrent is Uploaded in the Porn Category.<br />This DOES NOT Override the Announce New Torrents if it\'s Turned OFF',
+	'_admpcan_quote'				=> 'Allow Quote',
+	'_admpcan_quoteexplain'			=> 'Allow users to use the quote function',
+	'_admpautodelet'				=> 'Auto Delete Shouts',
+	'_admpautodeletexplain'			=> 'Turn on shout auto delete system to help remove old shouts',
 ));
 
 ?>

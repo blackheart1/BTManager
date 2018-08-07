@@ -1041,12 +1041,12 @@ class acp_users
 
 				$cp_data = $cp_error = array();
 
-				$sql = 'SELECT lang_id
-					FROM ' . LANG_TABLE . "
-					WHERE lang_iso = '" . $db->sql_escape($user->data['user_lang']) . "'";
-				$result = $db->sql_query($sql);
-				$row = $db->sql_fetchrow($result);
-				$db->sql_freeresult($result);
+				//$sql = 'SELECT lang_id
+				//	FROM ' . LANG_TABLE . "
+				//	WHERE lang_iso = '" . $db->sql_escape($user->data['user_lang']) . "'";
+				//$result = $db->sql_query($sql);
+				//$row = $db->sql_fetchrow($result);
+				//$db->sql_freeresult($result);
 
 				$user_row['iso_lang_id'] = $row['lang_id'];
 

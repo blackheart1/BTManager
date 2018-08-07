@@ -282,7 +282,11 @@ elseif (extension_loaded("gd"))
             bterror($errors, $user->lang['_URL_INVALID']);
         }
 
-        $imageinfo = getimagesize($remotelink);
+        $imageinfo = @getimagesize($remotelink);
+        if (!is_array($imageinfo) OR $imageinfo[0] <= 0)
+        {
+            bterror($errors, $user->lang['_URL_INVALID']);
+        }
 
         if ($width == '' || $width == 0) $width = $imageinfo[0];
 

@@ -57,6 +57,7 @@ $lang = array_merge($lang, array(
     'SUCES_EDT'             => 'Client Successfully Edited',
     'SUCES_EDT_EXP'         => 'The Client %1$s was Successfully Updated with the following Reason:- %2$s',
     'CONFIRM_OPERATION'     => 'Are you sure you wish to Remove this Client from the Ban List?',
+	'NO_CLIENT_DEFINED'		=> 'No Client was Defined!',
  ));
 
 ?>

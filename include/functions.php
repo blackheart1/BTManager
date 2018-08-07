@@ -3897,9 +3897,9 @@ function getuser($name)
 
     $sql = "SELECT `id`
             FROM " . $db_prefix . "_users
-            WHERE username ='" . escape($name) . "'
-            OR name = '" . escape($name) . "'
-            OR clean_username = '" . escape(strtolower($name)) . "'";
+            WHERE username ='" . $db->sql_escape($name) . "'
+            OR name = '" . $db->sql_escape($name) . "'
+            OR clean_username = '" . $db->sql_escape(strtolower($name)) . "'";
 
     $res = $db->sql_query($sql) or btsqlerror($sql);
 
@@ -4185,7 +4185,8 @@ function set_site_var($page_title = '')
 
     closedir($langhandle);
 
-    unset($langdir,$langfile);
+    unset($langdir, $langfile, $template->_tpldata['lang_var']);
+	unset($template->_tpldata['lang_var']);
 
     foreach ($languages as $key => $val)
     {
@@ -4211,7 +4212,7 @@ function set_site_var($page_title = '')
 
     closedir($themehandle);
 
-    unset($thememaindir,$themedir);
+    unset($thememaindir, $themedir, $template->_tpldata['theme_var']);
 
     foreach ($themes as $key => $val)
     {

@@ -169,7 +169,7 @@ if ('forum_search' == $op)
 					drawRow("board_disable_msg","text");
 					drawRow("email_enable","select",$user->lang["YES_NO_NUM"]);
 					drawRow("topics_per_page","text");
-					drawRow("postsper_page","text");
+					drawRow("posts_per_page","text");
 					drawRow("max_post_length","text");
 					drawRow("show_latest_topic","select",$user->lang["YES_NO_NUM"]);
 					drawRow("search_word_min","text");
@@ -652,7 +652,7 @@ if ('forum_search' == $op)
 				$board_disable_msg = request_var('sub_board_disable_msg', '');
 				$email_enable = request_var('sub_email_enable', '');
 				$topics_per_page = request_var('sub_topics_per_page', '0');
-				$postsper_page = request_var('sub_postsper_page', '0');
+				$postsper_page = request_var('sub_posts_per_page', '0');
 				$max_post_length = request_var('sub_max_post_length', '0');
 				$show_latest_topic = request_var('sub_show_latest_topic', '');
 				$search_word_min = request_var('sub_search_word_min', '0');
@@ -708,7 +708,7 @@ if ('forum_search' == $op)
 
 				if($postsper_page){
 					if(is_numeric($postsper_page)){
-						set_config("postsper_page",$postsper_page);
+						set_config("posts_per_page",$postsper_page);
 					}
 					else
 						$errors[] = "ERROR_PPP_NOT_N";

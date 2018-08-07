@@ -45,6 +45,8 @@ if ($do == "saveshout") {
 	$sub_autodelete_time					= request_var('sub_autodelete_time', '');
 	$sub_canedit_on							= request_var('sub_canedit_on', '');
 	$sub_candelete_on						= request_var('sub_candelete_on', '');
+	$sub_autodelet							= request_var('sub_autodelet', '');
+	$sub_can_quote							= request_var('sub_can_quote', '');
 	//First I create the two SQL arrays
 	$sql_ary = array(
 		"announce_ment"			=> $sub_announce_ment,
@@ -61,11 +63,14 @@ if ($do == "saveshout") {
 		"autodelete_time"		=> intval($sub_autodelete_time),
 		"canedit_on"			=> ($sub_canedit_on != "yes")? 'no' : 'yes',
 		"candelete_on"			=> ($sub_candelete_on != "yes")? 'no' : 'yes',
+		"autodelet"				=> ($sub_autodelet != "true")? 'false' : 'true',
+		"can_quote"				=> ($sub_can_quote != "true")? 'false' : 'true',
 	);
 
 	//Now I save the settings
 	//but first I test the insertion against SQL errors, or I lose everything in case of error
 	$sql = "INSERT INTO ".$db_prefix."_shout_config " . $db->sql_build_array('INSERT', $sql_ary) . ";";
+	//die($sql);
 	if (!$db->sql_query($sql)) btsqlerror($sql);
 	$db->sql_query("TRUNCATE TABLE ".$db_prefix."_shout_config;");
 	$db->sql_query($sql);
@@ -118,9 +123,11 @@ drawRow("shout_new_porn","select",$user->lang["YES_NO"]);
 drawRow("refresh_time","text");
 drawRow("idle_time","text");
 drawRow("bbcode_on","select",$user->lang["YES_NO"]);
+drawRow("can_quote","select",$user->lang["YES_NO_TF"]);
 drawRow("allow_url","select",$user->lang["YES_NO"]);
 drawRow("canedit_on","select",$user->lang["YES_NO"]);
 drawRow("candelete_on","select",$user->lang["YES_NO"]);
+drawRow("autodelet","select",$user->lang["YES_NO_TF"]);
 drawRow("autodelete_time","text");
 echo $template->fetch('admin/shout_box.html');
 close_out();

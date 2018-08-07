@@ -2823,15 +2823,6 @@ function create_thumbnail($source, $destination, $mimetype)
 		return false;
 	}
 
-	/*try
-	{
-		$phpbb_filesystem->phpbb_chmod($destination, CHMOD_READ | CHMOD_WRITE);
-	}
-	catch (\phpbb\filesystem\exception\filesystem_exception $e)
-	{
-		// Do nothing
-	}*/
-
 	return true;
 }
 function get_img_size_formats($width, $height)
