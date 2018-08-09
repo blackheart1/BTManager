@@ -317,7 +317,7 @@ switch ($op) {
 
                 break;
         }
-        default: bterror("");
+        default: bterror("INVALID_OPTION");
 }
 
 ?>

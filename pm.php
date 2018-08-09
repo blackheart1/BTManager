@@ -44,12 +44,12 @@ $navoption = true;
 
 switch($op) {
         case "blacklist": {
-                if (!isset($id) OR !is_numeric($id)) bterror($user->lang['NO_SUCH_USER'],_btpm);
+                if (!isset($id) OR !is_numeric($id)) bterror($user->lang['NO_SUCH_USER'],'BT_ERROR');
                 $sqlcheck = "SELECT id FROM ".$db_prefix."_users WHERE id = '".$id."';";
                 $rescheck = $db->sql_query($sqlcheck);
                 $n = $db->sql_numrows($rescheck);
                 $db->sql_freeresult($rescheck);
-                if (!$n) bterror($user->lang['NO_SUCH_USER'],_btpm);
+                if (!$n) bterror($user->lang['NO_SUCH_USER'],'BT_ERROR');
                 $sql = "INSERT INTO ".$db_prefix."_private_messages_blacklist (master, slave) VALUES ('".$user->id."','".$id."');";
                 $db->sql_query($sql) or btsqlerror($sql);
                 $sql = "DELETE FROM ".$db_prefix."_private_messages_bookmarks WHERE master = '".$user->id."' AND slave = '".$id."';";
@@ -58,12 +58,12 @@ switch($op) {
                 die();
         }
                 case "removeblacklist": {
-                if (!isset($id) OR !is_numeric($id)) bterror($user->lang['NO_SUCH_USER'],_btpm);
+                if (!isset($id) OR !is_numeric($id)) bterror($user->lang['NO_SUCH_USER'],'BT_ERROR');
                 $sqlcheck = "SELECT id FROM ".$db_prefix."_users WHERE id = '".$id."';";
                 $rescheck = $db->sql_query($sqlcheck);
                 $n = $db->sql_numrows($rescheck);
                 $db->sql_freeresult($rescheck);
-                if (!$n) bterror($user->lang['NO_SUCH_USER'],_btpm);
+                if (!$n) bterror($user->lang['NO_SUCH_USER'],'BT_ERROR');
                 $sql = "DELETE FROM ".$db_prefix."_private_messages_blacklist WHERE master = '".$user->id."' AND slave = '".$id."';";
                 $db->sql_query($sql) or btsqlerror($sql);
                 header("Location: user.php?op=profile&id=" . $id);
@@ -71,12 +71,12 @@ switch($op) {
         }
 
         case "bookmark": {
-                if (!isset($id) OR !is_numeric($id)) bterror($user->lang['NO_SUCH_USER'],_btpm);
+                if (!isset($id) OR !is_numeric($id)) bterror($user->lang['NO_SUCH_USER'],'BT_ERROR');
                 $sqlcheck = "SELECT id FROM ".$db_prefix."_users WHERE id = '".$id."';";
                 $rescheck = $db->sql_query($sqlcheck);
                 $n = $db->sql_numrows($rescheck);
                 $db->sql_freeresult($rescheck);
-                if (!$n) bterror($user->lang['NO_SUCH_USER'],_btpm);
+                if (!$n) bterror($user->lang['NO_SUCH_USER'],'BT_ERROR');
                 $sql = "INSERT INTO ".$db_prefix."_private_messages_bookmarks (master, slave) VALUES ('".$user->id."','".$id."');";
                 $db->sql_query($sql) or btsqlerror($sql);
                 $sql = "DELETE FROM ".$db_prefix."_private_messages_blacklist WHERE master = '".$user->id."' AND slave = '".$id."';";
@@ -85,12 +85,12 @@ switch($op) {
                 die();
         }
                 case "removebookmark": {
-                if (!isset($id) OR !is_numeric($id)) bterror($user->lang['NO_SUCH_USER'],_btpm);
+                if (!isset($id) OR !is_numeric($id)) bterror($user->lang['NO_SUCH_USER'],'BT_ERROR');
                 $sqlcheck = "SELECT id FROM ".$db_prefix."_users WHERE id = '".$id."';";
                 $rescheck = $db->sql_query($sqlcheck);
                 $n = $db->sql_numrows($rescheck);
                 $db->sql_freeresult($rescheck);
-                if (!$n) bterror($user->lang['NO_SUCH_USER'],_btpm);
+                if (!$n) bterror($user->lang['NO_SUCH_USER'],'BT_ERROR');
                 $sql = "DELETE FROM ".$db_prefix."_private_messages_bookmarks WHERE master='".$user->id."' AND slave = '".$id."';";
                 $db->sql_query($sql) or btsqlerror($sql);
                 header("Location: user.php?op=profile&id=" . $id);

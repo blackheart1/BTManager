@@ -172,8 +172,7 @@ switch ($op) {
                         $log = fopen($torrent_dir."/".intval($id)."ban.log","w");
                         $btcomplaints = getcomplaints();
                         $scoresql = "SELECT A.torrent, A.user as user, A.host as host, A.datetime as time, A.score, B.username as username FROM ".$db_prefix."_complaints A LEFT JOIN ".$prefix."_users B ON A.user=B.user_id WHERE A.torrent = ".intval($id).";";
-                        $scorequery = $db->sql_query($scoresql);
-                        if (!$scorequery) bterror($scoresql);
+                        $scorequery = $db->sql_query($scoresql) or btsqlerror($scoresql);
                         while ($row = $db->sql_fetchrow($scorequery)) {
                                 fputs($log,"At ".formatTimeStamp($row["datetime"]).", user ".$row["username"]." from ".$row["host"]." gave this Torrent the following rating: ".$scorarray[$row["score"]]."\n");
                         }

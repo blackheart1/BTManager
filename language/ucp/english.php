@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File ucp/english.php 2018-06-16 08:43:00 Thor
+** File ucp/english.php 2018-04-28 10:31:00 Thor
 **
 ** CHANGES
 **
@@ -54,7 +54,7 @@ $lang = array_merge($lang, array(
     'UCP_BAN_FORUM'          => 'Forum Ban',
     'UCP_SHOUT_BAN'          => 'Ban Shouts',
     'UCP_UNSHOUT_BAN'        => 'Unban Shouts',
-    'UCP_HELPER_FOR'         => 'What is the User is Helpful for?',
+    'UCP_HELPER_FOR'         => 'What is the User Helpful for?',
     'ACTIVE_IN_FORUM'        => 'Most Active Forum',
     'ACTIVE_IN_TOPIC'        => 'Most Active Topic',
     'USER_SEEDBOX'           => 'User\'s Seedbox IP Address',
@@ -317,8 +317,11 @@ $lang = array_merge($lang, array(
     'DHT_SUPORT'               => 'DHT Support',
     'TORRENT DETAILS'          => 'Torrent Details',
     'POST_TIME'                => 'Post Time',
-    'VIEW_DEAD_TORRENTS'       => 'View Dead Torrents',
-    'VIEW_DEAD_TORRENTS_EXP'   => 'View Torrents that have No Peers',
+	'VIEW_DEAD_TORRENTS'	   => 'View Dead Torrents',
+	'VIEW_DEAD_TORRENTS_EXP'   => 'View Torrents that Have no peers.',
+	'INVALID_OPTION'		   => 'Invalid option set Please go back and try again',
+	'LOGGED_IN_USE_PRO_EDIT'   => 'You are loged in please use Edit Profile',
+	'NO_TOPIC_SET'				=> 'No Topic is set please check your link',
 ));
 
 ?>
