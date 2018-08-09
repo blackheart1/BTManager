@@ -32,7 +32,7 @@ $user->set_lang('profile',$user->ulanguage);
 $template = new Template();
 set_site_var($user->lang['LOST_PASSWORD']);
 
-if ($user->user) bterror("");
+if ($user->user) bterror("LOGGED_IN_USE_PRO_EDIT");
 
 $postback												= request_var('postback', '');
 $subd												= request_var('subd', 0);
