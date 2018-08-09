@@ -419,7 +419,7 @@ function compose_pm($id, $mode, $action)
 			$message = $user->lang['MESSAGE_DELETED'];
 
 			meta_refresh(3, $meta_info);
-			$message .= '<br /><br />' . sprintf($user->lang['_RETURN_FOLDER'], '<a href="' . $meta_info . '">', '</a>');
+			$message .= '<br /><br />' . sprintf($user->lang['RETURN_FOLDER'], '<a href="' . $meta_info . '">', '</a>');
 			trigger_error($message);
 		}
 		else

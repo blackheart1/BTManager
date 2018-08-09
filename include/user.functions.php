@@ -102,11 +102,11 @@ function avatar_remote($data, &$error)
 		}
 		if (!preg_match('#^(https?://).*?\.(gif|jpg|jpeg|png)$#i', $data['remotelink'], $match))
 		{
-			 bterror($errors,$user->lang['_URL_INVALID']);
+			 bterror($user->lang['_URL_INVALID']);
 		}
 		if (empty($match[2]))
 		{
-			 bterror($errors,$user->lang['INVALID_IMAGE_EXT']);
+			 bterror($user->lang['INVALID_IMAGE_EXT']);
 		}
 	if (!preg_match('#^(http|https|ftp)://(?:(.*?\.)*?[a-z0-9\-]+?\.[a-z]{2,4}|(?:\d{1,3}\.){3,5}\d{1,3}):?([0-9]*?).*?\.(gif|jpg|jpeg|png)$#i', $data['remotelink']))
 	{
@@ -158,7 +158,7 @@ function avatar_remote($data, &$error)
 
 		if (!($fsock = @fsockopen($host, $port, $errno, $errstr)))
 		{
-			 bterror($errors,$user->lang['AVATAR_NOT_UPLOADED']);
+			 bterror($user->lang['AVATAR_NOT_UPLOADED']);
 		}
 
 		// Make sure $path not beginning with /
@@ -195,7 +195,7 @@ function avatar_remote($data, &$error)
 					}
 					else if (stripos($line, '404 not found') !== false)
 					{
-			 bterror($errors,$user->lang['_URL_NOT_FOUND']);
+			 bterror($user->lang['_URL_NOT_FOUND']);
 					}
 				}
 			}
@@ -204,14 +204,14 @@ function avatar_remote($data, &$error)
 
 		if (empty($img_data))
 		{
-			 bterror($errors,$user->lang['INVALID_REMOTE_DATA']);
+			 bterror($user->lang['INVALID_REMOTE_DATA']);
 		}
 
 		$filename = $data['upload_name'] . '.' .$match[2];
 
 		if (!($fp = @fopen("cache/".$filename, 'wb')))
 		{
-			 bterror($errors,$user->lang['AVATAR_NOT_UPLOADED']);
+			 bterror($user->lang['AVATAR_NOT_UPLOADED']);
 		}
 
 		$upload_ary['size'] = fwrite($fp, $img_data);
@@ -2782,7 +2782,7 @@ function group_user_add($group_id, $user_id_ary = false, $username_ary = false, 
 
 	if (!$group_name)
 	{
-		//$group_name = get_group_name($group_id);
+		$group_name = get_group_name($group_id);
 	}
 
 	$log = ($leader) ? 'LOG_MODS_ADDED' : 'LOG_USERS_ADDED';

@@ -24,12 +24,14 @@ if (!defined('IN_PMBT'))
 	die ();
 }
 
-              set_site_var('- '.$user->lang['USER_CPANNEL'].' - '.$user->lang['BT_ERROR']);
-$t                                     = request_var('t', array(0));
-$hid = '';
+set_site_var('- '.$user->lang['USER_CPANNEL'].' - '.$user->lang['BT_ERROR']);
+$t		= request_var('t', array(0));
+$hid	= '';
 if(isset($t) && count($t) >=1){
-foreach($t as $key => $value)
-$hid .= "<input type=\"hidden\" name=\"t[".$key."]\" value=\"1\" />";
+	foreach($t as $key => $value)
+	{
+		$hid .= "<input type=\"hidden\" name=\"t[".$key."]\" value=\"1\" />";
+	}
 }
 $hidden='<input type="hidden" name="take_edit" value="1" >
 <input type="hidden" name="check" value="1" >
@@ -45,7 +47,7 @@ $check = false;
               $template->assign_var('S_IN_UCP', true);
 			}
 $t                                     = request_var('t', array(0));
-    if(!isset($t) && !count($t) >=1)bterror("Delete BookMark","No Topic is set please check your link");
+    if(!isset($t) && !count($t) >=1)bterror("NO_TOPIC_SET",'BT_ERROR');
 	foreach($t as $book=> $value){
 		$db->sql_query("DELETE FROM ".$db_prefix."_bookmarks WHERE topic_id='".$book."' AND user_id='".$user->id."'");
      }

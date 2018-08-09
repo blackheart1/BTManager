@@ -92,7 +92,6 @@ $name											= request_var('name', '');
                                 ));
 				echo $template->fetch('error.html');
 				close_out();
-			 //bterror($errors,_btedituserprofile,false);
 			 }
                 $sql = "UPDATE ".$db_prefix."_users SET ";
                 for ($i = 0; $i < count($sqlfields); $i++) $sql .= $sqlfields[$i] ." = ".$sqlvalues[$i].", ";

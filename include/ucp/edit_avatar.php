@@ -280,6 +280,7 @@ elseif (extension_loaded("gd"))
         if (empty($match[2]))
         {
             bterror($errors, $user->lang['_URL_INVALID']);
+
         }
 
         $imageinfo = @getimagesize($remotelink);

@@ -68,7 +68,7 @@ $check = false;
 				if(!is_numeric($value)){
               		set_site_var('- '.$user->lang['USER_CPANNEL'].' - '.$user->lang['BT_ERROR']);
                                 $template->assign_vars(array(
-								        'S_ERROR_HEADER'          =>bterror_sub,
+								        'S_ERROR_HEADER'          => $user->lang['BT_ERROR'],
                                         'S_ERROR_MESS'            => $user->lang['ERROR_SUBJECT_NUBER'],
                                 ));
              		echo $template->fetch('error.html');
@@ -84,7 +84,7 @@ $check = false;
 				if(!is_numeric($value)){
               		set_site_var('- '.$user->lang['USER_CPANNEL'].' - '.$user->lang['BT_ERROR']);
                                 $template->assign_vars(array(
-								        'S_ERROR_HEADER'          =>bterror_sub,
+								        'S_ERROR_HEADER'          => $user->lang['BT_ERROR'],
                                         'S_ERROR_MESS'            => $user->lang['ERROR_SUBJECT_NUBER'],
                                 ));
              		echo $template->fetch('error.html');
@@ -100,7 +100,7 @@ $check = false;
 				if(!is_numeric($value)){
               		set_site_var('- '.$user->lang['USER_CPANNEL'].' - '.$user->lang['BT_ERROR']);
                                 $template->assign_vars(array(
-								        'S_ERROR_HEADER'          =>bterror_sub,
+								        'S_ERROR_HEADER'          => $user->lang['BT_ERROR'],
                                         'S_ERROR_MESS'            => $user->lang['ERROR_SUBJECT_NUBER'],
                                 ));
              		echo $template->fetch('error.html');
