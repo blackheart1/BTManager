@@ -209,7 +209,7 @@ $screen4 = "NULL";
 				'S_ERROR_MESS'			=>	implode('<br />',$errmsg),
 				'S_ACTION'					=> 'link',
 				));
-                //bterror($errmsg,_btuploaderror,false);
+                //bterror($errmsg,'ERROR_INUPLOAD',false);
                 require_once("upload/link.php");
         }
 		else
@@ -218,7 +218,7 @@ $screen4 = "NULL";
 
         if ($use_rsa) $files = unserialize($rsa->decrypt($old_files));
         else $files = unserialize(base64_decode($old_files));
-        if (!$files) bterror("Bad Data",_btuploaderror);
+        if (!$files) bterror("INVALID_MAG_LINK",'ERROR_INUPLOAD');
 
         preg_match_all('/([\\w]{6,}+)/', $descr, $search_descr);
         preg_match_all('/([\\w]{6,}+)/', $namex, $search_name);

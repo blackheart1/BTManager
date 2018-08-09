@@ -503,7 +503,7 @@ if (entry_exists($torrent,"info/length(Integer)")) {
                 $path = Array();
                 foreach ($file["path"]->child_nodes() as $p) array_push($path,$p->get_content());
                 $ffe = implode("/",$path);
-                if (empty($ffe)) bterror(_btfilenamerror,_btuploaderror);
+                if (empty($ffe)) bterror('INVALID_VILE_NAME','ERROR_INUPLOAD');
 
                 if (array_key_exists("sha1",$file)) {
                         $magnet_link = "magnet:?xt=urn:bitprint:".addslashes(hex_to_base32($file["sha1"]->get_content()))."&dn=".urlencode($path[count($path)-1]);
@@ -526,7 +526,7 @@ unset($info);
 
 #eXeem Alternate Link
 if (isset($exeem) AND $exeem != "" AND $info_intact) {
-        if (!preg_match("/exeem:\/\/[\\d]{1,2}/".$infohash_hex."*/i", $exeem)) bterror(_btinvalidexeem,_btuploaderror);
+        if (!preg_match("/exeem:\/\/[\\d]{1,2}/".$infohash_hex."*/i", $exeem)) bterror('INVALID_EXEEM_LINK','ERROR_INUPLOAD');
 } else {
         $exeem = "";
 }
@@ -681,7 +681,7 @@ if (isset($jump_check) AND $jump_check == 1) {
 
 
         $sql = "SELECT torrent, filename, size FROM ".$db_prefix."_files WHERE 1=0 ".$sql;
-        $res = $db->sql_query($sql) or bterror($sql);
+        $res = $db->sql_query($sql) or btsqlerror($sql);
 
         $errmsg = "";
         if ($db->sql_numrows($res) > 0){
@@ -1078,7 +1078,6 @@ $torrentsql = "INSERT INTO ".$db_prefix."_torrents (".implode(", ",$torrentfield
 
 $db->sql_query($torrentsql) or btsqlerror($torrentsql);
 $id = $db->sql_nextid();
-if ($id == 0) bterror("Torrent ID Error",_btuploaderror);
 
 if ($announce != ""){ 
 $db->sql_query("INSERT INTO ".$db_prefix."_trackers (url, updated) VALUES ('".addslashes($announce)."', NOW());");

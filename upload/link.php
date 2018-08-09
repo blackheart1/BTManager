@@ -53,7 +53,7 @@ if ($old_files != "") {
                 $files = unserialize($rsa->decrypt($old_files));
         } else {
                 $files = unserialize(base64_decode($old_files));
-                if (crypt($old_files,$priv_key) != $fingerprint) bterror(_btfilelistaltered,_btuploaderror);
+                if (crypt($old_files,$priv_key) != $fingerprint) bterror('LIST_ALTERED','ERROR_INUPLOAD');
         }
 }
 
@@ -92,7 +92,7 @@ if (isset($postback) AND !is_numeric($postback) AND !$postback == '') {
                 $torrentid = null;
                 $result = checked2k($ed2klink,$file);
 
-                if ($result == INVALID_LINK) bterror($user->lang['INVALID_EXEEM_LINK'],_btuploaderror,false);
+                if ($result == INVALID_LINK) bterror($user->lang['INVALID_EXEEM_LINK'],'ERROR_INUPLOAD',false);
                 else {
                         $file["ed2k"] = "ed2k://|file|".urlencode($file["name"])."|".$file["size"]."|".strtoupper($file["hash"])."|";
                         $file["md5sum"] = $md5sum;
@@ -110,8 +110,8 @@ if (isset($postback) AND !is_numeric($postback) AND !$postback == '') {
                                         $magnet_ok = true;
                                 } else {
                                         $magnet_ok = false;
-                                        if ($result == FILES_DONT_MATCH) bterror($user->lang['LINKS_FILE_NOT_MATCH'],_btuploaderror,false);
-                                        else bterror($user->lang['INVALID_MAG_LINK'],_btuploaderror,false);
+                                        if ($result == FILES_DONT_MATCH) bterror($user->lang['LINKS_FILE_NOT_MATCH'],'ERROR_INUPLOAD',false);
+                                        else bterror($user->lang['INVALID_MAG_LINK'],'ERROR_INUPLOAD',false);
                                 }
                         } else {
                                 $magnet_ok = true;
@@ -129,11 +129,11 @@ if (isset($postback) AND !is_numeric($postback) AND !$postback == '') {
                                                 $old_files = base64_encode(serialize($files));
                                                 $fingerprint = crypt($old_files,$priv_key);
                                         }
-                                } else bterror($user->lang['DUPLICATE_FILES_NOT_ALL'],_btuploaderror,false);
+                                } else bterror($user->lang['DUPLICATE_FILES_NOT_ALL'],'ERROR_INUPLOAD',false);
                                 //Add file
                         } //else error has been displayed
                 }
-        } else bterror(_ed2krequired,_btuploaderror,false);
+        } else bterror('INVALID_ED_LINK','ERROR_INUPLOAD',false);
 
 }
 $hiden = array();
