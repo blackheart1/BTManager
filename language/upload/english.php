@@ -172,6 +172,7 @@ $lang = array_merge($lang, array(
     'NOTIFY_NEW_SEED'         => 'You have been Added to the Notification List: you\'ll be emailed about New Seeds.',
     'ADD_FILE'                => 'Add File',
     'UPLOAD_LINK'             => 'Post an eD2K/Magnet Link',
+	'EXTERNAL_NOT_ALLOWED'	  => 'External Torrents are not Allowed on this site',
 
     'UPLOAD_LINK_EXP'  => 'Post Only if the File is being Shared.<br />The Link will NOT be Accepted, if more than half of the Files you Submit are already Present on the Index.  Duplicates Reduce the Overall Efficiency',
 

@@ -211,6 +211,10 @@ class Template {
 		{
 			$data = $this->compile(trim(file_get_contents($this->files[$handle])));
 		}
+		elseif(preg_match("/style\/upgrade\//",$this->files[$handle]) OR preg_match("/style\/install\//",$this->files[$handle]) )
+		{
+			$data = $this->compile(trim(file_get_contents($this->files[$handle])));
+		}
 		else
 		{
 			$data = $this->compile(trim(file_get_contents("themes/".$theme."/templates".$this->files[$handle])));

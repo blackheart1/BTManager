@@ -222,6 +222,7 @@ $invite_timeout = 86400 * 3;
 $invites1 = $row["max_members"];
 $autoclean_interval = $row["auto_clean"];
 $addprivate = ($row["addprivate"]=="true") ? true : false;
+$allow_external = ($row["allow_external"]=="true") ? true : false;
 $phpEx = substr(strrchr(__FILE__, '.'), 1);
 #donationblock
 $paypal_email = $row2["paypal_email"];

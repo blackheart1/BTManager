@@ -51,7 +51,7 @@ if (!$category)
 }
 $cats = catlist();
 $in_cat = false;
-while ($cat = each($cats) AND !$in_cat) {
+while ($cat = @each($cats) AND !$in_cat) {
         if ($category == $cat[1]["id"]) $in_cat = true;
 }
 if (!$in_cat) $errmsg[] = $user->lang['INVALID_CATEGORY'];
@@ -378,6 +378,17 @@ if (in_array($announce, $site_announce)) {
         $dht = "yes";
 } 
 
+if(!$announce == "" AND !$allow_external)
+{
+					$template->assign_vars(array(
+						'S_ERROR'			=> true,
+						'S_FORWARD'			=> false,
+						'TITTLE_M'			=> $user->lang['BT_ERROR'],
+						'MESSAGE'			=> $user->lang['EXTERNAL_NOT_ALLOWED'],
+					));
+					echo $template->fetch('message_body.html');
+					close_out();
+}
 
 #Parsing Multiple Announce
 $trackers = "NULL";
@@ -392,15 +403,37 @@ if (entry_exists($torrent,"announce-list(List)")) {
                 foreach ($group->child_nodes() as $tracker_node) {
                         $tracker = $tracker_node->get_content();
                         //If the main tracker is NOT this one, but this one APPEARS within the Announce list then we're running backup tracker
-                        if (in_array($tracker, $site_announce) AND $announce != "") $backup_tracker = "true";
-                        array_push($trackers_in_group,$tracker);
-                        array_push($to_check,"'".$tracker."'");
-                        unset($tracker, $tracker_node);
+                        if (in_array($tracker, $site_announce) AND $announce != "")
+						{
+							$backup_tracker = "true";
+						}
+                        if (in_array($tracker, $site_announce))
+						{
+                        	unset($tracker, $tracker_node);
+						}
+						else
+						{
+							array_push($trackers_in_group,$tracker);
+							array_push($to_check,"'".$tracker."'");
+						}
+                        	unset($tracker, $tracker_node);
                 }
                 array_push($trackers,$trackers_in_group);
                 unset($trackers_in_group, $group);
 
         }
+		if(count($to_check) > 0 AND !$allow_external)
+		{
+							$template->assign_vars(array(
+								'S_ERROR'			=> true,
+								'S_FORWARD'			=> false,
+								'TITTLE_M'			=> $user->lang['BT_ERROR'],
+								'MESSAGE'			=> $user->lang['EXTERNAL_NOT_ALLOWED'],
+							));
+							echo $template->fetch('message_body.html');
+							close_out();
+		}
+		die('works');
         $sql = "SELECT url FROM ".$db_prefix."_trackers WHERE url IN (".implode(", ",$to_check).") AND status = 'blacklisted';";
         $res = $db->sql_query($sql) or btsqlerror($sql);
         if ($db->sql_numrows($res) > 0) {
