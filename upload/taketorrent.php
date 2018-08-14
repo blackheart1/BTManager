@@ -433,7 +433,6 @@ if (entry_exists($torrent,"announce-list(List)")) {
 							echo $template->fetch('message_body.html');
 							close_out();
 		}
-		die('works');
         $sql = "SELECT url FROM ".$db_prefix."_trackers WHERE url IN (".implode(", ",$to_check).") AND status = 'blacklisted';";
         $res = $db->sql_query($sql) or btsqlerror($sql);
         if ($db->sql_numrows($res) > 0) {
