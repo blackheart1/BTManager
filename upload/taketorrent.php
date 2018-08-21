@@ -433,20 +433,24 @@ if (entry_exists($torrent,"announce-list(List)")) {
 							echo $template->fetch('message_body.html');
 							close_out();
 		}
-        $sql = "SELECT url FROM ".$db_prefix."_trackers WHERE url IN (".implode(", ",$to_check).") AND status = 'blacklisted';";
-        $res = $db->sql_query($sql) or btsqlerror($sql);
-        if ($db->sql_numrows($res) > 0) {
-                $blacklisted_trackers = $db->sql_fetchrowset($res);
-                $blacklisted_trackers = implode(",",$blacklisted_trackers);
-					$template->assign_vars(array(
-						'S_ERROR'			=> true,
-						'S_FORWARD'			=> false,
-						'TITTLE_M'			=> $user->lang['BT_ERROR'],
-						'MESSAGE'			=> sprintf($user->lang['TRACKER_IS_BLACK_LISTED'],$blacklisted_trackers) . '<br /><br /><a href="javascript:history.go(-1)"  onMouseOver="self.status=document.referrer;return true">' . $user->lang['GO_BACK'] . '</a>',
-					));
-					echo $template->fetch('message_body.html');
-					close_out();
-        }
+		if(count($to_check) > 0)
+		{
+			$sql = "SELECT url FROM ".$db_prefix."_trackers WHERE url IN (".implode(", ",$to_check).") AND status = 'blacklisted';";
+			$res = $db->sql_query($sql) or btsqlerror($sql);
+			if ($db->sql_numrows($res) > 0)
+			{
+					$blacklisted_trackers = $db->sql_fetchrowset($res);
+					$blacklisted_trackers = implode(",",$blacklisted_trackers);
+						$template->assign_vars(array(
+							'S_ERROR'			=> true,
+							'S_FORWARD'			=> false,
+							'TITTLE_M'			=> $user->lang['BT_ERROR'],
+							'MESSAGE'			=> sprintf($user->lang['TRACKER_IS_BLACK_LISTED'],$blacklisted_trackers) . '<br /><br /><a href="javascript:history.go(-1)"  onMouseOver="self.status=document.referrer;return true">' . $user->lang['GO_BACK'] . '</a>',
+						));
+						echo $template->fetch('message_body.html');
+						close_out();
+			}
+		}
         $db->sql_freeresult($res);
         unset($sql, $to_check,$announce_list, $res);
         for ($i = 0; $i < count($trackers); $i++) $trackers[$i] = implode("\n",$trackers[$i]);
