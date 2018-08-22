@@ -391,9 +391,21 @@ if(!$compact){
 }
 $resp .= "ee";
                 unset($row, $sql_select, $res);
+        $shhash = preg_replace('/ *$/s', "", $key);
+		$utf_hash = utf8_encode($key);
+		$utf_clean = utf8_clean_string($key);
+        $shhasha = preg_replace('/ *$/s', "", $peer_id);
+		$utf_hasha = utf8_encode($peer_id);
+		$utf_cleana = utf8_clean_string($peer_id);
+	$where = "(P.unique_id = '" . $db->sql_escape($utf_clean) . "'
+			 OR P.unique_id = '" . $db->sql_escape($shhash) . "' 
+			 OR P.unique_id = '" . $db->sql_escape($utf_hash) . "'
+			 OR P.peer_id = '" . $db->sql_escape($utf_cleana) . "'
+			 OR P.peer_id = '" . $db->sql_escape($shhasha) . "' 
+			 OR P.peer_id = '" . $db->sql_escape($utf_hasha) . "')";
 
 
-$where = "P.torrent = '".$torrentid."' AND " . hash_where("P.unique_id", $key);
+$where = "P.torrent = '" . $torrentid . "' AND " . $where;
 $selfwhere = $where;
 unset($self);
 $sql_select = "SELECT P.seeder, P.peer_id, P.unique_id, P.uid, P.ip, P.real_ip, P.port, P.uploaded, P.downloaded, P.upload_speed, UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(P.last_action) as seconds, U.level FROM ".$db_prefix."_peers P LEFT JOIN ".$db_prefix."_users U ON P.uid = U.id WHERE ".$selfwhere.";";
@@ -419,11 +431,11 @@ if ($event == "stopped") {
         $hitrun = (($torrentadded > get_date_time(gmtime() - 10800) && ($downloaded / 2) > $uploaded) ? "IF(hitrun = '0000-00-00 00:00:00', '".get_date_time()."', hitrun)" : "hitrun");
        //$db->sql_query("UPDATE ".$db_prefix."_snatched SET  ip = '".$ip."', port = $port, agent= '".$agent.$clientversion."', last_action = '".get_date_time()."', hitrun = $hitrun WHERE torrentid = $torrentid AND userid = $uid") or err(mysql_error());		
                 if ($self["seeder"] == "yes")
-                        $updateset[] = "seeders = seeders - 1";
+                        $updateset[] = "seeders = if(`seeders` > 0,`seeders` - 1, `seeders`)";
                 else
-                        $updateset[] = "leechers = leechers - 1";
+                        $updateset[] = "leechers = if(`leechers` > 0,`leechers` - 1, `leechers`)";
 
-                $updateset[] = "tot_peer = tot_peer - 1";
+                $updateset[] = "tot_peer = if(`tot_peer` > 0,`tot_peer` - 1, `tot_peer`)";
                 $updateset[] = "speed = speed - '".$self["upload_speed"]."'";
         }
         unset($sql_delete);

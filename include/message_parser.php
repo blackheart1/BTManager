@@ -362,7 +362,7 @@ class bbcode_firstpass extends bbcode
 		$in = str_replace(' ', '%20', $in);
 
 		// Checking urls
-		if (!preg_match("#(?i)\b((?:[a-z][\w-]+:(?:/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'\".,<>?������]))#iS", $in) && !preg_match('#^' . get_preg_expression('www_url') . '$#i', $in))
+		if (!preg_match('#^' . get_preg_expression('url') . '$#iu', $in) && !preg_match('#^' . get_preg_expression('www_url') . '$#iu', $in))
 		{
 			return '[img]' . $in . '[/img]';
 		}
@@ -790,7 +790,9 @@ class bbcode_firstpass extends bbcode
 		}
 
 		// To let the parser not catch tokens within quote_username quotes we encode them before we start this...
-		$in = preg_replace('#quote=&quot;(.*?)&quot;\]#ie', "'quote=&quot;' . str_replace(array('[', ']', '\\\"'), array('&#91;', '&#93;', '\"'), '\$1') . '&quot;]'", $in);
+		$in = preg_replace_callback('#quote=&quot;(.*?)&quot;\]#i', function ($match) {
+			return 'quote=&quot;' . str_replace(array('[', ']', '\\\"'), array('&#91;', '&#93;', '\"'), $match[1]) . '&quot;]';
+		}, $in);
 
 		$tok = ']';
 		$out = '[';
@@ -1414,7 +1416,7 @@ class parse_message extends bbcode_firstpass
 		{
 			if ($max_smilies)
 			{
-				$num_matches = preg_match_all('#(?<=^|[\n .])(?:' . implode('|', $match) . ')(?![^<>]*>)#', $this->message, $matches);
+				$num_matches = preg_match_all('#(?<=^|[\n .])(?:' . implode('|', $match) . ')(?![^<>]*>)#u', $this->message, $matches);
 				unset($matches);
 
 				if ($num_matches !== false && $num_matches > $max_smilies)
@@ -1425,7 +1427,7 @@ class parse_message extends bbcode_firstpass
 			}
 
 			// Make sure the delimiter # is added in front and at the end of every element within $match
-			$this->message = trim(preg_replace(explode(chr(0), '#(?<=^|[\n .])' . implode('(?![^<>]*>)#' . chr(0) . '#(?<=^|[\n .])', $match) . '(?![^<>]*>)#'), $replace, $this->message));
+			$this->message = trim(preg_replace(explode(chr(0), '#(?<=^|[\n .])' . implode('(?![^<>]*>)#u' . chr(0) . '#(?<=^|[\n .])', $match) . '(?![^<>]*>)#u'), $replace, $this->message));
 		}
 	}
 
@@ -1495,10 +1497,13 @@ class parse_message extends bbcode_firstpass
 						'is_orphan'		=> 1,
 						'real_filename'	=> $filedata['real_filename'],
 						'attach_comment'=> $this->filename_data['filecomment'],
+						'filesize'		=> $filedata['filesize'],
 					);
 
 					$this->attachment_data = array_merge(array(0 => $new_entry), $this->attachment_data);
-					$this->message = preg_replace('#\[attachment=([0-9]+)\](.*?)\[\/attachment\]#e', "'[attachment='.(\\1 + 1).']\\2[/attachment]'", $this->message);
+					$this->message = preg_replace_callback('#\[attachment=([0-9]+)\](.*?)\[\/attachment\]#', function ($match) {
+						return '[attachment='.($match[1] + 1).']' . $match[2] . '[/attachment]';
+					}, $this->message);
 
 					$this->filename_data['filecomment'] = '';
 
@@ -1561,7 +1566,9 @@ class parse_message extends bbcode_firstpass
 					}
 
 					unset($this->attachment_data[$index]);
-					$this->message = preg_replace('#\[attachment=([0-9]+)\](.*?)\[\/attachment\]#e', "(\\1 == \$index) ? '' : ((\\1 > \$index) ? '[attachment=' . (\\1 - 1) . ']\\2[/attachment]' : '\\0')", $this->message);
+					$this->message = preg_replace_callback('#\[attachment=([0-9]+)\](.*?)\[\/attachment\]#', function ($match) use($index) {
+						return ($match[1] == $index) ? '' : (($match[1] > $index) ? '[attachment=' . ($match[1] - 1) . ']' . $match[2] . '[/attachment]' : $match[0]);
+					}, $this->message);
 
 					// Reindex Array
 					$this->attachment_data = array_values($this->attachment_data);
