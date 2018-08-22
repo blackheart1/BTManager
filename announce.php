@@ -358,6 +358,7 @@ $resp = "d" . benc_str("interval") . "i" . $announce_interval . "e". benc_str("c
 if (!empty($announce_text)) $resp .= "15:warning message". strlen($announce_text) .":". $announce_text;
 }else{
 $resp = "d" . benc_str("interval") . "i" . $announce_interval . "e". benc_str("complete") . "i" . $seeders . "e" . benc_str("incomplete") . "i" . $leechers . "e" . benc_str("downloaded") . "i" . $completed . "e" . benc_str('size') . "i" . $size . "e" . benc_str("min interval") . "i" . $announce_interval_min . "e";
+if (!empty($announce_text)) $resp .= "15:warning message". strlen($announce_text) .":". $announce_text;
 }
 
 if ($event != "stopped") {
@@ -392,7 +393,7 @@ $resp .= "ee";
                 unset($row, $sql_select, $res);
 
 
-$where = "P.torrent = '".$torrentid."' AND " . hash_where("P.peer_id", $peer_id);
+$where = "P.torrent = '".$torrentid."' AND " . hash_where("P.unique_id", $key);
 $selfwhere = $where;
 unset($self);
 $sql_select = "SELECT P.seeder, P.peer_id, P.unique_id, P.uid, P.ip, P.real_ip, P.port, P.uploaded, P.downloaded, P.upload_speed, UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(P.last_action) as seconds, U.level FROM ".$db_prefix."_peers P LEFT JOIN ".$db_prefix."_users U ON P.uid = U.id WHERE ".$selfwhere.";";
@@ -543,7 +544,28 @@ if ($announce_level == "user" AND $ulevel == "user" AND $seeder == "no" AND $eve
 
 unset($row_trigger);
 if ($self) { //Peer is already connected
-        if (!$stoppeer AND !$event == "started" AND !$event == "stopped" AND !$event == "completed" AND !$self["seconds"] == 0 AND $self["seconds"]+5 < $announce_interval_min) err("You cannot hammer this tracker. Wait ". intval($announce_interval_min - $self["seconds"]) ." seconds and try again.");
+        if (!$stoppeer AND !$event == "started" AND !$event == "stopped" AND !$event == "completed" AND !$self["seconds"] == 0 AND $self["seconds"]+5 < $announce_interval_min)
+		{
+			//err("You cannot hammer this tracker. Wait ". intval($announce_interval_min - $self["seconds"]) ." seconds and try again.");
+			if(!$compact){
+				$resp = "d" . benc_str("interval") . "i" . $announce_interval . "e". benc_str("complete") . "i" . $seeders . "e" . benc_str("incomplete") . "i" . $leechers . "e" . benc_str("downloaded") . "i" . $completed . "e" . benc_str('size') . "i" . $size . "e" . benc_str("private") . 'i1e' . benc_str("peers") . "le" . benc_str("min interval") . "i" . $announce_interval_min . "e";
+				$resp .= "15:warning message". strlen("You cannot hammer this tracker. Wait ". intval($announce_interval_min - $self["seconds"]) ." seconds and try again.") .":". "You cannot hammer this tracker. Wait ". intval($announce_interval_min - $self["seconds"]) ." seconds and try again.";
+   				$resp .= "d" .
+      			benc_str("ip") . benc_str(long2ip($ip)) .
+      			benc_str("peer id") . benc_str(stripslashes($peer_id)) .
+      			benc_str("port") . "i" . $port . "e" .
+      			"e";
+			}else{
+				$resp = "d" . benc_str("interval") . "i" . $announce_interval . "e". benc_str("complete") . "i" . $seeders . "e" . benc_str("incomplete") . "i" . $leechers . "e" . benc_str("downloaded") . "i" . $completed . "e" . benc_str('size') . "i" . $size . "e" . benc_str("min interval") . "i" . $announce_interval_min . "e";
+				$resp .= "15:warning message". strlen("You cannot hammer this tracker. Wait ". intval($announce_interval_min - $self["seconds"]) ." seconds and try again.") .":". "You cannot hammer this tracker. Wait ". intval($announce_interval_min - $self["seconds"]) ." seconds and try again.";
+                        $peers = pack("Nn", sprintf("%d",$ip), $port);
+					$resp .= benc_str("peers") . strlen($peers).":".$peers;
+			}
+			$resp .= "ee";
+			benc_resp_raw($resp);
+			$db->sql_close();
+			die();
+		}
         if ($self["seconds"] != 0){
                 $upload_speed = round(($uploaded - $self["uploaded"]) / $self["seconds"]);
                 $download_speed = round(($downloaded - $self["downloaded"]) / $self["seconds"] );
