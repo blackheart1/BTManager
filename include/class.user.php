@@ -90,7 +90,11 @@ class User {
 							$this->level = $row["level"];
 							$this->theme = (($row["theme"] AND $row["theme"] != 'NULL')? $row["theme"] : $theme);
 							$this->email = $row["email"];
-							if(isset($_COOKIE["bttestperm"]) AND $row["level"]== "admin")$this->group = $_COOKIE["bttestperm"];
+							if(isset($_COOKIE["bttestperm"]) AND $row["level"]== "admin")
+							{
+								$this->data['user_perm_from'] = $_COOKIE["user_perm_from"];
+								$this->group = $_COOKIE["bttestperm"];
+							}
 							else
 							$this->group = $row["can_do"];
 							if (file_exists("./language/common/".$row["language"].".php"))
@@ -177,7 +181,11 @@ class User {
 							$this->nick = $row["name"];
 							$this->level = $row["level"];
 							$this->theme = (($row["theme"] AND $row["theme"] != 'NULL')? $row["theme"] : $theme);
-							if(isset($_COOKIE["bttestperm"]) AND $row["level"]== "admin")$this->group = $_COOKIE["bttestperm"];
+							if(isset($_COOKIE["bttestperm"]) AND $row["level"]== "admin")
+							{
+								$this->data['user_perm_from'] = $_COOKIE["user_perm_from"];
+								$this->group = $_COOKIE["bttestperm"];
+							}
 							else
 							$this->group = $row["can_do"];
 							$this->email = $row["email"];

@@ -100,6 +100,29 @@ if (!$auth->acl_get('a_')){
 }
 require_once("admin/language/".$user->ulanguage.".php");
 $user->set_lang('admin/main',$user->ulanguage);
+		if ($user->data['user_perm_from'])
+		{
+			//die();
+			$sql = 'SELECT id, username, user_colour
+				FROM ' . $db_prefix . '_users
+				WHERE id = ' . $user->data['user_perm_from'];
+			$result = $db->sql_query($sql);
+			$user_row = $db->sql_fetchrow($result);
+			$db->sql_freeresult($result);
+
+			$perm_from = '<strong' . (($user_row['user_colour']) ? ' style="color: #' . $user_row['user_colour'] . '">' : '>');
+			$perm_from .= ($user_row['id'] != 0) ? '<a href="' . append_sid("{$phpbb_root_path}memberslist.$phpEx", 'mode=viewprofile&amp;u=' . $user_row['id']) . '">' : '';
+			$perm_from .= $user_row['username'];
+			$perm_from .= ($user_row['id'] != 0) ? '</a>' : '';
+			$perm_from .= '</strong>';
+
+			$template->assign_vars(array(
+				'S_RESTORE_PERMISSIONS'		=> true,
+				'U_RESTORE_PERMISSIONS'		=> append_sid("{$phpbb_root_path}user.$phpEx", 'op=profile&mode=return_perm&id=11'),
+				'PERM_FROM'					=> $perm_from,
+				'L__PERMISSIONS_TRANSFERRED_EXPLAIN'	=> sprintf($user->lang['PERMISSIONS_TRANSFERRED_EXPLAIN'], $perm_from, append_sid("{$phpbb_root_path}user.$phpEx", 'op=profile&mode=return_perm')),
+			));
+		}
 $template->assign_vars(array(
 	'S_OWNER'				=> ($user->data['user_type'] == 3),
 	'S_COPYRIGHT_HTML'		=> true,

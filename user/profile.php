@@ -122,6 +122,7 @@ if($user->id == 0 OR ($user->id != $userrow["id"] && !$auth->acl_get('u_viewprof
 							close_out();
 }
 if($user->admin AND isset($mode) AND $mode == 'switch_perm'){
+setcookie("user_perm_from",$userrow["id"],time() + 31536000,$cookiepath,$cookiedomain,0);
 setcookie("bttestperm",$userrow["can_do"],time() + 31536000,$cookiepath,$cookiedomain,0);
 setcookie("bttestlevel",$userrow["level"],time() + 31536000,$cookiepath,$cookiedomain,0);
               set_site_var('- '.$user->lang['USER_CPANNEL'].' - '.$user->lang['INFORMATION']);
