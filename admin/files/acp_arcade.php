@@ -29,7 +29,7 @@ class acp_arcade
 
 	function main($id, $mode)
 	{
-		global $db, $db_prefix, $user, $template, $u_action;
+		global $db, $db_prefix, $user, $template, $u_action, $theme;
 		global $phpEx;
 		$this->u_action = $u_action;
 

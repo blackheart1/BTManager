@@ -46,8 +46,8 @@ if (!defined('IN_PMBT'))
 		$module_id		= request_var('id', '');
 		$arcade->main($module_id, $mode);
 		$template->assign_vars(array(
-			'ICON_EDIT'					=> '<img src="themes/' . $themne . '/pics/edit.gif" alt="Edit" title="Edit" border="0">',
-			'ICON_DELETE'				=> '<img src="themes/' . $themne . '/pics/drop.gif" alt="Delete" title="Delete" border="0">',
+			'ICON_EDIT'					=> '<img src="themes/' . $theme . '/pics/edit.gif" alt="Edit" title="Edit" border="0">',
+			'ICON_DELETE'				=> '<img src="themes/' . $theme . '/pics/drop.gif" alt="Delete" title="Delete" border="0">',
 			'ACP_BBCODES'				=> 'BBCodes',
 		));
 		echo $template->fetch('admin/' . $arcade->tpl_name . '.html');
