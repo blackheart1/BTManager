@@ -161,10 +161,13 @@ $passkey = request_var('passkey', '',true);
 $info_hash = $GLOBALS['_REQUEST']['info_hash'];
 $peer_id = $GLOBALS['_REQUEST']['peer_id'];
 $ip = request_var('ip', getip());
-$port = request_var('port', '0');
-$uploaded = request_var('uploaded', '0');
-$downloaded = request_var('downloaded', '0');
-$left = request_var('left', '0');
+$port = request_var('port', 0);
+$uploaded = request_var('uploaded', 0.0);
+if(isset($GLOBALS['_REQUEST']['uploaded']) AND is_numeric($uploaded) AND $uploaded == 0)$uploaded = '0';
+$downloaded = request_var('downloaded', 0.0);
+if(isset($GLOBALS['_REQUEST']['downloaded']) AND is_numeric($downloaded) AND $downloaded == 0)$downloaded = '0';
+$left = request_var('left', 0.0);
+if(isset($GLOBALS['_REQUEST']['left']) AND is_numeric($left) AND $left == 0)$left = '0';
 $event = request_var('event', '');
 $key = request_var('key', '',true);
 $compact = request_var('compact', '',true);
@@ -194,7 +197,7 @@ foreach (explode(":", $req) as $x) {
 				else $dev = '';
 			$$x = $$x;
         if (!isset($$x) or $$x == '') {
-                if (!$opt) err("missing key " . $x );
+                if (!$opt) err("missing key " . $x . ' ' . $$x);
                 else $$x = "";
                 continue;
         }
@@ -215,11 +218,27 @@ $ip = $real_ip = getip();
 		if($ip == "0.0.0.0")err("Bad Ip report");
 else $ip = sprintf("%u",ip2long($ip));
 #make sure Ip is not banned
-$sql = "SELECT reason FROM ".$db_prefix."_bans WHERE ipstart <= '".$ip."' AND ipend >= '".$ip."' LIMIT 1;";
+$sql = "SELECT  ipstart, ban_exclude, ban_give_reason AS reason, ban_end FROM ".$db_prefix."_bans
+              WHERE ban_email = ''
+              AND (ban_userid = 0
+              OR ban_exclude = 0);";
 $ban_res = $db->sql_query($sql) or err("SQL Error: ".$sql ,$db->sql_error());
-if ($db->sql_numrows($ban_res) > 0) {
-        list ($reason) = $db->fetch_array($ban_res);
-        err("You are banned from this tracker. Reason: ".$reason);
+if ($db->sql_numrows($ban_res) >= 1) {
+         while ($row = $db->sql_fetchrow($ban_res))
+        {
+            $ip_banned = false;
+
+            if (!empty($row['ipstart']))
+            {
+                $ip_banned = preg_match('#^' . str_replace('\*', '.*?', preg_quote($row['ipstart'], '#')) . '$#i', getip());
+
+                if ($row['ban_exclude'] == 1) $ip_banned = false;
+            }
+
+            $reason = $row['reason'];
+
+            if ($ip_banned) err("You are banned from this tracker. Reason: ".$reason);
+        }
 }
 $db->sql_freeresult($ban_res);
 //IF FORCED PASSKEY IS SET CONFERM IT IS HERE
