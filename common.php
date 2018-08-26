@@ -23,12 +23,12 @@
 if (!defined('IN_PMBT'))
     die ("You can't Directly Access this File");
 
+/*Set error handling*/
 if (!ini_get('display_errors'))
 {
     @ini_set('error_reporting', E_ALL);
     @ini_set('display_errors', 1);
 }
-
 require_once("include/errors.php");
 
 $old_error_handler = set_error_handler("myErrorHandler");
@@ -38,13 +38,8 @@ if($_SERVER["PHP_SELF"] == '')$_SERVER["PHP_SELF"] = 'index.php';
 
 if (!function_exists("sha1"))
     require_once("include/sha1lib.php");
-
-require_once("include/config.php"); //if config file has not been loaded yet
-
-set_include_path($sourcedir);
-ini_set('include_path',$sourcedir);
-date_default_timezone_set($pmbt_time_zone);
-
+/*if config file has not been loaded yet*/
+require_once("include/config.php"); 
 include_once('include/class.template.php');
 require_once("include/actions.php");
 require_once("include/user.functions.php");
@@ -52,18 +47,7 @@ include('include/auth.php');
 
 if (is_banned($user, $reason) && !preg_match("/ban.php/",$_SERVER["PHP_SELF"]))
 {
-    echo '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-            <html xmlns="http://www.w3.org/1999/xhtml" dir="' . $user->lang['DIRECTION'] .'" lang="' .$user->lang['USER_LANG'] . '" xml:lang="' .$user->lang['USER_LANG'] . '" />
-                <head>
-                    <meta http-equiv="content-type" content="text/html; charset=' .$user->lang['CONTENT_ENCODING'] . '" />
-                    <meta name="generator" content="BTManager ' . $version . '" />
-                    <meta http-equiv="pragma" content="no-cache" />
-                    <meta http-equiv="expires" content="-1" />
-                    <meta http-equiv="cache-control" content="no-cache" />
-                    <meta http-equiv="refresh" content="0; url=ban.php?reson='.urlencode($reason).'" />
-                </head>
-                <body>' . $user->lang['BANNED'] . '</body>
-            </html>';
+	redirect('ban.php?reson='.urlencode($reason));
     die();
 }
 

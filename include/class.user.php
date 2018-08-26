@@ -70,7 +70,7 @@ class User {
 			global $db, $db_prefix, $siteurl, $cookiepath, $cookiedomain, $localhost_autologin, $sourcedir, $language, $theme, $_COOKIE, $_SERVER;
 			$this->host					= $this->extract_current_hostname();
 			$this->page					= $this->extract_current_page($sourcedir);
-			$this->ip = (!empty($_SERVER['REMOTE_ADDR'])) ? htmlspecialchars($_SERVER['REMOTE_ADDR']) : '';
+			$this->ip = getip();
 			$val = microtime();
 			/*if ((function_exists('sys_getloadavg') && $load = sys_getloadavg()) || ($load = explode(' ', @file_get_contents('/proc/loadavg'))))
 			{

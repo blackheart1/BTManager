@@ -239,6 +239,20 @@ $autodel_users = ($row3["autodel_users"] == "true") ? true : false;
 $runhnrsystem = false;
 $TheQueryCount=0;
 #Config Parser end
+/*Set inclued path*/
+set_include_path($sourcedir);
+ini_set('include_path',$sourcedir);
+/*Set your time zone*/
+date_default_timezone_set($pmbt_time_zone);
+/*Set data base to use same time zone*/
+$now = new DateTime();
+$mins = $now->getOffset() / 60;
+$sgn = ($mins < 0 ? -1 : 1);
+$mins = abs($mins);
+$hrs = floor($mins / 60);
+$mins -= $hrs * 60;
+$offset = sprintf('%+d:%02d', $hrs*$sgn, $mins);
+$db->sql_query('SET time_zone = "' . $offset . '";');
 #temp config
 $config = array();
 			$sql = 'SELECT config_name, config_value, is_dynamic

@@ -79,6 +79,8 @@ $siteurl = $row["siteurl"];
 $admin_email = $row["admin_email"];
 $language = $row["language"];
 $theme = $row["theme"];
+$pmbt_time_zone = $row['time_zone'];
+$sourcedir = $row["sourcedir"];
 $torrent_prefix = $row["torrent_prefix"];
 $announce_text = $row["announce_text"];
 $announce_interval = $row["announce_interval"];
@@ -129,6 +131,20 @@ $donateasked = $row2["sitecost"];
 $donatepagecontents = $row2['donatepage'];
 $donations = ($row2["donation_block"]=="true") ? true : false;
 $nodonate = $row2["nodonate"];
+/*Set inclued path*/
+set_include_path($sourcedir);
+ini_set('include_path',$sourcedir);
+/*Set your time zone*/
+date_default_timezone_set($pmbt_time_zone);
+/*Set data base to use same time zone*/
+$now = new DateTime();
+$mins = $now->getOffset() / 60;
+$sgn = ($mins < 0 ? -1 : 1);
+$mins = abs($mins);
+$hrs = floor($mins / 60);
+$mins -= $hrs * 60;
+$offset = sprintf('%+d:%02d', $hrs*$sgn, $mins);
+$db->sql_query('SET time_zone = "' . $offset . '";');
 require_once("include/functions.php");
 require_once("include/class.user.php");
 if ($use_rsa) require_once("include/rsalib.php");

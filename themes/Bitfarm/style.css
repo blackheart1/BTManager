@@ -2366,3 +2366,36 @@ dl.codebox dt {
 ::-moz-selection {
   background: #ffb7b7; /* Gecko Browsers - Changes the Background Color of Selected Text */
 }
+span.ratio_a{
+	color:#ff0000;
+}
+span.ratio_b{
+	color:#ee0000;
+}
+span.ratio_c{
+	color:#dd0000;
+}
+span.ratio_d{
+	color:#cc0000;
+}
+span.ratio_e{
+	color:#bb0000;
+}
+span.ratio_f{
+	color:#aa0000;
+}
+span.ratio_g{
+	color:#990000;
+}
+span.ratio_h{
+	color:#880000;
+}
+span.ratio_i{
+	color:#770000;
+}
+span.ratio_j{
+	color:#660000;
+}
+span.ratio_k{
+	color:#078450;
+}

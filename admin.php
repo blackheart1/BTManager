@@ -170,7 +170,7 @@ unset($opdir,$opfile,$op_keys);
 					'L_TITLE'		=> str_replace('info','',$i),
 					'S_SELECTED'	=> true,
 					'U_TITLE'		=> '1',));
-					//die(print_r($$acp_menu));
+					//die($acp_menu);
 		foreach($$acp_menu as $t){
 							$template->assign_block_vars('l_block1.l_block2.l_block3', $t);
 		}
@@ -182,6 +182,11 @@ if (isset($op) AND array_key_exists($op,$operators) AND ($allowed_acc[$operators
 else
 {
 
+		if (!defined('PHPBB_DISABLE_CONFIG_CHECK') && file_exists('include/configdata.php') && phpbb_is_writable('include/configdata.php'))
+		{
+			// World-Writable? (000x)
+			$template->assign_var('S_WRITABLE_CONFIG', (bool) (@fileperms('include/configdata.php') & 0x0002));
+		}
 		$action = request_var('action', '');
 		if ($action)
 		{
@@ -557,7 +562,7 @@ else
 			'S_TOTAL_ORPHAN'	=> ($total_orphan === false) ? false : true,
 			'U_ACTION'			=> $u_action,
 			'U_ADMIN_LOG'		=> append_sid("{$siteurl}/admin.$phpEx", 'i=siteinfo&amp;op=log'),
-			'U_INACTIVE_USERS'	=> append_sid("{$siteurl}/admin.$phpEx", 'i=inactive&amp;mode=list'),
+			'U_INACTIVE_USERS'	=> append_sid("{$siteurl}/admin.$phpEx", 'i=userinfo&amp;op=user&amp;vas=list&amp;mode=list'),
 			'U_VERSIONCHECK'	=> append_sid("{$siteurl}/admin.$phpEx", 'i=siteinfo&op=webupdate#webupdate'),
 			'U_VERSIONCHECK_FORCE'	=> append_sid("{$siteurl}/admin.$phpEx", 'i=siteinfo&op=webupdate#webupdate'),
 			'U_ACTION_REST_ONLINE'	=>	append_sid("{$siteurl}/admin.$phpEx", 'i=siteinfo&action=online'),
@@ -565,6 +570,49 @@ else
 			'U_ACTION_PURGE'		=>	append_sid("{$siteurl}/admin.$phpEx", 'i=siteinfo&action=purge_cache'),
 		));
 
+		if ($auth->acl_get('a_user'))
+		{
+
+			$inactive = array();
+			$inactive_count = 0;
+
+			view_inactive_users($inactive, $inactive_count, 10);
+
+			foreach ($inactive as $row)
+			{
+				$template->assign_block_vars('inactive', array(
+					'INACTIVE_DATE'	=> $user->format_date($row['user_inactive_time']),
+					'REMINDED_DATE'	=> $user->format_date($row['user_reminded_time']),
+					'JOINED'		=> $user->format_date($row['regdate']),
+					'LAST_VISIT'	=> (!$row['lastlogin']) ? ' - ' : $user->format_date($row['lastlogin']),
+
+					'REASON'		=> $row['inactive_reason'],
+					'USER_ID'		=> $row['id'],
+					'POSTS'			=> ($row['user_posts']) ? $row['user_posts'] : 0,
+					'REMINDED'		=> $row['user_reminded'],
+
+					'REMINDED_EXPLAIN'	=> $user->lang('USER_LAST_REMINDED', (int) $row['user_reminded'], $user->format_date($row['user_reminded_time'])),
+
+					'USERNAME_FULL'		=> get_username_string('full', $row['id'], $row['username'], '#' . $row['user_colour'], false, append_sid("./admin.$phpEx", 'op=user&amp;i=userinfo&amp;mode=overview&amp;vas=overview&amp;u=')),
+					'USERNAME'			=> get_username_string('username', $row['id'], $row['username'], '#' . $row['user_colour']),
+					'USER_COLOR'		=> get_username_string('colour', $row['id'], $row['username'], '#' . $row['user_colour']),
+
+					'U_USER_ADMIN'	=> append_sid("{$phpbb_admin_path}index.$phpEx", "i=users&amp;mode=overview&amp;u={$row['user_id']}"),
+					'U_SEARCH_USER'	=> ($auth->acl_get('u_search')) ? append_sid("forum.$phpEx", "action=search&amp;author_id={$row['id']}&amp;sr=posts") : '',
+				));
+			}
+
+			$option_ary = array('activate' => 'ACTIVATE', 'delete' => 'DELETE');
+			if ($config['email_enable'])
+			{
+				$option_ary += array('remind' => 'REMIND');
+			}
+
+			$template->assign_vars(array(
+				'S_INACTIVE_USERS'		=> true,
+				'S_INACTIVE_OPTIONS'	=> build_select($option_ary))
+			);
+		}
 echo $template->fetch('admin/main.html');
 		close_out();
 }

@@ -166,7 +166,7 @@ function getlastaction($wht)
 			switch ($op_pm)
 			{
 				case 'readmsg':
-					  preg_match('#mid=([0-9]+)#', $wht, $on_page);
+					  preg_match('#p=([0-9]+)#', $wht, $on_page);
 					  $rd_ms = (!empty($on_page[1])) ? $on_page[1] : '';
 					  break;
 				case 'send':
@@ -207,6 +207,9 @@ function getlastaction($wht)
 		break;
 		case 'redirect':
 		$where = 'Being Redirected';
+		break;
+		case 'rules':
+		$where = 'Viewing Rules';
 		break;
 		case 'polls':
 		$where = 'Viewing Polls list';

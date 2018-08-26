@@ -926,31 +926,45 @@ function get_u_ratio($upload, $download)
         {
             $ratio = $upload / $download;
 
-            if ($ratio < 0.1) $ratio = "<font color=\"#ff0000\">" . number_format($ratio, 2) . "</font>";
+            if ($ratio < 0.1) $ratio = "<span class=\"ratio_a\">" . number_format($ratio, 2) . "</span>";
 
-            elseif ($ratio < 0.2) $ratio = "<font color=\"#ee0000\">" . number_format($ratio, 2) . "</font>";
-            elseif ($ratio < 0.3) $ratio = "<font color=\"#dd0000\">" . number_format($ratio, 2) . "</font>";
-            elseif ($ratio < 0.4) $ratio = "<font color=\"#cc0000\">" . number_format($ratio, 2) . "</font>";
-            elseif ($ratio < 0.5) $ratio = "<font color=\"#bb0000\">" . number_format($ratio, 2) . "</font>";
-            elseif ($ratio < 0.6) $ratio = "<font color=\"#aa0000\">" . number_format($ratio, 2) . "</font>";
-            elseif ($ratio < 0.7) $ratio = "<font color=\"#990000\">" . number_format($ratio, 2) . "</font>";
-            elseif ($ratio < 0.8) $ratio = "<font color=\"#880000\">" . number_format($ratio, 2) . "</font>";
-            elseif ($ratio < 0.9) $ratio = "<font color=\"#770000\">" . number_format($ratio, 2) . "</font>";
-            elseif ($ratio < 1)   $ratio = "<font color=\"#660000\">" . number_format($ratio, 2) . "</font>";
+            elseif ($ratio < 0.2) $ratio = "<span class=\"ratio_b\">" . number_format($ratio, 2) . "</span>";
+            elseif ($ratio < 0.3) $ratio = "<span class=\"ratio_c\">" . number_format($ratio, 2) . "</span>";
+            elseif ($ratio < 0.4) $ratio = "<span class=\"ratio_d\">" . number_format($ratio, 2) . "</span>";
+            elseif ($ratio < 0.5) $ratio = "<span class=\"ratio_e\">" . number_format($ratio, 2) . "</span>";
+            elseif ($ratio < 0.6) $ratio = "<span class=\"ratio_f\">" . number_format($ratio, 2) . "</span>";
+            elseif ($ratio < 0.7) $ratio = "<span class=\"ratio_g\">" . number_format($ratio, 2) . "</span>";
+            elseif ($ratio < 0.8) $ratio = "<span class=\"ratio_h\">" . number_format($ratio, 2) . "</span>";
+            elseif ($ratio < 0.9) $ratio = "<span class=\"ratio_i\">" . number_format($ratio, 2) . "</span>";
+            elseif ($ratio < 1)   $ratio = "<span class=\"ratio_j\">" . number_format($ratio, 2) . "</span>";
 
-            else $ratio = "<font color=\"#00FF00\">".  number_format($ratio, 2) . "</font>";
+            else $ratio = "<span class=\"ratio_k\">".  number_format($ratio, 2) . "</span>";
         }
         return $ratio;
 }
 
-function bt_shout($user, $text, $id_to = 0)
+function bt_shout($from, $text, $id_to = 0)
 {
-        global $db, $db_prefix;
+        global $db, $db_prefix, $shout_config, $config;
+		include_once('include/function_posting.php');
+		include_once('include/message_parser.php');
+		include_once('include/class.bbcode.php');
+		$bbcode_status		= ($config['allow_bbcode'] && $config['auth_bbcode_pm']) ? true : false;
+		$smilies_status		= ($config['allow_smilies'] && $config['auth_smilies_pm']) ? true : false;
+		$img_status			= ($config['auth_img_pm']) ? true : false;
+		$flash_status		= ($config['auth_flash_pm']) ? true : false;
+		$url_status			= ($config['allow_post_links']) ? true : false;
+		$enable_sig			= ($config['allow_sig'] && $config['allow_sig_pm']);
+		$enable_smilies		= ($config['allow_smilies']);
+		$enable_bbcode		= ($config['allow_bbcode']);
+		$enable_urls		= ($shout_config['allow_url'] != "no")?true:false;
+		$shout_parser 	= new parse_message();
+		$shout_parser->message = $text;
+		$bbcode_uid = $shout_parser->bbcode_uid;
+		$shout_parser->parse($enable_bbcode, ($config['allow_post_links']) ? $enable_urls : false, $enable_smilies, $img_status, $flash_status, true, $config['allow_post_links'],true,true,true,'shout');
+		$shout = $db->sql_escape(stripslashes($shout_parser->message));
 
-        if (!isset($user, $text))
-        {
-        }
-        $db->sql_query("INSERT INTO " . $db_prefix . "_shouts (user, text, posted, id_to) VALUES ('" . $user . "', '" . $text . "', NOW(), '" . $id_to . "');");
+        $db->sql_query("INSERT INTO " . $db_prefix . "_shouts (user, text, bbcode_bitfield, bbcode_uid, posted, id_to) VALUES ('" . $from . "', '" . $shout . "', '" . $shout_parser->bbcode_bitfield . "','" . $shout_parser->bbcode_uid . "', NOW(), '" . $id_to . "');");
 }
 
 /*------------------------
