@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File main/english.php 2018-07-05 08:47:00 Thor
+** File main/english.php 2018-08-27 07:23:00 Thor
 **
 ** CHANGES
 **
@@ -110,8 +110,10 @@ $lang = array_merge($lang, array(
     'USERGROUPS'                 => 'Groups',
     'SELECT_ANONYMOUS'           => 'Select Anonymous User',
     'USERNAMES_EXPLAIN'          => 'Place each Username on a Separate Line.',
-	'_PERMISSIONS_TRANSFERRED'			=> 'Permissions transferred',
-	'PERMISSIONS_TRANSFERRED_EXPLAIN'	=> 'You currently have the permissions from %1$s. You are able to browse the board with this user’s permissions, but not access the administration control panel since admin permissions were not transferred. You can <a href="%2$s"><strong>revert to your permission set</strong></a> at any time.',
+
+    '_PERMISSIONS_TRANSFERRED'        => 'Permissions Transferred',
+
+    'PERMISSIONS_TRANSFERRED_EXPLAIN' => 'You currently have the Permissions from %1$s.  You are able to Browse the Board with this User’s Permissions, but you can Not Access the Administration Control Panel since the Administrator Permissions were Not Transferred.  You can <a href="%2$s"><strong>Revert to your Permission Set</strong></a> at any time.',
 
     'ERR_NOT_NUMERIC'            => 'The Value you Entered for [ %1$s ] is NOT Numeric [ %2$s ].  Please go back and Enter a Numeric Value eg.. \'1,2,3\'',
 
@@ -137,7 +139,7 @@ $lang = array_merge($lang, array(
 
     'LOG_ACL_ADD_MOD_LOCAL_M_'     => '<strong>Added or Edited Moderators</strong> from %1$s to %2$s',
     'LOG_ACL_ADD_FORUM_LOCAL_F_'   => '<strong>Added or Edited the Forum Permissions</strong> from %1$s to %2$s',
-	'LOG_ACL_DEL_ACC_PERM_'		   => '<strong>Removed Access Permissions</strong><br /> %s',
+    'LOG_ACL_DEL_ACC_PERM_'        => '<strong>Removed Access Permissions</strong><br /> %s',
 
     'LOG_ACL_DEL_ADMIN_GLOBAL_A_'  => '<strong>Removed Administrators</strong><br /> %s',
     'LOG_ACL_DEL_MOD_GLOBAL_M_'    => '<strong>Removed Global Moderators</strong><br /> %s',
@@ -205,7 +207,7 @@ $lang = array_merge($lang, array(
     'LOG_CONFIG_VISUAL'        => '<strong>Altered the Anti Spam BOT Settings</strong>',
 
     'LOG_APPROVE_TOPIC'        => '<strong>Approved Topic</strong><br /> %s',
-	'LOG_SQL_ERROR'			   => '<strong>MySQL Error</strong><br /> \'%1$s\'<br />\'%2$s\'',
+    'LOG_SQL_ERROR'            => '<strong>MySQL Error</strong><br /> \'%1$s\'<br />\'%2$s\'',
     'LOG_BUMP_TOPIC'           => '<strong>User Bumped Topic</strong><br /> %s',
     'LOG_DELETE_POST'          => '<strong>Deleted Post</strong><br />%s',
     'LOG_DELETE_SHADOW_TOPIC'  => '<strong>Deleted Shadow Topic</strong><br /> %s',
@@ -245,7 +247,7 @@ $lang = array_merge($lang, array(
 
     'LOG_ERROR_JABBER'         => '<strong>Jabber Error</strong><br /> %s',
     'LOG_ERROR_EMAIL'          => '<strong>email Error</strong><br /> %s',
-	'RULE_REMOVED'			   => '<strong>Rule Removed</strong><br /> %s',
+    'RULE_REMOVED'             => '<strong>Rule Removed</strong><br /> %s',
 
     'LOG_FORUM_ADD'                        => '<strong>Created a New Forum</strong><br /> %s',
     'LOG_FORUM_COPIED_PERMISSIONS'         => '<strong>Copied Forum Permissions</strong> from %1$s<br /> %2$s',

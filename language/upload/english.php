@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File upload/english.php 2018-04-28 08:33:00 Thor
+** File upload/english.php 2018-08-27 07:17:00 Thor
 **
 ** CHANGES
 **
@@ -172,7 +172,7 @@ $lang = array_merge($lang, array(
     'NOTIFY_NEW_SEED'         => 'You have been Added to the Notification List: you\'ll be emailed about New Seeds.',
     'ADD_FILE'                => 'Add File',
     'UPLOAD_LINK'             => 'Post an eD2K/Magnet Link',
-	'EXTERNAL_NOT_ALLOWED'	  => 'External Torrents are not Allowed on this site',
+    'EXTERNAL_NOT_ALLOWED'    => 'External Torrents are Not Allowed on this Site.',
 
     'UPLOAD_LINK_EXP'  => 'Post Only if the File is being Shared.<br />The Link will NOT be Accepted, if more than half of the Files you Submit are already Present on the Index.  Duplicates Reduce the Overall Efficiency',
 

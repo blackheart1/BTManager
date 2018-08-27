@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File common/english.php 2018-08-06 06:57:00 Thor
+** File common/english.php 2018-08-27 20:37:00 Thor
 **
 ** CHANGES
 **
@@ -53,106 +53,106 @@ $lang = array_merge($lang, array(
     'KB'               => 'KB',
     'BYTES'            => 'Bytes',
 
-    'dateformats'   => array(
-    'd M Y, H:i'       => '01 Jan 2007, 13:37',
-    'd M Y H:i'        => '01 Jan 2007 13:37',
-    'M jS, \'y, H:i'   => 'Jan 1st, \'07, 13:37',
-    'D M d, Y g:i a'   => 'Mon Jan 01, 2007 1:37 pm',
-    'F jS, Y, g:i a'   => 'January 1st, 2007, 1:37 pm',
-    '|d M Y|, H:i'     => 'Today, 13:37 / 01 Jan 2007, 13:37',
-    '|F jS, Y|, g:i a' => 'Today, 1:37 pm / January 1st, 2007, 1:37 pm'
+    'dateformats' => array(
+        'd M Y, H:i'       => '01 Jan 2007, 13:37',
+        'd M Y H:i'        => '01 Jan 2007 13:37',
+        'M jS, \'y, H:i'   => 'Jan 1st, \'07, 13:37',
+        'D M d, Y g:i a'   => 'Mon Jan 01, 2007 1:37 pm',
+        'F jS, Y, g:i a'   => 'January 1st, 2007, 1:37 pm',
+        '|d M Y|, H:i'     => 'Today, 13:37 / 01 Jan 2007, 13:37',
+        '|F jS, Y|, g:i a' => 'Today, 1:37 pm / January 1st, 2007, 1:37 pm'
     ),
 
     'default_dateformat' => 'D M d, Y g:i a', // Mon Jan 01, 2007 1:37 pm
     'CUSTOM_DATEFORMAT'  => 'Custom',
 
-    'VARIANT_DATE_SEPARATOR'    => ' / ', // Used in Date Format Drop Down, eg: 'Today, 13:37 / 01 Jan 2007, 13:37' ... to Join a Relative Date with Calendar Date
+    'VARIANT_DATE_SEPARATOR' => ' / ', // Used in Date Format Drop Down, eg: 'Today, 13:37 / 01 Jan 2007, 13:37' ... to Join a Relative Date with Calendar Date
 
     'tz' => array(
-    '-12'   => 'UTC - 12 hours',
-    '-11'   => 'UTC - 11 hours',
-    '-10'   => 'UTC - 10 hours',
-    '-9.5'  => 'UTC - 9:30 hours',
-    '-9'    => 'UTC - 9 hours',
-    '-8'    => 'UTC - 8 hours',
-    '-7'    => 'UTC - 7 hours',
-    '-6'    => 'UTC - 6 hours',
-    '-5'    => 'UTC - 5 hours',
-    '-4.5'  => 'UTC - 4:30 hours',
-    '-4'    => 'UTC - 4 hours',
-    '-3.5'  => 'UTC - 3:30 hours',
-    '-3'    => 'UTC - 3 hours',
-    '-2'    => 'UTC - 2 hours',
-    '-1'    => 'UTC - 1 hour',
-    '0'     => 'UTC',
-    '1'     => 'UTC + 1 hour',
-    '2'     => 'UTC + 2 hours',
-    '3'     => 'UTC + 3 hours',
-    '3.5'   => 'UTC + 3:30 hours',
-    '4'     => 'UTC + 4 hours',
-    '4.5'   => 'UTC + 4:30 hours',
-    '5'     => 'UTC + 5 hours',
-    '5.5'   => 'UTC + 5:30 hours',
-    '5.75'  => 'UTC + 5:45 hours',
-    '6'     => 'UTC + 6 hours',
-    '6.5'   => 'UTC + 6:30 hours',
-    '7'     => 'UTC + 7 hours',
-    '8'     => 'UTC + 8 hours',
-    '8.75'  => 'UTC + 8:45 hours',
-    '9'     => 'UTC + 9 hours',
-    '9.5'   => 'UTC + 9:30 hours',
-    '10'    => 'UTC + 10 hours',
-    '10.5'  => 'UTC + 10:30 hours',
-    '11'    => 'UTC + 11 hours',
-    '11.5'  => 'UTC + 11:30 hours',
-    '12'    => 'UTC + 12 hours',
-    '12.75' => 'UTC + 12:45 hours',
-    '13'    => 'UTC + 13 hours',
-    '14'    => 'UTC + 14 hours',
-    'dst'   => '[ <abbr title="Daylight Saving Time">DST</abbr> ]',
-        ),
+        '-12'   => 'UTC - 12 hours',
+        '-11'   => 'UTC - 11 hours',
+        '-10'   => 'UTC - 10 hours',
+        '-9.5'  => 'UTC - 9:30 hours',
+        '-9'    => 'UTC - 9 hours',
+        '-8'    => 'UTC - 8 hours',
+        '-7'    => 'UTC - 7 hours',
+        '-6'    => 'UTC - 6 hours',
+        '-5'    => 'UTC - 5 hours',
+        '-4.5'  => 'UTC - 4:30 hours',
+        '-4'    => 'UTC - 4 hours',
+        '-3.5'  => 'UTC - 3:30 hours',
+        '-3'    => 'UTC - 3 hours',
+        '-2'    => 'UTC - 2 hours',
+        '-1'    => 'UTC - 1 hour',
+        '0'     => 'UTC',
+        '1'     => 'UTC + 1 hour',
+        '2'     => 'UTC + 2 hours',
+        '3'     => 'UTC + 3 hours',
+        '3.5'   => 'UTC + 3:30 hours',
+        '4'     => 'UTC + 4 hours',
+        '4.5'   => 'UTC + 4:30 hours',
+        '5'     => 'UTC + 5 hours',
+        '5.5'   => 'UTC + 5:30 hours',
+        '5.75'  => 'UTC + 5:45 hours',
+        '6'     => 'UTC + 6 hours',
+        '6.5'   => 'UTC + 6:30 hours',
+        '7'     => 'UTC + 7 hours',
+        '8'     => 'UTC + 8 hours',
+        '8.75'  => 'UTC + 8:45 hours',
+        '9'     => 'UTC + 9 hours',
+        '9.5'   => 'UTC + 9:30 hours',
+        '10'    => 'UTC + 10 hours',
+        '10.5'  => 'UTC + 10:30 hours',
+        '11'    => 'UTC + 11 hours',
+        '11.5'  => 'UTC + 11:30 hours',
+        '12'    => 'UTC + 12 hours',
+        '12.75' => 'UTC + 12:45 hours',
+        '13'    => 'UTC + 13 hours',
+        '14'    => 'UTC + 14 hours',
+        'dst'   => '[ <abbr title="Daylight Saving Time">DST</abbr> ]',
+    ),
 
-    'tz_zones'  => array(
-    '-720'		=> '[UTC - 12] Baker Island Time',
-    '-660'		=> '[UTC - 11] Niue Time, Samoa Standard Time',
-    '-600'		=> '[UTC - 10] Hawaii-Aleutian Standard Time, Cook Island Time',
-    '-570'		=> '[UTC - 9:30] Marquesas Islands Time',
-    '-540'		=> '[UTC - 9] Alaska Standard Time, Gambia Island Time',
-    '-480'		=> '[UTC - 8] Pacific Standard Time',
-    '-420'		=> '[UTC - 7] Mountain Standard Time',
-    '-360'		=> '[UTC - 6] Central Standard Time',
-    '-300'		=> '[UTC - 5] Eastern Standard Time',
-    '-270'		=> '[UTC - 4:30] Venezuelan Standard Time',
-    '-240'		=> '[UTC - 4] Atlantic Standard Time',
-    '-210'		=> '[UTC - 3:30] Newfoundland Standard Time',
-    '-180'		=> '[UTC - 3] Amazon Standard Time, Central Greenland Time',
-    '-120'		=> '[UTC - 2] Fernando de Noronha Time, South Georgia &amp; the South Sandwich Islands Time',
-    '-60'		=> '[UTC - 1] Azores Standard Time, Cape Verde Time, Eastern Greenland Time',
-    '0'			=> '[UTC] Western European Time, Greenwich Mean Time',
-    '60'		=> '[UTC + 1] Central European Time, West African Time',
-    '120'		=> '[UTC + 2] Eastern European Time, Central African Time',
-    '180'		=> '[UTC + 3] Moscow Standard Time, Eastern African Time',
-    '210'		=> '[UTC + 3:30] Iran Standard Time',
-    '240'		=> '[UTC + 4] Gulf Standard Time, Samara Standard Time',
-    '270'		=> '[UTC + 4:30] Afghanistan Time',
-    '300'		=> '[UTC + 5] Pakistan Standard Time, Yekaterinburg Standard Time',
-    '330'		=> '[UTC + 5:30] Indian Standard Time, Sri Lanka Time',
-    '345'		=> '[UTC + 5:45] Nepal Time',
-    '360'		=> '[UTC + 6] Bangladesh Time, Bhutan Time, Novosibirsk Standard Time',
-    '390'		=> '[UTC + 6:30] Cocos Islands Time, Myanmar Time',
-    '420'		=> '[UTC + 7] Indochina Time, Krasnoyarsk Standard Time',
-    '480'		=> '[UTC + 8] Chinese Standard Time, Australian Western Standard Time, Irkutsk Standard Time',
-    '525'		=> '[UTC + 8:45] Southeastern Western Australia Standard Time',
-    '540'		=> '[UTC + 9] Japan Standard Time, Korea Standard Time, Chita Standard Time',
-    '570'		=> '[UTC + 9:30] Australian Central Standard Time',
-    '600'		=> '[UTC + 10] Australian Eastern Standard Time, Vladivostok Standard Time',
-    '630'		=> '[UTC + 10:30] Lord Howe Standard Time',
-    '660'		=> '[UTC + 11] Solomon Island Time, Magadan Standard Time',
-    '690'		=> '[UTC + 11:30] Norfolk Island Time',
-    '720'		=> '[UTC + 12] New Zealand Time, Fiji Time, Kamchatka Standard Time',
-    '765'		=> '[UTC + 12:45] Chatham Islands Time',
-    '780'		=> '[UTC + 13] Tonga Time, Phoenix Islands Time',
-    '840'		=> '[UTC + 14] Line Island Time',
+    'tz_zones' => array(
+        '-720' => '[UTC - 12] Baker Island Time',
+        '-660' => '[UTC - 11] Niue Time, Samoa Standard Time',
+        '-600' => '[UTC - 10] Hawaii-Aleutian Standard Time, Cook Island Time',
+        '-570' => '[UTC - 9:30] Marquesas Islands Time',
+        '-540' => '[UTC - 9] Alaska Standard Time, Gambia Island Time',
+        '-480' => '[UTC - 8] Pacific Standard Time',
+        '-420' => '[UTC - 7] Mountain Standard Time',
+        '-360' => '[UTC - 6] Central Standard Time',
+        '-300' => '[UTC - 5] Eastern Standard Time',
+        '-270' => '[UTC - 4:30] Venezuelan Standard Time',
+        '-240' => '[UTC - 4] Atlantic Standard Time',
+        '-210' => '[UTC - 3:30] Newfoundland Standard Time',
+        '-180' => '[UTC - 3] Amazon Standard Time, Central Greenland Time',
+        '-120' => '[UTC - 2] Fernando de Noronha Time, South Georgia &amp; the South Sandwich Islands Time',
+        '-60'  => '[UTC - 1] Azores Standard Time, Cape Verde Time, Eastern Greenland Time',
+        '0'    => '[UTC] Western European Time, Greenwich Mean Time',
+        '60'   => '[UTC + 1] Central European Time, West African Time',
+        '120'  => '[UTC + 2] Eastern European Time, Central African Time',
+        '180'  => '[UTC + 3] Moscow Standard Time, Eastern African Time',
+        '210'  => '[UTC + 3:30] Iran Standard Time',
+        '240'  => '[UTC + 4] Gulf Standard Time, Samara Standard Time',
+        '270'  => '[UTC + 4:30] Afghanistan Time',
+        '300'  => '[UTC + 5] Pakistan Standard Time, Yekaterinburg Standard Time',
+        '330'  => '[UTC + 5:30] Indian Standard Time, Sri Lanka Time',
+        '345'  => '[UTC + 5:45] Nepal Time',
+        '360'  => '[UTC + 6] Bangladesh Time, Bhutan Time, Novosibirsk Standard Time',
+        '390'  => '[UTC + 6:30] Cocos Islands Time, Myanmar Time',
+        '420'  => '[UTC + 7] Indochina Time, Krasnoyarsk Standard Time',
+        '480'  => '[UTC + 8] Chinese Standard Time, Australian Western Standard Time, Irkutsk Standard Time',
+        '525'  => '[UTC + 8:45] Southeastern Western Australia Standard Time',
+        '540'  => '[UTC + 9] Japan Standard Time, Korea Standard Time, Chita Standard Time',
+        '570'  => '[UTC + 9:30] Australian Central Standard Time',
+        '600'  => '[UTC + 10] Australian Eastern Standard Time, Vladivostok Standard Time',
+        '630'  => '[UTC + 10:30] Lord Howe Standard Time',
+        '660'  => '[UTC + 11] Solomon Island Time, Magadan Standard Time',
+        '690'  => '[UTC + 11:30] Norfolk Island Time',
+        '720'  => '[UTC + 12] New Zealand Time, Fiji Time, Kamchatka Standard Time',
+        '765'  => '[UTC + 12:45] Chatham Islands Time',
+        '780'  => '[UTC + 13] Tonga Time, Phoenix Islands Time',
+        '840'  => '[UTC + 14] Line Island Time',
     ),
 
     '30_MINS'                  => '30 Minutes',
@@ -263,19 +263,19 @@ $lang = array_merge($lang, array(
     'NOTICE'                   => 'Notice',
     'EDIT_PROFILE'             => 'Edit Profile',
 
-    'EDIT_PROFILE_EXP'         => 'Please note that this Information may be Viewable to Other Members.  Be Careful when Including any Personal Details.  Any fields Marked with a <strong>*</strong> must be Completed.',
+    'EDIT_PROFILE_EXP'         => 'Please note that this Information may be Viewable to Other Members.  Be Careful when Including any Personal Details.  Any fields Marked with a <strong>*</strong> are Mandatory.',
 
-    'ED2K_LINK'                => 'eD2K Link',
-    'ERROR_MINSEED'            => 'You MUST be Seeding at least %1$s Torrents to Download.',
-    'ERROR_MINSEEDSIZE'        => 'To Download you Need to Seed at Least a Minimum of %1$s Torrent.',
+    'ED2K_LINK'              => 'eD2K Link',
+    'ERROR_MINSEED'          => 'You MUST be Seeding at least %1$s Torrents to Download.',
+    'ERROR_MINSEEDSIZE'      => 'To Download you Need to Seed at Least a Minimum of %1$s Torrent.',
 
-    'ERROR_BLACK_LISTED'       => 'The Owner Refused to let you Download their Torrents.  You won\'t be able to Download any of them.',
+    'ERROR_BLACK_LISTED'     => 'The Owner Refused to let you Download their Torrents.  You won\'t be able to Download any of them.',
 
     'ERROR_PRIVATE_FILE'     => 'This is a Private File.  You have already asked for Permission to Download.  You can NOT Download the File until the Owner Accepts your Request.',
 
     'ERROR_PRIVATE_DENIDE'   => 'The Owner Refused your Download Request.  You won\'t be able to Download this Torrent.',
 
-    'ERROR_PRIVATE_REQ_SENT' => 'This Torrent is Private.  You won\'t be able to Download it until the Owner gives you Permission. A Request has been sent to the Torrent Owner, who needs to Authorise your Download.  You will be Notified about the Result by email.',
+    'ERROR_PRIVATE_REQ_SENT' => 'This Torrent is Private.  You won\'t be able to Download it until the Owner gives you Permission.  A Request has been sent to the Torrent Owner, who needs to Authorise your Download.  You will be Notified about the Result by email.',
 
     'ENCLOSURE'            => 'Enclosure',
     'FIND_USERNAME'        => 'Find Username',
@@ -306,11 +306,11 @@ $lang = array_merge($lang, array(
     'GENERAL'              => 'General',
     'GO'                   => 'Go',
     'GROUP'                => 'Group',
-    'INVALID_IMAGE_EXT'    => 'Image File has to be a gif, jpg or png',
+    'INVALID_IMAGE_EXT'    => 'Image File has to be a GIF, JPG or PNG',
     'GROUP_ERR_USER_LONG'  => 'Group Names can NOT Exceed 60 Characters.  The Specified Group Name is Too Long.',
     'GROUP_ERR_TYPE'       => 'Inappropriate Group Type Specified.',
     'GROUP_ERR_USERNAME'   => 'No Group Name Specified.',
-    'GROUP_NO_ACCESS_PAGE' => 'Your Group does NOT have <strong>ACCESS</strong> to this Page.',
+    'GROUP_NO_ACCESS_PAGE' => 'Your Group Does NOT have <strong>ACCESS</strong> to this Page.',
     'ILLIGALCAT'           => 'Illegal Category!',
     'HELP'                 => 'Help Desk',
     'ID'                   => 'ID',
@@ -364,7 +364,7 @@ $lang = array_merge($lang, array(
     'MARK'                   => 'Mark',
     'MESSAGE'                => 'Message',
     'MISSING_DATA'           => 'Required Data Missing!',
-    'MISSING_FILE'           => 'The File your looking for DOES NOT Exist!',
+    'MISSING_FILE'           => 'The File your looking for Does NOT Exist!',
     'MODERATE'               => 'Moderate',
     'MODERATOR'              => 'Moderator',
     'MODERATORS'             => 'Moderators',
@@ -380,13 +380,13 @@ $lang = array_merge($lang, array(
     'NOTIFY_EMAIL'           => 'email Notifications',
     'NOTIFY_ADMIN_EMAIL'     => 'Please Notify the Board Administrator or Webmaster: <a href=\'mailto:%1$s\'>%1$s</a>',
 
-    'NOTIFY_SEEDERS'         => 'If you want to be emailed when the First <strong>SEED</strong> shows up.  Please Click <a href=\'details.php?op=seeder&amp;trig=on&amp;id=%1$s#notify\'>HERE</a>',
+    'NOTIFY_SEEDERS'         => 'If you want to be emailed when the <strong>First Seeder Arrives</strong>.  Please Click <a href=\'details.php?op=seeder&amp;trig=on&amp;id=%1$s#notify\'><strong>HERE</strong></a>',
 
-    'NOTIFY_COMMENTS'        => 'If you want to be emailed when the First Comment is added.  Please Click <a href=\'details.php?op=comment&amp;trig=on&amp;id=%1$s#notify\'>HERE</a>',
+    'NOTIFY_COMMENTS'        => 'If you want to be emailed when the <strong>First Comment is Added</strong>.  Please Click <a href=\'details.php?op=comment&amp;trig=on&amp;id=%1$s#notify\'><strong>HERE</strong></a>',
 
-    'NOTIFY_SEEDERS_REMOVE'  => 'You are Currently Listed to be Notified when a Seed pops up.  If you don\'t want to be emailed any more, please Click <a href=\'details.php?op=seeder&trig=off&id=%1$s#notify\'>HERE</a>',
+    'NOTIFY_SEEDERS_REMOVE'  => 'You are Currently Listed to be Notified when a Seeder Arrives.  If you don\'t want to be emailed any more, please Click <a href=\'details.php?op=seeder&trig=off&id=%1$s#notify\'><strong>HERE</strong></a>',
 
-    'NOTIFY_COMMENTS_REMOVE' => 'You are Currently Listed to Receive Comment email.  If you Don\'t want to be emailed any more, please Click <a href=\'details.php?op=comment&trig=off&id=%1$s#notify\'>HERE</a>',
+    'NOTIFY_COMMENTS_REMOVE' => 'You are Currently Listed to Receive Comment emails.  If you Don\'t want to be emailed any more, please Click <a href=\'details.php?op=comment&trig=off&id=%1$s#notify\'><strong>HERE</strong></a>',
 
     'REVERT_DEFAULT'           => '<strong>Note:</strong> 0 Reverts to Site Default.',
     'NO_NAME_SET'              => 'No Name was Set.',
@@ -395,7 +395,7 @@ $lang = array_merge($lang, array(
     'NO_SEED'                  => 'You are Currently Not Seeding any Torrents',
     'NO_LEECH'                 => 'You are Currently Not Leeching any Torrents',
     'NO_SNATCHED'              => 'You haven\'t Snatched any Torrents yet!',
-    'NO_SUCH_USER'             => 'This UserName Does NOT Exist.',
+    'NO_SUCH_USER'             => 'This Username Does NOT Exist.',
     'NO_REASON_GIVEN'          => 'No Reason was given',
     'NO_SUCH_TORRENT'          => 'Torrent Does NOT Exist or has been Banned!',
     'NOT_A_TORRENT_FILE'       => 'This is NOT a Torrent File (.torrent)',
@@ -460,13 +460,14 @@ $lang = array_merge($lang, array(
     'INACTIVE_REASON_REMIND'   => 'Forced User Account Reactivation',
     'INACTIVE_REASON_UNKNOWN'  => 'Unknown',
     'INACTIVE_USERS'           => 'Inactive Users',
+
     'INACTIVE_USERS_EXPLAIN'   => 'This is a List of Users who have Registered but whose Accounts are Inactive. You can Activate, Delete or Remind (by sending an email) to these Users if you wish.',
 
-    'INACTIVE_USERS_EXPLAIN_INDEX' => 'This is a List of the Last 10 Registered Users who have Inactive Accounts.  A FULL List is available from the appropriate Menu Item or by following the Link below.  You can Activate, Delete or Remind (by sending an email) to these Users if you wish?',
+    'INACTIVE_USERS_EXPLAIN_INDEX' => 'This is a List of the Last 10 Registered Users who have Inactive Accounts.  A FULL List is available from the appropriate Menu Item or by following the Link below.  You can Activate, Delete or Remind (by Sending an email) to these Users if you wish?',
 
     'JAVA_NEW_PM'               => 'You have a NEW PM.  Please Click OK to go to your PM Inbox.',
     'NO_INACTIVE_USERS'         => 'No Inactive Users',
-    'NO_SUCH_USER'              => 'This Username does NOT Exist.',
+    'NO_SUCH_USER'              => 'This Username Does NOT Exist.',
     'SORT_INACTIVE'             => 'Inactive Date',
     'SORT_LAST_VISIT'           => 'Last Visit',
     'SORT_REASON'               => 'Reason',
@@ -503,7 +504,7 @@ $lang = array_merge($lang, array(
     'TOPIC'                     => 'Topic',
     'TORRENT'                   => 'Torrent',
     'TORRENTS'                  => 'Torrents',
-    'TORRENT_NEED_SEED'         => 'Torrents that need Seeding',
+    'TORRENT_NEED_SEED'         => 'Torrents that Need Seeding',
     'TORRENT_NEED_SEED_EXP'     => 'If you happen to have the Files on your HDD, please Help them out.  Thank You!',
     'PEER_SPEED'                => 'Peer Speed',
     'TRACKER'                   => 'Tracker',
@@ -513,14 +514,14 @@ $lang = array_merge($lang, array(
     'UPDATE'                    => 'Update',
     'UPDATED'                   => 'Updated',
     'UPLOAD'                    => 'Upload',
-    'UPDATING'                  => 'Updateing....',
+    'UPDATING'                  => 'Updating....',
     'UPLODED'                   => 'Uploaded',
     'UPLOAD_FILE'               => 'Upload File',
     'UPLOADER'                  => 'Uploader',
     'UPLOAD_FAILED'             => 'The Upload has Failed!',
     'USER'                      => 'User',
     'USERS'                     => 'Users',
-    'USER_ALREADY_ACTIVATED'    => 'User is already Activated.',
+    'USER_ALREADY_ACTIVATED'    => 'User is Already Activated.',
     'USERPROFILE'               => 'Profile',
     'USEREPROFILE'              => 'Edit',
     'STAFF'                     => 'Staff',
@@ -528,7 +529,7 @@ $lang = array_merge($lang, array(
     'USERNAME'                  => 'Users Name',
     'UNLOCK'                    => 'Unlock',
     'UNKNOWN'                   => 'Unknown',
-    'URL_REDIRECT'              => 'If your Browser does NOT Support Meta Redirection %s please click HERE to be Redirected %s.',
+    'URL_REDIRECT'              => 'If your Browser Does NOT Support Meta Redirection %s please click HERE to be Redirected %s.',
     'REDIRECT_ACL'              => 'Now you are able to %s Set Permissions %s for this Forum.',
     'ERROR_NOT_NUMBER'          => 'NOT a Valid Number [0-9]',
     'VISIBLE'                   => 'Visible',
@@ -543,7 +544,7 @@ $lang = array_merge($lang, array(
     'MOD_OPTIONS'               => 'Moderator Options',
     'POLLS'                     => 'Polls',
 
-    'FREE_LEACH_EXP'            => 'Any Torrents with this Symbol are Ratio Boosters.  Only your Upload is Recorded!!<br />This is a great way to Boost your Ratio. Normal Site Seeding Rules Apply.<br />Seed to 1.0 or 36 hours to avoid Hit and Runs.',
+    'FREE_LEACH_EXP'            => 'Any Torrents with this Symbol are Ratio Boosters.  Only your Upload is Recorded!!<br />This is a great way to Boost your Ratio.  Normal Site Seeding Rules Apply.<br />Seed to 1.0 or 36 hours to avoid Hit and Run.',
 
     'NO_SAVED_DRAFTS'           => 'No Drafts Saved.',
 
@@ -655,7 +656,7 @@ $lang = array_merge($lang, array(
     'GOTO_PAGE'                => 'Go to Page',
     'JUMP_TO_PAGE'             => 'Click to Jump to Page',
     'BAND_SHOUTS'              => 'Sorry.  You are Banned From Shouts!',
-    'NO_USERS_ONLINE'          => 'There are NO Registered Users Online',
+    'NO_USERS_ONLINE'          => 'There are No Registered Users Online',
 
     'ADV_ONLINE_MO'            => 'Advanced Mode',
     'SEMP_ONLINE_MOD'          => 'Simple Mode',
@@ -672,25 +673,25 @@ $lang = array_merge($lang, array(
     'EDIT_BAN'                 => 'Edit',
     'DELETE_BAN'               => 'Delete',
 
-    'HNR_REMOVED'              => 'Your Hit and Run Warning has been Removed because you have Restarted your Torrent.  Please keep Seeding for 72 hours or your Warning will be Reinstated',
+    'HNR_REMOVED'        => 'Your Hit and Run Warning has been Removed because you have Restarted your Torrent.  Please keep Seeding for 72 hours or your Warning will be Reinstated',
 
-    'HIT_N_RUN'              => 'Hit and Run',
+    'HIT_N_RUN'          => 'Hit and Run',
 
-    'MOD_HNR_COMENT_ADD'     => gmdate('d-m-Y').' - Warned by System for Hit and Run.\n',
+    'MOD_HNR_COMENT_ADD' => gmdate('d-m-Y').' - Warned by System for Hit and Run.\n',
 
-    'HNR_WARN_PM'            => 'You have Repeatedly Hit and Run on Torrents even after we have notified you that you should return to the Torrent to Continue Seeding.  Therefore you have Received a One Week Warning.  Hopefully you will NOT Hit and Run on Torrents any more, and if you Do it may Result in your Account being Disabled.',
+    'HNR_WARN_PM'        => 'You have Repeatedly Hit and Run on Torrents even after we have notified you that you should return to the Torrent to Continue Seeding.  Therefore you have Received a One Week Warning.  Hopefully you will NOT Hit and Run on Torrents any more, and if you do it may Result in your Account being Disabled.',
 
     'MOD_HNR_COMENT_REMOVED' => gmdate('d-m-Y').' - Warning Removed by System for Hit and Run.\n',
 
     'HNR_NOTICE_PM'          => 'It appears that you have Hit and Run on {hnrtot} Torrent {hnrcount}.\n\nWe advise you to return to Continue Seeding {these} Torrents {hnrcount} within 30 Minutes or else you Risk being Warned, or if this happens to you Repeatedly you may even Risk your Account being Disabled.\n\nThe Torrent {hnrcount} on which you have been found Hit and Running on {is}:\n{hnrtorrents}',
 
-        #Start New Member Block
+    #Start New Member Block
     'NEWEST_MEMBERS' => 'Newest Members',
-        #End New Member Block
+    #End New Member Block
 
-        #Start Users Today Block
+    #Start Users Today Block
     'USERS_ON_TODAY' => 'Users Active in the Past 24 Hours',
-        #End Users Today Block
+    #End Users Today Block
 
     'u_datetime' => array(
         'TODAY'     => 'Today',
@@ -740,11 +741,12 @@ $lang = array_merge($lang, array(
             1  => '%d Minute ago',
             2  => '%d Minutes ago',
             60 => '1 Hour ago',
-            ),
         ),
+    ),
 
     // 3.0.1 Addons
     'VARIANT_DATE_SEPARATOR' => ' / ', // Used in Date Format Dropdown, eg: 'Today, 13:37 / 01 Jan 2007, 13:37' ... to Join a Relative Date with Calendar Date
+
     '_btdays'               => 'd ',
     '_bthours'              => 'h ',
     '_btmins'               => 'm ',
@@ -789,16 +791,16 @@ $lang = array_merge($lang, array(
 
     '_TOO_FEW_CHARS_LIMIT'       => 'Your Message contains %1$d Characters.  The Minimum Number of Characters Allowed is %2$d.',
 
-    '_TOO_FEW_POLL_OPTIONS'      => 'You must enter at least Two Poll Options.',
+    '_TOO_FEW_POLL_OPTIONS'      => 'You Must Enter at least Two Poll Options.',
     '_TOO_MANY_ATTACHMENTS'      => 'Can NOT Add another Attachment, %d is the Maximum.',
-    '_TOO_MANY_CHARS'            => 'Your Message contains too many Characters.',
+    '_TOO_MANY_CHARS'            => 'Your Message contains Too Many Characters.',
     '_TOO_MANY_CHARS_POST'       => 'Your Message contains %1$d Characters.  The Maximum Number of Characters Allowed is %2$d.',
 
     '_TOO_MANY_CHARS_SIG'        => 'Your Signature contains %1$d Characters.  The Maximum Number of Characters Allowed is %2$d.',
 
     '_TOO_MANY_POLL_OPTIONS'     => 'You have Exceeded the Maximum Allowed Poll Options.',
-    '_TOO_MANY_SMILIES'          => 'Your Message contains too many Smilies.  The Maximum Number of Smilies Allowed is %d.',
-    '_TOO_MANY_URLS'             => 'Your Message contains too many URL\'s.  The Maximum Number of URL\'s Allowed is %d.',
+    '_TOO_MANY_SMILIES'          => 'Your Message contains Too Many Smilies.  The Maximum Number of Smilies Allowed is %d.',
+    '_TOO_MANY_URLS'             => 'Your Message contains Too Many URL\'s.  The Maximum Number of URL\'s Allowed is %d.',
     '_TOO_MANY_USER_OPTIONS'     => 'You can NOT Specify more Options Per User than Existing Poll Options.',
 
     #Template Related
@@ -835,12 +837,13 @@ $lang = array_merge($lang, array(
             'OFF_TOPIC'         => 'Off Topic',
             'WAREZ'             => 'Warez',
         ),
+
         'DESCRIPTION'   => array(
             'SPAM'              => 'The Reported Post Only Purpose was to Advertise a Website or another Product',
-            'OTHER'             => 'The Reported Post does NOT fit into any Other Category (please use the Description Field)',
+            'OTHER'             => 'The Reported Post Does NOT fit into any Other Category (please use the Description Field)',
             'OFF_TOPIC'         => 'The Reported Post is Off Topic',
             'WAREZ'             => 'The Reported Post contains Links to Pirated or Illegal Software',
-    )),
+        )),
 ));
 
 $u_datetime = array(
@@ -892,7 +895,6 @@ $u_datetime = array(
 );
 
 # Include/functions.php
-
 $lang = array_merge($lang, array(
     'UPLOAD_ERR_INI_SIZE'   => 'The Uploaded File Exceeds the upload_max_filesize Directive in php.ini',
     'UPLOAD_ERR_FORM_SIZE'  => 'The Uploaded File Exceeds the MAX_FILE_SIZE Directive that was Specified in the HTML Form',

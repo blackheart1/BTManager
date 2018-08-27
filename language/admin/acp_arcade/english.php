@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File arcade/english.php 2018-04-06 12:09:00 Thor
+** File arcade/english.php 2018-08-27 07:33:00 Thor
 **
 ** CHANGES
 **
@@ -80,6 +80,7 @@ $lang = array_merge($lang, array(
     'DELETE_COMMENT'     => 'Delete Comment',
     'DELETE_PROBLEM'     => 'There was a Problem Deleting ',
     'DISABLE'            => 'Disable',
+    'ENABLE'             => 'Enable',
     'EDITED_ALREADY'     => '  was already Previously Edited.',
     'EDITED_GAME'        => 'The Database was Updated Successfully for the following Game.',
 
