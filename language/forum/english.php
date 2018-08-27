@@ -470,6 +470,9 @@ $lang = array_merge($lang, array(
     'ERR_WATCHING'               => 'An Error Occurred while trying to Subscribe.',
     'NOT_WATCHING_FORUM'         => 'You are No Longer Subscribed to Updates on this Forum.',
     'NOT_WATCHING_TOPIC'         => 'You are No Longer Subscribed to this Topic.',
+	'SHOUT_POST'				 => 'posted the thread <a href="%1$s" title="%2$s">%2$s</a>',
+	'SHOUT_REPLY'				 => 'replied to the thread <a href="%1$s" title="%2$s">%2$s</a>',
+	'VIEW_MESSAGE'				 => '%sView your submitted message%s',
 ));
 
 $ignore_words = array(

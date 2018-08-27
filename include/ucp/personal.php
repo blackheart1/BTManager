@@ -142,7 +142,7 @@ $template->assign_vars(array(
 		'CP_SMILES'				=> btm_optionget($userrow, 'smilies'),
 		'CP_ATACH_SIG'			=> btm_optionget($userrow, 'attachsig'),
 		'CP_PASSKEY'			=> $userrow["passkey"],
-		'TX_OFF_SET'			=> tz_select('',$userrow),
+		'TX_OFF_SET'			=> tz_select('',$userrow,1),
 		'U_COUNTRY'				=> cnt_select("" , $userrow ),
 		'U_THEMES'				=> $custtheme,
 		'U_LANGUAGES'			=> $custlang,

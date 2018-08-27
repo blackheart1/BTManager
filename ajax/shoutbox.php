@@ -125,8 +125,9 @@ $template->assign_vars(array(
 		$text = smiley_text($text);
 		$quote = preg_replace('/<!-- s(.*?) -->(.*?)<!-- s(.*?) -->/i', ' \\1 ', $shout["text"]);
 		$quote = preg_replace('/<!-- m -->(.*?)<!-- m -->/i', ' \\1 ', $quote);
-						$showusername = true;
-						$shout_time = gmdate($shout_config['dateformat'], sql_timestamp_to_unix_timestamp($shout['posted'])+(60 * get_user_timezone($user->id)));
+		$zone_offset = $user->timezone + $user->dst;
+								$showusername = true;
+								$shout_time = gmdate($shout_config['dateformat'], sql_timestamp_to_unix_timestamp($shout['posted'])+$zone_offset);
 						if(preg_match("/\/notice (.*)/",$text,$m))
 						{
 							$text = preg_replace('/\/notice/','',$text);
@@ -498,7 +499,7 @@ if($op == 'take_shout')
 					$enable_sig			= ($config['allow_sig'] && $config['allow_sig_pm'] && checkaccess('u_sig'));
 					$enable_smilies		= ($config['allow_smilies'] && checkaccess('u_pm_smilies'));
 					$enable_bbcode		= ($config['allow_bbcode'] && checkaccess('u_pm_bbcode'));
-					$enable_urls		= ($config['enable_urls'])?true:false;
+					$enable_urls		= ($shout_config['allow_url'] != "no")?true:false;
 				$message_parser = new parse_message();
 				$message_parser->message = $shout;
 				$bbcode_uid = $message_parser->bbcode_uid;
@@ -511,89 +512,6 @@ if($op == 'take_shout')
 		build_shouts($sendto);
 		$db->sql_close();
 		die();
-$shoutannounce = format_comment($shout_config['announce_ment'], false, true);
-parse_smiles($shoutannounce);
-                                echo "<div class=\"".$utc3."\" onMouseOver=\"this.className='over';\" onMouseOut=\"this.className='$utc3';\"><p class=\"shout\" bgcolor=\"#53B54F\">".$shoutannounce."</p></div>";
-                if(!isset($sendto))$sql = "SELECT S.*, U.id as uid, U.can_do as can_do, U.donator AS donator, U.warned as warned, U.level as level, IF(U.name IS NULL, U.username, U.name) as user_name FROM ".$db_prefix."_shouts S LEFT JOIN ".$db_prefix."_users U ON S.user = U.id ORDER BY posted DESC LIMIT ".$shout_config['shouts_to_show'].";";
-				else
-				$sql = "SELECT S.*, U.id as uid, U.can_do as can_do, U.donator AS donator, U.warned as warned, U.warned as warned, U.level as level, IF(U.name IS NULL, U.username, U.name) as user_name FROM ".$db_prefix."_shouts S LEFT JOIN ".$db_prefix."_users U ON S.user = U.id WHERE S.id_to ='".$sendto."' AND S.user = '".$user->id."' OR S.id_to ='".$user->id."' AND S.user = '".$sendto."' ORDER BY posted DESC LIMIT ".$shout_config['shouts_to_show'].";";
-				
-                $shoutres = $db->sql_query($sql) or btsqlerror($sql);
-$num2s = $db->sql_numrows($shoutres);
-                if ($num2s > 0) {
-                        while ($shout = $db->sql_fetchrow($shoutres)) {
-						$donator ='';
-						if($shout['donator'] == 'true')$donator ='<img src="images/donator.gif" height="16" width="16" title="donator" alt="donator" />';
-if ($num2s > 1)
-{
-$ucs++;
-}
-if($ucs%2 == 0)
-{
-$utc3 = "od";
-$utc2 = $btback1;
-}
-else
-{
-$utc3 = "even";
-$utc2 = $btback2;
-}
-$i++;
-$caneditshout = false;
-$candeleteshout = false;
-if ($user->moderator) $caneditshout = true;
-if ($user->moderator) $candeleteshout = true;
-if ($user->id == $shout['uid'] AND $shout_config['canedit_on'] =="yes") $caneditshout = true;
-if ($user->id == $shout['uid'] AND $shout_config['candelete_on'] =="yes") $candeleteshout = true;
-if ($shout['id_to']!=0){
-if ($user->id == $shout['id_to'] OR $user->id == $shout['uid']){
-                                echo "<p>";
-								$warn = "";
-								$quote = addslashes($shout["text"]);
-								$text = format_comment($shout["text"], false, true);
-                                parse_smiles($text);
-								if(preg_match("/\/staffmesage (.*)/",$text,$m) AND $user->moderator){
-								}
-								if($shout["warned"] == "1") $warn = '<img src="images/warning.gif" alt="warned" />';
-								$shout_time = gmdate($shout_config['dateformat'], sql_timestamp_to_unix_timestamp($shout['posted'])+(60 * get_user_timezone($user->id)));
-                                echo "<div class=\"".$utc3."\" onMouseOver=\"this.className='over';\" onMouseOut=\"this.className='$utc3';\"><p class=\"shout\" bgcolor=\"#53B54F\">";
-                                if(preg_match("/\/notice (.*)/",$text,$m)){
-								$text = preg_replace('/\/notice/','',$text);
-								}elseif(preg_match("/\/me (.*)/",$text,$m)){
-								$text = preg_replace('/\/me/','',$text);
-								echo $user->lang['PRIVATE_PM']."<b><span class=\"".$shout['level']."\" ondblclick=\"sndReq('op=private__chat&to=".$shout['uid']."', 'shout_out'); toggleprivate('shout_send','".$shout['uid']."');\"><font color=\"".getusercolor($shout["can_do"])."\">".htmlspecialchars($shout["user_name"])."</font></span></b>".$warn.$donator.":";
-								}else{
-                                echo ($candeleteshout ? "<a ondblclick=\"if(confirm('Delete Shout?')==true)sndReq('op=take_delete_shout&shout=".$shout['id']."', 'shoutTD')\">" . pic("drop.gif","",$user->lang['EDIT']) ."</a>" : "").($caneditshout  ? "<a ondblclick=\"sndReq('op=edit_shout&shout=".$shout['id']."', 'shoutTD')\">" . pic("edit.gif","",$user->lang['EDIT']) ."</a>" : "").($shout_config['bbcode_on'] =="yes" ? "<a onclick=\"comment_smile('[quote=".htmlspecialchars($shout["user_name"])."]".$quote."[/quote]',Shoutform.text);\"><img src=\"images/bbcode/bbcode_quote.gif\" border=\"0\" alt=\"quote\"></a>":"")."[<span class=\"shout_time\">".$shout_time."</span>]" . $user->lang['PRIVATE_PM'] . " <b><span class=\"".$shout['level']."\" ondblclick=\"sndReq('op=private__chat&to=".$shout['uid']."', 'shout_out'); toggleprivate('shout_send','".$shout['uid']."');\"><font color=\"".getusercolor($shout["can_do"])."\">".htmlspecialchars($shout["user_name"])."</font></span></b>".$warn.$donator.": ";
-                                }
-								echo str_replace("\n","<br />",$text);
-                                echo "</p>";
-                                echo "<hr></div>\n";
-								}
-								}
-								if ($shout['id_to']==0){
-                                echo "<p>";
-								$warn = "";
-								$quote = addslashes($shout["text"]);
-								$text = format_comment($shout["text"], false, true);
-                                parse_smiles($text);
-								if($shout["warned"] == "1") $warn = '<img src="images/warning.gif" alt="warned" />';
-								$shout_time = gmdate($shout_config['dateformat'], sql_timestamp_to_unix_timestamp($shout['posted'])+(60 * get_user_timezone($user->id)));
-                                echo "<div class=\"".$utc3."\" onMouseOver=\"this.className='over';\" onMouseOut=\"this.className='$utc3';\"><p class=\"shout\" bgcolor=\"#53B54F\">";
-                                if(preg_match("/\/notice (.*)/",$text,$m)){
-								$text = preg_replace('/\/notice/','',$text);
-								}elseif(preg_match("/\/me (.*)/",$text,$m)){
-								$text = preg_replace('/\/me/','',$text);
-								echo"<b><span class=\"".$shout['level']."\" ondblclick=\"sndReq('op=private__chat&to=".$shout['uid']."', 'shout_out'); toggleprivate('shout_send','".$shout['uid']."');\"><font color=\"".getusercolor($shout["can_do"])."\">".htmlspecialchars($shout["user_name"])."</font></span></b>".$warn.$donator.":";
-								}else{
-								echo ($candeleteshout ? "<a ondblclick=\"if(confirm('Delete Shout?')==true)sndReq('op=take_delete_shout&shout=".$shout['id']."', 'shoutTD')\">" . pic("drop.gif","",$user->lang['EDIT']) ."</a>" : "").($caneditshout  ? "<a ondblclick=\"sndReq('op=edit_shout&shout=".$shout['id']."', 'shoutTD')\">" . pic("edit.gif","",$user->lang['EDIT']) ."</a>" : "").($shout_config['bbcode_on'] =="yes" ? "<a onclick=\"comment_smile('[quote=".htmlspecialchars($shout["user_name"])."]".$quote."[/quote]',Shoutform.text);\"><img src=\"images/bbcode/bbcode_quote.gif\" border=\"0\" alt=\"quote\"></a>":"")."[<span class=\"shout_time\">".$shout_time."</span>] <b><span class=\"".$shout['level']."\" ondblclick=\"sndReq('op=private__chat&to=".$shout['uid']."', 'shout_out'); toggleprivate('shout_send','".$shout['uid']."');\"><font color=\"".getusercolor($shout["can_do"])."\">".htmlspecialchars($shout["user_name"])."</font></span></b>".$warn.$donator.": ";
-                                }
-								echo str_replace("\n","<br />",$text);
-                                echo "</p>";
-                                echo "<hr></div>\n";
-								}
-                        }
-                }
-                $db->sql_freeresult($shoutres);
 	}
 if($op == 'archivedeleteshout')
 	{
@@ -671,7 +589,9 @@ if($op == 'private__chat')
 								$text = format_comment($shout["text"], false, true);
                                 parse_smiles($text);
 								if($shout["warned"] == "1") $warn = '<img src="images/warning.gif" alt="warned" />';
-								$shout_time = gmdate($shout_config['dateformat'], sql_timestamp_to_unix_timestamp($shout['posted'])+(60 * get_user_timezone($user->id)));
+								$showusername = true;
+								$zone_offset = ($user->timezone) + $user->dst;
+								$shout_time = gmdate($shout_config['dateformat'], sql_timestamp_to_unix_timestamp($shout['posted'])+$zone_offset);
                                 echo "<div class=\"".$utc3."\" onMouseOver=\"this.className='over';\" onMouseOut=\"this.className='$utc3';\"><p class=\"shout\" bgcolor=\"#53B54F\">";
                                 if(preg_match("/\/notice (.*)/",$text,$m)){
 								$text = preg_replace('/\/notice/','',$text);

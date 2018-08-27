@@ -808,13 +808,30 @@ function processload($name,$input) {
 if (!function_exists("tz_select")){ 
 	function tz_select($default = '', $userrow = '', $truncate = false)
 	{
-	        global $db, $db_prefix;
-		$sql = ("SELECT id,name from ".$db_prefix."_time_offset ORDER BY name");
-		$tz_r = $db->sql_query($sql) or btsqlerror($sql);
-		while ($tz_a = $db->sql_fetchrow($tz_r))
-		  $default .= "<option value=" . $tz_a['id'] . "" . ($userrow["tzoffset"] == $tz_a['id'] ? " selected" : "") . ">" . $tz_a['name'] . "</option>\n";
-		
-	return $default;
+		global $user;
+		$tz_select = '';
+		foreach ($user->lang['tz_zones'] as $offset => $zone)
+		{
+			if ($truncate)
+			{
+				if (!function_exists("truncate_string"))
+				{
+					include('include/function_posting.php'); 
+				}
+				$zone_trunc = truncate_string($zone, 50, 255, false, '...');
+			}
+			else
+			{
+				$zone_trunc = $zone;
+			}
+	
+			if (is_numeric($offset))
+			{
+				$selected = ($offset == $userrow["tzoffset"]) ? ' selected="selected"' : '';
+				$tz_select .= '<option title="' . $zone . '" value="' . $offset . '"' . $selected . '>' . $zone_trunc . '</option>';
+			}
+		}
+	return $tz_select;
 	}
 }
 if (!function_exists("cnt_select")){ 

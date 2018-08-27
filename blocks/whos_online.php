@@ -58,7 +58,7 @@ if ($user_now == 0){
         while ($row = $db->sql_fetchrow($res)) {
    $template->assign_block_vars('user_online', array(
 		"SHOW"              => ($row['Show_online'] == 'true' ) ? true : (($user->admin) ? true : false),
-		"SHOW_ICON"         => ($row['Show_online'] == 'true' ) ? false : true,
+		"SHOW_ICON"         => ($row['Show_online'] == 'false' ) ? false : true,
 		"LEVEL_ICON"        => ($row["level"] == "admin") ? pic("icon_admin.gif",'','admin') : (($row["level"] == "moderator") ? pic("icon_moderator.gif",'','moderator') : (($row["level"] == "premium") ?  pic("icon_premium.gif",'','premium') : '')),
 		"ID"                => $row['id'],
 		"USERNAME"          => htmlspecialchars($row["name"]),

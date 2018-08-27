@@ -30,8 +30,8 @@ if (!ini_get('display_errors'))
     @ini_set('display_errors', 1);
 }
 require_once("include/errors.php");
-
 $old_error_handler = set_error_handler("myErrorHandler");
+/*Set start time*/
 $startpagetime = microtime();
 
 if($_SERVER["PHP_SELF"] == '')$_SERVER["PHP_SELF"] = 'index.php';
@@ -58,7 +58,6 @@ if (!preg_match("/cron.php/",$_SERVER['PHP_SELF']))
 
     if ($pivate_mode AND !$user->user AND !newuserpage($_SERVER["PHP_SELF"]))
     {
-        //die($_SERVER["PHP_SELF"]);
         $a = 0;
         $returnto = '';
         foreach ($_GET as $var=>$val)
@@ -92,9 +91,8 @@ if (!preg_match("/cron.php/",$_SERVER['PHP_SELF']))
 
     if($user->user  && !preg_match("/httperror.php/",$_SERVER['PHP_SELF']) && !preg_match("/file.php/",$_SERVER['PHP_SELF']) && !preg_match("/ajax.php/",$_SERVER['PHP_SELF']))
     {
-        $ip = getip();
         $sql = "UPDATE ".$db_prefix."_users
-                        SET lastip = '".sprintf("%u",ip2long($ip))."',
+                        SET lastip = '".sprintf("%u",ip2long($user->ip))."',
                         lastpage = '".$db->sql_escape(str_replace("/", '',substr($_SERVER['REQUEST_URI'],strrpos($_SERVER["REQUEST_URI"],"/")+1)))."',
                         lastlogin = NOW()
                         WHERE id = '".$user->id."'

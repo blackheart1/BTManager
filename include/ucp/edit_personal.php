@@ -36,6 +36,7 @@ if (!defined('IN_PMBT'))
 		$use_passkey						=  request_var('use_passkey', '');
 		$passkey_reset						=  request_var('passkey_reset', '');
 		$offset								=  request_var('offset', '0');
+		$dst								=  request_var('dst', $userrow['user_dst']);
 		$customtheme						=  request_var('customtheme', '0');
 		$customlang							=  request_var('customlang', '0');
 		$user_torrent_per_page				=  request_var('user_torrent_per_page', '0');
@@ -129,6 +130,7 @@ if (!defined('IN_PMBT'))
 		$sqlval['theme'] = $customtheme;
 		if (!isset($offset) OR $offset =="") $offset = '0';
 		$sqlval['tzoffset'] = $offset;
+		$sqlval['user_dst'] = $dst;
         if ($user_torrent_per_page == "0" OR $user_torrent_per_page == "") $user_torrent_per_page = 0;
 		$sqlval['torrent_per_page'] = $user_torrent_per_page;
 		btm_optionset($userrow, 'viewimg', $view_images);

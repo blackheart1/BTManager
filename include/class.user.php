@@ -31,6 +31,7 @@ class User {
         var $group;
 		var $ulanguage;
         var $user;
+		var $ip;
         var $premium;
         var $moderator;
         var $admin;
@@ -47,6 +48,7 @@ class User {
 		var $lang = array();
 		var $new_pm;
 		var $unread_pm;
+		var $timezone = '0';
 		var $host;
 		var $pm_rule;
 		var $load = 0;
@@ -72,13 +74,13 @@ class User {
 			$this->page					= $this->extract_current_page($sourcedir);
 			$this->ip = getip();
 			$val = microtime();
-			/*if ((function_exists('sys_getloadavg') && $load = sys_getloadavg()) || ($load = explode(' ', @file_get_contents('/proc/loadavg'))))
+			if ((function_exists('sys_getloadavg') && $load = sys_getloadavg()) || ($load = explode(' ', @file_get_contents('/proc/loadavg'))))
 			{
 				$this->load = array_slice($load, 0, 1);
 				$this->load = floatval($this->load[0]);
-			}*/
-			$this->load = 0;
-		if ($_SERVER["REMOTE_ADDR"] == "127.0.0.1" AND $localhost_autologin) {
+			}
+			if ($_SERVER["REMOTE_ADDR"] == "127.0.0.1" AND $localhost_autologin)
+			{
 					$uid = 1;
 					$sql ="SELECT U.*, L.group_type, L.group_founder_manage, L.group_skip_auth, L.group_message_limit, L.group_colour
 					FROM ".$db_prefix."_users U , ".$db_prefix."_level_settings L
@@ -136,7 +138,7 @@ class User {
 							$this->posts_sortby_type = $row['user_post_sortby_type'];
 							$this->posts_sortby_dir = $row['user_post_sortby_dir'];
 							$this->user_type = $row["user_type"];
-							$this->dst = $row["user_dst"];
+							$this->dst = $row["user_dst"] * 3600;
 							$this->data['message_limit'] = '200';
 							$this->data['session_page'] = $row['lastpage'];
 							$this->data['user_full_folder'] = $row['user_full_folder'];
@@ -148,6 +150,7 @@ class User {
 							$this->data['sig_bbcode_uid'] = $row['sig_bbcode_uid'];
 							$this->data['clean_username'] = $row['clean_username'];
 							$this->date_format = $row['user_dateformat'];
+							$this->timezone = $row['tzoffset']*60;
 							$this->lastpost = $row['user_lastpost_time'];
 							$this->posts = $row['user_posts'];
 							$this->optionset('viewimg', 1);
@@ -228,7 +231,7 @@ class User {
 							$this->unread_pm = $row["user_unread_privmsg"];
 							$this->pm_rule = $row["user_message_rules"];
 							$this->pm_popup = (($row["pm_popup"] == 'true')? true : false);
-							$this->dst = $row["user_dst"];
+							$this->dst = $row["user_dst"] * 3600;
 							$this->data['message_limit'] = $row['group_message_limit'];
 							$this->data['session_page'] = $row['lastpage'];
 							$this->data['user_full_folder'] = $row["user_full_folder"];
@@ -243,6 +246,7 @@ class User {
 							$this->lastpost = $row['user_lastpost_time'];
 							$this->posts = $row['user_posts'];
 							$this->optionset('viewimg', 1);
+							$this->timezone = $row['tzoffset']*60;
 							$this->date_format = $row['user_dateformat'];
 							$this->parked = (($row['parked'] == 'true')? true : false);
 							$this->disabled = (($row['disabled'] == 'true')? true : false);
@@ -661,7 +665,7 @@ class User {
 		}
 
 		// Zone offset
-		$zone_offset = $this->timezone + $this->dst;
+		$zone_offset = ($this->timezone) + $this->dst;
 
 		// Show date <= 1 hour ago as 'xx min ago' but not greater than 60 seconds in the future
 		// A small tolerence is given for times in the future but in the same minute are displayed as '< than a minute ago'
@@ -672,7 +676,7 @@ class User {
 
 		if (!$midnight)
 		{
-			list($d, $m, $y) = explode(' ', gmdate('j n Y', time() + $zone_offset));
+			list($d, $m, $y) = explode(' ', gmdate('j n Y', time() . $zone_offset));
 			$midnight = gmmktime(0, 0, 0, $m, $d, $y) - $zone_offset;
 		}
 

@@ -120,8 +120,9 @@ if($shout_config['turn_on']=='yes')
 		$text = smiley_text($text);
 		$quote = preg_replace('/<!-- s(.*?) -->(.*?)<!-- s(.*?) -->/i', ' \\1 ', $shout["text"]);
 		$quote = preg_replace('/<!-- m -->(.*?)<!-- m -->/i', ' \\1 ', $quote);
+		$zone_offset = ($user->timezone) + $user->dst;
 								$showusername = true;
-								$shout_time = gmdate($shout_config['dateformat'], sql_timestamp_to_unix_timestamp($shout['posted'])+(60 * get_user_timezone($user->id)));
+								$shout_time = gmdate($shout_config['dateformat'], sql_timestamp_to_unix_timestamp($shout['posted'])+$zone_offset);
                                 if(preg_match("/\/notice (.*)/",$text,$m)){
 								$text = preg_replace('/\/notice/','',$text);
 								$showusername = false;
