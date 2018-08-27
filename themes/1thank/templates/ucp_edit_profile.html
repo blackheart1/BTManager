@@ -313,6 +313,11 @@
                 <label><select id="offset" name="offset">{TX_OFF_SET}</select></label>
             </dd>
         </dl>
+	<dl> 
+		<dt><label for="dst">{L_BOARD_DST}:</label></dt>
+		<dd><label><input type="radio" class="radio" name="dst" value="1"<!-- IF DST --> id="dst" checked="checked"<!-- ENDIF --> /> {L_YES}</label>
+			<label><input type="radio" class="radio" name="dst" value="0"<!-- IF not DST --> id="dst" checked="checked"<!-- ENDIF --> /> {L_NO}</label></dd>
+	</dl>
         <dl>
             <dt><label>{L_BOARD_DATE_FORMAT}</label><br /><span>{L_BOARD_DATE_FORMAT_EXPLAIN}</span></dt>
             <dd>

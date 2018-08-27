@@ -335,6 +335,14 @@
                         <span class="ghost">|</span>
                         <span class="itemprop" itemprop="name">{L_EST_DOWNLOAD_TIME} : {TIME_TO_COMP}</span>
                         <span class="ghost">|</span>
+                     <div class="txt-block">
+<!-- IF TORRENT_PRIVATE -->
+                        <div class="txt-block">
+                        	<h4>{L_AUTH_MINEATIO}</h4>
+                        	<span itemprop="contentRating"><font color="#FF0000">{TORRENT_PRIVATE}</font></span>
+                        </div>
+                       
+<!-- ENDIF -->
 <!-- IF SNATCH_LIST -->                     <div class="txt-block">
                             <h4>{L_VIEW_SNATCH_LIST}</h4>
                             <span itemprop="contentRating"><a href="viewsnatches.php?id={T_ID}">[{L_VIEW}]</a></span>
@@ -406,8 +414,6 @@
                                         <h4>{L_LASTACTION}</h4>
                                     <span itemprop="contentRating">{LAST_ACTION}</span>
                             </div>
-                            <div class="txt-block">
-                                        <h4>{L_CPL_BY}</h4>
     <!-- IF SNATCH_LIST -->
                             <div class="txt-block">
                                         <h4>{L_CPL_BY}</h4>
