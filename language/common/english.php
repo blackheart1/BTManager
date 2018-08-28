@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File common/english.php 2018-08-27 20:37:00 Thor
+** File common/english.php 2018-08-28 07:42:00 Thor
 **
 ** CHANGES
 **
@@ -380,13 +380,13 @@ $lang = array_merge($lang, array(
     'NOTIFY_EMAIL'           => 'email Notifications',
     'NOTIFY_ADMIN_EMAIL'     => 'Please Notify the Board Administrator or Webmaster: <a href=\'mailto:%1$s\'>%1$s</a>',
 
-    'NOTIFY_SEEDERS'         => 'If you want to be emailed when the <strong>First Seeder Arrives</strong>.  Please Click <a href=\'details.php?op=seeder&amp;trig=on&amp;id=%1$s#notify\'><strong>HERE</strong></a>',
+    'NOTIFY_SEEDERS'         => 'If you\'d like to be Notified via email when a <strong><em>Seeder</em></strong> Joins the Swarm <a href=\'details.php?op=seeder&amp;trig=on&amp;id=%1$s#notify\'><strong>Click HERE</strong></a>',
 
-    'NOTIFY_COMMENTS'        => 'If you want to be emailed when the <strong>First Comment is Added</strong>.  Please Click <a href=\'details.php?op=comment&amp;trig=on&amp;id=%1$s#notify\'><strong>HERE</strong></a>',
+    'NOTIFY_COMMENTS'        => 'If you\'d like to be Notified via email when a <strong><em>New Comment</em></strong> is Posted <a href=\'details.php?op=comment&amp;trig=on&amp;id=%1$s#notify\'><strong>Click HERE</strong></a>',
 
-    'NOTIFY_SEEDERS_REMOVE'  => 'You are Currently Listed to be Notified when a Seeder Arrives.  If you don\'t want to be emailed any more, please Click <a href=\'details.php?op=seeder&trig=off&id=%1$s#notify\'><strong>HERE</strong></a>',
+    'NOTIFY_SEEDERS_REMOVE'  => 'If you no longer wish to receive email Notifications when a <strong><em>Seeder</em></strong> Joins the Swarm <a href=\'details.php?op=seeder&trig=off&id=%1$s#notify\'><strong>Click HERE</strong></a>',
 
-    'NOTIFY_COMMENTS_REMOVE' => 'You are Currently Listed to Receive Comment emails.  If you Don\'t want to be emailed any more, please Click <a href=\'details.php?op=comment&trig=off&id=%1$s#notify\'><strong>HERE</strong></a>',
+    'NOTIFY_COMMENTS_REMOVE' => 'If you no longer wish to receive email Notifications when a <strong><em>New Comment</em></strong> is Added <a href=\'details.php?op=comment&trig=off&id=%1$s#notify\'><strong>Click HERE</strong></a>',
 
     'REVERT_DEFAULT'           => '<strong>Note:</strong> 0 Reverts to Site Default.',
     'NO_NAME_SET'              => 'No Name was Set.',
