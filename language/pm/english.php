@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File pm/english.php 2018-07-11 07:33:00 Thor
+** File pm/english.php 2018-08-29 07:44:00 Thor
 **
 ** CHANGES
 **
@@ -202,6 +202,7 @@ $lang = array_merge($lang, array(
     '_DELETE_OLDEST_MESSAGES'     => 'Delete Oldest Private Messages',
     '_DELETE_MESSAGE'             => 'Delete Private Message',
     '_DELETE_MESSAGE_CONFIRM'     => 'Are you sure you want to Delete this Private Message?',
+    'DELETE_MESSAGE_CONFIRM'      => 'Are you sure you want to Delete this Private Message?',
     '_DELETE_MESSAGES_IN_FOLDER'  => 'Delete ALL Private Message within Removed Folder',
     '_DELETE_RULE'                => 'Delete Rule',
     '_DELETE_RULE_CONFIRM'        => 'Are you sure you want to Delete this Rule?',
@@ -684,8 +685,6 @@ $lang = array_merge($lang, array(
     '_CURRENT_TOPIC'           => 'Current Topic',
 
     '_DELETE_FILE'             => 'Delete File',
-    '_DELETE_MESSAGE'          => 'Delete Private Message',
-    '_DELETE_MESSAGE_CONFIRM'  => 'Are you sure you want to Delete this Private Message?',
     '_DELETE_OWN_POSTS'        => 'Sorry, but you can Only Delete your Own Posts.',
     '_DELETE_POST_CONFIRM'     => 'Are you sure you want to Delete this Post?',
     '_DELETE_POST_WARN'        => 'Once Deleted the Post can NOT be Recovered!',
