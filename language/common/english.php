@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File common/english.php 2018-08-28 07:42:00 Thor
+** File common/english.php 2018-08-29 08:15:00 Thor
 **
 ** CHANGES
 **
@@ -432,6 +432,7 @@ $lang = array_merge($lang, array(
     'RATINGS'                  => 'Ratings',
     'RATIO'                    => 'Ratio',
     'REDIRECT'                 => 'Redirect',
+    'RELOAD_PAGE'              => 'Reload Page',
     'REPORT_BY'                => 'Report By',
     'RESYNC'                   => 'RESYNC',
     'DONATE'                   => 'DONATE',
