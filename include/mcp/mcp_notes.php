@@ -49,7 +49,8 @@ class mcp_notes
 
 		if (is_array($action))
 		{
-			list($action, ) = each($action);
+			foreach($action as $var=>$val){$action = $var;}
+			//list($action, ) = each($action);
 		}
 
 		$this->page_title = 'MCP_NOTES';
@@ -135,7 +136,7 @@ class mcp_notes
 				{
 					$sql_in[] = $mark;
 				}
-				$where_sql = ' AND ' . $db->sql_in_set('log_id', $sql_in);
+				$where_sql = ' AND ' . $db->sql_in_set('event', $sql_in);
 				unset($sql_in);
 			}
 
@@ -147,7 +148,8 @@ class mcp_notes
 						WHERE log_type = ' . 3 . "
 							AND reportee_id = $user_id
 							$where_sql";
-					$db->sql_query($sql);
+							//die($sql);
+					$db->sql_query($sql) or die(print_r($db->sql_error()));
 
 					add_log('admin', 'LOG_CLEAR_USER', $userrow['username']);
 
@@ -159,7 +161,7 @@ class mcp_notes
 				}
 				$redirect = $this->u_action . '&amp;u=' . $user_id;
 				meta_refresh(3, $redirect);
-				trigger_error($user->lang[$msg] . '<br /><br />' . sprintf($user->lang['RETURN_PAGE'], '<a href="' . $redirect . '">', '</a>'));
+				trigger_error($user->lang[$msg] . '<br /><br />' . sprintf('<a href="' . $redirect . '">%1$s</a>',$user->lang['RETURN_PAGE'] ));
 			}
 		}
 
@@ -180,7 +182,7 @@ class mcp_notes
 			$redirect = $this->u_action;
 			meta_refresh(3, $redirect);
 
-			trigger_error($msg .  '<br /><br />' . sprintf($user->lang['RETURN_PAGE'], '<a href="' . $redirect . '">', '</a>'));
+			trigger_error($msg . '<br /><br />' . sprintf('<a href="' . $redirect . '">%1$s</a>',$user->lang['RETURN_PAGE'] ));
 		}
 
 		// Generate the appropriate user information for the user we are looking at

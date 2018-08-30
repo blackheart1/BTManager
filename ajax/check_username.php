@@ -35,15 +35,12 @@
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License 
 *
 */
-if (defined('IN_PMBT'))
+if (!defined('IN_PMBT'))
 {
-	die ("You can't include this file");
+	include_once './../security.php';
+	die ("You can't access this file directly");
 }
-else
-{
-	define("IN_PMBT",true);
-}
-				if (!$user->user) loginrequired("user",true);
+				//if (!$user->user) loginrequired("user",true);
 				$username = request_var('username', '');
 				if( !isset( $username ) || empty( $username ) )
 					{
@@ -51,8 +48,9 @@ else
 					}
 				// check for that username
 				$sql = "SELECT COUNT(`id`) FROM `".$db_prefix."_users` WHERE `username` = '".$db->sql_escape($username)."'";
+				die($sql);
 				$res = $db->sql_query($sql);
-				$num = $db_sql_fetchfield( $res, 0, 0 );
+				$num = $db->sql_fetchfield($res);
 				if( $num != 0 )
 				{
 					print("Username taken!");

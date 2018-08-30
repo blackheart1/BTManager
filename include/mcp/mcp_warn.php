@@ -49,7 +49,8 @@ class mcp_warn
 
 		if (is_array($action))
 		{
-			list($action, ) = each($action);
+			foreach($action as $var=>$val){$action = $var;}
+			//list($action, ) = each($action);
 		}
 
 		$this->page_title = 'MCP_WARN';
@@ -297,7 +298,7 @@ class mcp_warn
 			}
 			$redirect = append_sid("{$phpbb_root_path}forum.$phpEx?action_mcp=mcp", "i=notes&amp;mode=user_notes&amp;u=$user_id");
 			meta_refresh(2, $redirect);
-			trigger_error($msg . '<br /><br />' . sprintf($user->lang['RETURN_PAGE'], '<a href="' . $redirect . '">', '</a>'));
+			trigger_error($msg . '<br /><br />' . sprintf('<a href="' . $redirect . '">%1$s</a>',$user->lang['RETURN_PAGE'] ));
 		}
 
 		// OK, they didn't submit a warning so lets build the page for them to do so
@@ -416,7 +417,7 @@ class mcp_warn
 			}
 			$redirect = append_sid("{$phpbb_root_path}forum.$phpEx?action_mcp=mcp", "i=notes&amp;mode=user_notes&amp;u=$user_id");
 			meta_refresh(2, $redirect);
-			trigger_error($msg . '<br /><br />' . sprintf($user->lang['RETURN_PAGE'], '<a href="' . $redirect . '">', '</a>'));
+			trigger_error($msg . '<br /><br />' . sprintf('<a href="' . $redirect . '">%1$s</a>',$user->lang['RETURN_PAGE'] ));
 		}
 
 		// Generate the appropriate user information for the user we are looking at
