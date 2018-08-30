@@ -66,7 +66,7 @@ $name											= request_var('name', '');
 				include_once('include/function_messenger.php');
 				include_once("include/utf/utf_tools.php");
 						$messenger = new messenger();
-						$messenger->template('regester', $user->ulanguage);
+						$messenger->template('emailchange', $user->ulanguage);
 						$messenger->to($new_email);
 						$messenger->assign_vars(array(
 									'SUB_JECT'		=>	sprintf($user->lang['CONFERM_EMAIL_SUB'],$sitename),
