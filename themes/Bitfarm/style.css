@@ -1015,14 +1015,22 @@ div.caption {
     width: 100%;
 }
 #pagecontent .tablebg td.row3 {
-	size: 12pt;
-    font-size:12pt;
+	size: 10pt;
+    font-size:10pt;
 }
 #pagecontent .tablebg td.row2 {
 	size: 10pt;
     font-size:10pt;
 }
 #pagecontent .tablebg td.row1 {
+	size: 10pt;
+    font-size:10pt;
+}
+#pagecontent .tablebg td.row {
+	size: 10pt;
+    font-size:10pt;
+}
+#pagecontent .tablebg td.gen {
 	size: 10pt;
     font-size:10pt;
 }
