@@ -1,7 +1,7 @@
     <table class="tablebg breadcrumb" width="100%" cellspacing="{$CA_SPACING}" cellpadding="0" style="margin-top: 5px;">
     <tr>
         <td class="row1">
-            <p class="breadcrumbs"><a href="{U_INDEX}">{L_INDEX}</a><!-- BEGIN navlinks --> &#187; <a href="{navlinks.U_VIEW_FORUM}">{navlinks.FORUM_NAME}</a><!-- END navlinks --></p>
+            <p class="breadcrumbs"><a href="{U_INDEX}">{L_INDEX}</a><!-- IF U_INFORUM --> &#187; <a href="/forum.php">{L_FORUM}</a><!-- ENDIF --><!-- BEGIN navlinks --> &#187; <a href="{navlinks.U_VIEW_FORUM}">{navlinks.FORUM_NAME}</a><!-- END navlinks --></p>
         </td>
     <tr>
     </tr>

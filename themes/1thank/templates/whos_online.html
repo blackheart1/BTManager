@@ -83,7 +83,7 @@
               <p>{L_LEGEND}
                 <strong>
 <!-- BEGIN legend -->
-                  <a href="memberslist.php?mode=group&amp;g={legend.NAME}" style="color: {legend.COLOR}; font-weight: bold;">{legend.NAME}</a>
+                  <a href="memberslist.php?mode=group&amp;g={legend.NAME}" style="color: #{legend.COLOR}; font-weight: bold;">{legend.NAME}</a>
 <!-- END legend -->
                </strong>
               </p>
@@ -97,18 +97,31 @@
 			    <br />{L_MOST_EVER_ON} <strong>{S_MOST_USERS_ON}</strong> &bull; {S_MOST_USERS_WN}
 			  </span>
 			</div>
-			  <p>
-			    <strong>{L_ONLINE_24HRS}</strong>{ON_NOW}
-				<br />
-				<strong>{L_TOTAL_REG_7D}</strong>{ON_REG_WEEK}<br />
-				<strong>{L_TOTAL_REG_24}</strong>{ON_REG_DAY}<br />
-				<strong>{L_TOTAL_USERS}</strong>{TOTAL_USERS}<br />
-				<strong>{L_TOTAL_TORRENTS}</strong>{TOTTAL_TORRENTS}<br />
-				<strong>{L_TOTAL_SHARED}</strong>{TOTAL_DATA}<br />
-				<strong>{L_TOTAL_PEERS}</strong>{TOTAL_PEERS}<br />
-				<strong>{L_TOTAL_SPEED}</strong>{TRANSFER_SPEED}<br />
-				<strong>{L_TOTAL_SEEDERS}</strong>{TOTTAL_SEEDERS}<br />
-				<strong>{L_TOTAL_LEECHERS}</strong>{TOTAL_LEACHERS}<br />
-				<strong>{L_MOST_CLIENT}</strong>{MOST_CLIENTS} ({M_CLIENT_CO})<br />
-			  </p>
+            <fieldset>
+                <h2>{L_STATISTICS}</h2>
+                <dl>
+                    <dt><span class="genmed">{L_STAT1} <strong>{S_USER_ON}</strong><br />{L_STAT2}</span></dt>
+                    <dd><span class="genmed">{L_MOST_EVER_ON} <strong>{S_MOST_USERS_ON}</strong><br />{S_MOST_USERS_WN}</span></dd>
+                </dl>
+                <dl>
+                    <dt><span class="genmed">{L_ONLINE_24HRS} <strong>{ON_NOW}</strong></span></dt>
+                    <dd><span class="genmed">{L_TOTAL_REG_7D} <strong>{ON_REG_WEEK}</strong></span></dd>
+                </dl>
+                <dl>
+                    <dt><span class="genmed">{L_TOTAL_REG_24} <strong>{ON_REG_DAY}</strong></span></dt>
+                    <dd><span class="genmed">{L_TOTAL_USERS} <strong>{TOTAL_USERS}</strong></span></dd>
+                </dl>
+                <dl>
+                    <dt><span class="genmed">{L_TOTAL_TORRENTS} <strong>{TOTTAL_TORRENTS}</strong></span></dt>
+                    <dd><span class="genmed">{L_TOTAL_SHARED} <strong>{TOTAL_DATA}</strong></span></dd>
+                </dl>
+                <dl>
+                    <dt><span class="genmed">{L_TOTAL_PEERS} <strong>{TOTAL_PEERS}</strong></span></dt>
+                    <dd><span class="genmed">{L_TOTAL_SPEED} <strong>{TRANSFER_SPEED}</strong></span></dd>
+                </dl>
+                <dl>
+                    <dt><span class="genmed">{L_TOTAL_SEEDERS} <strong>{TOTTAL_SEEDERS}</strong>&nbsp;{L_TOTAL_LEECHERS} <strong>{TOTAL_LEACHERS}</strong></span></dt>
+                    <dd><span class="genmed">{L_MOST_CLIENT} <strong>{MOST_CLIENTS} ({M_CLIENT_CO})</strong></span></dd>
+                </dl>
+            </fieldset>
 <div style="height: 2px;"></div>

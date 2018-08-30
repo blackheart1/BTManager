@@ -555,7 +555,7 @@ $topic_data['topic_title'] = censor_text($topic_data['topic_title']);
 // Send vars to template
 $template->assign_vars(array(
 	'FORUM_ID' 		=> $forum_id,
-	'U_INDEX'					=>	$siteurl . '/forum.' . $phpEx,
+	'U_INDEX'					=>	$siteurl . '/index.' . $phpEx,
 	'T_THEME_PATH'	=> $siteurl . '/themes/' . $theme,
 	'FORUM_NAME' 	=> $topic_data['forum_name'],
 	'FORUM_DESC'	=> generate_text_for_display($topic_data['forum_desc'], $topic_data['forum_desc_uid'], $topic_data['forum_desc_bitfield'], $topic_data['forum_desc_options']),

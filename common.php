@@ -89,7 +89,7 @@ if (!preg_match("/cron.php/",$_SERVER['PHP_SELF']))
         close_out();
     }
 
-    if($user->user  && !preg_match("/httperror.php/",$_SERVER['PHP_SELF']) && !preg_match("/file.php/",$_SERVER['PHP_SELF']) && !preg_match("/ajax.php/",$_SERVER['PHP_SELF']))
+    if($user->user  && !preg_match("/httperror.php/",$_SERVER['PHP_SELF']) && !preg_match("/announce.php/",$_SERVER['PHP_SELF']) && !preg_match("/file.php/",$_SERVER['PHP_SELF']) && !preg_match("/ajax.php/",$_SERVER['PHP_SELF']))
     {
         $sql = "UPDATE ".$db_prefix."_users
                         SET lastip = '".sprintf("%u",ip2long($user->ip))."',

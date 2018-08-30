@@ -428,7 +428,7 @@ $where = "P.torrent = '" . $torrentid . "' AND " . $where;
 $selfwhere = $where;
 unset($self);
 $sql_select = "SELECT P.seeder, P.peer_id, P.unique_id, P.uid, P.ip, P.real_ip, P.port, P.uploaded, P.downloaded, P.upload_speed, UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(P.last_action) as seconds, U.level FROM ".$db_prefix."_peers P LEFT JOIN ".$db_prefix."_users U ON P.uid = U.id WHERE ".$selfwhere.";";
-if (!$res = $db->sql_query($sql_select)) err("Error ",$db->sql_error());
+if (!$res = $db->sql_query($sql_select)) err("SQL Error: ". $sql_select ,$db->sql_error());
 $self = $db->sql_fetchrow($res);
 $db->sql_freeresult($res);
 $selfupload = 0+$self['uploaded'];
@@ -606,7 +606,7 @@ if ($self) { //Peer is already connected
                 $download_speed = 0;
         }
 //SNATCH UPDATE
-   $res=$db->sql_query("SELECT uploaded, downloaded, seeding_time FROM ".$db_prefix."_snatched WHERE torrent = $torrentid AND userid = $uid")or err("HELP4");
+   $res=$db->sql_query("SELECT uploaded, downloaded, seeding_time FROM ".$db_prefix."_snatched WHERE torrent = $torrentid AND userid = $uid")or err("SQL Error: ". "SELECT uploaded, downloaded, seeding_time FROM ".$db_prefix."_snatched WHERE torrent = $torrentid AND userid = $uid" ,$db->sql_error());
       $row = mysqli_fetch_array($res);
       $sockres = @fsockopen($real_ip, $port, $errno, $errstr, 1.5);
       if($event != "stopped")
@@ -626,10 +626,12 @@ if ($self) { //Peer is already connected
    if($seeder2 == "yes")$seed_for = ", seeding_time = '".$seed_overal."'";
    else
    $seed_for='';
-      $downloaded2=$downloaded - $self["downloaded"];
-      $uploaded2=$uploaded - $self["uploaded"];
+      $downloaded2	=	$downloaded - $self["downloaded"];
+	  if($downloaded2 <= 0) $downloaded2 = 0;
+      $uploaded2	=	$uploaded - $self["uploaded"];
+	  if($uploaded2 <= 0) $uploaded2 = 0;
       $usna = "UPDATE ".$db_prefix."_snatched SET uploaded = uploaded+$uploaded2, downloaded = downloaded+$downloaded2, port = '".$port."', seeder = 'yes', connectable = '$connectable'".$seed_for.", agent= " . $client . ", ip = '".$ip."', to_go = '".$left."',speedup='".$upload_speed."',speeddown='".$download_speed."', last_action = '".get_date_time()."', warned = 'no', hnr_warning = 'no' WHERE torrent = $torrentid AND userid = ".$uid."";
-	  if (!$db->sql_query($usna))err("Error ".$usna);
+	  if (!$db->sql_query($usna))err("SQL Error: ". $usna ,$db->sql_error());
 
 //END SNATCH UPDATE
 

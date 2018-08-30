@@ -1,5 +1,23 @@
 <!-- INCLUDE themes/1thank/templates/semple_header.html -->
 <!-- IF not S_LOSTPASS -->
+<script type="text/javascript" src="java/jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    var x_timer;    
+    $("#username").blur(function (e){
+		var value = $(this).val();
+		check_username_ajax(value);
+	});
+});
+
+function check_username_ajax(username)
+{
+    $("#user-result").html('<img src="images/loading.gif" />');
+    $.post('ajax.php?op=check_username', {'username':username}, function(data) {
+      $("#user-result").html(data);
+    });
+}
+</script>
 <h2>{L_REGISTOR}</h2>
 
 <div class="panel">
@@ -13,7 +31,8 @@
             <dl>
                 <dt><label for="images1">{L_USER_NAME}:</label></dt>
                 <dd>
-                	<input type="text" name="username" size="60" />
+                	<input autocomplete="off" id="username" type="text" name="username" size="60" /><br />
+                    <span id="user-result"></span>
                 </dd>
             </dl>
             <dl>

@@ -3785,7 +3785,7 @@ function format_urls($s)
 
     $s = preg_replace(array("/(\A|[^=\]'\"a-zA-Z0-9])((http|ftp|https|ftps|irc):\/\/[^<>\s]+)/i"), array("[url=$2]$2[/url]"), $s);
 
-    $s = preg_replace(array('#\[url=((http|ftp|https|ftps|irc):\/\/[^<>\s]+?)\]((\s|.)+?)\[\/url\]#s'), array("'<a href=redirect.php?url=$1 target=\"_blank\">'.getMetaTitle('$1').'</a>'"), $s);
+    $s = preg_replace(array('#\[url=((http|ftp|https|ftps|irc):\/\/[^<>\s]+?)\]((\s|.)+?)\[\/url\]#s'), array("<a href=redirect.php?url=$1 target=\"_blank\">$1</a>"), $s);
 
     return $s;
 }
@@ -4323,6 +4323,7 @@ function set_site_var($page_title = '')
     $template->assign_vars(array(
             'SITE_NEWS'            => ($welcome_message != "") ? $welcome_message : '',
             'SITE_URL'             => $siteurl,
+			'U_INDEX'			   => $siteurl . '/index.' . $phpEx,
             'PRIVATE_MODE'         => $pivate_mode,
             'PMBT_VER'             => $version,
             'PAGE_TITLE'           => $page_title,

@@ -22,7 +22,7 @@
 		NcodeImageResizer.MODE = 'newwindow';
 		NcodeImageResizer.MAXWIDTH = 500;
 		NcodeImageResizer.MAXHEIGHT =400;
-
+		
 		NcodeImageResizer.Msg1 = '{L_FULL_IMG}';
 		NcodeImageResizer.Msg2 = '{L_RESIZE_IMG}';
 		NcodeImageResizer.Msg3 = '{L_RESIZE_IMG}';
@@ -53,10 +53,10 @@
 			   if (last_reload && last_reload > (d.getTime() - "4000")) return;
 				  last_reload = d.getTime();
 			   bparam('page=1')
-
+		
 			}
 		}
-
+		
 		function toggle2(nome) {
 		if(document.getElementById(nome).style.display=='none')
 		{
@@ -69,7 +69,7 @@
 		document.getElementById(nome+"img").src="themes/1thank/pics/plus.gif";
 		}
 		}
-
+		
 		function SetCookie(cookieName,cookieValue,nDays) {
 		 var today = new Date();
 		 var expire = new Date();
@@ -86,17 +86,17 @@
 		var on_page = '{ON_PAGE}';
 		var per_page = '{PER_PAGE}';
 		var base_url = '{A_BASE_URL}';
-
+		
 		var menu_state = 'shown';
-
-
+		
+		
 		/**
 		* Jump to page
 		*/
 		function jumpto()
 		{
 			var page = prompt(jump_page, on_page);
-
+		
 			if (page !== null && !isNaN(page) && page == Math.floor(page) && page > 0)
 			{
 				if (base_url.indexOf('?') == -1)
@@ -109,7 +109,7 @@
 				}
 			}
 		}
-
+		
 		/**
 		* Find a member
 		*/
@@ -128,7 +128,7 @@
 			{
 				type = 'block';
 			}
-
+		
 			var e = document.getElementById(n);
 			if (!s)
 			{
@@ -160,21 +160,21 @@
 		</script>
 		<script type="text/javascript" src="themes/1thank/templates/styleswitcher.js"></script>
 		<script type="text/javascript" src="themes/1thank/templates/forum_fn.js"></script>
-
+		
 		<link href="themes/1thank/print.css" rel="stylesheet" type="text/css" media="print" title="printonly" />
 		<link href="themes/1thank/style.css" rel="stylesheet" type="text/css" media="screen, projection" />
 		<link href="themes/1thank/stylesheet.css" rel="stylesheet" type="text/css" media="screen, projection" />
-
+		
 		<link href="themes/1thank/normal.css" rel="stylesheet" type="text/css" title="A" />
 		<link href="themes/1thank/medium.css" rel="alternate stylesheet" type="text/css" title="A+" />
 		<link href="themes/1thank/large.css" rel="alternate stylesheet" type="text/css" title="A++" />
-
+		
 		<!-- IF S_CONTENT_DIRECTION eq rtl -->
 			<link href="themes/1thank/bidi.css" rel="stylesheet" type="text/css" media="screen, projection" />
 		<!-- ENDIF -->
-
-
-
+		
+		
+		
 		<script type="text/javascript" src="themes/1thank/templates/editor.js"></script>
 
 
@@ -186,11 +186,11 @@
             <div id="pmbshad-l">
                 <div id="pmbshad-r">
                     <div id="header">
-
+    
                         <div id="head-l">
-
+    
                             <div id="head-r">
-                                <div id="userarea" class="smalltext"><p class="right">{L_CURRENT_TIME}<?php echo date("D M j G:i:s T Y");?></p>
+                                <div id="userarea" class="smalltext"><p class="right">{L_CURRENT_TIME}<?php echo date("D M j G:i:s T Y",time());?></p>
                                 </div>
                                 <div  class="smalltext">
                                 	<div id="search-box">
@@ -200,19 +200,19 @@
                                     </form>
                                     <form action="./forum.php?action=search" method="post" id="search">
                                         <input name="search" id="keywords" type="text" maxlength="128" title="{L_SEARCH}" class="inputbox search" value="{L_SEARCH}" onclick="if(this.value=='{L_SEARCH}')this.value='';" onblur="if(this.value=='')this.value='{L_SEARCH}';" >
-                                        <input class="button2" value="{L_SEARCH_FORUMS}" type="submit" />&nbsp;&nbsp;<br >
+                                        <input class="button2" value="{L_SEARCH_FORUMS}" type="submit" />&nbsp;<br >
                                     </form>
                                 </div>
-
-
-
+    
+            
+    
                             </div>
                             <a href="./index.php" title=""><span id="pmbtlogo"><br /><br /><br /><br /><p style="color:#f8f4f4; font-size:35px; font-weight:800; font-style:italic;">{SITENAME}</p></span></a>
-
+    
                         </div>
                     </div>
-                </div>
-
+                </div>					
+                    
                 <div id="toolbar">
             		<div id="topmenu">
                         <ul>
@@ -237,9 +237,9 @@
     					<div class="inner"><span class="corners-top"><span></span></span>
     					</div>
                 		<ul class="linklist navlinks">
-                            <li class="icon-home"><a href="index.php" accesskey="h">{L_INDEX}</a> <!-- BEGIN navlinks --> <strong>&#8249;</strong> <a href="{navlinks.U_VIEW_FORUM}">{navlinks.FORUM_NAME}</a><!-- END navlinks --></li>
-
-
+                            <li class="icon-home"><a href="index.php" accesskey="h">{L_INDEX}</a> <!-- IF U_INFORUM --> &#8249; <a href="/forum.php">{L_FORUM}</a> <!-- ENDIF --> <!-- BEGIN navlinks --> <strong>&#8249;</strong> <a href="{navlinks.U_VIEW_FORUM}">{navlinks.FORUM_NAME}</a><!-- END navlinks --></li>
+    
+            
                             <li class="rightside"><a href="#" onclick="fontsizeup(); return false;" onkeypress="fontsizeup(); return false;" class="fontsize" title="{L_CHANGE_FONT_SIZE}">{L_CHANGE_FONT_SIZE}</a></li>
                             <!-- IF S_WATCH_FORUM_LINK --><li <!-- IF S_WATCHING_FORUM -->class="icon-unsubscribe"<!-- ELSE -->class="icon-subscribe"<!-- ENDIF -->><a href="{S_WATCH_FORUM_LINK}" title="{S_WATCH_FORUM_TITLE}">{S_WATCH_FORUM_TITLE}</a></li><!-- ENDIF -->
                             <!-- IF U_WATCH_TOPIC --><li class="rightside"><a href="{U_WATCH_TOPIC}" title="{L_WATCH_TOPIC}" class="watchtopic">{L_WATCH_TOPIC}</a></li><!-- ENDIF -->
@@ -249,12 +249,12 @@
                             <!-- IF U_PRINT_TOPIC --><li class="rightside"><a href="{U_PRINT_TOPIC}" title="{L_PRINT_TOPIC}" accesskey="p" class="print">{L_PRINT_TOPIC}</a></li><!-- ENDIF -->
                             <!-- IF U_PRINT_PM --><li class="rightside"><a href="{U_PRINT_PM}" title="{L_PRINT_PM}" accesskey="p" class="print">{L_PRINT_PM}</a></li><!-- ENDIF -->
                         </ul>
-
+    
                         <!-- IF U_USER -->
                         <ul class="linklist leftside">
                             <li class="icon-ucp">
                                 <a href="user.php?op=profile" title="{L_USERPROFILE}" accesskey="u">{L_USERPROFILE}</a>
-                                (<a href="pm.php?op=folder&amp;i=0">{L_PRIVATE_MESSAGES} {U_USER_UNRED_PM}</a>) &bull;
+                                (<a href="pm.php?op=folder&amp;i=0">{L_PRIVATE_MESSAGES} {U_USER_UNRED_PM}</a>) &bull; 
                                 <a href="forum.php?action=search&amp;search_id=egosearch">{L_SEARCH_SELF}</a><br />
                                 <!-- IF U_TSEEDING -->
                                 <span class="overlib" onmouseover="return overlib('{U_TSEEDING}', CAPTION, '{L_T_U_SEED}', TEXTFONT, 'Verdana', TEXTCOLOR, '#000000', CAPTIONFONT, 'Lucida Console, Verdana', CENTER,FGCOLOR, '#FFFFFF', BGCOLOR, '#6F7578',CAPICON, 'themes/Bitfarm/pics/help.png', BORDER, 2, SHADOW, SHADOWOPACITY, 40, SHADOWCOLOR, '#030303', SHADOWX, 2,SHADOWY, 2);" onmouseout="return nd();" style="cursor:help">
@@ -277,7 +277,7 @@
                             </li>
                         </ul>
                         <!-- ENDIF -->
-
+    
                         <ul class="linklist rightside">
 						    <li class="icon-search"><a href="search.php" title="{L_SEARCH}">{L_SEARCH}</a></li>
                             <!-- IF S_DISPLAY_MEMBERLIST --><li class="icon-members"><a href="{U_MEMBERLIST}" title="{L_MEMBERLIST_EXPLAIN}">{L_MEMBERLIST}</a></li><!-- ENDIF -->
@@ -288,5 +288,5 @@
                     </div>
                 	<a name="start_here"></a>
                 	<div id="page-body">
-
-    				</div>
+                    
+    				</div>				

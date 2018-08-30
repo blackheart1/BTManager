@@ -323,7 +323,7 @@ $s_display_active = ($forum_data['forum_type'] == 0 && ($forum_data['forum_flags
 
 $template->assign_vars(array(
 	'MODERATORS'	=> (!empty($moderators[$forum_id])) ? implode(', ', $moderators[$forum_id]) : '',
-	'U_INDEX'					=>	$siteurl . '/forum.' . $phpEx,
+	'U_INDEX'					=>	$siteurl . '/index.' . $phpEx,
 	'T_THEME_PATH'	=> $siteurl . '/themes/' . $theme,
 	'POST_IMG'					=> ($forum_data['forum_status'] == 1) ? $user->img('button_topic_locked', $post_alt) : $user->img('button_topic_new', $post_alt),
 	'NEWEST_POST_IMG'			=> $user->img('icon_topic_newest', 'VIEW_NEWEST_POST'),

@@ -20,29 +20,14 @@
     	<span class="corners-bottom"><span></span></span>
     </div>
 </div>	
-<!-- IF S_EDIT -->
-<div class="panel">
-	<div class="inner"><span class="corners-top"><span></span></span>
-            <h2><a href="admin.php?i=staff&op=modrules&act=newsect">{L_ADD_NEW}</a></h2>
-	<span class="corners-bottom"><span></span></span></div>
-</div>
-<!-- ENDIF -->
 <!-- IF S_RULES -->
 <!-- BEGIN rules_var -->
 <div class="panel">
 	<div class="inner"><span class="corners-top"><span></span></span>
-<!-- IF S_EDIT --><form method="post" action="admin.php?i=staff&amp;op=modrules&amp;act=edit"><!-- ENDIF -->
             <h2>{rules_var.TITLE}</h2>
             	<div class="content">
 				{rules_var.RULE}
 				</div>
-<!-- IF S_EDIT -->
-        <fieldset class="submit-buttons">
-            <input type="hidden" value="1" name="id" />
-            <input type="submit" value="{L_EDIT}" />
-        </fieldset>
-        </form>
-<!-- ENDIF -->
 	<span class="corners-bottom"><span></span></span></div>
 </div>
 <!-- END rules_var -->

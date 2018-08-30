@@ -77,6 +77,8 @@ if (is_banned($user, $reason))
 }
 
 $op = request_var('op', '');
+//$username = request_var('username', '');
+//if(!$username == '')print($username);
 switch ($op)
     {
         case "scrape":

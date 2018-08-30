@@ -38,7 +38,8 @@ $id = request_var('i', '');
 if (isset($_REQUEST['mode']) && is_array($_REQUEST['mode']))
 {
 	$mode = request_var('mode', array(''));
-	list($mode, ) = each($mode);
+	//list($mode, ) = each($mode);
+			foreach($mode as $var=>$val){$mode = $var;}
 }
 else
 {
@@ -63,7 +64,8 @@ if ($forum_action !== '' && !empty($_POST['sort']))
 
 if (sizeof($action_ary))
 {
-	list($action, ) = each($action_ary);
+			foreach($action_ary as $var=>$val){$action = $var;}
+	//list($action, ) = each($action_ary);
 }
 unset($action_ary);
 

@@ -13,6 +13,24 @@
         <script defer type="text/javascript" src="{SITE_URL}/pngfix.js"></script>
         <![endif]-->
         <title>{SITENAME} &bull; <!-- IF S_IN_MCP -->{L_MCP} &bull; <!-- ELSEIF S_IN_UCP -->{L_USER_CPANNEL} &bull; <!-- ENDIF -->{PAGE_TITLE}</title>
+<script type="text/javascript" src="java/jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    var x_timer;    
+    $("#username").blur(function (e){
+		var value = $(this).val();
+		check_username_ajax(value);
+	});
+});
+
+function check_username_ajax(username)
+{
+    $("#user-result").html('<img src="images/loading.gif" />');
+    $.post('ajax.php?op=check_username', {'username':username}, function(data) {
+      $("#user-result").html(data);
+    });
+}
+</script>
     </head>
     <body>
         <!-- IF not S_LOSTPASS -->
@@ -40,7 +58,7 @@
                                 <tr>
                                     <td class="row1" width="35%">{L_USER_NAME}</td>
                                     <td class="row2">
-                                        <p><input type="text" name="username" size="60" /></p>
+                                        <p><input autocomplete="off" id="username" type="text" name="username" size="60" /><span id="user-result"></span></p>
                                     </td>
                                 </tr>
                                 <tr>

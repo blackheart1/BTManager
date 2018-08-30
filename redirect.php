@@ -24,8 +24,11 @@ require_once("common.php");
 include_once('include/function_posting.php');
 $template = new Template();
   $url = '';
-  while (list($var,$val) = each($_GET))
+  foreach($_GET as $var=>$val)
+  {
     $url .= "&$var=$val";
+  }
+  //while (list($var,$val) = each($_GET))
 $i = strpos($url, "&url=");
 if ($i !== false)
 	$url = substr($url, $i + 5);

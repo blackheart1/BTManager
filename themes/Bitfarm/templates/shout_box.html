@@ -267,8 +267,8 @@ function dE(n, s, type)
 <!-- BEGIN shout_var -->
                             <div class="{shout_var.CLASS}" onMouseOver="this.className='{shout_var.CLASS_CH}';" onMouseOut="this.className='{shout_var.CLASS}';">
                             <p class="shout" bgcolor="#{shout_var.BACKG}">
-                            <!-- IF shout_var.SHOW_USER --><!-- IF shout_var.CAN_DEL --><a onDblClick="if(confirm('Delete Shout?')==true)sndReq('op=take_delete_shout&amp;shout={shout_var.SHOUTID}', 'shoutTD')"><img src="themes/Bitfarm/pics/drop.gif" alt="{L_DELETE}" title="{L_DELETE}" border="0"></a><!-- ENDIF -->
-                            <!-- IF shout_var.CAN_ED --><a onDblClick="sndReq('op=edit_shout&amp;shout={shout_var.SHOUTID}', 'shoutTD')"><img src="themes/Bitfarm/pics/edit.gif" alt="{L_EDIT}" title="{L_EDIT}" border="0"></a><!-- ENDIF -->
+                            <!-- IF shout_var.SHOW_USER --><!-- IF shout_var.CAN_DEL --><a onClick="if(confirm('{LA_DELETE_SHOUT}')==true)sndReq('op=take_delete_shout&amp;shout={shout_var.SHOUTID}', 'shoutTD')"><img src="themes/Bitfarm/pics/drop.gif" alt="{L_DELETE}" title="{L_DELETE}" border="0"></a><!-- ENDIF -->
+                            <!-- IF shout_var.CAN_ED --><a onClick="sndReq('op=edit_shout&amp;shout={shout_var.SHOUTID}', 'shoutTD')"><img src="themes/Bitfarm/pics/edit.gif" alt="{L_EDIT}" title="{L_EDIT}" border="0"></a><!-- ENDIF -->
                             <!-- IF shout_var.CAN_QU --><a onClick="comment_smile('{shout_var.QUOTE}',Shoutform.text);"><img src="images/bbcode/bbcode_quote.gif" alt="{L_QUOTE}"  title="{L_QUOTE}" border="0"></a><!-- ENDIF -->
                             [<span class="shout_time">{shout_var.TIME}</span>]{shout_var.U_PRVATE_S}
                             <strong><span class="admin" onDblClick="sndReq('op=private__chat&amp;to={shout_var.UID}', 'shout_out'); toggleprivate('shout_send','{shout_var.UID}');"><font color="#000" style='background-color: {shout_var.U_COLOR};'>{shout_var.U_NAME}</font>{shout_var.U_WARNED}<!-- IF shout_var.U_DONER --><img src="images/donator.gif" height="16" width="16" title="{L_DONOR}" alt="{L_DONOR}" /><!-- ENDIF --></span></strong>

@@ -1,14 +1,5 @@
 <!-- INCLUDE themes/Bitfarm/templates/over_all_header.html -->
 <!-- INCLUDE themes/Bitfarm/templates/over_all_left.html -->
-<!-- IF S_EDIT -->
-    <table width="100%" border="0" cellspacing="0" cellpadding="10">
-        <tr>
-            <td align="center">
-                <a href="admin.php?i=staff&op=modrules&act=newsect">{L_ADD_NEW}</a>
-            </td>
-        </tr>
-    </table>
-<!-- ENDIF -->
 <!-- IF S_RULES -->
 <!-- BEGIN rules_var -->
     <table class="tablebg" width="100%" cellspacing="0">
@@ -26,7 +17,6 @@
         <tr valign="middle">
             <td  class="row3" >
                 <div id="nn{rules_var.ID}">
-                    <!-- IF S_EDIT --><form method="post" action="admin.php?i=staff&amp;op=modrules&amp;act=edit"><!-- ENDIF -->
                     <table width="95%" border="0" cellspacing="0" cellpadding="0">
                         <tr>
                             <td width="100%">
@@ -34,14 +24,7 @@
 
                             </td>
                         </tr>
-                        <!-- IF S_EDIT --><tr>
-                            <td>
-                                <input type="hidden" value="1" name="id" />
-                                <input type="submit" value="{L_EDIT}" />
-                            </td>
-                        </tr><!-- ENDIF -->
                     </table>
-                    </form>
                 </div>
             </td>
         </tr>

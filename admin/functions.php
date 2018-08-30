@@ -1009,7 +1009,7 @@ function view_log($mode, &$log, &$log_count, $limit = 0, $offset = 0, $forum_id 
 		{
 			$log_data_ary = unserialize($row['results']);
 			if(!is_array($log_data_ary))$log_data_ary = array($log_data_ary);
-			//die(print_r($log_data_ary));
+			//print_r($log_data_ary);
 
 			if (isset($user->lang[$row['action']]))
 			{

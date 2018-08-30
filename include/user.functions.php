@@ -2457,6 +2457,7 @@ if(preg_match("/cron.php/",$page))return true;
 if(preg_match("/download.php/",$page))return true;
 if(preg_match("/ban.php/",$page))return true;
 if(preg_match("/httperror.php/",$page))return true;
+if(preg_match("/ajax.php/",$page))return true;
 return false;
 }
 }

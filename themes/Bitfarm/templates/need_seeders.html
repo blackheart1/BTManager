@@ -16,23 +16,23 @@
             <div id="nnTorrents_That_Need_Seeding">
                 <center><strong>{L_TORRENT_NEED_SEED_EXP}</strong></center>
                 <center>
-                    <table style="width: 100%;" class="table_table" border="2" cellspacing="0" cellpadding="0" >
+                    <table style="width: 100%;" class="ttable_headinner"  cellspacing="0" cellpadding="0" >
                         <tr>
-                            <td class="colhead">{L_TORRENT}</td>
-                            <td class="colhead">{L_LEECHERS}</td>
-                            <td class="colhead">{L_DOWNED}</td>
-                            <td class="colhead">{L_SNATCHED}</td>
-                            <td class="colhead">{L_ADDED}</td>
+                            <td class="ttable_head" align="center">{L_TORRENT}</td>
+                            <td class="ttable_head" align="center">{L_LEECHERS}</td>
+                            <td class="ttable_head" align="center">{L_DOWNED}</td>
+                            <td class="ttable_head" align="center">{L_SNATCHED}</td>
+                            <td class="ttable_head" align="center">{L_ADDED}</td>
                         </tr>
                         <!-- BEGIN need_seeded -->
                         <tr>
-                            <td class="table_col1" align="left">
+                            <td class="ttable_col1" align="center">
                                 <a href="details.php?id={need_seeded.SEED_ID}&hit=1" alt="{need_seeded.SEED_NAME}" title="{need_seeded.SEED_NAME}">{need_seeded.SEED_NAME_SHORT}</a>
                             </td>
-                            <td class="table_col1"><font color="red">{need_seeded.SEED_LEECH}</td>
-                            <td class="table_col1">{need_seeded.SEED_DOWN}</td>
-                            <td class="table_col1">{need_seeded.SEED_COMPL}</td>
-                            <td class="table_col1">{need_seeded.SEED_ADDED}</td>
+                            <td class="ttable_col2" align="center"><font color="red">{need_seeded.SEED_LEECH}</td>
+                            <td class="ttable_col1" align="center">{need_seeded.SEED_DOWN}</td>
+                            <td class="ttable_col2" align="center">{need_seeded.SEED_COMPL}</td>
+                            <td class="ttable_col1" align="center">{need_seeded.SEED_ADDED}</td>
                         </tr>
                         <!-- END need_seeded -->
                     </table>
