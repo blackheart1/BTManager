@@ -1015,13 +1015,17 @@ div.caption {
     padding-bottom: 10px;
     width: 100%;
 }
-.row2 {
-	size: 10pt;
-    font-size:10pt;
+.tablebg td.row3 {
+	size: 12pt;
+    font-size:12pt;
 }
-.row1 {
-	size: 10pt;
-    font-size:10pt;
+.tablebg td.row2 {
+	size: 12pt;
+    font-size:12pt;
+}
+.tablebg td.row1 {
+	size: 12pt;
+    font-size:12pt;
 }
 .ftablebg td.row2 {
 	size: 10pt;
