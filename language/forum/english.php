@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File forum/english.php 2018-08-27 20:15:00 Thor
+** File forum/english.php 2018-08-31 18:40:00 Thor
 **
 ** CHANGES
 **
@@ -25,6 +25,7 @@
 ** 2018-05-09 - Added Missing Languages
 ** 2018-05-15 - Added Missing Languages
 ** 2018-05-25 - Added Missing Languages
+** 2018-08-31 - Added Missing Languages
 **/
 
 if (!defined('IN_PMBT'))
@@ -129,6 +130,8 @@ $lang = array_merge($lang, array(
     'LOG_DISALLOW_DELETE'        => '<strong>Deleted Disallowed Username</strong>',
     'LOG_USER_LOCK'              => '<strong>User Locked Own Topic</strong><br /> %s',
     'LOG_USER_FEEDBACK'          => '<strong>Added User Feedback</strong><br /> %s',
+    'LOG_UNBAN_USER'             => '<strong>Unban User</strong><br />%s',
+    'LOG_USER_WARNING'           => '<strong>User Warned</strong><br />%s',
 
     'SELECT'                     => 'Select',
     'TOPIC'                      => 'Topic',
@@ -473,6 +476,9 @@ $lang = array_merge($lang, array(
     'SHOUT_POST'                 => 'Posted the Thread <a href="%1$s" title="%2$s">%2$s</a>',
     'SHOUT_REPLY'                => 'Replied to the Thread <a href="%1$s" title="%2$s">%2$s</a>',
     'VIEW_MESSAGE'               => '%sView your Submitted Message%s',
+    'EXPAND_VIEW'                => 'Expand View',
+    'POST_DETAILS'               => 'Post Details',
+    'POST_NOT_EXIST1'            => 'Post Does Not Exist',
 ));
 
 $ignore_words = array(

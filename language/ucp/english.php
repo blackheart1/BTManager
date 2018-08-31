@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File ucp/english.php 2018-08-27 07:14:00 Thor
+** File ucp/english.php 2018-08-31 18:40:00 Thor
 **
 ** CHANGES
 **
@@ -25,6 +25,7 @@
 ** 2018-04-28 - Amended the Wording of some Sentences
 ** 2018-04-28 - Added Missing Languages
 ** 2018-06-16 - Added New Languages
+** 2018-08-31 - Added Missing Languages
 **/
 
 if (!defined('IN_PMBT'))
@@ -322,6 +323,10 @@ $lang = array_merge($lang, array(
     'INVALID_OPTION'           => 'Invalid Option Set.  Please go back and try again!',
     'LOGGED_IN_USE_PRO_EDIT'   => 'You are Logged in.  Please use Edit Profile.',
     'NO_TOPIC_SET'             => 'No Topic is Set.  Please Check your Link.',
+    'DRAFT_TITLE'              => 'Title',
+    'SAVE_DATE'                => 'Date',
+    'SAVE'                     => 'Save',
+    'DELETE_RULE'              => 'Delete Rule',
 ));
 
 ?>
