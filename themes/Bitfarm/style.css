@@ -218,6 +218,11 @@ a.topictitle:hover, .postbody a:hover {
 .rtl .postbody li, .rtl ol, .rtl ul {
 	margin: 0 1.5em 0 0;
 }
+.pro_pagen {
+	align-content:center;
+	font-size: 1em;
+text-align : center;
+}
 .gen {
 	margin: 1px 1px;
 	font-size: .8em;
@@ -774,6 +779,7 @@ th {
 	border-right: solid 1px #666666;
 	border-top: solid 1px #666666;
 	border-bottom: solid 1px #666666;
+	color: #000000;
 }
 th a, th a:visited {
 	color: #CCDFF0 !important;
@@ -1182,6 +1188,10 @@ a.topictitle {
 	font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
 	font-weight: bold;
 	font-size: 1.2em;
+}
+.tablebg a.attach {
+	color: #000000!important;
+	text-decoration : none;
 }
 
 a.topictitle, .postbody a {
@@ -1628,7 +1638,7 @@ font-weight : bold;
 .ttable_head th {
     background: -moz-linear-gradient(center top , rgba(130, 130, 130, 0.2) 0%, rgba(73, 73, 73, 0.2) 50%, rgba(0, 0, 4, 0.2) 50%, rgba(81, 81, 81, 0.2) 100%) repeat scroll 0 0 transparent;
     border: 1px solid #666666;
-    color: #FFFFFF;
+    color: #000000;
 }
 .t-row:hover .ttable_col1 {
     background: #83B842;

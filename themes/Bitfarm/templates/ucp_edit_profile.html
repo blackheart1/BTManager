@@ -1101,7 +1101,7 @@ function ChangeThumb(pic) {
 
 <tr>
     <td class="row3" colspan="2">
-        <span class="gensmall">{L_FRIENDS_EXPLAIN}</span>
+        <strong>{L_FRIENDS_EXPLAIN}</strong>
     </td>
 </tr>
 <tr>
@@ -1142,7 +1142,7 @@ function ChangeThumb(pic) {
 <table class="tablebg" width="100%" cellspacing="0">
 <tr>
     <td class="row3" colspan="2">
-        <span class="gensmall">{L_FOES_EXPLAIN}</span>
+        <strong>{L_FOES_EXPLAIN}</strong>
     </td>
 </tr>
 <tr>
@@ -1270,10 +1270,10 @@ function ChangeThumb(pic) {
         <!-- IF topicrow.S_ROW_COUNT is even --><tr class="row1"><!-- ELSE --><tr class="row2"><!-- ENDIF -->
             <td style="padding: 4px;" width="20" align="center" valign="middle">{topicrow.TOPIC_FOLDER_IMG}</td>
             <td style="padding: 4px;" width="100%" valign="top">
-                <p class="topictitle"><!-- IF topicrow.S_UNREAD_TOPIC --><a href="{topicrow.U_NEWEST_POST}">{NEWEST_POST_IMG}</a> <!-- ENDIF -->{topicrow.ATTACH_ICON_IMG} <a href="{topicrow.U_VIEW_TOPIC}">{topicrow.TOPIC_TITLE}</a></p>
-                <!-- IF topicrow.S_GLOBAL_TOPIC --><span class="gensmall">{L_GLOBAL_ANNOUNCEMENT}</span><!-- ELSE --><span class="gensmall"><strong>{L_FORUM}: </strong><a href="{topicrow.U_VIEW_FORUM}">{topicrow.FORUM_NAME}</a></span><!-- ENDIF -->
+                <p class="topictitle"><!-- IF topicrow.S_UNREAD_TOPIC --><a href="{topicrow.U_NEWEST_POST}">{NEWEST_POST_IMG}</a> <!-- ENDIF -->{topicrow.ATTACH_ICON_IMG} <a class="topictitle" href="{topicrow.U_VIEW_TOPIC}">{topicrow.TOPIC_TITLE}</a></p>
+                <!-- IF topicrow.S_GLOBAL_TOPIC --><span class="gensmall">{L_GLOBAL_ANNOUNCEMENT}</span><!-- ELSE --><span class="topictitle"><strong>{L_FORUM}: </strong><a class="topictitle" href="{topicrow.U_VIEW_FORUM}">{topicrow.FORUM_NAME}</a></span><!-- ENDIF -->
                 <!-- IF topicrow.PAGINATION -->
-                    <p class="gensmall"> [ {GOTO_PAGE_IMG}{L_GOTO_PAGE}: {topicrow.PAGINATION} ] </p>
+                    <p class="pro_pagen"> [ {GOTO_PAGE_IMG}{L_GOTO_PAGE}: {topicrow.PAGINATION} ] </p>
                 <!-- ENDIF -->
             </td>
             <td style="padding: 4px;" align="left" valign="top" nowrap="nowrap">
@@ -1551,10 +1551,10 @@ function ChangeThumb(pic) {
        <tbody>
     <tr>
         <th nowrap="nowrap">#</th>
-        <th nowrap="nowrap" width="15%"><a href="{U_SORT_FILENAME}">{L_NAME}</a></th>
-        <th nowrap="nowrap" width="5%"><a href="{U_SORT_POST_TIME}">{L_DATE}</a></th>
-        <th nowrap="nowrap" width="5%"><a href="{U_SORT_FILESIZE}">{L_SIZE}</a></th>
-        <th nowrap="nowrap" width="5%"><a href="{U_SORT_DOWNLOADS}">{L_DOWNED}</a></th>
+        <th nowrap="nowrap" width="15%"><a class="attach" href="{U_SORT_FILENAME}">{L_NAME}</a></th>
+        <th nowrap="nowrap" width="5%"><a class="attach" href="{U_SORT_POST_TIME}">{L_DATE}</a></th>
+        <th nowrap="nowrap" width="5%"><a class="attach" href="{U_SORT_FILESIZE}">{L_SIZE}</a></th>
+        <th nowrap="nowrap" width="5%"><a class="attach" href="{U_SORT_DOWNLOADS}">{L_DOWNED}</a></th>
         <th width="2%" nowrap="nowrap">{L_DELETE}</th>
     </tr>
     <!-- IF TOTAL_ATTACHMENTS -->
@@ -1576,9 +1576,9 @@ function ChangeThumb(pic) {
         <td class="genmed row" style="padding: 4px;" align="center" width="2%">&nbsp;{attachrow.ROW_NUMBER}&nbsp;</td>
 
         <td class="row" style="padding: 4px;">
-            <a class="gen" href="{attachrow.U_VIEW_ATTACHMENT}">{attachrow.FILENAME}</a><br />
+            <a class="topictitle" href="{attachrow.U_VIEW_ATTACHMENT}">{attachrow.FILENAME}</a><br />
             <span class="gensmall"><!-- IF attachrow.S_IN_MESSAGE --><strong>{L__PRIVATE_MESSAGE}: </strong><!-- ELSE --><strong>{L_TOPIC}: </strong><!-- ENDIF -->
-                <a href="{attachrow.U_VIEW_TOPIC}">{attachrow.TOPIC_TITLE}</a></span>
+                <a class="topictitle" href="{attachrow.U_VIEW_TOPIC}">{attachrow.TOPIC_TITLE}</a></span>
             </td>
 
         <td class="gensmall row" style="padding: 4px;" align="center" valign="middle" nowrap="nowrap">&nbsp;{attachrow.POST_TIME}&nbsp;</td>
