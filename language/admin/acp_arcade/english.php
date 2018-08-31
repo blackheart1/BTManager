@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File arcade/english.php 2018-08-27 07:33:00 Thor
+** File acp_arcade/english.php 2018-08-27 07:33:00 Thor
 **
 ** CHANGES
 **
