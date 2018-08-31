@@ -222,6 +222,9 @@ a.topictitle:hover, .postbody a:hover {
 	margin: 1px 1px;
 	font-size: .8em;
 }
+.faq {
+	font-size: 1em!important;
+}
 .pagination span strong {
 	padding: 0 2px;
 	margin: 0 2px;
@@ -1062,7 +1065,7 @@ div.caption {
     background: url("pics/menub.png") repeat-x scroll center top #83B842;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
-    color: #FFFFFF;
+    color: #111111;
     display: block;
     font-size: 9pt;
     height: 36px;
@@ -1950,6 +1953,10 @@ color : #980000;
 .gensmall {
 	margin: 1px 1px;
 	font-size: .8em;
+}
+table.notes span.gensmall {
+	margin: 1px 1px;
+	font-size: 1em;
 }
 table.legend td.gensmall {
 	margin: 1px 1px;

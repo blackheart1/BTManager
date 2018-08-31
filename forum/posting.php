@@ -1462,7 +1462,7 @@ set_site_var($page_title);
 	'body' => 'posting_body.html')
 );*/
 
-make_jumpbox(append_sid("{$phpbb_root_path}forum.$phpEx"));
+make_jumpbox(append_sid("{$phpbb_root_path}forum.$phpEx",'action=viewforum'), $forum_id,false,false,true);
 
 // Topic review
 if ($mode == 'reply' || $mode == 'quote')
