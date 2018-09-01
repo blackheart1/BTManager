@@ -474,6 +474,7 @@ $lang = array_merge($lang, array(
     'SORT_REASON'               => 'Reason',
     'SORT_REG_DATE'             => 'Registration Date',
     'USER_IS_INACTIVE'          => 'User is Inactive',
+	'SIGNATURE'					=> 'Signature',
     'SIGN_UP'                   => 'Sign Up',
     'SHOUT_BOX'                 => 'Shoutbox',
     'SHOUT_NEW_UPLOAD'          => 'Hi, I have just Uploaded [url=%1$s/details.php?id=%2$s][b]%3$s[/b][/url].  Enjoy it!',
@@ -778,6 +779,8 @@ $lang = array_merge($lang, array(
     'BOARD_SETTINGS'        => 'Board Settings',
     'SUBSCRIPTIONS'         => 'Subscriptions',
     'JAVA_CONF_LOGOUT'      => 'Are you sure you want to Logout?',
+	'USER_NAME_OPEN'		=> 'This User Name is Open for use!',
+	'USER_NAME_TAKEN'		=> 'This User Name is Taken!',
 
     #BBCode Errors
     '_MAX_FONT_SIZE_EXCEEDED'    => 'You can Only use Fonts up to Size %1$d.',

@@ -249,7 +249,7 @@ $user->set_lang('forum',$user->ulanguage);
 			topic_status($row, $replies, $unread_topic, $folder_img, $folder_alt, $topic_type);
 
 			$view_topic_url_params = "f=$forum_id&amp;t=$topic_id";
-			$view_topic_url = append_sid("{$phpbb_root_path}forum.$phpEx.", 'action=viewtopic&amp;' . $view_topic_url_params);
+			$view_topic_url = append_sid("{$phpbb_root_path}forum.$phpEx", 'action=viewtopic&amp;' . $view_topic_url_params);
 
 			// Send vars to template
 			$template->assign_block_vars('topicrow', array(

@@ -23,17 +23,17 @@ if (!defined('IN_PMBT'))
 	include_once './../../security.php';
 	die ();
 }
-		if((!checkaccess('m_edit_user')) OR (is_founder($id) && !$user->user_type==3)){
-              set_site_var('- '.$user->lang['USER_CPANNEL'].' - '.$user->lang['BT_ERROR']);
-			  meta_refresh('5',$siteurl."/index.php");
-                                $template->assign_vars(array(
-								        'S_ERROR_HEADER'          =>$user->lang['ACCESS_DENIED'],
-                                        'S_ERROR_MESS'            => $user->lang['NO_EDIT_PREV'],
-                                ));
-             echo $template->fetch('error.html');
-			close_out();
-	}
-       				         include 'admin/functions.php';
+if((!checkaccess('m_edit_user')) OR (is_founder($id) && !$user->user_type==3)){
+	set_site_var('- '.$user->lang['USER_CPANNEL'].' - '.$user->lang['BT_ERROR']);
+	meta_refresh('5',$siteurl."/index.php");
+			$template->assign_vars(array(
+					'S_ERROR_HEADER'          =>$user->lang['ACCESS_DENIED'],
+					'S_ERROR_MESS'            => $user->lang['NO_EDIT_PREV'],
+			));
+	echo $template->fetch('error.html');
+	close_out();
+}
+include 'admin/functions.php';
 $hiden = array(
 'take_edit'				=> '1',
 'action'				=> 'profile',
@@ -44,17 +44,17 @@ $sql = "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.Columns where TABLE_NAME = '"
 AND COLUMN_NAME NOT IN ('level','name','group_id','group_type','color','group_desc')";
 $result = $db->sql_query($sql);
 $val = array();
-	while ($row = $db->sql_fetchrow($result))
-	{
-$val[] = $row[0];
-	}
-	$db->sql_freeresult($result);
-        $adminlevel = "<select name=\"level\">";
-        $adminlevel .= "<option ".(($userrow["level"] == "user") ? "selected " :'' )."value=\"user\">".$user->lang['USER']."</option>";
-        $adminlevel .= "<option ".(($userrow["level"] == "premium") ? "selected " :'' )."value=\"premium\">".$user->lang['G_PREMIUM_USER']."</option>";
-        $adminlevel .= "<option ".(($userrow["level"] == "moderator") ? "selected " :'' )."value=\"moderator\">".$user->lang['G_MODERATOR']."</option>";
-        $adminlevel .= "<option ".(($userrow["level"] == "admin") ? "selected " :'' )."value=\"admin\">".$user->lang['G_ADMINISTRATORS']."</option>";
-        $adminlevel .= "</select>";
+while ($row = $db->sql_fetchrow($result))
+{
+	$val[] = $row[0];
+}
+$db->sql_freeresult($result);
+$adminlevel = "<select name=\"level\">";
+$adminlevel .= "<option ".(($userrow["level"] == "user") ? "selected " :'' )."value=\"user\">".$user->lang['USER']."</option>";
+$adminlevel .= "<option ".(($userrow["level"] == "premium") ? "selected " :'' )."value=\"premium\">".$user->lang['G_PREMIUM_USER']."</option>";
+$adminlevel .= "<option ".(($userrow["level"] == "moderator") ? "selected " :'' )."value=\"moderator\">".$user->lang['G_MODERATOR']."</option>";
+$adminlevel .= "<option ".(($userrow["level"] == "admin") ? "selected " :'' )."value=\"admin\">".$user->lang['G_ADMINISTRATORS']."</option>";
+$adminlevel .= "</select>";
 $template->assign_vars(array(
 		'S_HIDDEN_FIELDS'		=> build_hidden_fields($hiden),
         'CP_MOD_COMENTS'        => $userrow["modcomment"],

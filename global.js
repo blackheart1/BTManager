@@ -363,7 +363,7 @@ eval("page" + id + " = window.open(URL, '" + id + "', 'scrollbars=1,resizable=1,
 }
 function popusers(url)
 {
- newwindow=window.open(url,'popusers','height=70,width=400');
+ newwindow=window.open(url,'popusers','width=760,height=570');
  if (window.focus) {newwindow.focus()}
 }
 function subPanels(p)

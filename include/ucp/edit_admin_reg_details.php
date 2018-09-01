@@ -69,8 +69,8 @@ $disable_res											= utf8_normalize_nfc(request_var('disable_res', '',true))
 		#make sure user has rites to edit groups
 		if(checkaccess("a_edit_level")){
 			if (!isset($group) OR $group == "") $group = "";
-							if($userrow["can_do"] != $group)
-							add_log('admin','LOG_GROUP_CHANGE',username_is($uid),$group);//log group chonge
+			if($userrow["can_do"] != $group)
+			add_log('admin','LOG_GROUP_CHANGE',username_is($uid),$group);//log group chonge
 			processinput("can_do",$group);
 			$db->sql_query('DELETE FROM '.$db_prefix."_user_group WHERE user_id = ".$uid);
 			$sql = "INSERT INTO `".$db_prefix."_user_group` (`group_id`, `user_id`, `group_leader`, `user_pending`) VALUES ('" . $group . "', '" . $uid . "', '0', '0');";
