@@ -211,7 +211,7 @@ class mcp_warn
 	*/
 	function mcp_warn_post_view($action)
 	{
-		global $phpEx, $phpbb_root_path, $config;
+		global $phpEx, $phpbb_root_path, $config, $siteurl;
 		global $template, $db, $db_prefix, $user, $auth;
 
 		$post_id = request_var('p', 0);
@@ -315,7 +315,7 @@ class mcp_warn
 			$bbcode = new bbcode($user_row['bbcode_bitfield']);
 			$bbcode->bbcode_second_pass($message, $user_row['bbcode_uid'], $user_row['bbcode_bitfield']);
 		}
-
+			include_once($phpbb_root_path . 'include/function_posting.' . $phpEx);
 		$message = bbcode_nl2br($message);
 		$message = smiley_text($message);
 
@@ -338,7 +338,7 @@ class mcp_warn
 			'AVATAR_IMG'		=> $avatar_img,
 			'RANK_IMG'			=> $rank_img,
 
-			'L_WARNING_POST_DEFAULT'	=> sprintf($user->lang['WARNING_POST_DEFAULT'],  "/forum.$phpEx?action=viewtopic?f=$forum_id&amp;p=$post_id#p$post_id"),
+			'L_WARNING_POST_DEFAULT'	=> sprintf($user->lang['WARNING_POST_DEFAULT'],  "$siteurl/forum.$phpEx?action=viewtopic?f=$forum_id&amp;p=$post_id#p$post_id"),
 
 			'S_CAN_NOTIFY'		=> $s_can_notify,
 		));
