@@ -8,7 +8,7 @@
 <p>{S_ERROR_MESS}</p>
 </div>
 <!-- ENDIF -->
-<script type="text/javascript" src="themes/1thank/templates/attach.js"></script>
+<script type="text/javascript" src="{SITE_URL}/themes/1thank/templates/attach.js"></script>
 <script type="text/javascript" src="./java/tl.js"></script>
 <table class="tablebg" width="100%" cellspacing="0">
     <tr>
@@ -109,7 +109,7 @@
 
                         <script type="text/javascript">
                         var newpost_attachmentbit = '<!-' + '- BEGIN TEMPLATE: newpost_attachmentbit -' + '->\n<a href="#" onclick="insert_text(\'[img]%1$s[/img]\', true); return false;" style="line-height: 20px;"><img class="inlineimg" src="%1$s" alt="" border="0" /></a><!-' + '- END TEMPLATE: newpost_attachmentbit -' + '->';
-            vB_Attachments = new vB_Attachment('333333', '');
+           				vB_Attachments = new vB_Attachment('333333', '');
                         </script>
                         <noscript>
                         <a rel="nofollow" href="bitbucket-upload.php" target="manageattach" title="{L_ADD_EDIT_ATTACHMENTS}" tabindex="1"><strong>{L_MANAGE_ATTACHMENTS}</strong></a>
@@ -212,7 +212,7 @@
             <dt><label>{L_UPLOAD_ADVANCE_DHT}:</label></dt>
             <dd>
         <input type="radio" name="dht_support" value="0" checked />{L_UPLOAD_ADVANCE_NOEDIT}<br />
-        <input type="radio" name="dht_support" value="1" onClick="javascript:document.formdata.private_torrent[2].checked = true;" />{L_UPLOAD_ADVANCE_DHT_INABLE}<br />
+        <input type="radio" name="dht_support" value="1" onClick="javascript:document.postform.private_torrent[2].checked = true;" />{L_UPLOAD_ADVANCE_DHT_INABLE}<br />
         <input type="radio" name="dht_support" value="2" />{L_UPLOAD_ADVANCE_DHT_DISABLE}<br />
         <span class="gensmall">{L_UPLOAD_ADVANCED_OP_DHT_EXP}</span>
             </dd>
@@ -221,7 +221,7 @@
             <dt><label>{L_UPLOAD_ADVANCE_PVT}:</label></dt>
             <dd>
         <input type="radio" name="private_torrent" value="0" checked />{L_UPLOAD_ADVANCE_NOEDIT}<br />
-        <input type="radio" name="private_torrent" value="1" onClick="javascript:document.formdata.dht_support[2].checked = true;" />{L_UPLOAD_ADVANCE_PVT_INABLE}<br />
+        <input type="radio" name="private_torrent" value="1" onClick="javascript:document.postform.dht_support[2].checked = true;" />{L_UPLOAD_ADVANCE_PVT_INABLE}<br />
         <input type="radio" name="private_torrent" value="2" />{L_UPLOAD_ADVANCE_PVT_DISABLE}<br />
         <span class="gensmall">{L_UPLOAD_ADVANCED_OP_PRIVATE_EXP}</span>
             </dd>
@@ -300,7 +300,7 @@
                 <legend>{L_ATTACH_FILE}</legend>
 
                 <div style="padding:3px">
-                    <div style=" style="font-weight:200;margin-bottom:3px">
+                    <div style="font-weight:200;margin-bottom:3px">
                         <div>{L_YOUR_IMAGE_BUCKET}</div>
                         <div>{L_VALID_EXTENTIONS}</div>
                     </div>

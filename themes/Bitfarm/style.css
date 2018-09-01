@@ -12,6 +12,12 @@ p.linkmcp {
 	margin-top: 5px;
 	float: center;
 }
+img.inlineimg {
+	max-height:50px;
+}
+img.loadlate {
+	max-height:500px;
+}
 .search_cloud {
 color:#CCCCCC;
 }
@@ -712,7 +718,7 @@ h2, h3 {
     box-shadow: 0 0 5px #141414;
     font-size: 15;
     font-weight: 600;
-	color: #fff;
+	color: #000000;
     margin-top: 0;
     padding-left: 10px;
     padding-right: 10px;
@@ -2028,6 +2034,7 @@ table.legend td.gensmall {
     vertical-align: top;
 	margin-left: auto;
 	margin-right: auto;
+	width:100%;
 }
 #infobar {
     color: #DEDEDE;

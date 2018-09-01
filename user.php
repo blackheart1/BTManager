@@ -215,7 +215,7 @@ switch ($op) {
 				$npas = "SELECT newemail AS newemail FROM ".$db_prefix."_users WHERE id ='".intval($uid)."' AND mail_key = '".$db->sql_escape($code)."';";
 				$snpa =  $db->sql_query($npas);
 				$fnpa = $db->sql_fetchrow($snpa);
-				if($fnpa[0] === '' OR $fnpa[0] === 0)
+				if($fnpa['newemail'] === '' OR $fnpa['newemail'] === 0)
 				{
 					bterror('EMAIL_CHANGE_NOT_SET');
 				}

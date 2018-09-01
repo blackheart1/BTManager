@@ -17,6 +17,9 @@
                     <div id="nnImage_Manager">
                         <script type="text/javascript">
                         <!--
+						NcodeImageResizer.MODE = 'enlarge';
+						NcodeImageResizer.MAXWIDTH = 200;
+						NcodeImageResizer.MAXHEIGHT = 200;
                         function fetch_object(idname)
                         {
                             if (document.getElementById)
@@ -156,7 +159,7 @@
 <!-- ENDIF -->
                                 <td align="center" width="16%">
                                     <a href="{u_images.IMAGE_SOURCE}" target="_blank">
-                                    <img width="{u_images.IMAGE_WIDTH}px" src="{u_images.IMAGE_SOURCE}" alt="{u_images.IMAGE_NAME}" border="0">
+                                    <img width="{u_images.IMAGE_WIDTH}px" src="{u_images.IMAGE_SOURCE}" alt="{u_images.IMAGE_NAME}" border="0" onload="NcodeImageResizer.createOn(this);" />
                                     </a>
                                     <br />
                                     <a  href="#" onclick="window.opener.vB_Attachments.add({u_images.IMAGE_ID}, '{u_images.IMAGE_NAME}', '{u_images.IMAGE_SIZE}', '{u_images.IMAGE_SOURCE}');">{u_images.IMAGE_NAME}</a>({u_images.IMAGE_SIZE})

@@ -7,7 +7,7 @@
 <p>{S_ERROR_MESS}</p>
 </div>
 <!-- ENDIF -->
-<script type="text/javascript" src="themes/Bitfarm/templates/attach.js"></script>
+<script type="text/javascript" src="{SITE_URL}/themes/Bitfarm/templates/attach.js"></script>
 <script type="text/javascript" src="./java/tl.js"></script>
 <table class="tablebg" width="100%" cellspacing="0">
     <tr>
@@ -167,7 +167,7 @@
 
                         <script type="text/javascript">
                         var newpost_attachmentbit = '<!-' + '- BEGIN TEMPLATE: newpost_attachmentbit -' + '->\n<a href="#" onclick="insert_text(\'[img]%1$s[/img]\', true); return false;" style="line-height: 20px;"><img class="inlineimg" src="%1$s" alt="" border="0" /></a><!-' + '- END TEMPLATE: newpost_attachmentbit -' + '->';
-            vB_Attachments = new vB_Attachment('333333', '');
+ 				        vB_Attachments = new vB_Attachment('333333', '');
                         </script>
                         <noscript>
                         <a rel="nofollow" href="bitbucket-upload.php" target="manageattach" title="{L_ADD_EDIT_ATTACHMENTS}" tabindex="1"><strong>{L_MANAGE_ATTACHMENTS}</strong></a>

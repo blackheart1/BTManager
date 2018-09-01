@@ -31,7 +31,7 @@
 
 <!-- BEGIN size --><span style="font-size: {SIZE}%; line-height: 116%;">{TEXT}</span><!-- END size -->
 
-<!-- BEGIN img --><img src="{URL}" alt="{L_IMAGE}" /><!-- END img -->
+<!-- BEGIN img --><img src="{URL}" alt="{L_IMAGE}" onload="NcodeImageResizer.createOn(this);" /><!-- END img -->
 
 <!-- BEGIN url --><a href="{URL}" class="postlink">{DESCRIPTION}</a><!-- END url -->
 
@@ -46,8 +46,8 @@
         <ul class="topiclist">
             <li class="header">
                 <dl class="icon">
-                    <dt>
-&nbsp;
+                    <dt>&nbsp;
+
                     </dt>
                 </dl>
             </li>

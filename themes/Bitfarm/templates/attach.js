@@ -135,7 +135,7 @@ vB_Attachment.prototype.build_list = function(listobjid)
 						// try to use the template if it's been submitted to Javascript
 					if(typeof newpost_attachmentbit!="undefined")
 					{
-						C.innerHTML = construct_phrase(newpost_attachmentbit,this.attachments[id]["imgpath"],siteurl,id,Math.ceil((new Date().getTime())/1000),this.attachments[id]["filename"],this.attachments[id]["filesize"])
+						C.innerHTML = construct_phrase(newpost_attachmentbit,this.attachments[id]["imgpath"],pmbtsite_url,id,Math.ceil((new Date().getTime())/1000),this.attachments[id]["filename"],this.attachments[id]["filesize"])
 				}else{
 					C.innerHTML='<div style="margin:2px"><img src="'+this.attachments[id]["imgpath"]+'" alt="" class="inlineimg" /> <a href="attachment.php?'+SESSIONURL+"attachmentid="+id+"&stc=1&d="+Math.ceil((new Date().getTime())/1000)+'" target="_blank" />'+this.attachments[id]["filename"]+"</a> ("+this.attachments[id]["filesize"]+")</div>"
 					}

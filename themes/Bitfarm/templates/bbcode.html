@@ -40,7 +40,7 @@
 
 <!-- BEGIN size --><span style="font-size: {SIZE}%; line-height: 116%;">{TEXT}</span><!-- END size -->
 
-<!-- BEGIN img --><img src="{URL}" alt="{L_IMAGE}" /><!-- END img -->
+<!-- BEGIN img --><img src="{URL}" alt="{L_IMAGE}" onload="NcodeImageResizer.createOn(this);" /><!-- END img -->
 
 <!-- BEGIN url --><a href="{URL}" class="postlink"><strong>{DESCRIPTION}</strong></a><!-- END url -->
 <!-- BEGIN url_ext --><a href="redirect.php?link={URL}" class="postlink" target="_blank"><strong>{DESCRIPTION}</strong></a><!-- END url_ext -->

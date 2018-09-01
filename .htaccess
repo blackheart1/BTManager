@@ -27,6 +27,8 @@ RewriteRule ^home$ /index.php
 RewriteRule ^user-([0-9]*)$ /user.php?op=profile&id=$1
 RewriteRule ^user-([a-z\_]*)$ /user.php?op=profile&name=$1
 RewriteRule ^(.*)-a-(.*).ts(.*)$ announce.php?passkey=$2 [QSA,L]
+RewriteRule ^announce?(.*) announce.php?$1 [QSA,L]
+RewriteRule ^torrent-([0-9]*).html details.php?id=$1
 <Files 403.shtml>
 order allow,deny
 allow from all
