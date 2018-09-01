@@ -52,16 +52,14 @@ function str_replcae_tracker($mystring)
 	$new_ann = $mystring;
 	foreach($site_announce as $row)
 	{
-						$query_char = (strpos($row,"?")) ? "&" : "?";
-						if ($user->passkey != "" AND !$export)$passkey = $query_char."passkey=".urlencode($user->passkey);
-						else
-						$passkey = "";
-                       $pos = strpos($mystring, $row);
-					   #echo $row;
-                       if ($pos !== false)$new_ann = $row.$passkey;
+		$query_char = (strpos($row,"?")) ? "&" : "?";
+		if ($user->passkey != "" AND !$export)$passkey = $query_char."passkey=".urlencode($user->passkey);
+		else
+		$passkey = "";
+		$pos = ($mystring === $row)?true:false;
+		if ($pos !== false)$new_ann = $row.$passkey;
 	}
-	#die($new_ann);
-    				   return $new_ann;
+	return $new_ann;
 }
 function replace_content( &$node, $new_content )
 {
