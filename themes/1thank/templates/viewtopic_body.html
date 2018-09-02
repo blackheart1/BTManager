@@ -39,7 +39,7 @@
 	</div>
 
 	<!-- IF S_DISPLAY_SEARCHBOX -->
-		<div class="search-box">
+		<div class="search-box" style="display: none">
 			<form method="post" id="topic-search" action="{S_SEARCHBOX_ACTION}">
 
 			<fieldset>
@@ -183,9 +183,9 @@
 
 		<!-- IF not postrow.S_IGNORE_POST -->
 			<dl class="postprofile" id="profile{postrow.POST_ID}">
-			<dt>
+			<dt style="overflow:hidden">
 				<!-- IF postrow.POSTER_AVATAR -->
-					<!-- IF postrow.U_POST_AUTHOR --><a href="{postrow.U_POST_AUTHOR}">{postrow.POSTER_AVATAR}</a><!-- ELSE -->{postrow.POSTER_AVATAR}<!-- ENDIF --><br />
+					<!-- IF postrow.U_POST_AUTHOR --><span class="imgB1"><a href="{postrow.U_POST_AUTHOR}">{postrow.POSTER_AVATAR}</a></span><!-- ELSE -->{postrow.POSTER_AVATAR}<!-- ENDIF --><br />
 				<!-- ENDIF -->
 				<!-- IF not postrow.U_POST_AUTHOR --><strong>{postrow.POST_AUTHOR_FULL}</strong><!-- ELSE -->{postrow.POST_AUTHOR_FULL}<!-- ENDIF -->
 
@@ -263,13 +263,21 @@
 	</form>
 	<hr />
 <!-- ENDIF -->
-
+<!-- IF not S_IS_LOCKED -->
+<!-- IF S_QUICK_REPLY -->
+			<div class="content">
+				<fieldset class="submit-buttons">
+					<input name="show_qr" tabindex="1" class="button2" value="{L_QUICKREPLY}" onclick="var qr = document.getElementById('ca-qr'); qr.style.display = (qr.style.display == 'none') ? '' : 'none'; return false;" type="submit">
+				</fieldset>
+			</div>
+<!-- INCLUDE themes/1thank/templates/quickreply_editor.html -->
+<!-- ENDIF -->
+<!-- ENDIF -->
 <div class="topic-actions">
 	<div class="buttons">
 
 	<!-- IF not S_IS_BOT and S_DISPLAY_REPLY_INFO -->
 		<div class="<!-- IF S_IS_LOCKED -->locked-icon<!-- ELSE -->reply-icon<!-- ENDIF -->"><a href="{U_POST_REPLY_TOPIC}" title="<!-- IF S_IS_LOCKED -->{L_TOPIC_LOCKED}<!-- ELSE -->{L_POST_REPLY}<!-- ENDIF -->"><span></span><!-- IF S_IS_LOCKED -->{L_TOPIC_LOCKED_SHORT}<!-- ELSE -->{L_POST_REPLY}<!-- ENDIF --></a></div>
-				<!-- IF S_QUICK_REPLY --><a href="javascript:void(0);" onclick="var qr = document.getElementById('ca-qr'); qr.style.display = (qr.style.display == 'none') ? '' : 'none'; return false;"><img src="{T_IMAGESET_LANG_PATH}/quick_reply.gif" alt="{L_QUICKREPLY}" title="{L_QUICKREPLY}" /></a><!-- ENDIF -->
 	<!-- ENDIF -->
 	</div>
 
@@ -282,12 +290,6 @@
 	<!-- ENDIF -->
 </div>
 
-<!-- IF not S_IS_LOCKED -->
-
-<!-- IF S_QUICK_REPLY -->
-<!-- INCLUDE themes/1thank/templates/quickreply_editor.html -->
-<!-- ENDIF -->
-<!-- ENDIF -->
 
 <!-- INCLUDE themes/1thank/templates/jumpbox.html -->
 
