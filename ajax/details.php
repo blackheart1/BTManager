@@ -118,6 +118,7 @@ if($op == 'view_peers_page')
 							U.id AS uid, 
 							U.username AS username, 
 							U.name AS name, 
+							UNIX_TIMESTAMP(U.lastlogin) AS user_lststamp, 
 							U.avatar AS avatar, 
 							U.can_do as can_do, 
 							U.level AS level, 
@@ -183,7 +184,8 @@ if($op == 'view_peers_page')
                             'IDLE_TIME'      => mkprettytime(time()-$row["last_action_ts"]),
                             'USER_IP'        => $ip,
                             'AVATAR'         => gen_avatar($row["uid"]),
-
+							'USER_HOST'		 =>	((checkaccess("a_see_ip"))? gethostbyaddr($ip) : false),
+							'ONLINE'		 =>	(($row["user_lststamp"] > (time()-300))? true : false),
                             'RANK_IMG'       => '<img src="themes/' . $theme . '/pics/group/' . $row["can_do"] . '.png" title="' . ((!empty($user->lang[$row['lname']]))?$user->lang[$row['lname']]:$row['lname']) . '" alt="' . ((!empty($user->lang[$row['lname']]))?$user->lang[$row['lname']]:$row['lname']) . '">',
 
                             'IS_USER'        => (($row["uid"] != 0)? true : false),

@@ -30,47 +30,54 @@
                 <table border="0" cellpadding="0" cellspacing="0" width="100%">
                     <tbody>
 <!-- BEGIN peer_list -->
-<!-- IF peer_list.S_FIRST_ROW -->
-                        <tr>
-<!-- ENDIF -->
-                            <td style="vertical-align:bottom">
-                                <div>
-                                                        <span class="overlib" onmouseover="return overlib('{L_UPLODED}: {peer_list.UPLOADED}<br />{L_DOWNED}: {peer_list.DOWNLOADED}<br />{L_COMPLETED}: {peer_list.PERCENT}<br />{L_RATIO}: {peer_list.RATIO}<br />{L_UP_SPEED}: {peer_list.SPEED}/s<br /><!-- IF peer_list.DOWNLOAD_SPEED -->{L_DOWN_SPEED}: {peer_list.DOWNLOAD_SPEED}/s<br /><!-- ENDIF -->',CAPTION, 'Transfer',TEXTFONT,'Verdana',TEXTCOLOR,'#FFFFFF',CAPTIONFONT,'Lucida Console, Verdana',CENTER,FGCOLOR,'#000000',BGCOLOR,'#0000FF',CAPICON,'themes/Bitfarm/pics/help.png',BORDER,2,SHADOW,SHADOWOPACITY,40,SHADOWCOLOR,'#030303',SHADOWX,2,SHADOWY,2);" onmouseout="return nd();" style="cursor:help">
-                                                            <img src="themes/Bitfarm/pics/help.gif" alt="" title="" border="0">
-                                                        </span>
-                                                        <img src="themes/Bitfarm/pics/<!-- IF peer_list.IS_SEEDER -->upload<!-- ELSE -->download<!-- ENDIF -->.gif" alt="<!-- IF peer_list.IS_SEEDER -->{L_SEEDING}<!-- ELSE -->{L_LEECHING}<!-- ENDIF -->" title="<!-- IF peer_list.IS_SEEDER -->{L_SEEDING}<!-- ELSE -->{L_LEECHING}<!-- ENDIF -->" border="0">
-                                                        <img src="client_icons/{peer_list.CLIENT_IMG}.gif" alt="{peer_list.USER_CLIENT}" title="{peer_list.USER_CLIENT}">
-                                                        <img src="themes/Bitfarm/pics/<!-- IF peer_list.CONECTABLE -->icon_active<!-- ELSE -->icon_passive<!-- ENDIF -->.gif" alt="<!-- IF peer_list.CONECTABLE -->{L_ACTIVE}<!-- ELSE -->{L_IN_ACTIVE}<!-- ENDIF -->" title="<!-- IF peer_list.CONECTABLE -->{L_ACTIVE}<!-- ELSE -->{L_IN_ACTIVE}<!-- ENDIF -->" border="0">
-                                                    <span class="overlib" onmouseover="return overlib('{L_CONNECTED}: {peer_list.START_TIME} <br />{L_IN_ACTIVE}: {peer_list.IDLE_TIME} ',CAPTION, '{L_TIME_CONNECTED}',TEXTFONT,'Verdana',TEXTCOLOR,'#FFFFFF',CAPTIONFONT,'Lucida Console, Verdana',CENTER,FGCOLOR,'#000000',BGCOLOR,'#0000FF',CAPICON,'themes/Bitfarm/pics/help.png',BORDER,2,SHADOW,SHADOWOPACITY,40,SHADOWCOLOR,'#030303',SHADOWX,2,SHADOWY,2);" onmouseout="return nd();" style="cursor:help"><img src="themes/Bitfarm/pics/clock.gif" alt="" title="" border="0"></span>
-                                </div>
-                                <p>
-                                <!-- IF peer_list.IS_USER -->
-                                <a href="user.php?op=profile&amp;id={peer_list.USER_ID}" target="_top">{peer_list.AVATAR}
-                                <br />
-                                <font color="#{peer_list.USER_COLOR}">{peer_list.USER_NAME}</font>
-                                <br />
-                                {peer_list.RANK_IMG}
-                                </a>
-                                <!-- ELSE -->
-                                {peer_list.USER_IP}
-                                <!-- ENDIF -->
-                                </p>
-                                <table class="main" border="0" width="100%">
-                                    <tbody>
-                                        <tr width="100%">
-                                            <td style="padding: 0px; width:100px; background-image: url(images/loadbarbg.gif); background-repeat: repeat-x"><img src="images/loadbargreen.gif" alt="{peer_list.IMG_BAR_WIDTH}%" height="15" width="{peer_list.IMG_BAR_WIDTH}"><br /><font color="red" size="1"><center>{peer_list.PERCENT}</center></font>
+                            <tr>
+                                <td >
+                                    <table width="100%">
+                                        <tr>
+                                            <td width="15%">{peer_list.AVATAR}</td>
+                                            <td width="85%">
+                                                 <h4 class="imdb-odd">{L_USER}:</h4>
+                                               <div class="article" id="titleCast">
+                                                <h2 class="imdb-odd">
+                                                <span class="itemprop" itemprop="name"><a href="user.php?op=profile&amp;id={peer_list.USER_ID}"><font style="background-color: #{peer_list.USER_COLOR};">{peer_list.USER_NAME}</font></a>&nbsp;&nbsp;<!-- IF peer_list.ONLINE --><img src="themes/1thank/pics/online.gif" alt="{L_ON_LINE}" title="{L_ON_LINE}" border="0"><!-- ELSE --><img src="themes/1thank/pics/offline.gif" alt="{L_OFF_LINE}" title="{L_OFF_LINE}" border="0"><!-- ENDIF -->
+                                                </span>
+                                                </h2>
+
+                                                <span class="itemprop" itemprop="name"><a href="pm.php?op=send&amp;to={peer_list.USER_ID}"><img src="themes/1thank/pics/icon_mail.gif" alt="{L_NEW_MESAGE}" title="{L_NEW_MESAGE}" border="0"></a></span>&nbsp;&nbsp;
+                                                <span class="ghost">|</span>&nbsp;&nbsp;
+                                                <span class="itemprop" itemprop="name"><!-- IF peer_list.USER_IP -->{peer_list.USER_IP} ({peer_list.USER_HOST})<!-- ENDIF --></span>
+                                                <br clear="all" />
+                                                <h4 class="imdb-odd">{L_STATISTICS}:</h4>
+                                                <span class="itemprop" itemprop="name"><img src="themes/1thank/pics/<!-- IF peer_list.IS_SEEDER -->upload<!-- ELSE -->download<!-- ENDIF -->.gif" alt="<!-- IF peer_list.IS_SEEDER -->{L_SEEDING}<!-- ELSE -->{L_LEECHING}<!-- ENDIF -->" title="<!-- IF peer_list.IS_SEEDER -->{L_SEEDING}<!-- ELSE -->{L_LEECHING}<!-- ENDIF -->" border="0"></span>&nbsp;&nbsp;
+                                                <span class="ghost">|</span>&nbsp;&nbsp;
+                                                <span class="itemprop" itemprop="name"> <img src="client_icons/{peer_list.CLIENT_IMG}.gif" alt="{peer_list.USER_CLIENT}" title="{peer_list.USER_CLIENT}"></span>&nbsp;&nbsp;
+                                                <span class="ghost">|</span>&nbsp;&nbsp;
+                                                <span class="itemprop" itemprop="name"><img src="themes/1thank/pics/<!-- IF peer_list.CONECTABLE -->icon_active<!-- ELSE -->icon_passive<!-- ENDIF -->.gif" alt="<!-- IF peer_list.CONECTABLE -->{L_ACTIVE}<!-- ELSE -->{L_IN_ACTIVE}<!-- ENDIF -->" title="<!-- IF peer_list.CONECTABLE -->{L_ACTIVE}<!-- ELSE -->{L_IN_ACTIVE}<!-- ENDIF -->" border="0"></span><br />
+                                                <span class="itemprop" itemprop="name">{L_CONNECTED}: {peer_list.START_TIME}</span>&nbsp;&nbsp;
+                                                <span class="ghost">|</span>&nbsp;&nbsp;
+                                                <span class="itemprop" itemprop="name">{L_IN_ACTIVE}: {peer_list.IDLE_TIME} </span>&nbsp;&nbsp;
+                                                <span class="ghost">|</span>&nbsp;&nbsp;
+                                                <span class="itemprop" itemprop="name">{L_UPLODED} : {peer_list.UPLOADED}</span>&nbsp;&nbsp;
+                                                <span class="ghost">|</span>&nbsp;&nbsp;
+                                                <span class="itemprop" itemprop="name">{L_DOWNED} : {peer_list.UPLOADED}</span>
+                                                <br clear="all" />
+                                                <span class="itemprop" itemprop="name">{L_UP_SPEED}: {peer_list.SPEED}/s</span>&nbsp;&nbsp;
+                                                <span class="ghost">|</span>&nbsp;&nbsp;
+                                                <span class="itemprop" itemprop="name">{L_RATIO} : {peer_list.RATIO}</span>&nbsp;&nbsp;
+                                                <span class="ghost">|</span>&nbsp;&nbsp;
+                                                <span class="itemprop" itemprop="name">{L_SEEDING} : <!-- IF peer_list.IS_SEEDER -->{L_YES}<!-- ELSE -->{L_NO}<!-- ENDIF --></span>&nbsp;&nbsp;
+                                                </div>
+
                                             </td>
                                         </tr>
-                                    </tbody>
-                                </table>
-                            </td>
-<!-- IF peer_list.S_LAST_ROW -->
-                        </tr>
-<!-- ENDIF -->
+                                    </table>
+                                                <hr />
+                                </td>
+                                <td>{users_var.ANSWER}</td>
+                            </tr>
 <!-- BEGINELSE -->
-                            <td><p>{L_NO_PEERS}</p></td>
+                            <tr><td><p>{L_NO_PEERS}</p></td></tr>
 <!-- END peer_list -->
-                        </tr>
                     </tbody>
                 </table>
             </td>
