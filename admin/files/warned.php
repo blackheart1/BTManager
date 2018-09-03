@@ -24,7 +24,7 @@ if (!defined('IN_PMBT'))
 	die ("You can't access this file directly");
 }
 include_once 'include/user.functions.php';
-$user->set_lang('admin/warned',$user->ulanguage);
+$user->set_lang('admin/acp_warned',$user->ulanguage);
 		$deletemark = (!empty($_POST['delmarked'])) ? true : false;
 		$deleteall	= (!empty($_POST['delall'])) ? true : false;
 		$marked		= request_var('mark', array(0));

@@ -27,9 +27,9 @@ if (!defined('IN_PMBT'))
     die ("You can't access this file directly");
 }
 
-$user->set_lang('admin/bans',$user->ulanguage);
+$user->set_lang('admin/acp_bans',$user->ulanguage);
 $user->set_lang('ban',$user->ulanguage);
-$user->set_lang('admin/users',$user->ulanguage);
+$user->set_lang('admin/acp_users',$user->ulanguage);
 
 $mode = request_var('mode', 'user');
 

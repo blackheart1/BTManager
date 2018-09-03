@@ -45,7 +45,7 @@ class mcp_logs
 		global $auth, $db, $db_prefix, $user, $template;
 		global $config, $phpbb_root_path, $phpEx;
 
-		$user->set_lang('admin/main',$user->ulanguage);//$user->add_lang('acp/common');
+		$user->set_lang('admin/acp_main',$user->ulanguage);//$user->add_lang('acp/common');
 
 		$action = request_var('action', array('' => ''));
 

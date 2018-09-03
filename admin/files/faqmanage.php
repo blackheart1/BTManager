@@ -23,7 +23,7 @@ if (!defined('IN_PMBT'))
 	include_once './../../security.php';
 	die ("You can't access this file directly");
 }
-$user->set_lang('admin/faqmanager',$user->ulanguage);
+$user->set_lang('admin/acp_faqmanager',$user->ulanguage);
 $action			= request_var('action', '');
 $order			= request_var('order', array(0));
 $fid			= request_var('id', '');

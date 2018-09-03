@@ -23,7 +23,7 @@ if (!defined('IN_PMBT'))
 	include_once './../../security.php';
 	die ("You can't access this file directly");
 }
-$user->set_lang('admin/modrules',$user->ulanguage);
+$user->set_lang('admin/acp_modrules',$user->ulanguage);
 //DELETE RULE SECTION PAGE/FORM
 $id = (int)request_var('id', '0');
 $act = request_var('act', '');

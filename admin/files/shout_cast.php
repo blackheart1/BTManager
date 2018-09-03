@@ -23,7 +23,7 @@ if (!defined('IN_PMBT'))
 	include_once './../../security.php';
 	die ("You can't access this file directly");
 }
-$user->set_lang('admin/shout_cast',$user->ulanguage);
+$user->set_lang('admin/acp_shout_cast',$user->ulanguage);
 if(isset($do) && $do == "save")
 {
 	$errors = array();

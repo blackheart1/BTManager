@@ -24,7 +24,7 @@ if (!defined('IN_PMBT'))
 	die ("You can't access this file directly");
 }
 include_once('include/user.functions.php');
-$user->set_lang('admin/logs',$user->ulanguage);
+$user->set_lang('admin/acp_logs',$user->ulanguage);
 define('ADMIN_MODE',0);
 define('MOD_MODE',1);
 define('USERS_MODE',3);
@@ -205,6 +205,7 @@ if($delmarked && $auth->acl_get('a_clearlogs'))
 					$data[] = '<a href="' . $errors[$check] . '">' . $user->lang['LOGVIEW_' . strtoupper($check)] . '</a>';
 				}
 			}
+			//echo $errors['time'];
 			$template->assign_block_vars('log', array(
 				'USERNAME'			=> $errors['username_full'],
 				'USER_ID'			=>	$errors['user_id'],

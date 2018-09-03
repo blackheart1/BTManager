@@ -69,7 +69,7 @@ class mcp_notes
 			break;
 
 			case 'user_notes':
-				$user->set_lang('admin/main',$user->ulanguage);
+				$user->set_lang('admin/acp_main',$user->ulanguage);
 
 				$this->mcp_notes_user_view($action);
 				$this->tpl_name = 'mcp_notes_user';

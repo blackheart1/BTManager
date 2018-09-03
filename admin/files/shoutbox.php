@@ -27,7 +27,7 @@ $cfgquery = "SELECT * FROM ".$db_prefix."_shout_config;";
 $cfgres = $db->sql_query($cfgquery);
 $cfgrow = $db->sql_fetchrow($cfgres);
 $db->sql_freeresult($cfgres);
-$user->set_lang('admin/shout_box',$user->ulanguage);
+$user->set_lang('admin/acp_shout_box',$user->ulanguage);
 
 $do						= request_var('do', '');
 

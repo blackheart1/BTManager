@@ -23,7 +23,7 @@ if (!defined('IN_PMBT'))
 	include_once './../../security.php';
 	die ("You can't access this file directly");
 }
-$user->set_lang('admin/image-bucket',$user->ulanguage);
+$user->set_lang('admin/acp_image-bucket',$user->ulanguage);
 	if(!isset($userfile)){
 		$sql = "SELECT * FROM `".$db_prefix."_img_bucket` LIMIT 0, 30 ";
 		$res = $db->sql_query($sql);

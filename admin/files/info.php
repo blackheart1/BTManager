@@ -23,7 +23,7 @@ if (!defined('IN_PMBT'))
 	include_once './../../security.php';
 	die ("You can't access this file directly");
 }
-$user->set_lang('admin/php_info',$user->ulanguage);
+$user->set_lang('admin/acp_php_info',$user->ulanguage);
 		ob_start();
 		@phpinfo(INFO_GENERAL | INFO_CONFIGURATION | INFO_MODULES | INFO_VARIABLES);
 		$phpinfo = ob_get_clean();

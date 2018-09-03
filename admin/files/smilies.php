@@ -23,7 +23,7 @@ if (!defined('IN_PMBT'))
 	include_once './../../security.php';
 	die ("You can't access this file directly");
 }
-$user->set_lang('admin/smilies',$user->ulanguage);
+$user->set_lang('admin/acp_smilies',$user->ulanguage);
 function RebuildSortIndex() {
         global $db, $db_prefix;
         $sql = "SELECT id FROM ".$db_prefix."_smiles ORDER BY sort_index ASC;";

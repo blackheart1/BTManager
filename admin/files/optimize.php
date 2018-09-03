@@ -23,7 +23,7 @@ if (!defined('IN_PMBT'))
 	include_once './../../security.php';
 	die ("You can't access this file directly");
 }
-$user->set_lang('admin/optimize',$user->ulanguage);
+$user->set_lang('admin/acp_optimize',$user->ulanguage);
 		$template->assign_vars(array(
 			'L_TITLE'		=> $user->lang['_admstatus'],
 			'L_TITLE_EXPLAIN'		=> $user->lang['_admoptimizedbexplain'],

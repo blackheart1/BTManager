@@ -24,7 +24,7 @@ if (!defined('IN_PMBT'))
 	die ("You can't access this file directly");
 }
 include_once('include/user.functions.php');
-$user->set_lang('admin/user_add',$user->ulanguage);
+$user->set_lang('admin/acp_user_add',$user->ulanguage);
 $saved = NULL;
         $do					= request_var('do', '');
 $sql = 'SELECT `group_id`, `group_founder_manage` FROM `'.$db_prefix.'_level_settings` WHERE `group_default` = 1 LIMIT 1 '; 

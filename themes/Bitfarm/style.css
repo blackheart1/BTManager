@@ -1636,6 +1636,15 @@ font-size : 8pt;
 color : #FFFFFF;
 font-weight : bold;
 }
+td.peer_av
+{
+	height:130px;
+}
+td.peer_av img.avatar
+{
+	max-height:100%;
+	width:auto;
+}
 .ttable_headinner {
     border: 0px solid #666666;
     border-spacing: 1px;

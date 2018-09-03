@@ -24,7 +24,7 @@ if (!defined('IN_PMBT'))
 	die ("You can't access this file directly");
 }
 include_once'include/class.bbcode.php';
-$user->set_lang('admin/bbcode',$user->ulanguage);
+$user->set_lang('admin/acp_bbcode',$user->ulanguage);
 	$template->assign_vars(array(
 		'ICON_EDIT'					=> '<img src="themes/' . $themne . '/pics/edit.gif" alt="Edit" title="Edit" border="0">',
 		'ICON_DELETE'				=> '<img src="themes/' . $themne . '/pics/drop.gif" alt="Delete" title="Delete" border="0">',

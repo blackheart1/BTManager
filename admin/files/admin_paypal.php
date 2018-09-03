@@ -27,7 +27,7 @@ include_once('include/function_posting.php');
 include_once('include/message_parser.php');
 include_once('include/class.bbcode.php');
 include_once("include/utf/utf_tools.php");
-$user->set_lang('admin/pay_pal',$user->ulanguage);
+$user->set_lang('admin/acp_pay_pal',$user->ulanguage);
 $cfgquery = "SELECT * FROM ".$db_prefix."_paypal;";
 $cgfres = $db->sql_query($cfgquery)or btsqlerror($cfgquery);
 $cfgrow = $db->sql_fetchrow($cgfres);

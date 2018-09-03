@@ -99,7 +99,7 @@ if (!$auth->acl_get('a_')){
 	die();
 }
 require_once("admin/language/".$user->ulanguage.".php");
-$user->set_lang('admin/main',$user->ulanguage);
+$user->set_lang('admin/acp_main',$user->ulanguage);
 		if ($user->data['user_perm_from'])
 		{
 			//die();

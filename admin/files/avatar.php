@@ -26,7 +26,7 @@ if (!defined('IN_PMBT'))
     die ("You can't access this file directly");
 }
 
-$user->set_lang('admin/avatar',$user->ulanguage);
+$user->set_lang('admin/acp_avatar',$user->ulanguage);
 
 $cfgquery = "SELECT
         `enable_avatars` AS ALLOW_AVATARS,

@@ -23,7 +23,7 @@ if (!defined('IN_PMBT'))
 	include_once './../../security.php';
 	die ("You can't access this file directly");
 }
-$user->set_lang('admin/webupdate',$user->ulanguage);
+$user->set_lang('admin/acp_webupdate',$user->ulanguage);
 $serverurl = "http://btmanager.org";
 $u_action = 'admin.php?i=siteinfo&op=webupdate';
 

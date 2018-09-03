@@ -23,7 +23,7 @@ if (!defined('IN_PMBT'))
 	include_once './../../security.php';
 	die ("You can't access this file directly");
 }
-$user->set_lang('admin/staffmess',$user->ulanguage);
+$user->set_lang('admin/acp_staffmess',$user->ulanguage);
 		$page			= request_var('page', 'index');
 		$action		= request_var('action', '');
 							$template->assign_block_vars('l_block1.l_block2',array(

@@ -23,7 +23,7 @@ if (!defined('IN_PMBT'))
 	include_once './../../security.php';
 	die ("You can't access this file directly");
 }
-$user->set_lang('admin/searchcloud',$user->ulanguage);
+$user->set_lang('admin/acp_searchcloud',$user->ulanguage);
 $cfgquery = "SELECT * FROM ".$db_prefix."_search_cloud;";
 $cgfres = $db->sql_query($cfgquery);
 $cfgrow = $db->sql_fetchrow($cgfres);
