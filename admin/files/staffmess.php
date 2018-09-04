@@ -47,7 +47,7 @@ if($page=="pm"){
 		include_once('include/message_parser.php');
 		include_once('include/class.bbcode.php');
 		include_once('include/ucp/functions_privmsgs.php');
-require_once("include/constants.php");
+		require_once("include/constants.php");
 		$subject			= request_var('subject', '',true);
 		$sender				= request_var('sender', '');
 		$message			= request_var('message', '', true);
@@ -169,6 +169,7 @@ if ($page == "mail")
 		$bypass				= request_var('bypass', '');
 		$subject			= request_var('subject', '',true);
 		$message			= request_var('message', '',true);
+		$errmsg = array();
 	if(sizeof($group))$groupuser = "can_do IN ('".implode( "', '",$group)."') AND ";
 	else
 	$groupuser = "";
@@ -184,9 +185,8 @@ if ($page == "mail")
 	$from_email = $admin_email; //site email
 	if ($subject == "") $subject = $sitename;
 		include_once($phpbb_root_path . 'include/function_messenger.php');
-		$messenger = new messenger();
 	$subject = substr(trim($subject), 0, 80);
-	if (!isset($message1) OR empty($message1)) $errmsg[] = $user->lang['ERR_NO_BODY'];
+	if (!isset($message) OR empty($message)) $errmsg[] = $user->lang['ERR_NO_BODY'];
 	if (count($errmsg) > 0)
 	{
 				$template->assign_vars(array(
@@ -199,21 +199,21 @@ if ($page == "mail")
 				close_out();
 	}
 	$usermissed = false;
+	$messenger = new messenger();
+	$messenger->template('staffmess', $user->ulanguage);
 	while($arr=$db->sql_fetchrow($e_mail))
 	{
-		//die( $arr['username']);
-		$messenger->template('staffmess', $language);
 		$messenger->to($arr['email'], $arr['username']);
 		$messenger->im($arr['jabber'], $arr['username']);
-				$messenger->assign_vars(array(
-						'SENDER'				=>	$sitename,
-						'SEND_DATE'				=>	gmdate("Y-m-d H:i:s"),
-						'STAFF_MESSAGE'			=>	$message,
-						'SUB_JECT'				=>	$subject,
-				));
-				$messenger->send(0);
 	}
-		$messenger->save_queue();
+	$messenger->assign_vars(array(
+			'SENDER'				=>	$sitename,
+			'SEND_DATE'				=>	gmdate("Y-m-d H:i:s"),
+			'STAFF_MESSAGE'			=>	$message,
+			'SUB_JECT'				=>	$subject,
+	));
+	$messenger->send(0);
+	$messenger->save_queue();
 
 
 if (!$usermissed){
