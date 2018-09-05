@@ -68,7 +68,7 @@
 	<!-- BEGIN user -->
 		<!-- IF user.S_ROW_COUNT is even --><tr class="row1"><!-- ELSE --><tr class="row2"><!-- ENDIF -->
 			<td>
-				<a href=user.php?op=editprofile&id=$userid><font color="{user.USER_COLOR}">{user.USER_NAME}</font></a>
+				<a href=user.php?op=editprofile&id={user.USER_ID}><font color="{user.USER_COLOR}">{user.USER_NAME}</font></a>
 				<br /><span>{L_UPLODED}: {user.USER_UPED}</span>
 				<br /><span>{L_DOWNED}: {user.USER_DOWNED}</span>
 			</td>
@@ -118,7 +118,7 @@
 	<!-- BEGIN user -->
 		<!-- IF user.S_ROW_COUNT is even --><tr class="row1"><!-- ELSE --><tr class="row2"><!-- ENDIF -->
 			<td>
-				<a href=user.php?op=editprofile&id=$userid><font color="{user.USER_COLOR}">{user.USER_NAME}</font></a>
+				<a href=user.php?op=editprofile&id={user.USER_ID}><font color="{user.USER_COLOR}">{user.USER_NAME}</font></a>
 				<br /><span>{L_UPLODED}: {user.USER_UPED}</span>
 				<br /><span>{L_DOWNED}: {user.USER_DOWNED}</span>
 			</td>

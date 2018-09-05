@@ -859,7 +859,6 @@ switch ($mode)
 				//$result = $db->sql_query($sql);
 
 				include_once($phpbb_root_path . 'include/function_messenger.' . $phpEx);
-				$messenger = new messenger(false);
 				$email_tpl = ($user_id) ? 'profile_send_email' : 'email_notify';
 
 				$mail_to_users = array();
@@ -894,6 +893,7 @@ switch ($mode)
 
 				foreach ($mail_to_users as $row)
 				{
+				$messenger = new messenger(false);
 					$messenger->template($email_tpl, $row['email_lang']);
 					$messenger->replyto($user->email);
 					$messenger->to($row['email'], $row['name']);

@@ -98,11 +98,9 @@ if (!$auth->acl_get('a_')){
 	header("Location: ".$siteurl."/login.php?return=".$_SERVER["REQUEST_URI"]);
 	die();
 }
-require_once("admin/language/".$user->ulanguage.".php");
 $user->set_lang('admin/acp_main',$user->ulanguage);
 		if ($user->data['user_perm_from'])
 		{
-			//die();
 			$sql = 'SELECT id, username, user_colour
 				FROM ' . $db_prefix . '_users
 				WHERE id = ' . $user->data['user_perm_from'];
@@ -132,7 +130,7 @@ set_site_var($user->lang['ADMINISTRATOR']);
 		$i 				= $acp;
 		$op				= request_var('op', '');
 		$acp_menu 		= 'admin_'.(($acp != '')? $acp : 'siteinfo');
-$admintab = array('staff','siteinfo','userinfo','torrentinfo');
+$admintab = array('siteinfo','userinfo','torrentinfo');
 adminentry("home","home","Home","siteinfo","mod");
 #Fetching operators list and displaying Admin menu
 foreach($admintab as $val){
