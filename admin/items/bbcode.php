@@ -25,7 +25,7 @@ if (!defined('IN_PMBT'))
 }
 if($auth->acl_get('a_bbcode'))
 {
-	adminentry("bbcode","bbcode",$user->lang['MENU_BBCODES'],"staff","mod");
+	adminentry("bbcode","bbcode",$user->lang['MENU_BBCODES'],"siteinfo","mod");
 	$op_keys = explode(",","bbcode,delete_bbcode,clear_bbcode,new_bbcode,edit_bbcode");
 }
 ?>

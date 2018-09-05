@@ -25,7 +25,7 @@ if (!defined('IN_PMBT'))
 }
 if($auth->acl_get('a_site_rules'))
 {
-	adminentry("modrules","modrules",$user->lang['MOD_RULES_PANEL'],"staff","mod");
+	adminentry("modrules","modrules",$user->lang['MOD_RULES_PANEL'],"siteinfo","mod");
 	$op_keys = explode(",","modrules");
 }
 ?>

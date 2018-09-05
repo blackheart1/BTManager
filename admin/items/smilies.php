@@ -25,7 +25,7 @@ if (!defined('IN_PMBT'))
 }
 if($auth->acl_get('a_smilies'))
 {
-	adminentry("smilies","smilies",$user->lang['MENU_SMILIES'],"staff","mod");
+	adminentry("smilies","smilies",$user->lang['MENU_SMILIES'],"siteinfo","mod");
 	$op_keys = explode(",","smilies,addsmile,editsmile,delsmile");
 }
 ?>

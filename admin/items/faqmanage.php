@@ -25,7 +25,7 @@ if (!defined('IN_PMBT'))
 }
 if($auth->acl_get('a_faq_manage'))
 {
-	adminentry("faqmanage","faqmanage",$user->lang['MENU_FAQ'],"staff","mod");
+	adminentry("faqmanage","faqmanage",$user->lang['MENU_FAQ'],"siteinfo","mod");
 	$op_keys = explode(",","faqmanage");
 }
 ?>

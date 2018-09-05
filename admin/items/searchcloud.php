@@ -25,7 +25,7 @@ if (!defined('IN_PMBT'))
 }
 if($auth->acl_get('a_search_cloud'))
 {
-	adminentry("searchcloud","searchcloud",$user->lang['MENU_CLOUD'],"staff","mod");
+	adminentry("searchcloud","searchcloud",$user->lang['MENU_CLOUD'],"siteinfo","mod");
 	$op_keys = explode(",","searchcloud,delterm");
 }
 ?>

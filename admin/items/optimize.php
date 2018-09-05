@@ -25,7 +25,7 @@ if (!defined('IN_PMBT'))
 }
 if($auth->acl_get('a_board'))
 {
-	adminentry("optimize","optimize",$user->lang['MENU_OPTIMIZE'],"staff","mod");
+	adminentry("optimize","optimize",$user->lang['MENU_OPTIMIZE'],"siteinfo","mod");
 	$op_keys = explode(",","optimize");
 }
 ?>
