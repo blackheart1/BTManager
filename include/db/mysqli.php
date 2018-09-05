@@ -418,6 +418,13 @@ if(!defined("SQL_LAYER"))
 
 		return $this->query_result;
 	}
+                function sql_numfields($query_id = 0) {
+                        if (!$query_id) {
+                                $query_id = $this->query_result;
+                        }
+
+                        return ($query_id) ? @mysqli_num_fields($query_id) : false;
+                }
 	function sql_add_num_queries($cached = false)
 	{
 		$this->num_queries['cached'] += ($cached !== false) ? 1 : 0;

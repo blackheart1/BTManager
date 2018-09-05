@@ -3616,11 +3616,8 @@ function get_censor_preg_expression($word, $use_unicode = true)
 function ratingpic($num)
 {   // Gets The Correct Star Rating Picture
     $r = round($num * 2) / 2;
-    // echo $r . '<br>';
-
-    if ($r < 1 or $r > 5) return;
-
-    // echo pic($r . "-rating.png");
+    if ($r < 1) return;
+	if( $r > 5) return pic("5-rating.png");
     return pic($r . "-rating.png");
 }
 

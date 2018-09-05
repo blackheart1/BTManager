@@ -1721,11 +1721,6 @@ function submit_post($mode, $subject, $username, $topic_type, &$poll, &$data, $u
 		update_forum_tracking_info($data['forum_id'], $forum_last_post_time, $f_mark_time, false);
 	}
 
-	// Send Notifications
-	if ($mode != 'edit' && $mode != 'delete' && $post_approval)
-	{
-		//user_notification($mode, $subject, $data['topic_title'], $data['forum_name'], $data['forum_id'], $data['topic_id'], $data['post_id']);
-	}
 
 	$params = $add_anchor = '';
 
@@ -1743,9 +1738,35 @@ function submit_post($mode, $subject, $username, $topic_type, &$poll, &$data, $u
 	{
 		$params .= '&t=' . $data['topic_id'];
 	}
+	
+	if(!$params)
+	{
+		$url = "{$phpbb_root_path}forum.$phpEx?action=viewforum&f=" . $data['forum_id'] . $add_anchor;
+	}
+	else
+	{
+		$url = "{$phpbb_root_path}forum.$phpEx?action=viewtopic&f=" . $data['forum_id'] . $params . $add_anchor;
+	}
+	// Send Notifications
+	if ($mode != 'edit' && $mode != 'delete' && $post_approval)
+	{
+		//user_notification($mode, $subject, $data['topic_title'], $data['forum_name'], $data['forum_id'], $data['topic_id'], $data['post_id']);
+		global $shout_config;
+		if($shout_config['turn_on']=='yes')
+		{
+			if(($mode == 'reply' || $mode == 'quote') AND $config['shout_new_post'])
+			{
+				$text = sprintf($user->lang['SHOUT_REPLY'], $url, $data['topic_title']);
+				bt_shout($user->id, $text);
+			}
+			elseif($mode == 'post' AND $config['shout_new_topic'])
+			{
+				$text = sprintf($user->lang['SHOUT_POST'], $url, $data['forum_name']);
+				bt_shout($user->id, $text);
+			}
+		}
+	}
 
-	$url = (!$params) ? "{$phpbb_root_path}forum.$phpEx?action=viewforum" : "{$phpbb_root_path}forum.$phpEx?action=viewtopic";
-	$url = $url . '&f=' . $data['forum_id'] . $params . $add_anchor;
 
 	return $url;
 }
@@ -2822,6 +2843,7 @@ function create_thumbnail($source, $destination, $mimetype)
 	{
 		return false;
 	}
+
 
 	return true;
 }

@@ -160,12 +160,12 @@ function get_tor_vars($res, $variant = "index", $user = "", $block = "", $extra 
                 }
 				#Rating
                 if (!isset($row["rating"]))
-                        $rating = "---";
+                        $rating = pic("0-rating.png");
                 else {
                         $rating = round($row["rating"] * 2) / 2;
                         $rating = ratingpic($row["rating"]);
                         if (!isset($rating))
-                                $rating = "---";
+                                $rating = pic("0-rating.png");
                 }
 				#Snatched
                 $totsql = "SELECT count(`torrentid`)as `snatch` FROM `".$db_prefix."_snatched` WHERE `torrentid` = '".$row["id"]."'";
@@ -192,7 +192,7 @@ function get_tor_vars($res, $variant = "index", $user = "", $block = "", $extra 
 		$refreshable = false;
 		if ($row["tracker"] != "") {
 			if ($user->user){
-				if (time()- sql_timestamp_to_unix_timestamp($row["tracker_update"])> 1800) {
+				if ((time()- sql_timestamp_to_unix_timestamp($row["tracker_update"]))> 1800) {
 				$refreshable = true;
 				}else{
 				$refreshable = false;
@@ -245,7 +245,7 @@ function get_tor_vars($res, $variant = "index", $user = "", $block = "", $extra 
 		   'TIMES_T_DOWNLOADED'   => $row["downloaded"],
 		   'HIT_COUNT'   => ($row["owner"] != $user->id) ? true: false,
 		   'CAN_DOWN_LOAD' => ((checkaccess("u_download")) AND $row["type"] != "link") ? true : false,
-		   'PEERS_UPDATE'  => (($row["tracker"] != "") AND (time()- sql_timestamp_to_unix_timestamp($row["tracker_update"])> 1800)) ? true : false,
+		   'PEERS_UPDATE'  => (($row["tracker"] != "") AND ((time()- sql_timestamp_to_unix_timestamp($row["tracker_update"]))> 1800)) ? true : false,
 		   'LAST_TIME_SCR' => get_formatted_timediff(sql_timestamp_to_unix_timestamp($row["tracker_update"])),
 		   'AUTH_LINK'     => $auth_link,
 		   'NEED_AUTH'     => $torrent_global_privacy,
@@ -253,7 +253,7 @@ function get_tor_vars($res, $variant = "index", $user = "", $block = "", $extra 
 		   'NUM_FILE'      => $row["numfiles"],
 		   'NUM_COMENTS'   => $row["comments"],
 		   'RATEING_PIC'   => $rating,
-		   'DATE_ADDED'    => $row['added'],
+		   'DATE_ADDED'    => $user->format_date(sql_timestamp_to_unix_timestamp($row['added'])),
 		   'TIMES_SNATHED' => $sncount['snatch'],
 		   'DOWNLOAD_SP'   => mksize($row["speed"]),
 		   'DOWNLOAD_SIZE' => mksize($row["size"]),

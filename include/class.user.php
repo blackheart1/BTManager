@@ -287,6 +287,8 @@ class User {
 			$this->user = false;
 			$this->email = "anonymous@phpmybittorrent";
 			$this->act_key = "";
+			$this->user_type = 0;
+			$this->data['user_type'] = 0;
 			$this->passkey = "";
 			$this->invites = "";
 			$this->color = $row["group_colour"];
