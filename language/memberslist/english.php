@@ -40,6 +40,7 @@ $lang = array_merge($lang, array(
     'GROUP_DESC'                => 'Group Description',
     'GROUP_AVAT'                => 'Group Avatar',
     'GROUP_MEMBERS'             => 'Group Members',
+    'NO_GROUP_MEMBERS'          => 'No Group Members',
     'ABOUT_USER'                => 'Profile',
     'ACTIVE_IN_FORUM'           => 'Most Active Forum',
     'ACTIVE_IN_TOPIC'           => 'Most Active Topic',
