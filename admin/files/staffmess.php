@@ -279,7 +279,7 @@ require_once("include/class.bbcode.php");
 		$i++;
 	}
 	$db->sql_freeresult($result);
-	$sql = 'SELECT level, name,group_id FROM `' . $db_prefix . '_levels` ';
+	$sql = 'SELECT level, name,group_id FROM `' . $db_prefix . '_levels` WHERE `group_id` <> 6 ';
 	$result = $db->sql_query($sql); 
 	$s_group_options = '';
 	while ($row = $db->sql_fetchrow($result))
@@ -316,7 +316,7 @@ require_once("include/class.bbcode.php");
 }
 
 if($page=="sendmail"){
-	$sql = 'SELECT name, group_id FROM `' . $db_prefix . '_levels` ';
+	$sql = 'SELECT name, group_id FROM `' . $db_prefix . '_levels` WHERE `group_id` <> 6 ';
 	$result = $db->sql_query($sql); 
 	$s_group_options = '';
 	while ($row = $db->sql_fetchrow($result))

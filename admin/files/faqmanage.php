@@ -455,7 +455,7 @@ while ($arr1 = $db->sql_fetchrow($res))
 	}
 	$orderc .= "</select>";
 	unset($n);
-	$status = ($arr1['flag'] == "0") ? "<font color=\"red\">"._adm_faq_hidden."</font>" : ""._adm_faq_norm."";
+	$status = ($arr1['flag'] == "0") ? "<font color=\"red\">".$user->lang['F_HIDDEN']."</font>" : "".$user->lang['F_NORMAL']."";
 	$template->assign_block_vars('f_block1',array(
 		'L_TITLE'		=> '',
 		'S_SELECTED'	=> true,
@@ -482,10 +482,10 @@ while ($arr1 = $db->sql_fetchrow($res))
 		}
 		$orderi .= "</select>";
 		unset($ni);
-		if ($arr2['flag'] == "0") $status = "<font color=\"#FF0000\">"._adm_faq_hidden."</font>";
-		elseif ($arr2['flag'] == "2") $status = "<font color=\"#0000FF\">"._adm_faq_updated."</font>";
-		elseif ($arr2['flag'] == "3") $status = "<font color=\"#008000\">"._adm_faq_new."</font>";
-		else $status = "Normal";
+		if ($arr2['flag'] == "0") $status = "<font color=\"#FF0000\">".$user->lang['F_HIDDEN']."</font>";
+		elseif ($arr2['flag'] == "2") $status = "<font color=\"#0000FF\">".$user->lang['F_UPDATED']."</font>";
+		elseif ($arr2['flag'] == "3") $status = "<font color=\"#008000\">".$user->lang['F_NEW']."</font>";
+		else $status = $user->lang['F_NORMAL'];
 		
 		$bbcode = false;
 		$text = censor_text($arr2['answer']);
@@ -518,10 +518,10 @@ $f_count = $db->sql_numrows($res);
 $db->sql_freeresult($res1);
 while ($arr1 = $db->sql_fetchrow($res))
 {
-	if ($arr1['flag'] == "0") $status = "<font color=\"#FF0000\">"._adm_faq_hidden."</font>";
-	elseif ($arr1['flag'] == "2") $status = "<font color=\"#0000FF\">"._adm_faq_updated."</font>";
-	elseif ($arr1['flag'] == "3") $status = "<font color=\"#008000\">"._adm_faq_new."</font>";
-	else $status = "Normal";
+	if ($arr1['flag'] == "0") $status = "<font color=\"#FF0000\">".$user->lang['F_HIDDEN']."</font>";
+	elseif ($arr1['flag'] == "2") $status = "<font color=\"#0000FF\">".$user->lang['F_UPDATED']."</font>";
+	elseif ($arr1['flag'] == "3") $status = "<font color=\"#008000\">".$user->lang['F_NEW']."</font>";
+	else $status = $user->lang['F_NORMAL'];
 	$template->assign_block_vars('orphanc',array(
 		'F_ID'			=> $arr1['id'],
 		'F_TYPE'		=> $arr1['type'],
