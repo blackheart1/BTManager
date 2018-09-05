@@ -170,7 +170,7 @@ $lang = array_merge($lang, array(
     'LOG_BAN_IP'               => '<strong>Banned IP</strong> for the Reason <em>%1$s</em><br /> %2$s',
     'LOG_BAN_EMAIL'            => '<strong>Banned email</strong> for the Reason <em>%1$s</em><br /> %2$s',
     'LOG_UNBAN_USER'           => '<strong>Unban User</strong><br /> %s',
-    'LOG_UNBAN_IP'             => '<strong>IP Ban Removed</strong><br /> %s',
+    'LOG_UNBAN_IP'             => '<strong>Unban IP</strong><br /> %s',
     'LOG_UNBAN_EMAIL'          => '<strong>Unban email</strong><br /> %s',
 
     'LOG_BBCODE_ADD'           => '<strong>Added New BBCode</strong><br /> %s',

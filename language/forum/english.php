@@ -132,7 +132,6 @@ $lang = array_merge($lang, array(
     'LOG_USER_FEEDBACK'          => '<strong>Added User Feedback</strong><br /> %s',
     'LOG_UNBAN_USER'             => '<strong>Unban User</strong><br />%s',
     'LOG_USER_WARNING'           => '<strong>User Warned</strong><br />%s',
-    'LOG_UNBAN_IP'               => '<strong>IP Ban Removed</strong><br />%s',
 
     'SELECT'                     => 'Select',
     'TOPIC'                      => 'Topic',
