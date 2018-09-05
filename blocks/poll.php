@@ -26,28 +26,28 @@ if (!defined('IN_PMBT'))
 global $db_prefix, $user, $db, $shout_config,$template,$siteurl,$language,$pmbt_cache;
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
-   $vote			= request_var('vote', '0');
-  if($vote=='1'){
-    $choice			= request_var('choice', '0');
-	//die($choice);
-	if (!is_numeric($choice) OR $choice > 8)
-	pmbt_trigger_error($user->lang['INVALID_ID'],$user->lang['BT_ERROR'],$siteurl);
-  if ($user->user && $choice != "" && $choice < 256 && $choice == floor($choice))
-  {
-    $res = $db->sql_query("SELECT id FROM ".$db_prefix."_polls ORDER BY added DESC LIMIT 1") or sqlerr();
-    $arr = $db->sql_fetchrow($res) or die("No poll");
-    $pollid = $arr["id"];
-  	$userid = $user->id;
-    $res = $db->sql_query("SELECT pollid FROM ".$db_prefix."_pollanswers WHERE pollid=$pollid && userid=$userid") or sqlerr();
-    $arr = $db->sql_fetchrow($res);
-    if ($arr) pmbt_trigger_error("You have already Voted.","Error",$siteurl);
-    $db->sql_query("INSERT INTO ".$db_prefix."_pollanswers VALUES(0, $pollid, 0, $userid, $choice)");
-    if ($db->sql_affectedrows() != 1)
-      pmbt_trigger_error("An error occured. Your vote has not been counted.","Error",$siteurl);
-    header("Location: $siteurl/");
-    die;
-  }
-  }
+	$vote			= request_var('vote', '0');
+	if($vote=='1')
+	{
+		$choice			= request_var('choice', '0');
+		if (!is_numeric($choice) OR $choice > 8 OR $choice < 1)
+		pmbt_trigger_error($user->lang['INVALID_ID'],$user->lang['BT_ERROR'],$siteurl);
+		if ($user->user && $choice != "" && $choice < 256 && $choice == floor($choice))
+		{
+			$res = $db->sql_query("SELECT id FROM ".$db_prefix."_polls ORDER BY added DESC LIMIT 1") or sqlerr();
+			$arr = $db->sql_fetchrow($res) or die("No poll");
+			$pollid = $arr["id"];
+			$userid = $user->id;
+			$res = $db->sql_query("SELECT pollid FROM ".$db_prefix."_pollanswers WHERE pollid=$pollid && userid=$userid") or sqlerr();
+			$arr = $db->sql_fetchrow($res);
+			if ($arr) pmbt_trigger_error("You have already Voted.","Error",$siteurl);
+			$db->sql_query("INSERT INTO ".$db_prefix."_pollanswers VALUES(0, $pollid, 0, $userid, $choice)");
+			if ($db->sql_affectedrows() != 1)
+			pmbt_trigger_error("An error occured. Your vote has not been counted.","Error",$siteurl);
+			header("Location: $siteurl/");
+			die;
+		}
+	}
 }
 	$template->assign_vars(array(
 	'POLL_LOCKED'     => false,
