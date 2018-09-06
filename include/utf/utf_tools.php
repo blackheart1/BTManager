@@ -1799,12 +1799,12 @@ function utf8_normalize_nfc($strings)
 			{
 				foreach ($string as $_key => $_string)
 				{
-					utf_normalizer::nfc($strings[$key][$_key]);
+					(new utf_normalizer)->nfc($strings[$key][$_key]);
 				}
 			}
 			else
 			{
-				utf_normalizer::nfc($strings[$key]);
+				(new utf_normalizer)->nfc($strings[$key]);
 			}
 		}
 	}

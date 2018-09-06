@@ -371,12 +371,13 @@ function get_preg_expression($mode)
 function generate_text_for_display($text, $uid, $bitfield, $flags)
 {
     static $bbcode;
+	global $user;
 
     if (!$text)
     {
         return '';
     }
-
+	if(isset($user->lang[$text])) $text = $user->lang[$text];
     $text = censor_text($text);
 
     // Parse BBCode If BBCode UID Stored And BBCode Enabled
@@ -3731,9 +3732,9 @@ function format_comment($text, $strip_html = false, $strip_slash = false, $allow
             "<center>\\1</center>",
             "<font face=\"\\1\">\\2</font>",
             "<embed style=\"width:500px; height:410px;\" id=\"VideoPlayback\" align=\"middle\" type=\"application/x-shockwave-flash\" src=\"http://video.google.com/googleplayer.swf?docId=\\1\" allowScriptAccess=\"sameDomain\" quality=\"best\" bgcolor=\"#ffffff\" scale=\"noScale\" wmode=\"window\" salign=\"TL\"  FlashVars=\"playerMode=embedded\"> </embed>",
-            "'<dl class=\"codebox\"><dt>Code: <a href=\"#\" onclick=\"selectCode(this); return false;\">Select all</a></dt><table class=\"main2\" border=\"0\" cellspacing=\"0\" cellpadding=\"10\"><tr><td>'.stripslashes('$1').'<td></tr></table><br /></dl>'",
-            "'<dl class=\"codebox\"><dt>Code: <a href=\"#\" onclick=\"selectCode(this); return false;\">Select all</a></dt><table class=\"main2\" border=\"0\" cellspacing=\"0\" cellpadding=\"10\"><tr><td>'.highlight_string(stripslashes('$1'), true).'<td></tr></table><br /></dl>'",
-            "'<dl class=\"codebox\"><dt>Code: <a href=\"#\" onclick=\"selectCode(this); return false;\">Select all</a></dt><table class=\"main2\" border=\"0\" cellspacing=\"0\" cellpadding=\"10\"><tr><td>'.highlight_string(stripslashes('$1'), true).'<td></tr></table><br /></dl>'",
+            "'<dl class=\"codebox\"><dt>Code: <a href=\"#\" onclick=\"selectCode(this); return false;\">" . $user->lang['SELECT_ALL'] . "</a></dt><table class=\"main2\" border=\"0\" cellspacing=\"0\" cellpadding=\"10\"><tr><td>'.stripslashes('$1').'<td></tr></table><br /></dl>'",
+            "'<dl class=\"codebox\"><dt>Code: <a href=\"#\" onclick=\"selectCode(this); return false;\">" . $user->lang['SELECT_ALL'] . "</a></dt><table class=\"main2\" border=\"0\" cellspacing=\"0\" cellpadding=\"10\"><tr><td>'.highlight_string(stripslashes('$1'), true).'<td></tr></table><br /></dl>'",
+            "'<dl class=\"codebox\"><dt>Code: <a href=\"#\" onclick=\"selectCode(this); return false;\">" . $user->lang['SELECT_ALL'] . "</a></dt><table class=\"main2\" border=\"0\" cellspacing=\"0\" cellpadding=\"10\"><tr><td>'.highlight_string(stripslashes('$1'), true).'<td></tr></table><br /></dl>'",
             "<script type=\"text/javascript\" src=\"http://download.skype.com/share/skypebuttons/js/skypeCheck.js\"></script><a href=\"skype:spockst?call\"><img src=\"http://mystatus.skype.com/smallclassic/\\1\" style=\"border: none;\" width=\"114\" height=\"20\" alt=\"My status\" /></a>",
             "<iframe src=\"\\1\" name=\"frame1\" scrolling=\"auto\" frameborder=\"0\" align=\"middle\" height = \"500px\" width = \"600px\"></iframe>",
             "<img src=http://www.funnyweb.dk:8080/aim/\\1 alt=\\2>",
@@ -3789,6 +3790,7 @@ function format_urls($s)
 
 function format_quotes($s)
 {
+	global $user;
     preg_match_all('/\\[quote.*?\\]/', $s, $result, PREG_PATTERN_ORDER);
 
     $openquotecount = count($openquote = $result[0]);
@@ -3819,9 +3821,9 @@ function format_quotes($s)
 
     if ($openval[$i] > $closeval[$i]) return $s; // Cannot Close Before Opening. Return Raw String...
 
-    $s = str_replace("[quote]", "<p class='sub'><strong>Quote:</strong></p><table class='main' border='1' cellspacing='0' cellpadding='10'><tr><td style='border: 1px black dotted'>", $s);
+    $s = str_replace("[quote]", "<p class='sub'><strong>" . $user->lang['QUOTE'] . ":</strong></p><table class='main' border='1' cellspacing='0' cellpadding='10'><tr><td style='border: 1px black dotted'>", $s);
 
-    $s = preg_replace("/\\[quote=(.+?)\\]/", "<p class='sub'><strong>\\1 wrote:</strong></p><table class='main' border='1' cellspacing='0' cellpadding='10'><tr><td style='border: 1px black dotted'>", $s);
+    $s = preg_replace("/\\[quote=(.+?)\\]/", "<p class='sub'><strong>\\1 " . $user->lang['WROTE'] . ":</strong></p><table class='main' border='1' cellspacing='0' cellpadding='10'><tr><td style='border: 1px black dotted'>", $s);
 
     $s = str_replace("[/quote]", "</td></tr></table><br><p>", $s);
 

@@ -77,6 +77,8 @@ $lang = array_merge($lang, array(
     '_RESET_ONLINE'              => 'Reset the Most Users Ever Online',
     '_RESET_DATE'                => 'Reset the Site\'s Start Date',
     'EMAIL_INVALID_EMAIL'        => 'Invalid email Address',
+    'EMAIL_INVALID_EMAIL_BOARD_CONTACT'        => 'Invalid email Address <strong>\'Contact email Address\'</strong>',
+    'EMAIL_INVALID_EMAIL_BOARD_EMAIL'        => 'Invalid email Address <strong>\'Return email Address\'</strong>',
     'WARNING'                    => 'Warning',
 
     'SETTING_TOO_LOW'            => 'The Provided Value for the Setting \'%1$s\' is Too Low.  The Minimum Acceptable Value is %2$d.',
@@ -395,6 +397,7 @@ $lang = array_merge($lang, array(
     'LOG_THEME_EDIT_DETAILS'   => '<strong>Edited the Theme Details for</strong><br /> %s',
     'LOG_THEME_EDIT'           => '<strong>Edited the Theme <em>%1$s</em></strong>',
     'LOG_THEME_EDIT_FILE'      => '<strong>Edited the Theme <em>%1$s</em></strong><br /> Modified File <em>%2$s</em>',
+
     'LOG_THEME_EXPORT'         => '<strong>Exported the Theme</strong><br /> %s',
     'LOG_THEME_REFRESHED'      => '<strong>Refreshed the Theme</strong><br /> %s',
 
@@ -505,6 +508,17 @@ $lang = array_merge($lang, array(
     'ACP_SEARCH_INDEX'      => 'Search Index',
     'ACP_SEARCH_SETTINGS'   => 'Search Settings',
     'LOG_CONFIG_SHOUTCAST'  => 'SHOUTcast Configuration Updated',
+	'ADMTOTALSPEED'			=> 'Total transfer speed:',
+	'ADMTOTALSEEDERS'		=> 'Total seeders:',
+	'ADMTOTALLEECHERS'		=> 'Total leechers:',
+	'ADMMOSTUSEDCLIENT'		=> 'Most used client:',
+	'CONFIG_UPDATED_EMAIL'	=> 'email Configs Updated',
+	'VALUE'					=> 'Value',
+	'ADMTOTALUSERS'			=> 'Total Registered Users:',
+	'ADMTOTALTORRENTS'		=> 'Total Torrents:"',
+	'_IP'					=> 'User IP',
+	'_TIME'					=> 'Time',
+	'LAST_VISIT'			=> 'Last Visit',
 ));
 
 ?>

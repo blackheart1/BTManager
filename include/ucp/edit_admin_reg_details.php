@@ -138,7 +138,7 @@ $disable_res											= utf8_normalize_nfc(request_var('disable_res', '',true))
 										'S_REFRESH'				=> true,
 										'META' 				  	=> '<meta http-equiv="refresh" content="5;url=' . $siteurl . '/user.php?op=editprofile' . ((!$admin_mode) ? '' : "&amp;id=" .$uid  ) . '&amp;action=profile&amp;mode=admin_reg_details" />',
 										'S_ERROR_HEADER'		=>$user->lang['UPDATED'],
-                                        'S_ERROR_MESS'			=> $user->lang['PROFILE_UPDATED'],
+                                        'S_ERROR_MESS'			=>($admin_mode)? $user->lang['USE_PROFILE_UPDATED'] : $user->lang['PROFILE_UPDATED'],
                                 ));
 				//trigger_error($message);
                 echo $template->fetch('error.html');
