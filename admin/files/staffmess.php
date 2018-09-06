@@ -125,7 +125,7 @@ if($page=="pm"){
 					'S_USER_NOTICE'			=> false,
 					'S_FORWARD'				=> false,
 					'MESSAGE_TITLE'			=> $user->lang['GEN_ERROR'],
-					'MESSAGE_TEXT'			=> $user->lang['MESS_NOT_SENT'] . '<br />' . implode("<br />",$errmsg).back_link(append_sid($u_action,'page=sendpm')),
+					'MESSAGE_TEXT'			=> $user->lang['MESS_NOT_SENT'] . '<br />' . implode("<br />",$errmsg).'<br /><a href="#" onclick="history.go(-1);return false;">[Go Back]</a>',
 				));
 				echo $template->fetch('admin/message_body.html');
 				close_out();

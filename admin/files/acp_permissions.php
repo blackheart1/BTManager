@@ -700,6 +700,7 @@ class acp_permissions
 		{
 			update_foes($group_id, $user_id);
 		}
+		$auth_admin->acl_cache($user);
 
 		$this->log_action($mode, 'add', $permission_type, $ug_type, $ug_id, $forum_id);
 
@@ -755,7 +756,7 @@ class acp_permissions
 		}
 
 		$auth_admin->acl_clear_prefetch();
-		//$auth_admin->acl_cache($user);
+		$auth_admin->acl_cache($user);
 
 		// Do we need to recache the moderator lists?
 		if ($permission_type == 'm_')

@@ -230,7 +230,7 @@ class acp_email
 		{
 			add_log('admin', 'LOG_CONFIG_EMAIL');
 
-			trigger_error($user->lang['CONFIG_UPDATED'] . '2' . adm_back_link($this->u_action));
+			trigger_error($user->lang['CONFIG_UPDATED_EMAIL'] . adm_back_link($this->u_action));
 		}
 
 		$this->tpl_name = 'acp_email';

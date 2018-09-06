@@ -37,7 +37,7 @@ $template = new Template();
 set_site_var($user->lang['POLL_OVER_VIEW']);
 
 $action   = request_var('action', '');
-$pollid   = request_var('pollid', 0);
+$pollid   = request_var('pollid', '0');
 $returnto = strip_tags(request_var('returnto', ''));
 
 if ($action == "delete")
