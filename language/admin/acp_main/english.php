@@ -76,9 +76,11 @@ $lang = array_merge($lang, array(
     '_STATISTIC_RESYNC_OPTIONS'  => 'Resynchronise or Reset Statistics',
     '_RESET_ONLINE'              => 'Reset the Most Users Ever Online',
     '_RESET_DATE'                => 'Reset the Site\'s Start Date',
-    'EMAIL_INVALID_EMAIL'        => 'Invalid email Address',
-    'EMAIL_INVALID_EMAIL_BOARD_CONTACT'        => 'Invalid email Address <strong>\'Contact email Address\'</strong>',
-    'EMAIL_INVALID_EMAIL_BOARD_EMAIL'        => 'Invalid email Address <strong>\'Return email Address\'</strong>',
+
+    'EMAIL_INVALID_EMAIL'               => 'Invalid email Address',
+    'EMAIL_INVALID_EMAIL_BOARD_CONTACT' => 'Invalid email Address <strong>\'Contact email Address\'</strong>',
+    'EMAIL_INVALID_EMAIL_BOARD_EMAIL'   => 'Invalid email Address <strong>\'Return email Address\'</strong>',
+
     'WARNING'                    => 'Warning',
 
     'SETTING_TOO_LOW'            => 'The Provided Value for the Setting \'%1$s\' is Too Low.  The Minimum Acceptable Value is %2$d.',
@@ -498,7 +500,7 @@ $lang = array_merge($lang, array(
     'MENU_SIG_SETTINGS_EXP' => 'Here you can Set ALL the Default Settings for Signatures.',
     'MENU_HNR'              => 'Hit and Run Settings',
     'MENU_ARCADE'           => 'Arcade Settings',
-    'MENU_SHOUT_CAST'       => 'Shoutcast Settings',
+    'MENU_SHOUT_CAST'       => 'SHOUTcast Settings',
 
     #3.0.1 addon
     'LOG_FILTER_ADD'        => '<strong>Added Upload Filter</strong><br /> %s',
@@ -508,17 +510,17 @@ $lang = array_merge($lang, array(
     'ACP_SEARCH_INDEX'      => 'Search Index',
     'ACP_SEARCH_SETTINGS'   => 'Search Settings',
     'LOG_CONFIG_SHOUTCAST'  => 'SHOUTcast Configuration Updated',
-	'ADMTOTALSPEED'			=> 'Total transfer speed:',
-	'ADMTOTALSEEDERS'		=> 'Total seeders:',
-	'ADMTOTALLEECHERS'		=> 'Total leechers:',
-	'ADMMOSTUSEDCLIENT'		=> 'Most used client:',
-	'CONFIG_UPDATED_EMAIL'	=> 'email Configs Updated',
-	'VALUE'					=> 'Value',
-	'ADMTOTALUSERS'			=> 'Total Registered Users:',
-	'ADMTOTALTORRENTS'		=> 'Total Torrents:"',
-	'_IP'					=> 'User IP',
-	'_TIME'					=> 'Time',
-	'LAST_VISIT'			=> 'Last Visit',
+    'ADMTOTALSPEED'         => 'Total Transfer Speed:',
+    'ADMTOTALSEEDERS'       => 'Total Seeders:',
+    'ADMTOTALLEECHERS'      => 'Total Leechers:',
+    'ADMMOSTUSEDCLIENT'     => 'Most Used Client:',
+    'CONFIG_UPDATED_EMAIL'  => 'email Configuration Updated',
+    'VALUE'                 => 'Value',
+    'ADMTOTALUSERS'         => 'Total Registered Users:',
+    'ADMTOTALTORRENTS'      => 'Total Torrents:',
+    '_IP'                   => 'User IP',
+    '_TIME'                 => 'Time',
+    'LAST_VISIT'            => 'Last Visit',
 ));
 
 ?>

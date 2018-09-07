@@ -848,10 +848,11 @@ $lang = array_merge($lang, array(
             'OFF_TOPIC'         => 'The Reported Post is Off Topic',
             'WAREZ'             => 'The Reported Post contains Links to Pirated or Illegal Software',
         )),
-	'NO_POLL_OPTION'		=> 'You Must Select a Poll Option!',
-	'VOTE_NOT_TAKEN'		=> 'An error occured. Your vote has not been counted.',
-	'ALREADY_VOTED'			=> 'You have already Voted.',
-	'SELECT_ALL'			=> 'Select all',
+
+    'NO_POLL_OPTION'        => 'You Must Select a Poll Option!',
+    'VOTE_NOT_TAKEN'        => 'An Error Occurred.  Your Vote has Not been Counted.',
+    'ALREADY_VOTED'         => 'You have Already Voted.',
+    'SELECT_ALL'            => 'Select All',
 ));
 
 $u_datetime = array(
