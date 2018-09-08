@@ -107,7 +107,7 @@ function autoinvites($length, $minlimit, $maxlimit, $minratio, $invites)
 }
 function cleanup() {
          global $db, $db_prefix, $admin_email, $user, $sourcedir, $btuser, $autoscrape,$most_users_online , $dead_torrent_interval, $announce_interval;
-		 global $down_limit, $autodel_users, $sitename, $autodel_users_time, $inactwarning_time, $siteurl,$forumbase,$phpEx, $config, $phpbb_root_path, $shout_config,$time_tracker_update, $pmbt_cache;
+		 global $down_limit, $autodel_users, $sitename, $autodel_users_time, $inactwarning_time, $siteurl,$forumbase,$phpEx, $config, $shout_config,$time_tracker_update, $pmbt_cache;
 		set_include_path($sourcedir);
 		ini_set('include_path',$sourcedir);
 		//most users online
@@ -381,8 +381,8 @@ $db->sql_query($up_warn);
 }
 $db->sql_query("UPDATE ".$db_prefix."_users SET inactwarning = 0, inactive_warn_time = '0000-00-00 00:00:00' WHERE id > 0 inactwarning = 1 AND UNIX_TIMESTAMP(lastlogin) > UNIX_TIMESTAMP(NOW()) - (".$inactwarning_time.");");
         #Clean Shoutbox
-		if($shout_config['autodelet'] == 'yes')
-        $db->sql_query("DELETE FROM ".$db_prefix."_shouts WHERE id > 0 UNIX_TIMESTAMP(posted) < UNIX_TIMESTAMP(NOW()) - (" . $shout_config['autodelete_time'] . ");");
+		if($shout_config['autodelet'] == 'true')
+        $db->sql_query("DELETE FROM ".$db_prefix."_shouts WHERE id > 0 AND UNIX_TIMESTAMP(posted) < UNIX_TIMESTAMP(NOW()) - (" . $shout_config['autodelete_time'] . "*60);");
 //SET INVITE AMOUNTS ACCORDING TO RATIO/GIGS ETC
 autoinvites(10,1,4,.90,1);
 autoinvites(10,4,7,.95,2);
