@@ -67,8 +67,8 @@ function shoutthis_ajax()
 	//alert('test');
 c=0;
 this.ts = window.setInterval('shoutload()', shoutrefresht);
-this.ta = window.setInterval('getactive()', 55100);
-this.tpm = window.setInterval('sendPmId()', 55500);
+this.ta = window.setInterval('getactive()', 5020);
+this.tpm = window.setInterval('sendPmId()', 5010);
 this.idletime = window.setInterval('stopall()',shoutidle);
 }
  showsmiles = "show";

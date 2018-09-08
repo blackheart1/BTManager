@@ -30,6 +30,8 @@ else
 require_once("common.php");
 $template = new Template();
 set_site_var($user->lang['INDEX']);
+if($config['allow_birthdays'])
+{
 $birthday_list = '';
 $now = getdate(time() - date('Z'));
 $sql = "SELECT * FROM ".$db_prefix."_users WHERE ban = '0' AND birthday LIKE '" . $now['mday']."-". $now['mon']."-" . "%'";
@@ -61,6 +63,7 @@ $birthday_list = $user->lang['NO_BIRTHDAY'];
 $template->assign_vars(array(
         'BIRTHDAY_LIST'            => $birthday_list,
 ));
+}
 echo $template->fetch('index_body.html');
 close_out();
 ?>

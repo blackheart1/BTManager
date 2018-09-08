@@ -263,10 +263,10 @@ switch ($mode)
 				'U_GROUP'			=> $u_group,
 				'U_PM'				=> ($config['allow_privmsg'] && $auth->acl_get('u_sendpm') && ($row['user_allow_pm'] || $auth->acl_gets('a_', 'm_') || $auth->acl_getf_global('m_'))) ? append_sid("{$phpbb_root_path}pm.$phpEx", 'op=send&amp;to=' . $row['user_id']) : '',
 
-				'USERNAME_FULL'		=> get_username_string('full', $row['user_id'], $row['username'], $row['user_colour']),
-				'USERNAME'			=> get_username_string('username', $row['user_id'], $row['username'], $row['user_colour']),
-				'USER_COLOR'		=> get_username_string('colour', $row['user_id'], $row['username'], $row['user_colour']),
-				'U_VIEW_PROFILE'	=> get_username_string('profile', $row['user_id'], $row['username'], $row['user_colour']),
+				'USERNAME_FULL'		=> get_username_string('full', $row['user_id'], $row['username'], '#' . $row['user_colour']),
+				'USERNAME'			=> get_username_string('username', $row['user_id'], $row['username'], '#' . $row['user_colour']),
+				'USER_COLOR'		=> get_username_string('colour', $row['user_id'], $row['username'], '#' . $row['user_colour']),
+				'U_VIEW_PROFILE'	=> get_username_string('profile', $row['user_id'], $row['username'], '#' . $row['user_colour']),
 			));
 		}
 		$db->sql_freeresult($result);
@@ -1729,12 +1729,12 @@ function show_profile($data, $user_notes_enabled = false, $warn_user_enabled = f
 		'POSTS'			=> ($data['user_posts']) ? $data['user_posts'] : 0,
 		'WARNINGS'		=> isset($data['user_warnings']) ? $data['user_warnings'] : 0,
 
-		'USERNAME_FULL'		=> get_username_string('full', $user_id, $username, $data['user_colour']),
-		'USERNAME'			=> get_username_string('username', $user_id, $username, $data['user_colour']),
-		'USER_COLOR'		=> get_username_string('colour', $user_id, $username, $data['user_colour']),
-		'U_VIEW_PROFILE'	=> get_username_string('profile', $user_id, $username, $data['user_colour']),
+		'USERNAME_FULL'		=> get_username_string('full', $user_id, $username, '#' . $data['user_colour']),
+		'USERNAME'			=> get_username_string('username', $user_id, $username, '#' . $data['user_colour']),
+		'USER_COLOR'		=> get_username_string('colour', $user_id, $username, '#' . $data['user_colour']),
+		'U_VIEW_PROFILE'	=> get_username_string('profile', $user_id, $username, '#' . $data['user_colour']),
 
-		'A_USERNAME'		=> addslashes(get_username_string('username', $user_id, $username, $data['user_colour'])),
+		'A_USERNAME'		=> addslashes(get_username_string('username', $user_id, $username, '#' . $data['user_colour'])),
 
 		//'AVATAR_IMG'		=> get_user_avatar($data['user_avatar'], $data['user_avatar_type'], $data['user_avatar_width'], $data['user_avatar_height']),
 		'ONLINE_IMG'		=> (!$config['load_onlinetrack']) ? '' : (($online) ? $user->img('icon_user_online', 'ONLINE') : $user->img('icon_user_offline', 'OFFLINE')),
