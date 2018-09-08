@@ -10,14 +10,14 @@
 {$CA_BLOCK_START}
 {$CA_CAP2_START}{L_GROUP_INFORMATION}{$CA_CAP2_END}
 <table class="tablebg" width="100%" cellspacing="{$CA_SPACING}">
-<tr>
+<tr class="bg4">
     <td class="row1" width="20%"><strong class="genmed">{L_GROUP_NAME}:</strong></td>
     <td class="row2"><strong class="gen"<!-- IF GROUP_COLOR --> style="color:#{GROUP_COLOR}"<!-- ENDIF -->>{GROUP_NAME}</strong></td>
 <!-- IF AVATAR_IMG or RANK_IMG or GROUP_RANK or U_PM -->
     <td class="row1" width="33%" rowspan="2" align="center"><!-- IF AVATAR_IMG -->{AVATAR_IMG}<br /><!-- ENDIF --><!-- IF RANK_IMG -->{RANK_IMG}<!-- ENDIF --><!-- IF GROUP_RANK --><span class="gensmall">{GROUP_RANK}</span><br /><br /><!-- ENDIF --><!-- IF U_PM --><a href="{U_PM}">{PM_IMG}</a><!-- ENDIF --></td>
 <!-- ENDIF -->
 </tr>
-<tr>
+<tr class="bg4">
     <td class="row1" width="20%"><strong class="genmed">{L_GROUP_DESC}:</strong></td>
     <td class="row2"><span class="gen">{GROUP_DESC}</span><p class="forumdesc">{GROUP_TYPE}</p></td>
 </tr>
@@ -211,23 +211,23 @@
     <!-- IF S_SHOW_GROUP -->
         <!-- IF memberrow.S_FIRST_ROW and memberrow.S_GROUP_LEADER -->
             <tr>
-                <td class="row3" colspan="8"><strong class="gensmall">{L_GROUP_LEADER}</strong></td>
+                <td class="bg4" colspan="8"><strong class="gensmall">{L_GROUP_LEADER}</strong></td>
             </tr>
         <!-- ELSEIF not memberrow.S_GROUP_LEADER and not $S_MEMBER_HEADER -->
             <tr>
-                <td class="row3" colspan="8"><strong class="gensmall">{L_GROUP_MEMBERS}</strong></td>
+                <td class="bg4" colspan="8"><strong class="gensmall">{L_GROUP_MEMBERS}</strong></td>
             </tr>
                 <!-- DEFINE $S_MEMBER_HEADER = 1 -->
         <!-- ENDIF -->
     <!-- ENDIF -->
 
-    <!-- IF memberrow.S_ROW_COUNT is even --><tr class="row2"><!-- ELSE --> <tr class="row1"><!-- ENDIF -->
+    <!-- IF memberrow.S_ROW_COUNT is even --><tr class="bg4"><!-- ELSE --> <tr class="bg4"><!-- ENDIF -->
 
         <td class="genmed row" align="{S_CONTENT_FLOW_BEGIN}">{memberrow.USERNAME_FULL}<!-- IF S_SELECT_SINGLE --> [&nbsp;<a href="#" onclick="insert_single('{memberrow.A_USERNAME}'); return false;">{L_SELECT}</a>&nbsp;]<!-- ENDIF --></td>
         <td class="genmed row" align="center" nowrap="nowrap">&nbsp;{memberrow.JOINED}&nbsp;</td>
         <td class="gen row" align="center">{memberrow.POSTS}</td>
-        <td class="gen row" align="center">&nbsp;<!-- IF memberrow.U_PM --><a href="{memberrow.U_PM}">{PM_IMG}</a><!-- ENDIF -->&nbsp;</td>
-        <td class="gen row" align="center">&nbsp;<!-- IF memberrow.U_EMAIL --><a href="{memberrow.U_EMAIL}">{EMAIL_IMG}</a><!-- ENDIF -->&nbsp;</td>
+        <td class="gen row" align="center">&nbsp;<!-- IF memberrow.U_PM --><div class="postbody"><ul class="profile-icons"><li class="pm-icon"><a class="pm-icon" href="{memberrow.U_PM}"><span>{L_PRIVATE_MESSAGE}</span></a></li></ul></div><!-- ENDIF -->&nbsp;</td>
+        <td class="gen row" align="center">&nbsp;<!-- IF memberrow.U_EMAIL --><div class="postbody"><ul class="profile-icons"><li class="email-icon"><a href="{memberrow.U_EMAIL}"><span>{L_EMAIL}</span></a></li></ul></div><!-- ENDIF -->&nbsp;</td>
         <!-- IF memberrow.S_PROFILE_FIELD1 -->
             <!-- Use a construct like this to include admin defined profile fields. Replace FIELD1 with the name of your field. -->
             <td class="gen row" align="center">&nbsp;{memberrow.PROFILE_FIELD1_VALUE}</td>
