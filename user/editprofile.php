@@ -60,18 +60,23 @@ if (isset($id)) {
     }
 }
 else $uid = $user->id;
-			if($auth->acl_get('a_user'))
-			{
-			    if(is_founder($id) && !$user->user_type==3) $admin_mode = false;
-				else
-				$admin_mode = true;
-			
-			}
-							$template->assign_vars(array(
-                                        'S_MOD_MODE'            => $admin_mode,
-                                        'PMBT_LINK_BACK'            => ($admin_mode)? $siteurl.'/user.php?op=editprofile&amp;'.'id=' . $uid . '&amp;' : $siteurl.'/user.php?op=editprofile&amp;',
-		                                'T_TEMPLATE_PATH'=> $siteurl . "/themes/" . $theme . "/templates",
-                                ));
+
+if(!$uid == $user->id)
+{
+$admin_mode = true;
+}
+if($auth->acl_get('a_user'))
+{
+	if(is_founder($id) && !$user->user_type==3) $admin_mode = false;
+	else
+	$admin_mode = true;
+
+}
+$template->assign_vars(array(
+		'S_MOD_MODE'			=> $admin_mode,
+		'PMBT_LINK_BACK'		=> ($admin_mode)? $siteurl.'/user.php?op=editprofile&amp;'.'id=' . $uid . '&amp;' : $siteurl.'/user.php?op=editprofile&amp;',
+		'T_TEMPLATE_PATH'		=> $siteurl . "/themes/" . $theme . "/templates",
+));
 $sql_profile = "SELECT 
 					U.* , 
 					count(F.post_id)AS forumposts, 

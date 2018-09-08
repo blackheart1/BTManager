@@ -534,7 +534,7 @@ if (sizeof($shadow_topic_list))
 		}
 
 		// Do not include those topics the user has no permission to access
-		if (!$$auth->acl_get('f_read', $row['forum_id']))
+		if (!$auth->acl_get('f_read', $row['forum_id']))
 		{
 			// We need to remove any trace regarding this topic. :)
 			unset($rowset[$orig_topic_id]);
