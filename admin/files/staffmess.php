@@ -25,7 +25,7 @@ if (!defined('IN_PMBT'))
 }
 $user->set_lang('admin/acp_staffmess',$user->ulanguage);
 		$page			= request_var('page', 'index');
-		$action		= request_var('action', '');
+		$action		= request_var('action', 'main');
 							$template->assign_block_vars('l_block1.l_block2',array(
 							'L_TITLE'		=> $user->lang['BLOCK_TITLE'],
 							'S_SELECTED'	=> true,
@@ -103,7 +103,7 @@ if($page=="pm"){
 					'S_USER_NOTICE'			=> true,
 					'S_FORWARD'				=> false,
 					'MESSAGE_TITLE'			=> $subject,
-					'MESSAGE_TEXT'			=> $text . '<br /><a href="#" onclick="history.go(-1);return false;">[Go Back]</a>',
+					'MESSAGE_TEXT'			=> $text . '<br /><a href="#" onclick="history.go(-1);return false;">[' . $user->lang['GO_BACK'] . ']</a>',
 				));
 				echo $template->fetch('admin/message_body.html');
 				close_out();
@@ -125,7 +125,7 @@ if($page=="pm"){
 					'S_USER_NOTICE'			=> false,
 					'S_FORWARD'				=> false,
 					'MESSAGE_TITLE'			=> $user->lang['GEN_ERROR'],
-					'MESSAGE_TEXT'			=> $user->lang['MESS_NOT_SENT'] . '<br />' . implode("<br />",$errmsg).'<br /><a href="#" onclick="history.go(-1);return false;">[Go Back]</a>',
+					'MESSAGE_TEXT'			=> $user->lang['MESS_NOT_SENT'] . '<br />' . implode("<br />",$errmsg).'<br /><a href="#" onclick="history.go(-1);return false;">[' . $user->lang['GO_BACK'] . ']</a>',
 				));
 				echo $template->fetch('admin/message_body.html');
 				close_out();
@@ -154,7 +154,7 @@ if($page=="pm"){
 					'S_USER_NOTICE'			=> true,
 					'S_FORWARD'				=> false,
 					'MESSAGE_TITLE'			=> $user->lang['SUCCESS'],
-					'MESSAGE_TEXT'			=> $user->lang['MESS_SENT'].back_link(append_sid($u_action,'page=sendpm')),
+					'MESSAGE_TEXT'			=> $user->lang['MESS_SENT'] . '<br /><a href="#" onclick="history.go(-1);return false;">[' . $user->lang['GO_BACK'] . ']</a>' . back_link(append_sid($u_action,'page=sendpm')),
 				));
 				add_log('admin','LOG_MASS_PM',$user->name);
 				echo $template->fetch('admin/message_body.html');
@@ -193,7 +193,7 @@ if ($page == "mail")
 					'S_USER_NOTICE'			=> false,
 					'S_FORWARD'				=> false,
 					'MESSAGE_TITLE'			=> $user->lang['GEN_ERROR'],
-					'MESSAGE_TEXT'			=> $user->lang['MESS_NOT_SENT'] . '<br />' . implode("<br />",$errmsg).back_link(append_sid($u_action,'page=sendmail')),
+					'MESSAGE_TEXT'			=> $user->lang['MESS_NOT_SENT'] . '<br />' . implode("<br />",$errmsg).'<br /><a href="#" onclick="history.go(-1);return false;">[' . $user->lang['GO_BACK'] . ']</a>',
 				));
 				echo $template->fetch('admin/message_body.html');
 				close_out();
@@ -221,7 +221,7 @@ if (!$usermissed){
 					'S_USER_NOTICE'			=> true,
 					'S_FORWARD'				=> false,
 					'MESSAGE_TITLE'			=> $user->lang['SUCCESS'],
-					'MESSAGE_TEXT'			=> $user->lang['MESS_SENT'].back_link(append_sid($u_action,'page=sendmail')),
+					'MESSAGE_TEXT'			=> $user->lang['MESS_SENT'] . '<br /><a href="#" onclick="history.go(-1);return false;">[' . $user->lang['GO_BACK'] . ']</a>' . back_link(append_sid($u_action,'page=sendmail')),
 				));
 				add_log('admin','LOG_MASS_EMAIL',$user->name);
 				echo $template->fetch('admin/message_body.html');
@@ -231,7 +231,7 @@ if (!$usermissed){
 					'S_USER_NOTICE'			=> false,
 					'S_FORWARD'				=> false,
 					'MESSAGE_TITLE'			=> $user->lang['GEN_ERROR'],
-					'MESSAGE_TEXT'			=> $user->lang['MESS_NOT_SENT'].back_link(append_sid($u_action,'page=sendmail')),
+					'MESSAGE_TEXT'			=> $user->lang['MESS_NOT_SENT'].'<br /><a href="#" onclick="history.go(-1);return false;">[' . $user->lang['GO_BACK'] . ']</a>',
 				));
 				echo $template->fetch('admin/message_body.html');
 				close_out();
@@ -340,6 +340,8 @@ if($page=="sendmail"){
                                 $template->assign_vars(array(
 									'L_TITLE'					=> $user->lang['MAIN_TEXT'],
 									'L_TITLE_EXPLAIN'			=> $user->lang['MAIN_INTRO_EXP'],
+									'U_LINK_MAIL'				=> append_sid($u_action,'page=sendmail'),
+									'U_LINK_PM'					=> append_sid($u_action,'page=sendpm'),
 								));
 	echo $template->fetch('admin/staffmess.html');
 	close_out();

@@ -320,7 +320,9 @@ class acp_permission_roles
 					'S_SPECIAL_GROUP'	=> (($user->lang[$role_row['role_name']])?true : false),
 
 					'ROLE_NAME'			=> $role_row['role_name'],
+					'PRE_DE_FIND_N'		=> ((!empty($user->lang[$role_row['role_name']]))? $user->lang[$role_row['role_name']] : false),
 					'ROLE_DESCRIPTION'	=> $role_row['role_description'],
+					'PRE_DE_FIND_D'		=> ((!empty($user->lang[$role_row['role_description']]))? $user->lang[$role_row['role_description']] : false),
 					'L_ACL_TYPE'		=> $user->lang['ACL_TYPE_' . strtoupper($permission_type)],
 					)
 				);

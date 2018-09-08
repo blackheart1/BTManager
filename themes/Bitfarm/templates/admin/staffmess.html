@@ -120,8 +120,7 @@
 </tr>
 </table>
 	</form>
-<!-- ENDIF -->
-<!-- IF ACTION == email -->
+<!-- ELSEIF ACTION == email -->
 <!-- IF S_POST_REVIEW -->
 <table class="tablebg" width="100%" cellspacing="{$CA_SPACING}">
 	<tr>
@@ -217,7 +216,10 @@
 			</dl>
 		</fieldset>
 		</form>
-<!-- ENDIF -->
-<!-- IF ACTION == main -->
+<!-- ELSE -->
+<h2><a href="{U_LINK_PM}">{L_SECTION_TITLE_SENPM}</a></h2>
+{L_MASS_PM_SYS_EXP}
+<h2><a href="{U_LINK_MAIL}">{L_SECTION_TITLE_SENEMAIL}</a></h2>
+{L_MASS_MAIL_EXP}
 <!-- ENDIF -->
 <!-- INCLUDE themes/Bitfarm/templates/admin/over_all_footer.html -->
