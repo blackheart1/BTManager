@@ -1750,19 +1750,19 @@ function submit_post($mode, $subject, $username, $topic_type, &$poll, &$data, $u
 	// Send Notifications
 	if ($mode != 'edit' && $mode != 'delete' && $post_approval)
 	{
-		//user_notification($mode, $subject, $data['topic_title'], $data['forum_name'], $data['forum_id'], $data['topic_id'], $data['post_id']);
+		user_notification($mode, $subject, $data['topic_title'], $data['forum_name'], $data['forum_id'], $data['topic_id'], $data['post_id']);
 		global $shout_config;
 		if($shout_config['turn_on']=='yes')
 		{
 			if(($mode == 'reply' || $mode == 'quote') AND $config['shout_new_post'])
 			{
 				$text = sprintf($user->lang['SHOUT_REPLY'], $url, $data['topic_title']);
-				bt_shout($user->id, $text);
+				bt_shout($user->id, $text, 0, $data['forum_id']);
 			}
 			elseif($mode == 'post' AND $config['shout_new_topic'])
 			{
 				$text = sprintf($user->lang['SHOUT_POST'], $url, $data['forum_name']);
-				bt_shout($user->id, $text);
+				bt_shout($user->id, $text, 0, $data['forum_id']);
 			}
 		}
 	}
@@ -1776,6 +1776,7 @@ function submit_post($mode, $subject, $username, $topic_type, &$poll, &$data, $u
 function user_notification($mode, $subject, $topic_title, $forum_name, $forum_id, $topic_id, $post_id, $author_name = '')
 {
 	global $db, $user, $config, $phpbb_root_path, $phpEx, $auth, $db_prefix;
+	$config['allow_topic_notify'] = 1;
 
 	$topic_notification = ($mode == 'reply' || $mode == 'quote') ? true : false;
 	$forum_notification = ($mode == 'post') ? true : false;
@@ -1784,7 +1785,6 @@ function user_notification($mode, $subject, $topic_title, $forum_name, $forum_id
 	{
 		trigger_error('NO_MODE');
 	}
-
 	if (($topic_notification && !$config['allow_topic_notify']) || ($forum_notification && !$config['allow_forum_notify']))
 	{
 		return;
@@ -1912,13 +1912,13 @@ function user_notification($mode, $subject, $topic_title, $forum_name, $forum_id
 			}
 		}
 	}
-	unset($notify_rows);
+//die(print_r($notify_rows));
+	unset($notify_rows);//die(print_r($msg_users));
 
 	// Now, we are able to really send out notifications
 	if (sizeof($msg_users))
 	{
-		include_once($phpbb_root_path . 'include/functions_messenger.php');
-		$messenger = new messenger();
+		include_once('include/function_messenger.php');
 
 		$msg_list_ary = array();
 		foreach ($msg_users as $row)
@@ -1936,8 +1936,10 @@ function user_notification($mode, $subject, $topic_title, $forum_name, $forum_id
 
 		foreach ($msg_list_ary as $email_template => $email_list)
 		{
+			//die(print_r($email_template));
 			foreach ($email_list as $addr)
 			{
+		$messenger = new messenger();
 				$messenger->template($email_template, $addr['lang']);
 
 				$messenger->to($addr['email'], $addr['name']);
@@ -1956,12 +1958,12 @@ function user_notification($mode, $subject, $topic_title, $forum_name, $forum_id
 					'U_STOP_WATCHING_FORUM'	=> generate_board_url() . "/forum.php?action=viewforum&uid={$addr['user_id']}&f=$forum_id&unwatch=forum",
 				));
 
-				$messenger->send($addr['method']);
+				$messenger->send(0);
+				$messenger->save_queue();
 			}
 		}
 		unset($msg_list_ary);
 
-		$messenger->save_queue();
 	}
 
 	// Handle the DB updates
@@ -1969,7 +1971,7 @@ function user_notification($mode, $subject, $topic_title, $forum_name, $forum_id
 	if (!empty($update_notification['topic']))
 	{
 		$sql = 'UPDATE ' . $db_prefix . '_topics_watch
-			SET notify_status = ' . NOTIFY_NO . "
+			SET notify_status = ' . 1 . "
 			WHERE topic_id = $topic_id
 				AND " . $db->sql_in_set('user_id', $update_notification['topic']);
 		$db->sql_query($sql);
@@ -1978,7 +1980,7 @@ function user_notification($mode, $subject, $topic_title, $forum_name, $forum_id
 	if (!empty($update_notification['forum']))
 	{
 		$sql = 'UPDATE ' . $db_prefix . '_forums_watch
-			SET notify_status = ' . NOTIFY_NO . "
+			SET notify_status = ' . 1 . "
 			WHERE forum_id = $forum_id
 				AND " . $db->sql_in_set('user_id', $update_notification['forum']);
 		$db->sql_query($sql);

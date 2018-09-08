@@ -944,7 +944,7 @@ function get_u_ratio($upload, $download)
         return $ratio;
 }
 
-function bt_shout($from, $text, $id_to = 0)
+function bt_shout($from, $text, $id_to = 0, $f = false)
 {
         global $db, $db_prefix, $shout_config, $config;
 		include_once('include/function_posting.php');
@@ -959,13 +959,14 @@ function bt_shout($from, $text, $id_to = 0)
 		$enable_smilies		= ($config['allow_smilies']);
 		$enable_bbcode		= ($config['allow_bbcode']);
 		$enable_urls		= ($shout_config['allow_url'] != "no")?true:false;
-		$shout_parser 	= new parse_message();
+		$shout_parser 		= new parse_message();
 		$shout_parser->message = $text;
-		$bbcode_uid = $shout_parser->bbcode_uid;
+		$bbcode_uid 		= $shout_parser->bbcode_uid;
 		$shout_parser->parse($enable_bbcode, ($config['allow_post_links']) ? $enable_urls : false, $enable_smilies, $img_status, $flash_status, true, $config['allow_post_links'],true,true,true,'shout');
 		$shout = $db->sql_escape(stripslashes($shout_parser->message));
+		$f 					= ($f)? $f : 'NULL';
 
-        $db->sql_query("INSERT INTO " . $db_prefix . "_shouts (user, text, bbcode_bitfield, bbcode_uid, posted, id_to) VALUES ('" . $from . "', '" . $shout . "', '" . $shout_parser->bbcode_bitfield . "','" . $shout_parser->bbcode_uid . "', NOW(), '" . $id_to . "');");
+        $db->sql_query("INSERT INTO " . $db_prefix . "_shouts (user, text, bbcode_bitfield, bbcode_uid, posted, id_to, f) VALUES ('" . $from . "', '" . $shout . "', '" . $shout_parser->bbcode_bitfield . "','" . $shout_parser->bbcode_uid . "', NOW(), '" . $id_to . "', " . $f . ");");
 }
 
 /*------------------------

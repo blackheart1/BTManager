@@ -1922,6 +1922,7 @@ function user_ban($mode, $ban, $ban_len, $ban_len_other, $ban_exclude, $ban_reas
 				}
 			}
 
+
 			if (sizeof($ban_list) == 0)
 			{
 				trigger_error('NO_EMAILS_DEFINED');
@@ -2246,6 +2247,7 @@ function define_cond_option($hardcoded, $cond_option, $rule_option, $global_rule
 			$current_value = $rule_string;
 		break;
 
+
 		case 'group':
 			$rule_group_id = request_var('rule_group_id', 0);
 			$rule_string = request_var('rule_string', '', true);
@@ -2367,6 +2369,7 @@ function get_username_string($mode, $user_id, $username, $username_colour = '', 
 		$_profile_cache['base_url'] = append_sid("{$siteurl}/user.$phpEx", 'op=profile&amp;id={USER_ID}');
 		$_profile_cache['tpl_noprofile'] = '{USERNAME}';
 		$_profile_cache['tpl_noprofile_colour'] = '<span style="color: {USERNAME_COLOUR};" class="username-coloured">{USERNAME}</span>';
+
 		$_profile_cache['tpl_profile'] = '<a href="{PROFILE_URL}">{USERNAME}</a>';
 		$_profile_cache['tpl_profile_colour'] = '<a href="{PROFILE_URL}" style="color: {USERNAME_COLOUR};" class="username-coloured">{USERNAME}</a>';
 	}
@@ -2760,6 +2763,7 @@ function group_user_add($group_id, $user_id_ary = false, $username_ary = false, 
 	{
 		return 'GROUP_USERS_EXIST';
 	}
+
 
 
 	// Insert the new users

@@ -120,7 +120,6 @@ class Template {
 				$this->files_inherit[$handle] = $this->inherit_root . '/' . $filename;
 			}
 		}
-
 		return true;
 	}
 	function assign_vars($vararray)
@@ -185,7 +184,6 @@ class Template {
 		$this->files_template[$handle] = $user->theme . '\'';
 		
 		$recompile = false;
-		//die($filename);
 		if (!file_exists($filename) || @filesize($filename) === 0)
 		{
 			$recompile = true;
@@ -200,18 +198,16 @@ class Template {
 			}
 			$recompile = (@filemtime($filename) < filemtime($this->files[$handle])) ? true : false;
 		}
-		
 		// Recompile page if the original template is newer, otherwise load the compiled version
 		if (!$recompile)
 		{
 			return $filename;
 		}
-		//die("themes/".$theme."/templates/".$this->files[$handle]);
 		if(preg_match("/language\/email\//",$this->files[$handle]))
 		{
 			$data = $this->compile(trim(file_get_contents($this->files[$handle])));
 		}
-		elseif(preg_match("/style\/upgrade\//",$this->files[$handle]) OR preg_match("/style\/install\//",$this->files[$handle]) )
+		elseif(preg_match("/style\/upgrade\//",$this->files[$handle]))
 		{
 			$data = $this->compile(trim(file_get_contents($this->files[$handle])));
 		}
