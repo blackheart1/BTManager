@@ -75,11 +75,11 @@
 {$CA_CAP_START}{L__DEFINED_RULES}{$CA_CAP_END}
 <!-- BEGIN rule -->
 	<tr>
-		<td class="row1" width="25" align="center"><span class="gen">#{rule.COUNT}</span></td>
-		<td class="row2" width="120"><span class="gen"><strong>{L__IF}</strong> {rule.CHECK}</span></td>
-		<td class="row1" width="120"><span class="gen">{rule.RULE}</span></td>
-		<td class="row2" width="120"><span class="gen"><!-- IF rule.STRING -->{rule.STRING}<!-- ENDIF --></span></td>
-		<td class="row1"><span class="gen">{rule.ACTION}<!-- IF rule.FOLDER --> -&gt; {rule.FOLDER}<!-- ENDIF --></span></td>
+		<td class="row1" width="25" align="center"><p class="forumdesc">#{rule.COUNT}</p></td>
+		<td class="row2" width="120"><p class="forumdesc">{L__IF} {rule.CHECK}</p></td>
+		<td class="row1" width="120"><p class="forumdesc">{rule.RULE}</p></td>
+		<td class="row2" width="120"><p class="forumdesc"><!-- IF rule.STRING -->{rule.STRING}<!-- ENDIF --></p></td>
+		<td class="row1"><p class="forumdesc">{rule.ACTION}<!-- IF rule.FOLDER --> -&gt; {rule.FOLDER}<!-- ENDIF --></p></td>
 		<td class="row2" width="25"><input type="submit" name="delete_rule[{rule.RULE_ID}]" value="{L__DELETE_RULE}" class="btnlite" /></td>
 	</tr>
 <!-- BEGINELSE -->
@@ -97,11 +97,11 @@
 	<table class="tablebg" width="100%" cellspacing="{$CA_SPACING}">
 	{$CA_CAP_START}{L__RENAME_FOLDER}{$CA_CAP_END}
 	<tr>
-		<td class="row1" width="200"><strong class="gen">{L__RENAME_FOLDER}: </strong></td>
+		<td class="row1" width="200"><p class="forumdesc">{L__RENAME_FOLDER}: </p></td>
 		<td class="row1"><select name="rename_folder_id">{S_FOLDER_OPTIONS}</select></td>
 	</tr>
 	<tr>
-		<td class="row1" width="200"><strong class="gen">{L__NEW_FOLDER_NAME}: </strong></td>
+		<td class="row1" width="200"><p class="forumdesc">{L__NEW_FOLDER_NAME}: </p></td>
 		<td class="row1"><input type="text" class="post" name="new_folder_name" size="30" maxlength="30" /></td>
 	</tr>
 	<tr>
@@ -123,7 +123,7 @@
 	</tr>
 <!-- ELSE -->
 	<tr>
-		<td class="row1" width="200"><strong class="gen">{L__ADD_FOLDER}: </strong></td>
+		<td class="row1" width="200"><p class="forumdesc">{L__ADD_FOLDER}: </p></td>
 		<td class="row1"><input type="text" class="post" name="foldername" size="30" maxlength="30" /></td>
 	</tr>
 	<tr>
@@ -141,9 +141,9 @@
 	<table class="tablebg" width="100%" cellspacing="{$CA_SPACING}">
 	{$CA_CAP_START}{L__REMOVE_FOLDER}{$CA_CAP_END}
 	<tr>
-		<td class="row1" width="200"><strong class="gen">{L__REMOVE_FOLDER}: </strong></td>
+		<td class="row1" width="200"><p class="forumdesc">{L__REMOVE_FOLDER}: </p></td>
 		<td class="row1"><select name="remove_folder_id">{S_FOLDER_OPTIONS}</select></td>
-		<td class="row1"><strong class="genmed">{L__AND}</strong></td>
+		<td class="row1"><p class="forumdesc">{L__AND}</p></td>
 	</tr>
 	<tr>
 		<td class="row2" width="200">&nbsp;</td>
@@ -167,7 +167,7 @@
 <table class="tablebg" width="100%" cellspacing="{$CA_SPACING}">
 {$CA_CAP_START}{L__FOLDER_OPTIONS}{$CA_CAP_END}
 <tr>
-	<td class="row1" width="200"><span><strong class="genmed">{L__IF_FOLDER_FULL}: </strong></span></td>
+	<td class="row1" width="200"><span><p class="forumdesc">{L__IF_FOLDER_FULL}: </p></span></td>
 	<td class="row1"><input type="radio" class="radio" name="full_action" value="1"{S_DELETE_CHECKED} />&nbsp;<span class="genmed">{L__DELETE_OLDEST_MESSAGES}</span></td>
 </tr>
 <tr>
@@ -179,7 +179,7 @@
 	<td class="row1"><input type="radio" class="radio" name="full_action" value="3"{S_HOLD_CHECKED} />&nbsp;<span class="genmed">{L__HOLD_NEW_MESSAGES}</span></td>
 </tr>
 <tr>
-	<td class="row2" width="200"><strong class="genmed">{L__DEFAULT_ACTION}: </strong><br /><span class="gensmall">{L__DEFAULT_ACTION_EXPLAIN}</span></td>
+	<td class="row2" width="200"><p class="forumdesc">{L__DEFAULT_ACTION}: </p><span class="genmed">{L__DEFAULT_ACTION_EXPLAIN}</span></td>
 	<td class="row2"><span class="genmed">{DEFAULT_ACTION}</span></td>
 </tr>
 <tr>
