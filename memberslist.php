@@ -30,6 +30,7 @@ require_once("common.php");
 require_once("include/torrent_functions.php");
 include_once("include/utf/utf_tools.php");
 include_once("include/class.bbcode.php");
+include_once("include/functions_forum.php");
 $template = new Template();
 $user->set_lang('memberslist',$user->ulanguage);
 set_site_var($user->lang['MEMBERLIST']);
@@ -1229,7 +1230,7 @@ switch ($mode)
 			}
 
 			// Misusing the avatar function for displaying group avatars...
-			#$avatar_img = get_user_avatar($group_row['group_avatar'], $group_row['group_avatar_type'], $group_row['group_avatar_width'], $group_row['group_avatar_height'], 'GROUP_AVATAR');
+			$avatar_img = get_user_avatar($group_row['group_avatar'], $group_row['group_avatar_type'], $group_row['group_avatar_width'], $group_row['group_avatar_height'], 'GROUP_AVATAR');
 
 			// ... same for group rank
 			$rank_title = $rank_img = $rank_img_src = '';

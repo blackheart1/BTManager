@@ -75,4 +75,10 @@ define('ATTACHMENT_CATEGORY_RM', 3); // Real Media Files - Streaming
 define('ATTACHMENT_CATEGORY_THUMB', 4); // Not used within the database, only while displaying posts
 define('ATTACHMENT_CATEGORY_FLASH', 5); // Flash/SWF files
 define('ATTACHMENT_CATEGORY_QUICKTIME', 6); // Quicktime/Mov files
+// Group settings
+define('GROUP_OPEN', 0);
+define('GROUP_CLOSED', 1);
+define('GROUP_HIDDEN', 2);
+define('GROUP_SPECIAL', 3);
+define('GROUP_FREE', 4);
 ?>
