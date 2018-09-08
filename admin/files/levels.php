@@ -67,19 +67,6 @@ if (!$auth->acl_get('a_group'))
 }
 
 $template->assign_block_vars('l_block1.l_block2', array(
-        'L_TITLE'    => $user->lang['LEVELS'],
-        'S_SELECTED' => true,
-        'U_TITLE'    => '1',
-));
-
-$template->assign_block_vars('l_block1.l_block2.l_block3', array(
-        'S_SELECTED' => ('setting_forum_conf' == $action)? true : false,
-        'IMG'        => '',
-        'L_TITLE'    => $user->lang['VIEW_LEVELS'],
-        'U_TITLE'    => append_sid($u_action, 'action=manage_level'),
-));
-
-$template->assign_block_vars('l_block1.l_block2', array(
         'L_TITLE'    => $user->lang['GROUPS'],
         'S_SELECTED' => true,
         'U_TITLE'    => '1',
@@ -1517,6 +1504,8 @@ switch ($action)
         else
         {
             $group_name = $group_row['group_name'];
+			$gourpdesc = ((isset($user->lang[$group_row['group_desc']]))? $user->lang[$group_row['group_desc']] : $group_row['group_desc']);
+			if($gourpdesc == $group_row['group_desc']) $gourpdesc = false;
 
             $group_desc_data = generate_text_for_edit($group_row['group_desc'], $group_row['group_desc_uid'], $group_row['group_desc_options']);
 
@@ -1567,6 +1556,7 @@ switch ($action)
                 $u_back = $u_action;
             break;
         }
+		//die($group_desc_data['text']);
 
         $template->assign_vars(array(
                 'S_EDIT'            => true,
@@ -1585,6 +1575,7 @@ switch ($action)
                 'GROUP_NAME'           => ($group_type == 3) ? $user->lang['G_' . $group_name] : $group_name,
                 'GROUP_INTERNAL_NAME'  => $group_name,
                 'GROUP_DESC'           => $group_desc_data['text'],
+				'GROUP_DESC_FILE'		=> $gourpdesc,
 
                 'GROUP_RECEIVE_PM'     => (isset($group_row['group_receive_pm']) && $group_row['group_receive_pm']) ? ' checked="checked"' : '',
 

@@ -310,7 +310,9 @@ class bbcode
 				case 8:
 					$this->bbcode_cache[$bbcode_id] = array(
 						'preg' => array(
-							'#\[code(?:=([a-z]+))?:$uid\](.*?)\[/code:$uid\]#is'	=> "\$this->bbcode_second_pass_code('\$1', '\$2')",
+							'#\[code(?:=([a-z]+))?:$uid\](.*?)\[/code:$uid\]#is'	=> function ($match) {
+								return $this->bbcode_second_pass_code($match[1], $match[2]);
+							},
 						)
 					);
 				break;
