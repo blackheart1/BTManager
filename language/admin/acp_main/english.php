@@ -76,11 +76,9 @@ $lang = array_merge($lang, array(
     '_STATISTIC_RESYNC_OPTIONS'  => 'Resynchronise or Reset Statistics',
     '_RESET_ONLINE'              => 'Reset the Most Users Ever Online',
     '_RESET_DATE'                => 'Reset the Site\'s Start Date',
-
-    'EMAIL_INVALID_EMAIL'               => 'Invalid email Address',
-    'EMAIL_INVALID_EMAIL_BOARD_CONTACT' => 'Invalid email Address <strong>\'Contact email Address\'</strong>',
-    'EMAIL_INVALID_EMAIL_BOARD_EMAIL'   => 'Invalid email Address <strong>\'Return email Address\'</strong>',
-
+    'EMAIL_INVALID_EMAIL'        => 'Invalid email Address',
+    'EMAIL_INVALID_EMAIL_BOARD_CONTACT'        => 'Invalid email Address <strong>\'Contact email Address\'</strong>',
+    'EMAIL_INVALID_EMAIL_BOARD_EMAIL'        => 'Invalid email Address <strong>\'Return email Address\'</strong>',
     'WARNING'                    => 'Warning',
 
     'SETTING_TOO_LOW'            => 'The Provided Value for the Setting \'%1$s\' is Too Low.  The Minimum Acceptable Value is %2$d.',
@@ -116,6 +114,7 @@ $lang = array_merge($lang, array(
     'USERNAMES_EXPLAIN'          => 'Place each Username on a Separate Line.',
 
     '_PERMISSIONS_TRANSFERRED'        => 'Permissions Transferred',
+	'GO_BACK'					=> 'Go Back',
 
     'PERMISSIONS_TRANSFERRED_EXPLAIN' => 'You currently have the Permissions from %1$s.  You are able to Browse the Board with this User’s Permissions, but you can Not Access the Administration Control Panel since the Administrator Permissions were Not Transferred.  You can <a href="%2$s"><strong>Revert to your Permission Set</strong></a> at any time.',
 
@@ -399,7 +398,6 @@ $lang = array_merge($lang, array(
     'LOG_THEME_EDIT_DETAILS'   => '<strong>Edited the Theme Details for</strong><br /> %s',
     'LOG_THEME_EDIT'           => '<strong>Edited the Theme <em>%1$s</em></strong>',
     'LOG_THEME_EDIT_FILE'      => '<strong>Edited the Theme <em>%1$s</em></strong><br /> Modified File <em>%2$s</em>',
-
     'LOG_THEME_EXPORT'         => '<strong>Exported the Theme</strong><br /> %s',
     'LOG_THEME_REFRESHED'      => '<strong>Refreshed the Theme</strong><br /> %s',
 
@@ -500,7 +498,7 @@ $lang = array_merge($lang, array(
     'MENU_SIG_SETTINGS_EXP' => 'Here you can Set ALL the Default Settings for Signatures.',
     'MENU_HNR'              => 'Hit and Run Settings',
     'MENU_ARCADE'           => 'Arcade Settings',
-    'MENU_SHOUT_CAST'       => 'SHOUTcast Settings',
+    'MENU_SHOUT_CAST'       => 'Shoutcast Settings',
 
     #3.0.1 addon
     'LOG_FILTER_ADD'        => '<strong>Added Upload Filter</strong><br /> %s',
@@ -510,17 +508,18 @@ $lang = array_merge($lang, array(
     'ACP_SEARCH_INDEX'      => 'Search Index',
     'ACP_SEARCH_SETTINGS'   => 'Search Settings',
     'LOG_CONFIG_SHOUTCAST'  => 'SHOUTcast Configuration Updated',
-    'ADMTOTALSPEED'         => 'Total Transfer Speed:',
-    'ADMTOTALSEEDERS'       => 'Total Seeders:',
-    'ADMTOTALLEECHERS'      => 'Total Leechers:',
-    'ADMMOSTUSEDCLIENT'     => 'Most Used Client:',
-    'CONFIG_UPDATED_EMAIL'  => 'email Configuration Updated',
-    'VALUE'                 => 'Value',
-    'ADMTOTALUSERS'         => 'Total Registered Users:',
-    'ADMTOTALTORRENTS'      => 'Total Torrents:',
-    '_IP'                   => 'User IP',
-    '_TIME'                 => 'Time',
-    'LAST_VISIT'            => 'Last Visit',
+	'ADMTOTALSPEED'			=> 'Total transfer speed:',
+	'ADMTOTALSEEDERS'		=> 'Total seeders:',
+	'ADMTOTALLEECHERS'		=> 'Total leechers:',
+	'ADMMOSTUSEDCLIENT'		=> 'Most used client:',
+	'CONFIG_UPDATED_EMAIL'	=> 'email Configs Updated',
+	'VALUE'					=> 'Value',
+	'ADMTOTALUSERS'			=> 'Total Registered Users:',
+	'ADMTOTALTORRENTS'		=> 'Total Torrents:"',
+	'_IP'					=> 'User IP',
+	'_TIME'					=> 'Time',
+	'LAST_VISIT'			=> 'Last Visit',
+	'DEFINED_AS'			=> 'Defined to',
 ));
 
 ?>

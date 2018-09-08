@@ -289,8 +289,9 @@ $lang = array_merge($lang, array(
     'NOT_ALLOWED_MANAGE_GROUP' => 'You are NOT Allowed to Manage this Group.',
     'G_ADMINISTRATORS'         => 'Administrator',
     'G_MODERATOR'              => 'Moderator',
-    'G_PREMIUM_USER'           => 'VIP',
+    'G_PREMIUM_USER'           => 'Premium User',
     'G_USER'                   => 'User',
+	'G_GUEST'					=> 'Guest',
     'USER_DEFAULT'             => 'User Default',
     'AUTH_UPDATED'             => 'Permissions have been Updated.',
 
@@ -334,6 +335,12 @@ $lang = array_merge($lang, array(
     'MOVE_DOWN_DISABLED'   => 'Move Down Disabled',
     'MOVE_UP'              => 'Move Up',
     'MOVE_UP_DISABLED'     => 'Move Up Disabled',
+	'GROUP_DISC_OWNER'			=> 'Site creator and owner',
+	'GROUP_DISC_GUEST'			=> 'Default group for not logged in users',
+	'GROUP_DISC_ADMIN'			=> 'High level staff - will help with any problems',
+	'GROUP_DISC_MODS'			=> 'Moderators - will help where they can :)',
+	'GROUP_DISC_PREM'			=> 'VIP - for donors and those who hae done something to help the site',
+	'GROUP_DISC_USER'			=> 'User class - everyone has to start somewhere.',
 ));
 
 ?>

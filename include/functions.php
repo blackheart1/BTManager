@@ -443,19 +443,14 @@ function generate_text_for_storage(&$text, &$uid, &$bitfield, &$flags, $allow_bb
 function pmbt_trigger_error($message='', $var = false, $meta = false, $rtime = '30')
 {
     global $template, $user;
-
     if (!isset($template))$template = new Template();
-
     set_site_var('- '.(($var)? $var : $user->lang['USER_CPANNEL']) . ' - ' . $user->lang['ACCESS_DENIED']);
-
     $template->assign_vars(array(
-            'S_ERROR_HEADER' => $user->lang['ACCESS_DENIED'],
+            'S_ERROR_HEADER' => (($var)? $var : $user->lang['ACCESS_DENIED']),
             'S_ERROR_MESS'   => $message,
     ));
-
     if ($meta)meta_refresh($rtime, $meta);
-
-    echo $template->fetch('error.html');
+    echo $template->fetch('error_message.html');
     close_out();
 }
 

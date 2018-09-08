@@ -188,8 +188,12 @@ $lang = array_merge($lang, array(
     'ALL_FORUMS'                => 'All Forum\'s',
     'RANK'                      => 'Rank',
 
-    'GROUP_DISC_OWNER'          => 'Site Creator and Owner',
-    'GROUP_DISC_GUEST'          => 'Default Group for Not Logged in Users',
+	'GROUP_DISC_OWNER'			=> 'Site creator and owner',
+	'GROUP_DISC_GUEST'			=> 'Default group for not logged in users',
+	'GROUP_DISC_ADMIN'			=> 'High level staff - will help with any problems',
+	'GROUP_DISC_MODS'			=> 'Moderators - will help where they can :)',
+	'GROUP_DISC_PREM'			=> 'VIP - for donors and those who hae done something to help the site',
+	'GROUP_DISC_USER'			=> 'User class - everyone has to start somewhere.',
 
     'USER_LAST_REMINDED' => array(
         0 => 'No Reminder was Sent at this time',
