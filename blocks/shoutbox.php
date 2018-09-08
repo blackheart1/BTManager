@@ -23,7 +23,7 @@ if (!defined('IN_PMBT'))
 	include_once './../security.php';
     die ('Error 404 - Page Not Found');
 }
-global $db_prefix, $user, $db, $shout_config,$template,$btback1,$btback2, $phpEx, $config,$pmbt_cache;
+global $db_prefix, $user, $db, $shout_config,$template,$btback1,$btback2, $phpEx, $config,$pmbt_cache, $auth;
 if($shout_config['turn_on']=='yes')
 {
 		$user->set_lang('shouts',$user->ulanguage);
@@ -85,6 +85,10 @@ if($shout_config['turn_on']=='yes')
                 $num2s = $db->sql_numrows($shoutres);
                 if ($num2s > 0) {
                         while ($shout = $db->sql_fetchrow($shoutres)) {
+						if ($shout['f'] && !$auth->acl_get('f_read', $shout['f']))
+						{
+							continue;
+						}
 						if ($num2s > 1)
 						{
 						  $ucs++;
