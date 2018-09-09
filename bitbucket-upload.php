@@ -29,7 +29,7 @@ else
 require_once("common.php");
 require_once("include/torrent_functions.php");
 $template = new Template();
-$user->set_lang('bitbucket',$user->ulanguage);
+$user->set_lang('image-bucket',$user->ulanguage);
 set_site_var($user->lang['BITBUCKET_MANAGER']);
 $totimg = 0;
 function get_image_extension($filename, $include_dot = true, $shorter_extensions = true) {
