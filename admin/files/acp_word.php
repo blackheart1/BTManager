@@ -12,7 +12,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts/Black_Heart)
 ** Project Leaders: Black_Heart, Thor.
-** File acp_attachments.php 2018-02-17 14:32:00 Black_Heart
+** File acp_word.php 2018-02-17 14:32:00 Black_Heart
 **
 ** CHANGES
 **
@@ -115,7 +115,7 @@ class acp_words
 					'word'			=> $word,
 					'replacement'	=> $replacement
 				);
-				
+
 				if ($word_id)
 				{
 					$db->sql_query('UPDATE ' . $db_prefix . '_words SET ' . $db->sql_build_array('UPDATE', $sql_ary) . ' WHERE word_id = ' . $word_id);

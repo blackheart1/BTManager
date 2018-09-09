@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File site_settings/english.php 2018-07-29 07:37:00 Thor
+** File site_settings/english.php 2018-09-09 09:00:00 Thor
 **
 ** CHANGES
 **
@@ -39,7 +39,8 @@ if (empty($lang) || !is_array($lang))
 }
 
 $lang = array_merge($lang, array(
-    'YES_NO_NUM' => array('1' =>'Yes', '0' =>'No'),
+    'YES_NO_NUM' => array('1' => 'Yes',
+                          '0' => 'No'),
 
     '_admsaved'            => 'Settings Saved!',
     '_admconfigttl'        => 'BTManager Configuration',
@@ -62,7 +63,7 @@ $lang = array_merge($lang, array(
     '_admpoff_line_messexplain' => 'You can Enter a Short (255 Character) Message to Display if you wish.',
 
     '_admpannounce_url'        => 'Site Announce URL\'s',
-    '_admpannounce_urlexplain' => 'Add the Announce URL\'s that will be used by the Site.<br>Put each one on a New Line.',
+    '_admpannounce_urlexplain' => 'Add the Announce URL\'s that will be used by the Site.<br />Enter each one on a <strong>Separate Line</strong>.',
 
     '_admpon_line'        => 'Site Online',
     '_admpon_lineexplain' => 'Set Site On/Offline.',
@@ -72,14 +73,14 @@ $lang = array_merge($lang, array(
 
     '_admpPublic_Key'         => 'reCAPTCHA Public Key',
 
-    '_admpPublic_Keyexplain'  => 'If You have a reCAPTCHA Account and a Public Key you can use it here.<br />Leave the Field Blank and the Site will use a Base64 CAPTCHA code.<br />for more info on reCAPTCHA visit here <a href=\'http://www.google.com/recaptcha/learnmore\'>What is reCAPTCHA</a>.',
+    '_admpPublic_Keyexplain'  => 'If You have a reCAPTCHA Account and a Public Key you need to Enter it Here.<br />Leave the Field Blank and the Site will use a Base64 CAPTCHA code.<br />For more info on reCAPTCHA visit here <strong><a href=\'http://www.google.com/recaptcha/learnmore\'>What is reCAPTCHA</a></strong>.',
 
     '_admpPrivate_Key'        => 'reCAPTCHA Private Key',
-    '_admpPrivate_Keyexplain' => 'Add your reCAPTCHA Private Key here, Leave it Blank if you don\'t have one.',
+    '_admpPrivate_Keyexplain' => 'Add your reCAPTCHA Private Key Here.  Leave it Blank if you don\'t have one.',
 
-    '_admptime_zone'                  => 'Site Default Time Zone',
+    '_admptime_zone'        => 'Site Default Time Zone',
 
-    '_admptime_zoneexplain'           => 'Set the Default Time Zone for your Site.<br />To find out what Time Zone to use Click on the Links below.<br /> <a target=\'_blank\' href=\'http://www.php.net/manual/en/timezones.africa.php\'>Africa</a>, '.'<a target=\'_blank\' href=\'http://www.php.net/manual/en/timezones.america.php\'>America</a>, <a target=\'_blank\' href=\'http://www.php.net/manual/en/timezones.antarctica.php\'>Antarctica</a>, <a target=\'_blank\' href=\'http://www.php.net/manual/en/timezones.arctic.php\'>Arctic</a>, <a target=\'_blank\' href=\'http://www.php.net/manual/en/timezones.asia.php\'>Asia</a>, <a target=\'_blank\' href=\'http://www.php.net/manual/en/timezones.atlantic.php\'>Atlantic</a>, <a target=\'_blank\' href=\'http://www.php.net/manual/en/timezones.australia.php\'>Australia</a>, <a target=\'_blank\' href=\'http://www.php.net/manual/en/timezones.europe.php\'>Europe</a>, <a target=\'_blank\' href=\'http://www.php.net/manual/en/timezones.indian.php\'>Indian</a>, <a target=\'_blank\' href=\'http://www.php.net/manual/en/timezones.pacific.php\'>Pacific</a>, <a target=\'_blank\' href=\'http://www.php.net/manual/en/timezones.others.php\'>Others</a>',
+    '_admptime_zoneexplain' => 'Set the Default Time Zone for your Site.<br />To find out what Time Zone to use Click on the Links below.<br /><strong><a target=\'_blank\' href=\'http://www.php.net/manual/en/timezones.africa.php\'>Africa</a>, '.'<a target=\'_blank\' href=\'http://www.php.net/manual/en/timezones.america.php\'>America</a>, <a target=\'_blank\' href=\'http://www.php.net/manual/en/timezones.antarctica.php\'>Antarctica</a>, <a target=\'_blank\' href=\'http://www.php.net/manual/en/timezones.arctic.php\'>Arctic</a>, <a target=\'_blank\' href=\'http://www.php.net/manual/en/timezones.asia.php\'>Asia</a>, <a target=\'_blank\' href=\'http://www.php.net/manual/en/timezones.atlantic.php\'>Atlantic</a>, <a target=\'_blank\' href=\'http://www.php.net/manual/en/timezones.australia.php\'>Australia</a>, <a target=\'_blank\' href=\'http://www.php.net/manual/en/timezones.europe.php\'>Europe</a>, <a target=\'_blank\' href=\'http://www.php.net/manual/en/timezones.indian.php\'>Indian</a>, <a target=\'_blank\' href=\'http://www.php.net/manual/en/timezones.pacific.php\'>Pacific</a>, <a target=\'_blank\' href=\'http://www.php.net/manual/en/timezones.others.php\'>Others</a></strong>',
 
     '_admpconferm_email'        => 'Force email Confirmation',
     '_admpconferm_emailexplain' => 'Force a User to Confirm their email Address before they can use the Site.',
@@ -96,11 +97,11 @@ $lang = array_merge($lang, array(
 
     '_admppivate_mode'        => 'Private Tracker Mode',
 
-    '_admppivate_modeexplain' => 'Sets the Tracker to Private, this way NO ONE can View the Content unless they are a Member and are Logged In.',
+    '_admppivate_modeexplain' => 'Sets the Tracker to Private, this way NO ONE can View the Content unless they are a Member.',
 
     '_admpaddprivate'        => 'Make ALL Local Torrents Private',
 
-    '_admpaddprivateexplain' => 'Sets ALL Newly Uploaded Local Torrents as Private, if they were NOT done so already when the Uploader Created the Torrent.<br /><strong>The Uploader will need to Download the Torrent from the Site in order to Seed the Torrent..</strong><br />Not All Torrent Client\'s recognise the Private Option. Enabling the Private Option Disables DHT.',
+    '_admpaddprivateexplain' => 'Sets ALL Newly Uploaded Local Torrents as Private, if they were NOT done so already when the Uploader Created the Torrent.<br /><br /><strong>The Uploader will need to Download the Torrent from the Site in order to Seed the Torrent..</strong><br />Not All Torrent Client\'s recognise the Private Option.<br />Enabling the Private Option Disables DHT.',
 
     '_admpmax_members'          => 'Maximum Allowed Members',
     '_admpmax_membersexplain'   => 'Maximum Number of Members Allowed to Join your Site.',
@@ -116,21 +117,21 @@ $lang = array_merge($lang, array(
 
     '_admpupload_dead'          => 'Allow Dead External Torrents',
 
-    '_admpupload_deadexplain'   => 'Use this to Allow for (apparently) Unseeded External Torrents to be Uploaded to Tracker. This might be useful if the External Torrent Monitoring doesn\'t work so well, which depends on your Server Configuration.',
+    '_admpupload_deadexplain'   => 'Use this to Allow for (apparently) Unseeded External Torrents to be Uploaded to Tracker.<br />This might be useful if the External Torrent Monitoring doesn\'t work so well, which depends on your Server Configuration.',
 
     '_admpsitename'        => 'Site Name',
-    '_admpsitenameexplain' => 'The Name of your Site.  This will be displayed as the Page Title.',
+    '_admpsitenameexplain' => 'The Name of your Site.  This will be Displayed as the Page Title.',
 
     '_admpsiteurl'         => 'Site URL',
-    '_admpsiteurlexplain'  => 'URL of this Site.  This Must be Entered for using the Tracker.',
+    '_admpsiteurlexplain'  => 'URL of this Site.  This Must be Entered before using the Tracker.',
 
     '_admpcookiedomain'        => 'Cookie Domain',
 
-    '_admpcookiedomainexplain' => 'Cookie Domain.  This Must be Set to the Domain Name of this Site (e.g. yoursite.com).  Required for User Login to Work.',
+    '_admpcookiedomainexplain' => 'Cookie Domain.  This Must be Set to the Domain Name of this Site (e.g. <strong>yoursite.com</strong>).  Required for User Login to Work.',
 
     '_admpcookiepath'          => 'Cookie Path',
 
-    '_admpcookiepathexplain'   => 'Cookie Path.  Change this Setting <strong>ONLY</strong> if BTManager is Installed in a Sub-Directory on your Server.  If your Installation is in http://yoursite.com/btmanager, the Setting should be /btmanager',
+    '_admpcookiepathexplain'   => 'Cookie Path.  Change this Setting <strong>ONLY</strong> if BTManager is Installed in a <strong>Sub-Directory</strong> on your Server.  If your Installation is in <strong>http://yoursite.com/btmanager</strong>, the Setting should be <strong>/btmanager</strong>',
 
     '_admpuse_gzip'        => 'Use gzip Compression',
 
@@ -149,23 +150,23 @@ $lang = array_merge($lang, array(
 
     '_admpwelcome_message'        => 'Site News',
 
-    '_admpwelcome_messageexplain' => 'Can be used to Post any News Items (eg. Welcome Message, Donation Drive etc..).  This will be shown on the Site\'s Index Page.',
+    '_admpwelcome_messageexplain' => 'Can be used to Post any News Items (e.g. Welcome Message, Donation Drive etc..).  This will be shown on the Site\'s Index Page.',
 
     '_admpannounce_text'        => 'Tracker Message',
 
-    '_admpannounce_textexplain' => 'This Defines the Message that Users will see in their Torrent Client when they Connect to the Tracker.  Useful for Announcements and Publicity.',
+    '_admpannounce_textexplain' => 'This Defines the Message that Users will see in their Torrent Client when they Connect to the Tracker.<br />Useful for Announcements and Publicity.',
 
     '_admpallow_html'        => 'Use HTML Editor',
 
-    '_admpallow_htmlexplain' => 'Enable this Option to Allow Users to Write Torrent Descriptions using the embedded HTML Editor. <br /><strong>WARNING</strong>: this feature is still Experimental!',
+    '_admpallow_htmlexplain' => 'Enable this Option to Allow Users to Write Torrent Descriptions using the embedded HTML Editor.  <br /><strong>WARNING</strong>: this Feature is still Experimental!',
 
     '_admprewrite_engine'        => 'Search Rewrite',
 
-    '_admprewrite_engineexplain' => 'Search Rewrite transforms php\'s Complex URL\'s into Faux HTML Pages, making it easier to type into the Address Bar.  This Feature is also very useful to Increase Search Engine Traffic.  Apaches mod_rewrite or IIS\'s ISAPI_Rewrite is REQUIRED on your Server.',
+    '_admprewrite_engineexplain' => 'Search Rewrite transforms php\'s Complex URL\'s into Faux HTML Pages, making it easier to type into the Address Bar.  This Feature is also very useful to Increase Search Engine Traffic.<br />Apaches mod_rewrite or IIS\'s ISAPI_Rewrite is <strong>REQUIRED</strong> on your Server.',
 
     '_admptorrent_prefix'        => 'Torrent Prefix',
 
-    '_admptorrent_prefixexplain' => 'This Option Allows you to Add a Custom Prefix to ALL Torrents Downloaded from this Tracker. Useful to Spread the Word about your Community.',
+    '_admptorrent_prefixexplain' => 'This Option Allows you to Add a Custom Prefix to ALL Torrents Downloaded from this Tracker.  <br />Useful to Spread the Word about your Community.',
 
     '_admptorrent_per_page'        => 'Torrents Per Page',
 
@@ -175,17 +176,17 @@ $lang = array_merge($lang, array(
 
     '_admponlysearchexplain' => 'Hides the Torrent List so that Users without Administrator Access (whether Registered or NOT) will have to Perform a Search in order to View any Torrents.',
 
-    '_admpmax_torrent_size'        => 'Maximum Torrent Size',
+    '_admpmax_torrent_size'         => 'Maximum Torrent Size',
 
-    '_admpmax_torrent_sizeexplain' => 'Maximum Byte Size for Uploaded .torrent Files.  This DOES NOT put any Limits on the actual Torrent itself but ONLY on the size of the .torrent File itself.',
+    '_admpmax_torrent_sizeexplain'  => 'Maximum Byte Size for Uploaded .torrent Files.<br />This DOES NOT put any Limits on the actual Torrent itself but ONLY on the size of the .torrent File itself.',
 
     '_admpannounce_interval'        => 'Announce Update Interval',
 
-    '_admpannounce_intervalexplain' => 'Recommended Time Interval (in Seconds) between Announce Requests.  This Value is Sent to the Torrent Client.',
+    '_admpannounce_intervalexplain' => 'Recommended Time Interval (in Seconds) between Announce Requests.<br />This Value is Sent to the Torrent Client.',
 
     '_admpannounce_interval_min'        => 'Minimum Announce Update Interval',
 
-    '_admpannounce_interval_minexplain' => 'Recommended Time Interval between Announce Requests (in Seconds).  More Frequent Requests will be Refused.',
+    '_admpannounce_interval_minexplain' => 'Recommended Time Interval between Announce Requests (in Seconds).<br /> More Frequent Requests will be Refused.',
 
     '_admpdead_torrent_interval'        => 'Dead Torrent Interval',
 
@@ -251,84 +252,87 @@ $lang = array_merge($lang, array(
 
     '_admptorrent_complaintsexplain' => 'Allows Users to make a Complaint about a Torrent on the Details Page.  This Helps to Block Undesired Content, such as Child Pornography.  Any Torrent that receives \'x\' Number of Complaints will Automatically be Banned.',
 
-    '_admptorrent_global_privacy'        => 'Torrent Authorisations',
+    '_admptorrent_global_privacy'    => 'Torrent Authorisations',
 
-    '_admptorrent_global_privacyexplain' => 'Switching this ON Allows Registered Uploaders to put Limitations on Who can Download their Torrents.  The Owner of a Torrent can either Authorise Downloads on a Case-by-Case Basis, or Automatically by Setting an Overall Share Ratio that the Downloader has to meet.  You have to Set the Tracker Access Level to User in Order for this to Work.',
+    '_admptorrent_global_privacyexplain' => 'Switching this ON Allows Registered Uploaders to put Limitations on Who can Download their Torrents.  The Owner of a Torrent can either Authorise Downloads on a Case-by-Case Basis, or Automatically by Setting an Overall Share Ratio that the Downloader has to meet.<br />You have to Set the Tracker Access Level to User in Order for this to Work.',
 
     '_admpdisclaimer_check'        => 'Disclaimer',
 
-    '_admpdisclaimer_checkexplain' => 'If Checked, Users have to Accept a Disclaimer before they can Register.  You can Change the Disclaimer by Changing the File /disclaimer/english.php.',
+    '_admpdisclaimer_checkexplain' => 'If Checked, Users have to Accept a Disclaimer before they can Register.  You can Change the Disclaimer by Changing the File <strong>/disclaimer/english.php</strong>',
 
-    '_admpgfx_check'        => 'CAPTCHA Test',
+    '_admpgfx_check'        => 'CAPTCHA Setting',
     '_admpgfx_checkexplain' => 'If Checked, Users will have to Type in a Code from a CAPTCHA Image when Registering and Logging In.',
 
     '_admpupload_level'        => 'Upload Access Level',
 
-    '_admpupload_levelexplain' => 'Determines the User Level Required to Upload Torrents<ul><li><strong>Everyone</strong> Allows Anyone to Upload Torrent Files to the Site.  They wont be able to Edit them or Manage Authorisations<li><strong>Registered</strong> Requires Users to be Registered.<br /><li><strong>Premium</strong> ONLY Allows Premium Users to Upload.</ul>',
+    '_admpupload_levelexplain' => 'Determines the User Level Required to Upload Torrents.<ul><li><strong>Everyone</strong> Allows Anyone to Upload Torrent Files to the Site.  They wont be able to Edit them or Manage Authorisations<li><strong>Registered</strong> Requires Users to be Registered.<br /><li><strong>Premium</strong> ONLY Allows Premium Users to Upload.</ul>',
 
-    '_admplevelopt'            => array('all'=>'Everyone', 'user'=>'Registered', 'premium'=>'Premium'),
+    '_admplevelopt' => array('all'     => 'Everyone',
+                             'user'    => 'Registered',
+                             'premium' => 'Premium'),
 
     '_admpdownload_level'        => 'Download Access Level',
 
-    '_admpdownload_levelexplain' => '<ul><li><strong>Everyone</strong> Allows Anyone to Download Torrent Files from the Site<li><strong>Registered</strong> Requires Users to be Registered<li><strong>Premium</strong> ONLY Allows Premium Users to Download Torrents from the Site</ul>This Setting DOES NOT affect the Tracker.  So if somebody got their hands on a .torrent, they would be able to Download.',
+    '_admpdownload_levelexplain' => 'Determines the User Level Required to Download Torrents.<ul><li><strong>Everyone</strong> Allows Anyone to Download Torrent Files from the Site<li><strong>Registered</strong> Requires Users to be Registered<li><strong>Premium</strong> ONLY Allows Premium Users to Download Torrents from the Site</ul>This Setting DOES NOT affect the Tracker.  So if somebody got their hands on a .torrent, they would be able to Download.',
 
     '_admpannounce_level'        => 'Tracker Access Level',
 
     '_admpannounce_levelexplain' => '<ul><li><strong>Everyone</strong> Allows Anyone to Connect to the Tracker (i.e. Announce)<li><strong>Registered</strong> Requires the User to Log In (IP Address is Checked!) before Connecting to the Tracker.  </ul>This Setting DOES NOT Affect Torrents Downloaded from the Site.',
 
-    '_admpannounce_levelopt'     => array('all'=>'Everyone', 'user'=>'Registered'),
+    '_admpannounce_levelopt' => array('all'  => 'Everyone',
+                                      'user' => 'Registered'),
 
     '_admpmax_num_file'        => 'Maximum Amount of Files in a Torrent',
 
-    '_admpmax_num_fileexplain' => 'Maximum Number of Files a Torrent can contain, any amount above this will cause the Upload to Fail.  Use it if you\'d like to encourage Users to use Compressed Archives.  Setting this to Zero will Disable this Option.',
+    '_admpmax_num_fileexplain' => 'Maximum Number of Files a Torrent can contain, any amount above this will cause the Upload to Fail.<br />Use it if you\'d like to encourage Users to use Compressed Archives.<br />Setting this to Zero will Disable this Option.',
 
     '_admpmax_share_size'        => 'Maximum Torrent Share Size',
 
-    '_admpmax_share_sizeexplain' => 'Total Combined Size of Files in a Torrent, any amount above this will cause the Upload to Fail.  Setting this to Zero will Disable this Option.',
+    '_admpmax_share_sizeexplain' => 'Total Combined Size of Files in a Torrent, any amount above this will cause the Upload to Fail.<br />Setting this to Zero will Disable this Option.',
 
     '_admpglobal_min_ratio'        => 'Global Minimum Ratio',
 
-    '_admpglobal_min_ratioexplain' => 'Specify the Minimum Upload/Download Ratio.  Users will NOT be Allowed to Download any more Torrents if they don\'t meet this criteria.  The Option is applicable ONLY if the Announce Level (above) is Set to User on the Download Page.  Setting this to Zero will Disable this Option.',
+    '_admpglobal_min_ratioexplain' => 'Specify the Minimum Upload/Download Ratio.<br />Users will NOT be Allowed to Download any more Torrents if they don\'t meet this criteria.<br />The Option is applicable ONLY if the Announce Level (above) is Set to User on the Download Page.<br />Setting this to Zero will Disable this Option.',
 
     '_admpautoscrape'        => 'External Torrent Monitoring',
 
-    '_admpautoscrapeexplain' => 'This Allows you to Monitor the Peer Count for Torrents Tracked by Remote Trackers.<br />Be careful here.<br /><br />You can ONLY use this if your Server can Open Sockets to Other Machines. Many Cheap or Free Hosting Services have Firewalls that Block Outgoing Connections.  If you\'re NOT using a Dedicated/Home Server, it is recommended that you DO NOT Enable this Option unless you\'re sure you know what you\'re doing.<br>If you don\'t Enable it ALL External Torrents will be Displayed as having Zero Sources.  If you Enable it, but your Server can\'t Build Connections to Scrape, External Uploads may be Rejected (unless you Check Allow Dead External Torrents)',
+    '_admpautoscrapeexplain' => 'This Allows you to Monitor the Peer Count for Torrents Tracked by Remote Trackers.<br />Be careful here.<br /><br />You can ONLY use this if your Server can Open Sockets to Other Machines.  Many Cheap or Free Hosting Services have Firewalls that Block Outgoing Connections.  If you\'re NOT using a Dedicated/Home Server, it is recommended that you DO NOT Enable this Option unless you\'re sure you know what you\'re doing.<br /><br />If you don\'t Enable it ALL External Torrents will be Displayed as having Zero Sources.<br /><br />If you Enable it, but your Server can\'t Build Connections to Scrape External Uploads may be Rejected (unless you Check Allow Dead External Torrents)',
 
     '_admpmax_num_file_day_e'        => 'Maximum Number of Daily Downloads',
 
-    '_admpmax_num_file_day_eexplain' => 'Defines how many Files can be Downloaded Per Day by a Single User.  Any Requests above this will be Refused and the User will be asked to try again the following Day.<br>Premium Users are NOT affected by this Setting.  Setting this to Zero will Disable this Option.',
+    '_admpmax_num_file_day_eexplain' => 'Defines how many Files can be Downloaded Per Day by a Single User.  Any Requests above this will be Refused and the User will be asked to try again the following Day.<br />Premium Users are NOT affected by this Setting.  Setting this to Zero will Disable this Option.',
 
     '_admpmax_num_file_week_e'        => 'Maximum Number of Weekly Downloads',
 
-    '_admpmax_num_file_week_eexplain' => 'Defines how many Files can be Downloaded in a Week by a Single User.  Further Requests will be Refused and the User will be asked to try again the following Week.<br>Premium Users are Not affected by this Setting. Setting this to Zero will Disable this Option.',
+    '_admpmax_num_file_week_eexplain' => 'Defines how many Files can be Downloaded in a Week by a Single User.  Further Requests will be Refused and the User will be asked to try again the following Week.<br />Premium Users are Not affected by this Setting.  Setting this to Zero will Disable this Option.',
 
     '_admpmin_num_seed_e'        => 'Minimum Seed Number for New Downloads',
 
-    '_admpmin_num_seed_eexplain' => 'Defines how many Torrents a User must be Seeding before Downloading any New Files.<br>Premium Users are NOT affected by this Setting.  Setting this to Zero will Disable this Option.',
+    '_admpmin_num_seed_eexplain' => 'Defines how many Torrents a User must be Seeding before Downloading any New Files.<br />Premium Users are NOT affected by this Setting.<br />Setting this to Zero will Disable this Option.',
 
     '_admpmin_size_seed_e'        => 'Minimum Seed Size for New Downloads',
 
-    '_admpmin_size_seed_eexplain' => 'Defines the Minimum Share Ratio a User must have before Downloading New Files.<br>Premium Users are NOT affected by this setting.  Setting this to Zero will Disable this Option.',
+    '_admpmin_size_seed_eexplain' => 'Defines the Minimum Share Ratio a User must have before Downloading New Files.<br />Premium Users are NOT affected by this setting.<br />Setting this to Zero will Disable this Option.',
 
     '_admpminupload_size_file'        => 'Minimum File Size for New Torrents',
 
-    '_admpminupload_size_fileexplain' => 'Defines the Minimum File Size a Torrent can be.<br>Premium Users are NOT affected by this Setting. Setting this to Zero will Disable this Option.',
+    '_admpminupload_size_fileexplain' => 'Defines the Minimum File Size a Torrent can be.<br />Premium Users are NOT affected by this Setting.<br />Setting this to Zero will Disable this Option.',
 
     '_admpmaxupload_day_num'        => 'Maximum Daily Uploads',
 
-    '_admpmaxupload_day_numexplain' => 'Defines how many Torrents can be Uploaded in a Single Day.  Any Uploads above this will NOT be accepted and the User will be asked to try again the following Day.<br>Premium Users are NOT affected by this Setting.  Setting this to Zero will Disable this Option.',
+    '_admpmaxupload_day_numexplain' => 'Defines how many Torrents can be Uploaded in a Single Day.  Any Uploads above this will NOT be accepted and the User will be asked to try again the following Day.<br />Premium Users are NOT affected by this Setting.  Setting this to Zero will Disable this Option.',
 
     '_admpmaxupload_day_share'        => 'Maximum Daily Upload',
 
-    '_admpmaxupload_day_shareexplain' => 'Defines the Maximum Total Size of Files (ALL Files within a Torrent Combined) a User can Upload in a Single Day.  Any further Uploads will NOT be Accepted and the User will be asked to try again the following Day.<br>Premium Users are NOT affected by this Setting.  Setting this to Zero will Disable this Option.',
+    '_admpmaxupload_day_shareexplain' => 'Defines the Maximum Total Size of Files (ALL Files within a Torrent Combined) a User can Upload in a Single Day.  Any further Uploads will NOT be Accepted and the User will be asked to try again the following Day.<br />Premium Users are NOT affected by this Setting.  Setting this to Zero will Disable this Option.',
 
     '_admpminupload_file_size'        => 'Minimum Torrent Size for Uploads',
 
-    '_admpminupload_file_sizeexplain' => 'Defines the Torrent\'s Minimum Size (ALL Files within a Torrent Combined) for Upload.<br>Premium Users are NOT affected by this Setting. Setting this to Zero will Disable this Option.',
+    '_admpminupload_file_sizeexplain' => 'Defines the Torrent\'s Minimum Size (ALL Files within a Torrent Combined) for Upload.<br />Premium Users are NOT affected by this Setting.  Setting this to Zero will Disable this Option.',
 
     '_admpallow_backup_tracker'        => 'Backup Tracker',
 
-    '_admpallow_backup_trackerexplain' => 'Runs your Tracker as a Backup Tracker according to the BitTorrent\'s Announce List extension.  Usage is subject to the Announce Level Settings and DOES NOT affect Ratios.  This Option is Ignored if Stealth Mode is Enabled.',
+    '_admpallow_backup_trackerexplain' => 'Runs your Tracker as a Backup Tracker according to the BitTorrent\'s Announce List extension.<br />Usage is subject to the Announce Level Settings and DOES NOT affect Ratios.<br />This Option is Ignored if Stealth Mode is Enabled.',
 
     '_admpstealthmode'        => 'Disable Local Tracker',
 
@@ -343,28 +347,28 @@ $lang = array_merge($lang, array(
     'EXT_TORRENT_SETTINGS' => 'External Torrent Upload Settings',
 
     #Advanced Settings PM
-    'PMFULLOPTION'                => array('1'=>'Delete Oldest Messages',
-                                           '2'=>'New Messages will be Held Back'),
+    'PMFULLOPTION' => array('1' => 'Delete Oldest Messages',
+                            '2' => 'New Messages will be Held Back'),
 
     '_admpallow_privmsg'          => 'Private Messaging',
     '_admpallow_privmsgexplain'   => 'Enable or Disable Private Messaging for ALL Users.',
     '_admpallow_pm_attach'        => 'Allow Attachments in Private Messages',
     '_admpallow_pm_attachexplain' => 'Enable or Disable Allowing Attachments in Private Messaging for ALL Users.',
 
-    '_admppm_max_boxes'        =>   'Maximum Private Message Folders',
-    '_admppm_max_boxesexplain' =>   'By Default Users may Create this many Personal Folders for Private Messages.',
+    '_admppm_max_boxes'        => 'Maximum Private Message Folders',
+    '_admppm_max_boxesexplain' => 'By Default Users may Create this many Personal Folders for Private Messages.',
 
-    '_admppm_max_msgs'        =>    'Maximum Private Messages Per Box',
+    '_admppm_max_msgs'         => 'Maximum Private Messages Per Box',
 
-    '_admppm_max_msgsexplain' =>    'Users can\'t Receive any more than this many Messages in each of their Private Message Boxes.  Set this Value to Zero to Allow Unlimited Messages.',
+    '_admppm_max_msgsexplain'  => 'Users can\'t Receive any more than this many Messages in each of their Private Message Boxes.  Set this Value to Zero to Allow Unlimited Messages.',
 
     '_admpfull_folder_action'        => 'Full Folder Default Action',
 
     '_admpfull_folder_actionexplain' => 'Default Action to take if a Users Folder is Full, assuming the Users Folder Action is Set at ALL, this is NOT applicable.  The Only exception is for the Sent Messages Folder where the Default Action is always to Delete Old Messages.',
 
-    '_admppm_edit_time'        =>   'Limit Editing Time',
+    '_admppm_edit_time'        => 'Limit Editing Time',
 
-    '_admppm_edit_timeexplain' =>   'Limits the Time Available to Edit a Private Message that has NOT already been Delivered. Setting the Value to Zero Disables this Option.',
+    '_admppm_edit_timeexplain' => 'Limits the Time Available to Edit a Private Message that has NOT already been Delivered.  Setting the Value to Zero Disables this Option.',
 
     '_admpallow_mass_pm'             => 'Allow Sending of Private Messages to Multiple Users and Groups',
     '_admpallow_mass_pmexplain'      => 'Allow Users to Send Private Messages to Multiple Users and Groups',
@@ -424,7 +428,7 @@ $lang = array_merge($lang, array(
     '_admpmax_sig_smiliesexplain'    => 'Maximum Smilies Allowed in Users Signatures.  Set to Zero for Unlimited Smilies.',
 
     '_admpmax_sig_img_width'         => 'Maximum Signature Image Width',
-    '_admpmax_sig_img_widthexplain'  => 'Maximum Width of an Image/Flash File in Users Signatures. Set to Zero for Unlimited Width.',
+    '_admpmax_sig_img_widthexplain'  => 'Maximum Width of an Image/Flash File in Users Signatures.  Set to Zero for Unlimited Width.',
 
     '_admpmax_sig_img_height'        => 'Maximum Signature Image Height',
 
@@ -433,7 +437,9 @@ $lang = array_merge($lang, array(
     '_admpallow_magnet'        => 'Allow eD2K/Magnet Link\'s',
     '_admpallow_magnetexplain' => 'Allow the use of eD2K/Magnet Link\'s',
     '_admpsourcedir'           => 'Sources Directory',
+
     '_admpsourcedirexplain'    => 'Please give the Full Source Directory Path for System use.<br /><strong>DO NOT</strong> use <strong>/</strong> or <strong>./</strong>',
+
     'ACP_ATTACHMENTS'          => 'Attachments',
     'ACP_ATTACHMENT_SETTINGS'  => 'Attachment Settings',
     'ACP_BOARD_CONFIGURATION'  => 'Board Configuration',
@@ -444,7 +450,7 @@ $lang = array_merge($lang, array(
     #ADDON 3.0.1
     '_admpannounce_ments'           => 'Announcement\'s',
 
-    '_admpannounce_mentsexplain'    => 'Used for making Site Announcements.<br />These Announcements will be seen by Users in the Edit Profile Section.',
+    '_admpannounce_mentsexplain'    => 'Used for making Site Announcements.<br />These Announcements will be seen by Users in their User - Profile - Edit Section.',
 
     '_admppm_max_recipients'        => 'Maximum Number of Allowed Recipients',
 
