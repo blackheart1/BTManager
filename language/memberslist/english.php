@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File memberlist/english.php 2018-04-25 08:18:00 Thor
+** File memberlist/english.php 2018-09-09 05:59:00 Thor
 **
 ** CHANGES
 **
@@ -188,12 +188,12 @@ $lang = array_merge($lang, array(
     'ALL_FORUMS'                => 'All Forum\'s',
     'RANK'                      => 'Rank',
 
-	'GROUP_DISC_OWNER'			=> 'Site creator and owner',
-	'GROUP_DISC_GUEST'			=> 'Default group for not logged in users',
-	'GROUP_DISC_ADMIN'			=> 'High level staff - will help with any problems',
-	'GROUP_DISC_MODS'			=> 'Moderators - will help where they can :)',
-	'GROUP_DISC_PREM'			=> 'VIP - for donors and those who hae done something to help the site',
-	'GROUP_DISC_USER'			=> 'User class - everyone has to start somewhere.',
+    'GROUP_DISC_OWNER'          => 'Site Creator and Owner',
+    'GROUP_DISC_GUEST'          => 'Default Group for Not Logged in Users',
+    'GROUP_DISC_ADMIN'          => 'High Level Staff - will help with any problems',
+    'GROUP_DISC_MODS'           => 'Moderators - will help where they can',
+    'GROUP_DISC_PREM'           => 'VIP - for Donors and those who have helped the Site in some way',
+    'GROUP_DISC_USER'           => 'User Class - everyone has to start somewhere',
 
     'USER_LAST_REMINDED' => array(
         0 => 'No Reminder was Sent at this time',
