@@ -28,7 +28,6 @@ if (!defined('IN_PMBT'))
 }
 
 $user->set_lang('admin/acp_bans',$user->ulanguage);
-$user->set_lang('ban',$user->ulanguage);
 $user->set_lang('admin/acp_users',$user->ulanguage);
 
 $mode = request_var('mode', 'user');

@@ -42,7 +42,6 @@ class mcp_ban
 		$current_time	= time();
 
 		$user->set_lang('admin/acp_bans',$user->ulanguage);
-		$user->set_lang('ban',$user->ulanguage);
 		$user->set_lang('admin/acp_users',$user->ulanguage);
 		$this->tpl_name = 'mcp_ban';
 
