@@ -185,7 +185,7 @@ function get_image_extension($filename, $include_dot = true, $shorter_extensions
    //die($url);
    $req->setURL($url);
    $req->sendRequest();
-   $this->page[$wt]=$req->getResponseBody();
+   $this->page[$wt]=str_replace(array('  ',"\r\n", "\r", "\n"), '',$req->getResponseBody());
    if( $this->page[$wt] ){ //storecache
     if ($this->storecache) {
     $fname = $this->cachedir . 'imdb_' . $this->imdbID . $wt;
@@ -337,7 +337,8 @@ function get_image_extension($filename, $include_dot = true, $shorter_extensions
    */
   function title_year() {
     if ($this->page["Title"] == "") $this->openpage ("Title");
-    if (@preg_match("/\<title\>(.*)\((.*)\) - IMDb<\/title\>/",$this->page["Title"],$match)) {
+    if (preg_match("/<title>(.*?)\((.*?)\) - IMDb<\/title>/",$this->page["Title"],$match)) {
+		//die(print_r($match));
       $this->main_title = $match[1];
       $this->main_year  = $match[2];
     }
@@ -369,8 +370,9 @@ function get_image_extension($filename, $include_dot = true, $shorter_extensions
   function runtime_all() {
     if ($this->main_runtime == "") {
       if ($this->page["Title"] == "") $this->openpage ("Title");
-      if (@preg_match("/<time (.*?)>(.*?)<\/time/m",$this->page["Title"],$match))
+      if (@preg_match("/<time (.*?)>(.*?)min<\/time/m",$this->page["Title"],$match))
         $this->main_runtime = $match[2];
+		//die(print_r($match));
     }
     return $this->main_runtime;
   }
@@ -404,13 +406,13 @@ function get_image_extension($filename, $include_dot = true, $shorter_extensions
    * @method private rate_vote
    */
   function rate_vote() {
-  //echo '<table class=main2 border=0 cellspacing=0 cellpadding=10><tr><td>'.highlight_string($this->page["Title"], true).'<td></tr></table>';
     if ($this->page["Title"] == "") $this->openpage ("Title");
-	if(preg_match("/<span itemprop=\"ratingValue\">(.*?)\<\/span\>/m",$this->page["Title"],$match)){
-      $this->main_rating = $match[1];
+	
+	if(preg_match("/<div class=\"ratingValue\"><strong title=\"(.*?)><span>(.*?)<\/strong\>/m",$this->page["Title"],$match)){
+      $this->main_rating = $match[2];
 	}
-	if(preg_match("/\<span itemprop=\"ratingCount\">(.*?)<\/span\>/ms",$this->page["Title"],$match)){
-      $this->main_votes = $match[1];
+	if(preg_match("/<div class=\"ratingValue\"><strong title=\"(.*?)><span>(.*?)<\/strong\>(.*?)<span class=\"small\">(.*?)<\/span>/m",$this->page["Title"],$match)){
+      $this->main_votes = $match[4];
 	}
   }
 
@@ -514,7 +516,7 @@ function get_image_extension($filename, $include_dot = true, $shorter_extensions
   function genres () {
     if (empty($this->moviegenres)) {
       if ($this->page["Title"] == "") $this->openpage ("Title");
-    if (preg_match_all("/\<span class=\"itemprop\" itemprop=\"genre\">(.*?)<\/span>/",$this->page["Title"],$matches))
+    if (preg_match_all("/\<h4 class=\"inline\">Genres:<\/h4>(.*?)<\/div>/",$this->page["Title"],$matches))
         $this->moviegenres = $matches[1];
 		//print_r($matches);
     }
@@ -806,8 +808,8 @@ function get_image_extension($filename, $include_dot = true, $shorter_extensions
    $endtable = strpos($html, "</table>", $row_s);
   // echo substr($html,$row_s,$endtable - $row_s);
   $pattern = str_replace(array('  ',"\r\n", "\r", "\n"), '',substr($html,$row_s,$endtable - $row_s));
-   if (preg_match_all("/<tr.*?(<td class=\"itemprop\".*?)<\/tr>/",$pattern,$matches))
-   //print_r($matches);
+   if (preg_match_all("/<tr.*?(<td class=\"primary_photo\".*?)<\/tr>/",$pattern,$matches))
+   //die(print_r($matches));
      return $matches[1];
    return array();
   }
@@ -819,7 +821,9 @@ function get_image_extension($filename, $include_dot = true, $shorter_extensions
    * @see used by the methods director, cast, writing, producer, composer
    */
   function get_row_cels ( $row ){
+	  //die($row);
    if (preg_match_all("/<td.*?>(.*?)<\/td>/",$row,$matches))
+   //die(print_r($matches));
    return $matches[1];
    return array();
   }
@@ -885,8 +889,16 @@ function get_image_extension($filename, $include_dot = true, $shorter_extensions
   
   function get_cast_image($herf, $offset)
   {
-        if (preg_match_all("/<img .*?loadlate=\"(.*?)\".*?>/",$this->page["Credits"],$match)){
-		//print_r($match);
+	  $html = $this->page["Credits"];
+    $row_s = strpos ( $html, '<h4 name="cast" id="cast" class="dataHeaderWithBorder">');
+   $row_e = $row_s;
+   if ( $row_s == 0 )  return FALSE;
+   $endtable = strpos($html, "</table>", $row_s);
+  // echo substr($html,$row_s,$endtable - $row_s);
+  $pattern = str_replace(array('  ',"\r\n", "\r", "\n"), '',substr($html,$row_s,$endtable - $row_s));
+ // die($pattern);
+       if (preg_match_all("/<img .*?loadlate=\"(.*?)\".*?>/",$this->page["Credits"],$match)){
+		//die(print_r($match[1]));
 		return $match[1];
 		}
   }
@@ -909,9 +921,9 @@ function get_image_extension($filename, $include_dot = true, $shorter_extensions
 	$cels = $this->get_row_cels ($cast_rows[$i]);
 	if (!isset ($cels[0])) return array();
 	$dir["imdb"] = $this->get_imdbname($cels[0]);
-	$dir["name"] = strip_tags($cels[0]);
-	if($cast_imgs[$i] != '' )$dir["img"] = $this->store_cast_image($cast_imgs[$i],strip_tags($cels[0]));
-	$role = strip_tags($cels[2]);
+	$dir["name"] = strip_tags($cels[1]);
+	if($cast_imgs[$i] != '' )$dir["img"] = $this->store_cast_image($cast_imgs[$i],strip_tags($cels[1]));
+	$role = strip_tags($cels[3]);
 	if ( $role == "") $dir["role"] = NULL;
 	else $dir["role"] = $role;
 	$this->credits_cast[$i] = $dir;
