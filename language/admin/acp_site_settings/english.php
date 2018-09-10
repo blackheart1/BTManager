@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File site_settings/english.php 2018-09-09 09:00:00 Thor
+** File site_settings/english.php 2018-09-10 06:34:00 Thor
 **
 ** CHANGES
 **
@@ -250,7 +250,7 @@ $lang = array_merge($lang, array(
 
     '_admptorrent_complaints'        => 'Torrent Complaints',
 
-    '_admptorrent_complaintsexplain' => 'Allows Users to make a Complaint about a Torrent on the Details Page.  This Helps to Block Undesired Content, such as Child Pornography.  Any Torrent that receives \'x\' Number of Complaints will Automatically be Banned.',
+    '_admptorrent_complaintsexplain' => 'Allows Users to make a Complaint about a Torrent on the Details Page.  This Helps to Block Undesired Content, such as Child Pornography.  Any Torrent that receives 20 Complaints will Automatically be Banned.',
 
     '_admptorrent_global_privacy'    => 'Torrent Authorisations',
 

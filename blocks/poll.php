@@ -44,14 +44,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 			$arr = $db->sql_fetchrow($res);
 			if($arr)
 			{
-				pmbt_trigger_error(lang["ALREADY_VOTED"],$user->lang['BT_ERROR'],$siteurl);
+				pmbt_trigger_error($user->lang['ALREADY_VOTED'],$user->lang['BT_ERROR'],$siteurl);
 			}
 			else
 			{
 				$db->sql_query("INSERT INTO ".$db_prefix."_pollanswers VALUES(0, $pollid, 0, $userid, $choice)");
 				if ($db->sql_affectedrows() != 1)
 				{
-					pmbt_trigger_error(lang["VOTE_NOT_TAKEN"],$user->lang['BT_ERROR'],$siteurl);
+					pmbt_trigger_error($user->lang['VOTE_NOT_TAKEN'],$user->lang['BT_ERROR'],$siteurl);
 				}
 				else
 				{
@@ -73,25 +73,25 @@ if ($user->user){
   	$pollid = $arr["id"];
   	$userid = "".$user->id."";
   	$question = $arr["question"];
-  	$o = array($arr["option0"], 
-	(!isset($arr["option1"])) ? "" : $arr["option1"], 
-	(!isset($arr["option2"])) ? "" : $arr["option2"], 
-	(!isset($arr["option3"])) ? "" : $arr["option3"], 
+  	$o = array($arr["option0"],
+	(!isset($arr["option1"])) ? "" : $arr["option1"],
+	(!isset($arr["option2"])) ? "" : $arr["option2"],
+	(!isset($arr["option3"])) ? "" : $arr["option3"],
 	(!isset($arr["option4"])) ? "" : $arr["option4"],
-    (!isset($arr["option5"])) ? "" : $arr["option5"], 
-	(!isset($arr["option6"])) ? "" : $arr["option6"], 
-	(!isset($arr["option7"])) ? "" : $arr["option7"], 
-	(!isset($arr["option8"])) ? "" : $arr["option8"], 
+    (!isset($arr["option5"])) ? "" : $arr["option5"],
+	(!isset($arr["option6"])) ? "" : $arr["option6"],
+	(!isset($arr["option7"])) ? "" : $arr["option7"],
+	(!isset($arr["option8"])) ? "" : $arr["option8"],
 	(!isset($arr["option9"])) ? "" : $arr["option9"],
-    (!isset($arr["option10"])) ? "" : $arr["option10"], 
-	(!isset($arr["option11"])) ? "" : $arr["option11"], 
-	(!isset($arr["option12"])) ? "" : $arr["option12"], 
-	(!isset($arr["option13"])) ? "" : $arr["option13"], 
+    (!isset($arr["option10"])) ? "" : $arr["option10"],
+	(!isset($arr["option11"])) ? "" : $arr["option11"],
+	(!isset($arr["option12"])) ? "" : $arr["option12"],
+	(!isset($arr["option13"])) ? "" : $arr["option13"],
 	(!isset($arr["option14"])) ? "" : $arr["option14"],
-    (!isset($arr["option15"])) ? "" : $arr["option15"], 
-	(!isset($arr["option16"])) ? "" : $arr["option16"], 
-	(!isset($arr["option17"])) ? "" : $arr["option17"], 
-	(!isset($arr["option18"])) ? "" : $arr["option18"], 
+    (!isset($arr["option15"])) ? "" : $arr["option15"],
+	(!isset($arr["option16"])) ? "" : $arr["option16"],
+	(!isset($arr["option17"])) ? "" : $arr["option17"],
+	(!isset($arr["option18"])) ? "" : $arr["option18"],
 	(!isset($arr["option19"])) ? "" : $arr["option19"]
 	);
 
@@ -178,7 +178,7 @@ if ($user->user){
       	++$i;
     	}
   	}
-   
+
 
 }else{
 	$template->assign_vars(array(
@@ -188,5 +188,5 @@ if ($user->user){
 	));
 }
 }
-echo $template->fetch('poll.html');				
+echo $template->fetch('poll.html');
 ?>

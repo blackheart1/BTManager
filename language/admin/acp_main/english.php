@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File main/english.php 2018-09-09 05:59:00 Thor
+** File main/english.php 2018-09-10 06:38:00 Thor
 **
 ** CHANGES
 **
@@ -510,18 +510,17 @@ $lang = array_merge($lang, array(
     'ACP_SEARCH_INDEX'      => 'Search Index',
     'ACP_SEARCH_SETTINGS'   => 'Search Settings',
     'LOG_CONFIG_SHOUTCAST'  => 'SHOUTcast Configuration Updated',
-	'ADMTOTALSPEED'			=> 'Total Transfer Speed:',
-	'ADMTOTALSEEDERS'		=> 'Total Seeders:',
-	'ADMTOTALLEECHERS'		=> 'Total Leechers:',
-	'ADMMOSTUSEDCLIENT'		=> 'Most Used Client:',
-	'CONFIG_UPDATED_EMAIL'	=> 'email Configuration Updated',
-	'VALUE'					=> 'Value',
-	'ADMTOTALUSERS'			=> 'Total Registered Users:',
-	'ADMTOTALTORRENTS'		=> 'Total Torrents:"',
-	'_IP'					=> 'User IP',
-	'_TIME'					=> 'Time',
-	'LAST_VISIT'			=> 'Last Visit',
-	'DEFINED_AS'			=> 'Defined to',
+    'ADMTOTALSPEED'         => 'Total Transfer Speed:',
+    'ADMTOTALSEEDERS'       => 'Total Seeders:',
+    'ADMTOTALLEECHERS'      => 'Total Leechers:',
+    'CONFIG_UPDATED_EMAIL'  => 'email Configuration Updated',
+    'VALUE'                 => 'Value',
+    'ADMTOTALUSERS'         => 'Total Registered Users:',
+    'ADMTOTALTORRENTS'      => 'Total Torrents:',
+    '_IP'                   => 'User IP',
+    '_TIME'                 => 'Time',
+    'LAST_VISIT'            => 'Last Visit',
+    'DEFINED_AS'            => 'Defined to',
 ));
 
 ?>
