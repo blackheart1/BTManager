@@ -265,7 +265,8 @@ $lang = array_merge($lang, array(
 
     '_admpupload_level'        => 'Upload Access Level',
 
-    '_admpupload_levelexplain' => 'Determines the User Level Required to Upload Torrents.<ul><li><strong>Everyone</strong> Allows Anyone to Upload Torrent Files to the Site.  They wont be able to Edit them or Manage Authorisations<li><strong>Registered</strong> Requires Users to be Registered.<br /><li><strong>Premium</strong> ONLY Allows Premium Users to Upload.</ul>',
+    '_admpupload_levelexplain' => 'Determines the User Level Required to Upload Torrents<br /> &bull; <strong>Everyone</strong> Allows Anyone to Upload Torrent Files to the Site.  They wont be able to Edit them or Manage Authorisations<br /> &bull; <strong>Registered</strong> Requires Users to be Registered.<br /> &bull; <strong>Premium</strong> ONLY Allows Premium Users to Upload.',
+
 
     '_admplevelopt' => array('all'     => 'Everyone',
                              'user'    => 'Registered',
