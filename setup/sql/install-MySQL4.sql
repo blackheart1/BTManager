@@ -1600,6 +1600,7 @@ CREATE TABLE IF NOT EXISTS `#prefix#_shouts` (
   `bbcode_uid` varchar(8) binary NOT NULL,
   `posted` datetime NOT NULL DEFAULT 0,
   `id_to` int(10) NOT NULL default '0',
+  `f` mediumint(11) UNSIGNED DEFAULT NULL,
   PRIMARY KEY  (`id`),
   KEY `posted` (`posted`)
 ) TYPE=MyISAM  AUTO_INCREMENT=1 ;
@@ -2080,7 +2081,7 @@ CREATE TABLE IF NOT EXISTS `#prefix#_warnings` (
 -- Table structure for table `torrent_words`
 --
 
-CREATE TABLE `#prefix#_words` (
+CREATE TABLE IF NOT EXISTS `#prefix#_words` (
 	`word_id` mediumint(8) UNSIGNED NOT NULL auto_increment,
 	`word` varchar(255) DEFAULT '' NOT NULL,
 	`replacement` varchar(255) DEFAULT '' NOT NULL,

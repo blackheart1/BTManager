@@ -148,4 +148,6 @@ INSERT INTO `#prefix#_acl_options` (`auth_option_id`, `auth_option`, `is_global`
 (147, 'a_massupload', 1, 0, 0),
 (148, 'a_search_cloud', 1, 0, 0),
 (149, 'a_ratiowarn', 1, 0, 0),
-(150, 'a_site_rules', 1, 0, 0);
+(150, 'a_site_rules', 1, 0, 0),
+(151, 'a_bonus_system', 1, 0, 0),
+(152, 'u_masspm_group', 1, 0, 0);

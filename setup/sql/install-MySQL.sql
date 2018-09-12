@@ -623,6 +623,18 @@ CREATE TABLE IF NOT EXISTS `#prefix#_countries` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `torrent_disallow`
+--
+
+CREATE TABLE IF NOT EXISTS `#prefix#_disallow` (
+  `disallow_id` mediumint(8) unsigned NOT NULL auto_increment,
+  `disallow_username` varchar(255) binary NOT NULL default '',
+  PRIMARY KEY  (`disallow_id`)
+) TYPE=MyISAM  AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `torrent_download_completed`
 --
 
@@ -1805,7 +1817,8 @@ CREATE TABLE IF NOT EXISTS `#prefix#_shouts` (
   `bbcode_uid` varchar(8) COLLATE utf8_bin NOT NULL,
   `posted` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `id_to` int(10) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
+   `f` mediumint(11) UNSIGNED DEFAULT NULL,
+ PRIMARY KEY (`id`),
   KEY `posted` (`posted`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
