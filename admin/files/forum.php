@@ -203,6 +203,7 @@ if ('forum_search' == $op)
 					drawRow("load_search","select",$user->lang["YES_NO_NUM"]);
 					drawRow("board_hide_emails","select",$user->lang["YES_NO_NUM"]);
 					drawRow("allow_birthdays","select",$user->lang["YES_NO_NUM"]);
+					drawRow("load_birthdays","select",$user->lang["YES_NO_NUM"]);
 					drawRow("display_last_edited","select",$user->lang["YES_NO_NUM"]);
 					drawRow("load_moderators","select",$user->lang["YES_NO_NUM"]);
 					drawRow("allow_post_flash","select",$user->lang["YES_NO_NUM"]);
@@ -687,6 +688,7 @@ if ('forum_search' == $op)
 				$load_search = request_var('sub_load_search', '');
 				$board_hide_emails = request_var('sub_board_hide_emails', '');
 				$allow_birthdays = request_var('sub_allow_birthdays', '');
+				$load_birthdays = request_var('sub_load_birthdays', '');
 				$display_last_edited = request_var('sub_display_last_edited', '');
 				$load_moderators = request_var('sub_load_moderators', '');
 				$allow_post_flash = request_var('sub_allow_post_flash', '');
@@ -901,6 +903,7 @@ if ('forum_search' == $op)
 					set_config("load_search",((!$load_search)? 0 : 1));
 					set_config("board_hide_emails",((!$board_hide_emails)? 0 : 1));
 					set_config("allow_birthdays",((!$allow_birthdays)? 0 : 1));
+					set_config("load_birthdays",((!$load_birthdays)? 0 : 1));
 					set_config("display_last_edited",((!$display_last_edited)? 0 : 1));
 					set_config("load_moderators",((!$load_moderators)? 0 : 1));
 					set_config("allow_post_flash",((!$allow_post_flash)? 0 : 1));

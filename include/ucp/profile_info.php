@@ -27,6 +27,15 @@ if (!defined('IN_PMBT'))
 		else
 		$bday = array('0','0','0');
 		$now = getdate(time() - date('Z'));
+if ($config['allow_birthdays'])
+{
+	$template->assign_vars(array(
+		'U_BITH_D'              =>  $bday[0],
+		'U_BITH_M'              =>  $bday[1],
+		'U_BITH_Y'              =>  $bday[2],
+		'S_BIRTHDAYS_ENABLED'		=> true,
+	));
+}
 $template->assign_vars(array(
 		'LOCATION'		        => $countries,
 		'U_ICQ'				    => (!empty($userrow["icq"])) ? $userrow["icq"] : '',
@@ -35,8 +44,5 @@ $template->assign_vars(array(
 		'U_MSN'				    => (!empty($userrow["msn"])) ? $userrow["msn"] : '',
 		'U_JABBER'			    => (!empty($userrow["jabber"])) ?$userrow["jabber"] : '',
 		'U_SKYPE'			    => (!empty($userrow["skype"])) ? $userrow["skype"] : '',
-		'U_BITH_D'              =>  $bday[0],
-		'U_BITH_M'              =>  $bday[1],
-		'U_BITH_Y'              =>  $bday[2],
 ));
 ?>

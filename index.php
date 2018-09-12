@@ -30,7 +30,7 @@ else
 require_once("common.php");
 $template = new Template();
 set_site_var($user->lang['INDEX']);
-if($config['allow_birthdays'])
+if($config['load_birthdays'])
 {
 $birthday_list = '';
 $now = getdate(time() - date('Z'));

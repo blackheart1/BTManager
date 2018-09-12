@@ -30,20 +30,23 @@ if (!defined('IN_PMBT'))
         $skype = request_var('skype','');
         $yahoo = request_var('yahoo','');
         $jabber = request_var('jabber','');
-        $bday_day = request_var('bday_day','');
-        $bday_month = request_var('bday_month','');
-        $bday_year = request_var('bday_year','');
 		if (!isset($aim) OR $aim == "") $aim = "NULL";
         processinput("aim",$aim);
         if (!isset($icq) OR $icq == "") $icq = "NULL";
         processinput("icq",$icq);
         if (!isset($jabber) OR $jabber == "") $jabber = "NULL";
         processinput("jabber",$jabber);
+if ($config['allow_birthdays'])
+{
+        $bday_day = request_var('bday_day','');
+        $bday_month = request_var('bday_month','');
+        $bday_year = request_var('bday_year','');
         if (!isset($bday_day) OR $bday_day =='--' OR !isset($bday_month) OR $bday_month == "--" OR !isset($bday_year) OR $bday_year == "--") $birthday = "NULL";
 		else
 		$birthday = $bday_day.'-'.$bday_month.'-'.$bday_year;
         processinput("birthday",$birthday);
-        if (!isset($msn) OR $msn == "") $msn = "NULL";
+}
+if (!isset($msn) OR $msn == "") $msn = "NULL";
         processinput("msn",$msn);
         if (!isset($skype) OR $skype == "") $skype = "NULL";
         processinput("skype",$skype);
