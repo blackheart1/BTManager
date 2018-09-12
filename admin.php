@@ -146,9 +146,13 @@ $op_keys = Array();
 $allowed_acc = Array();
 $opdir = "admin/items";
 $ophandle = opendir($opdir);
+$files = array();
+//sort($ophandle);
 while ($opfile = readdir($ophandle)) {
-        $op_keys = Array();
+       // $op_keys = Array();
         if (!preg_match("/.php/i",$opfile)) continue;
+		$files[$opfile] = $opfile;
+		/*
         include($opdir."/".$opfile);
         foreach ($op_keys as $key) {
                 $operators[$key] = $opfile;
@@ -156,9 +160,23 @@ while ($opfile = readdir($ophandle)) {
 				{
 					$allowed_acc[$opfile] = 1;
 				}
-        }
+        }*/
 }
 closedir($ophandle);
+sort($files, SORT_STRING | SORT_FLAG_CASE);
+//die(print_r($files));
+foreach($files as $val)
+{
+	$op_keys = Array();
+        include($opdir."/".$val);
+        foreach ($op_keys as $key) {
+                $operators[$key] = $val;
+				if($allow)
+				{
+					$allowed_acc[$val] = 1;
+				}
+        }
+}
 unset($opdir,$opfile,$op_keys);
 							$template->assign_block_vars('l_block1',array(
 					'L_TITLE'		=> '',

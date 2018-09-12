@@ -31,7 +31,6 @@ die();
 $op									= request_var('op', '');
 $id									= (int)request_var('id', '0');
 $rating								= (int)request_var('rating', '0');
-$torrent_complaints					= request_var('torrent_complaints', '');
 $complaints							= request_var('complaint', '0');
 if (!is_numeric($id) || $id == 0)
 	{

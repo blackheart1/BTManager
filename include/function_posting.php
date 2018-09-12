@@ -1776,7 +1776,6 @@ function submit_post($mode, $subject, $username, $topic_type, &$poll, &$data, $u
 function user_notification($mode, $subject, $topic_title, $forum_name, $forum_id, $topic_id, $post_id, $author_name = '')
 {
 	global $db, $user, $config, $phpbb_root_path, $phpEx, $auth, $db_prefix;
-	$config['allow_topic_notify'] = 1;
 
 	$topic_notification = ($mode == 'reply' || $mode == 'quote') ? true : false;
 	$forum_notification = ($mode == 'post') ? true : false;

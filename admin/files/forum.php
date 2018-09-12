@@ -174,6 +174,8 @@ if ('forum_search' == $op)
 					drawRow("show_latest_topic","select",$user->lang["YES_NO_NUM"]);
 					drawRow("search_word_min","text");
 					drawRow("allow_bookmarks","select",$user->lang["YES_NO_NUM"]);
+					drawRow("allow_forum_notify","select",$user->lang["YES_NO_NUM"]);
+					drawRow("allow_topic_notify","select",$user->lang["YES_NO_NUM"]);
 					drawRow("shout_new_topic","select",$user->lang["YES_NO_NUM"]);
 					drawRow("shout_new_post","select",$user->lang["YES_NO_NUM"]);
 					drawRow("allow_smilies","select",$user->lang["YES_NO_NUM"]);
@@ -265,7 +267,7 @@ if ('forum_search' == $op)
 			close_out();
 			break;			
 
-				$user->set_lang('admin/permissions',$user->ulanguage);
+				$user->set_lang('admin/acp_permissions',$user->ulanguage);
 				switch ($mode)
 				{
 					case 'forum':
@@ -691,8 +693,12 @@ if ('forum_search' == $op)
 				$allow_quick_reply = request_var('sub_allow_quick_reply', '');
 				$enable_queue_trigger		= request_var('sub_enable_queue_trigger', '');
 				$queue_trigger_posts		= request_var('sub_queue_trigger_posts', '0');
+				$allow_forum_notify		= request_var('sub_allow_forum_notify', 0);
+				$allow_topic_notify		= request_var('sub_allow_topic_notify', 0);
 				set_config("forum_open",(!$forum_open ? "0" : "1"));
 				set_config("allow_quick_reply",(!$allow_quick_reply ? "0" : "1"));
+				set_config("allow_forum_notify",(!$allow_forum_notify ? "0" : "1"));
+				set_config("allow_topic_notify",(!$allow_topic_notify ? "0" : "1"));
 				set_config("board_disable_msg",$board_disable_msg);
 				set_config("email_enable",((!$email_enable)? "0" : "1"));
 

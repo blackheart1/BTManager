@@ -1666,14 +1666,9 @@ IN:
 OUT: NOTHING
 */
 function adminentry($name, $op, $title,$section="torrentinfo", $mod, &$allow = false) {
-        global $template, $theme, $admin_siteinfo, $admin_userinfo, $admin_torrentinfo, $admin_staff,$user,$allowed_acc,$opfile;
-		if(!$user->admin && $mod == 'admin')
-		{
-			$allowed_acc[$op.'.php'] = 0;
-			return $allow = false;
-		}
+        global $template, $theme, $admin_siteinfo, $admin_userinfo, $admin_torrentinfo, $admin_staff,$user,$allowed_acc,$val;
 		$allowed_acc[$op.'.php'] = 1;
-		$allowed_acc[$opfile] = 1;
+		$allowed_acc[$val] = 1;
         $image = "admin_".$name;
         if (file_exists("themes/$theme/pics/admin/".$image.".png")) {
                 $image = "themes/$theme/pics/admin/".$image.".png";

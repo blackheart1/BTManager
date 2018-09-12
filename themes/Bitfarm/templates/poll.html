@@ -40,6 +40,7 @@
 	<!-- ELSE -->
 <form method="post" action="index.php"><p class='poll'>
 <input type="hidden" name="vote" value="1" />
+<input type="hidden" name="poll_id" value="{POLL_ID}" />
 <!-- BEGIN poll_var_no_answered -->
 <input name="choice" value="{poll_var_no_answered.VALUE}" type="radio" />&nbsp;&nbsp;{poll_var_no_answered.VAL_QUEST}<br />
 <!-- END poll_var_no_answered -->

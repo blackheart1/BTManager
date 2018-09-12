@@ -781,6 +781,8 @@ $lang = array_merge($lang, array(
     'JAVA_CONF_LOGOUT'      => 'Are you sure you want to Logout?',
     'USER_NAME_OPEN'        => 'Success.  This Username is Available.',
     'USER_NAME_TAKEN'       => 'Sorry.  This Username is Taken!',
+	'MEMBERLIST'			=> 'Members',
+	'MEMBERLIST_EXPLAIN'	=> 'View complete list of members',
 
     #BBCode Errors
     '_MAX_FONT_SIZE_EXCEEDED'    => 'You can Only use Fonts up to Size %1$d.',
@@ -848,11 +850,10 @@ $lang = array_merge($lang, array(
             'OFF_TOPIC'         => 'The Reported Post is Off Topic',
             'WAREZ'             => 'The Reported Post contains Links to Pirated or Illegal Software',
         )),
-
-    'NO_POLL_OPTION'        => 'You Must Select a Poll Option!',
-    'VOTE_NOT_TAKEN'        => 'An Error Occurred.  Your Vote has Not been Counted.',
-    'ALREADY_VOTED'         => 'You have Already Voted.',
-    'SELECT_ALL'            => 'Select All',
+	'NO_POLL_OPTION'		=> 'You Must Select a Poll Option!',
+	'VOTE_NOT_TAKEN'		=> 'An error occured. Your vote has not been counted.',
+	'ALREADY_VOTED'			=> 'You have already Voted.',
+	'SELECT_ALL'			=> 'Select all',
 ));
 
 $u_datetime = array(

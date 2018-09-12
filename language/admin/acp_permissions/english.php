@@ -458,8 +458,7 @@ $lang = array_merge($lang, array(
     'acl_u_hideonline'   => array('lang' => 'Can Hide Online Status', 'cat' => 'misc'),
     'acl_u_viewonline'   => array('lang' => 'Can View Hidden Online Users', 'cat' => 'misc'),
     'acl_u_search'       => array('lang' => 'Can Search Board', 'cat' => 'misc'),
-    'acl_u_download_torrents' => array(
-        'lang' => 'Can Download Torrents', 'cat' => 'trac'),
+    'acl_u_download_torrents' => array('lang' => 'Can Download Torrents', 'cat' => 'trac'),
 ));
 
 // Forum Permissions
@@ -593,6 +592,7 @@ $lang = array_merge($lang, array(
     'acl_a_ratiowarn'          => array('lang' => 'Can Manage Ratio Warning System', 'cat' => 'trac'),
     'acl_a_search_cloud'       => array('lang' => 'Can Manage Search Cloud System', 'cat' => 'trac'),
     'acl_a_site_rules'         => array('lang' => 'Can Manage Rules Settings', 'cat' => 'settings'),
+    'acl_a_bonus_system'       => array('lang' => 'Can Manage Bonus System', 'cat' => 'settings'),
 ));
 
 // Adding the Permissions

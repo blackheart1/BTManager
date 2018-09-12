@@ -1050,7 +1050,7 @@ if($op == 'get_imdb')
                         'ACTION'             => $op,
                         'IMDB_TITLE'         => $movie->title (),
                         'IMDB_YEAR'          => $movie->year (),
-                        'IMDB_RUNTIME'       => $movie->runtime (),
+                        'IMDB_RUNTIME'       => $movie->runtime_all (),
                         'IMDB_TAGLINE'       => $movie->plotoutline (),
                         'MOVE_COMMENTS'      => $movie->comment (),
                         'IMDB_POSTER'        => $movie->main_photo,
@@ -1081,7 +1081,7 @@ if($op == 'get_imdb')
 
                 for ($i = 0; $i  < count($gen); $i++) {
                 $template->assign_block_vars('genre', array(
-                    'GENRE' => $gen[$i],
+                    'GENRE' => strip_tags($gen[$i]),
                 ));
                 }
 

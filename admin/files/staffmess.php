@@ -54,6 +54,7 @@ if($page=="pm"){
 		$level				= request_var('level', array('a'));
 		$group				= request_var('group', array('0'));
 		$icon_id			= request_var('icon', 0);
+		$errmsg 			= array();
 		$bbcode_status		= ($config['allow_bbcode'] && $config['auth_bbcode_pm'] && checkaccess('u_pm_bbcode')) ? true : false;
 		$smilies_status		= ($config['allow_smilies'] && $config['auth_smilies_pm'] && checkaccess('u_pm_smilies')) ? true : false;
 		$img_status			= ($config['auth_img_pm'] && checkaccess('u_pm_img')) ? true : false;
@@ -199,20 +200,20 @@ if ($page == "mail")
 				close_out();
 	}
 	$usermissed = false;
-	$messenger = new messenger();
-	$messenger->template('staffmess', $user->ulanguage);
 	while($arr=$db->sql_fetchrow($e_mail))
 	{
+		$messenger = new messenger();
+		$messenger->template('staffmess', $user->ulanguage);
 		$messenger->to($arr['email'], $arr['username']);
 		$messenger->im($arr['jabber'], $arr['username']);
-	}
-	$messenger->assign_vars(array(
+		$messenger->assign_vars(array(
 			'SENDER'				=>	$sitename,
 			'SEND_DATE'				=>	gmdate("Y-m-d H:i:s"),
 			'STAFF_MESSAGE'			=>	$message,
 			'SUB_JECT'				=>	$subject,
-	));
-	$messenger->send(0);
+		));
+		$messenger->send(0);
+	}
 	$messenger->save_queue();
 
 

@@ -29,29 +29,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 	$vote			= request_var('vote', '0');
 	if($vote=='1')
 	{
+		$poll_id		= request_var('poll_id', 0);
 		$choice			= request_var('choice', '');
 		if (!is_numeric($choice) OR $choice > 9 )
 		{
-			pmbt_trigger_error($user->lang['NO_POLL_OPTION'],$user->lang['BT_ERROR'],$siteurl);
+			pmbt_trigger_error($user->lang['NO_POLL_OPTION'], $user->lang['BT_ERROR'], $siteurl . '/polls.php');
 		}
-		elseif ($user->user && $choice != "" && $choice < 256 && $choice == floor($choice))
+		elseif ($user->user && $choice != "" && $choice < 256 && $choice == floor($choice) && isset($poll_id))
 		{
-			$res = $db->sql_query("SELECT id FROM ".$db_prefix."_polls ORDER BY added DESC LIMIT 1") or sqlerr();
-			$arr = $db->sql_fetchrow($res) or die("No poll");
-			$pollid = $arr["id"];
 			$userid = $user->id;
-			$res = $db->sql_query("SELECT pollid FROM ".$db_prefix."_pollanswers WHERE pollid=$pollid && userid=$userid") or sqlerr();
+			$res = $db->sql_query("SELECT pollid FROM ".$db_prefix."_pollanswers WHERE pollid=$poll_id && userid=$userid");
 			$arr = $db->sql_fetchrow($res);
 			if($arr)
 			{
-				pmbt_trigger_error($user->lang['ALREADY_VOTED'],$user->lang['BT_ERROR'],$siteurl);
+				pmbt_trigger_error($user->lang["ALREADY_VOTED"], $user->lang['BT_ERROR'], $siteurl . '/polls.php');
 			}
 			else
 			{
-				$db->sql_query("INSERT INTO ".$db_prefix."_pollanswers VALUES(0, $pollid, 0, $userid, $choice)");
+				$db->sql_query("INSERT INTO ".$db_prefix."_pollanswers VALUES(0, $poll_id, 0, $userid, $choice)");
 				if ($db->sql_affectedrows() != 1)
 				{
-					pmbt_trigger_error($user->lang['VOTE_NOT_TAKEN'],$user->lang['BT_ERROR'],$siteurl);
+					pmbt_trigger_error($user->lang["VOTE_NOT_TAKEN"],$user->lang['BT_ERROR'],$siteurl . '/polls.php');
 				}
 				else
 				{
@@ -73,25 +71,25 @@ if ($user->user){
   	$pollid = $arr["id"];
   	$userid = "".$user->id."";
   	$question = $arr["question"];
-  	$o = array($arr["option0"],
-	(!isset($arr["option1"])) ? "" : $arr["option1"],
-	(!isset($arr["option2"])) ? "" : $arr["option2"],
-	(!isset($arr["option3"])) ? "" : $arr["option3"],
+  	$o = array($arr["option0"], 
+	(!isset($arr["option1"])) ? "" : $arr["option1"], 
+	(!isset($arr["option2"])) ? "" : $arr["option2"], 
+	(!isset($arr["option3"])) ? "" : $arr["option3"], 
 	(!isset($arr["option4"])) ? "" : $arr["option4"],
-    (!isset($arr["option5"])) ? "" : $arr["option5"],
-	(!isset($arr["option6"])) ? "" : $arr["option6"],
-	(!isset($arr["option7"])) ? "" : $arr["option7"],
-	(!isset($arr["option8"])) ? "" : $arr["option8"],
+    (!isset($arr["option5"])) ? "" : $arr["option5"], 
+	(!isset($arr["option6"])) ? "" : $arr["option6"], 
+	(!isset($arr["option7"])) ? "" : $arr["option7"], 
+	(!isset($arr["option8"])) ? "" : $arr["option8"], 
 	(!isset($arr["option9"])) ? "" : $arr["option9"],
-    (!isset($arr["option10"])) ? "" : $arr["option10"],
-	(!isset($arr["option11"])) ? "" : $arr["option11"],
-	(!isset($arr["option12"])) ? "" : $arr["option12"],
-	(!isset($arr["option13"])) ? "" : $arr["option13"],
+    (!isset($arr["option10"])) ? "" : $arr["option10"], 
+	(!isset($arr["option11"])) ? "" : $arr["option11"], 
+	(!isset($arr["option12"])) ? "" : $arr["option12"], 
+	(!isset($arr["option13"])) ? "" : $arr["option13"], 
 	(!isset($arr["option14"])) ? "" : $arr["option14"],
-    (!isset($arr["option15"])) ? "" : $arr["option15"],
-	(!isset($arr["option16"])) ? "" : $arr["option16"],
-	(!isset($arr["option17"])) ? "" : $arr["option17"],
-	(!isset($arr["option18"])) ? "" : $arr["option18"],
+    (!isset($arr["option15"])) ? "" : $arr["option15"], 
+	(!isset($arr["option16"])) ? "" : $arr["option16"], 
+	(!isset($arr["option17"])) ? "" : $arr["option17"], 
+	(!isset($arr["option18"])) ? "" : $arr["option18"], 
 	(!isset($arr["option19"])) ? "" : $arr["option19"]
 	);
 
@@ -178,7 +176,7 @@ if ($user->user){
       	++$i;
     	}
   	}
-
+   
 
 }else{
 	$template->assign_vars(array(
@@ -188,5 +186,5 @@ if ($user->user){
 	));
 }
 }
-echo $template->fetch('poll.html');
+echo $template->fetch('poll.html');				
 ?>

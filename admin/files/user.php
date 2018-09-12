@@ -115,7 +115,7 @@ include_once 'include/user.functions.php';
 					$i++;
 				}
 				$db->sql_freeresult($result);
-				$user->set_lang('admin/permissions',$user->ulanguage);
+				$user->set_lang('admin/acp_permissions',$user->ulanguage);
 				$auth = new auth();
 				$auth->acl($user);
 				$admin_role = new acp_users();

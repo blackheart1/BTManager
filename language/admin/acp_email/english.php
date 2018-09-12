@@ -56,6 +56,7 @@ $lang = array_merge($lang, array(
     'EMAIL_PACKAGE_SIZE'          => 'email Package Size',
 
     'EMAIL_PACKAGE_SIZE_EXPLAIN'  => 'This is the Number of Maximum emails Sent out in one Package.  This Setting is applied to the Internal Message Queue.  Set this Value to 0 if you have problems with Non-Delivered Notification emails.',
+	'ALLOW_TOPIC_NOTIFY'		=> 'Allow subscribing to topics',
 
     'EMAIL_SIG'                   => 'email Signature',
     'EMAIL_SIG_EXPLAIN'           => 'This Text will be Attached to ALL emails the Site Sends.',

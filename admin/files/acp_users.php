@@ -1992,8 +1992,6 @@ class acp_users
 
 				$auth_admin = new auth_admin();
 
-				//$user->add_lang('acp/permissions');
-				$user->set_lang('admin/permissions',$user->ulanguage);
 				$user->set_lang('admin/acp_permissions',$user->ulanguage);
 
 

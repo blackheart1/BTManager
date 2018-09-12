@@ -86,7 +86,7 @@
                     <!-- IF U_USER -->
                     <tr>
                         <td class="row1" width="100%">
-                            <a href="pm.php"><span <!-- IF U_PM_POPUP -->id="nopm_notif"<!-- ENDIF -->>{L_PRIVATE_MESSAGES}</span></a>
+                            <a href="pm.php"><span <!-- IF U_PM_POPUP -->id="nopm_notif"<!-- ENDIF -->>{L_PRIVATE_MESSAGES} &bull; {U_USER_UNRED_PM}</span></a>
                         </td>
                     </tr>
                     <!-- ENDIF -->
@@ -99,6 +99,13 @@
                     </tr>
                     <!-- ENDIF -->
 
+                    <!-- IF S_DISPLAY_MEMBERLIST -->
+                    <tr>
+                        <td class="row1" width="100%">
+                            <a href="{U_MEMBERLIST}" title="{L_MEMBERLIST_EXPLAIN}">{L_MEMBERLIST}</a>
+                        </td>
+                    </tr>
+                    <!-- ENDIF -->
                     <!-- IF U_USER -->
                     <tr>
                         <td class="row1" width="100%">

@@ -60,6 +60,7 @@ class acp_email
 						'board_email'			=> array('lang' => 'ADMIN_EMAIL',			'validate' => 'email',	'type' => 'text:25:100', 'explain' => true),
 						'board_email_sig'		=> array('lang' => 'EMAIL_SIG',				'validate' => 'string',	'type' => 'textarea:5:30', 'explain' => true),
 						'board_hide_emails'		=> array('lang' => 'BOARD_HIDE_EMAILS',		'validate' => 'bool',	'type' => 'radio:yes_no', 'explain' => true),
+						'allow_topic_notify'	=> array('lang' => 'ALLOW_TOPIC_NOTIFY',	'validate' => 'bool',	'type' => 'radio:yes_no', 'explain' => false),
 
 						'legend2'				=> 'SMTP_SETTINGS',
 						'smtp_delivery_ssl'		=> array('lang' => 'USE_SMTP_SSL',			'validate' => 'string',	'type' => 'select', 'method' => 'mail_auth_ssl_select', 'explain' => true),
