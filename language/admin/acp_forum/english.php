@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File acp_forum/english.php 2018-05-22 09:09:00 Thor
+** File acp_forum/english.php 2018-09-12 06:10:00 Thor
 **
 ** CHANGES
 **
@@ -198,10 +198,10 @@ $lang = array_merge($lang, array(
     'TYPE_CAT'                         => 'Category',
     'TYPE_FORUM'                       => 'Forum',
     'TYPE_LINK'                        => 'Link',
-	'_admpallow_forum_notify'		=> 'Allow subscribing to forums',
-	'_admpallow_forum_notifyexplain'		=> '',
-	'_admpallow_topic_notify'		=> 'Allow subscribing to topics',
-	'_admpallow_topic_notifyexplain'		=> '',
+    '_admpallow_forum_notify'          => 'Allow Subscribing to Forums',
+    '_admpallow_forum_notifyexplain'   => '',
+    '_admpallow_topic_notify'          => 'Allow Subscribing to Topics',
+    '_admpallow_topic_notifyexplain'   => '',
 
     'ACP_PRUNE_USERS_EXPLAIN'          => 'This Section Allows you to Delete or Deactivate Users on your Site.  Accounts can be Filtered in a variety of ways; by Post Count, Most Recent Activity, etc.  Criteria may be combined to narrow down which Accounts are Affected.  For example, you can Prune Users with Fewer than 10 Posts, who were also Inactive After 2002-01-01.  Alternatively, you may Skip the Criteria Selection completely by Entering a List of Users (each on a Separate Line) into the Text Field.  Take Care with this Facility!  Once a User is Deleted, there is NO Way to Reverse the Action.',
 
@@ -250,8 +250,8 @@ $lang = array_merge($lang, array(
     'TOPICS_PRUNED'                    => 'Topics Pruned',
 ));
 
-    #3.0.1 add on
-    // Word censors
+    #3.0.1 Add-on
+    // Word Censors
 $lang = array_merge($lang, array(
     'ACP_WORDS'          => 'Word Censoring',
 
@@ -280,28 +280,29 @@ $lang = array_merge($lang, array(
     'RESYNC'             => 'Resynchronise',
     'RESYNC_DISABLED'    => 'Resynchronise',
 ));
-    #3.0.1 add on
+
+    #3.0.1 Add-on
     // Error Messages
 $lang = array_merge($lang, array(
-	'ERROR_TPP_NOT_N'			=> 'Topics Perpage not Numeric',
-	'ERROR_TPP_NOT_SET'			=> 'Topics Perpage not Set',
-	'ERROR_PPP_NOT_N'			=> 'Posts Perpage not Numeric',
-	'ERROR_PPP_NOT_SET'			=> 'Posts Perpage not Set',
-	'ERROR_MAX_POST_LEN'		=> 'Max Post length not Numeric',
-	'ERROR_MAX_POST_LEN_SET'	=> 'Max Post length not Set',
-	'ERROR_SEARCH_W_MIN_N'		=> 'Search Word Min Not Numeric',
-	'ERROR_SEARCH_W_MIN_SET'	=> 'Search Word Min Not Set',
-	'ERROR_FLOOD_INTER_N'		=> 'Flood Intervals Not Numeric',
-	'ERROR_FLOOD_INTER_SET'		=> 'Flood Intervals Not Set',
-	'ERROR_BUMP_INTER_N'		=> 'Bump Intervals Not Numeric',
-	'ERROR_BUMP_INTER_SET'		=> 'Bump Intervals Not Set',
-	'ERROR_IMG_LNG_W_N'			=> 'Maximum Width Not Numeric',
-	'ERROR_IMG_LNG_W_SET'		=> 'Maximum Width Not Set',
-	'ERROR_IMG_HGT_W_N'			=> 'Maximum Height Not Numeric',
-	'ERROR_IMG_HGT_W_SET'		=> 'Maximum Height Not Set',
-	'ERROR_MAX_FONT_N'			=> 'Maximum Font Size Not Numeric',
-	'ERROR_MAX_FONT_SET'		=> 'Maximum Font Size Not Set',
-	'ERROR_MAX_ATTACH_N'		=> 'Maximum Number of Attachments Not Numeric',
-	'ERROR_MAX_ATTACH_SET'		=> 'Maximum Number of Attachments Not Set',
+    'ERROR_TPP_NOT_N'           => 'Topics Per Page Not Numeric',
+    'ERROR_TPP_NOT_SET'         => 'Topics Per Page Not Set',
+    'ERROR_PPP_NOT_N'           => 'Posts Per Page Not Numeric',
+    'ERROR_PPP_NOT_SET'         => 'Posts Per Page Not Set',
+    'ERROR_MAX_POST_LEN'        => 'Maximum Post Length Not Numeric',
+    'ERROR_MAX_POST_LEN_SET'    => 'Maximum Post Length Not Set',
+    'ERROR_SEARCH_W_MIN_N'      => 'Search Word Minimum Not Numeric',
+    'ERROR_SEARCH_W_MIN_SET'    => 'Search Word Minimum Not Set',
+    'ERROR_FLOOD_INTER_N'       => 'Flood Intervals Not Numeric',
+    'ERROR_FLOOD_INTER_SET'     => 'Flood Intervals Not Set',
+    'ERROR_BUMP_INTER_N'        => 'Bump Intervals Not Numeric',
+    'ERROR_BUMP_INTER_SET'      => 'Bump Intervals Not Set',
+    'ERROR_IMG_LNG_W_N'         => 'Maximum Width Not Numeric',
+    'ERROR_IMG_LNG_W_SET'       => 'Maximum Width Not Set',
+    'ERROR_IMG_HGT_W_N'         => 'Maximum Height Not Numeric',
+    'ERROR_IMG_HGT_W_SET'       => 'Maximum Height Not Set',
+    'ERROR_MAX_FONT_N'          => 'Maximum Font Size Not Numeric',
+    'ERROR_MAX_FONT_SET'        => 'Maximum Font Size Not Set',
+    'ERROR_MAX_ATTACH_N'        => 'Maximum Number of Attachments Not Numeric',
+    'ERROR_MAX_ATTACH_SET'      => 'Maximum Number of Attachments Not Set',
 ));
 ?>

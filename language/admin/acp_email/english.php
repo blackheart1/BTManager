@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File acp_email/english.php 2018-03-28 00:54:00 Thor
+** File acp_email/english.php 2018-09-12 05:59:00 Thor
 **
 ** CHANGES
 **
@@ -39,24 +39,25 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, array(
     'ACP_EMAIL_SETTINGS_EXPLAIN' => 'This Information is used when your Site Sends emails to your Users.  Please ensure the email Address you Specify is Valid.  If your Host DOES NOT provide a native (PHP based) email Service you can instead Send Messages Directly using SMTP.  This Requires the Address of an Appropriate Server (ask your Provider if necessary). If the Server Requires Authentication (and ONLY if it Does) Enter the Required Username, Password and Authentication Method.',
 
-    'ADMIN_EMAIL'                => 'Return email Address',
+    'ADMIN_EMAIL'                 => 'Return email Address',
 
-    'ADMIN_EMAIL_EXPLAIN'        => 'This will be used as the Return Address on ALL emails.  It will always be used as the <em>Return Path</em> and <em>Sender Address</em> in emails.',
+    'ADMIN_EMAIL_EXPLAIN'         => 'This will be used as the Return Address on ALL emails.  It will always be used as the <em>Return Path</em> and <em>Sender Address</em> in emails.',
 
-    'BOARD_EMAIL_FORM'           => 'Users Send email via Site',
-    'BOARD_EMAIL_FORM_EXPLAIN'   => 'Instead of Showing the Users email Address, Users are able to Send emails via the Site.',
-    'BOARD_HIDE_EMAILS'          => 'Hide email Address',
-    'BOARD_HIDE_EMAILS_EXPLAIN'  => 'This Function Keeps email Addresses Completely Private.',
-    'CONTACT_EMAIL'              => 'Contact email Address',
+    'BOARD_EMAIL_FORM'            => 'Users Send email via Site',
+    'BOARD_EMAIL_FORM_EXPLAIN'    => 'Instead of Showing the Users email Address, Users are able to Send emails via the Site.',
+    'BOARD_HIDE_EMAILS'           => 'Hide email Address',
+    'BOARD_HIDE_EMAILS_EXPLAIN'   => 'This Function Keeps email Addresses Completely Private.',
+    'CONTACT_EMAIL'               => 'Contact email Address',
 
-    'CONTACT_EMAIL_EXPLAIN'      => 'This Address will be used whenever a Specific Contact Point is needed, e.g. Spam, Error Output, etc.  It will always be used as the <em>From</em> and <em>Reply to</em> Address in emails.',
+    'CONTACT_EMAIL_EXPLAIN'       => 'This Address will be used whenever a Specific Contact Point is needed, e.g. Spam, Error Output, etc.  It will always be used as the <em>From</em> and <em>Reply to</em> Address in emails.',
 
     'EMAIL_FUNCTION_NAME'         => 'email Function Name',
     'EMAIL_FUNCTION_NAME_EXPLAIN' => 'The email Function used to Send Mail through PHP.',
     'EMAIL_PACKAGE_SIZE'          => 'email Package Size',
 
     'EMAIL_PACKAGE_SIZE_EXPLAIN'  => 'This is the Number of Maximum emails Sent out in one Package.  This Setting is applied to the Internal Message Queue.  Set this Value to 0 if you have problems with Non-Delivered Notification emails.',
-	'ALLOW_TOPIC_NOTIFY'		=> 'Allow subscribing to topics',
+
+    'ALLOW_TOPIC_NOTIFY'          => 'Allow Subscribing to Topics',
 
     'EMAIL_SIG'                   => 'email Signature',
     'EMAIL_SIG_EXPLAIN'           => 'This Text will be Attached to ALL emails the Site Sends.',
