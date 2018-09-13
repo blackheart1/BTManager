@@ -4323,7 +4323,7 @@ function set_site_var($page_title = '')
             'PMBT_VER'             => $version,
             'PAGE_TITLE'           => $page_title,
             'SITENAME'             => $sitename,
-            'S_ANNOUCEMENTS'       => $announce_message,
+            'S_ANNOUCEMENTS'       => ((!$announce_message == '' && $user->user)? $announce_message : false),
             'DONATION_IN'          => $type . $donatein,
             'DONATION_ASKED'       => $type . $donateasked,
             'DONATION_IMAGE'       => $donateimage,

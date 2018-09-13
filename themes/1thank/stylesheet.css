@@ -3782,3 +3782,15 @@ table.legend td.gensmall {
 	font-weight:200;
 }
 
+.blink {
+  animation: blinker 1s step-start infinite;
+	font-size: 25px;
+	font-weight:800;
+	color:#FD0206;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}

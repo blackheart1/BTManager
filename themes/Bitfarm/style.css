@@ -808,6 +808,24 @@ td.postbottom {
 	padding: 4px;
 	color: #444;
 }
+marquee.announcement a
+{
+	font-size: 25px;
+	font-weight:800;
+	color:#FD0206;
+}
+.blink {
+  animation: blinker 1s step-start infinite;
+	font-size: 25px;
+	font-weight:800;
+	color:#FD0206;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
 .row1 reported, .row2 reported, .row3 reported, .forumrules reported, tr.row1 reported .row reported, tr.row2 reported .row reported, tr.row3 reported .row reported, .postbottom {
 	background: #E6EAF0 url(images/cell.gif) top left repeat-x;
 	padding: 4px;
