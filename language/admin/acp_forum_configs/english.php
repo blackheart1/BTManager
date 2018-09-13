@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File acp_forum_configs/english.php 2018-03-28 10:56:00 Thor
+** File acp_forum_configs/english.php 2018-09-13 05:40:00 Thor
 **
 ** CHANGES
 **
@@ -73,7 +73,10 @@ $lang = array_merge($lang, array(
 
     '_admpallow_birthdays'             => 'Allow Birthdays',
 
-    '_admpallow_birthdaysexplain'      => 'Allow Birthdays to be Entered.  The Users Age will be Displayed in Profiles.  Please Note that the Birthday List within the Board Index is Controlled by a Separate Load Setting.',
+    '_admpallow_birthdaysexplain'      => 'Allow Birthdays to be Entered.  The Users Age will be Displayed in their Profile.<br />Please Note that Enable Birthday Listing needs to be Enabled so that it Displays their Username on the Board Index',
+
+    '_admpload_birthdays'              => 'Enable Birthday Listing',
+    '_admpload_birthdaysexplain'       => 'If Disabled the Birthday Listing is no longer displayed. To let this setting take effect the Birthday feature needs to be Enabled too.',
 
     '_admpenable_urls'                 => 'Allow use of the <em>[URL]</em> BBCode Tag in Posts/Private Messages',
     '_admpenable_urlsexplain'          => 'If Disallowed the <em>[URL]</em> BBCode Tag and Automatic/Magic URL\'s are Disabled.',
@@ -147,7 +150,7 @@ $lang = array_merge($lang, array(
     '_admpcan_use_attachmentsexplain'  => 'Allow Attachments to be Posted in Posts.',
     '_admpflood_intervals'             => 'Flood Interval',
 
-    '_admpflood_intervalsexplain'      => 'Number of Seconds a User must Wait between Making/Replying to Posts. To Enable Users to Ignore this Alter their Permissions.',
+    '_admpflood_intervalsexplain'      => 'Number of Seconds a User must Wait between Making/Replying to Posts.<br />To Enable Users to Ignore this Alter their Permissions.',
 
     '_admpbump_intervals'              => 'Bump Interval',
 
