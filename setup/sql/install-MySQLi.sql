@@ -630,7 +630,7 @@ CREATE TABLE IF NOT EXISTS `#prefix#_disallow` (
   `disallow_id` mediumint(8) unsigned NOT NULL auto_increment,
   `disallow_username` varchar(255) binary NOT NULL default '',
   PRIMARY KEY  (`disallow_id`)
-) TYPE=MyISAM  AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -1702,7 +1702,7 @@ CREATE TABLE IF NOT EXISTS `#prefix#_search_results` (
   `search_keywords` mediumblob NOT NULL,
   `search_authors` mediumblob NOT NULL,
   PRIMARY KEY (`search_key`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
@@ -1732,7 +1732,7 @@ CREATE TABLE IF NOT EXISTS `#prefix#_search_wordlist` (
   PRIMARY KEY (`word_id`),
   UNIQUE KEY `wrd_txt` (`word_text`(255)),
   KEY `wrd_cnt` (`word_count`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
@@ -1747,7 +1747,7 @@ CREATE TABLE IF NOT EXISTS `#prefix#_search_wordmatch` (
   UNIQUE KEY `unq_mtch` (`word_id`,`post_id`,`title_match`),
   KEY `word_id` (`word_id`),
   KEY `post_id` (`post_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
