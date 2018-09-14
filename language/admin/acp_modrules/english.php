@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File modrules/english.php 2018-04-10 08:58:00 Thor
+** File modrules/english.php 2018-09-14 10:09:00 Thor
 **
 ** CHANGES
 **
@@ -38,7 +38,7 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, array(
     'TITLE'                => 'Site Rules',
-    'EXPLAIN'              => 'In this Section you can Add, Edit and Delete the Site Rules',
+    'EXPLAIN'              => 'In this Section you can Add, Edit and Delete the Site Rules<br /><br />',
     'MESSAGE_BODY_EXP'     => '',
     'SELECT_GROUP'         => 'Select Group',
     'SELECT_GROUP_EXP'     => 'Select a Group for this Rule (Note: you can Select more than one Group)',

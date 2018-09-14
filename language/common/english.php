@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File common/english.php 2018-09-12 06:14:00 Thor
+** File common/english.php 2018-09-14 09:37:00 Thor
 **
 ** CHANGES
 **
@@ -462,7 +462,7 @@ $lang = array_merge($lang, array(
     'INACTIVE_REASON_UNKNOWN'  => 'Unknown',
     'INACTIVE_USERS'           => 'Inactive Users',
 
-    'INACTIVE_USERS_EXPLAIN'   => 'This is a List of Users who have Registered but whose Accounts are Inactive. You can Activate, Delete or Remind (by sending an email) to these Users if you wish.',
+    'INACTIVE_USERS_EXPLAIN'   => 'This is a List of Users who have Registered but whose Accounts are Inactive. You can Activate, Delete or Remind (by sending an email) to these Users if you wish.<br /><br />',
 
     'INACTIVE_USERS_EXPLAIN_INDEX' => 'This is a List of the Last 10 Registered Users who have Inactive Accounts.  A FULL List is available from the appropriate Menu Item or by following the Link below.  You can Activate, Delete or Remind (by Sending an email) to these Users if you wish?',
 

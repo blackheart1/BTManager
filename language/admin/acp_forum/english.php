@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File acp_forum/english.php 2018-09-12 06:10:00 Thor
+** File acp_forum/english.php 2018-09-14 09:05:00 Thor
 **
 ** CHANGES
 **
@@ -101,7 +101,7 @@ $lang = array_merge($lang, array(
 
     'FORUM_ADMIN'                      => 'Forum Administration',
 
-    'FORUM_ADMIN_EXPLAIN'              => 'In phpBB3 there are NO Categories, everything is Forum Based.  Each Forum can have an Unlimited Number of Sub-Forums and, you can determine whether each may be Posted TO or NOT (i.e. whether it Acts like an Old Category).  Here you can Add, Edit, Delete, Lock, Unlock Individual Forums as well as Set certain Additional Controls.  If your Posts and Topics have got out of Sync you can also Resynchronise a Forum.  <strong>You will need to Copy or Set Appropriate Permissions for Newly Created Forums to have them Displayed.</strong>',
+    'FORUM_ADMIN_EXPLAIN'              => 'In phpBB3 there are NO Categories, everything is Forum Based.  Each Forum can have an Unlimited Number of Sub-Forums and, you can determine whether each may be Posted TO or NOT (i.e. whether it Acts like an Old Category).  Here you can Add, Edit, Delete, Lock, Unlock Individual Forums as well as Set certain Additional Controls.  If your Posts and Topics have got out of Sync you can also Resynchronise a Forum.<br /><strong>You will need to Copy or Set Appropriate Permissions for Newly Created Forums to have them Displayed.</strong><br /><br />',
 
     'FORUM_AUTO_PRUNE'                 => 'Enable Auto Pruning',
     'FORUM_AUTO_PRUNE_EXPLAIN'         => 'Prunes the Forum of Topics.  Set the Frequency/Age Parameters below.',
@@ -110,14 +110,14 @@ $lang = array_merge($lang, array(
     'FORUM_DESC_TOO_LONG'              => 'The Forum Description is Too Long, it must be less than 4000 Characters.',
     'FORUM_DELETE'                     => 'Delete Forum',
 
-    'FORUM_DELETE_EXPLAIN'             => 'The Form below will Allow you to Delete a Forum.  If the Forum is Postable you will be able to decide where you want to put ALL Topics (or Forums) it contained.',
+    'FORUM_DELETE_EXPLAIN'             => 'The Form below will Allow you to Delete a Forum.  If the Forum is Postable you will be able to decide where you want to put ALL Topics (or Forums) it contained.<br /><br />',
 
     'FORUM_DELETED'                    => 'Forum Fully Deleted.',
     'FORUM_DESC'                       => 'Description',
 
     'FORUM_DESC_EXPLAIN'               => 'Any HTML Markup Entered Here will be Displayed as is.',
 
-    'FORUM_EDIT_EXPLAIN'               => 'The Form below will Allow you to Customise this Forum.  Please Note that Moderation and Post Count Controls are Set via Forum Permissions for each User or User Group.',
+    'FORUM_EDIT_EXPLAIN'               => 'The Form below will Allow you to Customise this Forum.  Please Note that Moderation and Post Count Controls are Set via Forum Permissions for each User or User Group.<br /><br />',
 
     'FORUM_IMAGE'                      => 'Forum Image',
 
@@ -179,8 +179,8 @@ $lang = array_merge($lang, array(
     'MOVE_POSTS_TO'                    => 'Move Posts to',
     'MOVE_SUBFORUMS_TO'                => 'Move Sub-Forums to',
     'NO_DESTINATION_FORUM'             => 'You have NOT specified a Forum to Move Content to.',
-    'NO_FORUM_ACTION'                  => 'NO Action Defined for what happens with the Forum Content.',
-    'NO_PARENT'                        => 'NO Parent',
+    'NO_FORUM_ACTION'                  => 'No Action Defined for what happens with the Forum Content.',
+    'NO_PARENT'                        => 'No Parent',
     'NO_PERMISSIONS'                   => 'DO NOT Copy Permissions',
     'NO_PERMISSION_FORUM_ADD'          => 'You DO NOT have the Required Permissions to Add Forums.',
     'NO_PERMISSION_FORUM_DELETE'       => 'You DO NOT have the Required Permissions to Delete Forums.',
@@ -224,17 +224,17 @@ $lang = array_merge($lang, array(
 
     'USER_DEACTIVATE_SUCCESS'          => 'The Selected Users have been Deactivated Successfully.',
     'USER_DELETE_SUCCESS'              => 'The Selected Users have been Deleted Successfully.',
-    'USER_PRUNE_FAILURE'               => 'NO Users Matched the Selected Criteria.',
+    'USER_PRUNE_FAILURE'               => 'No Users Matched the Selected Criteria.',
     'WRONG_ACTIVE_JOINED_DATE'         => 'The Date Entered is Incorrect, it is Expected in <kbd>YYYY-MM-DD</kbd> Format.',
     'ACP_PRUNE_FORUMS'                 => 'Prune Forums',
     'ALL_FORUMS'                       => 'All Forums',
 
-    'ACP_PRUNE_FORUMS_EXPLAIN'         => 'This will Delete any Topic which has NOT been Posted to or Viewed within the Number of Days you Select.  If you DO NOT Enter a Number then ALL Topics will be Deleted.  By Default, it will NOT Remove Topics in which Polls are Still Running, nor will it Remove Stickies or Announcements.',
+    'ACP_PRUNE_FORUMS_EXPLAIN'         => 'This will Delete any Topic which has NOT been Posted to or Viewed within the Number of Days you Select.  If you DO NOT Enter a Number then ALL Topics will be Deleted.  By Default, it will NOT Remove Topics in which Polls are Still Running, nor will it Remove Stickies or Announcements.<br /><br />',
 
     'LOOK_UP_FORUM'                    => 'Select a Forum',
     'LOOK_UP_FORUMS_EXPLAIN'           => 'You can Select More than One Forum.',
     'FORUM_PRUNE'                      => 'Forum Prune',
-    'NO_PRUNE'                         => 'NO Forums Pruned.',
+    'NO_PRUNE'                         => 'No Forums Pruned.',
     'SELECTED_FORUM'                   => 'Selected Forum',
     'SELECTED_FORUMS'                  => 'Selected Forums',
     'POSTS_PRUNED'                     => 'Posts Pruned',
@@ -257,13 +257,13 @@ $lang = array_merge($lang, array(
 
     'ACP_WORDS_EXPLAIN'  => 'From this Control Panel you can Add, Edit, and Remove Words that will be Automatically Censored on your Forums.  People are still Allowed to Register with Usernames Containing these Words.  Wildcards (*) are Accepted in the Word Field, e.g. *test* will Match Detestable, test* would Match Testing, *test would Match Detest.',
 
-    'ACP_NO_ITEMS'       => 'There are NO Items Yet.',
+    'ACP_NO_ITEMS'       => 'There are No Items Yet.',
     'ADD_WORD'           => 'Add New Word',
 
     'EDIT_WORD'          => 'Edit Word Censor',
     'ENTER_WORD'         => 'You Must Enter a Word and its Replacement.',
 
-    'NO_WORD'            => 'NO Word Selected for Editing.',
+    'NO_WORD'            => 'No Word Selected for Editing.',
 
     'REPLACEMENT'        => 'Replacement',
 

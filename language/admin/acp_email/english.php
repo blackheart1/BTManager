@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File acp_email/english.php 2018-09-12 05:59:00 Thor
+** File acp_email/english.php 2018-09-14 10:27:00 Thor
 **
 ** CHANGES
 **
@@ -37,7 +37,7 @@ if (empty($lang) || !is_array($lang))
 }
 
 $lang = array_merge($lang, array(
-    'ACP_EMAIL_SETTINGS_EXPLAIN' => 'This Information is used when your Site Sends emails to your Users.  Please ensure the email Address you Specify is Valid.  If your Host DOES NOT provide a native (PHP based) email Service you can instead Send Messages Directly using SMTP.  This Requires the Address of an Appropriate Server (ask your Provider if necessary). If the Server Requires Authentication (and ONLY if it Does) Enter the Required Username, Password and Authentication Method.',
+    'ACP_EMAIL_SETTINGS_EXPLAIN' => 'This Information is used when your Site Sends emails to your Users.  Please ensure the email Address you Specify is Valid.  If your Host DOES NOT provide a native (PHP based) email Service you can instead Send Messages Directly using SMTP.  This Requires the Address of an Appropriate Server (ask your Provider if necessary). If the Server Requires Authentication (and ONLY if it Does) Enter the Required Username, Password and Authentication Method.<br /><br />',
 
     'ADMIN_EMAIL'                 => 'Return email Address',
 

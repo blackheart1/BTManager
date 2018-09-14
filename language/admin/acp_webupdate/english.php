@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File webupdate/english.php 2018-04-11 09:48:00 Thor
+** File webupdate/english.php 2018-09-14 10:17:00 Thor
 **
 ** CHANGES
 **
@@ -39,7 +39,7 @@ $lang = array_merge($lang, array(
     'CURRENT_VERSION'               => 'Current Version',
     'LATEST_VERSION'                => 'Latest Version',
     'VERSION_CHECK'                 => 'Version Check',
-    'VERSION_CHECK_EXPLAIN'         => 'Checks to see if your BTManager Installation is up-to-date.',
+    'VERSION_CHECK_EXPLAIN'         => 'Checks to see if your BTManager Installation is up-to-date.<br /><br />',
     'VERSION_NOT_UP_TO_DATE'        => 'Your BTManager Installation is NOT up-to-date.  Please Continue the Update Process.',
 
     'UPDATE_INSTRUCTIONS'           => '

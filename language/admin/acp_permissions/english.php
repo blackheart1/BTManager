@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File acp_permissions/english.php 2018-07-05 13:07:00 Thor
+** File acp_permissions/english.php 2018-09-14 09:05:00 Thor
 **
 ** CHANGES
 **
@@ -72,11 +72,11 @@ $lang = array_merge($lang, array(
     'ACL_TYPE_M_'        => 'Moderator Permissions',
     'ACL_TYPE_U_'        => 'User Permissions',
 
-    'ACL_TYPE_GLOBAL_A_' => 'Administrator Permissions',
-    'ACL_TYPE_GLOBAL_U_' => 'User Permissions',
-    'ACL_TYPE_GLOBAL_M_' => 'Global Moderator Permissions',
-    'ACL_TYPE_LOCAL_M_'  => 'Forum Moderator Permissions',
-    'ACL_TYPE_LOCAL_F_'  => 'Forum Permissions',
+    'ACL_TYPE_GLOBAL_A_' => '<em>Administrator Permissions</em>',
+    'ACL_TYPE_GLOBAL_U_' => '<em>User Permissions</em>',
+    'ACL_TYPE_GLOBAL_M_' => '<em>Global Moderator Permissions</em>',
+    'ACL_TYPE_LOCAL_M_'  => '<em>Forum Moderator Permissions</em>',
+    'ACL_TYPE_LOCAL_F_'  => '<em>Forum Permissions</em>',
 
     'ACL_NO'             => 'No',
     'ACL_YES'            => 'Yes',
@@ -86,7 +86,7 @@ $lang = array_merge($lang, array(
 
     'ACP_ADMINISTRATORS_EXPLAIN'    => 'Here you can Assign Administrator Permissions to Users or Groups.  ALL Users with Administrator Permissions can View the Administration Control Panel.',
 
-    'ACP_FORUM_MODERATORS_EXPLAIN'  => 'Here you can Assign Users and Groups as Forum Moderators.  To Assign Users to Forums, Define Global Moderator Permissions or Administrators, please use the appropriate page.',
+    'ACP_FORUM_MODERATORS_EXPLAIN'  => 'Here you can Assign Users and Groups as Forum Moderators.  To Assign Users to Forums, Define Global Moderator Permissions or Administrators, please use the appropriate page.<br /><br />',
 
     'ACP_FORUM_PERMISSIONS_EXPLAIN' => 'Here you can Assign which Users or Groups can Access which Forums.  To Assign Moderators or Define Administrators, please use the appropriate page.<br /><br />',
 
@@ -96,24 +96,24 @@ $lang = array_merge($lang, array(
 
     'ACP_GROUPS_FORUM_PERMISSIONS_EXPLAIN' => 'Here you can Assign Forum Permissions to Groups.',
 
-    'ACP_GROUPS_PERMISSIONS_EXPLAIN'       => 'Here you can Assign Global Permissions to Groups - User Permissions, Global Moderator Permissions and Administrator Permissions. <ul><li>User Permissions include the ability to use Avatars, Send Private Messages etc. <li>Global Moderator Permissions include the ability to Approve Posts, Manage Topics, Manage Bans etc.<li>Administrator Permissions include the ability to Alter Permissions, Define Custom BBCodes, Manage Forums etc.</ul>Individual User Permissions should ONLY be changed in rare occasions, the preferred method is putting Users in Groups and assigning the Groups Permissions.',
+    'ACP_GROUPS_PERMISSIONS_EXPLAIN'       => 'Here you can Assign Global Permissions to Groups - User Permissions, Global Moderator Permissions and Administrator Permissions. <ul><li>User Permissions include the ability to use Avatars, Send Private Messages etc. <li>Global Moderator Permissions include the ability to Approve Posts, Manage Topics, Manage Bans etc.<li>Administrator Permissions include the ability to Alter Permissions, Define Custom BBCodes, Manage Forums etc.</ul>Individual User Permissions should ONLY be changed in rare occasions, the preferred method is putting Users in Groups and assigning the Groups Permissions.<br /><br />',
 
-    'ACP_ADMIN_ROLES_EXPLAIN' => 'Here you can Manage the Roles for Administrator Permissions.  Roles are Effective Permissions.  Any Users that are Assigned to this Role will have their Permissions Changed.',
+    'ACP_ADMIN_ROLES_EXPLAIN' => 'Here you can Manage the Roles for Administrator Permissions.  Roles are Effective Permissions.  Any Users that are Assigned to this Role will have their Permissions Changed.<br /><br />',
 
-    'ACP_FORUM_ROLES_EXPLAIN' => 'Here you can Manage the Roles for Forum Permissions.  Roles are Effective Permissions.  Any Users that are Assigned to this Role will have their Permissions Changed.',
+    'ACP_FORUM_ROLES_EXPLAIN' => 'Here you can Manage the Roles for Forum Permissions.  Roles are Effective Permissions.  Any Users that are Assigned to this Role will have their Permissions Changed.<br /><br />',
 
-    'ACP_MOD_ROLES_EXPLAIN'   => 'Here you can Manage the Roles for Moderator Permissions.  Roles are Effective Permissions.  Any Users that are Assigned to this Role will have their Permissions Changed.',
+    'ACP_MOD_ROLES_EXPLAIN'   => 'Here you can Manage the Roles for Moderator Permissions.  Roles are Effective Permissions.  Any Users that are Assigned to this Role will have their Permissions Changed.<br /><br />',
 
-    'ACP_USER_ROLES_EXPLAIN'  => 'Here you can Manage the Roles for User Permissions.  Roles are Effective Permissions.  Any Users that are Assigned to this Role will have their Permissions Changed.',
+    'ACP_USER_ROLES_EXPLAIN'  => 'Here you can Manage the Roles for User Permissions.  Roles are Effective Permissions.  Any Users that are Assigned to this Role will have their Permissions Changed.<br /><br />',
 
     'ACP_USERS_FORUM_PERMISSIONS'          => 'Users Forum Permissions',
     'ACP_GROUPS_FORUM_PERMISSIONS'         => 'Groups Forum Permissions',
-    'ACP_USERS_FORUM_PERMISSIONS_EXPLAIN'  => 'Here you can Assign Forum Permissions to Users.',
-    'ACP_GROUPS_FORUM_PERMISSIONS_EXPLAIN' => 'Here you can Assign Forum Permissions to Groups.',
+    'ACP_USERS_FORUM_PERMISSIONS_EXPLAIN'  => 'Here you can Assign Forum Permissions to Users.<br /><br />',
+    'ACP_GROUPS_FORUM_PERMISSIONS_EXPLAIN' => 'Here you can Assign Forum Permissions to Groups.<br /><br />',
 
-    'ACP_USERS_PERMISSIONS_EXPLAIN' => 'Here you can Assign Global Permissions to Groups - User Permissions, Global Moderator Permissions and Administrator Permissions. <ul><li>User Permissions include the ability to use Avatars, Send Private Messages etc. <li>Global Moderator Permissions include the ability to Approve Posts, Manage Topics, Manage Bans etc.<li>Administrator Permissions include the ability to Alter Permissions, Define Custom BBCodes, Manage Forums etc.</ul>Individual User Permissions should ONLY be changed in Rare Occasions.  The Preferred Method is to put Users in Groups and Assigning the Groups Permissions.',
+    'ACP_USERS_PERMISSIONS_EXPLAIN' => 'Here you can Assign Global Permissions to Groups - User Permissions, Global Moderator Permissions and Administrator Permissions. <ul><li>User Permissions include the ability to use Avatars, Send Private Messages etc. <li>Global Moderator Permissions include the ability to Approve Posts, Manage Topics, Manage Bans etc.<li>Administrator Permissions include the ability to Alter Permissions, Define Custom BBCodes, Manage Forums etc.</ul>Individual User Permissions should ONLY be changed in Rare Occasions.  The Preferred Method is to put Users in Groups and Assigning the Groups Permissions.<br /><br />',
 
-    'ACP_GROUPS_PERMISSIONS_EXPLAIN' => 'Here you can Assign Global Permissions to Groups - User Permissions, Global Moderator Permissions and Administrator Permissions. <ul><li>User Permissions include the ability to use Avatars, Send Private Messages etc. <li>Global Moderator Permissions include the ability to Approve Posts, Manage Topics, Manage Bans etc.<li>Administrator Permissions include the ability to Alter Permissions, Define Custom BBCodes, Manage Forums etc.</ul>Individual User Permissions should ONLY be changed in Rare Occasions.  The Preferred Method is to put Users in Groups and Assigning the Groups Permissions.',
+    'ACP_GROUPS_PERMISSIONS_EXPLAIN' => 'Here you can Assign Global Permissions to Groups - User Permissions, Global Moderator Permissions and Administrator Permissions. <ul><li>User Permissions include the ability to use Avatars, Send Private Messages etc. <li>Global Moderator Permissions include the ability to Approve Posts, Manage Topics, Manage Bans etc.<li>Administrator Permissions include the ability to Alter Permissions, Define Custom BBCodes, Manage Forums etc.</ul>Individual User Permissions should ONLY be changed in Rare Occasions.  The Preferred Method is to put Users in Groups and Assigning the Groups Permissions.<br /><br />',
 
     'ACP_VIEW_ADMIN_PERMISSIONS_EXPLAIN'      => 'Here you can View the Administrator Permissions Assigned to the Selected Users/Groups.',
 
@@ -174,7 +174,7 @@ $lang = array_merge($lang, array(
     'EDIT_PERMISSIONS'    => 'Edit Permissions',
     'EDIT_ROLE'           => 'Edit Role',
 
-    'GROUPS_NOT_ASSIGNED' => 'NO Group Assigned to this Role',
+    'GROUPS_NOT_ASSIGNED' => 'No Group Assigned to this Role',
 
     'LOOK_UP_GROUP'       => 'Look up Usergroup',
     'LOOK_UP_USER'        => 'Look up User',
@@ -183,11 +183,11 @@ $lang = array_merge($lang, array(
     'MANAGE_USERS'        => 'Manage Users',
 
     'NO_AUTH_SETTING_FOUND'     => 'Permission Settings NOT Defined.',
-    'NO_ROLE_ASSIGNED'          => 'NO Role Assigned?',
+    'NO_ROLE_ASSIGNED'          => 'No Role Assigned?',
 
     'NO_ROLE_ASSIGNED_EXPLAIN'  => 'Setting this Role DOES NOT Change the Permissions on the Right.  If you want to Unset/Remove ALL Permissions you should use the ALL <strong>NO</strong> Link.',
 
-    'NO_ROLE_AVAILABLE'      => 'NO Role Available',
+    'NO_ROLE_AVAILABLE'      => 'No Role Available',
     'NO_ROLE_NAME_SPECIFIED' => 'Please give the Role a Name.',
     'NO_ROLE_SELECTED'       => 'Role Could NOT be Found.',
     'NO_USER_GROUP_SELECTED' => 'You haven\'t Selected any User or Group.',
@@ -375,7 +375,7 @@ $lang = array_merge($lang, array(
     'TRACE_WHO'                       => 'Who',
     'TRACE_TOTAL'                     => 'Total',
 
-    'USERS_NOT_ASSIGNED'              => 'NO User Assigned to this Role',
+    'USERS_NOT_ASSIGNED'              => 'No User Assigned to this Role',
     'USER_IS_MEMBER_OF_DEFAULT'       => 'is a Member of the following Pre-Defined Groups',
     'USER_IS_MEMBER_OF_CUSTOM'        => 'is a Member of the following User-Defined Groups',
 

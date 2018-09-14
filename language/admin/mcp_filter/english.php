@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File mcp_filter/english.php 2018-04-01 08:59:00 Thor
+** File mcp_filter/english.php 2018-09-14 08:36:00 Thor
 **
 ** CHANGES
 **
@@ -38,7 +38,7 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, array(
     'INTRO'           => 'Keyword Filter',
 
-    'INTRO_EXP'       => 'With the Keyword Filter, you can Stop Users from Uploading Torrents that may Violate the Tracker\'s Rules or Local Laws of your Country.<br>This Checks the Names of the Files within a torrent.  Be careful NOT to Insert any Common Words.',
+    'INTRO_EXP'       => 'With the Keyword Filter, you can Stop Users from Uploading Torrents that may Violate the Tracker\'s Rules or Local Laws of your Country.<br>This Checks the Names of the Files within a torrent.  Be careful NOT to Insert any Common Words.<br /><br />',
 
     'KEYWORD'         => 'KeyWord',
     'ADD_EDIT_KEYW'   => 'Add/Edit Keyword',

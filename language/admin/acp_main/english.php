@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File main/english.php 2018-09-10 06:38:00 Thor
+** File main/english.php 2018-09-14 10:28:00 Thor
 **
 ** CHANGES
 **
@@ -43,7 +43,7 @@ $lang = array_merge($lang, array(
     'ACP_EMAIL_SETTINGS'         => 'email Settings',
     'MAIN_TEXT'                  => 'Welcome to %s ',
 
-    'MAIN_INTRO_EXP'             => 'Thank you for choosing BTManager<br /><br />BTManager Features a Fully Fledged BitTorrent Tracker written in PHP, and Supports External Torrent Indexing, DHT, Compact Announce, Alternate Links (eD2K, Magnet), HTTP Basic Authentication, Passkey Authentication, Embedded HTML Editor, Mass Torrent Upload and much, much more.',
+    'MAIN_INTRO_EXP'             => '<br />Thank you for choosing BTManager.  BTManager Features a Fully Fledged BitTorrent Tracker written in PHP.  BTManager Supports External Torrent Indexing, DHT, Compact Announce, Alternate Links (eD2K, Magnet), HTTP Basic Authentication, Passkey Authentication, Embedded HTML Editor, Mass Torrent Upload and much, much more.',
 
     'MENU_TOGGLE'                => 'Hide or Display the Side Menu',
     'FAILED_LOGIN'               => 'Failed Login by User <strong>%s</strong>',
@@ -497,7 +497,7 @@ $lang = array_merge($lang, array(
     'MENU_WARNED'           => 'Warned User Accounts',
     'MENU_WEB_UPDATE'       => 'Check for the Latest Version of BTManager',
     'MENU_SIG_SETTINGS'     => 'Signature Settings',
-    'MENU_SIG_SETTINGS_EXP' => 'Here you can Set ALL the Default Settings for Signatures.',
+    'MENU_SIG_SETTINGS_EXP' => 'Here you can Set ALL the Default Settings for Signatures.<br /><br />',
     'MENU_HNR'              => 'Hit and Run Settings',
     'MENU_ARCADE'           => 'Arcade Settings',
     'MENU_SHOUT_CAST'       => 'SHOUTcast Settings',

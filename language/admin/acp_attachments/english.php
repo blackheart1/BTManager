@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File acp_attachments/english.php 2018-03-28 00:52:00 Thor
+** File acp_attachments/english.php 2018-09-14 10:31:00 Thor
 **
 ** CHANGES
 **
@@ -47,13 +47,13 @@ $lang = array_merge($lang, array(
     'DIRECTORY_NOT_WRITABLE'   => 'The Entered Path %s is NOT Writeable.',
     'WARNING'                  => 'Warning',
 
-    'ACP_ATTACHMENT_SETTINGS_EXPLAIN' => 'Here you can Configure the Main Settings for Attachments and the Associated Special Categories.',
+    'ACP_ATTACHMENT_SETTINGS_EXPLAIN' => 'Here you can Configure the Main Settings for Attachments and the Associated Special Categories.<br /><br />',
 
-    'ACP_EXTENSION_GROUPS_EXPLAIN'    => 'Here you can Add, Delete, Modify or Disable your Extension Groups.  Further Options Include Assigning a Special Category to them, changing the Download Mechanism and Defining an Upload Icon which will be Displayed in front of the Attachment which belongs to the Group.',
+    'ACP_EXTENSION_GROUPS_EXPLAIN'    => 'Here you can Add, Delete, Modify or Disable your Extension Groups.  Further Options Include Assigning a Special Category to them, changing the Download Mechanism and Defining an Upload Icon which will be Displayed in front of the Attachment which belongs to the Group.<br /><br />',
 
-    'ACP_MANAGE_EXTENSIONS_EXPLAIN'   => 'Here you can Manage your Allowed Extensions.  To Activate your Extensions, please refer to the Extension Groups Management Panel.  We Strongly Recommend <strong>NOT</strong> Allowing Scripting Extensions (such as <em>php</em>, <em>php3</em>, <em>php4</em>, <em>phtml</em>, <em>pl</em>, <em>cgi</em>, <em>py</em>, <em>rb</em>, <em>asp</em>, <em>aspx</em>, and so forth).',
+    'ACP_MANAGE_EXTENSIONS_EXPLAIN'   => 'Here you can Manage your Allowed Extensions.  To Activate your Extensions, please refer to the Extension Groups Management Panel.  We Strongly Recommend <strong>NOT</strong> Allowing Scripting Extensions (such as <em>php</em>, <em>php3</em>, <em>php4</em>, <em>phtml</em>, <em>pl</em>, <em>cgi</em>, <em>py</em>, <em>rb</em>, <em>asp</em>, <em>aspx</em>, and so forth).<br /><br />',
 
-    'ACP_ORPHAN_ATTACHMENTS_EXPLAIN'  => 'Here you are able to see Orphaned Files. This happens mostly when Users are Attaching Files but NOT Submitting the Post.  Here you are able to Delete or Attach the Files to Existing Posts.  Attaching to Posts Requires a Valid Post ID.  You have to determine this ID by yourself.  This will Assign the already Uploaded Attachment to the Post you Entered.',
+    'ACP_ORPHAN_ATTACHMENTS_EXPLAIN'  => 'Here you are able to see Orphaned Files. This happens mostly when Users are Attaching Files but NOT Submitting the Post.  Here you are able to Delete or Attach the Files to Existing Posts.  Attaching to Posts Requires a Valid Post ID.  You have to determine this ID by yourself.  This will Assign the already Uploaded Attachment to the Post you Entered.<br /><br />',
 
     'ADD_EXTENSION'          => 'Add Extension',
     'ADD_EXTENSION_GROUP'    => 'Add Extension Group',
@@ -152,12 +152,12 @@ $lang = array_merge($lang, array(
     'NOT_ALLOWED_IN_PM_POST'         => 'NOT Allowed',
     'NOT_ASSIGNED'                   => 'NOT Assigned',
     'NO_EXT_GROUP'                   => 'None',
-    'NO_EXT_GROUP_NAME'              => 'NO Group Name Entered',
-    'NO_EXT_GROUP_SPECIFIED'         => 'NO Extension Group Specified.',
+    'NO_EXT_GROUP_NAME'              => 'No Group Name Entered',
+    'NO_EXT_GROUP_SPECIFIED'         => 'No Extension Group Specified.',
     'NO_FILE_CAT'                    => 'None',
     'NOTIFY'                         => 'Notification',
-    'NO_IPS_DEFINED'                 => 'NO IP Addresses or Hostnames Defined',
-    'NO_IMAGE'                       => 'NO Image',
+    'NO_IPS_DEFINED'                 => 'No IP Addresses or Hostnames Defined',
+    'NO_IMAGE'                       => 'No Image',
 
     'NO_THUMBNAIL_SUPPORT'           => 'Thumbnail Support has been Disabled.  For Proper Functionality either the GD Extension or ImageMagick Needs to be Installed.  Both were NOT found.',
 

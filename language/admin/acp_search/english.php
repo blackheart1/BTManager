@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File acp_search/english.php 2018-05-20 09:40:00 Thor
+** File acp_search/english.php 2018-09-14 09:06:00 Thor
 **
 ** CHANGES
 **
@@ -40,7 +40,7 @@ $lang = array_merge($lang, array(
 
     'ACP_SEARCH_INDEX_EXPLAIN'              => 'Here you can manage the Search Index System.  Since you normally use only one Index System you should Delete ALL Indexes that you Do Not make use of.  After altering some of the Search Settings (e.g. the number of Minimum/Maximum Characters) it might be worth Recreating the Index so it reflects those changes.',
 
-    'ACP_SEARCH_SETTINGS_EXPLAIN'           => 'Here you can Define what Search Criteria will be used for Indexing Posts and Performing Searches.  You can Set Various Options that can Influence how much Processing these Actions Require.  Some of these Settings are the same for all Search Engine Systems.',
+    'ACP_SEARCH_SETTINGS_EXPLAIN'           => 'Here you can Define what Search Criteria will be used for Indexing Posts and Performing Searches.  You can Set Various Options that can Influence how much Processing these Actions Require.  Some of these Settings are the same for all Search Engine Systems.<br /><br />',
 
     'COMMON_WORD_THRESHOLD'                 => 'Common Word Threshold',
 

@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File site_settings/english.php 2018-09-10 06:34:00 Thor
+** File site_settings/english.php 2018-09-14 10:20:00 Thor
 **
 ** CHANGES
 **
@@ -45,7 +45,7 @@ $lang = array_merge($lang, array(
     '_admsaved'            => 'Settings Saved!',
     '_admconfigttl'        => 'BTManager Configuration',
 
-    '_admconfigttlexplain' => 'Here you can Setup the Basic Operation of your Tracker, Site Name and Description among other Settings where you can Adjust the Default Values for Themes and Languages.',
+    '_admconfigttlexplain' => 'Here you can Setup the Basic Operation of your Tracker, Site Name and Description among other Settings where you can Adjust the Default Values for Themes and Languages.<br /><br />',
 
     'GENERAL_SETTINGS'     => 'General Settings',
     'GENERAL_OPTIONS'      => 'General Options',
@@ -457,7 +457,7 @@ $lang = array_merge($lang, array(
 
     '_admppm_max_recipientsexplain' => 'The Maximum Number of Allowed Recipients in a Private Message.  If 0 is Entered, an Unlimited Number is Allowed.  This Setting can be Adjusted for every Group within the Group Settings Page.',
 
-    'PM_SETTING_TITLE_EXPLAIN'      => 'Here you can Set ALL Default Settings for Private Messaging.',
+    'PM_SETTING_TITLE_EXPLAIN'      => 'Here you can Set ALL Default Settings for Private Messaging.<br /><br />',
     'PM_SETTING_TITLE'              => 'Private Message Settings',
 ));
 

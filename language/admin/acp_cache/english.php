@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File acp_cache/english.php 2018-03-28 00:49:00 Thor
+** File acp_cache/english.php 2018-09-14 06:52:00 Thor
 **
 ** CHANGES
 **
@@ -40,7 +40,7 @@ $lang = array_merge($lang, array(
     'CACHE'                  => 'Cache',
     'TITLE'                  => 'Site Cache',
 
-    'TITLE_EXP'              => 'Here is where you can Set the Maximum Time to Hold Cache Files for before they get Updated.<br>The Longer you Keep them, the Better the Site Speed will be.',
+    'TITLE_EXP'              => 'Here is where you can Set the Maximum Time to Hold Cache Files for before they get Updated.  The Longer you Keep them, the Better the Site Speed will be.<br /><br />',
 
     '_admpsql_time'          => 'SQL Cache Time',
 

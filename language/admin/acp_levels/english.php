@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File acp_levels/english.php 2018-09-09 05:59:00 Thor
+** File acp_levels/english.php 2018-09-14 09:26:00 Thor
 **
 ** CHANGES
 **
@@ -255,7 +255,7 @@ $lang = array_merge($lang, array(
     'ADD_PERM'                 => 'Add a New Permission',
     'ADD_PERM_ALREADY_PRESENT' => 'The Permission you are trying to Create Already Exists',
     'ACP_PERMISSIONS'          => 'Permissions',
-    'ACP_PERMISSIONS_EXPLAIN'  => 'Here you can Edit, Add and Remove Permissions on the Site',
+    'ACP_PERMISSIONS_EXPLAIN'  => 'Here you can Edit, Add and Remove Permissions on the Site<br /><br />',
     'ACP_GROUPS_MANAGE'        => 'Manage Groups',
     'ACP_GROUPS_PERMISSIONS'   => 'Groups Permissions',
     'GROUP_UPDATED'            => 'Group Preferences Updated Successfully.',
@@ -271,13 +271,13 @@ $lang = array_merge($lang, array(
     'USER_DEF_GROUPS'          => 'User Defined Groups',
     'ACP_GROUPS_MANAGE'        => 'Manage Groups',
 
-    'USER_DEF_GROUPS_EXPLAIN'    => 'These are Groups Created by you or another Administrator of this Site.  You can Manage Memberships as well as Edit Group Properties or Delete the Group.',
+    'USER_DEF_GROUPS_EXPLAIN'    => 'These are Groups Created by you or another Administrator of this Site.  You can Manage Memberships as well as Edit Group Properties or Delete the Group.<br /><br />',
 
     'USER_GROUP_DEFAULT_EXPLAIN' => 'Saying YES here will Set this Group as the Default Group for the Added Users.',
 
     'SPECIAL_GROUPS'             => 'Pre-Defined Groups',
 
-    'SPECIAL_GROUPS_EXPLAIN'     => 'Pre-Defined Groups are Special Groups, they can NOT be Deleted or Directly Modified. However, you can still Add Users and Alter Basic Settings.',
+    'SPECIAL_GROUPS_EXPLAIN'     => 'Pre-Defined Groups are Special Groups, they can NOT be Deleted or Directly Modified. However, you can still Add Users and Alter Basic Settings.<br /><br />',
 
     'NO_GROUP'                 => 'NO Group Specified.',
     'NO_GROUPS_CREATED'        => 'NO Groups Created Yet.',
@@ -299,7 +299,7 @@ $lang = array_merge($lang, array(
 
     'ADD_USERS'             => 'Add Users',
 
-    'ADD_USERS_EXPLAIN'     => 'Here you can Add New Users to the Group.  You can Select whether this Group becomes the New Default for the Selected Users.  Additionally you can Define them as Group Leaders.  Please Enter each Username on a Separate Line.',
+    'ADD_USERS_EXPLAIN'     => 'Here you can Add New Users to the Group.  You can Select whether this Group becomes the New Default for the Selected Users.  Additionally you can Define them as Group Leaders.  Please Enter each Username on a Separate Line.<br /><br />',
 
     'GROUP_LEAD'            => 'Group Leaders',
     'GROUP_APPROVE'         => 'Approve Member',

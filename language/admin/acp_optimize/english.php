@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File optimize/english.php 2018-04-01 09:18:00 Thor
+** File optimize/english.php 2018-09-14 10:11:00 Thor
 **
 ** CHANGES
 **
@@ -37,7 +37,9 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, array(
     '_admtable'             => 'Table',
-    '_admoptimizedbexplain' => 'This will Optimize your Sites Database to Help Speed it Up, Prevent Data Loss and Corruption.',
+
+    '_admoptimizedbexplain' => 'This will Optimize your Sites Database to Help Speed it Up, Prevent Data Loss and Corruption.<br /><br />',
+
     '_admstatus'            => 'Optimization Status',
     '_admspacesaved'        => 'Space Saved',
     '_admaoptimized'        => 'Already Optimized',

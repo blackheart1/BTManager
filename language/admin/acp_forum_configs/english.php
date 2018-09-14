@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File acp_forum_configs/english.php 2018-09-13 05:40:00 Thor
+** File acp_forum_configs/english.php 2018-09-14 10:21:00 Thor
 **
 ** CHANGES
 **
@@ -38,14 +38,24 @@ if (empty($lang) || !is_array($lang))
 }
 
 $lang = array_merge($lang, array(
-    'YES_NO_TF'  => array('true'=>'Yes','false'=>'No'),
-    'YES_NO'     => array('yes' =>'Yes','no'   =>'No'),
-    'YES_NO_NUM' => array('1' =>'Yes','0'   =>'No'),
-    'SEL_TIME_A' => array('m'   =>'Minutes','h'=>'Hours','d'=>'Days'),
-    'SEL_TIME_B' => array('s'   =>'Seconds','m'=>'Minutes'),
+    'YES_NO_TF'  => array('true' => 'Yes',
+                          'false' => 'No'),
+
+    'YES_NO'     => array('yes' => 'Yes',
+                          'no' =>'No'),
+
+    'YES_NO_NUM' => array('1' => 'Yes',
+                          '0' => 'No'),
+
+    'SEL_TIME_A' => array('m' => 'Minutes',
+                          'h' => 'Hours',
+                          'd' => 'Days'),
+
+    'SEL_TIME_B' => array('s' => 'Seconds',
+                          'm' => 'Minutes'),
 
     'TITLE'             => 'Forum Features',
-    'TITLE_EXPLAIN'     => 'Here you can Enable/Disable Several Forum Features.',
+    'TITLE_EXPLAIN'     => 'Here you can Enable/Disable Several Forum Features.<br /><br />',
     'ALLOW_ATTACHMENTS' => 'Allow Attachments',
     'FORM_UPDATED'      => 'Forum Configuration',
 

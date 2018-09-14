@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File shout_cast/english.php 2018-04-11 08:08:00 Thor
+** File shout_cast/english.php 2018-09-14 10:13:00 Thor
 **
 ** CHANGES
 **
@@ -38,7 +38,7 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, array(
     'TITLE'                  => 'Shoutcast',
 
-    'TITLE_EXPLAIN'          => 'Shoutcast Radio Configuration and Settings.  Here you can Setup your Shoutcast Radio to Display on your Site',
+    'TITLE_EXPLAIN'          => 'Shoutcast Radio Configuration and Settings.  Here you can Setup your Shoutcast Radio to Display on your Site<br /><br />',
 
     'HEADER_SETTINGS'        => 'Shoutcast Settings',
 

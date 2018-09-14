@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File smilies/english.php 2018-04-11 08:13:00 Thor
+** File smilies/english.php 2018-09-14 10:17:00 Thor
 **
 ** CHANGES
 **
@@ -42,7 +42,7 @@ $lang = array_merge($lang, array(
     'PL_AT_BEGGIN'   => 'Place at the Beginning',
     'SMILIES'        => 'Smilies',
 
-    'SMILIES_EXP'    => 'In this Section you can Manage Smilies that Users can Upload.<br />Installation provides this Tracker with some Common Smilies for the Shoutbox, Descriptions and Forums.  You can Add your Own or Edit Others.<br />Be careful that every Smiley MUST be Represented by a Significant Tag for the best experience.  Images are in the Smiles Directory off of the Tracker\'s Root Directory.',
+    'SMILIES_EXP'    => 'In this Section you can Manage Smilies that Users can Upload.<br />Installation provides this Tracker with some Common Smilies for the Shoutbox, Descriptions and Forums.  You can Add your Own or Edit Others.<br />Be careful that every Smiley MUST be Represented by a Significant Tag for the best experience.  Images are in the Smiles Directory off of the Tracker\'s Root Directory.<br /><br />',
 
     'NO_SET_SMILIES' => 'No Smilies are Set',
     'SMILE_CODE'     => 'Code',

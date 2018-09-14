@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File searchcloud/english.php 2018-04-11 07:38:00 Thor
+** File searchcloud/english.php 2018-09-14 10:12:00 Thor
 **
 ** CHANGES
 **
@@ -52,7 +52,7 @@ $lang = array_merge($lang, array(
     'SCTERM'            => 'Search Term',
     'SCTERMS'           => 'Search Terms',
 
-    'SCTITLEEXP'        => 'This Tool Allows you to List and Remove Search Terms that are Saved in the Database and Displayed in the Search Cloud.  Terms are Ordered by Search Frequency and can be Searched.',
+    'SCTITLEEXP'        => 'This Tool Allows you to List and Remove Search Terms that are Saved in the Database and Displayed in the Search Cloud.  Terms are Ordered by Search Frequency and can be Searched.<br /><br />',
 
     'SCTIMES'           => 'Times Searched',
     'SCTERM_ID'         => 'Term ID',

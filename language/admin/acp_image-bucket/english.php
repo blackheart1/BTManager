@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File image-bucket/english.php 2018-03-29 10:54:00 Thor
+** File image-bucket/english.php 2018-09-14 10:04:00 Thor
 **
 ** CHANGES
 **
@@ -37,7 +37,7 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, array(
     'TITLE'                       => 'Image Bucket',
-    'TITLE_EXPLAIN'               => 'Configure your Image Bucket Settings',
+    'TITLE_EXPLAIN'               => 'Configure your Image Bucket Settings<br /><br />',
     'HEADER_SETTINGS'             => 'Image Bucket Settings',
     '_admpallow'                  => 'Enable/Disable Image Bucket',
     '_admpallowexplain'           => 'This will Turn the Image Bucket System On or Off.',

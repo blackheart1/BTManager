@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File irc/english.php 2018-03-29 11:05:00 Thor
+** File irc/english.php 2018-09-14 10:04:00 Thor
 **
 ** CHANGES
 **
@@ -40,13 +40,13 @@ $lang = array_merge($lang, array(
 
     'IRC_INTRO_EXP'       => 'You can Configure every aspect of the PJIRC Client:  Please Read PJIRC\'s Documentation before Editing Advanced Parameters.<br />
 
-    <strong>NOTICE</strong>: file <em>include/irc.ini</em> MUST be Writeable',
+    <strong>NOTICE</strong>: file <em>include/irc.ini</em> MUST be Writeable<br /><br />',
 
     'IRC_SERVER'          => 'Server',
     'IRC_CHANNEL'         => 'Channel',
-    'IRC_ADV_SETTING'     => 'Advanced Settings',
+    'IRC_ADV_SETTING'     => '<br />Advanced Settings',
 
-    'IRC_ADV_SETTING_EXP' => 'Here you can Configure PJIRC\'s Advanced Settings.  According to PJIRC Documentation, Insert the Parameters with the following Syntax: <em>name</em> = <em>value</em>',
+    'IRC_ADV_SETTING_EXP' => 'Here you can Configure PJIRC\'s Advanced Settings.  According to PJIRC Documentation, Insert the Parameters with the following Syntax: <em>name</em> = <em>value</em><br /><br />',
 
     'APPLY_SETTINGS'      => 'Apply Settings',
     'VALUE'               => 'VALUE',

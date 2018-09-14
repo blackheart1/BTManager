@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File acp_users/english.php 2018-05-14 08:42:00 Thor
+** File acp_users/english.php 2018-09-14 09:40:00 Thor
 **
 ** CHANGES
 **
@@ -147,7 +147,7 @@ $lang = array_merge($lang, array(
     'USER_ADMIN_DEL_AVATAR'       => 'Delete Avatar',
     'USER_ADMIN_DEL_POSTS'        => 'Delete ALL Posts',
     'USER_ADMIN_DEL_SIG'          => 'Delete Signature',
-    'USER_ADMIN_EXPLAIN'          => 'Here you can Change your Users Information and Certain Specific Options.',
+    'USER_ADMIN_EXPLAIN'          => 'Here you can Change your Users Information and Certain Specific Options.<br /><br />',
     'USER_ADMIN_FORCE'            => 'Force Reactivation',
     'USER_ADMIN_MOVE_POSTS'       => 'Move ALL Posts',
     'USER_ADMIN_SIG_REMOVED'      => 'Successfully Removed the Signature from User Account.',

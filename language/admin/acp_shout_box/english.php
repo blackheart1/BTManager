@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File shout_box/english.php 2018-04-11 07:45:00 Thor
+** File shout_box/english.php 2018-09-14 10:22:00 Thor
 **
 ** CHANGES
 **
@@ -36,13 +36,18 @@ if (empty($lang) || !is_array($lang))
 }
 
 $lang = array_merge($lang, array(
-    'YES_NO_NM' => array('1'=>'Yes', '0'=>'No'),
-    'YES_NO'    => array('yes'=>'Yes', 'no'=>'No'),
-    'YES_NO_TF' => array("true"=>'Yes', "false"=>'No'),
+    'YES_NO_NM' => array('1' => 'Yes',
+                         '0' => 'No'),
+
+    'YES_NO'    => array('yes' => 'Yes',
+                         'no' => 'No'),
+
+    'YES_NO_TF' => array('true' => 'Yes',
+                         'false' => 'No'),
 
     'SHOUT_CONF'            => 'Shoutbox Configuration',
 
-    'SHOUT_CONF_EXP'        => 'Here is where you Set ALL your Settling\'s for the Site\'s Shoutbox including, Refresh Rate, Idle Time, and Turning it On or Off.',
+    'SHOUT_CONF_EXP'        => 'Here is where you Set ALL your Settling\'s for the Site\'s Shoutbox including, Refresh Rate, Idle Time, and Turning it On or Off.<br /><br />',
 
     'BT_SHOUT'              => 'Shout Box',
     'BT_SHOUT_ANNOUNCEMENT' => 'Shout Box Announcement ',
