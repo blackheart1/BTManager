@@ -4333,7 +4333,7 @@ function set_site_var($page_title = '')
             'S_MOST_USERS_WN'      => $most_users_online_when,
             'U_SHOW_ARCADE'        => $auth->acl_get('u_arcade_play_games') ? true : false,
             'U_USER'               => $user->user,
-			'U_MEMBERLIST'			=> append_sid("{$phpbb_root_path}memberslist.$phpEx"),
+			'U_MEMBERLIST'			=> append_sid("memberslist.$phpEx"),
 			'S_DISPLAY_MEMBERLIST'	=> (isset($auth)) ? $auth->acl_get('u_viewprofile') : 0,
             'U_PREMIUM'            => $user->premium,
             'U_MODERATOR'          => $user->moderator,
@@ -4735,6 +4735,23 @@ function getcomplaints()
     );
 }
 
+/**
+* Checks if a path ($path) is absolute or relative
+*
+* @param string $path Path to check absoluteness of
+* @return boolean
+*/
+function is_absolute($path)
+{
+	return (isset($path[0]) && $path[0] == '/' || preg_match('#^[a-z]:[/\\\]#i', $path)) ? true : false;
+}
+
+/**
+* @author Chris Smith <chris@project-minerva.org>
+* @copyright 2006 Project Minerva Team
+* @param string $path The path which we should attempt to resolve.
+* @return mixed
+*/
 function btmr_own_realpath($path)
 {
     // Now To Perform Funky Shizzle
