@@ -67,15 +67,7 @@ if (!isset($postback)) {
         else $fullname = "'".addslashes($fullname)."'";
 	if($force_passkey)
 	{
-		do
-		{
 			$passkey = ", '".RandomAlpha(32)."'";
-			//Check whether passkey already exists
-			$sql = "SELECT passkey FROM ".$db_prefix."_users WHERE passkey = '".$passkey."';";
-			$res = $db->sql_query($sql);
-			$cnt = $db->sql_numrows($sql);
-			$db->sql_freeresult($res);
-		} while ($cnt > 0);
 			$passkeyrow = ', passkey';
 	}
 	else

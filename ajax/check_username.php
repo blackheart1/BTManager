@@ -26,8 +26,7 @@ if (!defined('IN_PMBT'))
 	die ("You can't access this file directly");
 }
 
-//if (!$user->user) loginrequired("user",true);
-
+include_once("include/utf/utf_tools.php");
 $username = request_var('username', '',true);
 
 if ($username == '')
