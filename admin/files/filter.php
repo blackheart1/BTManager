@@ -41,7 +41,7 @@ switch ($do) {
 						$whatfor					= request_var('whatfor', '');
                 $errors = Array();
 
-                if (!$keyword) $errors[] = $user->lang['MISSING_KYEWORD'];
+                if (!$keyword) $errors[] = $user->lang['MISSING_KEYWORD'];
 
                 if (!$whatfor) $errors[] = $user->lang['MISSING_REASON'];
 
@@ -50,7 +50,7 @@ switch ($do) {
 					$err = "<ul>\n";
 					foreach ($error as $msg)
 					{
-						$err .= "<li><p>".$msg."</p></li>\n";
+						$err .= "<li>".$msg."</li>\n";
 					}
 					$err .= "</ul>\n";
 
@@ -77,7 +77,7 @@ switch ($do) {
 					$err = "<ul>\n";
 					foreach ($errors as $msg)
 					{
-						$err .= "<li><p>".$msg."</p></li>\n";
+						$err .= "<li>".$msg."</li>\n";
 					}
 					$err .= "</ul>\n";
 
@@ -132,7 +132,7 @@ switch ($do) {
 						{
                             $sql = "SELECT * FROM ".$db_prefix."_filter WHERE id = '".$id."';";
                             if (!$res_edit = $db->sql_query($sql)) btsqlerror($sql);
-                            if ($db->sql_numrows($res_edit) == 1) 
+                            if ($db->sql_numrows($res_edit) == 1)
 							{
 								$row = $db->sql_fetchrow($res_edit);
 								$db->sql_freeresult($res_edit);
