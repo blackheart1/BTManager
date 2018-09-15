@@ -493,7 +493,12 @@ class acp_bbcodes
 				$token_type = $m[1][$n];
 
 				reset($tokens[strtoupper($token_type)]);
-				list($match, $replace) = each($tokens[strtoupper($token_type)]);
+				//list($match, $replace) = each($tokens[strtoupper($token_type)]);
+						foreach($tokens[strtoupper($token_type)] as $key_type_val => $type_var)
+						{
+							$replace     = $type_var;
+							$match = $key_type_val;
+						}
 							if (preg_match_all('/(?<!\\\\)\$([0-9]+)/', $replace, $repad))
 							{
 								$repad = $pad + sizeof(array_unique($repad[0]));

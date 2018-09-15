@@ -634,7 +634,8 @@ function group_create(&$group_id, $type, $name, $desc, $group_attributes, $allow
 			group_set_user_default($group_id, $user_ary, $sql_ary);
 		}
 
-						add_log('admin',$log);//log group chonge
+		$name = ($type == 3) ? $user->lang['G_' . $name] : $name;
+		//add_log('admin', $log, $name);
 	}
 
 	return (sizeof($error)) ? $error : false;

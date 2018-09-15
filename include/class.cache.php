@@ -67,9 +67,9 @@ class pmbt_cache {
 		   if($expire > $this->expire)$expire = $expire;
 		   else
 		   $expire = $this->expire;
-          if (file_exists($this->cache_dir."sql_".md5($file).".php")) 
+          if (@file_exists($this->cache_dir."sql_".md5($file).".php")) 
 		  {
-		  		  if(filemtime($this->cache_dir."sql_".md5($file).".php") < (time() - $expire))
+		  		  if(@filemtime($this->cache_dir."sql_".md5($file).".php") < (time() - $expire))
 		         {
 		         $this->remove_file("sql_".md5($file).".php");
 		         return false;

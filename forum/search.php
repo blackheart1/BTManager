@@ -164,6 +164,7 @@ if ($keywords || $author || $author_id || $search_id || $submit)
 			AND fa.session_id = '" . $db->sql_escape($user->session_id) . "')
 		$not_in_fid
 		ORDER BY f.left_id";
+		//die($sql);
 	$result = $db->sql_query($sql);
 
 	$right_id = 0;
@@ -290,6 +291,7 @@ if ($keywords || $author || $author_id || $search_id || $submit)
 						" . str_replace(array('p.', 'post_'), array('t.', 'topic_'), $m_approve_fid_sql) . '
 						' . ((sizeof($ex_fid_ary)) ? ' AND ' . $db->sql_in_set('t.forum_id', $ex_fid_ary, true) : '') . '
 					ORDER BY t.topic_last_post_time DESC';
+					//die($sql);
 				$field = 'topic_id';
 			break;
 
@@ -410,7 +412,8 @@ if ($keywords || $author || $author_id || $search_id || $submit)
 		if ($sql)
 		{
 			// only return up to 1000 ids (the last one will be removed later)
-			$result = $db->sql_query($sql. 'LIMIT ' . 1001 - $start, $start);
+			//die($sql. ' LIMIT ' . 1001);
+			$result = $db->sql_query($sql. ' LIMIT 1001');
 
 			while ($row = $db->sql_fetchrow($result))
 			{
@@ -499,6 +502,7 @@ if ($keywords || $author || $author_id || $search_id || $submit)
 	$u_search .= (!$search_child) ? '&amp;sc=0' : '';
 	$u_search .= ($search_fields != 'all') ? '&amp;sf=' . $search_fields : '';
 	$u_search .= ($return_chars != 300) ? '&amp;ch=' . $return_chars : '';
+	
 
 	$template->assign_vars(array(
 		'SEARCH_TITLE'		=> $l_search_title,
@@ -1231,7 +1235,7 @@ if ($auth->acl_get('a_search'))
 				ORDER BY search_time DESC';
 		break;
 	}
-	$result = $db->sql_query($sql . 'LIMIT ' . 5);
+	$result = $db->sql_query($sql . ' LIMIT ' . 5);
 
 	while ($row = $db->sql_fetchrow($result))
 	{

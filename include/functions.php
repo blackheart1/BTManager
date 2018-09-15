@@ -4216,7 +4216,10 @@ function set_site_var($page_title = '')
     while ($themedir = readdir($themehandle))
     {
         if (is_dir($thememaindir . "/" . $themedir) and $themedir != "." and $themedir != ".." and $themedir != "CVS")
+		{
+			if (file_exists($thememaindir . "/" . $themedir . "/main.php"))
             $themes[$themedir] = $themedir;
+		}
     }
 
     closedir($themehandle);
@@ -4689,7 +4692,7 @@ function gen_sort_selects(&$limit_days, &$sort_by_text, &$sort_days, &$sort_key,
 
         $sort_ary['output'] .= '</select>';
 
-        $u_sort_param .= ($selected !== $sort_ary['default']) ? ((strlen($u_sort_param)) ? '&amp;' : '') . "{$name} = {$selected}" : '';
+        $u_sort_param .= ($selected !== $sort_ary['default']) ? ((strlen($u_sort_param)) ? '&amp;' : '') . "{$name}={$selected}" : '';
     }
 
     return;

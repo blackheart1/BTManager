@@ -44,7 +44,10 @@ unset($languages);
         $themehandle = opendir($thememaindir);
         while ($themedir = readdir($themehandle)) {
                 if (is_dir($thememaindir."/".$themedir) AND $themedir != "." AND $themedir != ".." AND $themedir != "CVS")
+				{
+					if (file_exists($thememaindir . "/" . $themedir . "/main.php"))
                         $themes[$themedir] = $themedir;
+				}
         }
         closedir($themehandle);
         unset($thememaindir,$themedir);

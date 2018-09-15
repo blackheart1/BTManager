@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File memberlist/english.php 2018-09-09 05:59:00 Thor
+** File memberlist/english.php 2018-09-14 20:59:00 Black_heart
 **
 ** CHANGES
 **
@@ -173,7 +173,6 @@ $lang = array_merge($lang, array(
     'USER_PRESENCE'             => 'Board Presence',
 
     'VIEWING_PROFILE'           => 'Viewing Profile - %s',
-    'VISITED'                   => 'Last Visited',
 
     'WWW'                       => 'Website',
     'ACTIVATE'                  => 'Activate',

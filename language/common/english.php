@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File common/english.php 2018-09-14 09:37:00 Thor
+** File common/english.php 2018-09-14 20:59:00 Black_heart
 **
 ** CHANGES
 **
@@ -783,6 +783,7 @@ $lang = array_merge($lang, array(
     'USER_NAME_TAKEN'       => 'Sorry.  This Username is Taken!',
     'MEMBERLIST'            => 'Members',
     'MEMBERLIST_EXPLAIN'    => 'View Complete List of Members',
+    'VISITED'               => 'Last Visited',
 
     #BBCode Errors
     '_MAX_FONT_SIZE_EXCEEDED'    => 'You can Only use Fonts up to Size %1$d.',
