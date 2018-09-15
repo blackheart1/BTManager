@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File acp_clientban/english.php 2018-03-28 00:53:00 Thor
+** File acp_clientban/english.php 2018-09-15 08:26:00 Thor
 **
 ** CHANGES
 **
@@ -39,7 +39,7 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, array(
     'INTRO'     => 'Client Ban',
 
-    'INTRO_EXP' => 'This is where you can Ban Torrent Clients!<br />You can either Ban the Whole Client or One Version of a Client <br />To Add a Client you will need the <strong>pier_id</strong> Information from the Client.<br />Example &micro;Torrent 1.8.1 you would Add UT1810.<br />The Reason for the Ban will be Shown in the Client so you will want to keep this Short.',
+    'INTRO_EXP' => 'This is where you can Ban Torrent Clients, you can either Ban the Whole Client or One Version of a Client <br /><br /><br />To Add a Client you will need the <strong>pier_id</strong> Information from the Client.<br /><br /><em>Example</em> <strong>&micro;Torrent 1.8.1</strong> you would Add <strong>UT1810</strong><br /><br />The Reason for the Ban will be Shown in the Client, so you\'ll want to keep this Short.<br /><br />',
 
     'REASON'                => 'Reason',
     'CLIENT'                => 'Client',
@@ -48,7 +48,7 @@ $lang = array_merge($lang, array(
     'BANNED_CLIENTS_EXP'    => 'Here is a List of the Currently Banned Client\'s and the Reason Why!',
     'BANNED_CLIENT'         => 'Add/Edit Banned Client\'s',
     'BANNED_CLIENT_EXP'     => 'Here you can Add/Edit Banned Client\'s and the Reason Why!',
-    'CANCEL_MOD'            => 'Cancel Modifications',
+    'CANCEL_MOD'            => 'Cancel',
     'NO_REASON'             => 'No Reason given for the Ban',
     'SUCES_BAN'             => 'Client Successfully Banned',
     'SUCES_BAN_EXP'         => 'The Client %1$s was Successfully Banned with the following Reason:- %2$s',

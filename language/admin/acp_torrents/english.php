@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File acp_torrents/english.php 2018-03-28 09:59:00 Thor
+** File acp_torrents/english.php 2018-09-15 08:49:00 Thor
 **
 ** CHANGES
 **
@@ -37,7 +37,7 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, array(
     'INTRO'             => 'Torrent Monitoring System',
 
-    'INTRO_EXP'         => 'This is where you can Monitor ALL Torrents that are Uploaded to the Site.  You can also Edit/Delete Torrents from here',
+    'INTRO_EXP'         => 'This is where you can Monitor <strong>ALL</strong> Torrents that are Uploaded to the Site.  You can also <strong>Edit/Delete</strong> Torrents from here',
 
     'NO_ENTRIES'        => 'No Torrent Entries for this Period.',
     'BAN_TORRENT'       => 'Ban Torrent!',

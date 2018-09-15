@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File staffmess/english.php 2018-04-11 08:25:00 Thor
+** File staffmess/english.php 2018-09-15 07:16:00 Thor
 **
 ** CHANGES
 **
@@ -37,7 +37,7 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, array(
     'MAIN_TEXT'              => 'Mass Messages',
-    'MAIN_INTRO_EXP'         => 'With this Tool you will be able to Send Multiple Messages out at the same time by either Mass PM or Mass email.',
+    'MAIN_INTRO_EXP'         => 'With this Tool you will be able to Send Multiple Messages out at the same time by either Mass PM or Mass email.<br /><br />',
 
     'ACP_EMAIL_BODY'         => "Message Received from  ".'%3$s'." on ".'%1$s'."  GMT.\n
     ---------------------------------------------------------------------\n\n
@@ -64,7 +64,7 @@ $lang = array_merge($lang, array(
     'MASS_MAIL'              => 'Mass Email System',
     'MASS_PM_SYS'            => 'Mass Private Message System',
 
-    'MASS_PM_SYS_EXP'        => 'Here you can Send Mass Private Messages to either ALL of your Users or ALL Users of a Specific Group',
+    'MASS_PM_SYS_EXP'        => 'Here you can Send Mass Private Messages to either ALL of your Users or ALL Users of a Specific Group.<br /><br />',
 
     'EM_MANGER'              => 'Email Manager',
     'AC_TEST_EM'             => 'Test Email Only?',

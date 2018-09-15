@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File warned/english.php 2018-04-11 09:43:00 Thor
+** File warned/english.php 2018-09-15 07:58:00 Thor
 **
 ** CHANGES
 **
@@ -37,8 +37,10 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, array(
     'ACP_WARNINGS'         => 'Warned Accounts',
-    'ACP_WARNINGS_EXPLAIN' => 'Here you can View ALL Users that Currently have Warning\'s Issued against their Account.',
-    'NO_ENTRIES'           => 'There are Currently NO Warned Users.',
+
+    'ACP_WARNINGS_EXPLAIN' => 'Here you can View ALL Users that Currently have Warning\'s Issued against their Account.<br /><br />',
+
+    'NO_ENTRIES'           => 'There are Currently No Warned Users.',
     'USERNAME'             => 'Username',
     'REGISTERED'           => 'Registered',
     'LAST_ACCESS'          => 'Last Access',

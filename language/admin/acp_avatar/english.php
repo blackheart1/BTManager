@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File avatar/english.php 2018-07-25 09:36:00 Thor
+** File avatar/english.php 2018-09-15 06:11:00 Thor
 **
 ** CHANGES
 **
@@ -44,7 +44,7 @@ $lang = array_merge($lang, array(
     'ERR_ARRAY_MESS'  => '<li><p>%s</p></li>',
     'AVATAR_SETTINGS' => 'Avatar Settings',
 
-    'AVATAR_SETTINGSexplain' => 'Avatars are generally small, unique images a User can associate with themselves. Depending on the style, they are usually displayed below the Username when Viewing Topics.  Here you can determine how Users can Define their Avatars.  Please Note that in Order to Upload Avatars you need to have Created the Directory you named below and ensure it CAN be Written to by the Web Server.  Please Also Note that File Size Limits are Only Imposed on Uploaded Avatars, they DO NOT Apply to Remotely Linked Images.',
+    'AVATAR_SETTINGSexplain' => 'Avatars are generally small, unique images a User can associate with themselves. Depending on the style, they are usually displayed below the Username when Viewing Topics.  Here you can determine how Users can Define their Avatars.  Please Note that in Order to Upload Avatars you need to have Created the Directory you named below and ensure that it CAN be Written to by your Web Server.  Please also Note that File Size Limits are Only Imposed on Uploaded Avatars, they DO NOT Apply to Remotely Linked Images.<br /><br />',
 
     'SETTINGS_NOT_SAVED' => 'Avatar Settings NOT Saved',
     'DIR_NO_WRITE'       => 'Directory " %s " is NOT Writeable',
@@ -55,7 +55,7 @@ $lang = array_merge($lang, array(
 
     '_admpALLOW_AVATARS' => 'Enable Avatars',
 
-    '_admpALLOW_AVATARSexplain' => 'Allow General Usage of Avatars:<br />If you Disable Avatars in General or Avatars of a Certain Mode, then the Disabled Avatars will NO longer be shown on the Board, but Users will still be able to Download their Own Avatars in the User Control Panel.',
+    '_admpALLOW_AVATARSexplain' => 'Allow General Usage of Avatars:<br />If you Disable Avatars in general or Avatars of a certain mode, then the Disabled Avatars will no longer be shown on the Board, but Users will still be able to Download their Own Avatars in the User Control Panel.',
 
     '_admpALLOW_LOCAL'                => 'Enable Gallery Avatars',
     '_admpALLOW_LOCALexplain'         => 'Enable Users to Select a Pre-Loaded Image from the User Control Panel.',

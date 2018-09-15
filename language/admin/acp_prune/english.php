@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File acp_prune/english.php 2018-03-28 09:51:00 Thor
+** File acp_prune/english.php 2018-09-15 07:02:00 Thor
 **
 ** CHANGES
 **
@@ -35,7 +35,7 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, array(
     'TITLE'                     => 'Automated Pruning System',
-    'TITLE_EXP'                 => 'Configure the Automated Pruning System',
+    'TITLE_EXP'                 => 'Configure the Automated Pruning System<br /><br />',
     'SETTING_SAVED'             => 'Settings have been Saved to the Database',
     'USERPRUNE_HEADER'          => 'User Prune Settings',
     '_admpautodel_users'        => 'Turn ON User Prune System',

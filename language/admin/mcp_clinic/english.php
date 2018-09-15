@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File mcp_clinic/english.php 2018-04-01 08:54:00 Thor
+** File mcp_clinic/english.php 2018-09-15 08:24:00 Thor
 **
 ** CHANGES
 **
@@ -38,7 +38,7 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, array(
     'INTRO'                  =>	'TorrentClinic',
 
-    'INTRO_EXP'              =>	'Torrent Clinic Allows you to Check .torrent File Properties.<br />If you are having Issues with a Torrent you can Verify that it has been Generated Correctly.<br />When Uploading a Torrent from your Hard Drive, you will be able to Verify <strong>ALL</strong> the Information that it contains and even Check against Sources!',
+    'INTRO_EXP'              =>	'Torrent Clinic Allows you to Check .torrent File Properties.<br /><br /><br />If you are having Issues with a Torrent you can Verify that it has been Generated Correctly.<br /><br />When Uploading a Torrent from your Hard Drive, you will be able to Verify <strong>ALL</strong> the Information that it contains and even Check against Sources!<br /><br />',
 
     'UPLOAD_TORRENT'         =>	'Upload a Torrent',
     'UPLOAD_LOCAL_FILE'      =>	'Upload a Torrent from your Hard Drive to be Checked.',

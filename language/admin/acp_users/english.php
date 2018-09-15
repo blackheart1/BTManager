@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File acp_users/english.php 2018-09-14 09:40:00 Thor
+** File acp_users/english.php 2018-09-15 09:40:00 Thor
 **
 ** CHANGES
 **
@@ -159,7 +159,7 @@ $lang = array_merge($lang, array(
     'USER_GROUP_NORMAL'           => 'User Defined Groups User is a Member of',
     'USER_GROUP_PENDING'          => 'Groups User is in Pending Mode',
     'USER_GROUP_SPECIAL'          => 'Pre-Defined Groups User is a Member of',
-    'USER_NO_ATTACHMENTS'         => 'There are NO Attached Files to Display.',
+    'USER_NO_ATTACHMENTS'         => 'There are No Attached Files to Display.',
     'USER_OVERVIEW_UPDATED'       => 'User Details Updated.',
     'USER_POSTS_DELETED'          => 'Successfully Removed ALL the Posts made by this User.',
     'USER_POSTS_MOVED'            => 'Successfully Moved the Users Posts to the Target Forum.',
@@ -241,9 +241,9 @@ $lang = array_merge($lang, array(
     'POST_TIME'                   => 'Post Time',
     'DOWNLOADS'                   => 'Downloads',
     'POST'                        => 'Post',
-    'NO_ENTRIES'                  => 'NO Log Entries for this Period.',
+    'NO_ENTRIES'                  => 'No Log Entries for this Period.',
     'ADD_FEEDBACK'                => 'Add Feedback',
-    'ADD_FEEDBACK_EXPLAIN'        => 'Add Notes to User\'s Account.',
+    'ADD_FEEDBACK_EXPLAIN'        => 'Add Notes to User\'s Account.<br /><br />',
 
     #Added in v3.0.1
     'USER_FORUM'        => 'User Forum',

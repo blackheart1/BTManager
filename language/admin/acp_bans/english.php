@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File bans/english.php 2018-04-05 08:40:00 Thor
+** File bans/english.php 2018-09-15 06:15:00 Thor
 **
 ** CHANGES
 **
@@ -64,7 +64,7 @@ $lang = array_merge($lang, array(
     'NO_BAN_FOUNDER'   => 'This User is a Founder and can NOT be Banned!',
     'MENU_BANS'       => 'Banned Users and Settings',
 
-    'ACP_BAN_EXPLAIN' => 'Here you can Control how Users are Banned.  You can select Ban by Username, IP Address or even email Address.  These methods Prevent any User from Accessing any part of the Site.  You can give a Short (Maximum 3000 Characters) Reason for the Ban if you wish.  This will be Displayed in the Administrator\'s Log.  You can also Specify the Duration that a User is Banned for.  If you want the Ban to End on a Specific Date rather than After a Set amount of Time, Select <strong>Until -></strong> for the Ban Length and enter a Date in <em>YYYY-MM-DD</em> Format.',
+    'ACP_BAN_EXPLAIN' => 'Here you can Control how Users are Banned.  You can select Ban by Username, IP Address or even email Address.  These methods Prevent any User from Accessing any part of the Site.  You can give a Short (Maximum 3000 Characters) Reason for the Ban if you wish.  This will be Displayed in the Administrator\'s Log.  You can also Specify the Duration that a User is Banned for.  If you want the Ban to End on a Specific Date rather than After a Set amount of Time, Select <strong>Until -></strong> for the Ban Length and enter a Date in <em>YYYY-MM-DD</em> Format.<br /><br />',
 
     'ACP_BAN'               => 'Banning',
     'ACP_BAN_EMAILS'        => 'Ban by email Address',
@@ -81,23 +81,23 @@ $lang = array_merge($lang, array(
     'EMAIL_BAN'                 => 'Ban one or more email Addresses',
     'EMAIL_BAN_EXCLUDE_EXPLAIN' => 'If Enabled you can Exclude the entered email Address from ALL Current Bans.',
 
-    'EMAIL_BAN_EXPLAIN'         => 'To Specify more than one email Address, enter each on a New Line.  To Match Partial Addresses use <strong>*</strong> as the Wildcard, e.g. <em>*@hotmail.com</em>, <em>*@*.domain.tld</em>, etc.',
+    'EMAIL_BAN_EXPLAIN'         => 'To Specify more than one email Address, enter each on a New Line.  To Match Partial Addresses use <strong>*</strong> as the Wildcard, e.g. <em>*@hotmail.com</em>, <em>*@*.domain.tld</em>, etc.<br /><br />',
 
     'EMAIL_NO_BANNED'           => 'No Banned email Addresses',
     'EMAIL_UNBAN'               => 'Unban emails',
 
-    'EMAIL_UNBAN_EXPLAIN'       => 'You can Unban Single or Multiple email Addresses in one go, simply Click on the email Addresses that you wish to Unban and Click Submit.',
+    'EMAIL_UNBAN_EXPLAIN'       => 'You can Unban Single or Multiple email Addresses in one go, simply Click on the email Addresses that you wish to Unban and Click Submit.<br /><br />',
 
     'IP_BAN'                    => 'Ban one or more IP Address',
     'IP_BAN_EXCLUDE_EXPLAIN'    => 'If Enabled you can Exclude the entered IP from ALL Current Bans.',
 
-    'IP_BAN_EXPLAIN'            => 'To Specify Multiple IP\'s or Hostnames, enter each on a New Line.  To Specify a Range of IP Addresses separate the Start and End with a hyphen <strong>-</strong>, to Specify a Wildcard use <strong>*</strong>.',
+    'IP_BAN_EXPLAIN'            => 'To Specify Multiple IP\'s or Hostnames, enter each on a New Line.  To Specify a Range of IP Addresses separate the Start and End with a hyphen <strong>-</strong>, to Specify a Wildcard use <strong>*</strong>.<br /><br />',
 
     'IP_HOSTNAME'               => 'IP Addresses or Hostnames',
     'IP_NO_BANNED'              => 'No Banned IP Addresses',
     'IP_UNBAN'                  => 'Unban IP\'s',
 
-    'IP_UNBAN_EXPLAIN'          => 'You can Unban Single or Multiple IP Addresses in one go, simply Click on the IP Addresses that you wish to Unban and Click Submit.',
+    'IP_UNBAN_EXPLAIN'          => 'You can Unban Single or Multiple IP Addresses in one go, simply Click on the IP Addresses that you wish to Unban and Click Submit.<br /><br />',
 
     'LENGTH_BAN_INVALID'        => 'The Date has to be Formatted like:- <em>YYYY-MM-DD</em>.',
 
@@ -108,12 +108,12 @@ $lang = array_merge($lang, array(
 
     'USER_BAN_EXCLUDE_EXPLAIN'  => 'If Enabled you can Exclude the entered Users from ALL Current Bans.',
 
-    'USER_BAN_EXPLAIN'          => 'You can Ban Multiple Users in one go by entering each Username on a New Line.  Use the <em>Find a Member</em> Facility to Look Up and Add one or more Usernames.',
+    'USER_BAN_EXPLAIN'          => 'You can Ban Multiple Users in one go by entering each Username on a New Line.  Use the <em>Find a Member</em> Facility to Look Up and Add one or more Usernames.<br /><br />',
 
     'USER_NO_BANNED'            => 'No Banned Usernames',
     'USER_UNBAN'                => 'Unban Usernames',
 
-    'USER_UNBAN_EXPLAIN'        => 'You can Unban Single or Multiple Usernames in one go, simply Click on the Username that you wish to Unban and Click Submit.',
+    'USER_UNBAN_EXPLAIN'        => 'You can Unban Single or Multiple Usernames in one go, simply Click on the Username that you wish to Unban and Click Submit.<br /><br />',
 ));
 
 ?>

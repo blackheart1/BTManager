@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File user_add/english.php 2018-04-11 09:26:00 Thor
+** File user_add/english.php 2018-09-15 07:55:00 Thor
 **
 ** CHANGES
 **
@@ -38,7 +38,7 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, array(
     'NEW_USER_CREAT'      => 'Add New User',
 
-    'NEW_USER_CREAT_EXP'  => 'Adding a New User via the Administrator Control Panel is the same as someone Registering a New Account, except that you don\'t have to Fill in any of the Required Fields or Agreements that are Imposed on the Registration Form, and you can Create the Account without a Valid email Address when using the Administrator CP.',
+    'NEW_USER_CREAT_EXP'  => 'Adding a New User via the Administrator Control Panel is the same as someone Registering a New Account, except that you don\'t have to Fill in any of the Required Fields or Agreements that are Imposed on the Registration Form, and you can Create the Account without a Valid email Address when using the Administrator CP.<br /><br />',
 
     'ERROR'               => 'Error!',
     'USER_NAME'           => 'User Name',

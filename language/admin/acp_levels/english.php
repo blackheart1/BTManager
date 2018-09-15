@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File acp_levels/english.php 2018-09-14 09:26:00 Thor
+** File acp_levels/english.php 2018-09-15 07:47:00 Thor
 **
 ** CHANGES
 **
@@ -170,7 +170,7 @@ $lang = array_merge($lang, array(
     'ADMIN_PERMISSIONS'      => 'Administrator Permissions',
     'MODERATOR_PERMISSIONS'  => 'Moderator Permissions',
 
-    'ACP_GROUPS_PERMISSIONS_EXPLAIN' => 'Here you can Assign Global Permissions to Groups - User Permissions, Global Moderator Permissions and Administrator Permissions.<ul><li>User Permissions include the ability to use Avatars, send Private Messages etc. <li>Global Moderator Permissions include the ability to Approve Posts, Manage Topics, Manage Bans etc.<li>Administrator Permissions include the ability to Alter Permissions, Define Custom BBCodes, Manage Forums etc.</ul>Individual User Permissions should ONLY be changed in rare occasions, the preferred method is putting Users in Groups and assigning the Groups Permissions.',
+    'ACP_GROUPS_PERMISSIONS_EXPLAIN' => 'Here you can Assign Global Permissions to Groups - User Permissions, Global Moderator Permissions and Administrator Permissions.<br /><br /><ul><li>User Permissions include the ability to use Avatars, send Private Messages etc. <li>Global Moderator Permissions include the ability to Approve Posts, Manage Topics, Manage Bans etc.<li>Administrator Permissions include the ability to Alter Permissions, Define Custom BBCodes, Manage Forums etc.</ul><br />Individual User Permissions should ONLY be changed in rare occasions, the preferred method is putting Users in Groups and assigning the Groups Permissions.<br /><br />',
 
     'ACP_GROUPS_MANAGE_EXPLAIN'      => 'From here you can Administer ALL your User Groups.  You can Create, Edit and Delete Existing Groups.  Furthermore, you may choose Group Leaders, Toggle Open/Hidden/Closed Group Status and Set the Groups Name and Description.<br /><br />',
 
@@ -239,7 +239,7 @@ $lang = array_merge($lang, array(
     'GROUP_FOUNDER_MANAGE_EXPLAIN' => 'Restrict Management of this Group to Founders Only.  Users having Group Permissions are still able to see this Group as well as this Group\'s Members.',
 
     'GROUP_SKIP_AUTH'              => 'Exempt Group Leader from Permissions',
-    'GROUP_SKIP_AUTH_EXPLAIN'      => 'If Enabled the Group Leader will NO Longer Inherit Permissions from this Group.',
+    'GROUP_SKIP_AUTH_EXPLAIN'      => 'If Enabled the Group Leader will No Longer Inherit Permissions from this Group.',
     'GROUP_DETAILS'                => 'Group Details',
     'GROUP_RANK'                   => 'Group Rank',
     'GROUP_RECEIVE_PM'             => 'Group able to Receive Private Messages',
@@ -260,7 +260,7 @@ $lang = array_merge($lang, array(
     'ACP_GROUPS_PERMISSIONS'   => 'Groups Permissions',
     'GROUP_UPDATED'            => 'Group Preferences Updated Successfully.',
     'GROUP_USERS_REMOVE'       => 'Users Removed from Group and New Defaults Set Successfully.',
-    'NO_GROUPS_CREATED'        => 'NO Groups Created Yet.',
+    'NO_GROUPS_CREATED'        => 'No Groups Created Yet.',
     'NO_PERMISSIONS'           => 'DO NOT Copy Permissions',
     'TOTAL_MEMBERS'            => 'Members',
     'PERMISSION_UPDATED'       => 'The Permission was Successfully Updated',
@@ -279,11 +279,11 @@ $lang = array_merge($lang, array(
 
     'SPECIAL_GROUPS_EXPLAIN'     => 'Pre-Defined Groups are Special Groups, they can NOT be Deleted or Directly Modified. However, you can still Add Users and Alter Basic Settings.<br /><br />',
 
-    'NO_GROUP'                 => 'NO Group Specified.',
-    'NO_GROUPS_CREATED'        => 'NO Groups Created Yet.',
+    'NO_GROUP'                 => 'No Group Specified.',
+    'NO_GROUPS_CREATED'        => 'No Groups Created Yet.',
     'NO_PERMISSIONS'           => 'DO NOT Copy Permissions',
     'NO_USERS'                 => 'You haven\'t Entered any Users.',
-    'NO_USERS_ADDED'           => 'NO Users were Added to the Group.',
+    'NO_USERS_ADDED'           => 'No Users were Added to the Group.',
     'NO_VALID_USERS'           => 'You haven\'t Entered any Users Eligible for that Action.',
     'NO_AUTH_OPERATION'        => 'You DO NOT have the Required Permissions to Complete this Operation.',
     'NOT_ALLOWED_MANAGE_GROUP' => 'You are NOT Allowed to Manage this Group.',
@@ -306,14 +306,14 @@ $lang = array_merge($lang, array(
     'GROUP_APPROVED'        => 'Approved Members',
     'USER_GROUP_LEADER'     => 'Set as Group Leader',
     'USER_GROUP_DEFAULT'    => 'Set as Default Group',
-    'GROUPS_NO_MEMBERS'     => 'This Group has NO Members',
-    'GROUPS_NO_MODS'        => 'NO Group Leaders Defined',
+    'GROUPS_NO_MEMBERS'     => 'This Group has No Members',
+    'GROUPS_NO_MODS'        => 'No Group Leaders Defined',
     'MAKE_DEFAULT_FOR_ALL'  => 'Make Default Group for Every Member',
     'GROUP_DEMOTE'          => 'Demote Group Leader',
     'GROUP_PROMOTE'         => 'Promote to Group Leader',
     'GROUP_DELETE'          => 'Remove Member from Group',
     'FORM_INVALID'          => 'The Submitted Form was Invalid.  Try Submitting Again!',
-    'NO_GROUP'              => 'NO Group Specified.',
+    'NO_GROUP'              => 'No Group Specified.',
     'GROUP_MODS_ADDED'      => 'New Group Leaders Added Successfully.',
     'GROUP_USERS_ADDED'     => 'New Users Added to the Group Successfully.',
     'GROUP_MODS_DEMOTED'    => 'Group Leaders Demoted Successfully.',

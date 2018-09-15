@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File bonus_system/english.php 2018-04-09 09:27:00 Thor
+** File bonus_system/english.php 2018-09-15 06:36:00 Thor
 **
 ** CHANGES
 **
@@ -39,7 +39,7 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, array(
     '_admbonsetting'           => 'Bonus Settings',
 
-    '_admsettingexplain'       => 'Configure your Bonus System for how you would like to handle the likes of Upload Bonus, Seeding Bonus etc.',
+    '_admsettingexplain'       => 'Configure your Bonus System for how you would like to handle the likes of Upload Bonus, Seeding Bonus etc.<br /><br />',
 
     //'_admbonalo'               => 'Allow Bonus',
     '_admpactive'              => 'Enable/Disable Bonus',
@@ -73,7 +73,7 @@ $lang = array_merge($lang, array(
     'SETTING_SAVED'            => 'Settings were Successfully Saved to the Database',
     'CONFIRM_OPERATION_DEL'    => 'Are you sure you wish to Remove this Bonus Option?',
     'ERROR'                    => 'Error!',
-    'NO_ID'                    => 'A Error has Occurred.  NO ID was Set',
+    'NO_ID'                    => 'A Error has Occurred.  No ID was Set',
     'BONUS_REMOVED'            => 'Bonus Option was Successfully Removed from the Database.',
     'BONUS_NAME'               => 'Bonus Points Name',
     'BONUS_POINTS'             => 'How many Points are Required?',
@@ -93,11 +93,11 @@ $lang = array_merge($lang, array(
 
     'EDIT_TITLE'               => 'Edit Your Bonus',
     'EDIT_EXPLANE'             => 'You can Change the Bonus to how you would like it to be.',
-    'NO_NAME'                  => 'NO Name has been Set!',
-    'NO_PONTS'                 => 'NO Points have been Set!',
-    'NO_DESC'                  => 'NO Description has been given!',
-    'NO_SYS_VAL'               => 'NO System Required Value is Set!',
-    'NOT_VALID_BONUS'          => 'There seems to be NO Bonus in the System with this ID!',
+    'NO_NAME'                  => 'No Name has been Set!',
+    'NO_PONTS'                 => 'No Points have been Set!',
+    'NO_DESC'                  => 'No Description has been given!',
+    'NO_SYS_VAL'               => 'No System Required Value is Set!',
+    'NOT_VALID_BONUS'          => 'There seems to be No Bonus in the System with this ID!',
     'BONUS_UPDATED'            => 'Values for this Bonus were Successfully Updated.',
     'BONUS_ADDED'              => 'New Bonus was Successfully Added to the Database.',
 ));

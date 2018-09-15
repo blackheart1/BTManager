@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File acp_arcade/english.php 2018-08-27 07:33:00 Thor
+** File acp_arcade/english.php 2018-09-15 06:11:00 Thor
 **
 ** CHANGES
 **
@@ -145,7 +145,7 @@ $lang = array_merge($lang, array(
     'LATEST'             => 'Latest Games',
     'LIMIT'              => '10MB Limit',
     'MANAGE_CAT'         => 'Manage Categories',
-    'MANAGE_CAT_DESC'    => 'Here you can Add/Remove Categories.',
+    'MANAGE_CAT_DESC'    => 'Here you can Add/Remove Game Categories/Genres.<br /><br />',
     'MANAGE_GAMES'       => 'Manage Games',
     'MANAGE_GAMES_DESC'  => 'Here you can Add/Edit/Remove Games.',
 

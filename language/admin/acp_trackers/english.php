@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File acp_trackers/english.php 2018-05-03 09:00:00 Thor
+** File acp_trackers/english.php 2018-09-15 09:13:00 Thor
 **
 ** CHANGES
 **
@@ -44,7 +44,7 @@ $lang = array_merge($lang, array(
     'BLACK_LIST'           => 'Blacklist',
     'UNBLACK_LIST'         => 'Remove Blacklist',
 
-    'INTRO_EXP'            => 'With this Panel you can Monitor the Status of External Trackers associated to Torrents.  You can Set a Filter that Prevents the Uploading of Torrents from certain Trackers or you can Force the Tracker Update Viewing Debug Information.',
+    'INTRO_EXP'            => 'With this Panel you can Monitor the Status of External Trackers associated to Torrents.  You can Set a Filter that Prevents the Uploading of Torrents from certain Trackers or you can Force the Tracker Update Viewing Debug Information.<br /><br />',
 
     'NO_ENTRIES'           => 'No Torrent Entries for this Period.',
     'TOR_NAME'             => 'Torrent Name',
@@ -58,17 +58,17 @@ $lang = array_merge($lang, array(
 
     'BANNED_ANNOUNCE_EXP'  => 'Insert the Announce URL of the Tracker you want to Blacklist.  ALL Torrents Associated to it will be Refused during Upload.',
 
-    'CANCEL_MOD'           => 'Cancel Modifications',
+    'CANCEL_MOD'           => 'Cancel',
     'INVALID_INCODING'     => 'Can NOT Decode Tracker Response.  Invalid Encoding!',
     'TRKRAWDATA'           => 'Tracker Reached.  Here is the Encoded Response.',
     'TRACKER_OFFLINE'      => 'Can NOT Contact Tracker.  Tracker will be Set to OffLine',
     'UPDATING'             => 'Updating',
     'DECODED_DATA'         => 'Decoding Completed.  Here is ALL the Scrape Data Obtained.',
-    'NOTOR_ERR'            => 'There was an Error',
+    'NOTOR_ERR'            => 'There was an Error ',
     'INFO_HASH'            => 'Info Hash',
     'INVALID_ANNOUNCE'     => 'Invalid Announce URL.<br /><strong>"%1$s"</strong>',
 
-    'NO_TORRENTS_LISTED'   => '"%1$s" Has NO Torrents OR has Been Blacklisted (If NOT Blacklisted it has been Removed from the Database.)',
+    'NO_TORRENTS_LISTED'   => '"%1$s" has NO Torrents OR has Been Blacklisted (If NOT Blacklisted it has been Removed from the Database.)',
 
     'PEER_SUMERY'          => 'Found <strong>"%1$s"</strong> Seeds, <strong>"%2$s"</strong> Leechers, <strong>"%3$s"</strong> Completed Downloads for Torrent "%4$s" Info Hash "%5$s"."',
  ));

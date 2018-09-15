@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File acp_hnr_system/english.php 2018-03-28 00:26:00 Thor
+** File acp_hnr_system/english.php 2018-09-15 06:36:00 Thor
 **
 ** CHANGES
 **
@@ -39,7 +39,7 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, array(
     'TITLE'                           => 'Automated Hit and Run System',
 
-    'TITLE_EXP'                       => 'A Hit and Run User is someone that will Download a File and as Soon as it is Completely Downloaded they Close their Torrent Client without Seeding it back.<br />With this System you can Monitor your Users to make sure that this DOES NOT happen and to Take Action for those that do.',
+    'TITLE_EXP'                       => 'A Hit and Run User is someone that will Download a File and as Soon as it is Completely Downloaded they Close their Torrent Client without Seeding it back.<br />With this System you can Monitor your Users to make sure that this DOES NOT happen and to Take Action for those that do.<br /><br />',
 
     'HNR_HEADER'                      => 'Hit and Run Settings',
     'SETTING_SAVED'                   => 'Settings have been Saved to the Database',

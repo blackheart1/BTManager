@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File acp_ratio/english.php 2018-04-01 12:28:00 Thor
+** File acp_ratio/english.php 2018-09-15 09:24:00 Thor
 **
 ** CHANGES
 **
@@ -36,13 +36,14 @@ if (empty($lang) || !is_array($lang))
 }
 
 $lang = array_merge($lang, array(
-    'SEL_YES_NO' => array('true'=>'Yes','false'=>'No'),
+    'SEL_YES_NO' => array('true' => 'Yes',
+                          'false' => 'No'),
 
     'TITLE_INDEX'             => 'Site Warning System',
     'TITLE_EXPLAIN_INDEX'     => 'In this Area you are able to View and Edit your Warning Configuration',
     'TITLE_CONFIG'            => 'Warning Configuration',
 
-    'TITLE_EXPLAIN_CONFIG'    => 'Warning Configurations are the Settings Used by the System to Determine Who and When to Warn a User for a Low Ratio.',
+    'TITLE_EXPLAIN_CONFIG'    => 'Warning Configurations are the Settings Used by the System to Determine Who and When to Warn a User for a Low Ratio.<br /><br />',
 
     'SECTION_EXPLAIN_CONFIG'  => 'This is Used to Alter and Set your Warning Systems Controls.',
     'TITLE_WARNED'            => 'Ratio Warn System - Warned Users',
@@ -63,7 +64,7 @@ $lang = array_merge($lang, array(
     'BANNED'                  => 'Banned',
     'TIME_TO_BAN'             => 'Time Until Ban',
     'TO_GO'                   => '%1$s Days',
-    'NO_ENTRIES'              => 'There are NO Users Currently being Watched for Poor Ratios.',
+    'NO_ENTRIES'              => 'There are No Users Currently being Watched for Poor Ratios.',
     'TIME_TO_WARN'            => 'Time Until Warning',
     'REMOVED_WATCH'           => 'Remove from Watch',
 

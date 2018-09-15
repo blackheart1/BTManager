@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File mcp_massupload/english.php 2018-04-10 08:32:00 Thor
+** File mcp_massupload/english.php 2018-09-15 08:45:00 Thor
 **
 ** CHANGES
 **
@@ -39,7 +39,7 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, array(
     'INTRO'                     => 'Mass Upload',
 
-    'INTRO_EXP'                 => 'With this Tool you can Upload Multiple Torrents at the same time.<br />The Torrents Must be in your Site\'s Root Sub-Directory called <em><strong>massupload</strong></em>, which should be Writeable (in Order to Delete Torrents once Uploaded or Duplicated).<br><em>Tip:</em> on UNIX systems, if you need to use a different Directory for Mass Upload, you can change the <em><strong>massupload</strong></em> Directory with a <em><u>Symbolic Link</u></em>.',
+    'INTRO_EXP'                 => 'With this Tool you can Upload Multiple Torrents at the same time.<br /><br /><br />The Torrents Must be in your Site\'s Root Sub-Directory called <em><strong>massupload</strong></em>, which should be Writeable (in Order to Delete Torrents once Uploaded or Duplicated).<br /><br /><em>Tip:</em> on UNIX systems, if you need to use a different Directory for Mass Upload, you can change the <em><strong>massupload</strong></em> Directory with a <em><u>Symbolic Link</u></em>.<br /><br />',
 
     'MAX_SEARCH'                => 'Maximum Torrents to Process (Prevents Memory or Time Out Errors)',
     'TRACKER_DISABLED'          => 'Our Tracker has been Disabled.  Only External Torrents can be Uploaded.',
