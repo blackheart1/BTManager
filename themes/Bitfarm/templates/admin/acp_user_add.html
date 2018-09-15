@@ -1,8 +1,9 @@
 <!-- INCLUDE themes/Bitfarm/templates/admin/over_all_header.html -->
+<h1>{L_TITLE}</h1>
+<p>{L_EXPLANE}</p>
 <form name="formdata" id="acp_board" method="post" action="{U_ACTION_NEW}">
 <fieldset>
-	<h1>{L_TITLE}</h1>
-	<p>{L_EXPLANE}</p>
+    <legend>{L_TITLE}</legend>
 		<dl>
 			<dt><label for="username">{L_USER_NAME}:</label><br /><span>{L_USER_NAME_EXP}</span></dt>
 			<dd><input name="username" value="" size="40" type="text"></dd>
@@ -53,7 +54,7 @@
 		</dl>
 	<div style="text-align: center;">
 		<!-- IF HIDDEN -->{HIDDEN}<!-- ENDIF -->
-		<input type="submit" name="submit" value="{L_SUBMIT}" class="button2" /> 
+		<input type="submit" name="submit" value="{L_SUBMIT}" class="button2" />
 	</div>
 
 </fieldset>

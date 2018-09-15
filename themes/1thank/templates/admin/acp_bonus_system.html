@@ -70,11 +70,14 @@
 <!-- ENDIF -->
 <!-- IF S_EDITBONUS -->
 <a name="edit"></a>
+<br /><br />
+<h1>{L_EDIT_TITLE}</h1>
+
+<p>{L_EDIT_EXPLANE}</p><br />
 <form name="formdata" id="acp_board" method="post" action="{U_ACTION_EDIT}">
 {E_HIDDEN}
 <fieldset>
-	<h1>{L_EDIT_TITLE}</h1>
-	<p>{L_EDIT_EXPLANE}</p>
+	<legend>{L_EDIT_TITLE}</legend>
 		<dl>
 			<dt><label for="bonusname">{L_BONUS_NAME}:</label><br /><span>{L_BONUS_NAME_EXP}</span></dt>
 			<dd><input name="bonusname" value="{S_BONUS_NAME}" size="40" type="text"></dd>
@@ -102,10 +105,13 @@
 </fieldset>
 </form>
 <!-- ELSE -->
+<br /><br />
+<h1>{L_ADD_TITLE}</h1>
+
+<p>{L_ADD_EXPLANE}</p><br />
 <form name="formdata" id="acp_board" method="post" action="{U_ACTION_NEW}">
 <fieldset>
-	<h1>{L_ADD_TITLE}</h1>
-	<p>{L_ADD_EXPLANE}</p>
+	<legend>{L_ADD_TITLE}</legend>
 		<dl>
 			<dt><label for="bonusname">{L_BONUS_NAME}:</label><br /><span>{L_BONUS_NAME_EXP}</span></dt>
 			<dd><input name="bonusname" value="" size="40" type="text"></dd>
