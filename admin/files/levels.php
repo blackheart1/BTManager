@@ -154,7 +154,7 @@ if ($auth->acl_get('a_authgroups'))
 if ($auth->acl_get('a_authgroups') && ($auth->acl_get('a_mauth') || $auth->acl_get('a_aauth')))
 {
     $template->assign_block_vars('l_block1.l_block2.l_block3', array(
-            'S_SELECTED' => ('forum_roles' == $action)? true : false,
+            'S_SELECTED' => ('setting_group_global' == $action)? true : false,
             'IMG'        => '',
             'L_TITLE'    => $user->lang['GLOBAL_GROUP_PERM'],
             'U_TITLE'    => append_sid($u_action, 'action=setting_group_global&amp;mode=setting_group_global'),
@@ -164,7 +164,7 @@ if ($auth->acl_get('a_authgroups') && ($auth->acl_get('a_mauth') || $auth->acl_g
 if ($auth->acl_get('a_authgroups') && ($auth->acl_get('a_mauth') || $auth->acl_get('a_fauth')))
 {
     $template->assign_block_vars('l_block1.l_block2.l_block3', array(
-            'S_SELECTED' => ('forum_roles' == $action)? true : false,
+            'S_SELECTED' => ('setting_group_local' == $action)? true : false,
             'IMG'        => '',
             'L_TITLE'    => $user->lang['GROUP_FORUM_PERM'],
             'U_TITLE'    => append_sid($u_action, 'action=setting_group_local&amp;mode=setting_group_local'),

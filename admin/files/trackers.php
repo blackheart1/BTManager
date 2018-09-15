@@ -58,6 +58,7 @@ if ($do == "bannewtracker") {
         $annregexp = "/(udp|http[s]?+):\/\/[-\/.:_\\w]*\/announce[^\/\\s]*/";
         if (!preg_match($annregexp, $announce) OR $announce == $announce_url)
 		{
+			if($announce == '')$announce = $user->lang['BLANK_ANNOUNCE_URL'];
 				$template->assign_vars(array(
                         'S_ERROR'				=> true,
 						'L_WARNING'				=>	$user->lang['BANNED_ANNOUNCE'],
@@ -93,9 +94,11 @@ $res = $db->sql_query($sql) or btsqlerror($sql);
                 $act = "ban";
                 $alt = $user->lang['BLACK_LIST'];
                 $ban = "lock.gif";
+				$tbanned = false;
                 if ($tracker["status"] == "active") $trkstatus = $user->lang['TRACKER_ACTIVE'];
                 elseif($tracker["status"] == "dead") $trkstatus = $user->lang['TRACKER_OFF_LINE'];
                 else {
+						$tbanned = true;
                         $trkstatus = $user->lang['TRACKER_BLACK_LISTED'];
                         $act = "unban";
                         $alt = $user->lang['UNBLACK_LIST'];
@@ -111,8 +114,9 @@ $res = $db->sql_query($sql) or btsqlerror($sql);
 				'UPDATED'		=> mkprettytime(time()-$tracker["updated"]),
 				'TORRENTS'		=> $torrents,
 				'ACT'		=> $act,
-				'ALT'		=>	$alt,
+				'ALT'		=> $alt,
 				'BAN'		=> $ban,
+				'BANNED'	=> $tbanned
 				)
 			);
         }
@@ -126,7 +130,7 @@ if ($do == "listtorrents" AND isset($id) AND is_numeric($id)) {
         	if ($db->sql_numrows($res) < 1) {
 				$template->assign_vars(array(
                         'S_ERROR'				=> true,
-						'L_WARNING'				=>	$user->lang['NOTOR_ERR'] . '#1',
+						'L_WARNING'				=>	$user->lang['NOTOR_ERR'],
 						'ERROR_MSG'				=>	sprintf($user->lang['NO_TORRENTS_LISTED'],$id),
                 ));
 			}
@@ -161,7 +165,7 @@ if ($do == "scrapenow" AND isset($id) AND is_numeric($id))
                 $db->sql_freeresult($res);
 				$template->assign_vars(array(
                         'S_ERROR'				=> true,
-						'L_WARNING'				=>	$user->lang['NOTOR_ERR'] . '#2',
+						'L_WARNING'				=>	$user->lang['NOTOR_ERR'],
 						'ERROR_MSG'				=>	sprintf($user->lang['NO_TORRENTS_LISTED'],$annurl),
                 ));
                 break;
@@ -174,7 +178,7 @@ if ($do == "scrapenow" AND isset($id) AND is_numeric($id))
                 $db->sql_query("DELETE FROM ".$db_prefix."_trackers WHERE url = '".$annurl."';");
 				$template->assign_vars(array(
                         'S_ERROR'				=> true,
-						'L_WARNING'				=>	$user->lang['NOTOR_ERR'] . '#3',
+						'L_WARNING'				=>	$user->lang['NOTOR_ERR'],
 						'ERROR_MSG'				=>	sprintf($user->lang['NO_TORRENTS_LISTED'],$annurl),
                 ));
                 break;

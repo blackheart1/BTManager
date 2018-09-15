@@ -48,7 +48,7 @@ switch ($do) {
                 if (count($errors) > 0) {
 
 					$err = "<ul>\n";
-					foreach ($error as $msg)
+					foreach ($errors as $msg)
 					{
 						$err .= "<li>".$msg."</li>\n";
 					}
