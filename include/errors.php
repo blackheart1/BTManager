@@ -39,7 +39,8 @@ function myErrorHandler($errno, $errstr, $errfile, $errline)
                                && $errno != E_PARSE
                                && $errno != E_ERROR
                                && $errno != E_FATAL
-                               && $errno != E_STRICT)
+                               && $errno != E_STRICT
+                               && $errno != E_DEPRECATED)
 	{
 		return;
 	}
@@ -139,7 +140,7 @@ function myErrorHandler($errno, $errstr, $errfile, $errline)
 				'TITTLE_M'          => $msg_title,
 				'MESSAGE'           => '',
 			));
-			echo @$template->fetch('message_body.html');
+			echo @$template->fetch(((preg_match("/admin.php/", $_SERVER["PHP_SELF"])) ? 'admin/' : '') . 'message_body.html');
 			close_out();
 		break;
     case E_ERROR:
@@ -160,12 +161,12 @@ function myErrorHandler($errno, $errstr, $errfile, $errline)
 		break;
 
     //case E_NOTICE:
+    case E_DEPRECATED:
     case E_USER_NOTICE:
         echo "<b>My User NOTICE</b> [$errno] $errstr<br />\n";
         echo "  Notice Error on Line $errline in File $errfile<br />\n";
         break;
     case E_NOTICE:
-    case E_DEPRECATED:
     case E_STRICT:
 	return true;
         break;
