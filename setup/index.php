@@ -93,6 +93,18 @@ function is__writable($path, $file = '')
 function hex_esc($matches) {
         return sprintf("%02x", ord($matches[0]));
 }
+function RandomAlpha($num)
+{
+    $set  = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvxyz0123456789";
+    $resp = "";
+
+    for ($i = 1; $i <= $num; $i++)
+    {
+        $char  = rand(0, strlen($set) - 1);
+        $resp .= $set[$char];
+    }
+    return $resp;
+}
 function getscrapedata($url, $display=false, $info = false) {
 	if (preg_match("/thepiratebay.org/i", $url))$url = 'udp://tracker.openbittorrent.com:80';
 		if(preg_match('%udp://([^:/]*)(?::([0-9]*))?(?:/)?%si', $url, $m))

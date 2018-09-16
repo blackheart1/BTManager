@@ -122,7 +122,7 @@ INSERT INTO `#prefix#_settings` (`config_name`, `config_value`, `is_dynamic`) VA
 ('search_indexing_state', '', 1),
 ('fulltext_mysql_max_word_len', '84', 0),
 ('fulltext_mysql_min_word_len', '4', 0),
-('search_block_size', '250', 0)
+('search_block_size', '250', 0),
 ('allow_disable_censor', '1', 0),
 ('allow_forum_notify', '1', 0),
 ('ranks_path', 'images/ranks', 0),
