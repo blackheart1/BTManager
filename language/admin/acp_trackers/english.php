@@ -67,7 +67,7 @@ $lang = array_merge($lang, array(
     'NOTOR_ERR'            => 'There was an Error ',
     'INFO_HASH'            => 'Info Hash',
     'INVALID_ANNOUNCE'     => 'Invalid Announce URL.<br /><strong>"%1$s"</strong>',
-	'BLANK_ANNOUNCE_URL'   => 'The Announce url was left blank',
+	'BLANK_ANNOUNCE_URL'   => 'The Announce URL is Blank',
     'NO_TORRENTS_LISTED'   => '"%1$s" has NO Torrents OR has Been Blacklisted (If NOT Blacklisted it has been Removed from the Database.)',
 
     'PEER_SUMERY'          => 'Found <strong>"%1$s"</strong> Seeds, <strong>"%2$s"</strong> Leechers, <strong>"%3$s"</strong> Completed Downloads for Torrent "%4$s" Info Hash "%5$s"."',
