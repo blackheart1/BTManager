@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File site_settings/english.php 2018-09-14 10:20:00 Thor
+** File site_settings/english.php 2018-09-18 08:19:00 Thor
 **
 ** CHANGES
 **
@@ -117,13 +117,13 @@ $lang = array_merge($lang, array(
 
     '_admpupload_dead'          => 'Allow Dead External Torrents',
 
-    '_admpupload_deadexplain'   => 'Use this to Allow for (apparently) Unseeded External Torrents to be Uploaded to Tracker.<br />This might be useful if the External Torrent Monitoring doesn\'t work so well, which depends on your Server Configuration.',
+    '_admpupload_deadexplain'   => 'Use this to Allow for (apparently) Unseeded External Torrents to be Uploaded to the Tracker.<br />This might be useful if the External Torrent Monitoring System doesn\'t work so well, which depends on your Server Configuration.',
 
     '_admpsitename'        => 'Site Name',
     '_admpsitenameexplain' => 'The Name of your Site.  This will be Displayed as the Page Title.',
 
     '_admpsiteurl'         => 'Site URL',
-    '_admpsiteurlexplain'  => 'URL of this Site.  This Must be Entered before using the Tracker.',
+    '_admpsiteurlexplain'  => 'The URL of this Site.  This Must be Entered before using the Tracker.',
 
     '_admpcookiedomain'        => 'Cookie Domain',
 
@@ -137,16 +137,16 @@ $lang = array_merge($lang, array(
 
     '_admpuse_gzipexplain' => 'This Option Allows you to Enable or Disable php\'s gzip Compression on HTML and Announce Output. If Enabled, Bandwidth Usage will be Lower <strong>but</strong> CPU Usage will be Higher.  This Setting doesn\'t work on ALL Servers.  If your Users Report any gzip Errors in their Clients, turn it Off.  Verify that your Tracker Reads the Announce Response Correctly.',
 
-    '_admpadmin_email'        => 'Administrator email',
+    '_admpadmin_email'        => 'Administrator email Address',
 
-    '_admpadmin_emailexplain' => 'email Address from which ALL emails to Users will be Sent (Signup, PM Notifications, Authorisations, etc..).  Make sure that the email Address is Valid.',
+    '_admpadmin_emailexplain' => 'The email Address from which ALL emails to Users will be Sent (Signup, PM Notifications, Authorisations, etc..).  Make sure that the email Address is Valid.',
 
     '_admplanguage'        => 'Default Language',
     '_admplanguageexplain' => 'Set the Default Language the Site will use.',
 
     '_admptheme'        => 'Theme',
 
-    '_admpthemeexplain' => 'Set the Default Theme for the Site.  Registered Users can Override this Setting from the User Control Panel.',
+    '_admpthemeexplain' => 'Set the Default Theme for the Site.  Registered Users can Override this Setting from their User Control Panel.',
 
     '_admpwelcome_message'        => 'Site News',
 
@@ -258,14 +258,14 @@ $lang = array_merge($lang, array(
 
     '_admpdisclaimer_check'        => 'Disclaimer',
 
-    '_admpdisclaimer_checkexplain' => 'If Checked, Users have to Accept a Disclaimer before they can Register.  You can Change the Disclaimer by Changing the File <strong>/disclaimer/english.php</strong>',
+    '_admpdisclaimer_checkexplain' => 'If Checked, Users have to Accept a Disclaimer before they can Register.  You can Change the Disclaimer by Changing the File <strong>/disclaimer/english.txt</strong>',
 
     '_admpgfx_check'        => 'CAPTCHA Setting',
     '_admpgfx_checkexplain' => 'If Checked, Users will have to Type in a Code from a CAPTCHA Image when Registering and Logging In.',
 
     '_admpupload_level'        => 'Upload Access Level',
 
-    '_admpupload_levelexplain' => 'Determines the User Level Required to Upload Torrents<br /> &bull; <strong>Everyone</strong> Allows Anyone to Upload Torrent Files to the Site.  They wont be able to Edit them or Manage Authorisations<br /> &bull; <strong>Registered</strong> Requires Users to be Registered.<br /> &bull; <strong>Premium</strong> ONLY Allows Premium Users to Upload.',
+    '_admpupload_levelexplain' => 'Determines the User Level Required to Upload Torrents<ul><li><strong>Everyone</strong> Allows Anyone to Upload Torrent Files to the Site. They won\'t be able to Edit them or Manage Authorisations<li><strong>Registered</strong> Requires Users to be Registered.<li><strong>Premium</strong> ONLY Allows Premium Users to Upload.</ul>',
 
 
     '_admplevelopt' => array('all'     => 'Everyone',
@@ -274,7 +274,7 @@ $lang = array_merge($lang, array(
 
     '_admpdownload_level'        => 'Download Access Level',
 
-    '_admpdownload_levelexplain' => 'Determines the User Level Required to Download Torrents.<ul><li><strong>Everyone</strong> Allows Anyone to Download Torrent Files from the Site<li><strong>Registered</strong> Requires Users to be Registered<li><strong>Premium</strong> ONLY Allows Premium Users to Download Torrents from the Site</ul>This Setting DOES NOT affect the Tracker.  So if somebody got their hands on a .torrent, they would be able to Download.',
+    '_admpdownload_levelexplain' => 'Determines the User Level Required to Download Torrents.<ul><li><strong>Everyone</strong> Allows Anyone to Download Torrent Files from the Site<li><strong>Registered</strong> Requires Users to be Registered<li><strong>Premium</strong> ONLY Allows Premium Users to Download Torrents from the Site</ul>This Setting DOES NOT affect the Tracker.  So if somebody got their hands on a .torrent, they would not be able to Download.',
 
     '_admpannounce_level'        => 'Tracker Access Level',
 
@@ -297,7 +297,7 @@ $lang = array_merge($lang, array(
 
     '_admpautoscrape'        => 'External Torrent Monitoring',
 
-    '_admpautoscrapeexplain' => 'This Allows you to Monitor the Peer Count for Torrents Tracked by Remote Trackers.<br />Be careful here.<br /><br />You can ONLY use this if your Server can Open Sockets to Other Machines.  Many Cheap or Free Hosting Services have Firewalls that Block Outgoing Connections.  If you\'re NOT using a Dedicated/Home Server, it is recommended that you DO NOT Enable this Option unless you\'re sure you know what you\'re doing.<br /><br />If you don\'t Enable it ALL External Torrents will be Displayed as having Zero Sources.<br /><br />If you Enable it, but your Server can\'t Build Connections to Scrape External Uploads may be Rejected (unless you Check Allow Dead External Torrents)',
+    '_admpautoscrapeexplain' => 'This Allows you to Monitor the Peer Count for Torrents Tracked by Remote Trackers.<br />Be careful here.<br /><br />You can ONLY use this if your Server can Open Sockets to Other Machines.  Many Cheap or Free Hosting Services have Firewalls that Block Outgoing Connections.  If your NOT using a Dedicated/Home Server, it is recommended that you DO NOT Enable this Option unless your sure you know what your doing.<br /><br />If you don\'t Enable it ALL External Torrents will be Displayed as having Zero Sources.<br /><br />If you Enable it, but your Server can\'t Build Connections to Scrape then External Uploads may be Rejected (unless you Check \'Allow Dead External Torrents\')',
 
     '_admpmax_num_file_day_e'        => 'Maximum Number of Daily Downloads',
 
@@ -323,7 +323,7 @@ $lang = array_merge($lang, array(
 
     '_admpmaxupload_day_numexplain' => 'Defines how many Torrents can be Uploaded in a Single Day.  Any Uploads above this will NOT be accepted and the User will be asked to try again the following Day.<br />Premium Users are NOT affected by this Setting.  Setting this to Zero will Disable this Option.',
 
-    '_admpmaxupload_day_share'        => 'Maximum Daily Upload',
+    '_admpmaxupload_day_share'        => 'Maximum Daily Files Upload',
 
     '_admpmaxupload_day_shareexplain' => 'Defines the Maximum Total Size of Files (ALL Files within a Torrent Combined) a User can Upload in a Single Day.  Any further Uploads will NOT be Accepted and the User will be asked to try again the following Day.<br />Premium Users are NOT affected by this Setting.  Setting this to Zero will Disable this Option.',
 
@@ -337,7 +337,7 @@ $lang = array_merge($lang, array(
 
     '_admpstealthmode'        => 'Disable Local Tracker',
 
-    '_admpstealthmodeexplain' => 'This will Disable and Hide the Local Tracker.  BTManager will ONLY accept Externally Tracked Torrents.',
+    '_admpstealthmodeexplain' => 'This will Disable and Hide the Local Tracker.  BTManager will ONLY Accept Externally Tracked Torrents.',
 
     'SITE_SETTINGS'        => 'Board Configuration',
     'MENU_PRIVATE_MESSAGE' => 'Private Message Settings',
