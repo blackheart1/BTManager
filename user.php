@@ -212,14 +212,14 @@ switch ($op) {
 				$uid = request_var('user', 0);
 				$code = request_var('mail_key', '');
                 if (!isset($uid) OR !isset($code)) bterror($user->lang['EMAIL_CHANGE_INV'],$user->lang['BT_ERROR']);
-				$npas = "SELECT newemail AS newemail FROM ".$db_prefix."_users WHERE id ='".intval($uid)."' AND mail_key = '".$db->sql_escape($code)."';";
+				$npas = "SELECT newemail AS newemail FROM ".$db_prefix."_users WHERE id ='".$uid."' AND mail_key = '".$db->sql_escape($code)."';";
 				$snpa =  $db->sql_query($npas);
 				$fnpa = $db->sql_fetchrow($snpa);
 				if($fnpa['newemail'] === '' OR $fnpa['newemail'] === 0)
 				{
 					bterror('EMAIL_CHANGE_NOT_SET');
 				}
-                 $sql = "UPDATE ".$db_prefix."_users SET email = '".$fnpa['newemail']."', mail_key = NULL, newemail = NULL WHERE id = '".intval($uid)."' ;";
+                 $sql = "UPDATE ".$db_prefix."_users SET email = '".$fnpa['newemail']."', mail_key = NULL, newemail = NULL WHERE id = '".$uid."' ;";
                 if ($db->sql_query($sql)) 
 				{
 					$template = new Template();
