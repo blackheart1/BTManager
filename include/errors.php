@@ -139,6 +139,8 @@ function myErrorHandler($errno, $errstr, $errfile, $errline)
 				'S_SUCCESS'			=> true,
 				'TITTLE_M'          => $msg_title,
 				'MESSAGE'           => '',
+				'MESSAGE_TITLE'          => $msg_title,
+				'MESSAGE_TEXT'           => '',
 			));
 			echo @$template->fetch(((preg_match("/admin.php/", $_SERVER["PHP_SELF"])) ? 'admin/' : '') . 'message_body.html');
 			close_out();

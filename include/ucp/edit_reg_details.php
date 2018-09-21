@@ -24,8 +24,8 @@ if (!defined('IN_PMBT'))
 	die ();
 }
 include_once("include/utf/utf_tools.php");
-$newpasswd										= request_var('newpasswd', '');
-$newpasswdconf									= request_var('newpasswdconf', '');
+$newpasswd										= request_var('newpasswd', '',true);
+$newpasswdconf									= request_var('newpasswdconf', '',true);
 $new_email										= request_var('new_email', '');
 $email_confirm									= request_var('email_confirm', '');
 $name											= request_var('name', '');
