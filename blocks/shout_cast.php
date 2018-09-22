@@ -68,29 +68,29 @@ if($scsuccs!=1){
  $loop = array("STREAMSTATUS", "BITRATE", "SERVERTITLE", "CURRENTLISTENERS", "MAXLISTENERS", "BITRATE");
  $y=0;
  while($loop[$y]!=''){
-  $pageed = ereg_replace(".*<$loop[$y]>", "", $page);
+  $pageed = preg_replace("/.*<$loop[$y]>/", "", $page);
   $scphp = strtolower($loop[$y]);
-  $$scphp = ereg_replace("</$loop[$y]>.*", "", $pageed);
+  $$scphp = preg_replace("/<\/$loop[$y]>.*/", "", $pageed);
   if($loop[$y]=='SERVERGENRE' || $loop[$y]=='SERVERTITLE' || $loop[$y]=='SONGTITLE' || $loop[$y]=='SERVERTITLE')
    $$scphp = urldecode($$scphp);
 
   $y++;
  }
 
- $pageed = ereg_replace(".*<SONGHISTORY>", "", $page);
- $pageed = ereg_replace("<SONGHISTORY>.*", "", $pageed);
+ $pageed = preg_replace("/.*<SONGHISTORY>/", "", $page);
+ $pageed = preg_replace("/<SONGHISTORY>.*/", "", $pageed);
  $songatime = explode("<SONG>", $pageed);
  $r=1;
  while($songatime[$r]!=""){
   $t=$r-1;
-  $playedat[$t] = ereg_replace(".*<PLAYEDAT>", "", $songatime[$r]);
-  $playedat[$t] = ereg_replace("</PLAYEDAT>.*", "", $playedat[$t]);
-  $song[$t]['SONG'] = ereg_replace(".*<TITLE>", "", $songatime[$r]);
-  $song[$t]['SONG'] = ereg_replace("</TITLE>.*", "", $song[$t]['SONG']);
+  $playedat[$t] = preg_replace("/.*<PLAYEDAT>/", "", $songatime[$r]);
+  $playedat[$t] = preg_replace("/<\/PLAYEDAT>.*/", "", $playedat[$t]);
+  $song[$t]['SONG'] = preg_replace("/.*<TITLE>/", "", $songatime[$r]);
+  $song[$t]['SONG'] = preg_replace("/<\/TITLE>.*/", "", $song[$t]['SONG']);
   $song[$t]['SONG'] = urldecode($song[$t]['SONG']);
   $song[$t]['DATE'] = time_elapsed_A(time()-$playedat[$t]);
-  $dj[$t] = ereg_replace(".*<SERVERTITLE>", "", $page);
-  $dj[$t] = ereg_replace("</SERVERTITLE>.*", "", $pageed);
+  $dj[$t] = preg_replace("/.*<SERVERTITLE>/", "", $page);
+  $dj[$t] = preg_replace("/<\/SERVERTITLE>.*/", "", $pageed);
 $r++;
  }
 
