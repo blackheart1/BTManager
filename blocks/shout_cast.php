@@ -34,6 +34,8 @@ $pmbt_cache->set_sql("shout_cast", $radio);
 }else{
 $radio = $pmbt_cache->get_sql("shout_cast");
 }
+if($radio['allow'] == 'true')
+{
 $scip = $radio['ip'];  // IP adress or domain
 $scport = $radio['port'];     // Port               
 $scpass = $radio['admin_pass'];   // SHOUTcast Password
@@ -111,5 +113,6 @@ fclose($scfp);
 		$template->assign_block_vars('last_songs', $val);
 		}
 echo $template->fetch('shout_cast.html');
+}
 
 ?>

@@ -48,6 +48,10 @@ $name											= request_var('name', '');
 			{
 				$errors[] = $user->lang['ERR_EMAIL_NOT_VALID'];
 			}
+	        if ($db->sql_numrows($db->sql_query("SELECT `id` FROM ".$db_prefix."_users WHERE email = '".$db->sql_escape($new_email)."';")) >= 1)
+			{
+                $errors[] = $user->lang['ERR_EMAIL_ACSEST'];
+			}
 			if ($new_email != $email_confirm)
 			{
 				$errors[] = $user->lang['EMAILS_NOT_MATCH'];
