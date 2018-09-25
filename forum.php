@@ -16,7 +16,7 @@
 **
 ** CHANGES
 **
-** EXAMPLE 26-04-13 - Added Auto Ban
+** 2018-09-25 - Bug Fix for Open/Closed forum
 **/
 if (defined('IN_PMBT'))die ("You can't include this file");
 define("IN_PMBT",true);
@@ -39,7 +39,7 @@ if ($user->forumbanned){
 }
 else
 {
-	if ($FORUMS || $auth->acl_gets('a_', 'm_'))
+	if ($config['forum_open'] || $auth->acl_gets('a_', 'm_'))
 	{
 		//define the clickable smilies
 		$submit		= (isset($_POST['post'])) ? true : false;
