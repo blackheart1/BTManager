@@ -3724,7 +3724,7 @@ function format_comment($text, $strip_html = false, $strip_slash = false, $allow
             "<font color=\\1>\\2</font>",
             "<a href=redirect.php?url=\\1 target=\"_blank\">\\3</a>",
             "<a href=redirect.php?url=\\1 target=\"_blank\">\\1</a>",
-            "<font size=\\1>\\2</font>",
+            "<span style=\"font-size: \\1%; line-height: 116%;\">\\2</span>",
             "<center>\\1</center>",
             "<font face=\"\\1\">\\2</font>",
             "<embed style=\"width:500px; height:410px;\" id=\"VideoPlayback\" align=\"middle\" type=\"application/x-shockwave-flash\" src=\"http://video.google.com/googleplayer.swf?docId=\\1\" allowScriptAccess=\"sameDomain\" quality=\"best\" bgcolor=\"#ffffff\" scale=\"noScale\" wmode=\"window\" salign=\"TL\"  FlashVars=\"playerMode=embedded\"> </embed>",
