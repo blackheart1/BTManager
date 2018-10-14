@@ -1,4 +1,5 @@
 <?php
+
 /**
 **********************
 ** BTManager v3.0.1 **
@@ -12,17 +13,19 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts/Black_Heart)
 ** Project Leaders: Black_Heart, Thor.
-** File acp_arcade.php 2018-02-23 14:32:00 Black_Heart
+** File acp_arcade.php 2018-10-14 11:16:00 Thor
 **
 ** CHANGES
 **
-** EXAMPLE 26-04-13 - Added Auto Ban
+** 2018-10-14 - Added Missing Language
 **/
+
 if (!defined('IN_PMBT'))
 {
 	include_once './../../security.php';
 	die ("You can't access this file directly");
 }
+
 class acp_arcade
 {
 	var $u_action;
@@ -38,7 +41,7 @@ class acp_arcade
 
 		$this->tpl_name = 'acp_arcade';
 		$this->page_title = 'Arcade Room';
-				
+
 		require_once('include/file_functions.' . $phpEx);
 
 		$sync = false;
@@ -47,7 +50,7 @@ class acp_arcade
 		{
 			case 'upload_archive':
 				$category_id = request_var('c', 0);
-				$uploadarchivespot = "flash/archives/" . basename(@$_FILES['archive_file']['name']); 
+				$uploadarchivespot = "flash/archives/" . basename(@$_FILES['archive_file']['name']);
 				if (move_uploaded_file(@$_FILES['archive_file']['tmp_name'], $uploadarchivespot))
 				{
 					trigger_error($user->lang['ARCHIVE_UPLOADED'] . back_link($this->u_action . "&amp;c=$category_id"));
@@ -59,33 +62,33 @@ class acp_arcade
 			break;
 			case 'add_archive':
 				require('include/pclzip.lib.' . $phpEx);
-				
+
 				$category_id = request_var('c', 0);
 				$file = 'flash/archives/' . request_var('archive_file', '');
-				
+
 				$tmp_name = file_temp_name('');
 				dir_create('flash/archives/tmp/' . $tmp_name . '/');
 				$extract_path = 'flash/archives/tmp/' . $tmp_name . '/';
 				$archive = new PclZip($file);
 				@$archive -> extract(PCLZIP_OPT_PATH, $extract_path);
-				
+
 				if (file_exists($extract_path . 'game.xml'))
 				{
 					$game_info = xml2array(file_get_contents($extract_path . 'game.xml'));
 					if (isset($game_info['game']['name']['value']) && isset($game_info['game']['directions']['value']) && isset($game_info['game']['description']['value']) && isset($game_info['game']['width']['value']) && isset($game_info['game']['height']['value']) && isset($game_info['game']['highscore']['value']) && isset($game_info['game']['revscore']['value']) && isset($game_info['game']['keyboard']['value']) && isset($game_info['game']['mouse']['value']) && file_exists($extract_path . $game_info['game']['swf']['value']) && file_exists($extract_path . $game_info['game']['image']['value']))
 					{
 						$game_file_name = file_temp_name('.swf');
-						$uploadgamespot = "flash/" . $game_file_name; 
+						$uploadgamespot = "flash/" . $game_file_name;
 						$game_image_type = get_file_type($extract_path . $game_info['game']['image']['value']);
 						$image_file_name = file_temp_name('.' . $game_image_type);
 						$uploadimagespot = "flash/images/" . $image_file_name;
-						
+
 						file_copy($extract_path . $game_info['game']['swf']['value'], $uploadgamespot);
 						file_copy($extract_path . $game_info['game']['image']['value'], $uploadimagespot);
-						
+
 						$game_info['game']['description']['value'] = str_replace('\n', '\r', $game_info['game']['description']['value']);
 						$game_info['game']['description']['value'] = str_replace('\r', '\n', $game_info['game']['description']['value']);
-						
+
 						$sql_ary = array(
 							'game_name'			=> $game_info['game']['name']['value'],
 							'game_image'		=> $image_file_name,
@@ -103,10 +106,10 @@ class acp_arcade
 						);
 						$sql = 'INSERT INTO ' . $db_prefix . '_ar_games ' . $db->sql_build_array('INSERT', $sql_ary);
 						$db->sql_query($sql);
-						
+
 						dir_delete($extract_path, true);
 						unlink($file);
-						
+
 						trigger_error($user->lang['GAME_ADDED'] . back_link($this->u_action . "&amp;c=$category_id"));
 					}
 					else
@@ -165,7 +168,7 @@ class acp_arcade
 						'game_rating'		=> 0,
 						'game_num_ratings'	=> 0
 					);
-					$sql = 'UPDATE ' . $db_prefix . '_ar_games 
+					$sql = 'UPDATE ' . $db_prefix . '_ar_games
 						SET ' . $db->sql_build_array('UPDATE', $sql_ary) . '
 						WHERE game_id = ' . (int) $gid;
 					$db->sql_query($sql);
@@ -202,7 +205,7 @@ class acp_arcade
 						'game_rating'		=> 0,
 						'game_num_ratings'	=> 0
 					);
-					$sql = 'UPDATE ' . $db_prefix . '_ar_games 
+					$sql = 'UPDATE ' . $db_prefix . '_ar_games
 						SET ' . $db->sql_build_array('UPDATE', $sql_ary) . '
 						WHERE game_id = ' . (int) $gid;
 					$db->sql_query($sql);
@@ -243,7 +246,7 @@ class acp_arcade
 					$sql_ary = array(
 						'game_plays'		=> 0
 					);
-					$sql = 'UPDATE ' . $db_prefix . '_ar_games 
+					$sql = 'UPDATE ' . $db_prefix . '_ar_games
 						SET ' . $db->sql_build_array('UPDATE', $sql_ary) . '
 						WHERE game_id = ' . (int) $row['game_id'];
 					$db->sql_query($sql);
@@ -255,7 +258,7 @@ class acp_arcade
 				$sql_ary = array(
 					'game_plays'		=> 0
 				);
-				$sql = 'UPDATE ' . $db_prefix . '_ar_games 
+				$sql = 'UPDATE ' . $db_prefix . '_ar_games
 					SET ' . $db->sql_build_array('UPDATE', $sql_ary) . '
 					WHERE game_id = ' . (int) $gid;
 				$db->sql_query($sql);
@@ -290,7 +293,7 @@ class acp_arcade
 				while ($row = $db->sql_fetchrow($result))
 				{
 					$addurl = $this->u_action;
-					$gamefile = "flash/" . $row['game_filename']; 
+					$gamefile = "flash/" . $row['game_filename'];
 					unlink($gamefile);
 					if ($row['game_image'] != 'no_image.gif')
 					{
@@ -333,7 +336,7 @@ class acp_arcade
 					$sql_ary = array(
 						'played_games'		=> $new_played_list
 					);
-					$sql = 'UPDATE ' . $db_prefix . '_ar_played 
+					$sql = 'UPDATE ' . $db_prefix . '_ar_played
 						SET ' . $db->sql_build_array('UPDATE', $sql_ary) . '
 						WHERE played_id = ' . (int) $row['played_id'];
 					$db->sql_query($sql);
@@ -357,7 +360,7 @@ class acp_arcade
 				$sql_ary = array(
 					'category_name'		=> $category_name
 				);
-				$sql = 'UPDATE ' . $db_prefix . '_ar_categories 
+				$sql = 'UPDATE ' . $db_prefix . '_ar_categories
 					SET ' . $db->sql_build_array('UPDATE', $sql_ary) . '
 					WHERE category_id = ' . (int) $category_id;
 				$db->sql_query($sql);
@@ -374,13 +377,13 @@ class acp_arcade
 				while ($row = $db->sql_fetchrow($result))
 				{
 					$url = $this->u_action . "&amp;c={$row['category_id']}";
-					
+
 					$extra = '';
 					if ($category_id == $row['category_id'])
 					{
 						$extra = ' selected="selected"';
 					}
-					
+
 					// Send vars to template
 					$template->assign_block_vars('categoryrow', array(
 							'CATEGORY_CODE'	=> '<option value="' . $row['category_id'] .'"' . $extra . '>' . $row['category_name'] . '</option>'
@@ -389,7 +392,7 @@ class acp_arcade
 				$db->sql_freeresult($result);
 				$url = $this->u_action . "&amp;c=$category_id";
 				$template->assign_var('S_ADD_GAME', true);
-				
+
 				$files = array();
 				$files = dir_get_files('flash/');
 				foreach ($files as $file)
@@ -404,7 +407,7 @@ class acp_arcade
 						));
 					}
 				}
-				
+
 				$template->assign_vars(array(
 					'L_GAME_NAME'	=>	$game_name,
 					'L_CATEGORY_ID'	=>	$category_id,
@@ -419,7 +422,7 @@ class acp_arcade
 				$errors = false;
 				$error_message = '';
 				$game_file_name = file_temp_name('.swf');
-				$uploadgamespot = "flash/" . $game_file_name; 
+				$uploadgamespot = "flash/" . $game_file_name;
 				$game_image_type = get_file_type($_FILES['game_image']['name']);
 				$image_file_name = file_temp_name('.' . $game_image_type);
 				$uploadimagespot = "flash/images/" . $image_file_name;
@@ -634,13 +637,13 @@ class acp_arcade
 					while ($row = $db->sql_fetchrow($result))
 					{
 						$url = $this->u_action . "&amp;c={$row['category_id']}";
-						
+
 						$extra = '';
 						if ($category_id == $row['category_id'])
 						{
 							$extra = ' selected="selected"';
 						}
-						
+
 						// Send vars to template
 						$template->assign_block_vars('categoryrow', array(
 								'CATEGORY_CODE'	=> '<option value="' . $row['category_id'] .'"' . $extra . '>' . $row['category_name'] . '</option>'
@@ -648,7 +651,7 @@ class acp_arcade
 					}
 					$db->sql_freeresult($result);
 					$url = $this->u_action . "&amp;c=$category_id";
-					
+
 					$files = array();
 					$files = dir_get_files('flash/');
 					foreach ($files as $file)
@@ -664,7 +667,7 @@ class acp_arcade
 							));
 						}
 					}
-					
+
 					$template->assign_vars(array(
 						'L_GAME_NAME'		=>	$game_name,
 						'L_GAME_HEIGHT'		=>	$game_height,
@@ -689,11 +692,11 @@ class acp_arcade
 				$sql_ary = array(
 					'game_enabled'		=> ($game_enabled == 'true') ? 1 : 0,
 				);
-				$sql = 'UPDATE ' . $db_prefix . '_ar_games 
+				$sql = 'UPDATE ' . $db_prefix . '_ar_games
 					SET ' . $db->sql_build_array('UPDATE', $sql_ary) . '
 					WHERE game_id = ' . (int) $game_id;
 				$db->sql_query($sql);
-				
+
 				if ($game_enabled == 'true')
 				{
 					trigger_error($user->lang['GAME_ENABLED'] . back_link($this->u_action . "&amp;c=$category_id"));
@@ -877,7 +880,7 @@ class acp_arcade
 						'game_keyboard'		=> $game_keyboard,
 						'game_mouse'		=> $game_mouse
 					);
-					$sql = 'UPDATE ' . $db_prefix . '_ar_games 
+					$sql = 'UPDATE ' . $db_prefix . '_ar_games
 						SET ' . $db->sql_build_array('UPDATE', $sql_ary) . '
 						WHERE game_id = ' . (int) $game_id;
 					$db->sql_query($sql);
@@ -926,13 +929,13 @@ class acp_arcade
 					while ($row = $db->sql_fetchrow($result))
 					{
 						$url = $this->u_action . "&amp;c={$row['category_id']}";
-						
+
 						$extra = '';
 						if ($category_id == $row['category_id'])
 						{
 							$extra = ' selected="selected"';
 						}
-						
+
 						// Send vars to template
 						$template->assign_block_vars('categoryrow', array(
 								'CATEGORY_CODE'	=> '<option value="' . $row['category_id'] .'"' . $extra . '>' . $row['category_name'] . '</option>'
@@ -982,44 +985,44 @@ class acp_arcade
 				$sql = 'UPDATE ' . $db_prefix . "_ar_highscores SET highscore = $newhighscore WHERE highscore_id = $hid";
 				$db->sql_query($sql);
 
-				
-				
-				
-				
-				
+
+
+
+
+
 				function send_trophy_pm($message_content, $to_user_id)
-				{	
-					// note that multibyte support is enabled here 
+				{
+					// note that multibyte support is enabled here
 					$subject	= utf8_normalize_nfc('Trophy Lost');
 					$message	= utf8_normalize_nfc($message_content);
-					
+
 					// variables to hold the parameters for submit_pm
-					$poll = $uid = $bitfield = $options = ''; 
+					$poll = $uid = $bitfield = $options = '';
 					generate_text_for_storage($subject, $uid, $bitfield, $options, false, false, false);
 					generate_text_for_storage($message, $uid, $bitfield, $options, true, true, true);
-					
-					$data = array( 
+
+					$data = array(
 						'address_list'		=> array ('u' => array($to_user_id => 'to')),
 						'from_user_id'		=> 2,
 						'from_username'		=> 'arcade',
 						'icon_id'			=> 0,
 						'from_user_ip'		=> '127.0.0.1',
-						 
+
 						'enable_bbcode'		=> true,
 						'enable_smilies'	=> true,
 						'enable_urls'		=> true,
 						'enable_sig'		=> false,
-					
+
 						'message'			=> $message,
 						'bbcode_bitfield'	=> $bitfield,
 						'bbcode_uid'		=> $uid,
 					);
-					
+
 					submit_pm('post', $subject, $data, false);
 				}
-				
+
 				include_once('include/ucp/functions_privmsgs.' . $phpEx);
-				
+
 				// Check if game can be has reverse scoring
 				$sql = 'SELECT COUNT(game_id) AS row_count FROM ' . $db_prefix . '_ar_games WHERE game_id = ' . $gid . ' AND game_rev_score = 1';
 				$result = $db->sql_query($sql);
@@ -1032,7 +1035,7 @@ class acp_arcade
 				{
 					$rev_scoring = 'DESC';
 				}
-				
+
 				$sql = 'SELECT highscore_user, highscore
 					FROM ' . $db_prefix . '_ar_highscores
 					WHERE highscore_game = ' . $gid . '
@@ -1051,13 +1054,13 @@ class acp_arcade
 					}
 				}
 				unset($highscores);
-				
+
 				// Grab info to see if trophies exist for this game
 				$sql = 'SELECT COUNT(trophy_game) AS row_count FROM ' . $db_prefix . "_ar_trophies WHERE trophy_game = $gid";
 				$result = $db->sql_query($sql);
 				$row_count = (int) $db->sql_fetchfield('row_count');
 				$db->sql_freeresult($result);
-				
+
 				if ($row_count > 0)
 				{
 					$sql = 'SELECT trophy_user_gold, trophy_user_silver, trophy_user_bronze
@@ -1071,7 +1074,7 @@ class acp_arcade
 						$old_ids[2] = $row['trophy_user_bronze'];
 					}
 				}
-				
+
 				if (sizeof($top_ids) > 2 && $row_count == 0)
 				{
 					$sql_ary = array(
@@ -1090,13 +1093,13 @@ class acp_arcade
 						'trophy_user_silver'	=> $top_ids[1],
 						'trophy_user_bronze'	=> $top_ids[2],
 					);
-					
+
 					$sql = 'UPDATE ' . $db_prefix . '_ar_trophies
 						SET ' . $db->sql_build_array('UPDATE', $sql_ary) . '
 						WHERE trophy_game = ' . (int) $gid;
 					$db->sql_query($sql);
 				}
-				
+
 				$sql = 'SELECT game_name
 					FROM ' . $db_prefix . '_ar_games
 					WHERE game_id = ' . (int) $gid;
@@ -1104,18 +1107,18 @@ class acp_arcade
 				$row = $db->sql_fetchrow($result);
 				$game_name = $row['game_name'];
 				$db->sql_freeresult($result);
-				
+
 				$path = explode('adm', $_SERVER["PHP_SELF"]);
 				$url_loc = 'http://' . $_SERVER["HTTP_HOST"] . $path[0] . "viewgame.$phpEx?g=" . $gid;
-				
+
 				$game_loc = '[url=' . $url_loc . ']' . $game_name . '[/url]';
-				
+
 				$images_path = 'http://' . $_SERVER["HTTP_HOST"] . $path[0] . "flash/images/included/";
-				
+
 				$pm_gold = '[img]' . $images_path . 'trophy_gold.gif[/img]';
 				$pm_silver = '[img]' . $images_path . 'trophy_silver.gif[/img]';
 				$pm_bronze = '[img]' . $images_path . 'trophy_bronze.gif[/img]';
-				
+
 				if (isset($old_ids))
 				{
 					include_once('include/ucp/functions_privmsgs.' . $phpEx);
@@ -1127,7 +1130,7 @@ class acp_arcade
 						$result2 = $db->sql_query($sql);
 						$row2 = $db->sql_fetchrow($result2);
 						$db->sql_freeresult($result2);
-						
+
 						$url_loc2 = 'http://' . $_SERVER["HTTP_HOST"] . $path[0] . "user.php?op=profile&id=" . $top_ids[0];
 						if ($row2['user_colour'])
 						{
@@ -1153,7 +1156,7 @@ class acp_arcade
 								$result2 = $db->sql_query($sql);
 								$row2 = $db->sql_fetchrow($result2);
 								$db->sql_freeresult($result2);
-								
+
 								$url_loc2 = 'http://' . $_SERVER["HTTP_HOST"] . $path[0] . "user.php?op=profile&id=" . $top_ids[1];
 								if ($row2['user_colour'])
 								{
@@ -1181,7 +1184,7 @@ class acp_arcade
 								$result2 = $db->sql_query($sql);
 								$row2 = $db->sql_fetchrow($result2);
 								$db->sql_freeresult($result2);
-								
+
 								$url_loc2 = 'http://' . $_SERVER["HTTP_HOST"] . $path[0] . "user.php?op=profile&id=" . $top_ids[2];
 								if ($row2['user_colour'])
 								{
@@ -1192,21 +1195,21 @@ class acp_arcade
 									$user_loc = '[b][url=' . $url_loc2 . ']' . $row2['username'] . '[/url][/b]';
 								}
 							}
-							
+
 							$pm_message = $user->lang['ARCADE_PM_ONE'] . $pm_bronze . $user->lang['ARCADE_PM_TWO'] . $user_loc . $user->lang['ARCADE_PM_THREE'] . $newhighscore . $user->lang['ARCADE_PM_FOUR'] . $game_loc;
 							send_trophy_pm($pm_message, $old_ids[2]);
 							unset($pm_message);
 						}
 					}
 				}
-				
-				
-				
-				
-				
-				
-				
-				
+
+
+
+
+
+
+
+
 				trigger_error($user->lang['HIGHSCORE_UPDATED'] . back_link($this->u_action . "&amp;action=managehighscores&amp;g=$gid"));
 			break;
 			case 'highscoredelete':
@@ -1218,11 +1221,11 @@ class acp_arcade
 			break;
 			case 'managehighscores':
 				$game_id = request_var('g', 0);
-				
+
 				$template->set_filenames(array(
 					'body' => 'viewgame_body.html'
 				));
-				
+
 				$sql = 'SELECT game_name
 					FROM ' . $db_prefix . '_ar_games
 					WHERE game_id = ' . (int) $game_id;
@@ -1230,7 +1233,7 @@ class acp_arcade
 				$row = $db->sql_fetchrow($result);
 				$game_name = $row['game_name'];
 				$db->sql_freeresult($result);
-				
+
 				// Check if game can be has reverse scoring
 				$sql = 'SELECT COUNT(game_id) AS row_count FROM ' . $db_prefix . '_ar_games WHERE game_id = ' . $game_id . ' AND game_rev_score = 1';
 				$result = $db->sql_query($sql);
@@ -1243,7 +1246,7 @@ class acp_arcade
 				{
 					$rev_scoring = 'DESC';
 				}
-				
+
 				$sql = 'SELECT highscore_id, highscore, highscore_user
 					FROM ' . $db_prefix . '_ar_highscores
 					WHERE highscore_game = ' . $game_id . '
@@ -1258,7 +1261,7 @@ class acp_arcade
 					$row2 = $db->sql_fetchrow($result2);
 					$username = get_username_string('full', $row['highscore_user'], $row2['username'], $row2['user_colour'], $row2['username']);
 					$db->sql_freeresult($result2);
-				
+
 					@$highscores[$username][sizeof($highscores[$username])] = str_replace('.0', '', $row['highscore']);
 					$highscore_ids[$username][str_replace('.0', '', $row['highscore'])] = $row['highscore_id'];
 				}
@@ -1267,7 +1270,7 @@ class acp_arcade
 					$row_count = 0;
 					foreach($highscores as $key => $value)
 					{
-						
+
 						foreach($highscores[$key] as $key2 => $value2)
 						{
 							$row_count++;
@@ -1307,22 +1310,22 @@ class acp_arcade
 							FROM ' . $db_prefix . '_ar_categories
 							ORDER BY category_name';
 						$result = $db->sql_query($sql);
-							
+
 						$template->assign_var('S_MANAGE_CATEGORY', true);
 						$template->assign_var('S_TITLE', $user->lang['CAT_MANAGE']);
-						
+
 						$fcount = 0;
 						while ($row = $db->sql_fetchrow($result))
 						{
 							$url = $this->u_action . "&amp;c={$row['category_id']}";
 							$view = append_sid("viewcategory.$phpEx", "c={$row['category_id']}", true, $user->session_id);
-							
+
 							// Grab game details for a total count for the category
 							$sql = 'SELECT COUNT(game_category) AS row_count FROM ' . $db_prefix . '_ar_games WHERE game_category = ' . $row['category_id'];
 							$result2 = $db->sql_query($sql);
 							$row_count = (int) $db->sql_fetchfield('row_count');
 							$db->sql_freeresult($result2);
-							
+
 							// Send vars to template
 							$fcount = $fcount + 1;
 							$template->assign_block_vars('categoryrow', array(
@@ -1356,7 +1359,7 @@ class acp_arcade
 							WHERE game_category = ' . (int) $category_id . '
 							ORDER BY game_name';
 						$result = $db->sql_query($sql);
-	
+
 						$template->assign_var('S_MANAGE_GAME', true);
 
 						$fcount = 0;
@@ -1371,11 +1374,11 @@ class acp_arcade
 							{
 								$has_highscore = true;
 							}
-							
+
 							$addurl = $this->u_action;
 							$url = $this->u_action . "&amp;g={$row['game_id']}";
 							$view = append_sid("viewgame.$phpEx", "g={$row['game_id']}", true, $user->session_id);
-							
+
 							// Send vars to template
 							$fcount = $fcount + 1;
 							$ed = ($row['game_enabled']) ? 'false' : 'true';
@@ -1421,7 +1424,7 @@ class acp_arcade
 							FROM ' . $db_prefix . '_ar_games
 							WHERE game_id = ' . (int) $game_id;
 						$result = $db->sql_query($sql);
-	
+
 						$template->assign_var('S_EDIT_GAME', true);
 
 						while ($row = $db->sql_fetchrow($result))
@@ -1460,13 +1463,13 @@ class acp_arcade
 						while ($row = $db->sql_fetchrow($result))
 						{
 							$url = $this->u_action . "&amp;c={$row['category_id']}";
-							
+
 							$extra = '';
 							if ($category_id == $row['category_id'])
 							{
 								$extra = ' selected="selected"';
 							}
-							
+
 							// Send vars to template
 							$template->assign_block_vars('categoryrow', array(
 									'CATEGORY_CODE'	=> '<option value="' . $row['category_id'] .'"' . $extra . '>' . $row['category_name'] . '</option>'
@@ -1508,7 +1511,7 @@ class acp_arcade
 					$template->assign_var('L_ARCADE_RESYNCED', $user->lang['SERVER_ERROR']);
 					$template->assign_var('S_UPDATE', false);
 				}
-				
+
 				$template->assign_var('L_NOTIFY', 'Update Notifications');
 				$template->assign_var('S_SETTINGS', true);
 				// Grab game details for category display
@@ -1516,7 +1519,7 @@ class acp_arcade
 					FROM ' . $db_prefix . '_ar_settings
 					ORDER BY setting_id';
 				$result = $db->sql_query($sql);
-				
+
 				while ($row = $db->sql_fetchrow($result))
 				{
 					$setting_type = 1;
@@ -1533,7 +1536,7 @@ class acp_arcade
 					));
 				}
 				$db->sql_freeresult($result);
-				
+
 				// Get arcade stats
 				$sql = 'SELECT COUNT(game_id) AS total_games FROM ' . $db_prefix . '_ar_games WHERE game_enabled = 1';
 				$result = $db->sql_query($sql);
@@ -1573,7 +1576,7 @@ class acp_arcade
 					$total_img_size += filesize('flash/images/' . $file);
 				}
 				$total_img_size = convert_file_size($total_img_size);
-				
+
 				$days_passed = time() - file_get_contents('flash/start.date');
 				$days_passed /= 86400;
 				$plays_per_day = $total_plays / ceil($days_passed);

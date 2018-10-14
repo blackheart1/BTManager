@@ -154,21 +154,21 @@
     	<dl>
 			<form id="resetratings" method="post" action="{U_ACTION}">
   			<input type="hidden" name="action" value="resetratings" />
-    		<dt style="text-align:right">{L_RESET_RATINGS}</dt>
+    		<dt style="text-align:right"><strong>{L_RESET_RATINGS}</strong></dt>
 			<dd><input class="button2" name="resetratings" type="submit" value="{L_RUN_TASK}" /></dd>
             </form>
         </dl>
         <dl>
             <form id="resethighscores" method="post" action="{U_ACTION}">
   			<input type="hidden" name="action" value="resethighscores" />
-    		<dt style="text-align:right">{L_RESET_HIGHSCORES}</dt>
+    		<dt style="text-align:right"><strong>{L_RESET_HIGHSCORES}</strong></dt>
 			<dd><input class="button2" name="resethighscores" type="submit" value="{L_RUN_TASK}" /></dd>
             </form>
 		</dl>
         <dl>
 			<form id="resetviews" method="post" action="{U_ACTION}">
   			<input type="hidden" name="action" value="resetviews" />
-    		<dt style="text-align:right">{L_RESET_VIEWS}</dt>
+    		<dt style="text-align:right"><strong>{L_RESET_VIEWS}</strong></dt>
 			<dd><input class="button2" name="resetviews" type="submit" value="{L_RUN_TASK}" /></dd>
             </form>
         </dl>
@@ -230,7 +230,7 @@
             <!-- BEGIN gamerow -->
                 <tr>
                 	<td width="10px" class="<!-- IF gamerow.COUNT is even -->row2<!-- ELSE -->row1<!-- ENDIF -->">
-                    	<!-- IF gamerow.DISABLED --><img src="flash/images/included/disabled.png" alt="*" /><!-- ELSE --><img src="flash/images/included/enabled.png" alt="*" /><!-- ENDIF -->
+                    	<!-- IF gamerow.DISABLED --><img src="{SITE_URL}/flash/images/included/disabled.png" alt="*" title="L_GAME_DISABLED" /><!-- ELSE --><img src="{SITE_URL}/flash/images/included/enabled.png" alt="*" title="L_GAME_ENABLED" /><!-- ENDIF -->
                     </td>
                     <td class="<!-- IF gamerow.COUNT is even -->row1<!-- ELSE -->row2<!-- ENDIF -->">
                         <strong><a href="{gamerow.U_GAME}">{gamerow.GAME_NAME}</a></strong>
@@ -356,14 +356,14 @@
                     <dt style="text-align:right">{L_GAME_KEYBOARD_C}</dt>
                     <dd><!-- IF S_KEYBOARD --><label><input id="game_keyboard" name="game_keyboard" checked="checked" value="1" class="radio" type="radio">
                     {L_YES}</label><label><input name="game_keyboard" value="0" class="radio" type="radio"> {L_NO}</label><!-- ELSE --><label><input id="game_keyboard" name="game_keyboard" value="1" class="radio" type="radio">
-                    {L_YES}</label><label><input name="game_keyboard" checked="checked" value="0" class="radio" type="radio"> {L_NO}</label><!-- ENDIF --><img src="../arcade/images/included/keyboard.gif" alt="*" />
+                    {L_YES}</label><label><input name="game_keyboard" checked="checked" value="0" class="radio" type="radio"> {L_NO}</label><!-- ENDIF --><img src="{SITE_URL}/flash/images/included/keyboard.gif" alt="*" title="{L_GAME_KEYBOARD_C}" />
                     </dd>
                 </dl>
                 <dl>
                     <dt style="text-align:right">{L_GAME_MOUSE_C}</dt>
                     <dd><!-- IF S_MOUSE --><label><input id="game_mouse" name="game_mouse" checked="checked" value="1" class="radio" type="radio">
                     {L_YES}</label><label><input name="game_mouse" value="0" class="radio" type="radio"> {L_NO}</label><!-- ELSE --><label><input id="game_mouse" name="game_mouse" value="1" class="radio" type="radio">
-                    {L_YES}</label><label><input name="game_mouse" checked="checked" value="0" class="radio" type="radio"> {L_NO}</label><!-- ENDIF --><img src="../arcade/images/included/mouse.gif" alt="*" />
+                    {L_YES}</label><label><input name="game_mouse" checked="checked" value="0" class="radio" type="radio"> {L_NO}</label><!-- ENDIF --><img src="{SITE_URL}/flash/images/included/mouse.gif" alt="*" title="{L_GAME_MOUSE_C}" />
                     </dd>
                 </dl>
                 <dl>
@@ -474,14 +474,14 @@
                     <dt style="text-align:right">{L_GAME_KEYBOARD_C}</dt>
                     <dd><!-- IF S_KEYBOARD --><label><input id="game_keyboard" name="game_keyboard" checked="checked" value="1" class="radio" type="radio">
                     {L_YES}</label><label><input name="game_keyboard" value="0" class="radio" type="radio"> {L_NO}</label><!-- ELSE --><label><input id="game_keyboard" name="game_keyboard" value="1" class="radio" type="radio">
-                    {L_YES}</label><label><input name="game_keyboard" checked="checked" value="0" class="radio" type="radio"> {L_NO}</label><!-- ENDIF --><img src="../arcade/images/included/keyboard.gif" alt="*" />
+                    {L_YES}</label><label><input name="game_keyboard" checked="checked" value="0" class="radio" type="radio"> {L_NO}</label><!-- ENDIF --><img src="{SITE_URL}/flash/images/included/keyboard.gif" alt="*" title="{L_GAME_KEYBOARD_C}" />
                     </dd>
                 </dl>
                 <dl>
                     <dt style="text-align:right">{L_GAME_MOUSE_C}</dt>
                     <dd><!-- IF S_MOUSE --><label><input id="game_mouse" name="game_mouse" checked="checked" value="1" class="radio" type="radio">
                     {L_YES}</label><label><input name="game_mouse" value="0" class="radio" type="radio"> {L_NO}</label><!-- ELSE --><label><input id="game_mouse" name="game_mouse" value="1" class="radio" type="radio">
-                    {L_YES}</label><label><input name="game_mouse" checked="checked" value="0" class="radio" type="radio"> {L_NO}</label><!-- ENDIF --><img src="../arcade/images/included/mouse.gif" alt="*" />
+                    {L_YES}</label><label><input name="game_mouse" checked="checked" value="0" class="radio" type="radio"> {L_NO}</label><!-- ENDIF --><img src="{SITE_URL}/flash/images/included/mouse.gif" alt="*" title="{L_GAME_MOUSE_C}" />
                     </dd>
                 </dl>
                 <dl>

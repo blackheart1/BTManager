@@ -13,7 +13,7 @@
 ** Created By Antonio Anzivino (aka DJ Echelon)
 ** And Joe Robertson (aka joeroberts)
 ** Project Leaders: Black_heart, Thor.
-** File acp_arcade/english.php 2018-09-15 06:11:00 Thor
+** File acp_arcade/english.php 2018-10-14 11:00:00 Thor
 **
 ** CHANGES
 **
@@ -24,6 +24,7 @@
 ** 2018-03-29 - Amended !defined('IN_PMBT') Corrected Path
 ** 2018-03-29 - Added Missing Language
 ** 2018-04-06 - Amended the Wording of some Sentences
+** 2018-10-14 - Added Missing Language
 **/
 
 if (!defined('IN_PMBT'))
@@ -184,6 +185,7 @@ $lang = array_merge($lang, array(
     'TOP_RATE'           => 'Top Rated',
     'UP_GAME'            => 'You Need to Upload a Game File.',
     'UP_TO_DATE'         => 'of phpAR is Up to Date.',
+    'UPDATE_NOTIF'       => 'Update Notifications',
     'VALUE'              => 'Value',
     'VIEW'               => 'View',
     'VIEWS_RESET'        => 'The Views for ALL Games have been Reset.',
